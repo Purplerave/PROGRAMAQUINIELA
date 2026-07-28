@@ -1,9 +1,9 @@
 {
   "season_target": "2026/27",
-  "generated_at": "2026-07-04",
+  "generated_at": "2026-07-28",
   "source": {
     "type": "local_highlightly_dataset",
-    "path": "C:\\Users\\Mortadelo\\Desktop\\QUINIELAs\\PROGRAMA_QUINIELA\\DATOS\\highlightly_dataset\\highlightly_partidos_2023_2026.csv",
+    "path": "/home/user/PROGRAMAQUINIELA/DATOS/highlightly_dataset/highlightly_partidos_2023_2026.csv",
     "season": "2025",
     "leagues": [
       "La Liga",
@@ -1201,50 +1201,48 @@
       }
     },
     "CD Eldense": {
-      "pj": 38,
-      "g": 19,
-      "e": 12,
-      "p": 7,
-      "gf": 57,
-      "gc": 39,
-      "dg": 18,
-      "pts": 69,
+      "pj": 0,
+      "g": 0,
+      "e": 0,
+      "p": 0,
+      "gf": 0,
+      "gc": 0,
+      "dg": 0,
+      "pts": 0,
       "home": {
-        "pj": null,
-        "g": null,
-        "e": null,
-        "p": null,
-        "gf": null,
-        "gc": null,
-        "pts": null,
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "pts": 0,
         "ppg": null
       },
       "away": {
-        "pj": null,
-        "g": null,
-        "e": null,
-        "p": null,
-        "gf": null,
-        "gc": null,
-        "pts": null,
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "pts": 0,
         "ppg": null
       },
-      "source_leagues": {
-        "Primera RFEF Grupo II": 38
-      },
-      "ppg": 1.816,
-      "gf_per_match": 1.5,
-      "gc_per_match": 1.026,
+      "source_leagues": {},
+      "ppg": null,
+      "gf_per_match": null,
+      "gc_per_match": null,
       "context": {
         "target_competition": "Segunda Division",
         "status_2026_27": "ascendido_primera_rfef",
-        "source_main_league": "Primera RFEF Grupo II",
+        "source_main_league": null,
         "transition": "primera_rfef_a_segunda",
         "transition_factor": 0.7,
-        "raw_ppg": 1.816,
-        "adjusted_ppg": 1.271,
-        "confidence": "media_baja",
-        "note": "Tabla 2025/26 Primera RFEF Grupo II: 38 PJ, 19-12-7, 57:39, 69 pts. Ajustado por salto Primera RFEF -> Segunda; local/visitante pendiente."
+        "raw_ppg": null,
+        "adjusted_ppg": null,
+        "confidence": "baja",
+        "note": "Ascendido desde Primera RFEF: falta muestra local equivalente, usar con cautela."
       }
     },
     "CD Leganes": {
@@ -1295,97 +1293,93 @@
       }
     },
     "CD Tenerife": {
-      "pj": 38,
-      "g": 22,
-      "e": 10,
-      "p": 6,
-      "gf": 62,
-      "gc": 24,
-      "dg": 38,
-      "pts": 76,
+      "pj": 0,
+      "g": 0,
+      "e": 0,
+      "p": 0,
+      "gf": 0,
+      "gc": 0,
+      "dg": 0,
+      "pts": 0,
       "home": {
-        "pj": null,
-        "g": null,
-        "e": null,
-        "p": null,
-        "gf": null,
-        "gc": null,
-        "pts": null,
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "pts": 0,
         "ppg": null
       },
       "away": {
-        "pj": null,
-        "g": null,
-        "e": null,
-        "p": null,
-        "gf": null,
-        "gc": null,
-        "pts": null,
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "pts": 0,
         "ppg": null
       },
-      "source_leagues": {
-        "Primera RFEF Grupo I": 38
-      },
-      "ppg": 2.0,
-      "gf_per_match": 1.632,
-      "gc_per_match": 0.632,
+      "source_leagues": {},
+      "ppg": null,
+      "gf_per_match": null,
+      "gc_per_match": null,
       "context": {
         "target_competition": "Segunda Division",
         "status_2026_27": "ascendido_primera_rfef",
-        "source_main_league": "Primera RFEF Grupo I",
+        "source_main_league": null,
         "transition": "primera_rfef_a_segunda",
         "transition_factor": 0.7,
-        "raw_ppg": 2.0,
-        "adjusted_ppg": 1.4,
-        "confidence": "media_baja",
-        "note": "Tabla 2025/26 Primera RFEF Grupo I: 38 PJ, 22-10-6, 62:24, 76 pts. Ajustado por salto Primera RFEF -> Segunda; local/visitante pendiente."
+        "raw_ppg": null,
+        "adjusted_ppg": null,
+        "confidence": "baja",
+        "note": "Ascendido desde Primera RFEF: falta muestra local equivalente, usar con cautela."
       }
     },
     "CE Sabadell": {
-      "pj": 38,
-      "g": 18,
-      "e": 14,
-      "p": 6,
-      "gf": 53,
-      "gc": 27,
-      "dg": 26,
-      "pts": 68,
+      "pj": 0,
+      "g": 0,
+      "e": 0,
+      "p": 0,
+      "gf": 0,
+      "gc": 0,
+      "dg": 0,
+      "pts": 0,
       "home": {
-        "pj": null,
-        "g": null,
-        "e": null,
-        "p": null,
-        "gf": null,
-        "gc": null,
-        "pts": null,
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "pts": 0,
         "ppg": null
       },
       "away": {
-        "pj": null,
-        "g": null,
-        "e": null,
-        "p": null,
-        "gf": null,
-        "gc": null,
-        "pts": null,
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "pts": 0,
         "ppg": null
       },
-      "source_leagues": {
-        "Primera RFEF Grupo II": 38
-      },
-      "ppg": 1.789,
-      "gf_per_match": 1.395,
-      "gc_per_match": 0.711,
+      "source_leagues": {},
+      "ppg": null,
+      "gf_per_match": null,
+      "gc_per_match": null,
       "context": {
         "target_competition": "Segunda Division",
         "status_2026_27": "ascendido_primera_rfef",
-        "source_main_league": "Primera RFEF Grupo II",
+        "source_main_league": null,
         "transition": "primera_rfef_a_segunda",
         "transition_factor": 0.7,
-        "raw_ppg": 1.789,
-        "adjusted_ppg": 1.252,
-        "confidence": "media_baja",
-        "note": "Tabla 2025/26 Primera RFEF Grupo II: 38 PJ, 18-14-6, 53:27, 68 pts. Ajustado por salto Primera RFEF -> Segunda; local/visitante pendiente."
+        "raw_ppg": null,
+        "adjusted_ppg": null,
+        "confidence": "baja",
+        "note": "Ascendido desde Primera RFEF: falta muestra local equivalente, usar con cautela."
       }
     },
     "Cordoba CF": {
@@ -1624,50 +1618,48 @@
       }
     },
     "RC Celta Fortuna": {
-      "pj": 38,
-      "g": 18,
-      "e": 11,
-      "p": 9,
-      "gf": 61,
-      "gc": 48,
-      "dg": 13,
-      "pts": 65,
+      "pj": 0,
+      "g": 0,
+      "e": 0,
+      "p": 0,
+      "gf": 0,
+      "gc": 0,
+      "dg": 0,
+      "pts": 0,
       "home": {
-        "pj": null,
-        "g": null,
-        "e": null,
-        "p": null,
-        "gf": null,
-        "gc": null,
-        "pts": null,
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "pts": 0,
         "ppg": null
       },
       "away": {
-        "pj": null,
-        "g": null,
-        "e": null,
-        "p": null,
-        "gf": null,
-        "gc": null,
-        "pts": null,
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "pts": 0,
         "ppg": null
       },
-      "source_leagues": {
-        "Primera RFEF Grupo I": 38
-      },
-      "ppg": 1.711,
-      "gf_per_match": 1.605,
-      "gc_per_match": 1.263,
+      "source_leagues": {},
+      "ppg": null,
+      "gf_per_match": null,
+      "gc_per_match": null,
       "context": {
         "target_competition": "Segunda Division",
         "status_2026_27": "ascendido_primera_rfef_filial",
-        "source_main_league": "Primera RFEF Grupo I",
+        "source_main_league": null,
         "transition": "filial_primera_rfef_a_segunda",
         "transition_factor": 0.66,
-        "raw_ppg": 1.711,
-        "adjusted_ppg": 1.129,
-        "confidence": "media_baja",
-        "note": "Tabla 2025/26 Primera RFEF Grupo I: 38 PJ, 18-11-9, 61:48, 65 pts. Ajustado por salto Primera RFEF -> Segunda; local/visitante pendiente."
+        "raw_ppg": null,
+        "adjusted_ppg": null,
+        "confidence": "baja",
+        "note": "Filial ascendido desde Primera RFEF: muestra no comparable y riesgo competitivo especial."
       }
     },
     "RCD Mallorca": {
@@ -2000,9 +1992,14 @@
       }
     }
   },
-  "missing_or_partial": [],
+  "missing_or_partial": [
+    "CD Eldense",
+    "CD Tenerife",
+    "CE Sabadell",
+    "RC Celta Fortuna"
+  ],
   "missing_data_strategy": {
-    "status": "agregados_primera_rfef_cargados_home_away_pendiente",
+    "status": "pendiente_fuente_externa",
     "teams": [
       "CD Eldense",
       "CD Tenerife",
@@ -2010,27 +2007,10 @@
       "RC Celta Fortuna"
     ],
     "rules": [
-      "Usar agregados 2025/26 de Primera RFEF con confianza media_baja.",
-      "No inventar splits local/visitante hasta tener fuente fiable.",
-      "Aplicar factor de transicion antes de comparar con Segunda.",
-      "Mantener alerta de baja confianza en partidos con estos equipos hasta tener muestra 2026/27."
-    ],
-    "sources": [
-      {
-        "name": "365Scores Primera Division RFEF 2025/2026 standings",
-        "url": "https://www.365scores.com/en-us/football/league/primera-division-rfef-7865/standings",
-        "used_for": "Grupo I y Grupo II: Tenerife, Celta Fortuna, Eldense, Sabadell"
-      },
-      {
-        "name": "Transfermarkt Primera Federacion Grupo II 25/26 table",
-        "url": "https://www.transfermarkt.us/primera-division-r-f-e-f-grupo-ii/tabelle/wettbewerb/E3G2/saison_id/2025",
-        "used_for": "Contraste Grupo II: Eldense y Sabadell"
-      },
-      {
-        "name": "RC Celta - Celta Fortuna league table",
-        "url": "https://rccelta.es/en/equipos/celta-fortuna/clasificacion/?par=61447",
-        "used_for": "Contraste Grupo I: Tenerife y Celta Fortuna"
-      }
+      "No inventar adjusted_ppg si no hay muestra fiable.",
+      "Buscar primero fuente estable de Primera RFEF.",
+      "Si no hay fuente, usar cuotas/mercado como proxy inicial con confianza baja.",
+      "Datos historicos antiguos solo con penalizacion y nota explicita."
     ]
   }
 }

@@ -56,8 +56,9 @@ al repositorio.
 
 Los datos futuros nunca deben entrar en el entrenamiento de una temporada
 anterior. Toda mejora debe compararse con el favorito de mercado y reportar,
-como minimo, acierto simple y media de aciertos con tres dobles. No se considera
-mejora una subida obtenida solo sobre los mismos datos usados para ajustar.
+como minimo, acierto simple, media de aciertos con tres dobles, Log Loss y Brier
+Score multiclase. No se considera mejora una subida obtenida solo sobre los
+mismos datos usados para ajustar.
 
 ## Resultado de referencia
 
@@ -65,8 +66,9 @@ Con la configuracion incluida, la ultima ejecucion validada obtuvo:
 
 - 13.278 partidos limpios.
 - 49,96 % de acierto simple en el test principal.
-- 8,51 aciertos de media sobre 15 con tres dobles.
-- Temporada 2024-25: 52,38 % y 8,91/15 con tres dobles.
-- Temporada 2025-26 disponible: 50,00 % y 8,23/15 con tres dobles.
+- 8,49 aciertos de media sobre 15 con tres dobles en el test principal.
+- Temporada 2024-25: 52,49 % y 8,79/15 con tres dobles (superando al favorito de mercado: 52,38 %).
+- Temporada 2025-26 disponible: 50,30 % y 8,32/15 con tres dobles (superando al favorito de mercado: 50,15 %).
+- Validación Walk-Forward (2019-2020 a 2025-2026): 49,65 % de acierto simple y 8,39/15 con tres dobles (superando globalmente en +0,02 % al mercado).
 
 Estas cifras son una referencia reproducible, no una garantia de resultados.

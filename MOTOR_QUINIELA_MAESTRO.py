@@ -1,5 +1,6 @@
 import itertools
 import json
+import math
 from pathlib import Path
 
 import numpy as np
@@ -50,6 +51,16 @@ def season_from_filename(path: Path) -> str:
     return stem
 
 
+TEAM_NAME_MAP = {
+    "Leonesa": "Cultural Leonesa",
+}
+
+
+def normalize_team(name: object) -> str:
+    text = str(name).strip()
+    return TEAM_NAME_MAP.get(text, text)
+
+
 def load_raw_history() -> pd.DataFrame:
     frames = []
     for division_key, division_name in DIVISION_LABELS.items():
@@ -61,8 +72,8 @@ def load_raw_history() -> pd.DataFrame:
             frame = pd.DataFrame(
                 {
                     "date": pd.to_datetime(raw["Date"], dayfirst=True, format="mixed", errors="coerce"),
-                    "home": raw["HomeTeam"].astype(str).str.strip(),
-                    "away": raw["AwayTeam"].astype(str).str.strip(),
+                    "home": raw["HomeTeam"].map(normalize_team),
+                    "away": raw["AwayTeam"].map(normalize_team),
                     "FTHG": pd.to_numeric(raw["FTHG"], errors="coerce"),
                     "FTAG": pd.to_numeric(raw["FTAG"], errors="coerce"),
                     "result": raw["FTR"].map(normalize_result),
@@ -120,13 +131,23 @@ def implied_probabilities(df: pd.DataFrame, prefix: str, cols: list[str]) -> pd.
     return df
 
 
+def _fast_poisson_pmf(k: int, lam: float) -> float:
+    if lam <= 0:
+        return 1.0 if k == 0 else 0.0
+    if k == 0:
+        return math.exp(-lam)
+    return math.exp(k * math.log(lam) - lam - math.lgamma(k + 1))
+
+
 def poisson_1x2(lambda_home: float, lambda_away: float, max_goals: int = 7) -> tuple[float, float, float]:
-    if np.isnan(lambda_home) or np.isnan(lambda_away):
+    if np.isnan(lambda_home) or np.isnan(lambda_away) or lambda_home < 0 or lambda_away < 0:
         return (np.nan, np.nan, np.nan)
+    ph = [_fast_poisson_pmf(k, lambda_home) for k in range(max_goals + 1)]
+    pa = [_fast_poisson_pmf(k, lambda_away) for k in range(max_goals + 1)]
     p1 = px = p2 = 0.0
     for hg in range(max_goals + 1):
         for ag in range(max_goals + 1):
-            prob = poisson.pmf(hg, lambda_home) * poisson.pmf(ag, lambda_away)
+            prob = ph[hg] * pa[ag]
             if hg > ag:
                 p1 += prob
             elif hg == ag:
@@ -140,12 +161,14 @@ def poisson_1x2(lambda_home: float, lambda_away: float, max_goals: int = 7) -> t
 
 
 def top_scorelines(lambda_home: float, lambda_away: float, max_goals: int = 5, top_n: int = 3) -> list[dict]:
-    if np.isnan(lambda_home) or np.isnan(lambda_away):
+    if np.isnan(lambda_home) or np.isnan(lambda_away) or lambda_home < 0 or lambda_away < 0:
         return []
     scores = []
+    ph = [_fast_poisson_pmf(k, lambda_home) for k in range(max_goals + 1)]
+    pa = [_fast_poisson_pmf(k, lambda_away) for k in range(max_goals + 1)]
     for hg in range(max_goals + 1):
         for ag in range(max_goals + 1):
-            prob = poisson.pmf(hg, lambda_home) * poisson.pmf(ag, lambda_away)
+            prob = ph[hg] * pa[ag]
             scores.append({"score": f"{hg}-{ag}", "prob": float(prob)})
     scores.sort(key=lambda item: item["prob"], reverse=True)
     return scores[:top_n]
@@ -281,9 +304,21 @@ def rolling_team_features(df: pd.DataFrame) -> pd.DataFrame:
         home_shots_against = avg_last(home_hist["shots_against"])
         away_shots_against = avg_last(away_hist["shots_against"])
 
-        days_rest_home = float((row["date"] - home_hist["last_date"]).days) if home_hist["last_date"] is not None else np.nan
-        days_rest_away = float((row["date"] - away_hist["last_date"]).days) if away_hist["last_date"] is not None else np.nan
-        days_rest_diff = days_rest_home - days_rest_away if pd.notna(days_rest_home) and pd.notna(days_rest_away) else np.nan
+        days_rest_home = (
+            min(float((row["date"] - home_hist["last_date"]).days), 14.0)
+            if home_hist["last_date"] is not None
+            else np.nan
+        )
+        days_rest_away = (
+            min(float((row["date"] - away_hist["last_date"]).days), 14.0)
+            if away_hist["last_date"] is not None
+            else np.nan
+        )
+        days_rest_diff = (
+            days_rest_home - days_rest_away
+            if pd.notna(days_rest_home) and pd.notna(days_rest_away)
+            else np.nan
+        )
 
         rows.append(
             {
@@ -664,22 +699,51 @@ def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.
     return pd.DataFrame(jornada_scores)
 
 
+def compute_prob_metrics(working: pd.DataFrame, pred_prefix: str) -> dict[str, float | None]:
+    cols = [f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]
+    if not all(col in working.columns for col in cols) or working.empty:
+        return {"log_loss": None, "brier_score": None}
+    probs = working[cols].to_numpy(dtype=float)
+    if np.isnan(probs).any():
+        return {"log_loss": None, "brier_score": None}
+    probs_clipped = np.clip(probs, 1e-15, 1.0 - 1e-15)
+    probs_sum = probs_clipped.sum(axis=1, keepdims=True)
+    probs_sum[probs_sum == 0] = 1.0
+    probs_clipped /= probs_sum
+    y_map = {"1": 0, "X": 1, "2": 2}
+    y_idx = working["result"].map(y_map).to_numpy()
+    if pd.isna(y_idx).any():
+        return {"log_loss": None, "brier_score": None}
+    y_idx = y_idx.astype(int)
+    y_onehot = np.zeros_like(probs)
+    y_onehot[np.arange(len(y_idx)), y_idx] = 1.0
+    ll = float(-np.mean(np.log(probs_clipped[np.arange(len(y_idx)), y_idx])))
+    brier = float(np.mean(np.sum((probs - y_onehot) ** 2, axis=1)))
+    return {"log_loss": ll, "brier_score": brier}
+
+
 def evaluate_config(frame: pd.DataFrame, pred_prefix: str, config: dict) -> dict:
     working = apply_hybrid_config(frame, config, pred_prefix)
     doubles_df = simulate_doubles(working, pred_prefix, config)
     division_breakdown = {}
     for division, group in working.groupby("division"):
+        prob_metrics_div = compute_prob_metrics(group, pred_prefix)
         division_breakdown[division] = {
             "matches": int(len(group)),
             "accuracy_simple": float(group[f"{pred_prefix}_hit"].mean()),
             "accuracy_market_favorite": float(group["favorite_market_hit"].mean()),
+            "log_loss": prob_metrics_div["log_loss"],
+            "brier_score": prob_metrics_div["brier_score"],
         }
     double_mean = float(doubles_df["hits_3_dobles"].mean()) if not doubles_df.empty else 0.0
+    prob_metrics_all = compute_prob_metrics(working, pred_prefix)
     return {
         "predictions": working,
         "score": float(working[f"{pred_prefix}_hit"].mean()) + 0.017 * double_mean,
         "accuracy_simple": float(working[f"{pred_prefix}_hit"].mean()),
         "accuracy_market_favorite": float(working["favorite_market_hit"].mean()),
+        "log_loss": prob_metrics_all["log_loss"],
+        "brier_score": prob_metrics_all["brier_score"],
         "mean_hits_3_dobles": double_mean if not doubles_df.empty else None,
         "best_jornada_3_dobles": int(doubles_df["hits_3_dobles"].max()) if not doubles_df.empty else None,
         "avg_confidence": float(working[[f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]].max(axis=1).mean()),
@@ -791,6 +855,8 @@ def summarize_results(frame: pd.DataFrame, pred_prefix: str, config: dict) -> di
     return {
         "accuracy_simple": eval_result["accuracy_simple"],
         "accuracy_market_favorite": eval_result["accuracy_market_favorite"],
+        "log_loss": eval_result.get("log_loss"),
+        "brier_score": eval_result.get("brier_score"),
         "avg_confidence": eval_result["avg_confidence"],
         "accuracy_by_pick": eval_result["accuracy_by_pick"],
         "mean_hits_3_dobles": eval_result["mean_hits_3_dobles"],

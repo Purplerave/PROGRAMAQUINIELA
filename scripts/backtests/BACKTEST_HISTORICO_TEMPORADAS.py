@@ -60,12 +60,18 @@ def main():
             "date_to": metrics["test_date_to"],
             "accuracy_simple": model["accuracy_simple"],
             "accuracy_market_favorite": model["accuracy_market_favorite"],
+            "log_loss": model.get("log_loss"),
+            "brier_score": model.get("brier_score"),
             "mean_hits_3_dobles": model["mean_hits_3_dobles"],
             "best_jornada_3_dobles": model["best_jornada_3_dobles"],
             "primera_matches": model["division_breakdown"].get("Primera", {}).get("matches", 0),
             "primera_accuracy": model["division_breakdown"].get("Primera", {}).get("accuracy_simple", None),
+            "primera_log_loss": model["division_breakdown"].get("Primera", {}).get("log_loss", None),
+            "primera_brier_score": model["division_breakdown"].get("Primera", {}).get("brier_score", None),
             "segunda_matches": model["division_breakdown"].get("Segunda", {}).get("matches", 0),
             "segunda_accuracy": model["division_breakdown"].get("Segunda", {}).get("accuracy_simple", None),
+            "segunda_log_loss": model["division_breakdown"].get("Segunda", {}).get("log_loss", None),
+            "segunda_brier_score": model["division_breakdown"].get("Segunda", {}).get("brier_score", None),
         }
         rows.append(row)
         details[season] = metrics
@@ -87,6 +93,8 @@ def main():
         "temporadas": int(len(ok)),
         "media_accuracy_simple": float(ok["accuracy_simple"].mean()) if not ok.empty else None,
         "media_accuracy_market": float(ok["accuracy_market_favorite"].mean()) if not ok.empty else None,
+        "media_log_loss": float(ok["log_loss"].mean()) if not ok.empty and "log_loss" in ok else None,
+        "media_brier_score": float(ok["brier_score"].mean()) if not ok.empty and "brier_score" in ok else None,
         "media_3_dobles": float(ok["mean_hits_3_dobles"].mean()) if not ok.empty else None,
         "mejor_temporada_simple": ok.sort_values("accuracy_simple", ascending=False).head(1).to_dict("records") if not ok.empty else [],
         "peor_temporada_simple": ok.sort_values("accuracy_simple", ascending=True).head(1).to_dict("records") if not ok.empty else [],
