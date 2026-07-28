@@ -62,7 +62,6 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 
 **Oportunidades de mantenimiento (no fallos funcionales confirmados):**
 - `MOTOR_QUINIELA_MAESTRO.py:rolling_team_features`: 250+ líneas monolíticas (difícil de mantener).
-- Duplicación de funciones de backtest, hardcodeo de configuración y logging.
 
 ## 4. Posibles problemas que todavía necesiten comprobarse.
 
@@ -93,10 +92,8 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 
 ## 7. Cinco tareas prioritarias para estudiar después.
 
-1. Refactorizar las tres funciones de backtest en una sola `run_walkforward_backtest(seasons)` reutilizable.
+1. Refactorizar `run_backtest` + `run_season_backtest` + `run_latest_season_backtest` en una única función reutilizable de walk-forward.
 2. Extraer `rolling_team_features` y feature engineering a módulo `features.py` con tests unitarios.
 3. Añadir validación temporal estricta (TimeSeriesSplit o embargo) en `optimize_hybrid_config`.
 4. Centralizar construcción de modelos (Logit/HGB) y preprocesadores en `models.py`.
 5. Revisar y documentar el cálculo de `simulate_doubles` y score de selección de dobles para reproducibilidad.
-
-(99 líneas)
