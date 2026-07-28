@@ -52,17 +52,20 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 
 ## 3. Problemas confirmados, con archivo y función.
 
-- `MOTOR_QUINIELA_MAESTRO.py:rolling_team_features`: 250+ líneas monolíticas (difícil de mantener).
 - `MOTOR_QUINIELA_MAESTRO.py:optimize_hybrid_config` (líneas ~700-780): grid search con itertools.product sobre 24 combinaciones (3×1×1×2×1×2×1×2 según CONFIG_MOTOR_V2.json); evalúa en valid llamando a evaluate_config.
 - `MOTOR_QUINIELA_MAESTRO.py:run_backtest` + `run_season_backtest` + `run_latest_season_backtest`: código duplicado (~50 líneas idénticas para fit/predict/apply).
 - `MOTOR_QUINIELA_MAESTRO.py:build_logit_model` / `build_hgb_model`: preprocessor y feature_columns hardcodeados; "division" se maneja solo en logit (cat) mientras HGB usa solo numéricas.
-- `MOTOR_QUINIELA_MAESTRO.py:simulate_doubles` (líneas ~620): agrupa por bloques de 15 (jornada) pero asume orden exacto y no maneja jornadas incompletas; score de dobles mezcla métricas sin normalización.
+- `MOTOR_QUINIELA_MAESTRO.py:simulate_doubles` (líneas ~620): agrupa cada 15 partidos cronológicos y no maneja jornadas incompletas; score de dobles mezcla métricas sin normalización.
 - `scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py:27`: importa motor y llama run_season_backtest; repite lógica de seasons.
 - `settings.py`: carga JSON global; funciones de config duplican lógica de defaults.
+- `PREDECIR_JORNADA.py:build_package`: llama a `diagnose_jornada()` de `MOTOR_DECISION_QUINIELISTICA.py` y no utiliza las probabilidades entrenadas por `MOTOR_QUINIELA_MAESTRO.py`; solo adjunta priors y marca `columnas` como `pendiente_v3`. El motor maestro está entrenado exclusivamente con Primera/Segunda y no cubre automáticamente partidos de otras competiciones.
+
+**Oportunidades de mantenimiento (no fallos funcionales confirmados):**
+- `MOTOR_QUINIELA_MAESTRO.py:rolling_team_features`: 250+ líneas monolíticas (difícil de mantener).
+- Duplicación de funciones de backtest, hardcodeo de configuración y logging.
 
 ## 4. Posibles problemas que todavía necesiten comprobarse.
 
-- Si `season_sort_key` ordena correctamente temporadas como "2025-2026" vs "2010-2011".
 - Comportamiento de `standing_positions` cuando hay empates en pts/gd (usa nombre como tiebreaker).
 - Manejo de NaN en `predict_full_probs` cuando clases_ del modelo no cubren todas las etiquetas en subtrain.
 - Si `implied_probabilities` produce NaN en filas con odds=0 (aunque filtradas antes).
@@ -72,7 +75,7 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 
 - Buena separación: `rolling_team_features` procesa por fecha ascendente y actualiza estado post-partido → features de un match solo usan info anterior (elo, form, standings pre-match).
 - Walk-forward por temporada (`run_season_backtest`): train = seasons < target → estrictamente temporal.
-- `run_backtest` usa `iloc[:0.8]` (no temporal, cruza temporadas).
+- `run_backtest` usa `iloc[:0.8]` después de sort por fecha (corte cronológico 80/20, pero puede partir una temporada).
 - En optimize: subtrain/valid dentro del train → no fuga futura.
 - No hay leakage de test en features (df completo procesado antes de split pero causalmente correcto).
 - Riesgo bajo de fuga por standings/elo: calculados incrementalmente.
@@ -82,7 +85,7 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 
 - Walk-forward por temporada implementado correctamente en `run_season_backtest` y script `BACKTEST_HISTORICO_TEMPORADAS.py` (evalúa cada temporada con train histórico previo).
 - `run_backtest` (80/20 cronológico) respeta orden temporal (sort por fecha + iloc).
-- Selección de 3 dobles: por jornada (bloques 15), top-3 por valor_score; hits cuentan dobles correctos + aciertos simples.
+- Selección de 3 dobles: agrupa cada 15 partidos cronológicos (bloques iloc), elige top-3 por valor_score; hits cuentan dobles correctos + aciertos simples. Es un proxy sintético que no reproduce boletos históricos reales de LAE.
 - Config optimizada en valid interna → reduce overfitting en grid.
 - Riesgo de sobreajuste: grid search exhaustivo (24 configs según CONFIG_MOTOR_V2.json) sobre valid pequeño; múltiples métricas combinadas en score.
 - No hay CV temporal ni embargo de features.
