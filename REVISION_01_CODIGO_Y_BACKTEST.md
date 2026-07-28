@@ -18,7 +18,7 @@ Predice en test, combina probs (`apply_hybrid_config`), añade Pleno al 15.
 
 Selecciona signos + 3 dobles (`simulate_doubles`): top 3 por score (confianza inversa + draw + disagreement + bonus Segunda).
 
-Backtest: `run_backtest` (80/20 random), `run_latest_season_backtest`, `run_season_backtest` (por temporada walk-forward). Script `BACKTEST_HISTORICO_TEMPORADAS.py` orquesta walk-forward multi-temporada.
+Backtest: `run_backtest` (80/20 cronológico), `run_latest_season_backtest`, `run_season_backtest` (por temporada walk-forward). Script `BACKTEST_HISTORICO_TEMPORADAS.py` orquesta walk-forward multi-temporada.
 
 Otros: `MOTOR_DECISION_QUINIELISTICA.py` diagnostica jornada con thresholds y recomendaciones; `PREDECIR_JORNADA.py` añade priors.
 
@@ -52,8 +52,8 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 
 ## 3. Problemas confirmados, con archivo y función.
 
-- `MOTOR_QUINIELA_MAESTRO.py:rolling_team_features`: 250+ líneas monolíticas; actualiza estados post-match dentro del bucle (correcto causalmente) pero difícil de mantener y debuggear.
-- `MOTOR_QUINIELA_MAESTRO.py:optimize_hybrid_config` (líneas ~700-780): grid search con itertools.product sobre ~100 combinaciones; duplicado en evaluate_config y simulate_doubles; evalúa en valid pero no persiste modelos intermedios.
+- `MOTOR_QUINIELA_MAESTRO.py:rolling_team_features`: 250+ líneas monolíticas (difícil de mantener).
+- `MOTOR_QUINIELA_MAESTRO.py:optimize_hybrid_config` (líneas ~700-780): grid search con itertools.product sobre 24 combinaciones (3×1×1×2×1×2×1×2 según CONFIG_MOTOR_V2.json); evalúa en valid llamando a evaluate_config.
 - `MOTOR_QUINIELA_MAESTRO.py:run_backtest` + `run_season_backtest` + `run_latest_season_backtest`: código duplicado (~50 líneas idénticas para fit/predict/apply).
 - `MOTOR_QUINIELA_MAESTRO.py:build_logit_model` / `build_hgb_model`: preprocessor y feature_columns hardcodeados; "division" se maneja solo en logit (cat) mientras HGB usa solo numéricas.
 - `MOTOR_QUINIELA_MAESTRO.py:simulate_doubles` (líneas ~620): agrupa por bloques de 15 (jornada) pero asume orden exacto y no maneja jornadas incompletas; score de dobles mezcla métricas sin normalización.
@@ -81,10 +81,10 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 ## 6. Evaluación del backtest.
 
 - Walk-forward por temporada implementado correctamente en `run_season_backtest` y script `BACKTEST_HISTORICO_TEMPORADAS.py` (evalúa cada temporada con train histórico previo).
-- `run_backtest` (80/20) es legacy y no respeta orden temporal.
+- `run_backtest` (80/20 cronológico) respeta orden temporal (sort por fecha + iloc).
 - Selección de 3 dobles: por jornada (bloques 15), top-3 por valor_score; hits cuentan dobles correctos + aciertos simples.
 - Config optimizada en valid interna → reduce overfitting en grid.
-- Riesgo de sobreajuste: grid search exhaustivo (~100 configs) sobre valid pequeño; múltiples métricas combinadas en score.
+- Riesgo de sobreajuste: grid search exhaustivo (24 configs según CONFIG_MOTOR_V2.json) sobre valid pequeño; múltiples métricas combinadas en score.
 - No hay CV temporal ni embargo de features.
 - Métricas reportadas: accuracy_simple, vs market, mean_hits_3_dobles, breakdown por división.
 
@@ -96,4 +96,4 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 4. Centralizar construcción de modelos (Logit/HGB) y preprocesadores en `models.py`.
 5. Revisar y documentar el cálculo de `simulate_doubles` y score de selección de dobles para reproducibilidad.
 
-(178 líneas)
+(99 líneas)
