@@ -92,8 +92,8 @@ predictions + metrics (accuracy, hits_3_dobles, breakdown)
 
 ## 7. Cinco tareas prioritarias para estudiar después.
 
-1. Refactorizar `run_backtest` + `run_season_backtest` + `run_latest_season_backtest` en una única función reutilizable de walk-forward.
-2. Extraer `rolling_team_features` y feature engineering a módulo `features.py` con tests unitarios.
-3. Añadir validación temporal estricta (TimeSeriesSplit o embargo) en `optimize_hybrid_config`.
-4. Centralizar construcción de modelos (Logit/HGB) y preprocesadores en `models.py`.
-5. Revisar y documentar el cálculo de `simulate_doubles` y score de selección de dobles para reproducibilidad.
+1. Definir cómo conectar de forma validable `MOTOR_QUINIELA_MAESTRO.py` con `PREDECIR_JORNADA.py`, incluyendo un fallback explícito para partidos y competiciones que el modelo no cubre.
+2. Conseguir y auditar boletos históricos reales de LAE para evaluar signos y dobles sobre jornadas auténticas, no sobre bloques sintéticos de 15 partidos.
+3. Auditar los datasets actuales, su cobertura por competición, calidad, temporadas, cuotas, alias y ausencias antes de ampliar el entrenamiento.
+4. Reforzar la validación temporal interna de `optimize_hybrid_config` y medir el riesgo de sobreajuste de sus 24 configuraciones.
+5. Refactorizar después el flujo de backtest y `rolling_team_features`, conservando resultados mediante pruebas de regresión.
