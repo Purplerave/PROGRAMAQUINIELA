@@ -1,0 +1,519 @@
+{
+  "jornada": 69,
+  "source_url": "https://www.quiniela15.com/pronostico-quiniela",
+  "scraped_at": "2026-06-22T20:30:09",
+  "cierre": "martes 23 de junio a las 02:00",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Noruega",
+      "visitante": "Senegal",
+      "fuerza_local": 1637.3,
+      "fuerza_visitante": 1689.6,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "X",
+      "comunidad": "1",
+      "q15": {
+        "1": 57,
+        "X": 24,
+        "2": 18
+      },
+      "lae": {
+        "1": 53,
+        "X": 26,
+        "2": 21
+      },
+      "apu": {
+        "1": 42,
+        "X": 28,
+        "2": 30
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-23",
+      "hora": "02:00",
+      "detalle": " martes 23 jun 02:00h Estado de Forma (Últimos 6) Noruega Clasificación: #- V D E V E V Senegal Clasificación: #- D V V D E D Análisis Noruega - Senegal"
+    },
+    {
+      "num": 2,
+      "local": "Jordania",
+      "visitante": "Argelia",
+      "fuerza_local": 1576.4,
+      "fuerza_visitante": 1668.2,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 11,
+        "X": 19,
+        "2": 71
+      },
+      "lae": {
+        "1": 20,
+        "X": 27,
+        "2": 53
+      },
+      "apu": {
+        "1": 16,
+        "X": 23,
+        "2": 61
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-23",
+      "hora": "05:00",
+      "detalle": " martes 23 jun 05:00h Estado de Forma (Últimos 6) Jordania Clasificación: #- D E E D D D Argelia Clasificación: #- D V E V V D Análisis Jordania - Argelia"
+    },
+    {
+      "num": 3,
+      "local": "Portugal",
+      "visitante": "Uzbekistán",
+      "fuerza_local": 1723.8,
+      "fuerza_visitante": 1595.3,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 84,
+        "X": 8,
+        "2": 8
+      },
+      "lae": {
+        "1": 81,
+        "X": 10,
+        "2": 9
+      },
+      "apu": {
+        "1": 79,
+        "X": 15,
+        "2": 6
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-23",
+      "hora": "19:00",
+      "detalle": " martes 23 jun 19:00h Estado de Forma (Últimos 6) Portugal Clasificación: #- V E V V V E Uzbekistán Clasificación: #- V D E D D D Análisis Portugal - Uzbekistán"
+    },
+    {
+      "num": 4,
+      "local": "Inglaterra",
+      "visitante": "Ghana",
+      "fuerza_local": 1752.1,
+      "fuerza_visitante": 1521.1,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 84,
+        "X": 9,
+        "2": 7
+      },
+      "lae": {
+        "1": 73,
+        "X": 15,
+        "2": 12
+      },
+      "apu": {
+        "1": 78,
+        "X": 15,
+        "2": 7
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-23",
+      "hora": "22:00",
+      "detalle": " martes 23 jun 22:00h Estado de Forma (Últimos 6) Inglaterra Clasificación: #- V E D V V V Ghana Clasificación: #- D D D D E V Análisis Inglaterra - Ghana"
+    },
+    {
+      "num": 5,
+      "local": "Panamá",
+      "visitante": "Croacia",
+      "fuerza_local": 1574.4,
+      "fuerza_visitante": 1656.2,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 10,
+        "X": 11,
+        "2": 79
+      },
+      "lae": {
+        "1": 16,
+        "X": 18,
+        "2": 66
+      },
+      "apu": {
+        "1": 15,
+        "X": 24,
+        "2": 62
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-24",
+      "hora": "01:00",
+      "detalle": " miércoles 24 jun 01:00h Estado de Forma (Últimos 6) Panamá Clasificación: #- E V D V E D Croacia Clasificación: #- V V D D V D Análisis Panamá - Croacia"
+    },
+    {
+      "num": 6,
+      "local": "Colombia",
+      "visitante": "Congo DR",
+      "fuerza_local": 1669.2,
+      "fuerza_visitante": 1572.9,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 76,
+        "X": 15,
+        "2": 9
+      },
+      "lae": {
+        "1": 70,
+        "X": 18,
+        "2": 12
+      },
+      "apu": {
+        "1": 62,
+        "X": 25,
+        "2": 14
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-24",
+      "hora": "04:00",
+      "detalle": " miércoles 24 jun 04:00h Estado de Forma (Últimos 6) Colombia Clasificación: #- V D D V V V Congo DR Clasificación: #- D V V E D E Análisis Colombia - Congo DR"
+    },
+    {
+      "num": 7,
+      "local": "Suiza",
+      "visitante": "Canadá",
+      "fuerza_local": 1633.8,
+      "fuerza_visitante": 1632.2,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 49,
+        "X": 34,
+        "2": 17
+      },
+      "lae": {
+        "1": 44,
+        "X": 32,
+        "2": 24
+      },
+      "apu": {
+        "1": 38,
+        "X": 34,
+        "2": 28
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-24",
+      "hora": "21:00",
+      "detalle": " miércoles 24 jun 21:00h Estado de Forma (Últimos 6) Suiza Clasificación: #- D E V E E V Canadá Clasificación: #- E E V E E V Análisis Suiza - Canadá"
+    },
+    {
+      "num": 8,
+      "local": "Bosnia",
+      "visitante": "Qatar",
+      "fuerza_local": 1465.0,
+      "fuerza_visitante": 1516.2,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "X",
+      "comunidad": "1",
+      "q15": {
+        "1": 55,
+        "X": 29,
+        "2": 16
+      },
+      "lae": {
+        "1": 56,
+        "X": 24,
+        "2": 20
+      },
+      "apu": {
+        "1": 64,
+        "X": 20,
+        "2": 16
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-24",
+      "hora": "21:00",
+      "detalle": " miércoles 24 jun 21:00h Estado de Forma (Últimos 6) Bosnia Clasificación: #- V E E E E D Qatar Clasificación: #- E D D E E D Análisis Bosnia - Qatar"
+    },
+    {
+      "num": 9,
+      "local": "Escocia",
+      "visitante": "Brasil",
+      "fuerza_local": 1574.0,
+      "fuerza_visitante": 1707.9,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 11,
+        "X": 11,
+        "2": 78
+      },
+      "lae": {
+        "1": 18,
+        "X": 15,
+        "2": 67
+      },
+      "apu": {
+        "1": 11,
+        "X": 20,
+        "2": 69
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-26",
+      "hora": "00:00",
+      "detalle": " jueves 25 jun 24:00h Estado de Forma (Últimos 6) Escocia Clasificación: #- D D V V V D Brasil Clasificación: #- D V V V E V Análisis Escocia - Brasil"
+    },
+    {
+      "num": 10,
+      "local": "Marruecos",
+      "visitante": "Haití",
+      "fuerza_local": 1755.9,
+      "fuerza_visitante": 1504.9,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 84,
+        "X": 9,
+        "2": 6
+      },
+      "lae": {
+        "1": 79,
+        "X": 11,
+        "2": 10
+      },
+      "apu": {
+        "1": 79,
+        "X": 15,
+        "2": 6
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-26",
+      "hora": "00:00",
+      "detalle": " jueves 25 jun 24:00h Estado de Forma (Últimos 6) Marruecos Clasificación: #- V V V E E V Haití Clasificación: #- D E V D D D Análisis Marruecos - Haití"
+    },
+    {
+      "num": 11,
+      "local": "Sudáfrica",
+      "visitante": "Corea del Sur",
+      "fuerza_local": 1589.6,
+      "fuerza_visitante": 1654.7,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "X",
+      "comunidad": "2",
+      "q15": {
+        "1": 19,
+        "X": 29,
+        "2": 52
+      },
+      "lae": {
+        "1": 27,
+        "X": 29,
+        "2": 44
+      },
+      "apu": {
+        "1": 18,
+        "X": 25,
+        "2": 57
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-25",
+      "hora": "03:00",
+      "detalle": " jueves 25 jun 03:00h Estado de Forma (Últimos 6) Sudáfrica Clasificación: #- E D E E D E Corea del Sur Clasificación: #- D D V V V D Análisis Sudáfrica - Corea del Sur"
+    },
+    {
+      "num": 12,
+      "local": "Curaçao",
+      "visitante": "Costa de Marfil",
+      "fuerza_local": 1515.8,
+      "fuerza_visitante": 1666.3,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 11,
+        "X": 12,
+        "2": 77
+      },
+      "lae": {
+        "1": 20,
+        "X": 17,
+        "2": 63
+      },
+      "apu": {
+        "1": 6,
+        "X": 13,
+        "2": 81
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-25",
+      "hora": "22:00",
+      "detalle": " jueves 25 jun 22:00h Estado de Forma (Últimos 6) Curaçao Clasificación: #- D D D V D E Costa de Marfil Clasificación: #- V V V V V D Análisis Curaçao - Costa de Marfil"
+    },
+    {
+      "num": 13,
+      "local": "Ecuador",
+      "visitante": "Alemania",
+      "fuerza_local": 1627.4,
+      "fuerza_visitante": 1717.9,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 12,
+        "X": 10,
+        "2": 78
+      },
+      "lae": {
+        "1": 20,
+        "X": 17,
+        "2": 63
+      },
+      "apu": {
+        "1": 26,
+        "X": 25,
+        "2": 49
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-25",
+      "hora": "22:00",
+      "detalle": " jueves 25 jun 22:00h Estado de Forma (Últimos 6) Ecuador Clasificación: #- E E V V D E Alemania Clasificación: #- V V V V V V Análisis Ecuador - Alemania"
+    },
+    {
+      "num": 14,
+      "local": "IFK Mariehamn",
+      "visitante": "HJK Helsinki",
+      "fuerza_local": 1448.1,
+      "fuerza_visitante": 1590.0,
+      "historico": {
+        "total": "2",
+        "1": "0",
+        "X": "0",
+        "2": "2"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 9,
+        "X": 16,
+        "2": 75
+      },
+      "lae": {
+        "1": 25,
+        "X": 26,
+        "2": 49
+      },
+      "apu": {
+        "1": 12,
+        "X": 20,
+        "2": 68
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-23",
+      "hora": "19:00",
+      "detalle": " martes 23 jun 19:00h Estado de Forma (Últimos 6) IFK Mariehamn Clasificación: #- E D D D D D HJK Helsinki Clasificación: #- D V V V V E Análisis IFK Mariehamn - HJK Helsinki"
+    },
+    {
+      "num": 15,
+      "local": "R. Checa",
+      "visitante": "México",
+      "fuerza_local": 1580.8,
+      "fuerza_visitante": 1688.8,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "0-1",
+      "comunidad": "1-2",
+      "q15": null,
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [
+        {
+          "score": "1-2",
+          "pct": 32
+        },
+        {
+          "score": "1-1",
+          "pct": 13
+        },
+        {
+          "score": "1-M",
+          "pct": 9
+        }
+      ],
+      "fecha": "2026-06-25",
+      "hora": "03:00",
+      "detalle": " jueves 25 jun 03:00h Estado de Forma (Últimos 6) R. Checa Clasificación: #- V V V V D E México Clasificación: #- E V V V V V Análisis R. Checa - México"
+    }
+  ]
+}

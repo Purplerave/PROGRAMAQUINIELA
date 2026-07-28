@@ -1,0 +1,519 @@
+{
+  "jornada": 68,
+  "source_url": "https://www.quiniela15.com/pronostico-quiniela",
+  "scraped_at": "2026-06-16T21:54:36",
+  "cierre": "viernes 19 de junio a las 21:00",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "EE.UU.",
+      "visitante": "Australia",
+      "fuerza_local": 1633.3,
+      "fuerza_visitante": 1645.1,
+      "historico": {
+        "total": "2",
+        "1": "2",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 69,
+        "X": 21,
+        "2": 10
+      },
+      "lae": {
+        "1": 58,
+        "X": 25,
+        "2": 17
+      },
+      "apu": {
+        "1": 59,
+        "X": 23,
+        "2": 18
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-19",
+      "hora": "21:00",
+      "detalle": " viernes 19 jun 21:00h Estado de Forma (Últimos 6) EE.UU. Clasificación: #- V D D V D V Australia Clasificación: #- D V V D E V Análisis EE.UU. - Australia"
+    },
+    {
+      "num": 2,
+      "local": "Escocia",
+      "visitante": "Marruecos",
+      "fuerza_local": 1578.3,
+      "fuerza_visitante": 1751.6,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 16,
+        "X": 14,
+        "2": 70
+      },
+      "lae": {
+        "1": 23,
+        "X": 23,
+        "2": 54
+      },
+      "apu": {
+        "1": 17,
+        "X": 27,
+        "2": 56
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-21",
+      "hora": "00:00",
+      "detalle": " sábado 20 jun 24:00h Estado de Forma (Últimos 6) Escocia Clasificación: #- V D D V V V Marruecos Clasificación: #- E V V V E E Análisis Escocia - Marruecos"
+    },
+    {
+      "num": 3,
+      "local": "Brasil",
+      "visitante": "Haití",
+      "fuerza_local": 1703.9,
+      "fuerza_visitante": 1508.8,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 82,
+        "X": 9,
+        "2": 9
+      },
+      "lae": {
+        "1": 75,
+        "X": 14,
+        "2": 11
+      },
+      "apu": {
+        "1": 84,
+        "X": 10,
+        "2": 5
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-20",
+      "hora": "02:30",
+      "detalle": " sábado 20 jun 02:30h Estado de Forma (Últimos 6) Brasil Clasificación: #- E D V V V E Haití Clasificación: #- V D E V D D Análisis Brasil - Haití"
+    },
+    {
+      "num": 4,
+      "local": "Turquía",
+      "visitante": "Paraguay",
+      "fuerza_local": 1638.7,
+      "fuerza_visitante": 1558.3,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 58,
+        "X": 27,
+        "2": 15
+      },
+      "lae": {
+        "1": 46,
+        "X": 26,
+        "2": 28
+      },
+      "apu": {
+        "1": 47,
+        "X": 29,
+        "2": 24
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-20",
+      "hora": "05:00",
+      "detalle": " sábado 20 jun 05:00h Estado de Forma (Últimos 6) Turquía Clasificación: #- E V V V V D Paraguay Clasificación: #- D V V D V D Análisis Turquía - Paraguay"
+    },
+    {
+      "num": 5,
+      "local": "Holanda",
+      "visitante": "Suecia",
+      "fuerza_local": 1716.9,
+      "fuerza_visitante": 1582.2,
+      "historico": {
+        "total": "2",
+        "1": "2",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 62,
+        "X": 24,
+        "2": 15
+      },
+      "lae": {
+        "1": 48,
+        "X": 28,
+        "2": 24
+      },
+      "apu": {
+        "1": 56,
+        "X": 25,
+        "2": 19
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-20",
+      "hora": "19:00",
+      "detalle": " sábado 20 jun 19:00h Estado de Forma (Últimos 6) Holanda Clasificación: #- V V E D V E Suecia Clasificación: #- E V V D E V Análisis Holanda - Suecia"
+    },
+    {
+      "num": 6,
+      "local": "Alemania",
+      "visitante": "Costa de Marfil",
+      "fuerza_local": 1710.8,
+      "fuerza_visitante": 1673.5,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 79,
+        "X": 12,
+        "2": 10
+      },
+      "lae": {
+        "1": 73,
+        "X": 15,
+        "2": 12
+      },
+      "apu": {
+        "1": 60,
+        "X": 22,
+        "2": 18
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-20",
+      "hora": "22:00",
+      "detalle": " sábado 20 jun 22:00h Estado de Forma (Últimos 6) Alemania Clasificación: #- V V V V V V Costa de Marfil Clasificación: #- D V V V V V Análisis Alemania - Costa de Marfil"
+    },
+    {
+      "num": 7,
+      "local": "Ecuador",
+      "visitante": "Curaçao",
+      "fuerza_local": 1630.0,
+      "fuerza_visitante": 1513.2,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 75,
+        "X": 14,
+        "2": 11
+      },
+      "lae": {
+        "1": 66,
+        "X": 19,
+        "2": 15
+      },
+      "apu": {
+        "1": 85,
+        "X": 11,
+        "2": 4
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-21",
+      "hora": "02:00",
+      "detalle": " domingo 21 jun 02:00h Estado de Forma (Últimos 6) Ecuador Clasificación: #- V E E V V D Curaçao Clasificación: #- E D D D V D Análisis Ecuador - Curaçao"
+    },
+    {
+      "num": 8,
+      "local": "Túnez",
+      "visitante": "Japón",
+      "fuerza_local": 1588.8,
+      "fuerza_visitante": 1742.4,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 11,
+        "X": 17,
+        "2": 72
+      },
+      "lae": {
+        "1": 23,
+        "X": 25,
+        "2": 52
+      },
+      "apu": {
+        "1": 14,
+        "X": 24,
+        "2": 62
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-21",
+      "hora": "06:00",
+      "detalle": " domingo 21 jun 06:00h Estado de Forma (Últimos 6) Túnez Clasificación: #- E V E D D D Japón Clasificación: #- V V V V V E Análisis Túnez - Japón"
+    },
+    {
+      "num": 9,
+      "local": "Bélgica",
+      "visitante": "Irán",
+      "fuerza_local": 1657.3,
+      "fuerza_visitante": 1695.0,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "X",
+      "comunidad": "1",
+      "q15": {
+        "1": 69,
+        "X": 19,
+        "2": 13
+      },
+      "lae": {
+        "1": 70,
+        "X": 17,
+        "2": 13
+      },
+      "apu": {
+        "1": 66,
+        "X": 21,
+        "2": 13
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-21",
+      "hora": "21:00",
+      "detalle": " domingo 21 jun 21:00h Estado de Forma (Últimos 6) Bélgica Clasificación: #- V V E V V E Irán Clasificación: #- E D V V V E Análisis Bélgica - Irán"
+    },
+    {
+      "num": 10,
+      "local": "Uruguay",
+      "visitante": "Cabo Verde",
+      "fuerza_local": 1635.8,
+      "fuerza_visitante": 1574.6,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 75,
+        "X": 14,
+        "2": 11
+      },
+      "lae": {
+        "1": 71,
+        "X": 16,
+        "2": 13
+      },
+      "apu": {
+        "1": 61,
+        "X": 24,
+        "2": 15
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-23",
+      "hora": "00:00",
+      "detalle": " lunes 22 jun 24:00h Estado de Forma (Últimos 6) Uruguay Clasificación: #- V E D E E E Cabo Verde Clasificación: #- E D E V V E Análisis Uruguay - Cabo Verde"
+    },
+    {
+      "num": 11,
+      "local": "Nueva Zelanda",
+      "visitante": "Egipto",
+      "fuerza_local": 1468.9,
+      "fuerza_visitante": 1670.3,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 15,
+        "X": 28,
+        "2": 57
+      },
+      "lae": {
+        "1": 24,
+        "X": 28,
+        "2": 48
+      },
+      "apu": {
+        "1": 17,
+        "X": 25,
+        "2": 58
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-22",
+      "hora": "03:00",
+      "detalle": " lunes 22 jun 03:00h Estado de Forma (Últimos 6) Nueva Zelanda Clasificación: #- D D V D D E Egipto Clasificación: #- E V E V D E Análisis Nueva Zelanda - Egipto"
+    },
+    {
+      "num": 12,
+      "local": "Argentina",
+      "visitante": "Austria",
+      "fuerza_local": 1759.3,
+      "fuerza_visitante": 1622.4,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 78,
+        "X": 12,
+        "2": 10
+      },
+      "lae": {
+        "1": 67,
+        "X": 19,
+        "2": 14
+      },
+      "apu": {
+        "1": 58,
+        "X": 25,
+        "2": 17
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-22",
+      "hora": "19:00",
+      "detalle": " lunes 22 jun 19:00h Estado de Forma (Últimos 6) Argentina Clasificación: #- V V V V V V Austria Clasificación: #- D V E V V V Análisis Argentina - Austria"
+    },
+    {
+      "num": 13,
+      "local": "Francia",
+      "visitante": "Iraq",
+      "fuerza_local": 1752.0,
+      "fuerza_visitante": 1571.4,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 82,
+        "X": 10,
+        "2": 8
+      },
+      "lae": {
+        "1": 75,
+        "X": 14,
+        "2": 11
+      },
+      "apu": {
+        "1": 85,
+        "X": 11,
+        "2": 5
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-22",
+      "hora": "23:00",
+      "detalle": " lunes 22 jun 23:00h Estado de Forma (Últimos 6) Francia Clasificación: #- V V V V D V Iraq Clasificación: #- V V E D D D Análisis Francia - Iraq"
+    },
+    {
+      "num": 14,
+      "local": "Almería",
+      "visitante": "Málaga",
+      "fuerza_local": 1649.3,
+      "fuerza_visitante": 1656.3,
+      "historico": {
+        "total": "14",
+        "1": "5",
+        "X": "5",
+        "2": "4"
+      },
+      "sistema": "1",
+      "comunidad": "2",
+      "q15": {
+        "1": 22,
+        "X": 28,
+        "2": 50
+      },
+      "lae": {
+        "1": 42,
+        "X": 31,
+        "2": 27
+      },
+      "apu": {
+        "1": 45,
+        "X": 27,
+        "2": 27
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-06-20",
+      "hora": "21:00",
+      "detalle": " sábado 20 jun 21:00h Estado de Forma (Últimos 6) Almería Clasificación: #3 D D V E V E Málaga Clasificación: #4 V E V V E E Análisis Almería - Málaga"
+    },
+    {
+      "num": 15,
+      "local": "España",
+      "visitante": "Arabia Saudí",
+      "fuerza_local": 1818.0,
+      "fuerza_visitante": 1572.3,
+      "historico": {
+        "total": "1",
+        "1": "1",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1-0",
+      "comunidad": "M-0",
+      "q15": null,
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [
+        {
+          "score": "M-0",
+          "pct": 28
+        },
+        {
+          "score": "M-1",
+          "pct": 18
+        },
+        {
+          "score": "2-0",
+          "pct": 16
+        }
+      ],
+      "fecha": "2026-06-21",
+      "hora": "18:00",
+      "detalle": " domingo 21 jun 18:00h Estado de Forma (Últimos 6) España Clasificación: #- E V E E V E Arabia Saudí Clasificación: #- D D D V E E Análisis España - Arabia Saudí"
+    }
+  ]
+}

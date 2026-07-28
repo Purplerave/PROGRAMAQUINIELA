@@ -1,0 +1,81 @@
+{
+  "season": "2026/27",
+  "generated_at": "2026-07-04",
+  "status": "verified_from_laliga_clubs_pages",
+  "sources": [
+    {
+      "name": "LALIGA EA SPORTS clubs 2026/27",
+      "url": "https://www.laliga.com/en-GB/laliga-easports/clubs"
+    },
+    {
+      "name": "LALIGA HYPERMOTION clubs 2026/27",
+      "url": "https://www.laliga.com/en-GB/laliga-hypermotion/clubs"
+    },
+    {
+      "name": "ElDesmarque confirmation article",
+      "url": "https://www.eldesmarque.com/futbol/liga-1a-division/20260620/confirmados-laliga-ea-sports-hypermotion_18_019504221.html"
+    },
+    {
+      "name": "Cadena SER Segunda 2026/27 list",
+      "url": "https://cadenaser.com/andalucia/2026/06/21/una-segunda-con-aroma-a-primera-los-22-equipos-que-buscaran-el-ascenso-en-2026-27-ser-almeria/"
+    }
+  ],
+  "laliga_ea_sports": [
+    {"team": "Athletic Club", "status": "permanencia"},
+    {"team": "Atletico de Madrid", "status": "permanencia"},
+    {"team": "CA Osasuna", "status": "permanencia"},
+    {"team": "Deportivo Alaves", "status": "permanencia"},
+    {"team": "Elche CF", "status": "permanencia"},
+    {"team": "FC Barcelona", "status": "permanencia"},
+    {"team": "Getafe CF", "status": "permanencia"},
+    {"team": "Levante UD", "status": "permanencia"},
+    {"team": "Malaga CF", "status": "ascendido"},
+    {"team": "R. Racing Club", "status": "ascendido"},
+    {"team": "Rayo Vallecano", "status": "permanencia"},
+    {"team": "RC Celta", "status": "permanencia"},
+    {"team": "RC Deportivo", "status": "ascendido"},
+    {"team": "RCD Espanyol de Barcelona", "status": "permanencia"},
+    {"team": "Real Betis", "status": "permanencia"},
+    {"team": "Real Madrid", "status": "permanencia"},
+    {"team": "Real Sociedad", "status": "permanencia"},
+    {"team": "Sevilla FC", "status": "permanencia"},
+    {"team": "Valencia CF", "status": "permanencia"},
+    {"team": "Villarreal CF", "status": "permanencia"}
+  ],
+  "laliga_hypermotion": [
+    {"team": "AD Ceuta FC", "status": "permanencia"},
+    {"team": "Albacete BP", "status": "permanencia"},
+    {"team": "Burgos CF", "status": "permanencia"},
+    {"team": "Cadiz CF", "status": "permanencia"},
+    {"team": "CD Castellon", "status": "permanencia"},
+    {"team": "CD Eldense", "status": "ascendido_primera_rfef"},
+    {"team": "CD Leganes", "status": "permanencia"},
+    {"team": "CD Tenerife", "status": "ascendido_primera_rfef"},
+    {"team": "CE Sabadell", "status": "ascendido_primera_rfef"},
+    {"team": "Cordoba CF", "status": "permanencia"},
+    {"team": "FC Andorra", "status": "permanencia"},
+    {"team": "Girona FC", "status": "descendido"},
+    {"team": "Granada CF", "status": "permanencia"},
+    {"team": "R. Sociedad B", "status": "permanencia_filial"},
+    {"team": "RC Celta Fortuna", "status": "ascendido_primera_rfef_filial"},
+    {"team": "RCD Mallorca", "status": "descendido"},
+    {"team": "Real Oviedo", "status": "descendido"},
+    {"team": "Real Sporting", "status": "permanencia"},
+    {"team": "Real Valladolid CF", "status": "permanencia"},
+    {"team": "SD Eibar", "status": "permanencia"},
+    {"team": "UD Almeria", "status": "permanencia"},
+    {"team": "UD Las Palmas", "status": "permanencia"}
+  ],
+  "movement_summary": {
+    "ascendidos_a_primera": ["R. Racing Club", "RC Deportivo", "Malaga CF"],
+    "descendidos_a_segunda": ["Real Oviedo", "RCD Mallorca", "Girona FC"],
+    "ascendidos_a_segunda_desde_primera_rfef": ["CD Tenerife", "CD Eldense", "CE Sabadell", "RC Celta Fortuna"],
+    "filiales_en_segunda": ["R. Sociedad B", "RC Celta Fortuna"]
+  },
+  "study_file_corrections": {
+    "not_in_primera_2026_27": ["UD Las Palmas", "Real Valladolid"],
+    "missing_from_study_primera": ["Elche CF", "Levante UD"],
+    "leganes_note": "CD Leganes aparece en LALIGA HYPERMOTION como permanencia, no como descendido desde Primera.",
+    "segunda_confirmed_by_laliga": true
+  }
+}

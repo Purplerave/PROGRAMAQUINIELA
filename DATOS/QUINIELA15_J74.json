@@ -1,0 +1,519 @@
+{
+  "jornada": 74,
+  "source_url": "https://www.quiniela15.com/pronostico-quiniela",
+  "scraped_at": "2026-07-22T18:48:08",
+  "cierre": "viernes 24 de julio a las 19:00",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Kristiansund",
+      "visitante": "Start",
+      "fuerza_local": 1568.6,
+      "fuerza_visitante": 1537.1,
+      "historico": {
+        "total": "2",
+        "1": "1",
+        "X": "1",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 69,
+        "X": 19,
+        "2": 12
+      },
+      "lae": {
+        "1": 56,
+        "X": 26,
+        "2": 18
+      },
+      "apu": {
+        "1": 43,
+        "X": 26,
+        "2": 31
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-25",
+      "hora": "16:00",
+      "detalle": " sábado 25 jul 16:00h Estado de Forma (Últimos 6) Kristiansund Clasificación: #- D D D V D E Start Clasificación: #- D V D D D D Análisis Kristiansund - Start"
+    },
+    {
+      "num": 2,
+      "local": "Brann",
+      "visitante": "Valerenga",
+      "fuerza_local": 1670.2,
+      "fuerza_visitante": 1646.2,
+      "historico": {
+        "total": "7",
+        "1": "4",
+        "X": "1",
+        "2": "2"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 69,
+        "X": 17,
+        "2": 13
+      },
+      "lae": {
+        "1": 54,
+        "X": 26,
+        "2": 20
+      },
+      "apu": {
+        "1": 54,
+        "X": 22,
+        "2": 23
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "14:30",
+      "detalle": " domingo 26 jul 14:30h Estado de Forma (Últimos 6) Brann Clasificación: #- D D V D V V Valerenga Clasificación: #- V E D V D V Análisis Brann - Valerenga"
+    },
+    {
+      "num": 3,
+      "local": "Sarpsborg",
+      "visitante": "Ham-Kam",
+      "fuerza_local": 1629.4,
+      "fuerza_visitante": 1582.8,
+      "historico": {
+        "total": "8",
+        "1": "5",
+        "X": "1",
+        "2": "2"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 64,
+        "X": 20,
+        "2": 16
+      },
+      "lae": {
+        "1": 50,
+        "X": 29,
+        "2": 21
+      },
+      "apu": {
+        "1": 49,
+        "X": 25,
+        "2": 26
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "17:00",
+      "detalle": " domingo 26 jul 17:00h Estado de Forma (Últimos 6) Sarpsborg Clasificación: #- D V V D V E Ham-Kam Clasificación: #- V E E V E D Análisis Sarpsborg - Ham-Kam"
+    },
+    {
+      "num": 4,
+      "local": "Sandefjord",
+      "visitante": "Bodo-Glimt",
+      "fuerza_local": 1605.1,
+      "fuerza_visitante": 1810.6,
+      "historico": {
+        "total": "7",
+        "1": "2",
+        "X": "1",
+        "2": "4"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 13,
+        "X": 11,
+        "2": 76
+      },
+      "lae": {
+        "1": 25,
+        "X": 20,
+        "2": 55
+      },
+      "apu": {
+        "1": 15,
+        "X": 18,
+        "2": 66
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "17:00",
+      "detalle": " domingo 26 jul 17:00h Estado de Forma (Últimos 6) Sandefjord Clasificación: #- V D E D E D Bodo-Glimt Clasificación: #- V E V V V V Análisis Sandefjord - Bodo-Glimt"
+    },
+    {
+      "num": 5,
+      "local": "KFUM Oslo",
+      "visitante": "Molde FK",
+      "fuerza_local": 1568.7,
+      "fuerza_visitante": 1614.8,
+      "historico": {
+        "total": "2",
+        "1": "0",
+        "X": "2",
+        "2": "0"
+      },
+      "sistema": "X",
+      "comunidad": "2",
+      "q15": {
+        "1": 19,
+        "X": 33,
+        "2": 48
+      },
+      "lae": {
+        "1": 29,
+        "X": 29,
+        "2": 42
+      },
+      "apu": {
+        "1": 31,
+        "X": 26,
+        "2": 43
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "17:00",
+      "detalle": " domingo 26 jul 17:00h Estado de Forma (Últimos 6) KFUM Oslo Clasificación: #- V E D D D D Molde FK Clasificación: #- V V D D E D Análisis KFUM Oslo - Molde FK"
+    },
+    {
+      "num": 6,
+      "local": "Aalesunds FK",
+      "visitante": "Viking",
+      "fuerza_local": 1600.2,
+      "fuerza_visitante": 1787.2,
+      "historico": {
+        "total": "4",
+        "1": "1",
+        "X": "1",
+        "2": "2"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 14,
+        "X": 13,
+        "2": 73
+      },
+      "lae": {
+        "1": 26,
+        "X": 21,
+        "2": 53
+      },
+      "apu": {
+        "1": 16,
+        "X": 20,
+        "2": 64
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "19:15",
+      "detalle": " domingo 26 jul 19:15h Estado de Forma (Últimos 6) Aalesunds FK Clasificación: #- V E E V E D Viking Clasificación: #- V V V E D V Análisis Aalesunds FK - Viking"
+    },
+    {
+      "num": 7,
+      "local": "Rosenborg",
+      "visitante": "Fredrikstad",
+      "fuerza_local": 1629.8,
+      "fuerza_visitante": 1608.9,
+      "historico": {
+        "total": "2",
+        "1": "1",
+        "X": "1",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 71,
+        "X": 17,
+        "2": 12
+      },
+      "lae": {
+        "1": 57,
+        "X": 25,
+        "2": 18
+      },
+      "apu": {
+        "1": 54,
+        "X": 25,
+        "2": 21
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-27",
+      "hora": "19:00",
+      "detalle": " lunes 27 jul 19:00h Estado de Forma (Últimos 6) Rosenborg Clasificación: #- D D E V V V Fredrikstad Clasificación: #- V E E D D D Análisis Rosenborg - Fredrikstad"
+    },
+    {
+      "num": 8,
+      "local": "Vasteras SK FK",
+      "visitante": "Orgryte IS",
+      "fuerza_local": 1610.2,
+      "fuerza_visitante": 1554.2,
+      "historico": {
+        "total": "5",
+        "1": "0",
+        "X": "4",
+        "2": "1"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 75,
+        "X": 16,
+        "2": 9
+      },
+      "lae": {
+        "1": 60,
+        "X": 23,
+        "2": 17
+      },
+      "apu": {
+        "1": 62,
+        "X": 21,
+        "2": 17
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-24",
+      "hora": "19:00",
+      "detalle": " viernes 24 jul 19:00h Estado de Forma (Últimos 6) Vasteras SK FK Clasificación: #- V D D V V E Orgryte IS Clasificación: #- D E D D V E Análisis Vasteras SK FK - Orgryte IS"
+    },
+    {
+      "num": 9,
+      "local": "Degerfors IF",
+      "visitante": "Djurgårdens",
+      "fuerza_local": 1555.6,
+      "fuerza_visitante": 1669.4,
+      "historico": {
+        "total": "5",
+        "1": "3",
+        "X": "2",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 16,
+        "X": 17,
+        "2": 67
+      },
+      "lae": {
+        "1": 28,
+        "X": 26,
+        "2": 46
+      },
+      "apu": {
+        "1": 21,
+        "X": 24,
+        "2": 55
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-25",
+      "hora": "15:00",
+      "detalle": " sábado 25 jul 15:00h Estado de Forma (Últimos 6) Degerfors IF Clasificación: #- D E V D D D Djurgårdens Clasificación: #- D D E V V E Análisis Degerfors IF - Djurgårdens"
+    },
+    {
+      "num": 10,
+      "local": "Kalmar FF",
+      "visitante": "Mjällby",
+      "fuerza_local": 1603.4,
+      "fuerza_visitante": 1731.4,
+      "historico": {
+        "total": "7",
+        "1": "2",
+        "X": "1",
+        "2": "4"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 27,
+        "X": 27,
+        "2": 46
+      },
+      "lae": {
+        "1": 40,
+        "X": 32,
+        "2": 28
+      },
+      "apu": {
+        "1": 41,
+        "X": 27,
+        "2": 32
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-25",
+      "hora": "17:30",
+      "detalle": " sábado 25 jul 17:30h Estado de Forma (Últimos 6) Kalmar FF Clasificación: #- D V V V D E Mjällby Clasificación: #- E D E D E V Análisis Kalmar FF - Mjällby"
+    },
+    {
+      "num": 11,
+      "local": "Sirius",
+      "visitante": "IFK Göteborg",
+      "fuerza_local": 1716.5,
+      "fuerza_visitante": 1609.7,
+      "historico": {
+        "total": "7",
+        "1": "2",
+        "X": "3",
+        "2": "2"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 72,
+        "X": 14,
+        "2": 14
+      },
+      "lae": {
+        "1": 59,
+        "X": 21,
+        "2": 20
+      },
+      "apu": {
+        "1": 62,
+        "X": 21,
+        "2": 17
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "14:00",
+      "detalle": " domingo 26 jul 14:00h Estado de Forma (Últimos 6) Sirius Clasificación: #- V V E E V V IFK Göteborg Clasificación: #- V D D D V D Análisis Sirius - IFK Göteborg"
+    },
+    {
+      "num": 12,
+      "local": "Brommapojkarna",
+      "visitante": "Hammarby",
+      "fuerza_local": 1575.2,
+      "fuerza_visitante": 1740.4,
+      "historico": {
+        "total": "5",
+        "1": "2",
+        "X": "0",
+        "2": "3"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 16,
+        "X": 16,
+        "2": 68
+      },
+      "lae": {
+        "1": 28,
+        "X": 25,
+        "2": 47
+      },
+      "apu": {
+        "1": 14,
+        "X": 20,
+        "2": 66
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "14:00",
+      "detalle": " domingo 26 jul 14:00h Estado de Forma (Últimos 6) Brommapojkarna Clasificación: #- V E D E D D Hammarby Clasificación: #- V V E V V V Análisis Brommapojkarna - Hammarby"
+    },
+    {
+      "num": 13,
+      "local": "GAIS Göteborg",
+      "visitante": "Halmstad",
+      "fuerza_local": 1684.1,
+      "fuerza_visitante": 1526.9,
+      "historico": {
+        "total": "6",
+        "1": "3",
+        "X": "2",
+        "2": "1"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 75,
+        "X": 13,
+        "2": 13
+      },
+      "lae": {
+        "1": 62,
+        "X": 21,
+        "2": 17
+      },
+      "apu": {
+        "1": 71,
+        "X": 19,
+        "2": 9
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "16:30",
+      "detalle": " domingo 26 jul 16:30h Estado de Forma (Últimos 6) GAIS Göteborg Clasificación: #- V E V E V D Halmstad Clasificación: #- D E E D D D Análisis GAIS Göteborg - Halmstad"
+    },
+    {
+      "num": 14,
+      "local": "Malmoe",
+      "visitante": "Elfsborg",
+      "fuerza_local": 1656.3,
+      "fuerza_visitante": 1590.1,
+      "historico": {
+        "total": "8",
+        "1": "6",
+        "X": "2",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 70,
+        "X": 18,
+        "2": 12
+      },
+      "lae": {
+        "1": 55,
+        "X": 26,
+        "2": 19
+      },
+      "apu": {
+        "1": 51,
+        "X": 25,
+        "2": 25
+      },
+      "marcadores_q15": [],
+      "fecha": "2026-07-26",
+      "hora": "16:30",
+      "detalle": " domingo 26 jul 16:30h Estado de Forma (Últimos 6) Malmoe Clasificación: #- D V E V V E Elfsborg Clasificación: #- E E E D D D Análisis Malmoe - Elfsborg"
+    },
+    {
+      "num": 15,
+      "local": "Häcken",
+      "visitante": "AIK",
+      "fuerza_local": 1708.3,
+      "fuerza_visitante": 1652.1,
+      "historico": {
+        "total": "10",
+        "1": "9",
+        "X": "1",
+        "2": "0"
+      },
+      "sistema": "M-0",
+      "comunidad": "2-1",
+      "q15": null,
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [
+        {
+          "score": "2-1",
+          "pct": 26
+        },
+        {
+          "score": "M-1",
+          "pct": 11
+        },
+        {
+          "score": "2-2",
+          "pct": 8
+        }
+      ],
+      "fecha": "2026-07-27",
+      "hora": "19:00",
+      "detalle": " lunes 27 jul 19:00h Estado de Forma (Últimos 6) Häcken Clasificación: #- V V D D D V AIK Clasificación: #- D V V V V V Análisis Häcken - AIK"
+    }
+  ]
+}

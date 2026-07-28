@@ -1,0 +1,97 @@
+{
+  "version": "motor_quinielistico_v3",
+  "master_model": {
+    "weights": {
+      "logit": 0.25,
+      "hgb": 0.25,
+      "market": 0.35,
+      "poisson": 0.15
+    },
+    "weight_candidates": [
+      {"logit": 0.35, "hgb": 0.0, "market": 0.45, "poisson": 0.20},
+      {"logit": 0.25, "hgb": 0.25, "market": 0.35, "poisson": 0.15},
+      {"logit": 0.30, "hgb": 0.20, "market": 0.30, "poisson": 0.20}
+    ],
+    "draw_boost": 0.0,
+    "segunda_draw_boost": 0.0,
+    "double_draw_weight": 0.70,
+    "double_disagreement_weight": 0.20,
+    "double_segunda_bonus": 0.05,
+    "double_draw_threshold": 0.30,
+    "x_disagreement_strategy": "none",
+    "draw_boost_candidates": [0.0],
+    "segunda_draw_boost_candidates": [0.0],
+    "double_draw_weight_candidates": [0.70, 0.85],
+    "double_disagreement_weight_candidates": [0.20],
+    "double_segunda_bonus_candidates": [0.0, 0.05],
+    "double_draw_threshold_candidates": [0.30],
+    "x_disagreement_strategy_candidates": ["none", "market_pick_only"],
+    "elo_base": 1500,
+    "elo_k_factor": 24,
+    "elo_home_advantage": 55,
+    "goal_per_sot": 0.30,
+    "hgb_learning_rate": 0.06,
+    "hgb_max_depth": 6,
+    "hgb_max_iter": 300,
+    "hgb_min_samples_leaf": 30
+  },
+  "decision": {
+    "weights": {
+      "market": 0.55,
+      "poisson": 0.25,
+      "elo": 0.20
+    },
+    "fallback_sources": {
+      "market_proxy_order": ["apu", "lae", "q15"],
+      "public_proxy": "q15"
+    },
+    "thresholds": {
+      "logical_fixed_prob": 0.60,
+      "favorite_overbet_value": -0.15,
+      "trap_public_favorite": 0.65,
+      "trap_market_favorite_max": 0.50,
+      "hidden_draw_market": 0.28,
+      "hidden_draw_public_max": 0.22,
+      "visitor_value_market": 0.23,
+      "visitor_value_public_max": 0.14,
+      "triple_min": 0.25,
+      "triple_max": 0.40
+    },
+    "risk_gap_points": {
+      "low": 0.25,
+      "medium": 0.15,
+      "high": 0.07
+    },
+    "manual_context_flags": [
+      "final_temporada",
+      "rotaciones",
+      "ascenso_descenso",
+      "amistoso",
+      "selecciones",
+      "bajas_clave"
+    ]
+  },
+  "columns": {
+    "price_per_column": 0.75,
+    "beam_size": 6000
+  },
+  "nordic_football_data": {
+    "enabled": false,
+    "leagues": ["Allsvenskan", "Eliteserien"],
+    "refresh_days": 3,
+    "use": "historical_diagnostic_only",
+    "reason": "Walk-forward 2023-2026: market 53.02% accuracy and 8.43/14 with three doubles; historical models and calibrated blends did not improve it"
+  },
+  "transition_factors": {
+    "misma_categoria": 1.0,
+    "segunda_a_primera": 0.78,
+    "primera_a_segunda": 1.12,
+    "primera_rfef_a_segunda": 0.70,
+    "filial_primera_rfef_a_segunda": 0.66,
+    "sin_muestra": null
+  },
+  "pleno15": {
+    "column_sign": "1X2 separado de marcador",
+    "buckets": ["0", "1", "2", "M"]
+  }
+}

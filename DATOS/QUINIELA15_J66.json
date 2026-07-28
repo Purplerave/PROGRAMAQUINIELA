@@ -1,0 +1,463 @@
+{
+  "jornada": 66,
+  "source_url": "https://www.quiniela15.com/pronostico-quiniela",
+  "scraped_at": "2026-06-01T20:30:51",
+  "cierre": "sábado 06 de junio a las 15:00",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Castellón",
+      "visitante": "Almería",
+      "fuerza_local": 0.0,
+      "fuerza_visitante": 0.0,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 53,
+        "X": 26,
+        "2": 21
+      },
+      "lae": {
+        "1": 45,
+        "X": 29,
+        "2": 26
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-07",
+      "hora": "21:00",
+      "detalle": "domingo 7 jun 21:00h Estado de Forma (?ltimos 6) Castellón - Almería"
+    },
+    {
+      "num": 2,
+      "local": "Las Palmas",
+      "visitante": "Málaga",
+      "fuerza_local": 0.0,
+      "fuerza_visitante": 0.0,
+      "historico": {
+        "total": "0",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 46,
+        "X": 34,
+        "2": 20
+      },
+      "lae": {
+        "1": 43,
+        "X": 31,
+        "2": 26
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-07",
+      "hora": "21:00",
+      "detalle": "domingo 7 jun 21:00h Estado de Forma (?ltimos 6) Las Palmas - Málaga"
+    },
+    {
+      "num": 3,
+      "local": "Bélgica",
+      "visitante": "Túnez",
+      "fuerza_local": 1641.5,
+      "fuerza_visitante": 1612.3,
+      "historico": {
+        "total": "1",
+        "1": "1",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 72,
+        "X": 17,
+        "2": 10
+      },
+      "lae": {
+        "1": 55,
+        "X": 25,
+        "2": 20
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-06",
+      "hora": "15:00",
+      "detalle": " sábado 6 jun 15:00h Estado de Forma (Últimos 6) Bélgica Clasificación: #- E V E V V E Túnez Clasificación: #- V D E E V E Análisis Bélgica - Túnez"
+    },
+    {
+      "num": 4,
+      "local": "Lituania",
+      "visitante": "Letonia",
+      "fuerza_local": 1328.7,
+      "fuerza_visitante": 1412.8,
+      "historico": {
+        "total": "1",
+        "1": "0",
+        "X": "1",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 20,
+        "X": 32,
+        "2": 48
+      },
+      "lae": {
+        "1": 43,
+        "X": 29,
+        "2": 28
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-06",
+      "hora": "15:00",
+      "detalle": " sábado 6 jun 15:00h Estado de Forma (Últimos 6) Lituania Clasificación: #- D D E D V D Letonia Clasificación: #- E D E D V V Análisis Lituania - Letonia"
+    },
+    {
+      "num": 5,
+      "local": "Estonia",
+      "visitante": "Islas Feroe",
+      "fuerza_local": 1386.2,
+      "fuerza_visitante": 1374.2,
+      "historico": {
+        "total": "2",
+        "1": "2",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 63,
+        "X": 23,
+        "2": 14
+      },
+      "lae": {
+        "1": 49,
+        "X": 27,
+        "2": 24
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-06",
+      "hora": "17:00",
+      "detalle": " sábado 6 jun 17:00h Estado de Forma (Últimos 6) Estonia Clasificación: #- D E D V E D Islas Feroe Clasificación: #- V V V D V V Análisis Estonia - Islas Feroe"
+    },
+    {
+      "num": 6,
+      "local": "Portugal",
+      "visitante": "Chile",
+      "fuerza_local": 1717.4,
+      "fuerza_visitante": 1527.1,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 73,
+        "X": 17,
+        "2": 10
+      },
+      "lae": {
+        "1": 55,
+        "X": 23,
+        "2": 22
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-06",
+      "hora": "19:45",
+      "detalle": " sábado 6 jun 19:45h Estado de Forma (Últimos 6) Portugal Clasificación: #- V E D V E V Chile Clasificación: #- E V V V V D Análisis Portugal - Chile"
+    },
+    {
+      "num": 7,
+      "local": "Rumanía",
+      "visitante": "Gales",
+      "fuerza_local": 1506.5,
+      "fuerza_visitante": 1554.9,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "X",
+      "comunidad": "X",
+      "q15": {
+        "1": 32,
+        "X": 38,
+        "2": 29
+      },
+      "lae": {
+        "1": 43,
+        "X": 28,
+        "2": 29
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-06",
+      "hora": "19:45",
+      "detalle": " sábado 6 jun 19:45h Estado de Forma (Últimos 6) Rumanía Clasificación: #- V V D V D D Gales Clasificación: #- D D D V V E Análisis Rumanía - Gales"
+    },
+    {
+      "num": 8,
+      "local": "Inglaterra",
+      "visitante": "Nueva Zelanda",
+      "fuerza_local": 1739.9,
+      "fuerza_visitante": 1474.0,
+      "historico": {
+        "total": "1",
+        "1": "0",
+        "X": "1",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 76,
+        "X": 13,
+        "2": 11
+      },
+      "lae": {
+        "1": 57,
+        "X": 22,
+        "2": 21
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-06",
+      "hora": "22:00",
+      "detalle": " sábado 6 jun 22:00h Estado de Forma (Últimos 6) Inglaterra Clasificación: #- V V V V E D Nueva Zelanda Clasificación: #- D E D D D V Análisis Inglaterra - Nueva Zelanda"
+    },
+    {
+      "num": 9,
+      "local": "Suiza",
+      "visitante": "Australia",
+      "fuerza_local": 1631.6,
+      "fuerza_visitante": 1637.0,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 72,
+        "X": 15,
+        "2": 13
+      },
+      "lae": {
+        "1": 51,
+        "X": 26,
+        "2": 23
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-06",
+      "hora": "21:00",
+      "detalle": " sábado 6 jun 21:00h Estado de Forma (Últimos 6) Suiza Clasificación: #- E V E D E V Australia Clasificación: #- D D D V V D Análisis Suiza - Australia"
+    },
+    {
+      "num": 10,
+      "local": "Bolivia",
+      "visitante": "Escocia",
+      "fuerza_local": 1435.8,
+      "fuerza_visitante": 1566.5,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 15,
+        "X": 21,
+        "2": 64
+      },
+      "lae": {
+        "1": 35,
+        "X": 29,
+        "2": 36
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-06",
+      "hora": "22:00",
+      "detalle": " sábado 6 jun 22:00h Estado de Forma (Últimos 6) Bolivia Clasificación: #- D E D V V D Escocia Clasificación: #- V D V D D V Análisis Bolivia - Escocia"
+    },
+    {
+      "num": 11,
+      "local": "Liechtenstein",
+      "visitante": "Chipre",
+      "fuerza_local": 1203.2,
+      "fuerza_visitante": 1337.1,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 16,
+        "X": 20,
+        "2": 64
+      },
+      "lae": {
+        "1": 35,
+        "X": 31,
+        "2": 34
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-07",
+      "hora": "15:00",
+      "detalle": " domingo 7 jun 15:00h Estado de Forma (Últimos 6) Liechtenstein Clasificación: #- D D D D V D Chipre Clasificación: #- E V D D D V Análisis Liechtenstein - Chipre"
+    },
+    {
+      "num": 12,
+      "local": "Dinamarca",
+      "visitante": "Ucrania",
+      "fuerza_local": 1641.0,
+      "fuerza_visitante": 1593.2,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 69,
+        "X": 19,
+        "2": 12
+      },
+      "lae": {
+        "1": 51,
+        "X": 28,
+        "2": 21
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-07",
+      "hora": "18:30",
+      "detalle": " domingo 7 jun 18:30h Estado de Forma (Últimos 6) Dinamarca Clasificación: #- V V V E D V Ucrania Clasificación: #- V D V D V V Análisis Dinamarca - Ucrania"
+    },
+    {
+      "num": 13,
+      "local": "Croacia",
+      "visitante": "Eslovenia",
+      "fuerza_local": 1665.3,
+      "fuerza_visitante": 1548.4,
+      "historico": {
+        "total": "2",
+        "1": "1",
+        "X": "1",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 76,
+        "X": 12,
+        "2": 12
+      },
+      "lae": {
+        "1": 52,
+        "X": 27,
+        "2": 21
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-07",
+      "hora": "20:45",
+      "detalle": " domingo 7 jun 20:45h Estado de Forma (Últimos 6) Croacia Clasificación: #- E V V V V D Eslovenia Clasificación: #- E E D E D V Análisis Croacia - Eslovenia"
+    },
+    {
+      "num": 14,
+      "local": "Marruecos",
+      "visitante": "Noruega",
+      "fuerza_local": 1752.4,
+      "fuerza_visitante": 1620.8,
+      "historico": {
+        "total": "0",
+        "1": "0",
+        "X": "0",
+        "2": "0"
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 54,
+        "X": 25,
+        "2": 21
+      },
+      "lae": {
+        "1": 46,
+        "X": 28,
+        "2": 26
+      },
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-06-07",
+      "hora": "21:00",
+      "detalle": " domingo 7 jun 21:00h Estado de Forma (Últimos 6) Marruecos Clasificación: #- V E V E V V Noruega Clasificación: #- V E V V D E Análisis Marruecos - Noruega"
+    },
+    {
+      "num": 15,
+      "local": "Grecia",
+      "visitante": "Italia",
+      "fuerza_local": 1575.0,
+      "fuerza_visitante": 1677.2,
+      "historico": {
+        "total": "2",
+        "1": "0",
+        "X": "1",
+        "2": "1"
+      },
+      "sistema": "0-M",
+      "comunidad": "1-2",
+      "q15": null,
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [
+        {
+          "score": "1-2",
+          "pct": 23
+        },
+        {
+          "score": "0-2",
+          "pct": 11
+        },
+        {
+          "score": "1-M",
+          "pct": 11
+        }
+      ],
+      "fecha": "2026-06-07",
+      "hora": "21:00",
+      "detalle": " domingo 7 jun 21:00h Estado de Forma (Últimos 6) Grecia Clasificación: #- D D V E D E Italia Clasificación: #- V V V V D V Análisis Grecia - Italia"
+    }
+  ]
+}

@@ -1,0 +1,2036 @@
+{
+  "season_target": "2026/27",
+  "generated_at": "2026-07-04",
+  "source": {
+    "type": "local_highlightly_dataset",
+    "path": "C:\\Users\\Mortadelo\\Desktop\\QUINIELAs\\PROGRAMA_QUINIELA\\DATOS\\highlightly_dataset\\highlightly_partidos_2023_2026.csv",
+    "season": "2025",
+    "leagues": [
+      "La Liga",
+      "Segunda Division",
+      "Segunda División"
+    ],
+    "note": "Base estadistica inicial antes de empezar 2026/27. No sustituye cuotas, lesiones ni mercado."
+  },
+  "comparability_model": {
+    "purpose": "Evitar comparar directamente equipos de categorias distintas.",
+    "transition_factors": {
+      "misma_categoria": 1.0,
+      "segunda_a_primera": 0.78,
+      "primera_a_segunda": 1.12,
+      "primera_rfef_a_segunda": 0.7,
+      "filial_primera_rfef_a_segunda": 0.66,
+      "sin_muestra": null
+    },
+    "warning": "Factores heurísticos iniciales. Deben calibrarse con backtest de ascendidos/descendidos."
+  },
+  "teams": {
+    "Athletic Club": {
+      "pj": 38,
+      "g": 13,
+      "e": 6,
+      "p": 19,
+      "gf": 43,
+      "gc": 58,
+      "dg": -15,
+      "pts": 45,
+      "home": {
+        "pj": 19,
+        "g": 9,
+        "e": 3,
+        "p": 7,
+        "gf": 22,
+        "gc": 21,
+        "pts": 30,
+        "ppg": 1.579
+      },
+      "away": {
+        "pj": 19,
+        "g": 4,
+        "e": 3,
+        "p": 12,
+        "gf": 21,
+        "gc": 37,
+        "pts": 15,
+        "ppg": 0.789
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.184,
+      "gf_per_match": 1.132,
+      "gc_per_match": 1.526,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.184,
+        "adjusted_ppg": 1.184,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Atletico de Madrid": {
+      "pj": 38,
+      "g": 21,
+      "e": 6,
+      "p": 11,
+      "gf": 62,
+      "gc": 44,
+      "dg": 18,
+      "pts": 69,
+      "home": {
+        "pj": 19,
+        "g": 15,
+        "e": 1,
+        "p": 3,
+        "gf": 39,
+        "gc": 17,
+        "pts": 46,
+        "ppg": 2.421
+      },
+      "away": {
+        "pj": 19,
+        "g": 6,
+        "e": 5,
+        "p": 8,
+        "gf": 23,
+        "gc": 27,
+        "pts": 23,
+        "ppg": 1.211
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.816,
+      "gf_per_match": 1.632,
+      "gc_per_match": 1.158,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.816,
+        "adjusted_ppg": 1.816,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "CA Osasuna": {
+      "pj": 38,
+      "g": 11,
+      "e": 9,
+      "p": 18,
+      "gf": 44,
+      "gc": 50,
+      "dg": -6,
+      "pts": 42,
+      "home": {
+        "pj": 19,
+        "g": 9,
+        "e": 5,
+        "p": 5,
+        "gf": 31,
+        "gc": 24,
+        "pts": 32,
+        "ppg": 1.684
+      },
+      "away": {
+        "pj": 19,
+        "g": 2,
+        "e": 4,
+        "p": 13,
+        "gf": 13,
+        "gc": 26,
+        "pts": 10,
+        "ppg": 0.526
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.105,
+      "gf_per_match": 1.158,
+      "gc_per_match": 1.316,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.105,
+        "adjusted_ppg": 1.105,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Deportivo Alaves": {
+      "pj": 38,
+      "g": 11,
+      "e": 10,
+      "p": 17,
+      "gf": 44,
+      "gc": 56,
+      "dg": -12,
+      "pts": 43,
+      "home": {
+        "pj": 19,
+        "g": 7,
+        "e": 6,
+        "p": 6,
+        "gf": 25,
+        "gc": 25,
+        "pts": 27,
+        "ppg": 1.421
+      },
+      "away": {
+        "pj": 19,
+        "g": 4,
+        "e": 4,
+        "p": 11,
+        "gf": 19,
+        "gc": 31,
+        "pts": 16,
+        "ppg": 0.842
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.132,
+      "gf_per_match": 1.158,
+      "gc_per_match": 1.474,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.132,
+        "adjusted_ppg": 1.132,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Elche CF": {
+      "pj": 38,
+      "g": 10,
+      "e": 13,
+      "p": 15,
+      "gf": 49,
+      "gc": 57,
+      "dg": -8,
+      "pts": 43,
+      "home": {
+        "pj": 19,
+        "g": 9,
+        "e": 8,
+        "p": 2,
+        "gf": 30,
+        "gc": 19,
+        "pts": 35,
+        "ppg": 1.842
+      },
+      "away": {
+        "pj": 19,
+        "g": 1,
+        "e": 5,
+        "p": 13,
+        "gf": 19,
+        "gc": 38,
+        "pts": 8,
+        "ppg": 0.421
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.132,
+      "gf_per_match": 1.289,
+      "gc_per_match": 1.5,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.132,
+        "adjusted_ppg": 1.132,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "FC Barcelona": {
+      "pj": 38,
+      "g": 31,
+      "e": 1,
+      "p": 6,
+      "gf": 95,
+      "gc": 36,
+      "dg": 59,
+      "pts": 94,
+      "home": {
+        "pj": 19,
+        "g": 19,
+        "e": 0,
+        "p": 0,
+        "gf": 57,
+        "gc": 10,
+        "pts": 57,
+        "ppg": 3.0
+      },
+      "away": {
+        "pj": 19,
+        "g": 12,
+        "e": 1,
+        "p": 6,
+        "gf": 38,
+        "gc": 26,
+        "pts": 37,
+        "ppg": 1.947
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 2.474,
+      "gf_per_match": 2.5,
+      "gc_per_match": 0.947,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 2.474,
+        "adjusted_ppg": 2.474,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Getafe CF": {
+      "pj": 38,
+      "g": 15,
+      "e": 6,
+      "p": 17,
+      "gf": 32,
+      "gc": 38,
+      "dg": -6,
+      "pts": 51,
+      "home": {
+        "pj": 19,
+        "g": 8,
+        "e": 3,
+        "p": 8,
+        "gf": 18,
+        "gc": 16,
+        "pts": 27,
+        "ppg": 1.421
+      },
+      "away": {
+        "pj": 19,
+        "g": 7,
+        "e": 3,
+        "p": 9,
+        "gf": 14,
+        "gc": 22,
+        "pts": 24,
+        "ppg": 1.263
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.342,
+      "gf_per_match": 0.842,
+      "gc_per_match": 1.0,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.342,
+        "adjusted_ppg": 1.342,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Levante UD": {
+      "pj": 38,
+      "g": 11,
+      "e": 9,
+      "p": 18,
+      "gf": 47,
+      "gc": 61,
+      "dg": -14,
+      "pts": 42,
+      "home": {
+        "pj": 19,
+        "g": 7,
+        "e": 5,
+        "p": 7,
+        "gf": 26,
+        "gc": 28,
+        "pts": 26,
+        "ppg": 1.368
+      },
+      "away": {
+        "pj": 19,
+        "g": 4,
+        "e": 4,
+        "p": 11,
+        "gf": 21,
+        "gc": 33,
+        "pts": 16,
+        "ppg": 0.842
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.105,
+      "gf_per_match": 1.237,
+      "gc_per_match": 1.605,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.105,
+        "adjusted_ppg": 1.105,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Malaga CF": {
+      "pj": 42,
+      "g": 21,
+      "e": 10,
+      "p": 11,
+      "gf": 75,
+      "gc": 52,
+      "dg": 23,
+      "pts": 73,
+      "home": {
+        "pj": 21,
+        "g": 12,
+        "e": 7,
+        "p": 2,
+        "gf": 42,
+        "gc": 24,
+        "pts": 43,
+        "ppg": 2.048
+      },
+      "away": {
+        "pj": 21,
+        "g": 9,
+        "e": 3,
+        "p": 9,
+        "gf": 33,
+        "gc": 28,
+        "pts": 30,
+        "ppg": 1.429
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.738,
+      "gf_per_match": 1.786,
+      "gc_per_match": 1.238,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "ascendido",
+        "source_main_league": "Segunda Division",
+        "transition": "segunda_a_primera",
+        "transition_factor": 0.78,
+        "raw_ppg": 1.738,
+        "adjusted_ppg": 1.356,
+        "confidence": "media",
+        "note": "Ascendido: los datos brutos vienen de Segunda y se rebajan para Primera."
+      }
+    },
+    "R. Racing Club": {
+      "pj": 42,
+      "g": 25,
+      "e": 7,
+      "p": 10,
+      "gf": 90,
+      "gc": 61,
+      "dg": 29,
+      "pts": 82,
+      "home": {
+        "pj": 21,
+        "g": 15,
+        "e": 2,
+        "p": 4,
+        "gf": 55,
+        "gc": 29,
+        "pts": 47,
+        "ppg": 2.238
+      },
+      "away": {
+        "pj": 21,
+        "g": 10,
+        "e": 5,
+        "p": 6,
+        "gf": 35,
+        "gc": 32,
+        "pts": 35,
+        "ppg": 1.667
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.952,
+      "gf_per_match": 2.143,
+      "gc_per_match": 1.452,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "ascendido",
+        "source_main_league": "Segunda Division",
+        "transition": "segunda_a_primera",
+        "transition_factor": 0.78,
+        "raw_ppg": 1.952,
+        "adjusted_ppg": 1.523,
+        "confidence": "media",
+        "note": "Ascendido: los datos brutos vienen de Segunda y se rebajan para Primera."
+      }
+    },
+    "Rayo Vallecano": {
+      "pj": 38,
+      "g": 12,
+      "e": 14,
+      "p": 12,
+      "gf": 41,
+      "gc": 44,
+      "dg": -3,
+      "pts": 50,
+      "home": {
+        "pj": 19,
+        "g": 7,
+        "e": 10,
+        "p": 2,
+        "gf": 24,
+        "gc": 15,
+        "pts": 31,
+        "ppg": 1.632
+      },
+      "away": {
+        "pj": 19,
+        "g": 5,
+        "e": 4,
+        "p": 10,
+        "gf": 17,
+        "gc": 29,
+        "pts": 19,
+        "ppg": 1.0
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.316,
+      "gf_per_match": 1.079,
+      "gc_per_match": 1.158,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.316,
+        "adjusted_ppg": 1.316,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "RC Celta": {
+      "pj": 38,
+      "g": 14,
+      "e": 12,
+      "p": 12,
+      "gf": 53,
+      "gc": 48,
+      "dg": 5,
+      "pts": 54,
+      "home": {
+        "pj": 19,
+        "g": 6,
+        "e": 5,
+        "p": 8,
+        "gf": 29,
+        "gc": 28,
+        "pts": 23,
+        "ppg": 1.211
+      },
+      "away": {
+        "pj": 19,
+        "g": 8,
+        "e": 7,
+        "p": 4,
+        "gf": 24,
+        "gc": 20,
+        "pts": 31,
+        "ppg": 1.632
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.421,
+      "gf_per_match": 1.395,
+      "gc_per_match": 1.263,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.421,
+        "adjusted_ppg": 1.421,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "RC Deportivo": {
+      "pj": 42,
+      "g": 22,
+      "e": 11,
+      "p": 9,
+      "gf": 65,
+      "gc": 44,
+      "dg": 21,
+      "pts": 77,
+      "home": {
+        "pj": 21,
+        "g": 11,
+        "e": 5,
+        "p": 5,
+        "gf": 31,
+        "gc": 22,
+        "pts": 38,
+        "ppg": 1.81
+      },
+      "away": {
+        "pj": 21,
+        "g": 11,
+        "e": 6,
+        "p": 4,
+        "gf": 34,
+        "gc": 22,
+        "pts": 39,
+        "ppg": 1.857
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.833,
+      "gf_per_match": 1.548,
+      "gc_per_match": 1.048,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "ascendido",
+        "source_main_league": "Segunda Division",
+        "transition": "segunda_a_primera",
+        "transition_factor": 0.78,
+        "raw_ppg": 1.833,
+        "adjusted_ppg": 1.43,
+        "confidence": "media",
+        "note": "Ascendido: los datos brutos vienen de Segunda y se rebajan para Primera."
+      }
+    },
+    "RCD Espanyol de Barcelona": {
+      "pj": 38,
+      "g": 12,
+      "e": 10,
+      "p": 16,
+      "gf": 43,
+      "gc": 55,
+      "dg": -12,
+      "pts": 46,
+      "home": {
+        "pj": 19,
+        "g": 7,
+        "e": 5,
+        "p": 7,
+        "gf": 21,
+        "gc": 24,
+        "pts": 26,
+        "ppg": 1.368
+      },
+      "away": {
+        "pj": 19,
+        "g": 5,
+        "e": 5,
+        "p": 9,
+        "gf": 22,
+        "gc": 31,
+        "pts": 20,
+        "ppg": 1.053
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.211,
+      "gf_per_match": 1.132,
+      "gc_per_match": 1.447,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.211,
+        "adjusted_ppg": 1.211,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Real Betis": {
+      "pj": 38,
+      "g": 15,
+      "e": 15,
+      "p": 8,
+      "gf": 59,
+      "gc": 48,
+      "dg": 11,
+      "pts": 60,
+      "home": {
+        "pj": 19,
+        "g": 10,
+        "e": 6,
+        "p": 3,
+        "gf": 34,
+        "gc": 19,
+        "pts": 36,
+        "ppg": 1.895
+      },
+      "away": {
+        "pj": 19,
+        "g": 5,
+        "e": 9,
+        "p": 5,
+        "gf": 25,
+        "gc": 29,
+        "pts": 24,
+        "ppg": 1.263
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.579,
+      "gf_per_match": 1.553,
+      "gc_per_match": 1.263,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.579,
+        "adjusted_ppg": 1.579,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Real Madrid": {
+      "pj": 38,
+      "g": 27,
+      "e": 5,
+      "p": 6,
+      "gf": 77,
+      "gc": 35,
+      "dg": 42,
+      "pts": 86,
+      "home": {
+        "pj": 19,
+        "g": 16,
+        "e": 1,
+        "p": 2,
+        "gf": 45,
+        "gc": 16,
+        "pts": 49,
+        "ppg": 2.579
+      },
+      "away": {
+        "pj": 19,
+        "g": 11,
+        "e": 4,
+        "p": 4,
+        "gf": 32,
+        "gc": 19,
+        "pts": 37,
+        "ppg": 1.947
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 2.263,
+      "gf_per_match": 2.026,
+      "gc_per_match": 0.921,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 2.263,
+        "adjusted_ppg": 2.263,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Real Sociedad": {
+      "pj": 38,
+      "g": 11,
+      "e": 13,
+      "p": 14,
+      "gf": 59,
+      "gc": 61,
+      "dg": -2,
+      "pts": 46,
+      "home": {
+        "pj": 19,
+        "g": 8,
+        "e": 5,
+        "p": 6,
+        "gf": 37,
+        "gc": 31,
+        "pts": 29,
+        "ppg": 1.526
+      },
+      "away": {
+        "pj": 19,
+        "g": 3,
+        "e": 8,
+        "p": 8,
+        "gf": 22,
+        "gc": 30,
+        "pts": 17,
+        "ppg": 0.895
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.211,
+      "gf_per_match": 1.553,
+      "gc_per_match": 1.605,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.211,
+        "adjusted_ppg": 1.211,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Sevilla FC": {
+      "pj": 38,
+      "g": 12,
+      "e": 7,
+      "p": 19,
+      "gf": 46,
+      "gc": 60,
+      "dg": -14,
+      "pts": 43,
+      "home": {
+        "pj": 19,
+        "g": 7,
+        "e": 4,
+        "p": 8,
+        "gf": 24,
+        "gc": 25,
+        "pts": 25,
+        "ppg": 1.316
+      },
+      "away": {
+        "pj": 19,
+        "g": 5,
+        "e": 3,
+        "p": 11,
+        "gf": 22,
+        "gc": 35,
+        "pts": 18,
+        "ppg": 0.947
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.132,
+      "gf_per_match": 1.211,
+      "gc_per_match": 1.579,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.132,
+        "adjusted_ppg": 1.132,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Valencia CF": {
+      "pj": 38,
+      "g": 13,
+      "e": 10,
+      "p": 15,
+      "gf": 46,
+      "gc": 55,
+      "dg": -9,
+      "pts": 49,
+      "home": {
+        "pj": 19,
+        "g": 8,
+        "e": 6,
+        "p": 5,
+        "gf": 27,
+        "gc": 23,
+        "pts": 30,
+        "ppg": 1.579
+      },
+      "away": {
+        "pj": 19,
+        "g": 5,
+        "e": 4,
+        "p": 10,
+        "gf": 19,
+        "gc": 32,
+        "pts": 19,
+        "ppg": 1.0
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.289,
+      "gf_per_match": 1.211,
+      "gc_per_match": 1.447,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.289,
+        "adjusted_ppg": 1.289,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Villarreal CF": {
+      "pj": 38,
+      "g": 22,
+      "e": 6,
+      "p": 10,
+      "gf": 72,
+      "gc": 46,
+      "dg": 26,
+      "pts": 72,
+      "home": {
+        "pj": 19,
+        "g": 15,
+        "e": 1,
+        "p": 3,
+        "gf": 48,
+        "gc": 19,
+        "pts": 46,
+        "ppg": 2.421
+      },
+      "away": {
+        "pj": 19,
+        "g": 7,
+        "e": 5,
+        "p": 7,
+        "gf": 24,
+        "gc": 27,
+        "pts": 26,
+        "ppg": 1.368
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.895,
+      "gf_per_match": 1.895,
+      "gc_per_match": 1.211,
+      "context": {
+        "target_competition": "La Liga",
+        "status_2026_27": "permanencia",
+        "source_main_league": "La Liga",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.895,
+        "adjusted_ppg": 1.895,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "AD Ceuta FC": {
+      "pj": 42,
+      "g": 17,
+      "e": 10,
+      "p": 15,
+      "gf": 51,
+      "gc": 63,
+      "dg": -12,
+      "pts": 61,
+      "home": {
+        "pj": 21,
+        "g": 12,
+        "e": 4,
+        "p": 5,
+        "gf": 28,
+        "gc": 23,
+        "pts": 40,
+        "ppg": 1.905
+      },
+      "away": {
+        "pj": 21,
+        "g": 5,
+        "e": 6,
+        "p": 10,
+        "gf": 23,
+        "gc": 40,
+        "pts": 21,
+        "ppg": 1.0
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.452,
+      "gf_per_match": 1.214,
+      "gc_per_match": 1.5,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.452,
+        "adjusted_ppg": 1.452,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Albacete BP": {
+      "pj": 42,
+      "g": 16,
+      "e": 11,
+      "p": 15,
+      "gf": 56,
+      "gc": 55,
+      "dg": 1,
+      "pts": 59,
+      "home": {
+        "pj": 21,
+        "g": 9,
+        "e": 4,
+        "p": 8,
+        "gf": 30,
+        "gc": 32,
+        "pts": 31,
+        "ppg": 1.476
+      },
+      "away": {
+        "pj": 21,
+        "g": 7,
+        "e": 7,
+        "p": 7,
+        "gf": 26,
+        "gc": 23,
+        "pts": 28,
+        "ppg": 1.333
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.405,
+      "gf_per_match": 1.333,
+      "gc_per_match": 1.31,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.405,
+        "adjusted_ppg": 1.405,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Burgos CF": {
+      "pj": 42,
+      "g": 20,
+      "e": 12,
+      "p": 10,
+      "gf": 48,
+      "gc": 33,
+      "dg": 15,
+      "pts": 72,
+      "home": {
+        "pj": 21,
+        "g": 10,
+        "e": 8,
+        "p": 3,
+        "gf": 25,
+        "gc": 12,
+        "pts": 38,
+        "ppg": 1.81
+      },
+      "away": {
+        "pj": 21,
+        "g": 10,
+        "e": 4,
+        "p": 7,
+        "gf": 23,
+        "gc": 21,
+        "pts": 34,
+        "ppg": 1.619
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.714,
+      "gf_per_match": 1.143,
+      "gc_per_match": 0.786,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.714,
+        "adjusted_ppg": 1.714,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Cadiz CF": {
+      "pj": 42,
+      "g": 11,
+      "e": 10,
+      "p": 21,
+      "gf": 41,
+      "gc": 61,
+      "dg": -20,
+      "pts": 43,
+      "home": {
+        "pj": 21,
+        "g": 7,
+        "e": 2,
+        "p": 12,
+        "gf": 21,
+        "gc": 28,
+        "pts": 23,
+        "ppg": 1.095
+      },
+      "away": {
+        "pj": 21,
+        "g": 4,
+        "e": 8,
+        "p": 9,
+        "gf": 20,
+        "gc": 33,
+        "pts": 20,
+        "ppg": 0.952
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.024,
+      "gf_per_match": 0.976,
+      "gc_per_match": 1.452,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.024,
+        "adjusted_ppg": 1.024,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "CD Castellon": {
+      "pj": 42,
+      "g": 20,
+      "e": 12,
+      "p": 10,
+      "gf": 70,
+      "gc": 51,
+      "dg": 19,
+      "pts": 72,
+      "home": {
+        "pj": 21,
+        "g": 13,
+        "e": 4,
+        "p": 4,
+        "gf": 42,
+        "gc": 25,
+        "pts": 43,
+        "ppg": 2.048
+      },
+      "away": {
+        "pj": 21,
+        "g": 7,
+        "e": 8,
+        "p": 6,
+        "gf": 28,
+        "gc": 26,
+        "pts": 29,
+        "ppg": 1.381
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.714,
+      "gf_per_match": 1.667,
+      "gc_per_match": 1.214,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.714,
+        "adjusted_ppg": 1.714,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "CD Eldense": {
+      "pj": 38,
+      "g": 19,
+      "e": 12,
+      "p": 7,
+      "gf": 57,
+      "gc": 39,
+      "dg": 18,
+      "pts": 69,
+      "home": {
+        "pj": null,
+        "g": null,
+        "e": null,
+        "p": null,
+        "gf": null,
+        "gc": null,
+        "pts": null,
+        "ppg": null
+      },
+      "away": {
+        "pj": null,
+        "g": null,
+        "e": null,
+        "p": null,
+        "gf": null,
+        "gc": null,
+        "pts": null,
+        "ppg": null
+      },
+      "source_leagues": {
+        "Primera RFEF Grupo II": 38
+      },
+      "ppg": 1.816,
+      "gf_per_match": 1.5,
+      "gc_per_match": 1.026,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "ascendido_primera_rfef",
+        "source_main_league": "Primera RFEF Grupo II",
+        "transition": "primera_rfef_a_segunda",
+        "transition_factor": 0.7,
+        "raw_ppg": 1.816,
+        "adjusted_ppg": 1.271,
+        "confidence": "media_baja",
+        "note": "Tabla 2025/26 Primera RFEF Grupo II: 38 PJ, 19-12-7, 57:39, 69 pts. Ajustado por salto Primera RFEF -> Segunda; local/visitante pendiente."
+      }
+    },
+    "CD Leganes": {
+      "pj": 42,
+      "g": 11,
+      "e": 13,
+      "p": 18,
+      "gf": 43,
+      "gc": 51,
+      "dg": -8,
+      "pts": 46,
+      "home": {
+        "pj": 21,
+        "g": 7,
+        "e": 6,
+        "p": 8,
+        "gf": 23,
+        "gc": 23,
+        "pts": 27,
+        "ppg": 1.286
+      },
+      "away": {
+        "pj": 21,
+        "g": 4,
+        "e": 7,
+        "p": 10,
+        "gf": 20,
+        "gc": 28,
+        "pts": 19,
+        "ppg": 0.905
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.095,
+      "gf_per_match": 1.024,
+      "gc_per_match": 1.214,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.095,
+        "adjusted_ppg": 1.095,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "CD Tenerife": {
+      "pj": 38,
+      "g": 22,
+      "e": 10,
+      "p": 6,
+      "gf": 62,
+      "gc": 24,
+      "dg": 38,
+      "pts": 76,
+      "home": {
+        "pj": null,
+        "g": null,
+        "e": null,
+        "p": null,
+        "gf": null,
+        "gc": null,
+        "pts": null,
+        "ppg": null
+      },
+      "away": {
+        "pj": null,
+        "g": null,
+        "e": null,
+        "p": null,
+        "gf": null,
+        "gc": null,
+        "pts": null,
+        "ppg": null
+      },
+      "source_leagues": {
+        "Primera RFEF Grupo I": 38
+      },
+      "ppg": 2.0,
+      "gf_per_match": 1.632,
+      "gc_per_match": 0.632,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "ascendido_primera_rfef",
+        "source_main_league": "Primera RFEF Grupo I",
+        "transition": "primera_rfef_a_segunda",
+        "transition_factor": 0.7,
+        "raw_ppg": 2.0,
+        "adjusted_ppg": 1.4,
+        "confidence": "media_baja",
+        "note": "Tabla 2025/26 Primera RFEF Grupo I: 38 PJ, 22-10-6, 62:24, 76 pts. Ajustado por salto Primera RFEF -> Segunda; local/visitante pendiente."
+      }
+    },
+    "CE Sabadell": {
+      "pj": 38,
+      "g": 18,
+      "e": 14,
+      "p": 6,
+      "gf": 53,
+      "gc": 27,
+      "dg": 26,
+      "pts": 68,
+      "home": {
+        "pj": null,
+        "g": null,
+        "e": null,
+        "p": null,
+        "gf": null,
+        "gc": null,
+        "pts": null,
+        "ppg": null
+      },
+      "away": {
+        "pj": null,
+        "g": null,
+        "e": null,
+        "p": null,
+        "gf": null,
+        "gc": null,
+        "pts": null,
+        "ppg": null
+      },
+      "source_leagues": {
+        "Primera RFEF Grupo II": 38
+      },
+      "ppg": 1.789,
+      "gf_per_match": 1.395,
+      "gc_per_match": 0.711,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "ascendido_primera_rfef",
+        "source_main_league": "Primera RFEF Grupo II",
+        "transition": "primera_rfef_a_segunda",
+        "transition_factor": 0.7,
+        "raw_ppg": 1.789,
+        "adjusted_ppg": 1.252,
+        "confidence": "media_baja",
+        "note": "Tabla 2025/26 Primera RFEF Grupo II: 38 PJ, 18-14-6, 53:27, 68 pts. Ajustado por salto Primera RFEF -> Segunda; local/visitante pendiente."
+      }
+    },
+    "Cordoba CF": {
+      "pj": 42,
+      "g": 17,
+      "e": 10,
+      "p": 15,
+      "gf": 57,
+      "gc": 61,
+      "dg": -4,
+      "pts": 61,
+      "home": {
+        "pj": 21,
+        "g": 9,
+        "e": 5,
+        "p": 7,
+        "gf": 28,
+        "gc": 28,
+        "pts": 32,
+        "ppg": 1.524
+      },
+      "away": {
+        "pj": 21,
+        "g": 8,
+        "e": 5,
+        "p": 8,
+        "gf": 29,
+        "gc": 33,
+        "pts": 29,
+        "ppg": 1.381
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.452,
+      "gf_per_match": 1.357,
+      "gc_per_match": 1.452,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.452,
+        "adjusted_ppg": 1.452,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "FC Andorra": {
+      "pj": 42,
+      "g": 16,
+      "e": 10,
+      "p": 16,
+      "gf": 62,
+      "gc": 54,
+      "dg": 8,
+      "pts": 58,
+      "home": {
+        "pj": 21,
+        "g": 8,
+        "e": 6,
+        "p": 7,
+        "gf": 31,
+        "gc": 25,
+        "pts": 30,
+        "ppg": 1.429
+      },
+      "away": {
+        "pj": 21,
+        "g": 8,
+        "e": 4,
+        "p": 9,
+        "gf": 31,
+        "gc": 29,
+        "pts": 28,
+        "ppg": 1.333
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.381,
+      "gf_per_match": 1.476,
+      "gc_per_match": 1.286,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.381,
+        "adjusted_ppg": 1.381,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Girona FC": {
+      "pj": 38,
+      "g": 9,
+      "e": 14,
+      "p": 15,
+      "gf": 39,
+      "gc": 55,
+      "dg": -16,
+      "pts": 41,
+      "home": {
+        "pj": 19,
+        "g": 6,
+        "e": 6,
+        "p": 7,
+        "gf": 21,
+        "gc": 27,
+        "pts": 24,
+        "ppg": 1.263
+      },
+      "away": {
+        "pj": 19,
+        "g": 3,
+        "e": 8,
+        "p": 8,
+        "gf": 18,
+        "gc": 28,
+        "pts": 17,
+        "ppg": 0.895
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.079,
+      "gf_per_match": 1.026,
+      "gc_per_match": 1.447,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "descendido",
+        "source_main_league": "La Liga",
+        "transition": "primera_a_segunda",
+        "transition_factor": 1.12,
+        "raw_ppg": 1.079,
+        "adjusted_ppg": 1.208,
+        "confidence": "media",
+        "note": "Descendido: los datos brutos vienen de Primera y se recontextualizan para Segunda."
+      }
+    },
+    "Granada CF": {
+      "pj": 42,
+      "g": 12,
+      "e": 12,
+      "p": 18,
+      "gf": 50,
+      "gc": 56,
+      "dg": -6,
+      "pts": 48,
+      "home": {
+        "pj": 21,
+        "g": 6,
+        "e": 8,
+        "p": 7,
+        "gf": 28,
+        "gc": 25,
+        "pts": 26,
+        "ppg": 1.238
+      },
+      "away": {
+        "pj": 21,
+        "g": 6,
+        "e": 4,
+        "p": 11,
+        "gf": 22,
+        "gc": 31,
+        "pts": 22,
+        "ppg": 1.048
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.143,
+      "gf_per_match": 1.19,
+      "gc_per_match": 1.333,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.143,
+        "adjusted_ppg": 1.143,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "R. Sociedad B": {
+      "pj": 42,
+      "g": 12,
+      "e": 11,
+      "p": 19,
+      "gf": 52,
+      "gc": 61,
+      "dg": -9,
+      "pts": 47,
+      "home": {
+        "pj": 21,
+        "g": 7,
+        "e": 8,
+        "p": 6,
+        "gf": 29,
+        "gc": 27,
+        "pts": 29,
+        "ppg": 1.381
+      },
+      "away": {
+        "pj": 21,
+        "g": 5,
+        "e": 3,
+        "p": 13,
+        "gf": 23,
+        "gc": 34,
+        "pts": 18,
+        "ppg": 0.857
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.119,
+      "gf_per_match": 1.238,
+      "gc_per_match": 1.452,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia_filial",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.119,
+        "adjusted_ppg": 1.119,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "RC Celta Fortuna": {
+      "pj": 38,
+      "g": 18,
+      "e": 11,
+      "p": 9,
+      "gf": 61,
+      "gc": 48,
+      "dg": 13,
+      "pts": 65,
+      "home": {
+        "pj": null,
+        "g": null,
+        "e": null,
+        "p": null,
+        "gf": null,
+        "gc": null,
+        "pts": null,
+        "ppg": null
+      },
+      "away": {
+        "pj": null,
+        "g": null,
+        "e": null,
+        "p": null,
+        "gf": null,
+        "gc": null,
+        "pts": null,
+        "ppg": null
+      },
+      "source_leagues": {
+        "Primera RFEF Grupo I": 38
+      },
+      "ppg": 1.711,
+      "gf_per_match": 1.605,
+      "gc_per_match": 1.263,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "ascendido_primera_rfef_filial",
+        "source_main_league": "Primera RFEF Grupo I",
+        "transition": "filial_primera_rfef_a_segunda",
+        "transition_factor": 0.66,
+        "raw_ppg": 1.711,
+        "adjusted_ppg": 1.129,
+        "confidence": "media_baja",
+        "note": "Tabla 2025/26 Primera RFEF Grupo I: 38 PJ, 18-11-9, 61:48, 65 pts. Ajustado por salto Primera RFEF -> Segunda; local/visitante pendiente."
+      }
+    },
+    "RCD Mallorca": {
+      "pj": 38,
+      "g": 11,
+      "e": 9,
+      "p": 18,
+      "gf": 47,
+      "gc": 57,
+      "dg": -10,
+      "pts": 42,
+      "home": {
+        "pj": 19,
+        "g": 9,
+        "e": 6,
+        "p": 4,
+        "gf": 31,
+        "gc": 21,
+        "pts": 33,
+        "ppg": 1.737
+      },
+      "away": {
+        "pj": 19,
+        "g": 2,
+        "e": 3,
+        "p": 14,
+        "gf": 16,
+        "gc": 36,
+        "pts": 9,
+        "ppg": 0.474
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 1.105,
+      "gf_per_match": 1.237,
+      "gc_per_match": 1.5,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "descendido",
+        "source_main_league": "La Liga",
+        "transition": "primera_a_segunda",
+        "transition_factor": 1.12,
+        "raw_ppg": 1.105,
+        "adjusted_ppg": 1.238,
+        "confidence": "media",
+        "note": "Descendido: los datos brutos vienen de Primera y se recontextualizan para Segunda."
+      }
+    },
+    "Real Oviedo": {
+      "pj": 38,
+      "g": 6,
+      "e": 11,
+      "p": 21,
+      "gf": 26,
+      "gc": 60,
+      "dg": -34,
+      "pts": 29,
+      "home": {
+        "pj": 19,
+        "g": 4,
+        "e": 7,
+        "p": 8,
+        "gf": 9,
+        "gc": 18,
+        "pts": 19,
+        "ppg": 1.0
+      },
+      "away": {
+        "pj": 19,
+        "g": 2,
+        "e": 4,
+        "p": 13,
+        "gf": 17,
+        "gc": 42,
+        "pts": 10,
+        "ppg": 0.526
+      },
+      "source_leagues": {
+        "La Liga": 38
+      },
+      "ppg": 0.763,
+      "gf_per_match": 0.684,
+      "gc_per_match": 1.579,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "descendido",
+        "source_main_league": "La Liga",
+        "transition": "primera_a_segunda",
+        "transition_factor": 1.12,
+        "raw_ppg": 0.763,
+        "adjusted_ppg": 0.855,
+        "confidence": "media",
+        "note": "Descendido: los datos brutos vienen de Primera y se recontextualizan para Segunda."
+      }
+    },
+    "Real Sporting": {
+      "pj": 42,
+      "g": 18,
+      "e": 7,
+      "p": 17,
+      "gf": 60,
+      "gc": 54,
+      "dg": 6,
+      "pts": 61,
+      "home": {
+        "pj": 21,
+        "g": 11,
+        "e": 6,
+        "p": 4,
+        "gf": 35,
+        "gc": 22,
+        "pts": 39,
+        "ppg": 1.857
+      },
+      "away": {
+        "pj": 21,
+        "g": 7,
+        "e": 1,
+        "p": 13,
+        "gf": 25,
+        "gc": 32,
+        "pts": 22,
+        "ppg": 1.048
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.452,
+      "gf_per_match": 1.429,
+      "gc_per_match": 1.286,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.452,
+        "adjusted_ppg": 1.452,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "Real Valladolid CF": {
+      "pj": 42,
+      "g": 12,
+      "e": 10,
+      "p": 20,
+      "gf": 44,
+      "gc": 57,
+      "dg": -13,
+      "pts": 46,
+      "home": {
+        "pj": 21,
+        "g": 8,
+        "e": 5,
+        "p": 8,
+        "gf": 23,
+        "gc": 21,
+        "pts": 29,
+        "ppg": 1.381
+      },
+      "away": {
+        "pj": 21,
+        "g": 4,
+        "e": 5,
+        "p": 12,
+        "gf": 21,
+        "gc": 36,
+        "pts": 17,
+        "ppg": 0.81
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.095,
+      "gf_per_match": 1.048,
+      "gc_per_match": 1.357,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.095,
+        "adjusted_ppg": 1.095,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "SD Eibar": {
+      "pj": 42,
+      "g": 19,
+      "e": 10,
+      "p": 13,
+      "gf": 52,
+      "gc": 40,
+      "dg": 12,
+      "pts": 67,
+      "home": {
+        "pj": 21,
+        "g": 14,
+        "e": 4,
+        "p": 3,
+        "gf": 37,
+        "gc": 17,
+        "pts": 46,
+        "ppg": 2.19
+      },
+      "away": {
+        "pj": 21,
+        "g": 5,
+        "e": 6,
+        "p": 10,
+        "gf": 15,
+        "gc": 23,
+        "pts": 21,
+        "ppg": 1.0
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.595,
+      "gf_per_match": 1.238,
+      "gc_per_match": 0.952,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.595,
+        "adjusted_ppg": 1.595,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "UD Almeria": {
+      "pj": 42,
+      "g": 22,
+      "e": 8,
+      "p": 12,
+      "gf": 81,
+      "gc": 63,
+      "dg": 18,
+      "pts": 74,
+      "home": {
+        "pj": 21,
+        "g": 15,
+        "e": 2,
+        "p": 4,
+        "gf": 52,
+        "gc": 30,
+        "pts": 47,
+        "ppg": 2.238
+      },
+      "away": {
+        "pj": 21,
+        "g": 7,
+        "e": 6,
+        "p": 8,
+        "gf": 29,
+        "gc": 33,
+        "pts": 27,
+        "ppg": 1.286
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.762,
+      "gf_per_match": 1.929,
+      "gc_per_match": 1.5,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.762,
+        "adjusted_ppg": 1.762,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    },
+    "UD Las Palmas": {
+      "pj": 42,
+      "g": 20,
+      "e": 13,
+      "p": 9,
+      "gf": 57,
+      "gc": 40,
+      "dg": 17,
+      "pts": 73,
+      "home": {
+        "pj": 21,
+        "g": 12,
+        "e": 6,
+        "p": 3,
+        "gf": 33,
+        "gc": 14,
+        "pts": 42,
+        "ppg": 2.0
+      },
+      "away": {
+        "pj": 21,
+        "g": 8,
+        "e": 7,
+        "p": 6,
+        "gf": 24,
+        "gc": 26,
+        "pts": 31,
+        "ppg": 1.476
+      },
+      "source_leagues": {
+        "Segunda Division": 42
+      },
+      "ppg": 1.738,
+      "gf_per_match": 1.357,
+      "gc_per_match": 0.952,
+      "context": {
+        "target_competition": "Segunda Division",
+        "status_2026_27": "permanencia",
+        "source_main_league": "Segunda Division",
+        "transition": "misma_categoria",
+        "transition_factor": 1.0,
+        "raw_ppg": 1.738,
+        "adjusted_ppg": 1.738,
+        "confidence": "alta",
+        "note": "Comparable de forma directa con equipos de la misma categoria."
+      }
+    }
+  },
+  "missing_or_partial": [],
+  "missing_data_strategy": {
+    "status": "agregados_primera_rfef_cargados_home_away_pendiente",
+    "teams": [
+      "CD Eldense",
+      "CD Tenerife",
+      "CE Sabadell",
+      "RC Celta Fortuna"
+    ],
+    "rules": [
+      "Usar agregados 2025/26 de Primera RFEF con confianza media_baja.",
+      "No inventar splits local/visitante hasta tener fuente fiable.",
+      "Aplicar factor de transicion antes de comparar con Segunda.",
+      "Mantener alerta de baja confianza en partidos con estos equipos hasta tener muestra 2026/27."
+    ],
+    "sources": [
+      {
+        "name": "365Scores Primera Division RFEF 2025/2026 standings",
+        "url": "https://www.365scores.com/en-us/football/league/primera-division-rfef-7865/standings",
+        "used_for": "Grupo I y Grupo II: Tenerife, Celta Fortuna, Eldense, Sabadell"
+      },
+      {
+        "name": "Transfermarkt Primera Federacion Grupo II 25/26 table",
+        "url": "https://www.transfermarkt.us/primera-division-r-f-e-f-grupo-ii/tabelle/wettbewerb/E3G2/saison_id/2025",
+        "used_for": "Contraste Grupo II: Eldense y Sabadell"
+      },
+      {
+        "name": "RC Celta - Celta Fortuna league table",
+        "url": "https://rccelta.es/en/equipos/celta-fortuna/clasificacion/?par=61447",
+        "used_for": "Contraste Grupo I: Tenerife y Celta Fortuna"
+      }
+    ]
+  }
+}
