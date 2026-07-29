@@ -7,13 +7,6 @@ salidas de ``salida/`` a ``salida/comparativa/<original|saneado>/``):
         --base salida/comparativa
 
 El script es de solo lectura sobre esos artefactos: no reentrena modelos, no
-<<<<<<< HEAD
-usa información futura y no modifica datos. Recalcula Log Loss y Brier Score
-(multiclase, rango 0-2) sobre las probabilidades guardadas por el motor,
-reconstruye los aciertos con 3 dobles ticket a ticket con la configuración
-ganadora de cada ejecución, y añade pruebas emparejadas (McNemar exacto y
-bootstrap emparejado con semilla fija) para valorar la significación.
-=======
 usa información futura y no modifica datos. Lee los artefactos de las dos
 fuentes, recalcula Log Loss y Brier Score (multiclase, rango 0-2) sobre las
 probabilidades guardadas por el motor, reconstruye los aciertos con 3 dobles
@@ -22,7 +15,6 @@ ambas fuentes) y mantiene aparte, como información secundaria, qué
 configuración habría seleccionado cada ejecución. Añade pruebas emparejadas
 (McNemar exacto y bootstrap emparejado con semilla fija) para valorar la
 significación y escribe únicamente `comparacion_metricas.json`.
->>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
 """
 
 import argparse
@@ -131,9 +123,6 @@ def comparar_backtest(base: Path, spec: dict) -> dict:
     orden_s = frames["saneado"].sort_values(claves[:4]).reset_index(drop=True)[claves]
     assert orden_o.equals(orden_s), f"{spec['nombre']}: los partidos de test no coinciden"
 
-<<<<<<< HEAD
-    resumen = {"configuracion_ganadora": configs, "partidos_test_identicos": True}
-=======
     # Configuración fija para los 3 dobles: la del histórico original (referencia).
     # Se mantiene aparte qué habría seleccionado cada ejecución (secundario).
     config_fija_dobles = configs["original"]
@@ -142,31 +131,31 @@ def comparar_backtest(base: Path, spec: dict) -> dict:
         "config_dobles_fija": config_fija_dobles,
         "partidos_test_identicos": True,
     }
->>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
     for fuente in ("original", "saneado"):
         frame, prefijo = frames[fuente], spec["prefijo"]
         calculado = metricas_probabilisticas(frame, prefijo)
         calculado["divisiones"] = bloque_divisiones(frame, prefijo)
-<<<<<<< HEAD
-        tickets = dobles_por_ticket(frame, prefijo, configs[fuente])
-=======
         # 3 dobles con la misma configuración fija (referencia original)
         tickets = dobles_por_ticket(frame, prefijo, config_fija_dobles)
->>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
         calculado["media_aciertos_3_dobles"] = float(tickets.mean())
+        tickets_config_ganadora = dobles_por_ticket(
+            frame, prefijo, configs[fuente]
+        )
+        calculado["media_aciertos_3_dobles_config_ganadora"] = float(
+            tickets_config_ganadora.mean()
+        )
         # Contraste cruzado: el recalculo debe reproducir las métricas del motor.
         guardado = metricas_json[fuente][spec["modelo"]]
         assert abs(calculado["accuracy_simple"] - guardado["accuracy_simple"]) < 1e-9
         if guardado["mean_hits_3_dobles"] is not None:
-            assert abs(calculado["media_aciertos_3_dobles"] - guardado["mean_hits_3_dobles"]) < 1e-9
+            assert abs(
+                calculado["media_aciertos_3_dobles_config_ganadora"]
+                - guardado["mean_hits_3_dobles"]
+            ) < 1e-9
         resumen[fuente] = calculado
-<<<<<<< HEAD
-        resumen[f"{fuente}_tickets"] = tickets
-=======
         resumen[f"{fuente}_tickets"] = tickets  # con config fija original
         # Configuración ganadora secundaria (información aparte)
         resumen[f"{fuente}_config_ganadora"] = configs[fuente]
->>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
 
     # Cambios de predicción y pruebas emparejadas (original - saneado).
     alineado = (
