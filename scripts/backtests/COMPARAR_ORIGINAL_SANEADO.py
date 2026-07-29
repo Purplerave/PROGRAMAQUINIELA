@@ -204,7 +204,11 @@ def main() -> None:
     resultado = {"backtests": {}, "tiempos_ejecucion_seg": {}}
     for fuente in ("original", "saneado"):
         fichero = base / fuente / "tiempo_ejecucion_seg.txt"
-        tiempo = float(fichero.read_text().strip()) if fichero.is_file() else None
+        tiempo = (
+            float(fichero.read_text().strip().replace(",", "."))
+            if fichero.is_file()
+            else None
+        )
         resultado["tiempos_ejecucion_seg"][fuente] = tiempo
 
     for spec in BACKTESTS:

@@ -1,5 +1,27 @@
 # REVISIÓN 05: comparación científica del motor — histórico original vs histórico saneado
 
+## Actualización tras cerrar 2025-26
+
+La comparación se repitió después de completar la temporada 2025-26 con
+842 partidos. Ambas fuentes usan ahora 13.446 partidos y el mismo protocolo.
+
+| Backtest | Original | Saneado | Diferencia |
+|---|---:|---:|---:|
+| Principal, acierto simple | 51,2268 % | 50,8922 % | -0,3346 pp |
+| Principal, 3 dobles | 8,5810 | 8,5419 | -0,0391 |
+| 2025-26, acierto simple | 50,3563 % | 50,5938 % | +0,2375 pp |
+| 2025-26, 3 dobles | 8,3036 | 8,4643 | +0,1607 |
+| 2024-25, acierto simple | 52,3753 % | 52,3753 % | 0 |
+
+En el test principal el original conserva ventaja, aunque McNemar no alcanza
+significación convencional (`p=0,0931`). El saneado mejora ligeramente la
+última temporada (`p=0,7744`), también sin evidencia suficiente.
+
+**Decisión:** mantener el histórico original como fuente predeterminada. El
+saneado continúa como artefacto de control y trazabilidad, no como sustituto.
+
+## Comparación inicial
+
 Fecha de ejecución: 2026-07-29. Punto de partida: `main` actualizado (`4d44147`),
 con la tarea de conexión del histórico saneado ya fusionada. Alcance: comparar el
 rendimiento del motor usando como única variable la fuente histórica
