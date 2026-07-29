@@ -141,9 +141,6 @@ def build_missing_rows() -> list[dict[str, object]]:
         })
 
     rows.sort(key=lambda item: (str(item["date"]), str(item["division"]), str(item["home"])))
-    counts = pd.Series([row["division"] for row in rows]).value_counts().to_dict()
-    if counts != {"Segunda": 88, "Primera": 80}:
-        raise ValueError(f"Conteo inesperado de ausentes: {counts}")
     return rows
 
 
@@ -166,8 +163,14 @@ def main() -> int:
     parser.add_argument("--confirm", action="store_true", help="escribe el CSV de salida")
     args = parser.parse_args()
     rows = build_missing_rows()
-    counts = pd.Series([row["division"] for row in rows]).value_counts()
-    print(f"Ausentes: {len(rows)} | Primera: {counts['Primera']} | Segunda: {counts['Segunda']}")
+    counts = pd.Series([row["division"] for row in rows]).value_counts().to_dict()
+    print(
+        f"Ausentes: {len(rows)} | Primera: {counts.get('Primera', 0)} | "
+        f"Segunda: {counts.get('Segunda', 0)}"
+    )
+    if not rows:
+        print("El historico 2025-26 ya esta completo; no hay artefacto que generar.")
+        return 0
     if not args.confirm:
         print("No se ha escrito ningun archivo. Use --confirm para generarlo.")
         return 0

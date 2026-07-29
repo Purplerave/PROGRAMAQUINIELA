@@ -5,19 +5,15 @@ import pytest
 from scripts.datos import PREPARAR_AUSENTES_2025_26 as missing
 
 
-def test_builds_exact_missing_counts():
+def test_completed_history_has_no_missing_matches():
     rows = missing.build_missing_rows()
-    assert len(rows) == 168
-    assert sum(row["division"] == "Primera" for row in rows) == 80
-    assert sum(row["division"] == "Segunda" for row in rows) == 88
+    assert rows == []
 
 
-def test_rows_are_traceable_and_do_not_invent_features():
-    row = missing.build_missing_rows()[0]
-    assert row["source"] == "Highlightly"
-    assert row["missing_odds"] is True
-    assert row["missing_shots"] is True
-    assert row["result"] in {"H", "D", "A"}
+def test_result_from_goals():
+    assert missing.result_from_goals(2, 1) == "H"
+    assert missing.result_from_goals(1, 1) == "D"
+    assert missing.result_from_goals(0, 1) == "A"
 
 
 def test_aliases_match_known_historical_names():
