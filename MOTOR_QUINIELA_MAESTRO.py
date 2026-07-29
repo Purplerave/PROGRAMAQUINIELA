@@ -1,3 +1,4 @@
+import argparse
 import itertools
 import json
 from pathlib import Path
@@ -50,15 +51,43 @@ def season_from_filename(path: Path) -> str:
     return stem
 
 
-def load_raw_history() -> pd.DataFrame:
+SANITIZED_HISTORY = settings.DATOS_DIR / ".." / "salida" / "datos_limpios" / "historico_saneado.csv"
+
+
+def load_raw_history(source: str = "original") -> pd.DataFrame:
+    """Carga el histórico seleccionado con el mismo esquema del motor."""
+    if source not in {"original", "saneado"}:
+        raise ValueError(f"Fuente histórica no válida: {source}")
+    if source == "saneado":
+        if not SANITIZED_HISTORY.is_file():
+            raise FileNotFoundError(
+                f"No existe el histórico saneado: {SANITIZED_HISTORY}. "
+                "Genérelo antes con scripts/datos/SANEAR_DATOS.py --confirm."
+            )
+        files = [(SANITIZED_HISTORY, None)]
+    else:
+        files = [
+            (csv_path, division_name)
+            for division_key, division_name in DIVISION_LABELS.items()
+            for csv_path in sorted((RAW_BASE / division_key).glob("*.csv"))
+        ]
+
     frames = []
-    for division_key, division_name in DIVISION_LABELS.items():
-        folder = RAW_BASE / division_key
-        for csv_path in sorted(folder.glob("*.csv")):
-            raw = pd.read_csv(csv_path)
-            if raw.empty:
-                continue
-            frame = pd.DataFrame(
+    for csv_path, known_division in files:
+        raw = pd.read_csv(csv_path)
+        division_name = known_division or raw.get("division", pd.Series("Desconocida", index=raw.index))
+        if isinstance(division_name, pd.Series):
+            division_name = division_name.astype(str).str.strip()
+        else:
+            division_name = pd.Series(division_name, index=raw.index)
+        unknown_divisions = sorted(set(division_name) - set(DIVISION_LABELS.values()))
+        if unknown_divisions:
+            raise ValueError(
+                f"División desconocida en el histórico: {', '.join(unknown_divisions)}"
+            )
+        if raw.empty:
+            continue
+        frame = pd.DataFrame(
                 {
                     "date": pd.to_datetime(raw["Date"], dayfirst=True, format="mixed", errors="coerce"),
                     "home": raw["HomeTeam"].astype(str).str.strip(),
@@ -77,12 +106,12 @@ def load_raw_history() -> pd.DataFrame:
                     "HST": pd.to_numeric(raw.get("HST"), errors="coerce"),
                     "AST": pd.to_numeric(raw.get("AST"), errors="coerce"),
                     "division": division_name,
-                    "division_code": 0 if division_name == "Primera" else 1,
-                    "season": season_from_filename(csv_path),
-                    "source_file": csv_path.name,
+                    "division_code": division_name.map({"Primera": 0, "Segunda": 1}).fillna(-1),
+                    "season": raw.get("_season", pd.Series(season_from_filename(csv_path), index=raw.index)),
+                    "source_file": raw.get("_source_file", pd.Series(csv_path.name, index=raw.index)),
                 }
             )
-            frames.append(frame)
+        frames.append(frame)
 
     if not frames:
         raise FileNotFoundError(f"No he encontrado CSVs en {RAW_BASE}")
@@ -896,8 +925,16 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Ejecuta el motor con un histórico seleccionado.")
+    parser.add_argument(
+        "--historico",
+        choices=("original", "saneado"),
+        default="original",
+        help="fuente histórica (por defecto: original)",
+    )
+    args = parser.parse_args()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    raw = load_raw_history()
+    raw = load_raw_history(args.historico)
     features = rolling_team_features(raw)
     predictions, metrics = run_backtest(features)
     latest_predictions, latest_metrics = run_latest_season_backtest(features)
