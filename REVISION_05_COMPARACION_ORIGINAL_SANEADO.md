@@ -76,6 +76,7 @@ for f in salida/backtest_*.json salida/predicciones_*.csv; do cmp -s "$f" "salid
 
 Los artefactos de `salida/` no se suben al repositorio (`.gitignore`); la tabla
 completa de resultados queda reproducida en §4 y el script del paso 4 es el único
+<<<<<<< HEAD
 archivo nuevo junto a esta memoria (imprescindible porque el motor no calcula Log
 Loss ni Brier Score; es de solo lectura sobre las salidas, no reentrena nada y no
 toca datos).
@@ -90,6 +91,27 @@ manualmente. En las cuatro corridas (3 backtests × 2 fuentes) los pesos de ense
 elegidos fueron **idénticos** (`logit 0.25, hgb 0.25, market 0.35, poisson 0.15`) y
 solo variaron mandos de dobles (§4), lo que se reporta como diferencia honesta del
 procedimiento, no como un ajuste manual.
+=======
+archivo nuevo junto a esta memoria (el script lee los artefactos de ambas fuentes,
+recalcula Log Loss y Brier Score como contrastes adicionales junto al acierto
+simple —no porque el motor carezca necesariamente de esas métricas—, y escribe
+únicamente `comparacion_metricas.json`).
+
+### 2.3. Sobre la configuración de los 3 dobles (controlada) y la ganadora por ejecución (secundaria)
+
+Para comparar los 3 dobles de forma controlada se aplica **exactamente la misma
+configuración fija** en ambas fuentes: la activa/de referencia del histórico
+original (`config_dobles_fija`). Esto evita que diferencias en la selección
+interna del motor confundan la comparación.
+
+Se mantiene aparte, solo como información secundaria (`configuracion_ganadora`),
+qué configuración habría seleccionado internamente cada ejecución sobre su propio
+corte de validación (`CONFIG_MOTOR_V2.json`). En las cuatro corridas (3 backtests ×
+2 fuentes) los pesos de ensemble elegidos fueron **idénticos**
+(`logit 0.25, hgb 0.25, market 0.35, poisson 0.15`) y solo variaron mandos de
+dobles (§4), lo que se reporta como diferencia honesta del procedimiento, no como
+un ajuste manual.
+>>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
 
 ### 2.4. Definiciones de métrica
 
@@ -102,9 +124,17 @@ procedimiento, no como un ajuste manual.
   defecto). Menor es mejor.
 - **Brier Score multiclase**: media de la suma de errores cuadrados por partido,
   `mean(Σ_k (p_k − 1[y=k])²)`, rango [0, 2]. Menor es mejor.
+<<<<<<< HEAD
 - **Media con 3 dobles**: aciertos medios por ticket de 15 partidos aplicando a los
   3 de menor confianza el doble de la configuración ganadora (procedimiento fijo del
   motor; los partidos que no completan un ticket de 15 no computan). Tickets
+=======
+- **Media con 3 dobles (configuración fija del histórico original)**: aciertos
+  medios por ticket de 15 partidos aplicando a los 3 de menor confianza el doble
+  de la configuración de referencia del histórico original (misma para ambas
+  fuentes). El script mantiene aparte, solo como información secundaria, qué
+  configuración habría seleccionado cada ejecución internamente. Tickets
+>>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
   disponibles: 177 (principal), 44 (2025-26), 56 (2024-25).
 - **Tiempo de ejecución**: tiempo real (wall clock) de la corrida completa del
   motor, medido con marcadores de shell.
@@ -198,7 +228,16 @@ Por división (test):
 | Primera | 380 | 54,4737 % (207) | 54,4737 % (207) | 0,954558 | 0,954954 | 0,564963 | 0,565202 | 55,5263 % |
 | Segunda | 462 | 50,6494 % (234) | 50,6494 % (234) | 1,018188 | 1,018091 | 0,610558 | 0,610521 | 49,7835 % |
 
+<<<<<<< HEAD
 ### 4.4. Configuración ganadora seleccionada por el motor (mismo grid en ambas)
+=======
+### 4.4. Configuración ganadora seleccionada internamente (información secundaria) y config fija para 3 dobles
+
+Se mantiene aparte (`configuracion_ganadora`) qué pesos y mandos habría
+seleccionado el motor con cada fuente sobre su propio corte de validación. Para
+la comparación controlada de los 3 dobles se usa la misma configuración fija
+(`config_dobles_fija`): la del histórico original en ambos casos.
+>>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
 
 | Backtest | Fuente | Pesos ensemble | draw_boost / seg. | double_draw_weight | double_segunda_bonus | resto de mandos |
 |---|---|---|---|---|---|---|
@@ -219,8 +258,14 @@ que distingue el criterio de selección en validación; es coherente con el empa
 ## 5. Contraste de significación (emparejado por partido y por ticket)
 
 El script reconstruye las predicciones partido a partido con claves idénticas en
+<<<<<<< HEAD
 ambas fuentes y aplica: McNemar exacto sobre aciertos discordantes, e IC 95 %
 bootstrap emparejado (10.000 remuestreos, semilla 42) para la diferencia
+=======
+ambas fuentes, aplica los 3 dobles con la **misma configuración fija del histórico
+original** en ambas fuentes, y añade: McNemar exacto sobre aciertos discordantes,
+e IC 95 % bootstrap emparejado (10.000 remuestreos, semilla 42) para la diferencia
+>>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
 original − saneado de acierto y de aciertos por ticket.
 
 | Backtest | Predicciones distintas | Acierta solo original | Acierta solo saneado | McNemar p | Δ acc (ori−san) IC 95 % | Δ dobles/ticket IC 95 % |
@@ -264,10 +309,18 @@ y los 3 CSV de predicciones), lo que confirma determinismo completo con
    partidos netos en el backtest principal), y la continuidad de entidad en 2025-26
    altera las features de los primeros partidos del club y, vía elo, de toda la
    Segunda (1 partido neto en el backtest 2025-26).
+<<<<<<< HEAD
 3. Las alternancias de mandos de dobles (0,70→0,85) son consecuencia, no causa: el
    criterio de selección no distingue diferencias menores que su propio ruido; de
    hecho con 0,85 el saneado gana el principal (+0,0056/ticket) y pierde 2025-26
    (−0,1591/ticket), sin significación en ninguno.
+=======
+3. Para la comparación de 3 dobles se usó exactamente una misma configuración fija
+   (la del histórico original) en ambas fuentes, de modo que las diferencias
+   observadas reflejan únicamente el cambio de datos, no una variación en la
+   selección de mandos. Las alternancias de mandos de dobles (0,70→0,85) se
+   reportan aparte como información secundaria y no afectan al contraste controlado.
+>>>>>>> efb053a (corrección PR #9: config fija para 3 dobles, info secundaria, aclaración script y métricas)
 4. Síntesis: los resultados **validan que el saneamiento no degradó nada** y
    muestran que el motor es estable frente a la corrección (máximo −0,19 pp, dentro
    del ruido).
