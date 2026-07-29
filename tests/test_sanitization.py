@@ -549,13 +549,14 @@ def test_repository_integration_counts_match():
     """El pipeline debe producir resultados coherentes con los datos reales."""
     result = san.run_pipeline(confirm=False)
     stats = result["stats"]
-    assert stats["input_rows"] == 13307
-    assert stats["output_rows"] == 13278
+    assert stats["input_rows"] == 13475
+    assert stats["output_rows"] == 13446
     assert stats["excluded_rows"] == 29
     assert stats["exclusion_reasons"]["EMPTY_ROW"] == 3
     assert stats["exclusion_reasons"]["ADMINISTRATIVE_CANDIDATE"] == 21
     assert stats["exclusion_reasons"]["MISSING_REQUIRED_ODDS"] == 5
-    assert stats["has_real_close"] == 5726
+    assert stats["has_real_close"] == 5894
+    assert stats["has_shots"] == 10216
     assert stats["suspicious_odds"] == 4
 
 
@@ -648,14 +649,14 @@ def test_input_output_row_count_comparison():
 # 18. No se completa 2025-26 desde Highlightly
 # ---------------------------------------------------------------------------
 
-def test_pipeline_does_not_complete_2025_26():
+def test_pipeline_uses_completed_raw_2025_26():
     """El pipeline no debe añadir filas de Highlightly para 2025-26."""
     result = san.run_pipeline(confirm=False)
     stats = result["stats"]
     by_div = stats["by_division_season"]
     seasons_2526 = [k for k in by_div if "2025-2026" in k]
     total_2526 = sum(by_div[k] for k in seasons_2526)
-    assert total_2526 == 674
+    assert total_2526 == 842
 
 
 # ---------------------------------------------------------------------------

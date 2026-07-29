@@ -2,6 +2,11 @@
 
 Fecha de revision: 2026-07-29
 
+> Estado actualizado: auditoria inicial superada. Los CSV completos de
+> Football-Data.co.uk incorporaron los 168 partidos pendientes tras comprobar
+> que las 674 filas anteriores coincidian en todas sus columnas. El historico
+> contiene actualmente 380 partidos de Primera y 462 de Segunda.
+
 ## 1. Objetivo y alcance
 
 Esta revision comprueba si los historicos de Primera y Segunda 2025-26
@@ -11,9 +16,11 @@ Es una auditoria de solo lectura. No se han modificado CSV, modelos,
 configuraciones, pesos ni salidas del motor. La temporada 2026-27 no se
 incorpora porque todavia no ha comenzado.
 
-## 2. Dictamen
+## 2. Dictamen inicial
 
-La temporada 2025-26 **no esta cerrada en el dataset**.
+En el momento de esta auditoria, la temporada 2025-26 **no estaba cerrada en
+el dataset**. Esta incidencia ya esta resuelta según el estado actualizado
+indicado al comienzo del documento.
 
 | Division | Equipos | Partidos disponibles | Partidos esperados | Faltan |
 |---|---:|---:|---:|---:|

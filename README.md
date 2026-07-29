@@ -75,10 +75,10 @@ mejora una subida obtenida solo sobre los mismos datos usados para ajustar.
 
 Con la configuracion incluida, la ultima ejecucion validada obtuvo:
 
-- 13.278 partidos limpios.
-- 49,96 % de acierto simple en el test principal.
-- 8,51 aciertos de media sobre 15 con tres dobles.
+- 13.446 partidos limpios.
+- 51,23 % de acierto simple en el test principal.
+- 8,58 aciertos de media sobre 15 con tres dobles.
 - Temporada 2024-25: 52,38 % y 8,91/15 con tres dobles.
-- Temporada 2025-26 disponible: 50,00 % y 8,23/15 con tres dobles.
+- Temporada 2025-26 completa: 50,36 % y 8,30/15 con tres dobles.
 
 Estas cifras son una referencia reproducible, no una garantia de resultados.
