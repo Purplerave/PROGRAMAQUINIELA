@@ -9,7 +9,9 @@ API pública:
 from .aliases import apply_alias
 from .constants import (
     ALIAS_MAP,
+    COL_AWAY_TEAM_ORIGINAL,
     COL_CUOTA_SOSPECHOSA,
+    COL_HOME_TEAM_ORIGINAL,
     COL_MOTIVO_EXCLUSION,
     COL_OVERROUND,
     COL_TIENE_CIERRE_REAL,
@@ -28,11 +30,19 @@ from .odds import annotate_odds, compute_overround, has_real_close, is_suspiciou
 from .pipeline import format_summary, run_pipeline, sanitize_row
 from .shots import annotate_shots
 from .traceability import add_transform, get_transformations, init_transformations
-from .writer import build_manifest, write_clean_csv, write_manifest
+from .writer import (
+    build_manifest,
+    validate_output_dir,
+    write_all_outputs,
+    write_clean_csv,
+    write_manifest,
+)
 
 __all__ = [
     "ALIAS_MAP",
+    "COL_AWAY_TEAM_ORIGINAL",
     "COL_CUOTA_SOSPECHOSA",
+    "COL_HOME_TEAM_ORIGINAL",
     "COL_MOTIVO_EXCLUSION",
     "COL_OVERROUND",
     "COL_TIENE_CIERRE_REAL",
@@ -62,6 +72,8 @@ __all__ = [
     "load_raw_rows",
     "run_pipeline",
     "sanitize_row",
+    "validate_output_dir",
+    "write_all_outputs",
     "write_clean_csv",
     "write_manifest",
 ]

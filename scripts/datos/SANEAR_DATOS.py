@@ -3,6 +3,7 @@
 
 No genera salidas por defecto; exige ``--confirm`` explícito.
 No sobrescribe archivos existentes.
+La salida se escribe exclusivamente bajo ``salida/datos_limpios/``.
 """
 
 from __future__ import annotations
@@ -37,12 +38,6 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=DEFAULT_RAW_BASE,
         help="directorio base de los CSV originales (por defecto: DATOS/historico_raw)",
-    )
-    parser.add_argument(
-        "--output-dir",
-        type=Path,
-        default=DEFAULT_OUTPUT_DIR,
-        help="directorio de salida (por defecto: salida/datos_limpios/)",
     )
     parser.add_argument(
         "--overround-min",
@@ -81,13 +76,13 @@ def main(argv: list[str] | None = None) -> int:
     try:
         result = run_pipeline(
             raw_base=args.raw_base,
-            output_dir=args.output_dir,
+            output_dir=DEFAULT_OUTPUT_DIR,
             confirm=args.confirm,
             overround_min=args.overround_min,
             overround_max=args.overround_max,
             alias_map=alias_map,
         )
-    except (FileExistsError, RuntimeError) as exc:
+    except (FileExistsError, RuntimeError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
 

@@ -29,7 +29,11 @@ from .loaders import load_raw_rows
 from .odds import annotate_odds
 from .shots import annotate_shots
 from .traceability import add_transform, init_transformations
-from .writer import build_manifest, write_clean_csv, write_manifest
+from .writer import (
+    build_manifest,
+    validate_output_dir,
+    write_all_outputs,
+)
 
 
 def sanitize_row(
@@ -43,33 +47,42 @@ def sanitize_row(
 
     Devuelve la fila enriquecida con las columnas de saneamiento.
     Si la fila debe ser excluida, se marca con ``motivo_exclusion``.
+
+    Los metadatos internos ``_source_file``, ``_season`` y ``_division``
+    se publican con nombres estables ``source_file``, ``season`` y
+    ``division``. ``_columns`` no se publica.
     """
     columns: list[str] = row.get("_columns", [])
 
     # 1. Inicializar trazabilidad
     init_transformations(row)
 
-    # 2. Alias controlados (antes de filtrar, para que los alias
+    # 2. Publicar metadatos internos con nombres estables
+    row["source_file"] = row.get("_source_file", "")
+    row["season"] = row.get("_season", "")
+    row["division"] = row.get("_division", "")
+
+    # 3. Alias controlados (antes de filtrar, para que los alias
     #    se apliquen a las filas que pasen el filtro)
     effective_alias = alias_map if alias_map is not None else ALIAS_MAP
     if effective_alias:
         apply_alias(row, alias_map=effective_alias)
 
-    # 3. Exclusión
+    # 4. Exclusión
     reason = exclusion_reason(row, columns)
     if reason is not None:
         row[COL_MOTIVO_EXCLUSION] = reason
         add_transform(row, f"EXCLUDED:{reason}")
         return row
 
-    # 4. Cuotas: cierre real, movimiento, overround
+    # 5. Cuotas: cierre real, movimiento, overround
     annotate_odds(
         row,
         overround_min=overround_min,
         overround_max=overround_max,
     )
 
-    # 5. Tiros
+    # 6. Tiros
     annotate_shots(row, columns)
 
     return row
@@ -88,9 +101,15 @@ def run_pipeline(
 
     Devuelve un diccionario con el manifiesto y las estadísticas.
     Si ``confirm`` es False, no se escriben archivos.
+
+    ``output_dir`` debe estar dentro de ``DEFAULT_OUTPUT_DIR``
+    (``salida/datos_limpios/``). Si no, se aborta con ValueError.
     """
     effective_raw = Path(raw_base) if raw_base is not None else DEFAULT_RAW_BASE
     effective_out = Path(output_dir) if output_dir is not None else DEFAULT_OUTPUT_DIR
+    # Validar que el directorio de salida está dentro del permitido
+    if confirm:
+        validate_output_dir(effective_out)
     effective_alias = alias_map if alias_map is not None else ALIAS_MAP
 
     # Cargar filas brutas
@@ -135,8 +154,8 @@ def run_pipeline(
     # Estadísticas por división y temporada
     division_stats: dict[str, Any] = {}
     for row in sanitized:
-        div = row.get("_division", "Desconocida")
-        season = row.get("_season", "Desconocida")
+        div = row.get("division", "Desconocida")
+        season = row.get("season", "Desconocida")
         key = f"{div}/{season}"
         if key not in division_stats:
             division_stats[key] = 0
@@ -178,23 +197,12 @@ def run_pipeline(
 
     # Escribir salidas solo si se confirma explícitamente
     if confirm:
-        csv_path = write_clean_csv(
-            sanitized, effective_out, "historico_saneado.csv", confirm=True,
-        )
-        excl_path = write_clean_csv(
-            excluded, effective_out, "historico_excluido.csv", confirm=True,
-        )
-        manifest_path = write_manifest(
-            manifest, effective_out, "manifest.json", confirm=True,
-        )
-        stats_path = write_manifest(
-            stats, effective_out, "estadisticas.json", confirm=True,
+        output_paths = write_all_outputs(
+            sanitized, excluded, manifest, stats,
+            effective_out, confirm=True,
         )
         result_payload["output_files"] = {
-            "clean": str(csv_path),
-            "excluded": str(excl_path),
-            "manifest": str(manifest_path),
-            "stats": str(stats_path),
+            key: str(path) for key, path in output_paths.items()
         }
 
     return result_payload
