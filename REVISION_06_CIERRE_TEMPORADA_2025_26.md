@@ -67,7 +67,28 @@ El partido y su resultado son coherentes. Lo pendiente es confirmar que
 las cuotas de cierre y su movimiento proceden correctamente de la fuente.
 No debe eliminarse ni corregirse sin esa comprobacion.
 
-## 6. Reproduccion
+## 6. Fuente completa ya disponible
+
+No hace falta consumir nuevas peticiones para obtener los resultados de la
+temporada. El consolidado local:
+
+`DATOS/highlightly_dataset/highlightly_partidos_2023_2026.csv`
+
+contiene para la temporada `2025`:
+
+| Competicion | Estado | Partidos | Ultima fecha |
+|---|---|---:|---|
+| La Liga | Finished | 380 | 2026-05-24 |
+| Segunda Division | Finished | 462 | 2026-05-31 |
+| **Total** | **Finished** | **842** | 2026-05-31 |
+
+Las 842 filas tienen identificador, fecha, ronda, equipos, marcador y signo.
+No contienen las cuotas ni las estadisticas de tiros que usa el historico
+principal. Por ello esta fuente permite cerrar y contrastar resultados, pero
+no debe sustituir ni completar automaticamente el dataset de entrenamiento
+sin definir antes una politica para esas variables ausentes.
+
+## 7. Reproduccion
 
 Desde la raiz del proyecto:
 
@@ -82,20 +103,20 @@ python -m pytest -q
 python scripts/datos/VALIDAR_DATASETS.py
 ```
 
-## 7. Siguiente fase recomendada
+## 8. Siguiente fase recomendada
 
-1. Consultar la documentacion y el cliente existente de Highlightly para
-   identificar los IDs exactos de Primera y Segunda 2025-26.
-2. Obtener listados por competicion y temporada, con paginacion, evitando
-   una llamada individual por partido.
-3. Comparar primero por fecha, local, visitante y resultado.
-4. Generar una propuesta de incorporacion separada, sin sobrescribir los
+1. Comparar los 842 resultados de Highlightly con las 674 filas historicas
+   por fecha, local, visitante y resultado.
+2. Identificar exactamente las 168 filas ausentes y los alias necesarios.
+3. Generar una propuesta de incorporacion separada, sin sobrescribir los
    CSV originales.
-5. Revisar los 168 partidos candidatos y la cuota Mallorca-Barcelona.
+4. Revisar los 168 partidos candidatos y la cuota Mallorca-Barcelona.
+5. Decidir si las filas sin cuotas/tiros se excluyen del entrenamiento, se
+   usan solo para resultados/Elo o se enriquecen desde otra fuente fiable.
 6. Crear nuevos artefactos versionados solo despues de aprobar el informe.
 7. Repetir control de calidad y backtests original/completado.
 
-## 8. Condicion de cierre
+## 9. Condicion de cierre
 
 La temporada solo podra marcarse como cerrada cuando:
 
