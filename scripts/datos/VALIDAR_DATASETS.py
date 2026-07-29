@@ -42,9 +42,10 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
+    parser = build_parser()
+    args = parser.parse_args(argv)
     if args.overround_min >= args.overround_max:
-        build_parser().error("--overround-min debe ser menor que --overround-max")
+        parser.error("--overround-min debe ser menor que --overround-max")
 
     report = audit_datasets(
         PROJECT_ROOT,
@@ -56,10 +57,16 @@ def main(argv: list[str] | None = None) -> int:
     if args.json is not None:
         output_path = args.json.expanduser()
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(
-            json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + "\n",
-            encoding="utf-8",
-        )
+        try:
+            with output_path.open("x", encoding="utf-8") as handle:
+                json.dump(report, handle, ensure_ascii=False, indent=2, allow_nan=False)
+                handle.write("\n")
+        except FileExistsError:
+            print(
+                f"ERROR: la ruta de evidencia ya existe; no se sobrescribe: {output_path}",
+                file=sys.stderr,
+            )
+            return 2
         print(f"\nEvidencia JSON guardada en: {output_path}")
     return 0
 

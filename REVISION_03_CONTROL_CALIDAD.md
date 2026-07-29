@@ -5,13 +5,18 @@ normalizado ni completado CSV/JSON, ni se ha ejecutado el motor o entrenado mode
 
 ## 1. Arquitectura
 
-- `dataset_quality.py` contiene funciones reutilizables que devuelven únicamente diccionarios y
-  listas serializables: `audit_history_csv()`, `audit_historical()`, `audit_highlightly()`,
-  `audit_priors()` y `audit_datasets()`.
+- El paquete `dataset_quality/` conserva la API pública en `__init__.py` y separa utilidades,
+  histórico, Highlightly, priors y orquestación en `common.py`, `historical.py`, `highlightly.py`,
+  `priors.py` y `report.py`. La inspección histórica por archivo y sus hallazgos agregados viven en
+  `historical_file.py` y `historical_findings.py`; ningún módulo supera 450 líneas.
+- Las funciones públicas devuelven únicamente diccionarios y listas serializables:
+  `audit_history_csv()`, `audit_historical()`, `audit_highlightly()`, `audit_priors()` y
+  `audit_datasets()`.
 - La implementación usa la biblioteca estándar (`csv`, `json`, `datetime`, `difflib`); no añade
   dependencias. Reproduce el orden de fallback de cuotas del cargador actual sin importarlo.
 - `scripts/datos/VALIDAR_DATASETS.py` descubre los CSV y muestra un resumen. No crea archivos por
-  defecto. `--json RUTA` guarda la evidencia completa solo cuando se solicita.
+  defecto. `--json RUTA` usa creación exclusiva: guarda evidencia solo cuando se solicita y aborta
+  con un mensaje claro si la ruta ya existe.
 - Cada hallazgo lleva código estable, gravedad, cantidad, explicación y, cuando procede, ejemplos.
 - `info` describe evidencia; `warning` exige revisión/tratamiento; `critical` señala cobertura o
   semántica ausente capaz de crear señal ficticia o engañar a un consumidor automático.
@@ -88,26 +93,29 @@ Ejecución con rango de overround por defecto:
 - Los splits de `CD Eldense`, `CD Tenerife`, `CE Sabadell` y `RC Celta Fortuna` son parciales.
   `missing_data_strategy.teams` sí enumera los 4, pero `missing_or_partial` está vacío:
   `PRIOR_PARTIAL_NOT_LISTED` (critical).
-- Resumen de hallazgos: 9 `info`, 7 `warning` y 4 `critical`.
+- `ODDS_NO_REAL_CLOSE` es el único `critical` del problema de cierre; las 7.552 igualdades por
+  fallback quedan como detalle `info`, no como un segundo crítico independiente.
+- Resumen de hallazgos: 10 `info`, 7 `warning` y 3 `critical`.
 
 ## 4. Pruebas ejecutadas
 
 Las pruebas sintéticas cubren fechas, resultado/goles, filas vacías, administrativo frente a
 partido ordinario, ausencia de columnas frente a NaN, cierre real frente a fallback, igualdad real,
 overround configurable, alias/filiales, BOM, estados, play-offs, duplicado lógico y contradicción de
-priors. La integración descubre los archivos dinámicamente y comprueba invariantes; no fija que
-siempre deban existir 32 CSV.
+priors. También ejecutan dos veces `--json` sobre la misma ruta para probar que la segunda aborta sin
+alterar el archivo. La integración descubre los archivos dinámicamente y comprueba invariantes; no
+fija que siempre deban existir 32 CSV.
 
 ```text
 python -m pytest -q
 ........                                                                 [100%]
-8 passed in 2.05s
+8 passed in 3.29s
 
 python scripts/datos/VALIDAR_DATASETS.py
 Histórico: 32 CSV · 13307 brutas · 3 vacías · 13278 utilizables · 29 descartables
 Highlightly: 7429 filas · UTF-8=sí · BOM=sí · no finalizados=91 · play-offs=68
 Priors: inventario=42/42 · priors=42 · parciales reales=4
-Hallazgos: info=9 · warning=7 · critical=4
+Hallazgos: info=10 · warning=7 · critical=3
 ```
 
 ## 5. Limitaciones y decisiones humanas pendientes

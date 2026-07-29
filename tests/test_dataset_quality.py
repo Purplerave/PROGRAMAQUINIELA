@@ -280,14 +280,19 @@ def test_repository_integration_uses_discovery_and_stable_invariants():
     assert report["highlightly"]["encoding"]["valid_utf8"] is True
     assert report["priors"]["teams"]["only_roster"] == []
     assert report["priors"]["teams"]["only_priors"] == []
+    severities = {item["code"]: item["severity"] for item in report["findings"]}
+    assert severities["ODDS_NO_REAL_CLOSE"] == "critical"
+    assert severities["ODDS_OPEN_EQUALS_CLOSE_NO_REAL_CLOSE"] == "info"
+    assert report["summary"]["findings_by_severity"]["critical"] == 3
     assert report["read_only"] is True
     json.dumps(report, ensure_ascii=False, allow_nan=False)
 
 
-def test_cli_writes_json_only_when_requested(tmp_path):
+def test_cli_writes_json_only_when_requested_and_never_overwrites(tmp_path):
     output = tmp_path / "evidence" / "audit.json"
+    command = [sys.executable, "scripts/datos/VALIDAR_DATASETS.py", "--json", str(output)]
     completed = subprocess.run(
-        [sys.executable, "scripts/datos/VALIDAR_DATASETS.py", "--json", str(output)],
+        command,
         cwd=ROOT,
         check=True,
         capture_output=True,
@@ -298,3 +303,9 @@ def test_cli_writes_json_only_when_requested(tmp_path):
     payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["schema_version"] == 1
     assert payload["read_only"] is True
+
+    original = output.read_bytes()
+    repeated = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+    assert repeated.returncode == 2
+    assert "ya existe; no se sobrescribe" in repeated.stderr
+    assert output.read_bytes() == original
