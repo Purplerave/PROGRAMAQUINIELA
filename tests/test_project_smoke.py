@@ -34,6 +34,8 @@ def test_loader_uses_sanitized_source(monkeypatch, tmp_path):
     loaded = motor.load_raw_history("saneado")
     assert len(loaded) == 1
     assert loaded.iloc[0]["division"] == "Primera"
+    assert loaded.iloc[0]["season"] == "2025-2026"
+    assert loaded.iloc[0]["source_file"] == original.name
 
 
 @pytest.mark.parametrize(("division", "expected_code"), [("Primera", 0), ("Segunda", 1)])

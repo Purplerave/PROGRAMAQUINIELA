@@ -14,10 +14,22 @@ pip install -r requirements-dev.txt
 
 ## Uso
 
-Evaluacion principal:
+Evaluacion principal (usa el histórico original por defecto):
 
 ```powershell
-python MOTOR_QUINIELA_MAESTRO.py
+python MOTOR_QUINIELA_MAESTRO.py --historico original
+```
+
+Para seleccionar el histórico saneado (debe existir previamente):
+
+```powershell
+python MOTOR_QUINIELA_MAESTRO.py --historico saneado
+```
+
+El archivo saneado se genera explícitamente con:
+
+```powershell
+python scripts/datos/SANEAR_DATOS.py --confirm
 ```
 
 Backtest walk-forward por temporadas:

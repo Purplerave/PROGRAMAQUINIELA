@@ -107,8 +107,8 @@ def load_raw_history(source: str = "original") -> pd.DataFrame:
                     "AST": pd.to_numeric(raw.get("AST"), errors="coerce"),
                     "division": division_name,
                     "division_code": division_name.map({"Primera": 0, "Segunda": 1}).fillna(-1),
-                    "season": raw.get("_season", pd.Series(season_from_filename(csv_path), index=raw.index)),
-                    "source_file": raw.get("_source_file", pd.Series(csv_path.name, index=raw.index)),
+                    "season": raw.get("season", pd.Series(season_from_filename(csv_path), index=raw.index)),
+                    "source_file": raw.get("source_file", pd.Series(csv_path.name, index=raw.index)),
                 }
             )
         frames.append(frame)
