@@ -24,6 +24,8 @@ import pandas as pd
 import settings
 
 from MOTOR_QUINIELA_MAESTRO import (
+    add_market_baseline,
+    apply_hybrid_config,
     build_hgb_model,
     build_logit_model,
     feature_columns,
@@ -31,12 +33,12 @@ from MOTOR_QUINIELA_MAESTRO import (
 )
 from scripts.motor.features import (
     compute_features_for_upcoming,
+    infer_season,
     rolling_team_features,
 )
 
 # Configuración de salida
 MODELS_DIR = settings.SALIDA_DIR / "modelos"
-MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
 # Modelo entrenado persistente
 _LOGIT_MODEL: Any = None
@@ -52,16 +54,18 @@ def load_master_config() -> dict:
     return _MASTER_CONFIG
 
 
-def load_or_train_models(history_df: pd.DataFrame | None = None) -> tuple[Any, Any]:
+def load_or_train_models(history_df: pd.DataFrame | None = None) -> tuple[Any, Any, dict]:
     """Carga modelos entrenados desde disco o los entrena desde cero.
 
     Si existen modelos guardados en MODELS_DIR, los carga.
     Si no, entrena con el histórico proporcionado.
     """
-    global _LOGIT_MODEL, _HGB_MODEL
+    global _LOGIT_MODEL, _HGB_MODEL, _MASTER_CONFIG
 
-    if _LOGIT_MODEL is not None and _HGB_MODEL is not None:
-        return _LOGIT_MODEL, _HGB_MODEL
+    MODELS_DIR.mkdir(parents=True, exist_ok=True)
+
+    if _LOGIT_MODEL is not None and _HGB_MODEL is not None and _MASTER_CONFIG is not None:
+        return _LOGIT_MODEL, _HGB_MODEL, _MASTER_CONFIG
 
     logit_path = MODELS_DIR / "logit_model.json"
     hgb_path = MODELS_DIR / "hgb_model.json"
@@ -79,7 +83,8 @@ def load_or_train_models(history_df: pd.DataFrame | None = None) -> tuple[Any, A
     logit, hgb, config = _train_models(history_df)
     _LOGIT_MODEL = logit
     _HGB_MODEL = hgb
-    return logit, hgb
+    _MASTER_CONFIG = config
+    return logit, hgb, config
 
 
 def _train_models(df: pd.DataFrame) -> tuple[Any, Any, dict]:
@@ -100,7 +105,12 @@ def _train_models(df: pd.DataFrame) -> tuple[Any, Any, dict]:
     if len(features_df) < 100:
         raise ValueError(f"Datos insuficientes para entrenar: {len(features_df)} partidos")
 
+    # Obtener mejor configuración usando subtrain/valid
     logit, hgb, config = optimize_hybrid_config(features_df)
+    
+    # Re-entrenar modelos finales con TODO el histórico usando la mejor config encontrada
+    # (optimize_hybrid_config ya hace esto al final de su ejecución)
+    
     return logit, hgb, config
 
 
@@ -128,14 +138,6 @@ def _calculate_confidence(probs: dict[str, float]) -> float:
     entropy = -sum(p * math.log(p) if p > 0 else 0 for p in probs_list)
     confidence = 1 - (entropy / max_entropy)
     return round(confidence, 4)
-
-
-def _build_signo_modelo(probs: dict[str, float]) -> str:
-    """Determina el signo más probable."""
-    # Mapear claves prob_X a signos
-    mapping = {"prob_1": "1", "prob_x": "X", "prob_2": "2"}
-    best_key = max(probs.items(), key=lambda x: x[1])[0]
-    return mapping.get(best_key, best_key)
 
 
 def _check_data_quality(feat_row: pd.Series) -> dict[str, Any]:
@@ -175,6 +177,58 @@ def _check_data_quality(feat_row: pd.Series) -> dict[str, Any]:
     }
 
 
+def _apply_transition_priors(features_df: pd.DataFrame) -> pd.DataFrame:
+    """Aplica priors de transición a equipos con poca muestra en la temporada actual.
+    
+    Punto 5 Codex: Respetar la temporada y aplicar explícitamente los priors de transición.
+    """
+    priors_path = settings.DATOS_DIR / "temporada_2026_27_estadisticas_base.json"
+    if not priors_path.exists():
+        return features_df
+
+    try:
+        priors_data = json.loads(priors_path.read_text(encoding="utf-8"))
+        teams_priors = priors_data.get("teams", {})
+    except Exception:
+        return features_df
+
+    normalized_priors = {normalize_name(k): v for k, v in teams_priors.items()}
+
+    for idx, row in features_df.iterrows():
+        for side in ["home", "away"]:
+            pj_col = f"{side}_table_pj"
+            ppg_col = f"{side}_table_ppg"
+            pj = row.get(pj_col, 0)
+            
+            # Si hay menos de 3 partidos en la temporada actual, usamos el prior
+            if pj < 3:
+                team_name = row.get(side)
+                prior = normalized_priors.get(normalize_name(team_name))
+                if prior:
+                    adj_ppg = prior.get("context", {}).get("adjusted_ppg")
+                    if adj_ppg is not None:
+                        # Mezcla lineal: 0 partidos = 100% prior, 3 partidos = 0% prior
+                        weight = max(0.0, pj) / 3.0
+                        current_ppg = row.get(ppg_col, 0) if pd.notna(row.get(ppg_col)) else 0.0
+                        new_ppg = (weight * current_ppg) + ((1.0 - weight) * adj_ppg)
+                        features_df.at[idx, ppg_col] = new_ppg
+                        
+                        # Ajustar diferencia de Elo si está en el valor por defecto
+                        elo_col = f"{side}_elo"
+                        if row.get(elo_col, 1500) == 1500:
+                            # Heurística: ppg 2.0 -> Elo 1700, ppg 1.0 -> Elo 1400
+                            estimated_elo = 1300 + (adj_ppg * 200)
+                            features_df.at[idx, elo_col] = estimated_elo
+                            
+    # Recalcular diferencias basadas en los nuevos valores
+    if "home_table_ppg" in features_df.columns and "away_table_ppg" in features_df.columns:
+        features_df["table_ppg_diff"] = features_df["home_table_ppg"] - features_df["away_table_ppg"]
+    if "home_elo" in features_df.columns and "away_elo" in features_df.columns:
+        features_df["elo_diff"] = features_df["home_elo"] - features_df["away_elo"]
+        
+    return features_df
+
+
 def predict_jornada_from_model(
     partidos: list[dict[str, Any]],
     history_df: pd.DataFrame,
@@ -195,26 +249,23 @@ def predict_jornada_from_model(
     if isinstance(cutoff_date, str):
         cutoff_date = pd.to_datetime(cutoff_date)
 
-    # Determinar la temporada activa basada en el histórico
-    # (necesario porque infer_season puede devolver la temporada siguiente)
-    seasons = sorted(history_df["season"].unique())
-    active_season = seasons[-1] if seasons else None
-
     # Normalizar partidos para la extracción de features
     normalized_matches = []
     for p in partidos:
         if p.get("num") == 15 and p.get("pleno15"):
             # El Pleno al 15 se maneja separadamente
             continue
+        
+        # Respetar la temporada inferida de la fecha del partido
+        fecha_partido = p.get("fecha")
+        season = infer_season(fecha_partido) if fecha_partido else None
+
         normalized_matches.append({
             "home": p.get("local"),
             "away": p.get("visitante"),
-            "date": p.get("fecha"),
+            "date": fecha_partido,
             "division": p.get("division", "Primera"),
-            # Usar la temporada activa, no la inferida de la fecha
-            # Esto evita que las predicciones para fechas en nueva temporada
-            # intenten acceder a standings que aún no existen
-            "season": active_season,
+            "season": season,
         })
 
     if not normalized_matches:
@@ -232,6 +283,8 @@ def predict_jornada_from_model(
             history_df,
             cutoff_date=cutoff_date,
         )
+        # Aplicar priors de transición para equipos nuevos o inicio de temporada
+        features_df = _apply_transition_priors(features_df)
     except Exception as e:
         return {
             "jornada": jornada,
@@ -248,7 +301,7 @@ def predict_jornada_from_model(
 
     # Cargar o entrenar modelos
     try:
-        logit, hgb = load_or_train_models(history_df)
+        logit, hgb, master_config = load_or_train_models(history_df)
     except Exception as e:
         return {
             "jornada": jornada,
@@ -256,70 +309,31 @@ def predict_jornada_from_model(
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
 
-    master_config = load_master_config()
-    weights = master_config.get("weights", {
-        "logit": 0.25,
-        "hgb": 0.25,
-        "market": 0.35,
-        "poisson": 0.15,
-    })
-    draw_boost = master_config.get("draw_boost", 0.0)
-
     # Obtener probabilidades de cada modelo
-    # Nota: logit necesita "division", hgb solo necesita feature_columns()
     cols = feature_columns()
     logit_probs = predict_full_probs(logit, features_df, cols + ["division"])
     hgb_probs = predict_full_probs(hgb, features_df, cols)
 
-    # Combinar con Poisson y mercado según pesos
+    # Preparar DataFrame para apply_hybrid_config
+    features_df["logit_prob_1"] = logit_probs[:, 0]
+    features_df["logit_prob_x"] = logit_probs[:, 1]
+    features_df["logit_prob_2"] = logit_probs[:, 2]
+    features_df["hgb_prob_1"] = hgb_probs[:, 0]
+    features_df["hgb_prob_x"] = hgb_probs[:, 1]
+    features_df["hgb_prob_2"] = hgb_probs[:, 2]
+    
+    # Necesario para x_disagreement_strategy
+    features_df = add_market_baseline(features_df)
+
+    # Aplicar inferencia unificada del motor maestro
+    features_df = apply_hybrid_config(features_df, master_config, "modelo")
+
+    # Combinar resultados
     results = []
     for idx, (_, feat_row) in enumerate(features_df.iterrows()):
-        # Extraer valores con manejo de NaN
-        logit_1 = logit_probs[idx, 0] if not np.isnan(logit_probs[idx, 0]) else 0.0
-        logit_x = logit_probs[idx, 1] if not np.isnan(logit_probs[idx, 1]) else 0.0
-        logit_2 = logit_probs[idx, 2] if not np.isnan(logit_probs[idx, 2]) else 0.0
-
-        hgb_1 = hgb_probs[idx, 0] if not np.isnan(hgb_probs[idx, 0]) else 0.0
-        hgb_x = hgb_probs[idx, 1] if not np.isnan(hgb_probs[idx, 1]) else 0.0
-        hgb_2 = hgb_probs[idx, 2] if not np.isnan(hgb_probs[idx, 2]) else 0.0
-
-        market_1 = feat_row.get("market_1", 0) if pd.notna(feat_row.get("market_1")) else 0.0
-        market_x = feat_row.get("market_x", 0) if pd.notna(feat_row.get("market_x")) else 0.0
-        market_2 = feat_row.get("market_2", 0) if pd.notna(feat_row.get("market_2")) else 0.0
-
-        poisson_1 = feat_row.get("poisson_1", 0) if pd.notna(feat_row.get("poisson_1")) else 0.0
-        poisson_x = feat_row.get("poisson_x", 0) if pd.notna(feat_row.get("poisson_x")) else 0.0
-        poisson_2 = feat_row.get("poisson_2", 0) if pd.notna(feat_row.get("poisson_2")) else 0.0
-
-        # Probabilidades del modelo híbrido
-        prob_1 = (
-            weights["logit"] * logit_1
-            + weights["hgb"] * hgb_1
-            + weights.get("market", 0.35) * market_1
-            + weights.get("poisson", 0.15) * poisson_1
-        )
-        prob_x = (
-            weights["logit"] * logit_x
-            + weights["hgb"] * hgb_x
-            + weights.get("market", 0.35) * market_x
-            + weights.get("poisson", 0.15) * poisson_x
-        )
-        prob_2 = (
-            weights["logit"] * logit_2
-            + weights["hgb"] * hgb_2
-            + weights.get("market", 0.35) * market_2
-            + weights.get("poisson", 0.15) * poisson_2
-        )
-
-        # Aplicar draw_boost
-        prob_x += draw_boost
-
-        # Normalizar
-        total = prob_1 + prob_x + prob_2
-        if total > 0:
-            prob_1 /= total
-            prob_x /= total
-            prob_2 /= total
+        prob_1 = feat_row["modelo_prob_1"]
+        prob_x = feat_row["modelo_prob_x"]
+        prob_2 = feat_row["modelo_prob_2"]
 
         probs = {
             "prob_1": round(prob_1, 4),
@@ -333,7 +347,7 @@ def predict_jornada_from_model(
         # Obtener partido original
         original = normalized_matches[idx]
         partido_num = idx + 1
-
+        
         # Buscar información adicional del partido original
         for orig_p in partidos:
             if (normalize_name(orig_p.get("local", "")) == normalize_name(original["home"])
@@ -349,17 +363,19 @@ def predict_jornada_from_model(
             "fecha": str(original["date"])[:10] if pd.notna(original["date"]) else None,
             "division": original.get("division", feat_row.get("division")),
             **probs,
-            "signo_modelo": _build_signo_modelo(probs),
+            "signo_modelo": feat_row["modelo_pred"],
             "confianza": _calculate_confidence(probs),
             "fuente_probabilidades": {
                 "modelo_primario": "motor_maestro_hibrido",
                 "componentes": {
-                    "logit": round(weights.get("logit", 0.25), 2),
-                    "hgb": round(weights.get("hgb", 0.25), 2),
-                    "market": round(weights.get("market", 0.35), 2),
-                    "poisson": round(weights.get("poisson", 0.15), 2),
+                    "logit": round(master_config["weights"].get("logit", 0), 2),
+                    "hgb": round(master_config["weights"].get("hgb", 0), 2),
+                    "market": round(master_config["weights"].get("market", 0), 2),
+                    "poisson": round(master_config["weights"].get("poisson", 0), 2),
                 },
-                "draw_boost_aplicado": draw_boost,
+                "draw_boost_aplicado": master_config.get("draw_boost", 0),
+                "segunda_draw_boost_aplicado": master_config.get("segunda_draw_boost", 0),
+                "x_disagreement_strategy": master_config.get("x_disagreement_strategy", "none"),
             },
             "avisos": quality["warnings"],
             "calidad_datos": quality["quality_score"],

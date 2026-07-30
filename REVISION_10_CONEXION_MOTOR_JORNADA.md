@@ -82,7 +82,9 @@ Cada predicción incluye:
       "market": 0.35,
       "poisson": 0.15
     },
-    "draw_boost_aplicado": 0.0
+    "draw_boost_aplicado": 0.0,
+    "segunda_draw_boost_aplicado": 0.0,
+    "x_disagreement_strategy": "none"
   },
   "avisos": ["sin_cuotas_mercado"],
   "calidad_datos": 0.7,
@@ -193,7 +195,7 @@ pytest tests/test_modelo_jornada.py::TestIntegration -v
 
 ## Notas de Implementación
 
-1. **Reutilización de features**: Se usa `compute_features_for_upcoming` existente
-2. **Reutilización de modelos**: Se entrenan con `optimize_hybrid_config`
-3. **Manejo de NaN**: Los valores faltantes se reemplazan con 0 antes delweighted sum
-4. **Temporada activa**: Se usa la última temporada del histórico para evitar errores de inferencia de temporada
+1. **Reutilización de features**: Se usa `compute_features_for_upcoming` existente y se aplican **priors de transición** para equipos nuevos o al inicio de temporada.
+2. **Reutilización de modelos**: Se entrenan con `optimize_hybrid_config` y se re-entrenan con el histórico completo usando la mejor configuración encontrada.
+3. **Inferencia Consistente**: Se utiliza `apply_hybrid_config` del motor maestro para asegurar que se aplican todos los boosts (`draw_boost`, `segunda_draw_boost`) y estrategias (`x_disagreement_strategy`).
+4. **Respeto de Temporada**: Se infiere la temporada a partir de la fecha de cada partido en lugar de forzar la última del histórico.

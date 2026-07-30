@@ -165,11 +165,11 @@ def build_recommendation_for_match(match: dict) -> dict:
     - Triple (si aplica)
     - Nivel de confianza
     """
-    modelo = match.get("modelo_maestro", {})
-    probs = modelo.get("probabilidades", {}).get("modelo") if "probabilidades" in modelo else modelo.get("probabilidades")
+    # Intentar obtener probabilidades del modelo del nuevo contrato
+    probs_modelo = match.get("probabilidades", {}).get("modelo")
 
-    if not probs or probs is None:
-        # Fallback: usar probabilidades comparativas
+    if not probs_modelo:
+        # Fallback: usar probabilidades comparativas (APU)
         comparativa = match.get("probabilidades", {}).get("comparativa", {})
         apu = comparativa.get("apu") or {}
         if apu:
@@ -181,13 +181,12 @@ def build_recommendation_for_match(match: dict) -> dict:
             }
         else:
             probs = {"1": 0.333, "X": 0.333, "2": 0.333}
-
-    if isinstance(probs, dict) and "1" in probs:
-        p1 = probs.get("1", 0.333)
-        px = probs.get("X", 0.333)
-        p2 = probs.get("2", 0.333)
     else:
-        p1 = px = p2 = 0.333
+        probs = probs_modelo
+
+    p1 = probs.get("1", 0.333)
+    px = probs.get("X", 0.333)
+    p2 = probs.get("2", 0.333)
 
     # Ordenar probabilidades
     sorted_probs = sorted(
@@ -197,7 +196,8 @@ def build_recommendation_for_match(match: dict) -> dict:
     )
 
     signo_principal = sorted_probs[0][0]
-    confianza = modelo.get("confianza", 0.5) if isinstance(modelo, dict) else 0.5
+    modelo_maestro = match.get("modelo_maestro", {})
+    confianza = modelo_maestro.get("confianza", 0.5) if isinstance(modelo_maestro, dict) else 0.5
 
     # Determinar tipo de apuesta
     gap_primero_segundo = sorted_probs[0][1] - sorted_probs[1][1]
@@ -297,8 +297,8 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
         "partidos": partidos,
         "pleno15": pleno_data,
         "resumen_modelo": {
-            "partidos_con_prediccion": len([p for p in partidos if p.get("modelo_maestro", {}).get("disponible") is not False]),
-            "partidos_sin_prediccion": len([p for p in partidos if p.get("modelo_maestro", {}).get("disponible") is False]),
+            "partidos_con_prediccion": len([p for p in partidos if p.get("modelo_maestro", {}).get("disponible") is not False and "prob_1" in p.get("modelo_maestro", {})]),
+            "partidos_sin_prediccion": len([p for p in partidos if p.get("modelo_maestro", {}).get("disponible") is False or "prob_1" not in p.get("modelo_maestro", {})]),
             "partidos_sin_dobles": len([p for p in partidos if p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "simple"]),
             "partidos_con_dobles": len([p for p in partidos if p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "doble"]),
             "partidos_con_triple": len([p for p in partidos if p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "triple"]),

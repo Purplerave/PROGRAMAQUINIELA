@@ -303,8 +303,57 @@ class TestIntegration:
         """
         predictions = generate_jornada_prediction(74)
         assert "jornada" in predictions
-        # Verificar estructura básica aunque haya error
-        assert "estado" in predictions or "error" in predictions
+        # La prueba end-to-end debe exigir 14 predicciones reales (J74 tiene 15 partidos, 14 sin P15)
+        # probabilidades normalizadas y fuente principal del motor; si falla, el test debe fallar.
+        assert "predicciones" in predictions
+        valid_preds = [p for p in predictions["predicciones"] if "prob_1" in p]
+        assert len(valid_preds) >= 14, f"Se esperaban al menos 14 predicciones, se obtuvieron {len(valid_preds)}"
+        
+        for pred in valid_preds:
+            total = pred["prob_1"] + pred["prob_x"] + pred["prob_2"]
+            assert 0.99 <= total <= 1.01
+            assert pred["fuente_probabilidades"]["modelo_primario"] == "motor_maestro_hibrido"
+
+    def test_recommendation_uses_motor_probabilities(self):
+        """Punto 1 Codex: Verificar que la recomendación usa las probabilidades del motor."""
+        from PREDECIR_JORNADA import build_recommendation_for_match
+        
+        # Caso A: Modelo da favorito claro al Local (1) con alta confianza
+        match_1 = {
+            "num": 1,
+            "modelo_maestro": {"confianza": 0.8},
+            "probabilidades": {
+                "modelo": {"1": 0.8, "X": 0.1, "2": 0.1}
+            }
+        }
+        rec_1 = build_recommendation_for_match(match_1)
+        assert rec_1["signo_principal"] == "1"
+        assert rec_1["tipo_apuesta"] == "simple"
+        
+        # Caso B: Modelo da favorito al Visitante (2) pero con poca confianza (genera triple)
+        match_2 = {
+            "num": 2,
+            "modelo_maestro": {"confianza": 0.3},
+            "probabilidades": {
+                "modelo": {"1": 0.1, "X": 0.2, "2": 0.7}
+            }
+        }
+        rec_2 = build_recommendation_for_match(match_2)
+        assert rec_2["signo_principal"] == "2"
+        assert rec_2["tipo_apuesta"] == "triple"
+
+        # Caso C: Cambio en probabilidades del motor cambia la recomendación
+        match_3 = {
+            "num": 3,
+            "modelo_maestro": {"confianza": 0.6},
+            "probabilidades": {
+                "modelo": {"1": 0.45, "X": 0.40, "2": 0.15}
+            }
+        }
+        rec_3 = build_recommendation_for_match(match_3)
+        assert rec_3["signo_principal"] == "1"
+        assert rec_3["tipo_apuesta"] == "doble"
+        assert "1X" in rec_3["apuesta_recomendada"]
 
     def test_save_predictions(self, tmp_path, monkeypatch):
         monkeypatch.setattr(settings, "SALIDAS_DIR", tmp_path)
