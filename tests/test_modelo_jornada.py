@@ -373,11 +373,29 @@ class TestIntegration:
         
         if preds["predicciones"]:
             p = preds["predicciones"][0]
-            # Equipos top con mucho histórico deberían tener buena calidad
-            assert p["calidad_datos"] > 0.5
-            assert "sin_partidos_local" not in p["avisos"]
+            # Punto 1 Codex (Rev 3): Comprobar que el partido es utilizable/fiable.
+            # Al inicio de temporada table_pj es 0, pero Elo y forma deberían estar presentes.
+            assert p["calidad_datos"] >= 0.2
+            assert p["features_disponibles"]["home_elo"] > 1500
+            assert "sin_partidos_local" in p["avisos"]  # Esperado al ser inicio de temporada
 
-    def test_recommendation_uses_motor_probabilities(self):
+    def test_no_recommendation_without_source(self):
+        """Punto 2 Codex (Rev 3): Confirmar que sin fuente fiable no hay recomendación."""
+        from PREDECIR_JORNADA import build_recommendation_for_match
+        
+        match = {
+            "num": 1,
+            "modelo_maestro": {"disponible": False},
+            "probabilidades": {
+                "modelo": None,
+                "comparativa": {"apu": None, "lae": None}
+            }
+        }
+        
+        rec = build_recommendation_for_match(match)
+        assert rec["disponible"] is False
+        assert "signo_principal" not in rec
+        assert "apuesta_recomendada" not in rec
         """Punto 1 Codex: Verificar que la recomendación usa las probabilidades del motor."""
         from PREDECIR_JORNADA import build_recommendation_for_match
         

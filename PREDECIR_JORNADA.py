@@ -195,6 +195,7 @@ def build_recommendation_for_match(match: dict) -> dict:
     """
     # Intentar obtener probabilidades del modelo del nuevo contrato
     probs_modelo = match.get("probabilidades", {}).get("modelo")
+    fuente = "motor_maestro"
 
     if not probs_modelo:
         # Fallback: usar probabilidades comparativas (APU)
@@ -207,8 +208,14 @@ def build_recommendation_for_match(match: dict) -> dict:
                 "X": apu.get("X", 0) / total if total > 0 else 0.333,
                 "2": apu.get("2", 0) / total if total > 0 else 0.333,
             }
+            fuente = "apu_fallback"
         else:
-            probs = {"1": 0.333, "X": 0.333, "2": 0.333}
+            # Punto 2 Codex (Rev 3): Si no hay fuente fiable, marcar recomendación no disponible
+            return {
+                "disponible": False,
+                "razon": "sin_fuente_de_probabilidades_fiable",
+                "nota": "No se pudo generar recomendación (sin modelo ni APU)",
+            }
     else:
         probs = probs_modelo
 
@@ -242,12 +249,14 @@ def build_recommendation_for_match(match: dict) -> dict:
         signos = "1X2"
 
     return {
+        "disponible": True,
         "signo_principal": signo_principal,
         "apuesta_recomendada": signos,
         "tipo_apuesta": tipo_apuesta,
         "confianza_modelo": round(confianza, 3) if isinstance(confianza, float) else confianza,
         "gap_probabilidad": round(gap_primero_segundo, 3),
-        "nota": "Recomendación basada en probabilidades del motor maestro",
+        "fuente_utilizada": fuente,
+        "nota": f"Recomendación basada en {fuente}",
     }
 
 
@@ -316,9 +325,11 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
     resumen = {
         "partidos_con_prediccion": len([p for p in partidos if p.get("num") != 15 and p.get("modelo_maestro", {}).get("disponible") is True]),
         "partidos_sin_prediccion": len([p for p in partidos if p.get("num") != 15 and p.get("modelo_maestro", {}).get("disponible") is not True]),
-        "partidos_sin_dobles": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "simple"]),
-        "partidos_con_dobles": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "doble"]),
-        "partidos_con_triple": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "triple"]),
+        "partidos_con_recomendacion": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("disponible") is True]),
+        "partidos_sin_recomendacion": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("disponible") is False]),
+        "partidos_sin_dobles": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("disponible") is True and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "simple"]),
+        "partidos_con_dobles": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("disponible") is True and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "doble"]),
+        "partidos_con_triple": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("disponible") is True and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "triple"]),
         "confianza_media": round(
             sum(
                 p.get("modelo_maestro", {}).get("confianza", 0)
