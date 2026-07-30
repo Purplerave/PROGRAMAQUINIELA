@@ -295,11 +295,25 @@ def predict_full_probs(model: Pipeline, frame: pd.DataFrame, columns: list[str])
 
 def add_market_baseline(frame: pd.DataFrame) -> pd.DataFrame:
     out = frame.copy()
-    market_cols = out[["market_1", "market_x", "market_2"]].fillna(-1)
-    out["favorite_market"] = market_cols.idxmax(axis=1).map(
+    market_cols = out[["market_1", "market_x", "market_2"]]
+    
+    # Solo determinamos favorito si hay datos de mercado (al menos uno no NaN)
+    # y si la suma de las probabilidades es > 0
+    has_market = market_cols.notna().all(axis=1)
+    
+    out["favorite_market"] = None
+    out.loc[has_market, "favorite_market"] = market_cols[has_market].idxmax(axis=1).map(
         {"market_1": "1", "market_x": "X", "market_2": "2"}
     )
-    out["favorite_market_hit"] = (out["favorite_market"] == out["result"]).astype(int)
+    
+    # favorite_market_hit solo tiene sentido donde hay mercado
+    out["favorite_market_hit"] = 0
+    valid_market = has_market & out["result"].notna()
+    if valid_market.any():
+        out.loc[valid_market, "favorite_market_hit"] = (
+            out.loc[valid_market, "favorite_market"] == out.loc[valid_market, "result"]
+        ).astype(int)
+        
     return out
 
 
@@ -340,7 +354,12 @@ def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.Da
         {f"{prefix}_prob_1": "1", f"{prefix}_prob_x": "X", f"{prefix}_prob_2": "2"}
     )
     if config.get("x_disagreement_strategy") == "market_pick_only":
-        x_disagree = out[f"{prefix}_pred"].eq("X") & out["favorite_market"].ne("X")
+        # Punto 4 Codex (Rev 2): Aplicar solo cuando existan probabilidades de mercado válidas
+        x_disagree = (
+            out[f"{prefix}_pred"].eq("X") & 
+            out["favorite_market"].notna() & 
+            out["favorite_market"].ne("X")
+        )
         out.loc[x_disagree, f"{prefix}_pred"] = out.loc[x_disagree, "favorite_market"]
     out[f"{prefix}_hit"] = (out[f"{prefix}_pred"] == out["result"]).astype(int)
     out["model_disagreement"] = (
