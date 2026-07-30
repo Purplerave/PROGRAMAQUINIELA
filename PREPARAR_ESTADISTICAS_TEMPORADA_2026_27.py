@@ -76,6 +76,26 @@ ALIASES = {
 }
 
 
+def build_alias_index(canonical_names, aliases=None):
+    alias_config = aliases or ALIASES
+    alias_to_canonical = {}
+    collisions = []
+    for canonical in canonical_names:
+        for alias in alias_config.get(canonical, [canonical]):
+            previous = alias_to_canonical.get(alias)
+            if previous is not None and previous != canonical:
+                collisions.append((alias, previous, canonical))
+                continue
+            alias_to_canonical[alias] = canonical
+    if collisions:
+        details = "; ".join(
+            f"{alias!r}: {first!r} / {second!r}"
+            for alias, first, second in collisions
+        )
+        raise ValueError(f"Alias duplicado en equipos 2026/27: {details}")
+    return alias_to_canonical
+
+
 def empty_stats():
     return {
         "pj": 0,
@@ -220,10 +240,7 @@ def main():
         for section in ("laliga_ea_sports", "laliga_hypermotion")
         for item in teams[section]
     ]
-    alias_to_canonical = {}
-    for canonical in canonical_names:
-        for alias in ALIASES.get(canonical, [canonical]):
-            alias_to_canonical[alias] = canonical
+    alias_to_canonical = build_alias_index(canonical_names)
 
     stats_by_team = {team: empty_stats() for team in canonical_names}
 
