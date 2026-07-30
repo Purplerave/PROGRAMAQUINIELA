@@ -105,9 +105,22 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
         num = match.get("num")
         pred = pred_by_num.get(num)
 
+        # Si es el pleno al 15, no le asignamos predicción 1X2 del modelo
+        if num == 15:
+            match["modelo_maestro"] = {
+                "disponible": False,
+                "razon": "pleno_15_solo_marcador",
+            }
+            continue
+
         if pred:
+            # Punto 2 Codex: No presentar como fiable si la calidad es muy baja
+            calidad = pred.get("calidad_datos", 0)
+            es_fiable = calidad >= 0.2  # Umbral de fiabilidad
+
             # Reemplazar probabilities.modelo con las del motor maestro
             match["modelo_maestro"] = {
+                "disponible": es_fiable,
                 "prob_1": pred.get("prob_1"),
                 "prob_x": pred.get("prob_x"),
                 "prob_2": pred.get("prob_2"),
@@ -115,26 +128,41 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
                 "confianza": pred.get("confianza"),
                 "fuente": pred.get("fuente_probabilidades"),
                 "avisos": pred.get("avisos", []),
-                "calidad_datos": pred.get("calidad_datos"),
+                "calidad_datos": calidad,
                 "features": pred.get("features_disponibles"),
             }
 
-            # Indicar claramente que las probabilidades usadas son del modelo
-            match["probabilidades"] = {
-                "modelo": {
-                    "1": pred.get("prob_1"),
-                    "X": pred.get("prob_x"),
-                    "2": pred.get("prob_2"),
-                },
-                "comparativa": {
-                    # Mantener APU/LAE/Q15 solo como información comparativa
-                    "apu": match.pop("apu", None),
-                    "lae": match.pop("lae", None),
-                    "q15": match.pop("q15", None),
-                },
-                "fuente_principal": "motor_maestro_hibrido",
-                "nota": "probabilidades.modelo contiene las predicciones del modelo. probabilidades.comparativa contiene APU/LAE/Q15 solo como referencia.",
-            }
+            if es_fiable:
+                # Indicar claramente que las probabilidades usadas son del modelo
+                match["probabilidades"] = {
+                    "modelo": {
+                        "1": pred.get("prob_1"),
+                        "X": pred.get("prob_x"),
+                        "2": pred.get("prob_2"),
+                    },
+                    "comparativa": {
+                        # Mantener APU/LAE/Q15 solo como información comparativa
+                        "apu": match.pop("apu", None),
+                        "lae": match.pop("lae", None),
+                        "q15": match.pop("q15", None),
+                    },
+                    "fuente_principal": "motor_maestro_hibrido",
+                    "nota": "probabilidades.modelo contiene las predicciones del modelo. probabilidades.comparativa contiene APU/LAE/Q15 solo como referencia.",
+                }
+            else:
+                # Baja calidad: tratar como no disponible para recomendaciones
+                match["modelo_maestro"]["razon"] = "baja_calidad_datos"
+                match["probabilidades"] = {
+                    "modelo": None,
+                    "comparativa": {
+                        "apu": match.pop("apu", None),
+                        "lae": match.pop("lae", None),
+                        "q15": match.pop("q15", None),
+                    },
+                    "fuente_principal": "fallback_apu_lae_q15",
+                    "nota": "ATENCIÓN: Predicción del modelo con baja fiabilidad. Se usan APU/LAE como fallback.",
+                    "aviso": f"Calidad de datos insuficiente ({calidad}). Revisar avisos.",
+                }
         else:
             # No hay predicción del modelo para este partido
             match["modelo_maestro"] = {
@@ -285,32 +313,35 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
     pleno_data = pleno.get("pleno15") if pleno else None
 
     # 8. Construir paquete final
+    resumen = {
+        "partidos_con_prediccion": len([p for p in partidos if p.get("num") != 15 and p.get("modelo_maestro", {}).get("disponible") is True]),
+        "partidos_sin_prediccion": len([p for p in partidos if p.get("num") != 15 and p.get("modelo_maestro", {}).get("disponible") is not True]),
+        "partidos_sin_dobles": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "simple"]),
+        "partidos_con_dobles": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "doble"]),
+        "partidos_con_triple": len([p for p in partidos if p.get("num") != 15 and p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "triple"]),
+        "confianza_media": round(
+            sum(
+                p.get("modelo_maestro", {}).get("confianza", 0)
+                for p in partidos
+                if p.get("num") != 15 and p.get("modelo_maestro", {}).get("disponible") is True
+            ) / max(1, len([p for p in partidos if p.get("num") != 15 and p.get("modelo_maestro", {}).get("disponible") is True])),
+            3,
+        ),
+    }
+
     package = {
         "jornada": jornada,
         "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         "version_config": settings.CONFIG.get("version", "desconocida"),
         "estado": "paquete_jornada_v3_modelo",
-        "modelo_info": model_predictions.get("modelo_info", {
-            "disponible": len(model_predictions.get("predicciones", [])) > 0,
+        "modelo_info": {
+            **model_predictions.get("modelo_info", {}),
+            "disponible": resumen["partidos_con_prediccion"] > 0,
             "errores": model_errors,
-        }),
+        },
         "partidos": partidos,
         "pleno15": pleno_data,
-        "resumen_modelo": {
-            "partidos_con_prediccion": len([p for p in partidos if p.get("modelo_maestro", {}).get("disponible") is not False and "prob_1" in p.get("modelo_maestro", {})]),
-            "partidos_sin_prediccion": len([p for p in partidos if p.get("modelo_maestro", {}).get("disponible") is False or "prob_1" not in p.get("modelo_maestro", {})]),
-            "partidos_sin_dobles": len([p for p in partidos if p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "simple"]),
-            "partidos_con_dobles": len([p for p in partidos if p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "doble"]),
-            "partidos_con_triple": len([p for p in partidos if p.get("recomendacion_modelo", {}).get("tipo_apuesta") == "triple"]),
-            "confianza_media": round(
-                sum(
-                    p.get("modelo_maestro", {}).get("confianza", 0)
-                    for p in partidos
-                    if isinstance(p.get("modelo_maestro"), dict)
-                ) / max(1, len([p for p in partidos if isinstance(p.get("modelo_maestro"), dict)])),
-                3,
-            ),
-        },
+        "resumen_modelo": resumen,
         "columnas": {
             "estado": "v3_modelo_integrado",
             "nota": "La v3 integra el motor maestro para probabilidades principales. APU/LAE/Q15 se mantienen como referencia comparativa.",

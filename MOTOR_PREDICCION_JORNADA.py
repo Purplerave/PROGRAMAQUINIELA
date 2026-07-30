@@ -108,8 +108,8 @@ def _train_models(df: pd.DataFrame) -> tuple[Any, Any, dict]:
     # Obtener mejor configuración usando subtrain/valid
     logit, hgb, config = optimize_hybrid_config(features_df)
     
-    # Re-entrenar modelos finales con TODO el histórico usando la mejor config encontrada
-    # (optimize_hybrid_config ya hace esto al final de su ejecución)
+    # optimize_hybrid_config ya re-entrena los modelos finales con TODO el histórico
+    # usando la mejor configuración encontrada antes de devolverlos.
     
     return logit, hgb, config
 
@@ -181,6 +181,7 @@ def _apply_transition_priors(features_df: pd.DataFrame) -> pd.DataFrame:
     """Aplica priors de transición a equipos con poca muestra en la temporada actual.
     
     Punto 5 Codex: Respetar la temporada y aplicar explícitamente los priors de transición.
+    Punto 5 Codex (Rev 2): No añadir heurísticas de Elo nuevas no validadas.
     """
     priors_path = settings.DATOS_DIR / "temporada_2026_27_estadisticas_base.json"
     if not priors_path.exists():
@@ -213,18 +214,9 @@ def _apply_transition_priors(features_df: pd.DataFrame) -> pd.DataFrame:
                         new_ppg = (weight * current_ppg) + ((1.0 - weight) * adj_ppg)
                         features_df.at[idx, ppg_col] = new_ppg
                         
-                        # Ajustar diferencia de Elo si está en el valor por defecto
-                        elo_col = f"{side}_elo"
-                        if row.get(elo_col, 1500) == 1500:
-                            # Heurística: ppg 2.0 -> Elo 1700, ppg 1.0 -> Elo 1400
-                            estimated_elo = 1300 + (adj_ppg * 200)
-                            features_df.at[idx, elo_col] = estimated_elo
-                            
     # Recalcular diferencias basadas en los nuevos valores
     if "home_table_ppg" in features_df.columns and "away_table_ppg" in features_df.columns:
         features_df["table_ppg_diff"] = features_df["home_table_ppg"] - features_df["away_table_ppg"]
-    if "home_elo" in features_df.columns and "away_elo" in features_df.columns:
-        features_df["elo_diff"] = features_df["home_elo"] - features_df["away_elo"]
         
     return features_df
 
