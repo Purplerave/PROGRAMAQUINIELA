@@ -1,16 +1,17 @@
 {
-  "version": "motor_quinielistico_v3",
+  "version": "motor_quinielistico_v4",
   "master_model": {
     "weights": {
-      "logit": 0.25,
-      "hgb": 0.25,
-      "market": 0.35,
-      "poisson": 0.15
+      "logit": 0.0,
+      "hgb": 0.049,
+      "market": 0.951,
+      "poisson": 0.0
     },
     "weight_candidates": [
-      {"logit": 0.35, "hgb": 0.0, "market": 0.45, "poisson": 0.20},
-      {"logit": 0.25, "hgb": 0.25, "market": 0.35, "poisson": 0.15},
-      {"logit": 0.30, "hgb": 0.20, "market": 0.30, "poisson": 0.20}
+      {"logit": 0.0, "hgb": 0.049, "market": 0.951, "poisson": 0.0},
+      {"logit": 0.0, "hgb": 0.10, "market": 0.90, "poisson": 0.0},
+      {"logit": 0.0, "hgb": 0.20, "market": 0.80, "poisson": 0.0},
+      {"logit": 0.05, "hgb": 0.10, "market": 0.80, "poisson": 0.05}
     ],
     "draw_boost": 0.0,
     "segunda_draw_boost": 0.0,

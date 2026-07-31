@@ -1,7 +1,7 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Este documento debe mantenerse breve y
-actualizarse al cerrar cada tarea.
+Estado consolidado el 29/07/2026. Actualizado el 31/07/2026 (config v4).
+Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
 ## Punto de partida validado
 
@@ -10,10 +10,13 @@ actualizarse al cerrar cada tarea.
 - Histórico original y saneado comparados; el original continúa como fuente
   predeterminada.
 - Motor híbrido: regresión logística, HGB, mercado y Poisson.
-- Backtest principal: 51,23 % de acierto simple y 8,58/15 con tres dobles.
-- Backtest 2025-2026: 50,36 % y 8,30/15.
-- Backtest 2024-2025: 52,38 % y 8,91/15.
-- Log Loss y Brier Score ya están disponibles.
+- Config activa v4 (31/07/2026): mercado dominante (logit 0.0, hgb 0.049,
+  market 0.951, poisson 0.0), elegida por walk-forward multi-split.
+- Backtest principal: 51,64 % de acierto simple y 8,63/15 con tres dobles
+  (favorito de mercado: 51,56 %).
+- Backtest 2025-2026: 51,54 % y 8,50/15.
+- Backtest 2024-2025: 52,49 % y 8,64/15.
+- Log Loss, Brier y ECE disponibles (scripts de backtest nuevos).
 - Features point-in-time para partidos futuros implementadas sin resultado y
   sin fuga temporal.
 - La refactorización reproduce exactamente las 82 columnas de los 13.446

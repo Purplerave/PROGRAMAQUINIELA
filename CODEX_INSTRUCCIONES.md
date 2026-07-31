@@ -155,7 +155,11 @@ de probabilidades, neutra en acierto.
 Cada tarea indica **dónde mirar** (rutas y funciones exactas) y **criterios de
 aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
 
-### T1 — Activar la nueva configuración de pesos (P0)
+> **Estado de tareas:** T1 ✅ (31/07/2026) · T6 ✅ (31/07/2026) ·
+> T2 ⏳ · T3 ⏳ · T4 ⏳ · T5 ⏳ · T7 ⏳ · T8 ⏳
+> Cada tarea hecha se marca aquí y se documenta en la sección 6 (Registro de ejecución).
+
+### T1 — Activar la nueva configuración de pesos (P0) — ✅ HECHO 31/07/2026
 - **Problema:** `CONFIG_MOTOR_V2.json` → `master_model.weights` usa
   `{logit: 0.25, hgb: 0.25, market: 0.35, poisson: 0.15}`, que pierde contra el
   mercado en 4/5 temporadas.
@@ -176,6 +180,12 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
   backtest principal; el cambio está documentado y reproducido.
 - **Ojo:** no "optimices" contra el test. La decisión sale del walk-forward, no de
   mirar el resultado final.
+- **Resultado (31/07/2026):** `CONFIG_MOTOR_V2.json` → `version: motor_quinielistico_v4`;
+  `weights` = `{logit 0.0, hgb 0.049, market 0.951, poisson 0.0}` y `weight_candidates`
+  con 4 combinaciones mercado-dominantes. Backtest principal: **51,64 %** (antes
+  50,52 %) vs mercado 51,56 %; 3 dobles **8,63** (antes 8,57). 2024-25: 52,49 % /
+  8,64; 2025-26: 51,54 % / 8,50 (empata con el mercado). El grid eligió candidatos
+  de la misma familia (market 0,8–0,95 + HGB). Detalles en la sección 6.
 
 ### T2 — Integrar el optimizador de boletos en el flujo de predicción (P2)
 - **Problema:** `OPTIMIZADOR_COLUMNAS.py` existe y funciona por separado, pero
@@ -251,9 +261,9 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
 - **Aceptación:** tabla de comparación lambdas actuales vs nuevas (log loss de
   marcador, pleno top-3) por temporada; si no mejora, no se integra.
 
-### T6 — Reproducibilidad y README (urgente, afecta a la confianza)
-- **Problema:** el README declara 51,23 % pero se reproduce 50,52 %. La temporada
-  2024-25 sí es exacta (52,38 % / 8,91), la 2025-26 no (README 50,36 % / 8,30 vs
+### T6 — Reproducibilidad y README (urgente, afecta a la confianza) — ✅ HECHO 31/07/2026
+- **Problema:** el README declaraba 51,23 % pero se reproducía 50,52 %. La temporada
+  2024-25 sí era exacta (52,38 % / 8,91), la 2025-26 no (README 50,36 % / 8,30 vs
   50,71 % / 8,41 reproducido).
 - **Dónde mirar:** `README.md` (sección "Resultado de referencia").
 - **Qué hacer:**
@@ -263,6 +273,10 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
      del dataset (`DATOS/historico_raw/**`) para saber cuándo cambian los datos.
 - **Aceptación:** un colega con las mismas versiones reproduce el README exacto.
 - **No:** ajustar umbrales hasta "recuperar" el 51,23 %: eso sería sobreajuste.
+- **Resultado (31/07/2026):** README actualizado con las cifras reales de la
+  configuración v4 (51,64 % / 8,63; 2024-25 52,49 % / 8,64; 2025-26 51,54 % / 8,50),
+  versiones de librerías, fecha de ejecución y hash del dataset
+  (`51a9688ac065015da9335512af5a34a8`). Detalles en la sección 6.
 
 ### T7 — Tests de los módulos nuevos
 - Añade `tests/test_dixon_coles.py` (calibración numérica del factor tau, sumas a 1),
@@ -309,3 +323,36 @@ versión de config, métricas). No bloquean las tareas T1–T7.
 5. No subir `salida/` ni cacharros a git (ya está en `.gitignore`).
 6. Este documento se actualiza al cerrar cada tarea (marca T1–T8 con su resultado),
    siguiendo el estilo de `ROADMAP_PROGRAMA_QUINIELA.md` y `AGENTS.md`.
+
+---
+
+## 6. Registro de ejecución
+
+Tareas completadas sobre el repositorio, con fecha, cambio y evidencia. Antes de
+empezar una tarea nueva, comprueba aquí y en el §3 que nadie la ha hecho ya.
+
+### 31/07/2026 — T1 (config de pesos v4) y T6 (README)
+
+- **T1 — Activar la nueva configuración de pesos.**
+  - `CONFIG_MOTOR_V2.json`: `version` → `motor_quinielistico_v4`; `weights` →
+    `{logit 0.0, hgb 0.049, market 0.951, poisson 0.0}`; `weight_candidates` → 4
+    combinaciones mercado-dominantes.
+  - Evidencia (walk-forward, sección 2.3): el consenso gana/empata al mercado en 4/5
+    temporadas y mejora ECE (0,031 vs 0,034) sin perder log loss ni Brier.
+  - Backtest principal (`MOTOR_QUINIELA_MAESTRO.py --historico original`):
+
+    | | Antes (v3) | Después (v4) | Mercado |
+    |---|---|---|---|
+    | Acierto simple | 50,52 % | **51,64 %** | 51,56 % |
+    | 3 dobles | 8,57 | **8,63** | 8,62 |
+    | 2024-25 | 52,38 % / 8,91 | 52,49 % / 8,64 | 52,38 % |
+    | 2025-26 | 50,71 % / 8,41 | 51,54 % / 8,50 | 51,54 % |
+
+  - El grid eligió candidatos de la familia nueva (market 0,80–0,95 + HGB 0,05–0,20;
+    logit y poisson a 0). La config activa ya no pierde contra el mercado.
+- **T6 — README regenerado** con las cifras de la configuración v4, versiones de
+  librerías, fecha (31/07/2026) y hash del dataset `51a9688ac065015da9335512af5a34a8`.
+
+Pendiente para próximas sesiones: T2 (integración del optimizador en
+`PREDECIR_JORNADA.py`), T3 (calibración vector scaling en producción), T4 (Dixon-Coles
+en producción), T5 (modelo de goles), T7 (tests), T8 (higiene).
