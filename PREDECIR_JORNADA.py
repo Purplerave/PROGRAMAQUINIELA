@@ -321,6 +321,29 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
     pleno = next((p for p in partidos if p.get("num") == 15), None)
     pleno_data = pleno.get("pleno15") if pleno else None
 
+    # 7.5 Boleto optimizado (T2): desarrollo global con presupuesto y valor.
+    #     Usa las probabilidades del modelo cuando existen; si no, Q15 como
+    #     fuente de probabilidades y LAE como popularidad del público.
+    boleto_optimizado = None
+    try:
+        from OPTIMIZADOR_COLUMNAS import optimize_jornada
+
+        probs_override = {}
+        for match in partidos:
+            pm = match.get("probabilidades", {}).get("modelo")
+            if isinstance(pm, dict) and all(s in pm for s in ("1", "X", "2")):
+                probs_override[match.get("num")] = pm
+        budget = int(settings.CONFIG.get("columns", {}).get("default_budget", 128))
+        boleto_optimizado = optimize_jornada(
+            jornada,
+            fuente_prob="q15",
+            publico="lae",
+            presupuesto=budget,
+            probs_override=probs_override or None,
+        )
+    except Exception as exc:
+        boleto_optimizado = {"error": f"no_disponible: {exc}"}
+
     # 8. Construir paquete final
     resumen = {
         "partidos_con_prediccion": len([p for p in partidos if p.get("num") != 15 and p.get("modelo_maestro", {}).get("disponible") is True]),
@@ -352,15 +375,17 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
         },
         "partidos": partidos,
         "pleno15": pleno_data,
+        "boleto_optimizado": boleto_optimizado,
         "resumen_modelo": resumen,
         "columnas": {
             "estado": "v3_modelo_integrado",
-            "nota": "La v3 integra el motor maestro para probabilidades principales. APU/LAE/Q15 se mantienen como referencia comparativa.",
+            "nota": "La v3 integra el motor maestro para probabilidades principales. APU/LAE/Q15 se mantienen como referencia comparativa. El boleto optimizado se construye con OPTIMIZADOR_COLUMNAS (T2).",
             "cambios": [
                 "probabilidades.modelo ahora contiene predicciones del motor maestro",
                 "probabilidades.comparativa contiene APU/LAE/Q15 para referencia",
                 "recomendacion_modelo genera signos/dobles basados en el modelo",
                 "modelo_maestro contiene metadata de calidad y features",
+                "boleto_optimizado contiene desarrollo global, coste, distribución de aciertos y Monte Carlo",
             ],
         },
         "avisos": {

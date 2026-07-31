@@ -74,7 +74,8 @@
   },
   "columns": {
     "price_per_column": 0.75,
-    "beam_size": 6000
+    "beam_size": 6000,
+    "default_budget": 128
   },
   "nordic_football_data": {
     "enabled": false,

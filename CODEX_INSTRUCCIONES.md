@@ -155,8 +155,8 @@ de probabilidades, neutra en acierto.
 Cada tarea indica **dónde mirar** (rutas y funciones exactas) y **criterios de
 aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
 
-> **Estado de tareas:** T1 ✅ (31/07/2026) · T6 ✅ (31/07/2026) ·
-> T2 ⏳ · T3 ⏳ · T4 ⏳ · T5 ⏳ · T7 ⏳ · T8 ⏳
+> **Estado de tareas:** T1 ✅ (31/07/2026) · T2 ✅ (31/07/2026) · T6 ✅ (31/07/2026) ·
+> T3 ⏳ · T4 ⏳ · T5 ⏳ · T7 ⏳ · T8 ⏳
 > Cada tarea hecha se marca aquí y se documenta en la sección 6 (Registro de ejecución).
 
 ### T1 — Activar la nueva configuración de pesos (P0) — ✅ HECHO 31/07/2026
@@ -187,15 +187,15 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
   8,64; 2025-26: 51,54 % / 8,50 (empata con el mercado). El grid eligió candidatos
   de la misma familia (market 0,8–0,95 + HGB). Detalles en la sección 6.
 
-### T2 — Integrar el optimizador de boletos en el flujo de predicción (P2)
-- **Problema:** `OPTIMIZADOR_COLUMNAS.py` existe y funciona por separado, pero
-  `PREDECIR_JORNADA.py` aún no genera el boleto optimizado de cada jornada.
+### T2 — Integrar el optimizador de boletos en el flujo de predicción (P2) — ✅ HECHO 31/07/2026
+- **Problema:** `OPTIMIZADOR_COLUMNAS.py` existía y funcionaba por separado, pero
+  `PREDECIR_JORNADA.py` aún no generaba el boleto optimizado de cada jornada.
 - **Dónde mirar:**
   - `PREDECIR_JORNADA.py` → `build_package()` (empaqueta el pronóstico final).
   - `MOTOR_PREDICCION_JORNADA.py` → `predict_jornada_from_model()`,
     `generate_jornada_prediction()` (genera las probabilidades del modelo por partido).
-  - `CONFIG_MOTOR_V2.json` → `columns.price_per_column` (0,75 €) y `beam_size` (6000)
-    — **claves que hoy nadie usa**; el optimizador debe leerlas.
+  - `CONFIG_MOTOR_V2.json` → `columns.price_per_column` (0,75 €), `beam_size` (6000)
+    y `default_budget` (128, nueva).
   - Los JSON de jornada (`DATOS/QUINIELA15_J*.json`) ya contienen `lae`, `apu` y `q15`
     (porcentajes de público) por partido.
 - **Qué hacer:**
@@ -211,6 +211,18 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
   `OPTIMIZADOR_COLUMNAS.py` se importa como módulo (no como script suelto).
 - **Nota:** `OPTIMIZADOR_COLUMNAS.py` está en la raíz; si prefieres moverlo a
   `scripts/motor/`, hazlo con cuidado de no romper `PREDECIR_JORNADA.py`.
+- **Resultado (31/07/2026):**
+  - `OPTIMIZADOR_COLUMNAS.py` expone `optimize_jornada()` / `_optimize_partidos()`
+    (importable como módulo) y trata el **Pleno al 15 aparte** (partido `pleno_num`,
+    por defecto 15): se excluye del desarrollo y se juega como simple del favorito.
+  - `PREDECIR_JORNADA.build_package()` añade `boleto_optimizado` al paquete:
+    desarrollo (14 partidos + pleno), coste, distribución de aciertos y Monte Carlo.
+    Usa las probabilidades del modelo cuando superan el control de calidad
+    (`probs_override`); si no, Q15 + LAE (fallback probado con la jornada 74).
+  - `CONFIG_MOTOR_V2.json` → `columns.default_budget = 128`.
+  - Verificado: `python PREDECIR_JORNADA.py --jornada 74` genera el paquete con
+    `boleto_optimizado` (108 columnas, 81,00 €, E[aciertos] 11,21 vs 9,75 del
+    favorito). Detalles en la sección 6.
 
 ### T3 — Aplicar la calibración vector scaling en producción (P3)
 - **Problema:** la calibración está validada en backtest pero no se aplica en las
@@ -353,6 +365,20 @@ empezar una tarea nueva, comprueba aquí y en el §3 que nadie la ha hecho ya.
 - **T6 — README regenerado** con las cifras de la configuración v4, versiones de
   librerías, fecha (31/07/2026) y hash del dataset `51a9688ac065015da9335512af5a34a8`.
 
-Pendiente para próximas sesiones: T2 (integración del optimizador en
-`PREDECIR_JORNADA.py`), T3 (calibración vector scaling en producción), T4 (Dixon-Coles
-en producción), T5 (modelo de goles), T7 (tests), T8 (higiene).
+### 31/07/2026 — T2 (integración del optimizador de boletos)
+
+- `OPTIMIZADOR_COLUMNAS.py` refactorizado: `optimize_jornada()` / `_optimize_partidos()`
+  reutilizables; el Pleno al 15 (partido `pleno_num`, por defecto 15) se excluye del
+  desarrollo y se juega como simple del favorito.
+- `PREDECIR_JORNADA.build_package()` añade `boleto_optimizado` al paquete de jornada
+  (desarrollo, coste, distribución de aciertos, Monte Carlo). Fuente de probabilidades:
+  modelo (si supera el control de calidad) → Q15; público: LAE.
+- `CONFIG_MOTOR_V2.json` → `columns.default_budget = 128`.
+- Verificado con `python PREDECIR_JORNADA.py --jornada 74`: paquete con
+  `boleto_optimizado` (108 columnas, 81,00 €; E[aciertos] 11,21 vs 9,75 del favorito;
+  P(≥13) 35,7 %). En jornadas con equipos sin histórico español (nórdicos), el modelo
+  queda marcado como no fiable por el control de calidad y el boleto usa Q15/LAE —
+  comportamiento previsto.
+
+Pendiente para próximas sesiones: T3 (calibración vector scaling en producción),
+T4 (Dixon-Coles en producción), T5 (modelo de goles), T7 (tests), T8 (higiene).
