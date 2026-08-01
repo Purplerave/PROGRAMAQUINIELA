@@ -15,6 +15,7 @@ import pandas as pd
 from scipy.stats import poisson
 
 import settings
+from scripts.motor.dixon_coles import dc_1x2 as dixon_coles_1x2
 
 LABEL_MAP = {"1": 0, "X": 1, "2": 2}
 
@@ -47,6 +48,26 @@ def poisson_1x2(
     if total <= 0:
         return (np.nan, np.nan, np.nan)
     return (p1 / total, px / total, p2 / total)
+
+
+def dc_poisson_1x2(
+    lambda_home: float, lambda_away: float, rho: float = -0.036, max_goals: int = 7
+) -> tuple[float, float, float]:
+    """Probabilidades 1/X/2 con Dixon-Coles (rho corrige marcadores bajos).
+
+    Si lambda es NaN, devuelve NaN. Si rho == 0, equivale al Poisson independiente.
+    """
+    if np.isnan(lambda_home) or np.isnan(lambda_away):
+        return (np.nan, np.nan, np.nan)
+    try:
+        probs = dixon_coles_1x2([lambda_home], [lambda_away], rho, max_goals)
+        if probs.shape[0] == 0:
+            return poisson_1x2(lambda_home, lambda_away, max_goals)
+        p1, px, p2 = probs[0]
+        return (float(p1), float(px), float(p2))
+    except Exception:
+        # Fallback a Poisson independiente si falla DC
+        return poisson_1x2(lambda_home, lambda_away, max_goals)
 
 
 def implied_probabilities(
@@ -227,6 +248,13 @@ class TeamStateTracker:
         self.k_factor = float(master_config.get("elo_k_factor", 24.0))
         self.home_advantage = float(master_config.get("elo_home_advantage", 55.0))
         self.goal_per_sot = float(master_config.get("goal_per_sot", 0.30))
+        # T4: Dixon-Coles config
+        dc_cfg = master_config.get("dixon_coles", {}) if isinstance(master_config.get("dixon_coles"), dict) else {}
+        self.dc_enabled = bool(dc_cfg.get("enabled", True))
+        self.dc_rho = float(dc_cfg.get("rho", -0.036))
+        self.dc_max_goals = int(dc_cfg.get("max_goals", 7))
+        self.dc_use_for_ensemble = bool(dc_cfg.get("use_for_ensemble", False))
+        self.dc_use_for_pleno = bool(dc_cfg.get("use_for_pleno", True))
 
     def ensure_team(self, team: str) -> dict[str, Any]:
         """Asegura la inicialización de la estructura de historial y Elo de un equipo."""
@@ -353,7 +381,17 @@ class TeamStateTracker:
                 lambda_away, shot_lambda_away * self.goal_per_sot
             )
 
-        poi_1, poi_x, poi_2 = poisson_1x2(lambda_home, lambda_away)
+        # Poisson independiente por defecto
+        poi_1, poi_x, poi_2 = poisson_1x2(lambda_home, lambda_away, max_goals=self.dc_max_goals)
+
+        # T4: si está habilitado el uso de DC para el ensemble, sobrescribir poisson con DC
+        if self.dc_enabled and self.dc_use_for_ensemble:
+            dc_p1, dc_px, dc_p2 = dc_poisson_1x2(
+                lambda_home, lambda_away, rho=self.dc_rho, max_goals=self.dc_max_goals
+            )
+            # Solo sobrescribir si DC produce valores válidos
+            if not (np.isnan(dc_p1) or np.isnan(dc_px) or np.isnan(dc_p2)):
+                poi_1, poi_x, poi_2 = dc_p1, dc_px, dc_p2
 
         home_shots = self.avg_last(home_hist["shots"])
         away_shots = self.avg_last(away_hist["shots"])

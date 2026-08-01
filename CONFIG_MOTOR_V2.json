@@ -34,7 +34,15 @@
     "hgb_learning_rate": 0.06,
     "hgb_max_depth": 6,
     "hgb_max_iter": 300,
-    "hgb_min_samples_leaf": 30
+    "hgb_min_samples_leaf": 30,
+    "dixon_coles": {
+      "enabled": true,
+      "rho": -0.036,
+      "max_goals": 7,
+      "use_for_ensemble": false,
+      "use_for_pleno": true,
+      "note": "rho medio walk-forward 5 temporadas (-0.036). Estimacion fuera de muestra por maxima verosimilitud. Mejora leve 1X2 y pleno exacto."
+    }
   },
   "decision": {
     "weights": {

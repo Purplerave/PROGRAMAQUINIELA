@@ -155,8 +155,8 @@ de probabilidades, neutra en acierto.
 Cada tarea indica **dónde mirar** (rutas y funciones exactas) y **criterios de
 aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
 
-> **Estado de tareas:** T1 ✅ (31/07/2026) · T2 ✅ (31/07/2026) · T3 ✅ (01/08/2026) · T6 ✅ (31/07/2026) ·
-> T4 ⏳ · T5 ⏳ · T7 ⏳ · T8 ⏳
+> **Estado de tareas:** T1 ✅ (31/07/2026) · T2 ✅ (31/07/2026) · T3 ✅ (01/08/2026) · T4 ✅ (01/08/2026) · T6 ✅ (31/07/2026) ·
+> T5 ⏳ · T7 ⏳ · T8 ⏳
 > Cada tarea hecha se marca aquí y se documenta en la sección 6 (Registro de ejecución).
 
 ### T1 — Activar la nueva configuración de pesos (P0) — ✅ HECHO 31/07/2026
@@ -261,7 +261,7 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
     de validación. El paquete de jornada sigue funcionando y usa probabilidades
     calibradas cuando el control de calidad lo permite.
 
-### T4 — Aplicar Dixon-Coles en producción (P4, bajo coste)
+### T4 — Aplicar Dixon-Coles en producción (P4, bajo coste) — ✅ HECHO 01/08/2026
 - **Problema:** el motor aún usa Poisson independiente (`poisson_1x2`) para el 1X2 y
   el Pleno al 15; el módulo DC (`scripts/motor/dixon_coles.py`) está sin conectar.
 - **Dónde mirar:**
@@ -275,6 +275,25 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
      mejora log loss fuera de muestra, mantén el Poisson independiente en el ensemble
      y usa DC solo para marcadores/pleno.
 - **Aceptación:** comparativa documentada (1X2 y pleno) con y sin DC en walk-forward.
+- **Resultado (01/08/2026):**
+  - `CONFIG_MOTOR_V2.json` → nuevo bloque `master_model.dixon_coles`:
+    `enabled=true, rho=-0.036, max_goals=7, use_for_ensemble=false, use_for_pleno=true`.
+    Rho medio walk-forward 5 temporadas = −0,036 (signo correcto, marcadores bajos más probables).
+  - `scripts/motor/features.py`:
+    - Importa `dc_1x2`, añade `dc_poisson_1x2()` wrapper.
+    - `TeamStateTracker.__init__` lee config DC (`dc_enabled`, `dc_rho`, `dc_max_goals`, `use_for_ensemble/pleno`).
+    - `extract_match_features` computa Poisson independiente por defecto y, si `use_for_ensemble=true`, sobrescribe con DC. Con `use_for_ensemble=false` (actual v4, poisson weight 0.0) mantiene independiente para ensemble.
+  - `MOTOR_QUINIELA_MAESTRO.py`:
+    - `top_scorelines(lambda_home, lambda_away, max_goals=5, top_n=3, rho=None)` ahora acepta rho; si None lee de config (DC si enabled y use_for_pleno). Con rho=0 usa Poisson, con rho≠0 usa `dc_score_probs` (factor tau). Fallback a Poisson si falla.
+    - `add_pleno_al_15(frame, rho=None)` lee rho de config o del parámetro y pasa a `top_scorelines`. Guarda `pleno15_top_scores`, `pleno15_marcador`, etc.
+    - `run_season_backtest` y `run_backtest` estiman rho fuera de muestra con `estimate_rho` sobre train (lambdas + FTHG/FTAG) antes del corte, nunca con test. Fallback a config rho si estimación falla.
+  - Evidencia walk-forward `scripts/backtests/DIXON_COLES.py --historico original` (5 temporadas, rho estimado fuera de muestra):
+    - Rho por temporada: 2021-22 −0,030 | 2022-23 −0,040 | 2023-24 −0,040 | 2024-25 −0,040 | 2025-26 −0,030 | media −0,036.
+    - 1X2: LogLoss 1,0764→1,0761 (−0,0002), Brier 0,6511→0,6509 (−0,0002), ECE 0,0307→0,0305, Acierto 41,85%→41,73% (neutro).
+    - Pleno exacto: 13,06%→13,14% (+0,07 pp), Pleno top-3: 35,30%→34,75% (−0,55 pp).
+    - DC gana en log loss 1X2 en 3/5 temporadas. Mejora pequeña y real en calidad de probabilidades, neutra en acierto, mejora leve en pleno exacto.
+  - Decisión: mantener Poisson independiente para ensemble 1X2 (peso poisson 0.0 en config v4, no afecta) y usar DC solo para marcadores/pleno (`use_for_ensemble=false, use_for_pleno=true`), como recomienda la auditoría.
+  - `pytest -q -m "not slow"` sigue en verde (32 tests). `salida/dixon_coles.json` regenerado.
 
 ### T5 — Modelo de goles ataque/defensa (mejora de fondo para lambdas y DC)
 - **Problema:** las lambdas actuales se construyen con goles recientes + tiros ×
@@ -428,5 +447,18 @@ empezar una tarea nueva, comprueba aquí y en el §3 que nadie la ha hecho ya.
     para equipos nórdicos (comportamiento esperado).
   - `pytest -q -m "not slow"` en verde (32 tests).
 
-Pendiente para próximas sesiones: T4 (Dixon-Coles en producción), T5 (modelo de goles),
-T7 (tests), T8 (higiene).
+### 01/08/2026 — T4 (Dixon-Coles en producción)
+
+- `CONFIG_MOTOR_V2.json` añade `master_model.dixon_coles` con `enabled=true, rho=-0.036, max_goals=7, use_for_ensemble=false, use_for_pleno=true`.
+- `scripts/motor/features.py`:
+  - Importa `dc_1x2`, implementa `dc_poisson_1x2()` que envuelve DC para un solo partido.
+  - `TeamStateTracker` lee config DC en `__init__` y en `extract_match_features` mantiene Poisson independiente por defecto; si `use_for_ensemble=true` sobrescribiría con DC (actualmente false, ya que peso poisson=0 en v4).
+- `MOTOR_QUINIELA_MAESTRO.py`:
+  - `top_scorelines(..., rho=None)` lee rho de config si None y usa DC (`dc_score_probs`) cuando rho≠0, con fallback a Poisson.
+  - `add_pleno_al_15(frame, rho=None)` acepta rho explícito y lo propaga a top_scorelines.
+  - `run_backtest` y `run_season_backtest` estiman rho fuera de muestra con `estimate_rho` sobre train (lambda_home/away + FTHG/FTAG) antes del corte.
+- Evidencia `DIXON_COLES.py` walk-forward (ver §2.6): rho medio −0,036; LogLoss 1,0764→1,0761; Brier 0,6511→0,6509; pleno exacto 13,06%→13,14%; top-3 35,30%→34,75%; gana en 3/5 temporadas en log loss.
+- Decisión: usar DC solo para Pleno al 15 (mejora leve real, bajo coste), mantener Poisson independiente para ensemble 1X2 (peso 0 en v4).
+- Tests: `pytest -q -m "not slow"` 32 passed. `python scripts/backtests/DIXON_COLES.py` regenera `salida/dixon_coles.json`.
+
+Pendiente para próximas sesiones: T5 (modelo de goles ataque/defensa), T7 (tests), T8 (higiene).
