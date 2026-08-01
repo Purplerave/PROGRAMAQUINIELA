@@ -149,16 +149,69 @@ def load_raw_history(source: str = "original") -> pd.DataFrame:
 
 
 
-def top_scorelines(lambda_home: float, lambda_away: float, max_goals: int = 5, top_n: int = 3) -> list[dict]:
+def top_scorelines(
+    lambda_home: float,
+    lambda_away: float,
+    max_goals: int = 5,
+    top_n: int = 3,
+    rho: float | None = None,
+) -> list[dict]:
+    """Top-N marcadores más probables con Poisson independiente o Dixon-Coles.
+
+    Args:
+        lambda_home, lambda_away: lambdas esperadas
+        max_goals: máximo de goles considerado
+        top_n: cuántos marcadores devolver
+        rho: si es None o 0.0 usa Poisson independiente; si es !=0 usa DC.
+    """
     if np.isnan(lambda_home) or np.isnan(lambda_away):
         return []
-    scores = []
-    for hg in range(max_goals + 1):
-        for ag in range(max_goals + 1):
-            prob = poisson.pmf(hg, lambda_home) * poisson.pmf(ag, lambda_away)
-            scores.append({"score": f"{hg}-{ag}", "prob": float(prob)})
-    scores.sort(key=lambda item: item["prob"], reverse=True)
-    return scores[:top_n]
+    if rho is None:
+        # Leer rho de config si está habilitado para pleno
+        try:
+            cfg = settings.master_model_config().get("dixon_coles", {})
+            if isinstance(cfg, dict) and cfg.get("enabled") and cfg.get("use_for_pleno"):
+                rho = float(cfg.get("rho", -0.036))
+            else:
+                rho = 0.0
+        except Exception:
+            rho = 0.0
+
+    if rho == 0.0 or rho is None:
+        # Poisson independiente (original)
+        scores = []
+        for hg in range(max_goals + 1):
+            for ag in range(max_goals + 1):
+                prob = poisson.pmf(hg, lambda_home) * poisson.pmf(ag, lambda_away)
+                scores.append({"score": f"{hg}-{ag}", "prob": float(prob)})
+        scores.sort(key=lambda item: item["prob"], reverse=True)
+        return scores[:top_n]
+    else:
+        # Dixon-Coles
+        try:
+            from scripts.motor.dixon_coles import dc_score_probs
+
+            probs = dc_score_probs(
+                np.array([lambda_home]), np.array([lambda_away]), float(rho), max_goals=max_goals
+            )
+            # probs shape (1, G, G)
+            flat = probs[0]
+            # Obtener top_n
+            idx = np.argsort(flat, axis=None)[::-1][:top_n]
+            rows = []
+            for flat_idx in idx:
+                x, y = np.unravel_index(flat_idx, flat.shape)
+                rows.append({"score": f"{x}-{y}", "prob": float(flat[x, y])})
+            return rows
+        except Exception:
+            # Fallback a Poisson independiente
+            scores = []
+            for hg in range(max_goals + 1):
+                for ag in range(max_goals + 1):
+                    prob = poisson.pmf(hg, lambda_home) * poisson.pmf(ag, lambda_away)
+                    scores.append({"score": f"{hg}-{ag}", "prob": float(prob)})
+            scores.sort(key=lambda item: item["prob"], reverse=True)
+            return scores[:top_n]
 
 
 def feature_columns() -> list[str]:
@@ -527,10 +580,24 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
     return final_logit, final_hgb, best["config"]
 
 
-def add_pleno_al_15(frame: pd.DataFrame) -> pd.DataFrame:
+def add_pleno_al_15(frame: pd.DataFrame, rho: float | None = None) -> pd.DataFrame:
+    """Añade columnas de Pleno al 15 usando Poisson independiente o Dixon-Coles.
+
+    Si rho es None, lo lee de la config master_model.dixon_coles (si enabled y use_for_pleno).
+    """
     out = frame.copy()
+    if rho is None:
+        try:
+            cfg = settings.master_model_config().get("dixon_coles", {})
+            if isinstance(cfg, dict) and cfg.get("enabled") and cfg.get("use_for_pleno"):
+                rho = float(cfg.get("rho", -0.036))
+            else:
+                rho = 0.0
+        except Exception:
+            rho = 0.0
+
     top_scores = [
-        top_scorelines(lh, la, max_goals=5, top_n=3)
+        top_scorelines(lh, la, max_goals=5, top_n=3, rho=rho)
         for lh, la in zip(out["lambda_home"], out["lambda_away"])
     ]
     out["pleno15_top_scores"] = [json.dumps(scores, ensure_ascii=False) for scores in top_scores]
@@ -579,6 +646,32 @@ def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFr
     if train.empty or test.empty:
         raise ValueError(f"No se puede hacer backtest de {target_season}: train={len(train)} test={len(test)}")
 
+    # T4: estimar rho de Dixon-Coles SOLO con temporadas anteriores (sin fuga)
+    rho_est = None
+    try:
+        from scripts.motor.dixon_coles import estimate_rho
+
+        # Necesitamos FTHG, FTAG, lambdas para estimar rho. Usar train con esas columnas.
+        if {"lambda_home", "lambda_away", "FTHG", "FTAG"}.issubset(train.columns):
+            tr = train.dropna(subset=["lambda_home", "lambda_away", "FTHG", "FTAG"])
+            if len(tr) >= 200:
+                rho_est = estimate_rho(
+                    tr["lambda_home"].to_numpy(),
+                    tr["lambda_away"].to_numpy(),
+                    tr["FTHG"].to_numpy(),
+                    tr["FTAG"].to_numpy(),
+                )
+    except Exception:
+        rho_est = None
+
+    # Si no se pudo estimar, usar rho de config
+    if rho_est is None:
+        try:
+            cfg = settings.master_model_config().get("dixon_coles", {})
+            rho_est = float(cfg.get("rho", -0.036)) if isinstance(cfg, dict) else -0.036
+        except Exception:
+            rho_est = -0.036
+
     logit, hgb, best_config = optimize_hybrid_config(train)
     test_eval = add_market_baseline(test)
     logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
@@ -591,7 +684,7 @@ def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFr
     test_eval["hgb_prob_2"] = hgb_probs[:, 2]
 
     predictions = apply_hybrid_config(test_eval, best_config, "latest")
-    predictions = add_pleno_al_15(predictions)
+    predictions = add_pleno_al_15(predictions, rho=rho_est)
     metrics = {
         "season": target_season,
         "train_seasons": train_seasons,
@@ -602,6 +695,7 @@ def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFr
         "test_date_to": str(test["date"].max().date()),
         "divisions_test": {division: int(count) for division, count in test["division"].value_counts().sort_index().items()},
         "best_config": best_config,
+        "dixon_coles_rho": rho_est,
         "latest_season_model": summarize_results(test_eval, "latest", best_config),
     }
     return predictions, metrics
@@ -624,6 +718,28 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     train = usable.iloc[:split_idx].copy()
     test = usable.iloc[split_idx:].copy()
 
+    # T4: estimar rho con train
+    rho_est = None
+    try:
+        from scripts.motor.dixon_coles import estimate_rho
+
+        tr = train.dropna(subset=["lambda_home", "lambda_away", "FTHG", "FTAG"])
+        if len(tr) >= 200:
+            rho_est = estimate_rho(
+                tr["lambda_home"].to_numpy(),
+                tr["lambda_away"].to_numpy(),
+                tr["FTHG"].to_numpy(),
+                tr["FTAG"].to_numpy(),
+            )
+    except Exception:
+        rho_est = None
+    if rho_est is None:
+        try:
+            cfg = settings.master_model_config().get("dixon_coles", {})
+            rho_est = float(cfg.get("rho", -0.036)) if isinstance(cfg, dict) else -0.036
+        except Exception:
+            rho_est = -0.036
+
     logit, hgb, best_config = optimize_hybrid_config(train)
     test_eval = add_market_baseline(test)
     logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
@@ -636,7 +752,7 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     test_eval["hgb_prob_2"] = hgb_probs[:, 2]
 
     predictions = apply_hybrid_config(test_eval, best_config, "best")
-    predictions = add_pleno_al_15(predictions)
+    predictions = add_pleno_al_15(predictions, rho=rho_est)
 
     metrics = {
         "split_date": str(test["date"].min().date()),
@@ -645,6 +761,7 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         "test_matches": int(len(test)),
         "divisions": {division: int(count) for division, count in usable["division"].value_counts().sort_index().items()},
         "best_config": best_config,
+        "dixon_coles_rho": rho_est,
         "optimized_model": summarize_results(test_eval, "best", best_config),
     }
     return predictions, metrics

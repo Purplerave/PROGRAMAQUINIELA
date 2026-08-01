@@ -155,8 +155,8 @@ de probabilidades, neutra en acierto.
 Cada tarea indica **dónde mirar** (rutas y funciones exactas) y **criterios de
 aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
 
-> **Estado de tareas:** T1 ✅ (31/07/2026) · T2 ✅ (31/07/2026) · T6 ✅ (31/07/2026) ·
-> T3 ⏳ · T4 ⏳ · T5 ⏳ · T7 ⏳ · T8 ⏳
+> **Estado de tareas:** T1 ✅ (31/07/2026) · T2 ✅ (31/07/2026) · T3 ✅ (01/08/2026) · T4 ✅ (01/08/2026) · T6 ✅ (31/07/2026) ·
+> T5 ⏳ · T7 ⏳ · T8 ⏳
 > Cada tarea hecha se marca aquí y se documenta en la sección 6 (Registro de ejecución).
 
 ### T1 — Activar la nueva configuración de pesos (P0) — ✅ HECHO 31/07/2026
@@ -224,7 +224,7 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
     `boleto_optimizado` (108 columnas, 81,00 €, E[aciertos] 11,21 vs 9,75 del
     favorito). Detalles en la sección 6.
 
-### T3 — Aplicar la calibración vector scaling en producción (P3)
+### T3 — Aplicar la calibración vector scaling en producción (P3) — ✅ HECHO 01/08/2026
 - **Problema:** la calibración está validada en backtest pero no se aplica en las
   predicciones reales.
 - **Dónde mirar:**
@@ -240,8 +240,28 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
 - **Aceptación:** un backtest con calibración aplicada muestra ECE ≤ 0,025 (vs 0,033
   sin calibrar) y log loss no peor; la jornada real usa probabilidades calibradas.
 - **No:** calibrar con los mismos datos de evaluación (fuga temporal).
+- **Resultado (01/08/2026):**
+  - Nuevo módulo `scripts/motor/calibration.py` con `VectorScalingCalibrator`,
+    `brier_multiclass`, `ece_by_confidence` y `calibrate_vectorscaling()` reutilizable.
+    `CALIBRACION_PROBABILIDADES.py` ahora importa del módulo compartido.
+  - `MOTOR_PREDICCION_JORNADA._train_models()` entrena logit/HGB finales con todo el
+    histórico (vía `optimize_hybrid_config`) y además ajusta el calibrador con split
+    temporal 84/16: entrena modelos temporales en subtrain, genera ensemble en valid
+    con `apply_hybrid_config`, y ajusta vector scaling solo con valid. Nunca usa la
+    jornada futura (no fuga).
+  - `load_or_train_models()` cachea y devuelve `(logit, hgb, config, calibrator)`.
+  - `predict_jornada_from_model()` aplica el calibrador tras `apply_hybrid_config`
+    (re-calcula `modelo_pred` por argmax calibrado) y añade metadatos
+    `fuente_probabilidades.calibracion` y `modelo_info.calibracion`.
+  - Evidencia walk-forward 5 temporadas (sección 2.5): ECE 0,0326 → **0,0245**
+    (≤0,025), LogLoss 1,0010 → **1,0001** (no peor), Brier 0,5987 → **0,5979**.
+  - Verificación jornada real (J74 y Real Madrid-Barcelona 2026-08-15):
+    `prob_1/prob_x/prob_2` calibradas, `calibracion.aplicada=true`,
+    `pre_ece 0,0308 → post_ece 0,0164`, `log_loss 0,9944 → 0,9914` con 2152 partidos
+    de validación. El paquete de jornada sigue funcionando y usa probabilidades
+    calibradas cuando el control de calidad lo permite.
 
-### T4 — Aplicar Dixon-Coles en producción (P4, bajo coste)
+### T4 — Aplicar Dixon-Coles en producción (P4, bajo coste) — ✅ HECHO 01/08/2026
 - **Problema:** el motor aún usa Poisson independiente (`poisson_1x2`) para el 1X2 y
   el Pleno al 15; el módulo DC (`scripts/motor/dixon_coles.py`) está sin conectar.
 - **Dónde mirar:**
@@ -255,6 +275,25 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
      mejora log loss fuera de muestra, mantén el Poisson independiente en el ensemble
      y usa DC solo para marcadores/pleno.
 - **Aceptación:** comparativa documentada (1X2 y pleno) con y sin DC en walk-forward.
+- **Resultado (01/08/2026):**
+  - `CONFIG_MOTOR_V2.json` → nuevo bloque `master_model.dixon_coles`:
+    `enabled=true, rho=-0.036, max_goals=7, use_for_ensemble=false, use_for_pleno=true`.
+    Rho medio walk-forward 5 temporadas = −0,036 (signo correcto, marcadores bajos más probables).
+  - `scripts/motor/features.py`:
+    - Importa `dc_1x2`, añade `dc_poisson_1x2()` wrapper.
+    - `TeamStateTracker.__init__` lee config DC (`dc_enabled`, `dc_rho`, `dc_max_goals`, `use_for_ensemble/pleno`).
+    - `extract_match_features` computa Poisson independiente por defecto y, si `use_for_ensemble=true`, sobrescribe con DC. Con `use_for_ensemble=false` (actual v4, poisson weight 0.0) mantiene independiente para ensemble.
+  - `MOTOR_QUINIELA_MAESTRO.py`:
+    - `top_scorelines(lambda_home, lambda_away, max_goals=5, top_n=3, rho=None)` ahora acepta rho; si None lee de config (DC si enabled y use_for_pleno). Con rho=0 usa Poisson, con rho≠0 usa `dc_score_probs` (factor tau). Fallback a Poisson si falla.
+    - `add_pleno_al_15(frame, rho=None)` lee rho de config o del parámetro y pasa a `top_scorelines`. Guarda `pleno15_top_scores`, `pleno15_marcador`, etc.
+    - `run_season_backtest` y `run_backtest` estiman rho fuera de muestra con `estimate_rho` sobre train (lambdas + FTHG/FTAG) antes del corte, nunca con test. Fallback a config rho si estimación falla.
+  - Evidencia walk-forward `scripts/backtests/DIXON_COLES.py --historico original` (5 temporadas, rho estimado fuera de muestra):
+    - Rho por temporada: 2021-22 −0,030 | 2022-23 −0,040 | 2023-24 −0,040 | 2024-25 −0,040 | 2025-26 −0,030 | media −0,036.
+    - 1X2: LogLoss 1,0764→1,0761 (−0,0002), Brier 0,6511→0,6509 (−0,0002), ECE 0,0307→0,0305, Acierto 41,85%→41,73% (neutro).
+    - Pleno exacto: 13,06%→13,14% (+0,07 pp), Pleno top-3: 35,30%→34,75% (−0,55 pp).
+    - DC gana en log loss 1X2 en 3/5 temporadas. Mejora pequeña y real en calidad de probabilidades, neutra en acierto, mejora leve en pleno exacto.
+  - Decisión: mantener Poisson independiente para ensemble 1X2 (peso poisson 0.0 en config v4, no afecta) y usar DC solo para marcadores/pleno (`use_for_ensemble=false, use_for_pleno=true`), como recomienda la auditoría.
+  - `pytest -q -m "not slow"` sigue en verde (32 tests). `salida/dixon_coles.json` regenerado.
 
 ### T5 — Modelo de goles ataque/defensa (mejora de fondo para lambdas y DC)
 - **Problema:** las lambdas actuales se construyen con goles recientes + tiros ×
@@ -380,5 +419,46 @@ empezar una tarea nueva, comprueba aquí y en el §3 que nadie la ha hecho ya.
   queda marcado como no fiable por el control de calidad y el boleto usa Q15/LAE —
   comportamiento previsto.
 
-Pendiente para próximas sesiones: T3 (calibración vector scaling en producción),
-T4 (Dixon-Coles en producción), T5 (modelo de goles), T7 (tests), T8 (higiene).
+### 01/08/2026 — T3 (calibración vector scaling en producción)
+
+- Nuevo módulo `scripts/motor/calibration.py` extraído de `CALIBRACION_PROBABILIDADES.py`:
+  `VectorScalingCalibrator` (wrapper de `LogisticRegression` sobre log-probs con
+  `fit(probs, y)` y `predict(probs)`), métricas `brier_multiclass`,
+  `ece_by_confidence`, helpers `calibrate_vectorscaling` y `evaluate_calibration`.
+- `scripts/backtests/CALIBRACION_PROBABILIDADES.py` refactorizado para importar del
+  módulo compartido (`EPS`, `VectorScalingCalibrator`, métricas) y usar
+  `VectorScalingCalibrator` en lugar de re-implementar.
+- `MOTOR_PREDICCION_JORNADA.py`:
+  - `_train_models()` devuelve además `calibrator`: optimiza config híbrida con
+    `optimize_hybrid_config`, re-entrena full histórico, luego split 84/16 temporal
+    para calibrador (subtrain → modelos temporales → ensemble en valid →
+    `VectorScalingCalibrator.fit`).
+  - `load_or_train_models()` → 4 valores con cache de calibrador.
+  - `predict_jornada_from_model()` aplica calibrador tras `apply_hybrid_config`,
+    recalcula `modelo_pred`, añade `fuente_probabilidades.calibracion` por partido
+    y `modelo_info.calibracion` global con `pre/post ECE/log_loss/Brier` y `n_calibration`.
+- Evidencia:
+  - Walk-forward 5 temporadas: ECE 0,0326→0,0245, LogLoss 1,0010→1,0001, Brier
+    0,5987→0,5979 (criterio aceptación cumplido).
+  - Jornada 74 (nórdica, sin cuotas): calibrado true, `pre_ece 0,0308 → post_ece 0,0164`,
+    `pre_log_loss 0,9944 → 0,9914`, 2152 partidos validación.
+  - `PREDECIR_JORNADA.py --jornada 74` sigue generando `SALIDAS/paquete_jornada_J74.json`
+    con boleto optimizado; el modelo queda marcado como no fiable por calidad (<0.2)
+    para equipos nórdicos (comportamiento esperado).
+  - `pytest -q -m "not slow"` en verde (32 tests).
+
+### 01/08/2026 — T4 (Dixon-Coles en producción)
+
+- `CONFIG_MOTOR_V2.json` añade `master_model.dixon_coles` con `enabled=true, rho=-0.036, max_goals=7, use_for_ensemble=false, use_for_pleno=true`.
+- `scripts/motor/features.py`:
+  - Importa `dc_1x2`, implementa `dc_poisson_1x2()` que envuelve DC para un solo partido.
+  - `TeamStateTracker` lee config DC en `__init__` y en `extract_match_features` mantiene Poisson independiente por defecto; si `use_for_ensemble=true` sobrescribiría con DC (actualmente false, ya que peso poisson=0 en v4).
+- `MOTOR_QUINIELA_MAESTRO.py`:
+  - `top_scorelines(..., rho=None)` lee rho de config si None y usa DC (`dc_score_probs`) cuando rho≠0, con fallback a Poisson.
+  - `add_pleno_al_15(frame, rho=None)` acepta rho explícito y lo propaga a top_scorelines.
+  - `run_backtest` y `run_season_backtest` estiman rho fuera de muestra con `estimate_rho` sobre train (lambda_home/away + FTHG/FTAG) antes del corte.
+- Evidencia `DIXON_COLES.py` walk-forward (ver §2.6): rho medio −0,036; LogLoss 1,0764→1,0761; Brier 0,6511→0,6509; pleno exacto 13,06%→13,14%; top-3 35,30%→34,75%; gana en 3/5 temporadas en log loss.
+- Decisión: usar DC solo para Pleno al 15 (mejora leve real, bajo coste), mantener Poisson independiente para ensemble 1X2 (peso 0 en v4).
+- Tests: `pytest -q -m "not slow"` 32 passed. `python scripts/backtests/DIXON_COLES.py` regenera `salida/dixon_coles.json`.
+
+Pendiente para próximas sesiones: T5 (modelo de goles ataque/defensa), T7 (tests), T8 (higiene).

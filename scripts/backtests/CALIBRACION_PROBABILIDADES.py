@@ -35,33 +35,17 @@ if str(PROJECT_ROOT) not in sys.path:
 import settings
 from MOTOR_QUINIELA_MAESTRO import LABEL_MAP, feature_columns, load_raw_history
 from scripts.motor.features import rolling_team_features
+# T3: métricas y calibrador compartidos (módulo reutilizable)
+from scripts.motor.calibration import (
+    EPS,
+    VectorScalingCalibrator,
+    brier_multiclass,
+    ece_by_confidence,
+)
 
 CONSENSUS_WEIGHTS = np.array([0.0, 0.049, 0.951, 0.0])  # logit, hgb, market, poisson (walk-forward P1)
 SOURCE_NAMES = ["logit", "hgb", "market", "poisson"]
 TARGET_SEASONS = ["2021-2022", "2022-2023", "2023-2024", "2024-2025", "2025-2026"]
-EPS = 1e-9
-
-
-def brier_multiclass(y_true: np.ndarray, probs: np.ndarray) -> float:
-    onehot = np.zeros_like(probs)
-    onehot[np.arange(len(y_true)), y_true] = 1.0
-    return float(np.mean(np.sum((onehot - probs) ** 2, axis=1)))
-
-
-def ece_by_confidence(y_true: np.ndarray, probs: np.ndarray, bins: int = 10) -> float:
-    conf = probs.max(axis=1)
-    pred = probs.argmax(axis=1)
-    acc = (pred == y_true).astype(float)
-    edges = np.linspace(0.0, 1.0, bins + 1)
-    total = 0.0
-    n = len(y_true)
-    for i in range(bins):
-        lo, hi = edges[i], edges[i + 1]
-        mask = (conf > lo) & (conf <= hi) if i > 0 else (conf >= lo) & (conf <= hi)
-        if mask.sum() == 0:
-            continue
-        total += (mask.sum() / n) * abs(acc[mask].mean() - conf[mask].mean())
-    return float(total)
 
 
 def fit_logit(data: pd.DataFrame, cols: list[str]):
@@ -123,6 +107,8 @@ def ensemble_probs(logit, hgb, frame: pd.DataFrame, cols: list[str]) -> np.ndarr
 
 def calibrate_isotonic(cal_probs: np.ndarray, cal_y: np.ndarray, apply_probs: np.ndarray) -> np.ndarray:
     """Isotonic por clase (one-vs-rest) con renormalización."""
+    from sklearn.isotonic import IsotonicRegression
+
     cal_onehot = np.zeros((len(cal_y), 3))
     cal_onehot[np.arange(len(cal_y)), cal_y] = 1.0
     out = np.zeros_like(apply_probs)
@@ -136,10 +122,10 @@ def calibrate_isotonic(cal_probs: np.ndarray, cal_y: np.ndarray, apply_probs: np
 
 
 def calibrate_vectorscaling(cal_probs: np.ndarray, cal_y: np.ndarray, apply_probs: np.ndarray) -> np.ndarray:
-    """Vector scaling: logit multinomial sobre log-probabilidades."""
-    lr = LogisticRegression(max_iter=1000, C=1.0)
-    lr.fit(np.log(np.clip(cal_probs, EPS, 1.0)), cal_y)
-    return lr.predict_proba(np.log(np.clip(apply_probs, EPS, 1.0)))
+    """Vector scaling: logit multinomial sobre log-probabilidades (usa módulo compartido)."""
+    cal = VectorScalingCalibrator()
+    cal.fit(cal_probs, cal_y)
+    return cal.predict(apply_probs)
 
 
 def main() -> None:
