@@ -36,6 +36,7 @@ from scripts.motor.features import (
     infer_season,
     rolling_team_features,
 )
+from scripts.motor.calibration import VectorScalingCalibrator
 
 # Configuración de salida
 MODELS_DIR = settings.SALIDA_DIR / "modelos"
@@ -44,6 +45,7 @@ MODELS_DIR = settings.SALIDA_DIR / "modelos"
 _LOGIT_MODEL: Any = None
 _HGB_MODEL: Any = None
 _MASTER_CONFIG: dict | None = None
+_CALIBRATOR: VectorScalingCalibrator | None = None
 
 
 def load_master_config() -> dict:
@@ -54,18 +56,29 @@ def load_master_config() -> dict:
     return _MASTER_CONFIG
 
 
-def load_or_train_models(history_df: pd.DataFrame | None = None) -> tuple[Any, Any, dict]:
+def load_or_train_models(
+    history_df: pd.DataFrame | None = None,
+) -> tuple[Any, Any, dict, VectorScalingCalibrator | None]:
     """Carga modelos entrenados desde disco o los entrena desde cero.
 
     Si existen modelos guardados en MODELS_DIR, los carga.
     Si no, entrena con el histórico proporcionado.
+
+    Returns:
+        (logit, hgb, config, calibrator) — calibrator puede ser None si falla.
     """
-    global _LOGIT_MODEL, _HGB_MODEL, _MASTER_CONFIG
+    global _LOGIT_MODEL, _HGB_MODEL, _MASTER_CONFIG, _CALIBRATOR
 
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
-    if _LOGIT_MODEL is not None and _HGB_MODEL is not None and _MASTER_CONFIG is not None:
-        return _LOGIT_MODEL, _HGB_MODEL, _MASTER_CONFIG
+    if (
+        _LOGIT_MODEL is not None
+        and _HGB_MODEL is not None
+        and _MASTER_CONFIG is not None
+    ):
+        # Si ya existe calibrador en memoria, devolverlo; si no, entrenar solo calibrador no es trivial,
+        # así que devolvemos lo que haya (puede ser None en primera carga).
+        return _LOGIT_MODEL, _HGB_MODEL, _MASTER_CONFIG, _CALIBRATOR
 
     logit_path = MODELS_DIR / "logit_model.json"
     hgb_path = MODELS_DIR / "hgb_model.json"
@@ -77,18 +90,34 @@ def load_or_train_models(history_df: pd.DataFrame | None = None) -> tuple[Any, A
 
     if history_df is None:
         from MOTOR_QUINIELA_MAESTRO import load_raw_history
+
         history_df = load_raw_history()
 
-    # Entrenar modelos
-    logit, hgb, config = _train_models(history_df)
+    # Entrenar modelos + calibrador
+    logit, hgb, config, calibrator = _train_models(history_df)
     _LOGIT_MODEL = logit
     _HGB_MODEL = hgb
     _MASTER_CONFIG = config
-    return logit, hgb, config
+    _CALIBRATOR = calibrator
+    return logit, hgb, config, calibrator
 
 
-def _train_models(df: pd.DataFrame) -> tuple[Any, Any, dict]:
-    """Entrena los modelos Logit y HGB con el histórico."""
+def _train_models(
+    df: pd.DataFrame,
+) -> tuple[Any, Any, dict, VectorScalingCalibrator | None]:
+    """Entrena los modelos Logit y HGB con el histórico y ajusta el calibrador vector scaling.
+
+    Flujo (evita fuga temporal):
+      1. Extrae features rodantes (ya ordenadas por fecha).
+      2. Optimiza la configuración híbrida con split temporal 84/16 interno (optimize_hybrid_config).
+      3. Re-entrena modelos finales con TODO el histórico (ya lo hace optimize_hybrid_config).
+      4. Para el calibrador: vuelve a dividir el histórico en subtrain 84% / valid 16% (temporal),
+         entrena modelos temporales en subtrain, genera ensemble en valid y ajusta vector scaling
+         solo con valid. Nunca usa la jornada futura a predecir.
+
+    Returns:
+        (logit_full, hgb_full, config_best, calibrator_or_None)
+    """
     from MOTOR_QUINIELA_MAESTRO import optimize_hybrid_config
 
     features_df = rolling_team_features(df)
@@ -105,13 +134,66 @@ def _train_models(df: pd.DataFrame) -> tuple[Any, Any, dict]:
     if len(features_df) < 100:
         raise ValueError(f"Datos insuficientes para entrenar: {len(features_df)} partidos")
 
-    # Obtener mejor configuración usando subtrain/valid
-    logit, hgb, config = optimize_hybrid_config(features_df)
-    
-    # optimize_hybrid_config ya re-entrena los modelos finales con TODO el histórico
-    # usando la mejor configuración encontrada antes de devolverlos.
-    
-    return logit, hgb, config
+    # Ordenar por fecha para split temporal consistente
+    features_df = features_df.sort_values(
+        ["date", "division", "home", "away"]
+    ).reset_index(drop=True)
+
+    # Obtener mejor configuración usando subtrain/valid y re-entrenar con todo
+    logit_full, hgb_full, config_best = optimize_hybrid_config(features_df)
+
+    # --- Entrenar calibrador vector scaling en validación temporal ---
+    calibrator: VectorScalingCalibrator | None = None
+    try:
+        # Mismo split 84/16 que usa optimize_hybrid_config
+        split_idx = int(len(features_df) * 0.84)
+        if split_idx < 50 or (len(features_df) - split_idx) < 50:
+            raise ValueError("Split de calibración demasiado pequeño")
+
+        subtrain = features_df.iloc[:split_idx].copy()
+        valid = features_df.iloc[split_idx:].copy()
+
+        # Entrenar modelos temporales solo con subtrain
+        cols = feature_columns()
+        # Logit necesita columna division
+        logit_sub = build_logit_model()
+        hgb_sub = build_hgb_model()
+
+        logit_sub.fit(subtrain[cols + ["division"]], subtrain["target"])
+        hgb_sub.fit(subtrain[cols], subtrain["target"])
+
+        # Probabilidades en validación
+        logit_valid_probs = predict_full_probs(logit_sub, valid, cols + ["division"])
+        hgb_valid_probs = predict_full_probs(hgb_sub, valid, cols)
+
+        valid_for_cal = valid.copy()
+        valid_for_cal["logit_prob_1"] = logit_valid_probs[:, 0]
+        valid_for_cal["logit_prob_x"] = logit_valid_probs[:, 1]
+        valid_for_cal["logit_prob_2"] = logit_valid_probs[:, 2]
+        valid_for_cal["hgb_prob_1"] = hgb_valid_probs[:, 0]
+        valid_for_cal["hgb_prob_x"] = hgb_valid_probs[:, 1]
+        valid_for_cal["hgb_prob_2"] = hgb_valid_probs[:, 2]
+
+        valid_for_cal = add_market_baseline(valid_for_cal)
+        valid_for_cal = apply_hybrid_config(valid_for_cal, config_best, "modelo")
+
+        cal_probs = valid_for_cal[
+            ["modelo_prob_1", "modelo_prob_x", "modelo_prob_2"]
+        ].to_numpy(dtype=float)
+        cal_y = valid["target"].to_numpy(dtype=int)
+
+        # Ajustar vector scaling
+        cal = VectorScalingCalibrator()
+        cal.fit(cal_probs, cal_y)
+        calibrator = cal
+
+    except Exception as exc:
+        # No bloquear entrenamiento de modelos si la calibración falla; dejamos aviso
+        # El llamante podrá ver calibrator=None y operar sin calibrar.
+        print(f"[calibracion] Aviso: no se pudo entrenar calibrador vector scaling: {exc}")
+        calibrator = None
+
+    return logit_full, hgb_full, config_best, calibrator
 
 
 def normalize_name(value: str) -> str:
@@ -291,9 +373,15 @@ def predict_jornada_from_model(
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
 
-    # Cargar o entrenar modelos
+    # Cargar o entrenar modelos (incluye calibrador vector scaling si está disponible)
+    calibrator = None
     try:
-        logit, hgb, master_config = load_or_train_models(history_df)
+        loaded = load_or_train_models(history_df)
+        if len(loaded) == 4:
+            logit, hgb, master_config, calibrator = loaded
+        else:
+            logit, hgb, master_config = loaded
+            calibrator = None
     except Exception as e:
         return {
             "jornada": jornada,
@@ -313,12 +401,45 @@ def predict_jornada_from_model(
     features_df["hgb_prob_1"] = hgb_probs[:, 0]
     features_df["hgb_prob_x"] = hgb_probs[:, 1]
     features_df["hgb_prob_2"] = hgb_probs[:, 2]
-    
+
     # Necesario para x_disagreement_strategy
     features_df = add_market_baseline(features_df)
 
     # Aplicar inferencia unificada del motor maestro
     features_df = apply_hybrid_config(features_df, master_config, "modelo")
+
+    # --- T3: Aplicar calibración vector scaling si está disponible ---
+    calibrado = False
+    calibration_meta: dict = {}
+    if calibrator is not None and getattr(calibrator, "is_fitted", False):
+        try:
+            raw_probs = features_df[
+                ["modelo_prob_1", "modelo_prob_x", "modelo_prob_2"]
+            ].to_numpy(dtype=float)
+            calibrated_probs = calibrator.predict(raw_probs)
+            features_df["modelo_prob_1"] = calibrated_probs[:, 0]
+            features_df["modelo_prob_x"] = calibrated_probs[:, 1]
+            features_df["modelo_prob_2"] = calibrated_probs[:, 2]
+            # Recalcular predicción argmax tras calibrar
+            features_df["modelo_pred"] = features_df[
+                ["modelo_prob_1", "modelo_prob_x", "modelo_prob_2"]
+            ].idxmax(axis=1).map(
+                {
+                    "modelo_prob_1": "1",
+                    "modelo_prob_x": "X",
+                    "modelo_prob_2": "2",
+                }
+            )
+            calibrado = True
+            calibration_meta = {
+                "metodo": "vector_scaling",
+                "pre": calibrator.calibration_info.get("pre", {}),
+                "post": calibrator.calibration_info.get("post", {}),
+                "n_calibration": calibrator.calibration_info.get("n_calibration"),
+            }
+        except Exception as exc:
+            print(f"[calibracion] Aviso: fallo al aplicar calibrador en jornada {jornada}: {exc}")
+            calibrado = False
 
     # Combinar resultados
     results = []
@@ -368,6 +489,13 @@ def predict_jornada_from_model(
                 "draw_boost_aplicado": master_config.get("draw_boost", 0),
                 "segunda_draw_boost_aplicado": master_config.get("segunda_draw_boost", 0),
                 "x_disagreement_strategy": master_config.get("x_disagreement_strategy", "none"),
+                "calibracion": {
+                    "aplicada": calibrado,
+                    "metodo": calibration_meta.get("metodo") if calibrado else None,
+                    "n_calibration": calibration_meta.get("n_calibration"),
+                    "pre_ece": calibration_meta.get("pre", {}).get("ece"),
+                    "post_ece": calibration_meta.get("post", {}).get("ece"),
+                },
             },
             "avisos": quality["warnings"],
             "calidad_datos": quality["quality_score"],
@@ -389,9 +517,13 @@ def predict_jornada_from_model(
         "estado": "completado" if results else "sin_datos",
         "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         "modelo_info": {
-            "version": "motor_maestro_hibrido_v1",
+            "version": "motor_maestro_hibrido_v1_calibrado_vector",
             "fecha_entrenamiento": datetime.now().isoformat(timespec="seconds"),
             "partidos_entrenamiento": len(history_df) if history_df is not None else 0,
+            "calibracion": {
+                "aplicada": calibrado,
+                **calibration_meta,
+            },
         },
     }
 

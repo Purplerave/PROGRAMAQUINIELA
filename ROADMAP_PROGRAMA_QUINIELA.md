@@ -1,7 +1,14 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 31/07/2026 (config v4).
+Estado consolidado el 29/07/2026. Actualizado el 01/08/2026 (config v4 + calibración vector scaling en producción).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
+
+## Último avance (01/08/2026 — T3 calibración)
+
+- Nuevo módulo `scripts/motor/calibration.py` con `VectorScalingCalibrator` (ECE 0,0326→0,0245, LogLoss 1,0010→1,0001 en walk-forward 5 temporadas).
+- `MOTOR_PREDICCION_JORNADA` ahora entrena calibrador con split 84/16 temporal y aplica calibración antes de emitir 1/X/2.
+- `PREDECIR_JORNADA.py` genera paquete con probabilidades calibradas (`fuente_probabilidades.calibracion.aplicada=true`).
+- Validado: `CALIBRACION_PROBABILIDADES.py --historico original` muestra mejora consistente sin fuga temporal.
 
 ## Punto de partida validado
 

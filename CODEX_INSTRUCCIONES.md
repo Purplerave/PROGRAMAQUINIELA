@@ -155,8 +155,8 @@ de probabilidades, neutra en acierto.
 Cada tarea indica **dónde mirar** (rutas y funciones exactas) y **criterios de
 aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
 
-> **Estado de tareas:** T1 ✅ (31/07/2026) · T2 ✅ (31/07/2026) · T6 ✅ (31/07/2026) ·
-> T3 ⏳ · T4 ⏳ · T5 ⏳ · T7 ⏳ · T8 ⏳
+> **Estado de tareas:** T1 ✅ (31/07/2026) · T2 ✅ (31/07/2026) · T3 ✅ (01/08/2026) · T6 ✅ (31/07/2026) ·
+> T4 ⏳ · T5 ⏳ · T7 ⏳ · T8 ⏳
 > Cada tarea hecha se marca aquí y se documenta en la sección 6 (Registro de ejecución).
 
 ### T1 — Activar la nueva configuración de pesos (P0) — ✅ HECHO 31/07/2026
@@ -224,7 +224,7 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
     `boleto_optimizado` (108 columnas, 81,00 €, E[aciertos] 11,21 vs 9,75 del
     favorito). Detalles en la sección 6.
 
-### T3 — Aplicar la calibración vector scaling en producción (P3)
+### T3 — Aplicar la calibración vector scaling en producción (P3) — ✅ HECHO 01/08/2026
 - **Problema:** la calibración está validada en backtest pero no se aplica en las
   predicciones reales.
 - **Dónde mirar:**
@@ -240,6 +240,26 @@ aceptación**. Hazlas en orden. No saltes a la siguiente sin cerrar la anterior.
 - **Aceptación:** un backtest con calibración aplicada muestra ECE ≤ 0,025 (vs 0,033
   sin calibrar) y log loss no peor; la jornada real usa probabilidades calibradas.
 - **No:** calibrar con los mismos datos de evaluación (fuga temporal).
+- **Resultado (01/08/2026):**
+  - Nuevo módulo `scripts/motor/calibration.py` con `VectorScalingCalibrator`,
+    `brier_multiclass`, `ece_by_confidence` y `calibrate_vectorscaling()` reutilizable.
+    `CALIBRACION_PROBABILIDADES.py` ahora importa del módulo compartido.
+  - `MOTOR_PREDICCION_JORNADA._train_models()` entrena logit/HGB finales con todo el
+    histórico (vía `optimize_hybrid_config`) y además ajusta el calibrador con split
+    temporal 84/16: entrena modelos temporales en subtrain, genera ensemble en valid
+    con `apply_hybrid_config`, y ajusta vector scaling solo con valid. Nunca usa la
+    jornada futura (no fuga).
+  - `load_or_train_models()` cachea y devuelve `(logit, hgb, config, calibrator)`.
+  - `predict_jornada_from_model()` aplica el calibrador tras `apply_hybrid_config`
+    (re-calcula `modelo_pred` por argmax calibrado) y añade metadatos
+    `fuente_probabilidades.calibracion` y `modelo_info.calibracion`.
+  - Evidencia walk-forward 5 temporadas (sección 2.5): ECE 0,0326 → **0,0245**
+    (≤0,025), LogLoss 1,0010 → **1,0001** (no peor), Brier 0,5987 → **0,5979**.
+  - Verificación jornada real (J74 y Real Madrid-Barcelona 2026-08-15):
+    `prob_1/prob_x/prob_2` calibradas, `calibracion.aplicada=true`,
+    `pre_ece 0,0308 → post_ece 0,0164`, `log_loss 0,9944 → 0,9914` con 2152 partidos
+    de validación. El paquete de jornada sigue funcionando y usa probabilidades
+    calibradas cuando el control de calidad lo permite.
 
 ### T4 — Aplicar Dixon-Coles en producción (P4, bajo coste)
 - **Problema:** el motor aún usa Poisson independiente (`poisson_1x2`) para el 1X2 y
@@ -380,5 +400,33 @@ empezar una tarea nueva, comprueba aquí y en el §3 que nadie la ha hecho ya.
   queda marcado como no fiable por el control de calidad y el boleto usa Q15/LAE —
   comportamiento previsto.
 
-Pendiente para próximas sesiones: T3 (calibración vector scaling en producción),
-T4 (Dixon-Coles en producción), T5 (modelo de goles), T7 (tests), T8 (higiene).
+### 01/08/2026 — T3 (calibración vector scaling en producción)
+
+- Nuevo módulo `scripts/motor/calibration.py` extraído de `CALIBRACION_PROBABILIDADES.py`:
+  `VectorScalingCalibrator` (wrapper de `LogisticRegression` sobre log-probs con
+  `fit(probs, y)` y `predict(probs)`), métricas `brier_multiclass`,
+  `ece_by_confidence`, helpers `calibrate_vectorscaling` y `evaluate_calibration`.
+- `scripts/backtests/CALIBRACION_PROBABILIDADES.py` refactorizado para importar del
+  módulo compartido (`EPS`, `VectorScalingCalibrator`, métricas) y usar
+  `VectorScalingCalibrator` en lugar de re-implementar.
+- `MOTOR_PREDICCION_JORNADA.py`:
+  - `_train_models()` devuelve además `calibrator`: optimiza config híbrida con
+    `optimize_hybrid_config`, re-entrena full histórico, luego split 84/16 temporal
+    para calibrador (subtrain → modelos temporales → ensemble en valid →
+    `VectorScalingCalibrator.fit`).
+  - `load_or_train_models()` → 4 valores con cache de calibrador.
+  - `predict_jornada_from_model()` aplica calibrador tras `apply_hybrid_config`,
+    recalcula `modelo_pred`, añade `fuente_probabilidades.calibracion` por partido
+    y `modelo_info.calibracion` global con `pre/post ECE/log_loss/Brier` y `n_calibration`.
+- Evidencia:
+  - Walk-forward 5 temporadas: ECE 0,0326→0,0245, LogLoss 1,0010→1,0001, Brier
+    0,5987→0,5979 (criterio aceptación cumplido).
+  - Jornada 74 (nórdica, sin cuotas): calibrado true, `pre_ece 0,0308 → post_ece 0,0164`,
+    `pre_log_loss 0,9944 → 0,9914`, 2152 partidos validación.
+  - `PREDECIR_JORNADA.py --jornada 74` sigue generando `SALIDAS/paquete_jornada_J74.json`
+    con boleto optimizado; el modelo queda marcado como no fiable por calidad (<0.2)
+    para equipos nórdicos (comportamiento esperado).
+  - `pytest -q -m "not slow"` en verde (32 tests).
+
+Pendiente para próximas sesiones: T4 (Dixon-Coles en producción), T5 (modelo de goles),
+T7 (tests), T8 (higiene).
