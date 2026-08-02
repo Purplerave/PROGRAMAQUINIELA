@@ -299,3 +299,24 @@ def test_parse_jornada_con_partidos_sin_equipos():
     assert len(sin_equipos) == 8
     assert data["pleno15"] == {"local": "España", "visitante": "Irlanda del Norte"}
     assert data["recaudacion_euros"] == 3212100
+
+
+def test_load_tickets_acepta_formato_cosechador(tmp_path):
+    """Formato real de COSECHAR_JORNADAS_LAE: {'temporada','jornadas':[...]}."""
+    f = tmp_path / "jornadas_lae_2023-2024.json"
+    f.write_text(json.dumps({
+        "temporada": "2023-2024", "n_jornadas": 1,
+        "jornadas": [{
+            "temporada": "2023-2024", "jornada": 46, "fecha": "2024-03-17",
+            "partidos": [{"num": 12, "local": "", "visitante": "Valladolid", "sin_equipos": True}],
+            "pleno15": {"local": "Atlético de Madrid", "visitante": "Barcelona"},
+            "combinacion_ganadora": ["1"] * 14 + ["10"],
+        }],
+    }), encoding="utf-8")
+    tickets = bbr.load_tickets(tmp_path)
+    assert len(tickets) == 1
+    t = tickets[0]
+    assert t["temporada"] == "2023-2024" and t["jornada"] == 46
+    assert t["matches"][0] == {"num": 12, "local": "", "visitante": "Valladolid"}
+    assert t["matches"][-1]["local"] == "Atlético de Madrid"
+    assert len(t["matches"]) == 2
