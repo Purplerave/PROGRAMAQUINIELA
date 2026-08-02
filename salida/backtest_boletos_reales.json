@@ -1,0 +1,5503 @@
+{
+  "n_boletos": 97,
+  "n_boletos_no_evaluados": 127,
+  "boletos_no_evaluados": [
+    "2023-2024 J4",
+    "2023-2024 J5",
+    "2023-2024 J6",
+    "2023-2024 J8",
+    "2023-2024 J10",
+    "2023-2024 J12",
+    "2023-2024 J14",
+    "2023-2024 J16",
+    "2023-2024 J19",
+    "2023-2024 J21",
+    "2023-2024 J23",
+    "2023-2024 J26",
+    "2023-2024 J29",
+    "2023-2024 J30",
+    "2023-2024 J31",
+    "2023-2024 J32",
+    "2023-2024 J38",
+    "2023-2024 J40",
+    "2023-2024 J41",
+    "2023-2024 J43",
+    "2023-2024 J45",
+    "2023-2024 J46",
+    "2023-2024 J47",
+    "2023-2024 J48",
+    "2023-2024 J49",
+    "2023-2024 J50",
+    "2023-2024 J52",
+    "2023-2024 J57",
+    "2023-2024 J60",
+    "2023-2024 J61",
+    "2023-2024 J62",
+    "2023-2024 J63",
+    "2023-2024 J64",
+    "2023-2024 J65",
+    "2023-2024 J66",
+    "2023-2024 J67",
+    "2023-2024 J68",
+    "2023-2024 J69",
+    "2023-2024 J70",
+    "2023-2024 J71",
+    "2023-2024 J72",
+    "2024-2025 J3",
+    "2024-2025 J5",
+    "2024-2025 J6",
+    "2024-2025 J8",
+    "2024-2025 J10",
+    "2024-2025 J12",
+    "2024-2025 J14",
+    "2024-2025 J15",
+    "2024-2025 J17",
+    "2024-2025 J19",
+    "2024-2025 J20",
+    "2024-2025 J21",
+    "2024-2025 J22",
+    "2024-2025 J23",
+    "2024-2025 J25",
+    "2024-2025 J28",
+    "2024-2025 J30",
+    "2024-2025 J32",
+    "2024-2025 J33",
+    "2024-2025 J35",
+    "2024-2025 J37",
+    "2024-2025 J39",
+    "2024-2025 J42",
+    "2024-2025 J44",
+    "2024-2025 J47",
+    "2024-2025 J49",
+    "2024-2025 J51",
+    "2024-2025 J54",
+    "2024-2025 J56",
+    "2024-2025 J58",
+    "2024-2025 J59",
+    "2024-2025 J62",
+    "2024-2025 J65",
+    "2024-2025 J66",
+    "2024-2025 J67",
+    "2024-2025 J68",
+    "2024-2025 J69",
+    "2024-2025 J70",
+    "2024-2025 J71",
+    "2024-2025 J72",
+    "2024-2025 J73",
+    "2024-2025 J74",
+    "2024-2025 J75",
+    "2024-2025 J76",
+    "2025-2026 J4",
+    "2025-2026 J6",
+    "2025-2026 J8",
+    "2025-2026 J10",
+    "2025-2026 J12",
+    "2025-2026 J13",
+    "2025-2026 J15",
+    "2025-2026 J18",
+    "2025-2026 J20",
+    "2025-2026 J21",
+    "2025-2026 J23",
+    "2025-2026 J25",
+    "2025-2026 J27",
+    "2025-2026 J29",
+    "2025-2026 J31",
+    "2025-2026 J34",
+    "2025-2026 J36",
+    "2025-2026 J38",
+    "2025-2026 J40",
+    "2025-2026 J41",
+    "2025-2026 J43",
+    "2025-2026 J47",
+    "2025-2026 J49",
+    "2025-2026 J51",
+    "2025-2026 J52",
+    "2025-2026 J54",
+    "2025-2026 J56",
+    "2025-2026 J57",
+    "2025-2026 J58",
+    "2025-2026 J62",
+    "2025-2026 J65",
+    "2025-2026 J66",
+    "2025-2026 J67",
+    "2025-2026 J68",
+    "2025-2026 J69",
+    "2025-2026 J70",
+    "2025-2026 J71",
+    "2025-2026 J72",
+    "2025-2026 J73",
+    "2025-2026 J74",
+    "2025-2026 J75",
+    "2025-2026 J76"
+  ],
+  "media_aciertos_3_dobles": 8.24742268041237,
+  "acierto_simple_medio": 0.5039273441335297,
+  "acierto_mercado_medio": 0.49975454099165445,
+  "boletos": [
+    {
+      "temporada": "2023-2024",
+      "jornada": 1,
+      "fecha_sorteo": "2023-08-13",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Real Madrid"
+      ],
+      "hits_3_dobles": 3,
+      "accuracy_simple": 0.21428571428571427,
+      "accuracy_market": 0.14285714285714285,
+      "recaudacion_euros": 266405550,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 2,
+          "premio_euros": 99902
+        },
+        "12": {
+          "acertantes": 30,
+          "premio_euros": 6660
+        },
+        "11": {
+          "acertantes": 278,
+          "premio_euros": 718
+        },
+        "10": {
+          "acertantes": 1824,
+          "premio_euros": 131
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "2",
+        "2",
+        "2",
+        "X",
+        "1",
+        "1",
+        "2",
+        "X",
+        "X",
+        "2",
+        "2",
+        "1",
+        "M1"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 2,
+      "fecha_sorteo": "2023-08-20",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Osasuna - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.6428571428571429,
+      "accuracy_market": 0.6428571428571429,
+      "recaudacion_euros": 278993025,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 10,
+          "premio_euros": 44638
+        },
+        "13": {
+          "acertantes": 317,
+          "premio_euros": 660
+        },
+        "12": {
+          "acertantes": 3989,
+          "premio_euros": 52
+        },
+        "11": {
+          "acertantes": 28391,
+          "premio_euros": 7
+        },
+        "10": {
+          "acertantes": 124328,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "2",
+        "2",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "X",
+        "1",
+        "1",
+        "02"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 3,
+      "fecha_sorteo": "2023-08-27",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 275286750,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 440458
+        },
+        "13": {
+          "acertantes": 12,
+          "premio_euros": 17205
+        },
+        "12": {
+          "acertantes": 156,
+          "premio_euros": 1323
+        },
+        "11": {
+          "acertantes": 1734,
+          "premio_euros": 119
+        },
+        "10": {
+          "acertantes": 12849,
+          "premio_euros": 19
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "2",
+        "2",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "X",
+        "0M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 7,
+      "fecha_sorteo": "2023-09-17",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Cádiz"
+      ],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6428571428571429,
+      "accuracy_market": 0.7142857142857143,
+      "recaudacion_euros": 336419250,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 8,
+          "premio_euros": 67283
+        },
+        "13": {
+          "acertantes": 387,
+          "premio_euros": 651
+        },
+        "12": {
+          "acertantes": 6311,
+          "premio_euros": 39
+        },
+        "11": {
+          "acertantes": 51708,
+          "premio_euros": 4
+        },
+        "10": {
+          "acertantes": 190202,
+          "premio_euros": 1
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "1",
+        "2M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 9,
+      "fecha_sorteo": "2023-09-24",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Alavés - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5714285714285714,
+      "accuracy_market": 0.5714285714285714,
+      "recaudacion_euros": 276953550,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 5,
+          "premio_euros": 88625
+        },
+        "13": {
+          "acertantes": 157,
+          "premio_euros": 1323
+        },
+        "12": {
+          "acertantes": 1915,
+          "premio_euros": 108
+        },
+        "11": {
+          "acertantes": 14812,
+          "premio_euros": 14
+        },
+        "10": {
+          "acertantes": 74637,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "X",
+        "1",
+        "X",
+        "X",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "M1"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 11,
+      "fecha_sorteo": "2023-10-01",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Real Sociedad - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 6,
+      "accuracy_simple": 0.35714285714285715,
+      "accuracy_market": 0.35714285714285715,
+      "recaudacion_euros": 316956975,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 507131
+        },
+        "13": {
+          "acertantes": 78,
+          "premio_euros": 3047
+        },
+        "12": {
+          "acertantes": 1333,
+          "premio_euros": 178
+        },
+        "11": {
+          "acertantes": 10876,
+          "premio_euros": 21
+        },
+        "10": {
+          "acertantes": 55145,
+          "premio_euros": 5
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "2",
+        "1",
+        "X",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "2",
+        "2",
+        "1",
+        "2",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 13,
+      "fecha_sorteo": "2023-10-08",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Almería"
+      ],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.42857142857142855,
+      "accuracy_market": 0.42857142857142855,
+      "recaudacion_euros": 319212675,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 12,
+          "premio_euros": 19950
+        },
+        "12": {
+          "acertantes": 228,
+          "premio_euros": 1050
+        },
+        "11": {
+          "acertantes": 2465,
+          "premio_euros": 97
+        },
+        "10": {
+          "acertantes": 17307,
+          "premio_euros": 16
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "X",
+        "X",
+        "1",
+        "X",
+        "1",
+        "X",
+        "2",
+        "X",
+        "1",
+        "2",
+        "1",
+        "2",
+        "1",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 15,
+      "fecha_sorteo": "2023-10-22",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Barcelona - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5714285714285714,
+      "accuracy_market": 0.5714285714285714,
+      "recaudacion_euros": 396499200,
+      "premios": {
+        "pleno15": {
+          "acertantes": 3,
+          "premio_euros": 705308
+        },
+        "14": {
+          "acertantes": 16,
+          "premio_euros": 39649
+        },
+        "13": {
+          "acertantes": 509,
+          "premio_euros": 584
+        },
+        "12": {
+          "acertantes": 6228,
+          "premio_euros": 47
+        },
+        "11": {
+          "acertantes": 42168,
+          "premio_euros": 7
+        },
+        "10": {
+          "acertantes": 179220,
+          "premio_euros": 1
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "X",
+        "2",
+        "2",
+        "1",
+        "X",
+        "1",
+        "X",
+        "2",
+        "2",
+        "2",
+        "1",
+        "1",
+        "20"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 17,
+      "fecha_sorteo": "2023-10-29",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Valencia"
+      ],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6428571428571429,
+      "accuracy_market": 0.5,
+      "recaudacion_euros": 326935875,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 32,
+          "premio_euros": 7662
+        },
+        "12": {
+          "acertantes": 561,
+          "premio_euros": 437
+        },
+        "11": {
+          "acertantes": 5142,
+          "premio_euros": 47
+        },
+        "10": {
+          "acertantes": 29955,
+          "premio_euros": 9
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "X",
+        "X",
+        "1",
+        "X",
+        "X",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "1",
+        "X",
+        "12"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 18,
+      "fecha_sorteo": "2023-11-05",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Villarreal - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6428571428571429,
+      "accuracy_market": 0.6428571428571429,
+      "recaudacion_euros": 379341225,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 1579794
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 606945
+        },
+        "13": {
+          "acertantes": 81,
+          "premio_euros": 3512
+        },
+        "12": {
+          "acertantes": 1236,
+          "premio_euros": 230
+        },
+        "11": {
+          "acertantes": 12038,
+          "premio_euros": 23
+        },
+        "10": {
+          "acertantes": 67857,
+          "premio_euros": 5
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "X",
+        "2",
+        "1",
+        "1",
+        "2",
+        "X",
+        "X",
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 20,
+      "fecha_sorteo": "2023-11-12",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Mallorca - Cádiz"
+      ],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5,
+      "accuracy_market": 0.5,
+      "recaudacion_euros": 331812000,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 530899
+        },
+        "13": {
+          "acertantes": 124,
+          "premio_euros": 2006
+        },
+        "12": {
+          "acertantes": 1902,
+          "premio_euros": 130
+        },
+        "11": {
+          "acertantes": 15480,
+          "premio_euros": 16
+        },
+        "10": {
+          "acertantes": 78843,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "2",
+        "X",
+        "X",
+        "1",
+        "X",
+        "1",
+        "X",
+        "2",
+        "1",
+        "2",
+        "X",
+        "1",
+        "X",
+        "M1"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 22,
+      "fecha_sorteo": "2023-11-26",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Girona - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 11,
+      "accuracy_simple": 0.6428571428571429,
+      "accuracy_market": 0.6428571428571429,
+      "recaudacion_euros": 3642062,
+      "premios": {
+        "pleno15": {
+          "acertantes": 16,
+          "premio_euros": 49815
+        },
+        "14": {
+          "acertantes": 90,
+          "premio_euros": 6474
+        },
+        "13": {
+          "acertantes": 1554,
+          "premio_euros": 175
+        },
+        "12": {
+          "acertantes": 14904,
+          "premio_euros": 18
+        },
+        "11": {
+          "acertantes": 84434,
+          "premio_euros": 3
+        },
+        "10": {
+          "acertantes": 299851,
+          "premio_euros": null
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 24,
+      "fecha_sorteo": "2023-12-03",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Rayo Vallecano"
+      ],
+      "hits_3_dobles": 5,
+      "accuracy_simple": 0.35714285714285715,
+      "accuracy_market": 0.35714285714285715,
+      "recaudacion_euros": 3388826,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 542212
+        },
+        "13": {
+          "acertantes": 40,
+          "premio_euros": 6354
+        },
+        "12": {
+          "acertantes": 683,
+          "premio_euros": 372
+        },
+        "11": {
+          "acertantes": 5937,
+          "premio_euros": 42
+        },
+        "10": {
+          "acertantes": 34662,
+          "premio_euros": 8
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "1",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 25,
+      "fecha_sorteo": "2023-12-10",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Granada - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 6,
+      "accuracy_simple": 0.2857142857142857,
+      "accuracy_market": 0.2857142857142857,
+      "recaudacion_euros": 3507327,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 561172
+        },
+        "13": {
+          "acertantes": 8,
+          "premio_euros": 32881
+        },
+        "12": {
+          "acertantes": 202,
+          "premio_euros": 1302
+        },
+        "11": {
+          "acertantes": 1178,
+          "premio_euros": 223
+        },
+        "10": {
+          "acertantes": 8375,
+          "premio_euros": 37
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "X",
+        "2",
+        "1",
+        "1",
+        "X",
+        "X",
+        "2",
+        "1",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "00"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 27,
+      "fecha_sorteo": "2023-12-17",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Atlético de Madrid"
+      ],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.35714285714285715,
+      "accuracy_market": 0.35714285714285715,
+      "recaudacion_euros": 329115075,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 9,
+          "premio_euros": 27426
+        },
+        "12": {
+          "acertantes": 223,
+          "premio_euros": 1106
+        },
+        "11": {
+          "acertantes": 2528,
+          "premio_euros": 97
+        },
+        "10": {
+          "acertantes": 17203,
+          "premio_euros": 17
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "X",
+        "X",
+        "1",
+        "1",
+        "X",
+        "1",
+        "M0"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 28,
+      "fecha_sorteo": "2023-12-20",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Las Palmas"
+      ],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.35714285714285715,
+      "accuracy_market": 0.35714285714285715,
+      "recaudacion_euros": 2031905,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 10,
+          "premio_euros": 15239
+        },
+        "12": {
+          "acertantes": 143,
+          "premio_euros": 1065
+        },
+        "11": {
+          "acertantes": 1607,
+          "premio_euros": 94
+        },
+        "10": {
+          "acertantes": 9935,
+          "premio_euros": 18
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "X",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "X",
+        "1",
+        "X",
+        "X",
+        "X",
+        "X",
+        "2",
+        "01"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 33,
+      "fecha_sorteo": "2024-01-14",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Real Sociedad"
+      ],
+      "hits_3_dobles": 4,
+      "accuracy_simple": 0.21428571428571427,
+      "accuracy_market": 0.2857142857142857,
+      "recaudacion_euros": 2911326,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 7,
+          "premio_euros": 31192
+        },
+        "12": {
+          "acertantes": 199,
+          "premio_euros": 1097
+        },
+        "11": {
+          "acertantes": 1906,
+          "premio_euros": 114
+        },
+        "10": {
+          "acertantes": 13453,
+          "premio_euros": 19
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "2",
+        "X",
+        "1",
+        "X",
+        "2",
+        "1",
+        "X",
+        "2",
+        "X",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 34,
+      "fecha_sorteo": "2024-01-21",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Valencia - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.5,
+      "accuracy_market": 0.5,
+      "recaudacion_euros": 3358754,
+      "premios": {
+        "pleno15": {
+          "acertantes": 2,
+          "premio_euros": 597303
+        },
+        "14": {
+          "acertantes": 5,
+          "premio_euros": 107480
+        },
+        "13": {
+          "acertantes": 155,
+          "premio_euros": 1625
+        },
+        "12": {
+          "acertantes": 2353,
+          "premio_euros": 107
+        },
+        "11": {
+          "acertantes": 20983,
+          "premio_euros": 12
+        },
+        "10": {
+          "acertantes": 109084,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "2",
+        "2",
+        "2",
+        "X",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 35,
+      "fecha_sorteo": "2024-01-28",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Cádiz - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.42857142857142855,
+      "accuracy_market": 0.42857142857142855,
+      "recaudacion_euros": 3336939,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 4,
+          "premio_euros": 62567
+        },
+        "12": {
+          "acertantes": 62,
+          "premio_euros": 4036
+        },
+        "11": {
+          "acertantes": 655,
+          "premio_euros": 382
+        },
+        "10": {
+          "acertantes": 5536,
+          "premio_euros": 54
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "2",
+        "2",
+        "2",
+        "1",
+        "2",
+        "X",
+        "X",
+        "1",
+        "X",
+        "1",
+        "2",
+        "2",
+        "20"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 36,
+      "fecha_sorteo": "2024-02-04",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 6,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 3574024,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 285921
+        },
+        "13": {
+          "acertantes": 25,
+          "premio_euros": 10722
+        },
+        "12": {
+          "acertantes": 343,
+          "premio_euros": 781
+        },
+        "11": {
+          "acertantes": 2690,
+          "premio_euros": 99
+        },
+        "10": {
+          "acertantes": 16267,
+          "premio_euros": 19
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "2",
+        "2",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "X",
+        "X",
+        "1",
+        "1",
+        "12"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 37,
+      "fecha_sorteo": "2024-02-11",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Almería - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.5,
+      "accuracy_market": 0.5,
+      "recaudacion_euros": 3586359,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 5,
+          "premio_euros": 53795
+        },
+        "12": {
+          "acertantes": 117,
+          "premio_euros": 2298
+        },
+        "11": {
+          "acertantes": 1064,
+          "premio_euros": 252
+        },
+        "10": {
+          "acertantes": 7982,
+          "premio_euros": 40
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "2",
+        "1",
+        "1",
+        "1",
+        "1",
+        "X",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "M0"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 39,
+      "fecha_sorteo": "2024-02-18",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Girona"
+      ],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.5714285714285714,
+      "accuracy_market": 0.5714285714285714,
+      "recaudacion_euros": 3539665,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 2160501
+        },
+        "14": {
+          "acertantes": 12,
+          "premio_euros": 47195
+        },
+        "13": {
+          "acertantes": 417,
+          "premio_euros": 636
+        },
+        "12": {
+          "acertantes": 5327,
+          "premio_euros": 49
+        },
+        "11": {
+          "acertantes": 37907,
+          "premio_euros": 7
+        },
+        "10": {
+          "acertantes": 161430,
+          "premio_euros": 1
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "X",
+        "X",
+        "X",
+        "2",
+        "X",
+        "1",
+        "X",
+        "1",
+        "1",
+        "1",
+        "X",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 42,
+      "fecha_sorteo": "2024-03-03",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Barcelona"
+      ],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5,
+      "accuracy_market": 0.5,
+      "recaudacion_euros": 3743558,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 1209971
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 598969
+        },
+        "13": {
+          "acertantes": 35,
+          "premio_euros": 8021
+        },
+        "12": {
+          "acertantes": 540,
+          "premio_euros": 519
+        },
+        "11": {
+          "acertantes": 5010,
+          "premio_euros": 56
+        },
+        "10": {
+          "acertantes": 31417,
+          "premio_euros": 10
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "X",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "2",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 44,
+      "fecha_sorteo": "2024-03-10",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Las Palmas - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5714285714285714,
+      "accuracy_market": 0.5714285714285714,
+      "recaudacion_euros": 3153494,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 3,
+          "premio_euros": 168186
+        },
+        "13": {
+          "acertantes": 58,
+          "premio_euros": 4077
+        },
+        "12": {
+          "acertantes": 881,
+          "premio_euros": 268
+        },
+        "11": {
+          "acertantes": 8558,
+          "premio_euros": 27
+        },
+        "10": {
+          "acertantes": 54481,
+          "premio_euros": 5
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "1",
+        "2",
+        "X",
+        "22"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 51,
+      "fecha_sorteo": "2024-04-14",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Villarreal"
+      ],
+      "hits_3_dobles": 11,
+      "accuracy_simple": 0.6428571428571429,
+      "accuracy_market": 0.6428571428571429,
+      "recaudacion_euros": 3083040,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 8,
+          "premio_euros": 61660
+        },
+        "13": {
+          "acertantes": 307,
+          "premio_euros": 753
+        },
+        "12": {
+          "acertantes": 4099,
+          "premio_euros": 56
+        },
+        "11": {
+          "acertantes": 27637,
+          "premio_euros": 8
+        },
+        "10": {
+          "acertantes": 117967,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "2",
+        "2",
+        "2",
+        "1",
+        "X",
+        "X",
+        "1",
+        "1",
+        "2",
+        "1",
+        "X",
+        "1",
+        "01"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 53,
+      "fecha_sorteo": "2024-04-21",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 3033711,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 5,
+          "premio_euros": 97078
+        },
+        "13": {
+          "acertantes": 96,
+          "premio_euros": 2370
+        },
+        "12": {
+          "acertantes": 1305,
+          "premio_euros": 174
+        },
+        "11": {
+          "acertantes": 10788,
+          "premio_euros": 21
+        },
+        "10": {
+          "acertantes": 59822,
+          "premio_euros": 4
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "X",
+        "2",
+        "1",
+        "1",
+        "X",
+        "1",
+        "2",
+        "X",
+        "1",
+        "1",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 54,
+      "fecha_sorteo": "2024-04-28",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Atlético de Madrid - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.5,
+      "accuracy_market": 0.5714285714285714,
+      "recaudacion_euros": 3055930,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 244474
+        },
+        "13": {
+          "acertantes": 45,
+          "premio_euros": 5093
+        },
+        "12": {
+          "acertantes": 697,
+          "premio_euros": 328
+        },
+        "11": {
+          "acertantes": 6924,
+          "premio_euros": 33
+        },
+        "10": {
+          "acertantes": 40441,
+          "premio_euros": 6
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "1",
+        "2",
+        "X",
+        "1",
+        "1",
+        "X",
+        "X",
+        "X",
+        "2",
+        "2",
+        "1",
+        "1",
+        "02"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 55,
+      "fecha_sorteo": "2024-05-05",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 3579966,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 286397
+        },
+        "13": {
+          "acertantes": 68,
+          "premio_euros": 3948
+        },
+        "12": {
+          "acertantes": 1322,
+          "premio_euros": 203
+        },
+        "11": {
+          "acertantes": 13778,
+          "premio_euros": 19
+        },
+        "10": {
+          "acertantes": 81353,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "2",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "X",
+        "2",
+        "2",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 56,
+      "fecha_sorteo": "2024-05-12",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Osasuna"
+      ],
+      "hits_3_dobles": 11,
+      "accuracy_simple": 0.7142857142857143,
+      "accuracy_market": 0.7142857142857143,
+      "recaudacion_euros": 3491703,
+      "premios": {
+        "pleno15": {
+          "acertantes": 4,
+          "premio_euros": 417765
+        },
+        "14": {
+          "acertantes": 28,
+          "premio_euros": 19952
+        },
+        "13": {
+          "acertantes": 586,
+          "premio_euros": 446
+        },
+        "12": {
+          "acertantes": 6815,
+          "premio_euros": 38
+        },
+        "11": {
+          "acertantes": 47453,
+          "premio_euros": 5
+        },
+        "10": {
+          "acertantes": 197326,
+          "premio_euros": 1
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "1",
+        "2",
+        "X",
+        "1",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "X",
+        "X",
+        "1",
+        "20"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 58,
+      "fecha_sorteo": "2024-05-19",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Athletic de Bilbao B - Sevilla"
+      ],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5714285714285714,
+      "accuracy_market": 0.5714285714285714,
+      "recaudacion_euros": 2480244,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 6,
+          "premio_euros": 66139
+        },
+        "13": {
+          "acertantes": 229,
+          "premio_euros": 812
+        },
+        "12": {
+          "acertantes": 2660,
+          "premio_euros": 69
+        },
+        "11": {
+          "acertantes": 18718,
+          "premio_euros": 9
+        },
+        "10": {
+          "acertantes": 85117,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "X",
+        "1",
+        "X",
+        "2",
+        "2",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "X",
+        "1M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2023-2024",
+      "jornada": 59,
+      "fecha_sorteo": "2024-05-26",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Rayo Vallecano - Athletic de Bilbao B"
+      ],
+      "hits_3_dobles": 6,
+      "accuracy_simple": 0.35714285714285715,
+      "accuracy_market": 0.2857142857142857,
+      "recaudacion_euros": 2936000,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 4,
+          "premio_euros": 55050
+        },
+        "12": {
+          "acertantes": 133,
+          "premio_euros": 1655
+        },
+        "11": {
+          "acertantes": 1397,
+          "premio_euros": 157
+        },
+        "10": {
+          "acertantes": 10004,
+          "premio_euros": 26
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "2",
+        "1",
+        "X",
+        "2",
+        "2",
+        "2",
+        "X",
+        "X",
+        "2",
+        "X",
+        "X",
+        "1",
+        "00"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 1,
+      "fecha_sorteo": "2024-08-18",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.3333333333333333,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 2145765,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 1,
+          "premio_euros": 160932
+        },
+        "12": {
+          "acertantes": 62,
+          "premio_euros": 2595
+        },
+        "11": {
+          "acertantes": 514,
+          "premio_euros": 313
+        },
+        "10": {
+          "acertantes": 4188,
+          "premio_euros": 46
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "X",
+        "2",
+        "2",
+        "X",
+        "1",
+        "2",
+        "X",
+        "1",
+        "2",
+        "X",
+        "2",
+        "1",
+        "22"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 2,
+      "fecha_sorteo": "2024-08-25",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 275339325,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 1117251
+        },
+        "14": {
+          "acertantes": 5,
+          "premio_euros": 88108
+        },
+        "13": {
+          "acertantes": 133,
+          "premio_euros": 1552
+        },
+        "12": {
+          "acertantes": 1618,
+          "premio_euros": 127
+        },
+        "11": {
+          "acertantes": 11644,
+          "premio_euros": 17
+        },
+        "10": {
+          "acertantes": 53810,
+          "premio_euros": 4
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "X",
+        "2",
+        "1",
+        "X",
+        "1",
+        "2",
+        "X",
+        "X",
+        "X",
+        "2",
+        "1",
+        "X",
+        "M0"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 4,
+      "fecha_sorteo": "2024-09-01",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6666666666666666,
+      "recaudacion_euros": 257873250,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 193404
+        },
+        "14": {
+          "acertantes": 6,
+          "premio_euros": 68766
+        },
+        "13": {
+          "acertantes": 83,
+          "premio_euros": 2330
+        },
+        "12": {
+          "acertantes": 779,
+          "premio_euros": 248
+        },
+        "11": {
+          "acertantes": 5317,
+          "premio_euros": 36
+        },
+        "10": {
+          "acertantes": 26530,
+          "premio_euros": 8
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "2",
+        "1",
+        "X",
+        "2",
+        "1",
+        "1",
+        "X",
+        "2",
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "20"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 7,
+      "fecha_sorteo": "2024-09-15",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 12,
+      "accuracy_simple": 0.8,
+      "accuracy_market": 0.8,
+      "recaudacion_euros": 301695975,
+      "premios": {
+        "pleno15": {
+          "acertantes": 57,
+          "premio_euros": 11423
+        },
+        "14": {
+          "acertantes": 238,
+          "premio_euros": 2028
+        },
+        "13": {
+          "acertantes": 5873,
+          "premio_euros": 38
+        },
+        "12": {
+          "acertantes": 43112,
+          "premio_euros": 5
+        },
+        "11": {
+          "acertantes": 159951,
+          "premio_euros": 1
+        },
+        "10": {
+          "acertantes": 385855,
+          "premio_euros": null
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 9,
+      "fecha_sorteo": "2024-09-22",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 291118950,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 3,
+          "premio_euros": 155263
+        },
+        "13": {
+          "acertantes": 95,
+          "premio_euros": 2298
+        },
+        "12": {
+          "acertantes": 1780,
+          "premio_euros": 122
+        },
+        "11": {
+          "acertantes": 15104,
+          "premio_euros": 14
+        },
+        "10": {
+          "acertantes": 73090,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "2",
+        "X",
+        "X",
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "2",
+        "2",
+        "1",
+        "1",
+        "X",
+        "1M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 11,
+      "fecha_sorteo": "2024-09-29",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 306145575,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 12,
+          "premio_euros": 19134
+        },
+        "12": {
+          "acertantes": 193,
+          "premio_euros": 1189
+        },
+        "11": {
+          "acertantes": 1821,
+          "premio_euros": 126
+        },
+        "10": {
+          "acertantes": 11656,
+          "premio_euros": 23
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 13,
+      "fecha_sorteo": "2024-10-06",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 334427475,
+      "premios": {
+        "pleno15": {
+          "acertantes": 3,
+          "premio_euros": 560031
+        },
+        "14": {
+          "acertantes": 5,
+          "premio_euros": 107016
+        },
+        "13": {
+          "acertantes": 137,
+          "premio_euros": 1830
+        },
+        "12": {
+          "acertantes": 1411,
+          "premio_euros": 177
+        },
+        "11": {
+          "acertantes": 10116,
+          "premio_euros": 24
+        },
+        "10": {
+          "acertantes": 49384,
+          "premio_euros": 6
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "2",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "1",
+        "2",
+        "1",
+        "X",
+        "X",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 16,
+      "fecha_sorteo": "2024-10-20",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 361163025,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 22,
+          "premio_euros": 26266
+        },
+        "13": {
+          "acertantes": 607,
+          "premio_euros": 446
+        },
+        "12": {
+          "acertantes": 4593,
+          "premio_euros": 58
+        },
+        "11": {
+          "acertantes": 30020,
+          "premio_euros": 9
+        },
+        "10": {
+          "acertantes": 135703,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "2",
+        "2",
+        "2",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "2M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 18,
+      "fecha_sorteo": "2024-10-27",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.3333333333333333,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 319458075,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 5,
+          "premio_euros": 47918
+        },
+        "12": {
+          "acertantes": 120,
+          "premio_euros": 1996
+        },
+        "11": {
+          "acertantes": 1071,
+          "premio_euros": 223
+        },
+        "10": {
+          "acertantes": 7085,
+          "premio_euros": 40
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "X",
+        "1",
+        "2",
+        "2",
+        "1",
+        "2",
+        "1",
+        "X",
+        "2",
+        "00"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 24,
+      "fecha_sorteo": "2024-11-24",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 356446800,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 8,
+          "premio_euros": 71289
+        },
+        "13": {
+          "acertantes": 165,
+          "premio_euros": 1620
+        },
+        "12": {
+          "acertantes": 2158,
+          "premio_euros": 123
+        },
+        "11": {
+          "acertantes": 16122,
+          "premio_euros": 16
+        },
+        "10": {
+          "acertantes": 77019,
+          "premio_euros": 4
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "X",
+        "X",
+        "1",
+        "2",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 26,
+      "fecha_sorteo": "2024-12-01",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 351494250,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 7,
+          "premio_euros": 37660
+        },
+        "12": {
+          "acertantes": 205,
+          "premio_euros": 1285
+        },
+        "11": {
+          "acertantes": 2286,
+          "premio_euros": 115
+        },
+        "10": {
+          "acertantes": 16986,
+          "premio_euros": 18
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "X",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "X",
+        "2",
+        "1",
+        "2",
+        "1",
+        "X",
+        "2",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 27,
+      "fecha_sorteo": "2024-12-08",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6666666666666666,
+      "recaudacion_euros": 325875900,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 2596525
+        },
+        "14": {
+          "acertantes": 4,
+          "premio_euros": 130350
+        },
+        "13": {
+          "acertantes": 108,
+          "premio_euros": 2263
+        },
+        "12": {
+          "acertantes": 1364,
+          "premio_euros": 179
+        },
+        "11": {
+          "acertantes": 11951,
+          "premio_euros": 20
+        },
+        "10": {
+          "acertantes": 66322,
+          "premio_euros": 4
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "2",
+        "2",
+        "2",
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "1",
+        "2",
+        "1",
+        "1",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 29,
+      "fecha_sorteo": "2024-12-15",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 301845225,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 2,
+          "premio_euros": 113191
+        },
+        "12": {
+          "acertantes": 23,
+          "premio_euros": 9842
+        },
+        "11": {
+          "acertantes": 176,
+          "premio_euros": 1286
+        },
+        "10": {
+          "acertantes": 1209,
+          "premio_euros": 224
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "1",
+        "X",
+        "X",
+        "2",
+        "X",
+        "2",
+        "1",
+        "1",
+        "1",
+        "2",
+        "X",
+        "2",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 31,
+      "fecha_sorteo": "2024-12-22",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.3333333333333333,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 302286900,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 11,
+          "premio_euros": 20610
+        },
+        "12": {
+          "acertantes": 261,
+          "premio_euros": 868
+        },
+        "11": {
+          "acertantes": 2560,
+          "premio_euros": 88
+        },
+        "10": {
+          "acertantes": 17288,
+          "premio_euros": 15
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "2",
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "X",
+        "1",
+        "2",
+        "X",
+        "X",
+        "2",
+        "12"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 34,
+      "fecha_sorteo": "2025-01-12",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 348722400,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 3,
+          "premio_euros": 185985
+        },
+        "13": {
+          "acertantes": 33,
+          "premio_euros": 7925
+        },
+        "12": {
+          "acertantes": 493,
+          "premio_euros": 530
+        },
+        "11": {
+          "acertantes": 4273,
+          "premio_euros": 61
+        },
+        "10": {
+          "acertantes": 25167,
+          "premio_euros": 12
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "X",
+        "X",
+        "2",
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "X",
+        "2",
+        "X",
+        "1",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 36,
+      "fecha_sorteo": "2025-01-19",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 384306000,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 4,
+          "premio_euros": 72057
+        },
+        "12": {
+          "acertantes": 70,
+          "premio_euros": 4117
+        },
+        "11": {
+          "acertantes": 811,
+          "premio_euros": 355
+        },
+        "10": {
+          "acertantes": 6380,
+          "premio_euros": 54
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "X",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "X",
+        "X",
+        "1",
+        "M0"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 38,
+      "fecha_sorteo": "2025-01-26",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 5,
+      "accuracy_simple": 0.3333333333333333,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 447924825,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 3588262
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 716679
+        },
+        "13": {
+          "acertantes": 20,
+          "premio_euros": 16797
+        },
+        "12": {
+          "acertantes": 351,
+          "premio_euros": 957
+        },
+        "11": {
+          "acertantes": 3903,
+          "premio_euros": 86
+        },
+        "10": {
+          "acertantes": 26196,
+          "premio_euros": 15
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "X",
+        "X",
+        "2",
+        "1",
+        "2",
+        "X",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "1",
+        "2",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 40,
+      "fecha_sorteo": "2025-02-02",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 324325800,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 5,
+          "premio_euros": 103784
+        },
+        "13": {
+          "acertantes": 341,
+          "premio_euros": 713
+        },
+        "12": {
+          "acertantes": 5837,
+          "premio_euros": 41
+        },
+        "11": {
+          "acertantes": 41137,
+          "premio_euros": 5
+        },
+        "10": {
+          "acertantes": 170513,
+          "premio_euros": 1
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "1",
+        "2",
+        "X",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 41,
+      "fecha_sorteo": "2025-02-09",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 384212775,
+      "premios": {
+        "pleno15": {
+          "acertantes": 2,
+          "premio_euros": 380996
+        },
+        "14": {
+          "acertantes": 6,
+          "premio_euros": 102456
+        },
+        "13": {
+          "acertantes": 348,
+          "premio_euros": 828
+        },
+        "12": {
+          "acertantes": 3939,
+          "premio_euros": 73
+        },
+        "11": {
+          "acertantes": 28619,
+          "premio_euros": 10
+        },
+        "10": {
+          "acertantes": 136308,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "2",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 43,
+      "fecha_sorteo": "2025-02-16",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 331681200,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 4,
+          "premio_euros": 62190
+        },
+        "12": {
+          "acertantes": 63,
+          "premio_euros": 3948
+        },
+        "11": {
+          "acertantes": 834,
+          "premio_euros": 298
+        },
+        "10": {
+          "acertantes": 5933,
+          "premio_euros": 50
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "2",
+        "1",
+        "1",
+        "2",
+        "2",
+        "X",
+        "1",
+        "X",
+        "1",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 45,
+      "fecha_sorteo": "2025-02-23",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 359919300,
+      "premios": {
+        "pleno15": {
+          "acertantes": 7,
+          "premio_euros": 159529
+        },
+        "14": {
+          "acertantes": 50,
+          "premio_euros": 11517
+        },
+        "13": {
+          "acertantes": 1021,
+          "premio_euros": 264
+        },
+        "12": {
+          "acertantes": 9988,
+          "premio_euros": 27
+        },
+        "11": {
+          "acertantes": 58205,
+          "premio_euros": 4
+        },
+        "10": {
+          "acertantes": 220507,
+          "premio_euros": null
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "2",
+        "2",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 46,
+      "fecha_sorteo": "2025-03-02",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Villarreal - Espanyol"
+      ],
+      "hits_3_dobles": 4,
+      "accuracy_simple": 0.2857142857142857,
+      "accuracy_market": 0.35714285714285715,
+      "recaudacion_euros": 376156125,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 8,
+          "premio_euros": 35264
+        },
+        "12": {
+          "acertantes": 147,
+          "premio_euros": 1919
+        },
+        "11": {
+          "acertantes": 1583,
+          "premio_euros": 178
+        },
+        "10": {
+          "acertantes": 10459,
+          "premio_euros": 32
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "X",
+        "X",
+        "X",
+        "1",
+        "X",
+        "1",
+        "1",
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 48,
+      "fecha_sorteo": "2025-03-09",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Barcelona - Osasuna"
+      ],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5,
+      "accuracy_market": 0.5,
+      "recaudacion_euros": 311310075,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 1661881
+        },
+        "14": {
+          "acertantes": 11,
+          "premio_euros": 45281
+        },
+        "13": {
+          "acertantes": 229,
+          "premio_euros": 1019
+        },
+        "12": {
+          "acertantes": 2310,
+          "premio_euros": 101
+        },
+        "11": {
+          "acertantes": 15952,
+          "premio_euros": 14
+        },
+        "10": {
+          "acertantes": 77251,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "X",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 50,
+      "fecha_sorteo": "2025-03-16",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 318532725,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 6,
+          "premio_euros": 84942
+        },
+        "13": {
+          "acertantes": 169,
+          "premio_euros": 1413
+        },
+        "12": {
+          "acertantes": 2041,
+          "premio_euros": 117
+        },
+        "11": {
+          "acertantes": 14453,
+          "premio_euros": 16
+        },
+        "10": {
+          "acertantes": 67769,
+          "premio_euros": 4
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "2",
+        "X",
+        "2",
+        "2",
+        "X",
+        "2",
+        "1",
+        "1",
+        "X",
+        "X",
+        "2",
+        "1",
+        "2M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 52,
+      "fecha_sorteo": "2025-03-30",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 11,
+      "accuracy_simple": 0.7333333333333333,
+      "accuracy_market": 0.7333333333333333,
+      "recaudacion_euros": 375536550,
+      "premios": {
+        "pleno15": {
+          "acertantes": 11,
+          "premio_euros": 74756
+        },
+        "14": {
+          "acertantes": 33,
+          "premio_euros": 18207
+        },
+        "13": {
+          "acertantes": 890,
+          "premio_euros": 316
+        },
+        "12": {
+          "acertantes": 10585,
+          "premio_euros": 26
+        },
+        "11": {
+          "acertantes": 69081,
+          "premio_euros": 4
+        },
+        "10": {
+          "acertantes": 268873,
+          "premio_euros": null
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 53,
+      "fecha_sorteo": "2025-04-06",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 351364650,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 4,
+          "premio_euros": 65880
+        },
+        "12": {
+          "acertantes": 66,
+          "premio_euros": 3992
+        },
+        "11": {
+          "acertantes": 693,
+          "premio_euros": 380
+        },
+        "10": {
+          "acertantes": 5631,
+          "premio_euros": 56
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "2",
+        "2",
+        "X",
+        "2",
+        "2",
+        "2",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 55,
+      "fecha_sorteo": "2025-04-13",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 361317975,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 289054
+        },
+        "13": {
+          "acertantes": 82,
+          "premio_euros": 3304
+        },
+        "12": {
+          "acertantes": 1304,
+          "premio_euros": 207
+        },
+        "11": {
+          "acertantes": 11489,
+          "premio_euros": 23
+        },
+        "10": {
+          "acertantes": 67588,
+          "premio_euros": 4
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "2",
+        "2",
+        "2",
+        "1",
+        "2",
+        "2",
+        "1",
+        "X",
+        "2",
+        "1",
+        "X",
+        "X",
+        "1",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 57,
+      "fecha_sorteo": "2025-04-20",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.3333333333333333,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 325502025,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 4,
+          "premio_euros": 130200
+        },
+        "13": {
+          "acertantes": 75,
+          "premio_euros": 3255
+        },
+        "12": {
+          "acertantes": 956,
+          "premio_euros": 255
+        },
+        "11": {
+          "acertantes": 8843,
+          "premio_euros": 27
+        },
+        "10": {
+          "acertantes": 48177,
+          "premio_euros": 6
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "X",
+        "1",
+        "2",
+        "X",
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "2",
+        "X",
+        "X",
+        "1M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 60,
+      "fecha_sorteo": "2025-05-04",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 414580650,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 2594965
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 331664
+        },
+        "13": {
+          "acertantes": 69,
+          "premio_euros": 4506
+        },
+        "12": {
+          "acertantes": 1199,
+          "premio_euros": 259
+        },
+        "11": {
+          "acertantes": 11017,
+          "premio_euros": 28
+        },
+        "10": {
+          "acertantes": 66453,
+          "premio_euros": 5
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "1",
+        "2",
+        "X",
+        "2",
+        "X",
+        "2",
+        "2",
+        "2",
+        "X",
+        "1",
+        "1",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 61,
+      "fecha_sorteo": "2025-05-11",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 11,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 296701650,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 3,
+          "premio_euros": 158240
+        },
+        "13": {
+          "acertantes": 191,
+          "premio_euros": 1165
+        },
+        "12": {
+          "acertantes": 2411,
+          "premio_euros": 92
+        },
+        "11": {
+          "acertantes": 19274,
+          "premio_euros": 11
+        },
+        "10": {
+          "acertantes": 101287,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "1",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "X",
+        "MM"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 63,
+      "fecha_sorteo": "2025-05-18",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6666666666666666,
+      "accuracy_market": 0.6666666666666666,
+      "recaudacion_euros": 237726825,
+      "premios": {
+        "pleno15": {
+          "acertantes": 2,
+          "premio_euros": 272880
+        },
+        "14": {
+          "acertantes": 16,
+          "premio_euros": 23772
+        },
+        "13": {
+          "acertantes": 295,
+          "premio_euros": 604
+        },
+        "12": {
+          "acertantes": 3001,
+          "premio_euros": 59
+        },
+        "11": {
+          "acertantes": 20893,
+          "premio_euros": 8
+        },
+        "10": {
+          "acertantes": 92514,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "2",
+        "2",
+        "2",
+        "2",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "02"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 64,
+      "fecha_sorteo": "2025-05-25",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 11,
+      "accuracy_simple": 0.6666666666666666,
+      "accuracy_market": 0.6666666666666666,
+      "recaudacion_euros": 296722950,
+      "premios": {
+        "pleno15": {
+          "acertantes": 2,
+          "premio_euros": 159541
+        },
+        "14": {
+          "acertantes": 273,
+          "premio_euros": 1739
+        },
+        "13": {
+          "acertantes": 5269,
+          "premio_euros": 42
+        },
+        "12": {
+          "acertantes": 39377,
+          "premio_euros": 5
+        },
+        "11": {
+          "acertantes": 168256,
+          "premio_euros": 1
+        },
+        "10": {
+          "acertantes": 441703,
+          "premio_euros": null
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "X",
+        "1",
+        "1",
+        "2",
+        "2",
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "X",
+        "2",
+        "0M"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 1,
+      "fecha_sorteo": "2025-08-17",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 232349100,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 22,
+          "premio_euros": 7920
+        },
+        "12": {
+          "acertantes": 367,
+          "premio_euros": 474
+        },
+        "11": {
+          "acertantes": 3603,
+          "premio_euros": 48
+        },
+        "10": {
+          "acertantes": 24450,
+          "premio_euros": 8
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "1",
+        "2",
+        "X",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "2",
+        "1",
+        "X",
+        "X",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 2,
+      "fecha_sorteo": "2025-08-24",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 325006350,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 3,
+          "premio_euros": 173336
+        },
+        "13": {
+          "acertantes": 91,
+          "premio_euros": 2678
+        },
+        "12": {
+          "acertantes": 1722,
+          "premio_euros": 141
+        },
+        "11": {
+          "acertantes": 16900,
+          "premio_euros": 14
+        },
+        "10": {
+          "acertantes": 94065,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "2",
+        "1",
+        "X",
+        "1",
+        "2",
+        "1",
+        "2",
+        "2",
+        "2",
+        "X",
+        "2",
+        "2",
+        "12"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 3,
+      "fecha_sorteo": "2025-08-31",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 6,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 368911125,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 295128
+        },
+        "13": {
+          "acertantes": 17,
+          "premio_euros": 16275
+        },
+        "12": {
+          "acertantes": 282,
+          "premio_euros": 981
+        },
+        "11": {
+          "acertantes": 2912,
+          "premio_euros": 95
+        },
+        "10": {
+          "acertantes": 19189,
+          "premio_euros": 17
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "2",
+        "1",
+        "1",
+        "X",
+        "X",
+        "1",
+        "1",
+        "2",
+        "2",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 5,
+      "fecha_sorteo": "2025-09-14",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6666666666666666,
+      "accuracy_market": 0.6666666666666666,
+      "recaudacion_euros": 394307625,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 36,
+          "premio_euros": 8214
+        },
+        "12": {
+          "acertantes": 741,
+          "premio_euros": 399
+        },
+        "11": {
+          "acertantes": 8273,
+          "premio_euros": 35
+        },
+        "10": {
+          "acertantes": 54275,
+          "premio_euros": 6
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "1",
+        "1",
+        "2",
+        "2",
+        "X",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "2",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 7,
+      "fecha_sorteo": "2025-09-21",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 338525100,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 2617850
+        },
+        "14": {
+          "acertantes": 10,
+          "premio_euros": 54164
+        },
+        "13": {
+          "acertantes": 309,
+          "premio_euros": 821
+        },
+        "12": {
+          "acertantes": 3665,
+          "premio_euros": 69
+        },
+        "11": {
+          "acertantes": 25337,
+          "premio_euros": 10
+        },
+        "10": {
+          "acertantes": 115110,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "1",
+        "1",
+        "2",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "2",
+        "20"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 9,
+      "fecha_sorteo": "2025-09-28",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 5,
+      "accuracy_simple": 0.3333333333333333,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 346232175,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 553971
+        },
+        "13": {
+          "acertantes": 39,
+          "premio_euros": 6658
+        },
+        "12": {
+          "acertantes": 563,
+          "premio_euros": 461
+        },
+        "11": {
+          "acertantes": 4820,
+          "premio_euros": 53
+        },
+        "10": {
+          "acertantes": 29693,
+          "premio_euros": 10
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "1",
+        "X",
+        "2",
+        "2",
+        "1",
+        "X",
+        "2",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 1.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 11,
+      "fecha_sorteo": "2025-10-05",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 374870250,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 2161292
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 299896
+        },
+        "13": {
+          "acertantes": 80,
+          "premio_euros": 3514
+        },
+        "12": {
+          "acertantes": 1087,
+          "premio_euros": 258
+        },
+        "11": {
+          "acertantes": 7523,
+          "premio_euros": 37
+        },
+        "10": {
+          "acertantes": 34389,
+          "premio_euros": 9
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "2",
+        "X",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 14,
+      "fecha_sorteo": "2025-10-19",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 6,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 339910200,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 27,
+          "premio_euros": 9441
+        },
+        "12": {
+          "acertantes": 406,
+          "premio_euros": 627
+        },
+        "11": {
+          "acertantes": 3959,
+          "premio_euros": 64
+        },
+        "10": {
+          "acertantes": 26213,
+          "premio_euros": 11
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "X",
+        "1",
+        "X",
+        "X",
+        "2",
+        "2",
+        "2",
+        "1",
+        "2",
+        "2",
+        "1",
+        "X",
+        "00"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 16,
+      "fecha_sorteo": "2025-10-26",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 344534625,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 275627
+        },
+        "13": {
+          "acertantes": 92,
+          "premio_euros": 2808
+        },
+        "12": {
+          "acertantes": 1814,
+          "premio_euros": 142
+        },
+        "11": {
+          "acertantes": 14822,
+          "premio_euros": 17
+        },
+        "10": {
+          "acertantes": 77944,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "2",
+        "X",
+        "2",
+        "1",
+        "2",
+        "X",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 17,
+      "fecha_sorteo": "2025-11-02",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 12,
+      "accuracy_simple": 0.8,
+      "accuracy_market": 0.7333333333333333,
+      "recaudacion_euros": 419951850,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 190,
+          "premio_euros": 3536
+        },
+        "13": {
+          "acertantes": 3610,
+          "premio_euros": 87
+        },
+        "12": {
+          "acertantes": 32423,
+          "premio_euros": 9
+        },
+        "11": {
+          "acertantes": 161770,
+          "premio_euros": 1
+        },
+        "10": {
+          "acertantes": 489647,
+          "premio_euros": null
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "2",
+        "1",
+        "X",
+        "X",
+        "1",
+        "2",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 19,
+      "fecha_sorteo": "2025-11-09",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Ceuta - Almería"
+      ],
+      "hits_3_dobles": 11,
+      "accuracy_simple": 0.6428571428571429,
+      "accuracy_market": 0.6428571428571429,
+      "recaudacion_euros": 400170600,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 114,
+          "premio_euros": 5616
+        },
+        "13": {
+          "acertantes": 2201,
+          "premio_euros": 136
+        },
+        "12": {
+          "acertantes": 17550,
+          "premio_euros": 17
+        },
+        "11": {
+          "acertantes": 84854,
+          "premio_euros": 3
+        },
+        "10": {
+          "acertantes": 274311,
+          "premio_euros": null
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "X",
+        "1",
+        "2",
+        "X",
+        "X",
+        "1",
+        "X",
+        "1",
+        "X",
+        "00"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 22,
+      "fecha_sorteo": "2025-11-23",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 397307700,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 4,
+          "premio_euros": 158923
+        },
+        "13": {
+          "acertantes": 97,
+          "premio_euros": 3071
+        },
+        "12": {
+          "acertantes": 1560,
+          "premio_euros": 191
+        },
+        "11": {
+          "acertantes": 15592,
+          "premio_euros": 19
+        },
+        "10": {
+          "acertantes": 90252,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "2",
+        "1",
+        "X",
+        "X",
+        "2",
+        "X",
+        "2",
+        "X",
+        "1",
+        "1",
+        "2",
+        "1",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 24,
+      "fecha_sorteo": "2025-11-30",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 431319450,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 690111
+        },
+        "13": {
+          "acertantes": 52,
+          "premio_euros": 6220
+        },
+        "12": {
+          "acertantes": 946,
+          "premio_euros": 341
+        },
+        "11": {
+          "acertantes": 8445,
+          "premio_euros": 38
+        },
+        "10": {
+          "acertantes": 47903,
+          "premio_euros": 8
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "1",
+        "2",
+        "2",
+        "2",
+        "X",
+        "1",
+        "2",
+        "X",
+        "1",
+        "2",
+        "1",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 26,
+      "fecha_sorteo": "2025-12-07",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 403481325,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 20,
+          "premio_euros": 15130
+        },
+        "12": {
+          "acertantes": 723,
+          "premio_euros": 418
+        },
+        "11": {
+          "acertantes": 8730,
+          "premio_euros": 34
+        },
+        "10": {
+          "acertantes": 57685,
+          "premio_euros": 6
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "X",
+        "1",
+        "2",
+        "1",
+        "2",
+        "2",
+        "2",
+        "X",
+        "2",
+        "X",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 28,
+      "fecha_sorteo": "2025-12-14",
+      "n_partidos_evaluados": 14,
+      "faltantes": [
+        "Levante - Villarreal"
+      ],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.5,
+      "accuracy_market": 0.42857142857142855,
+      "recaudacion_euros": 471381600,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 754210
+        },
+        "13": {
+          "acertantes": 26,
+          "premio_euros": 13597
+        },
+        "12": {
+          "acertantes": 443,
+          "premio_euros": 798
+        },
+        "11": {
+          "acertantes": 5165,
+          "premio_euros": 68
+        },
+        "10": {
+          "acertantes": 38352,
+          "premio_euros": 11
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "X",
+        "2",
+        "2",
+        "X",
+        "00"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 30,
+      "fecha_sorteo": "2025-12-21",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 415615500,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 16,
+          "premio_euros": 41561
+        },
+        "13": {
+          "acertantes": 355,
+          "premio_euros": 878
+        },
+        "12": {
+          "acertantes": 3815,
+          "premio_euros": 81
+        },
+        "11": {
+          "acertantes": 25465,
+          "premio_euros": 12
+        },
+        "10": {
+          "acertantes": 111882,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "1",
+        "X",
+        "1",
+        "X",
+        "X",
+        "1",
+        "12"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 32,
+      "fecha_sorteo": "2026-01-04",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 495897975,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 793436
+        },
+        "13": {
+          "acertantes": 77,
+          "premio_euros": 4830
+        },
+        "12": {
+          "acertantes": 1128,
+          "premio_euros": 329
+        },
+        "11": {
+          "acertantes": 10505,
+          "premio_euros": 35
+        },
+        "10": {
+          "acertantes": 62357,
+          "premio_euros": 7
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "2",
+        "2",
+        "2",
+        "1",
+        "X",
+        "2",
+        "1",
+        "X",
+        "1",
+        "2",
+        "2",
+        "X",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 33,
+      "fecha_sorteo": "2026-01-11",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 425851200,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 3,
+          "premio_euros": 227120
+        },
+        "13": {
+          "acertantes": 88,
+          "premio_euros": 3629
+        },
+        "12": {
+          "acertantes": 1184,
+          "premio_euros": 269
+        },
+        "11": {
+          "acertantes": 8889,
+          "premio_euros": 35
+        },
+        "10": {
+          "acertantes": 45459,
+          "premio_euros": 8
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "1",
+        "X",
+        "2",
+        "X",
+        "X",
+        "1",
+        "1",
+        "X",
+        "1",
+        "2",
+        "X",
+        "X",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 35,
+      "fecha_sorteo": "2026-01-18",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 490350600,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 21,
+          "premio_euros": 37360
+        },
+        "13": {
+          "acertantes": 419,
+          "premio_euros": 877
+        },
+        "12": {
+          "acertantes": 5184,
+          "premio_euros": 70
+        },
+        "11": {
+          "acertantes": 36768,
+          "premio_euros": 10
+        },
+        "10": {
+          "acertantes": 166699,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "X",
+        "2",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "2",
+        "X",
+        "1",
+        "21"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 37,
+      "fecha_sorteo": "2026-01-25",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 505643475,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 809029
+        },
+        "13": {
+          "acertantes": 93,
+          "premio_euros": 4077
+        },
+        "12": {
+          "acertantes": 1391,
+          "premio_euros": 272
+        },
+        "11": {
+          "acertantes": 10392,
+          "premio_euros": 36
+        },
+        "10": {
+          "acertantes": 52037,
+          "premio_euros": 8
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "2",
+        "2",
+        "X",
+        "1",
+        "X",
+        "2",
+        "1",
+        "1"
+      ],
+      "desajustes_vs_combinacion_oficial": 7.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 39,
+      "fecha_sorteo": "2026-02-01",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 12,
+      "accuracy_simple": 0.7333333333333333,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 515648325,
+      "premios": {
+        "pleno15": {
+          "acertantes": 10,
+          "premio_euros": 680462
+        },
+        "14": {
+          "acertantes": 39,
+          "premio_euros": 21154
+        },
+        "13": {
+          "acertantes": 793,
+          "premio_euros": 487
+        },
+        "12": {
+          "acertantes": 7708,
+          "premio_euros": 50
+        },
+        "11": {
+          "acertantes": 47363,
+          "premio_euros": 8
+        },
+        "10": {
+          "acertantes": 185605,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "X",
+        "X",
+        "2",
+        "1",
+        "1",
+        "X",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "11"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 42,
+      "fecha_sorteo": "2026-02-15",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 6,
+      "accuracy_simple": 0.3333333333333333,
+      "accuracy_market": 0.3333333333333333,
+      "recaudacion_euros": 308969475,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 494351
+        },
+        "13": {
+          "acertantes": 6,
+          "premio_euros": 38621
+        },
+        "12": {
+          "acertantes": 95,
+          "premio_euros": 2439
+        },
+        "11": {
+          "acertantes": 1151,
+          "premio_euros": 201
+        },
+        "10": {
+          "acertantes": 8283,
+          "premio_euros": 33
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "2",
+        "1",
+        "2",
+        "X",
+        "X",
+        "X",
+        "1",
+        "1",
+        "X",
+        "M0"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 44,
+      "fecha_sorteo": "2026-02-22",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 382206900,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 7,
+          "premio_euros": 87361
+        },
+        "13": {
+          "acertantes": 168,
+          "premio_euros": 1706
+        },
+        "12": {
+          "acertantes": 2138,
+          "premio_euros": 134
+        },
+        "11": {
+          "acertantes": 16119,
+          "premio_euros": 17
+        },
+        "10": {
+          "acertantes": 87535,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "1",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "1",
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "22"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 45,
+      "fecha_sorteo": "2026-03-01",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 412939725,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 35,
+          "premio_euros": 8848
+        },
+        "12": {
+          "acertantes": 650,
+          "premio_euros": 476
+        },
+        "11": {
+          "acertantes": 7176,
+          "premio_euros": 43
+        },
+        "10": {
+          "acertantes": 44376,
+          "premio_euros": 8
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "2",
+        "X",
+        "1",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "X",
+        "2",
+        "1",
+        "22"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 46,
+      "fecha_sorteo": "2026-03-08",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 381436050,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 3,
+          "premio_euros": 203432
+        },
+        "13": {
+          "acertantes": 46,
+          "premio_euros": 6219
+        },
+        "12": {
+          "acertantes": 754,
+          "premio_euros": 379
+        },
+        "11": {
+          "acertantes": 6456,
+          "premio_euros": 44
+        },
+        "10": {
+          "acertantes": 39923,
+          "premio_euros": 8
+        }
+      },
+      "combinacion_ganadora": NaN,
+      "desajustes_vs_combinacion_oficial": NaN
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 48,
+      "fecha_sorteo": "2026-03-15",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 383362125,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 12,
+          "premio_euros": 51114
+        },
+        "13": {
+          "acertantes": 331,
+          "premio_euros": 868
+        },
+        "12": {
+          "acertantes": 3506,
+          "premio_euros": 82
+        },
+        "11": {
+          "acertantes": 22960,
+          "premio_euros": 12
+        },
+        "10": {
+          "acertantes": 101903,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": NaN,
+      "desajustes_vs_combinacion_oficial": NaN
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 50,
+      "fecha_sorteo": "2026-03-22",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 11,
+      "accuracy_simple": 0.6666666666666666,
+      "accuracy_market": 0.6666666666666666,
+      "recaudacion_euros": 368904150,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 9,
+          "premio_euros": 65582
+        },
+        "13": {
+          "acertantes": 257,
+          "premio_euros": 1076
+        },
+        "12": {
+          "acertantes": 2965,
+          "premio_euros": 93
+        },
+        "11": {
+          "acertantes": 20069,
+          "premio_euros": 13
+        },
+        "10": {
+          "acertantes": 95245,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "1",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 53,
+      "fecha_sorteo": "2026-04-05",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4666666666666667,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 353602650,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 50,
+          "premio_euros": 5304
+        },
+        "12": {
+          "acertantes": 316,
+          "premio_euros": 839
+        },
+        "11": {
+          "acertantes": 2885,
+          "premio_euros": 91
+        },
+        "10": {
+          "acertantes": 16974,
+          "premio_euros": 18
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "1",
+        "X",
+        "1",
+        "2",
+        "1",
+        "X",
+        "1",
+        "2",
+        "2",
+        "X",
+        "1",
+        "1",
+        "1",
+        "12"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 55,
+      "fecha_sorteo": "2026-04-12",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 385986900,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 1,
+          "premio_euros": 617579
+        },
+        "13": {
+          "acertantes": 11,
+          "premio_euros": 26317
+        },
+        "12": {
+          "acertantes": 181,
+          "premio_euros": 1599
+        },
+        "11": {
+          "acertantes": 1883,
+          "premio_euros": 153
+        },
+        "10": {
+          "acertantes": 13358,
+          "premio_euros": 26
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "X",
+        "1",
+        "1",
+        "1",
+        "X",
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "X",
+        "X",
+        "1",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 59,
+      "fecha_sorteo": "2026-04-26",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.5333333333333333,
+      "accuracy_market": 0.5333333333333333,
+      "recaudacion_euros": 326163750,
+      "premios": {
+        "pleno15": {
+          "acertantes": 1,
+          "premio_euros": 4370845
+        },
+        "14": {
+          "acertantes": 7,
+          "premio_euros": 74551
+        },
+        "13": {
+          "acertantes": 167,
+          "premio_euros": 1464
+        },
+        "12": {
+          "acertantes": 2194,
+          "premio_euros": 111
+        },
+        "11": {
+          "acertantes": 16580,
+          "premio_euros": 14
+        },
+        "10": {
+          "acertantes": 79854,
+          "premio_euros": 3
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "1",
+        "1",
+        "X",
+        "2",
+        "1",
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "X",
+        "00"
+      ],
+      "desajustes_vs_combinacion_oficial": 1.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 60,
+      "fecha_sorteo": "2026-05-03",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 9,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 362794350,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 13,
+          "premio_euros": 44651
+        },
+        "13": {
+          "acertantes": 513,
+          "premio_euros": 530
+        },
+        "12": {
+          "acertantes": 5748,
+          "premio_euros": 47
+        },
+        "11": {
+          "acertantes": 36575,
+          "premio_euros": 7
+        },
+        "10": {
+          "acertantes": 154884,
+          "premio_euros": 2
+        }
+      },
+      "combinacion_ganadora": [
+        "1",
+        "2",
+        "2",
+        "2",
+        "1",
+        "2",
+        "1",
+        "2",
+        "X",
+        "2",
+        "2",
+        "1",
+        "2",
+        "1",
+        "10"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 61,
+      "fecha_sorteo": "2026-05-10",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 8,
+      "accuracy_simple": 0.3333333333333333,
+      "accuracy_market": 0.4,
+      "recaudacion_euros": 368295375,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 13,
+          "premio_euros": 21247
+        },
+        "12": {
+          "acertantes": 222,
+          "premio_euros": 1244
+        },
+        "11": {
+          "acertantes": 2559,
+          "premio_euros": 107
+        },
+        "10": {
+          "acertantes": 17325,
+          "premio_euros": 19
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "2",
+        "X",
+        "X",
+        "2",
+        "X",
+        "X",
+        "X",
+        "X",
+        "1",
+        "1",
+        "2",
+        "1",
+        "20"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 63,
+      "fecha_sorteo": "2026-05-17",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 10,
+      "accuracy_simple": 0.6,
+      "accuracy_market": 0.6,
+      "recaudacion_euros": 286178250,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 2,
+          "premio_euros": 228942
+        },
+        "13": {
+          "acertantes": 81,
+          "premio_euros": 2649
+        },
+        "12": {
+          "acertantes": 1099,
+          "premio_euros": 195
+        },
+        "11": {
+          "acertantes": 8606,
+          "premio_euros": 24
+        },
+        "10": {
+          "acertantes": 45066,
+          "premio_euros": 5
+        }
+      },
+      "combinacion_ganadora": [
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "2",
+        "2",
+        "2",
+        "2",
+        "1",
+        "2",
+        "X",
+        "X",
+        "01"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 64,
+      "fecha_sorteo": "2026-05-24",
+      "n_partidos_evaluados": 15,
+      "faltantes": [],
+      "hits_3_dobles": 7,
+      "accuracy_simple": 0.4,
+      "accuracy_market": 0.4666666666666667,
+      "recaudacion_euros": 398000550,
+      "premios": {
+        "pleno15": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "14": {
+          "acertantes": 0,
+          "premio_euros": null
+        },
+        "13": {
+          "acertantes": 29,
+          "premio_euros": 10293
+        },
+        "12": {
+          "acertantes": 421,
+          "premio_euros": 709
+        },
+        "11": {
+          "acertantes": 4560,
+          "premio_euros": 65
+        },
+        "10": {
+          "acertantes": 30540,
+          "premio_euros": 11
+        }
+      },
+      "combinacion_ganadora": [
+        "2",
+        "1",
+        "1",
+        "X",
+        "1",
+        "1",
+        "1",
+        "1",
+        "X",
+        "X",
+        "2",
+        "2",
+        "1",
+        "1",
+        "M2"
+      ],
+      "desajustes_vs_combinacion_oficial": 0.0
+    }
+  ]
+}

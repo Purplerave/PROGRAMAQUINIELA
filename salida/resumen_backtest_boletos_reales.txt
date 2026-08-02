@@ -1,0 +1,23 @@
+TIPO RAIZ: dict
+CLAVES PRINCIPALES:
+ - n_boletos: 97
+ - n_boletos_no_evaluados: 127
+ - boletos_no_evaluados: list, tamaño 127
+ - media_aciertos_3_dobles: 8.24742268041237
+ - acierto_simple_medio: 0.5039273441335297
+ - acierto_mercado_medio: 0.49975454099165445
+ - boletos: list, tamaño 97
+
+CANDIDATOS GENÉRICOS ENCONTRADOS: 97
+LISTA EXPLÍCITA MÁS PROBABLE: raiz.boletos
+ELEMENTOS EN ESA LISTA: 97
+
+EXPORTADO DESDE: lista explícita: raiz.boletos
+FILAS EXPORTADAS EN CSV GENERAL: 97
+FILAS QUE REQUIEREN AUDITORÍA OFICIAL: 5
+SUMA DE DESAJUSTES EN FILAS AUDITADAS: 9
+RESUMEN: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\resumen_backtest_boletos_reales.txt
+CANDIDATOS: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\candidatos_desajustes_backtest_boletos_reales.json
+CSV GENERAL: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\boletos_backtest_boletos_reales.csv
+DESAJUSTES JSON: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\desajustes_backtest_boletos_reales.json
+DESAJUSTES CSV: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\desajustes_backtest_boletos_reales.csv
