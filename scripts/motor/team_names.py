@@ -43,9 +43,9 @@ def normalize_team_name(value: object) -> str:
 # Los alias se comparan siempre tras normalize_team_name.
 # ---------------------------------------------------------------------------
 HISTORY_NAME_ALIASES: dict[str, list[str]] = {
-    "Ath Bilbao": ["Athletic Club", "Athletic Bilbao", "Athletic de Bilbao"],
+    "Ath Bilbao": ["Athletic", "Athletic Club", "Athletic Bilbao", "Athletic de Bilbao"],
     "Ath Bilbao B": ["Bilbao Athletic", "Athletic Club B", "Athletic B"],
-    "Ath Madrid": ["Atletico de Madrid", "Atletico Madrid", "Atletico", "Ath Madrid"],
+    "Ath Madrid": ["Atletico de Madrid", "Atletico Madrid", "Atletico", "Ath Madrid", "At. Madrid"],
     "Barcelona": ["FC Barcelona", "Barca", "F.C. Barcelona"],
     "Barcelona B": ["FC Barcelona B", "Barça B"],
     "Betis": ["Real Betis", "Real Betis Balompie", "Real Betis Balompié"],
@@ -96,7 +96,7 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Murcia": ["Real Murcia"],
     "Numancia": ["CD Numancia"],
     "Osasuna": ["CA Osasuna", "Club Atletico Osasuna", "Atlético Osasuna"],
-    "Oviedo": ["Real Oviedo"],
+    "Oviedo": ["Real Oviedo", "R. Oviedo"],
     "Ponferradina": ["SD Ponferradina"],
     "Rayo Majadahonda": ["CF Rayo Majadahonda"],
     "Real Madrid": ["Real Madrid CF"],
@@ -105,12 +105,12 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Reus Deportiu": ["CF Reus Deportiu", "CF Reus", "Reus"],
     "Sabadell": ["CE Sabadell", "CE Sabadell FC"],
     "Salamanca": ["UD Salamanca"],
-    "Santander": ["Racing Santander", "Racing de Santander", "RC Racing",
+    "Santander": ["R. Santander", "Racing Santander", "Racing de Santander", "RC Racing",
                   "R. Racing Club", "RC Racing de Santander", "Real Racing Club",
                   "Racing Club"],
     "Sevilla": ["Sevilla FC"],
     "Sevilla B": ["Sevilla Atletico", "Sevilla Atlético", "Sevilla At"],
-    "Sociedad": ["Real Sociedad", "Real Sociedad de Futbol", "Real Sociedad de Fútbol"],
+    "Sociedad": ["R. Sociedad", "Real Sociedad", "Real Sociedad de Futbol", "Real Sociedad de Fútbol"],
     "Sociedad B": ["Real Sociedad B", "R. Sociedad B", "Sanse"],
     "Sp Gijon": ["Sporting Gijon", "Sporting Gijón", "Sporting de Gijon", "Sporting de Gijón",
                  "Real Sporting", "Real Sporting de Gijon", "Real Sporting de Gijón",
@@ -118,12 +118,12 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Tenerife": ["CD Tenerife"],
     "UCAM Murcia": ["UCAM"],
     "Valencia": ["Valencia CF"],
-    "Valladolid": ["Real Valladolid", "Real Valladolid CF"],
+    "Valladolid": ["R. Valladolid", "Real Valladolid", "Real Valladolid CF"],
     "Vallecano": ["Rayo Vallecano", "Rayo"],
     "Villarreal": ["Villarreal CF"],
     "Villarreal B": ["Villarreal CF B"],
     "Xerez": ["Xerez CD"],
-    "Zaragoza": ["Real Zaragoza", "Zaragoza CF"],
+    "Zaragoza": ["Real Zaragoza", "R. Zaragoza", "Zaragoza CF"],
 }
 
 

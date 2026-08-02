@@ -1,9 +1,21 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 1 cerrada: pleno DC + alias de equipos).
+Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 4 cerrada: backtest de boletos reales LAE).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
+## Último avance (02/08/2026 — prioridad 4 cerrada: boletos reales LAE)
+
+- Nuevo backtest de boletos oficiales reales: `scripts/backtests/BACKTEST_BOLETOS_LAE.py`.
+  Valida boleto 1-14 + Pleno al 15 contra histórico y evalúa simples, 3 dobles y
+  marcador exacto/top-3 del Pleno.
+- Dataset mínimo append-only: `DATOS/boletos_lae_reales/LAE_2026-01-25.json` con
+  1 caso especial validado (abreviaturas LAE `At. Madrid`, `R. Oviedo`,
+  `R. Zaragoza` + Pleno al 15 `Girona - Getafe 1-1`).
+- Resultado del caso: validación 15/15; modelo 8/14 simples, 8/14 con 3 dobles;
+  mercado 8/14; Pleno top-1 `1-0`, real `1-1`, incluido en top-3. Detalle:
+  `REVISION_12_BACKTEST_BOLETOS_LAE.md`.
+
+## Avance anterior (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
 
 - Pleno al 15 conectado al motor: `predict_pleno15_from_model` (Dixon-Coles,
   rho −0,036) emite buckets 0/1/2/M, top-3 marcadores, selección y calidad;
@@ -56,6 +68,15 @@ Criterio de selección: `mean_score - 0.5 * std_score` (rendimiento y estabilida
 Medido mediante `scripts/backtests/DIXON_COLES.py`.
 Resultados (5 temporadas): exacto 13,14% (Δ +0,07%), Top-3 34,75%.
 Rho medio estimado: -0,036 (validado fuera de muestra).
+
+### 4. Backtest de boletos reales LAE — ✅ CERRADA (02/08/2026)
+
+Implementado `scripts/backtests/BACKTEST_BOLETOS_LAE.py` con validación estricta
+contra histórico y evaluación del orden oficial 1-14 + Pleno al 15. Validado con
+1 caso especial real (`DATOS/boletos_lae_reales/LAE_2026-01-25.json`): 15/15
+partidos emparejados, abreviaturas LAE resueltas y Pleno al 15 evaluado por
+marcador exacto. Resultado del caso: modelo 8/14 simples y 8/14 con 3 dobles;
+mercado 8/14; Pleno real `1-1` en top-3 del modelo. Detalle: REVISION_12.
 
 ## Experimentos posteriores
 

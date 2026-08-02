@@ -1,0 +1,25 @@
+{
+  "id": "LAE_2026-01-25",
+  "fecha_escrutinio": "2026-01-25",
+  "temporada": "2025-2026",
+  "fuente": "LAE",
+  "source_url": "https://www.loteriasyapuestas.es/es/la-quiniela/resultados/la-quiniela-resultados-del-25-de-enero-de-2026",
+  "nota": "Caso especial de validación: contiene abreviaturas oficiales LAE (R. Oviedo, R. Zaragoza, At. Madrid) y Pleno al 15 con marcador exacto.",
+  "partidos": [
+    {"num": 1, "local": "Rayo Vallecano", "visitante": "Osasuna", "resultado": "1-3", "signo": "2"},
+    {"num": 2, "local": "Valencia", "visitante": "Espanyol", "resultado": "3-2", "signo": "1"},
+    {"num": 3, "local": "Sevilla", "visitante": "Athletic Club", "resultado": "2-1", "signo": "1"},
+    {"num": 4, "local": "Villarreal", "visitante": "Real Madrid", "resultado": "0-2", "signo": "2"},
+    {"num": 5, "local": "At. Madrid", "visitante": "Mallorca", "resultado": "3-0", "signo": "1"},
+    {"num": 6, "local": "Barcelona", "visitante": "R. Oviedo", "resultado": "3-0", "signo": "1"},
+    {"num": 7, "local": "Real Sociedad", "visitante": "Celta", "resultado": "3-1", "signo": "1"},
+    {"num": 8, "local": "Alavés", "visitante": "Betis", "resultado": "2-1", "signo": "1"},
+    {"num": 9, "local": "Valladolid", "visitante": "Albacete", "resultado": "0-1", "signo": "2"},
+    {"num": 10, "local": "Las Palmas", "visitante": "Córdoba", "resultado": "1-2", "signo": "2"},
+    {"num": 11, "local": "Andorra", "visitante": "Huesca", "resultado": "1-1", "signo": "X"},
+    {"num": 12, "local": "Eibar", "visitante": "Almería", "resultado": "1-0", "signo": "1"},
+    {"num": 13, "local": "R. Zaragoza", "visitante": "Castellón", "resultado": "0-0", "signo": "X"},
+    {"num": 14, "local": "Deportivo", "visitante": "Racing de Santander", "resultado": "0-1", "signo": "2"},
+    {"num": 15, "local": "Girona", "visitante": "Getafe", "resultado": "1-1", "signo": "1-1", "tipo": "pleno15"}
+  ]
+}
