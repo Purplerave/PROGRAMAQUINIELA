@@ -14,10 +14,10 @@ ELEMENTOS EN ESA LISTA: 97
 
 EXPORTADO DESDE: lista explícita: raiz.boletos
 FILAS EXPORTADAS EN CSV GENERAL: 97
-FILAS QUE REQUIEREN AUDITORÍA OFICIAL: 5
-SUMA DE DESAJUSTES EN FILAS AUDITADAS: 9
-RESUMEN: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\resumen_backtest_boletos_reales.txt
-CANDIDATOS: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\candidatos_desajustes_backtest_boletos_reales.json
-CSV GENERAL: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\boletos_backtest_boletos_reales.csv
-DESAJUSTES JSON: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\desajustes_backtest_boletos_reales.json
-DESAJUSTES CSV: C:\Users\Mortadelo\Desktop\QUINIELAs\PROGRAMAQUINIELA\salida\desajustes_backtest_boletos_reales.csv
+FILAS QUE REQUIEREN AUDITORÍA OFICIAL: 29
+SUMA DE DESAJUSTES EN FILAS AUDITADAS: 29
+RESUMEN: /home/user/PROGRAMAQUINIELA/salida/resumen_backtest_boletos_reales.txt
+CANDIDATOS: /home/user/PROGRAMAQUINIELA/salida/candidatos_desajustes_backtest_boletos_reales.json
+CSV GENERAL: /home/user/PROGRAMAQUINIELA/salida/boletos_backtest_boletos_reales.csv
+DESAJUSTES JSON: /home/user/PROGRAMAQUINIELA/salida/desajustes_backtest_boletos_reales.json
+DESAJUSTES CSV: /home/user/PROGRAMAQUINIELA/salida/desajustes_backtest_boletos_reales.csv
