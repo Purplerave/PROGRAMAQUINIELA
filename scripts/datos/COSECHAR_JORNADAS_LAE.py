@@ -182,7 +182,12 @@ def _match_partido_row(row: list[str]) -> tuple[int, str, str] | None:
 
 
 def _match_pleno(rows: list[list[str]]) -> dict | None:
-    """Filas del Pleno al 15: celdas [equipo, 0, 1, 2, M] (con o sin columnas extra)."""
+    """Filas del Pleno al 15: celdas [equipo, 0, 1, 2, M] (con o sin columnas extra).
+
+    Algunas jornadas solo publican un equipo del pleno (el otro "por
+    confirmar"); el resultado siempre incluye ambos campos ('visitante' vacío
+    si no se encontró) para no romper a los consumidores del JSON.
+    """
     pleno = None
     for row in rows:
         cells = [c.strip() for c in row]
@@ -194,6 +199,8 @@ def _match_pleno(rows: list[list[str]]) -> dict | None:
                 pleno = {"local": team}
             elif "visitante" not in pleno:
                 pleno["visitante"] = team
+    if pleno is not None:
+        pleno.setdefault("visitante", "")
     return pleno
 
 

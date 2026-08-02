@@ -320,3 +320,22 @@ def test_load_tickets_acepta_formato_cosechador(tmp_path):
     assert t["matches"][0] == {"num": 12, "local": "", "visitante": "Valladolid"}
     assert t["matches"][-1]["local"] == "Atlético de Madrid"
     assert len(t["matches"]) == 2
+
+
+def test_load_tickets_pleno_sin_visitante_no_rompe(tmp_path):
+    """Algún boleto real tiene pleno15 solo con 'local'; no debe romper la carga."""
+    f = tmp_path / "jornadas_lae_2023-2024.json"
+    f.write_text(json.dumps({
+        "temporada": "2023-2024", "n_jornadas": 1,
+        "jornadas": [{
+            "temporada": "2023-2024", "jornada": 46, "fecha": "2024-03-17",
+            "partidos": [{"num": i, "local": f"L{i}", "visitante": f"V{i}"} for i in range(1, 15)],
+            "pleno15": {"local": "Atlético de Madrid"},  # sin visitante
+            "combinacion_ganadora": ["1"] * 14 + ["10"],
+        }],
+    }), encoding="utf-8")
+    tickets = bbr.load_tickets(tmp_path)
+    assert len(tickets) == 1
+    pleno = tickets[0]["matches"][-1]
+    assert pleno["num"] == 15 and pleno["local"] == "Atlético de Madrid"
+    assert pleno["visitante"] == ""

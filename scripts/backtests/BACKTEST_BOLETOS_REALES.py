@@ -76,7 +76,12 @@ def load_tickets(tickets_dir: Path) -> list[dict]:
             pleno = item.get("pleno15")
             matches = [{"num": p["num"], "local": p["local"], "visitante": p["visitante"]} for p in partidos]
             if pleno:
-                matches.append({"num": 15, "local": pleno["local"], "visitante": pleno["visitante"]})
+                # Tolerancia: algunos boletos solo tienen un equipo del pleno
+                matches.append({
+                    "num": 15,
+                    "local": pleno.get("local", ""),
+                    "visitante": pleno.get("visitante", ""),
+                })
             ticket = {
                 "temporada": item.get("temporada"),
                 "jornada": item.get("jornada"),
