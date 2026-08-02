@@ -1,0 +1,9089 @@
+{
+ "temporada": "2023-2024",
+ "n_jornadas": 72,
+ "jornadas": [
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Sociedad",
+     "visitante": "Girona"
+    },
+    {
+     "num": 2,
+     "local": "Las Palmas",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 3,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Celta",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 5,
+     "local": "Villarreal",
+     "visitante": "Betis"
+    },
+    {
+     "num": 6,
+     "local": "Getafe",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 7,
+     "local": "Cádiz",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 8,
+     "local": "Racing de Santander",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 9,
+     "local": "Elche",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 10,
+     "local": "Burgos",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 11,
+     "local": "Albacete",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 12,
+     "local": "Cartagena",
+     "visitante": "Eldense"
+    },
+    {
+     "num": 13,
+     "local": "Leganés",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 14,
+     "local": "Mirandés",
+     "visitante": "Alcorcón"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Granada"
+   },
+   "fecha": "2023-08-13",
+   "recaudacion_euros": 266405550,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 2,
+     "premio_euros": 99902
+    },
+    "12": {
+     "acertantes": 30,
+     "premio_euros": 6660
+    },
+    "11": {
+     "acertantes": 278,
+     "premio_euros": 718
+    },
+    "10": {
+     "acertantes": 1824,
+     "premio_euros": 131
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 1,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "2",
+    "2",
+    "2",
+    "X",
+    "1",
+    "1",
+    "2",
+    "X",
+    "X",
+    "2",
+    "2",
+    "1",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/1.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Sociedad",
+     "visitante": "Celta"
+    },
+    {
+     "num": 2,
+     "local": "Almería",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Osasuna",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 4,
+     "local": "Girona",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 5,
+     "local": "Barcelona",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 6,
+     "local": "Betis",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 7,
+     "local": "Alavés",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 8,
+     "local": "Eibar",
+     "visitante": "Elche"
+    },
+    {
+     "num": 9,
+     "local": "Espanyol",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 10,
+     "local": "Levante",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 11,
+     "local": "Alcorcón",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 12,
+     "local": "Oviedo",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 13,
+     "local": "Sporting de Gijón",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 14,
+     "local": "Villarreal B",
+     "visitante": "Eldense"
+    }
+   ],
+   "pleno15": {
+    "local": "Granada",
+    "visitante": "Rayo Vallecano"
+   },
+   "fecha": "2023-08-20",
+   "recaudacion_euros": 278993025,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 10,
+     "premio_euros": 44638
+    },
+    "13": {
+     "acertantes": 317,
+     "premio_euros": 660
+    },
+    "12": {
+     "acertantes": 3989,
+     "premio_euros": 52
+    },
+    "11": {
+     "acertantes": 28391,
+     "premio_euros": 7
+    },
+    "10": {
+     "acertantes": 124328,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 2,
+   "combinacion_ganadora": [
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "1",
+    "02"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/2.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Cádiz",
+     "visitante": "Almería"
+    },
+    {
+     "num": 2,
+     "local": "Granada",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 3,
+     "local": "Sevilla",
+     "visitante": "Girona"
+    },
+    {
+     "num": 4,
+     "local": "Villarreal",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 5,
+     "local": "Valencia",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 6,
+     "local": "Celta",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 7,
+     "local": "Getafe",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 8,
+     "local": "Burgos",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 9,
+     "local": "Valladolid",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 10,
+     "local": "Racing de Ferrol",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 11,
+     "local": "Mirandés",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 12,
+     "local": "Leganés",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 13,
+     "local": "Eldense",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 14,
+     "local": "Racing de Santander",
+     "visitante": "Huesca"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2023-08-27",
+   "recaudacion_euros": 275286750,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 440458
+    },
+    "13": {
+     "acertantes": 12,
+     "premio_euros": 17205
+    },
+    "12": {
+     "acertantes": 156,
+     "premio_euros": 1323
+    },
+    "11": {
+     "acertantes": 1734,
+     "premio_euros": 119
+    },
+    "10": {
+     "acertantes": 12849,
+     "premio_euros": 19
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 3,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "2",
+    "2",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "0M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/3.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Girona",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 2,
+     "local": "Real Madrid",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Alavés",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 4,
+     "local": "Betis",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 5,
+     "local": "Real Sociedad",
+     "visitante": "Granada"
+    },
+    {
+     "num": 6,
+     "local": "Mallorca",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 7,
+     "local": "Atlético de Madrid",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 8,
+     "local": "Sporting de Gijón",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 9,
+     "local": "Levante",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 10,
+     "local": "Villarreal B",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 11,
+     "local": "Elche",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 12,
+     "local": "Andorra",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 13,
+     "local": "Eibar",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 14,
+     "local": "Espanyol",
+     "visitante": "Amorebieta"
+    }
+   ],
+   "pleno15": {
+    "local": "Osasuna",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2023-09-03",
+   "recaudacion_euros": 360336300,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 1880417
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 288269
+    },
+    "13": {
+     "acertantes": 108,
+     "premio_euros": 2502
+    },
+    "12": {
+     "acertantes": 1578,
+     "premio_euros": 171
+    },
+    "11": {
+     "acertantes": 13716,
+     "premio_euros": 19
+    },
+    "10": {
+     "acertantes": 74249,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 4,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "X",
+    "2",
+    "X",
+    "2",
+    "2",
+    "1",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/4.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Levante",
+     "visitante": "Stjarnan"
+    },
+    {
+     "num": 2,
+     "local": "Juventus",
+     "visitante": "Okzhetpes"
+    },
+    {
+     "num": 3,
+     "local": "Brondby",
+     "visitante": "Celtic de Glasgow"
+    },
+    {
+     "num": 4,
+     "local": "Brann Bergen",
+     "visitante": "Lokomotiv de Moscú"
+    },
+    {
+     "num": 5,
+     "local": "CFF Olimpia Cluj",
+     "visitante": "Spartak Myjava"
+    },
+    {
+     "num": 6,
+     "local": "Spartak Subotica",
+     "visitante": "Kilmarnock"
+    },
+    {
+     "num": 7,
+     "local": "Arsenal",
+     "visitante": "Linköping"
+    },
+    {
+     "num": 8,
+     "local": "SFK Sarajevo 2000",
+     "visitante": "Osijek"
+    },
+    {
+     "num": 9,
+     "local": "FC Gintra",
+     "visitante": "Cardiff City"
+    },
+    {
+     "num": 10,
+     "local": "PAOK de Salónica",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 11,
+     "local": "Eintracht Frankfurt",
+     "visitante": "Slovacko"
+    },
+    {
+     "num": 12,
+     "local": "Dinamo Minsk",
+     "visitante": "Valerenga IF Oslo"
+    },
+    {
+     "num": 13,
+     "local": "Anderlecht",
+     "visitante": "GKS Katowice"
+    },
+    {
+     "num": 14,
+     "local": "Paris Saint-Germain",
+     "visitante": "Kryvbas"
+    }
+   ],
+   "pleno15": {
+    "local": "Benfica",
+    "visitante": "Cliftonville"
+   },
+   "fecha": "2023-09-06",
+   "recaudacion_euros": 55574775,
+   "premios": {
+    "pleno15": {
+     "acertantes": 230,
+     "premio_euros": 181
+    },
+    "14": {
+     "acertantes": 1127,
+     "premio_euros": 78
+    },
+    "13": {
+     "acertantes": 9568,
+     "premio_euros": 4
+    },
+    "12": {
+     "acertantes": 38721,
+     "premio_euros": 2
+    },
+    "11": {
+     "acertantes": 92252,
+     "premio_euros": null
+    },
+    "10": {
+     "acertantes": 126904,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 5,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/5.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Burgos",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 2,
+     "local": "Oviedo",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 3,
+     "local": "Leganés",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 4,
+     "local": "Racing de Ferrol",
+     "visitante": "Villarreal B"
+    },
+    {
+     "num": 5,
+     "local": "Racing de Santander",
+     "visitante": "Amorebieta"
+    },
+    {
+     "num": 6,
+     "local": "Cartagena",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 7,
+     "local": "Mirandés",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 8,
+     "local": "Tenerife",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 9,
+     "local": "Valladolid",
+     "visitante": "Elche"
+    },
+    {
+     "num": 10,
+     "local": "República de Irlanda",
+     "visitante": "Holanda"
+    },
+    {
+     "num": 11,
+     "local": "Grecia",
+     "visitante": "Gibraltar"
+    },
+    {
+     "num": 12,
+     "local": "Islas Feroe",
+     "visitante": "Moldavia"
+    },
+    {
+     "num": 13,
+     "local": "Finlandia",
+     "visitante": "Dinamarca"
+    },
+    {
+     "num": 14,
+     "local": "Portugal",
+     "visitante": "Luxemburgo"
+    }
+   ],
+   "pleno15": {
+    "local": "Eldense",
+    "visitante": "Alcorcón"
+   },
+   "fecha": "2023-09-10",
+   "recaudacion_euros": 148598700,
+   "premios": {
+    "pleno15": {
+     "acertantes": 7,
+     "premio_euros": 15921
+    },
+    "14": {
+     "acertantes": 185,
+     "premio_euros": 1285
+    },
+    "13": {
+     "acertantes": 3344,
+     "premio_euros": 33
+    },
+    "12": {
+     "acertantes": 24084,
+     "premio_euros": 4
+    },
+    "11": {
+     "acertantes": 92746,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 220302,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 6,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "2",
+    "2",
+    "1",
+    "22"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/6.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 2,
+     "local": "Real Madrid",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 3,
+     "local": "Celta",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 4,
+     "local": "Barcelona",
+     "visitante": "Betis"
+    },
+    {
+     "num": 5,
+     "local": "Getafe",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 6,
+     "local": "Villarreal",
+     "visitante": "Almería"
+    },
+    {
+     "num": 7,
+     "local": "Sevilla",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 8,
+     "local": "Valencia",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Alcorcón",
+     "visitante": "Levante"
+    },
+    {
+     "num": 10,
+     "local": "Albacete",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 11,
+     "local": "Valladolid",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 12,
+     "local": "Elche",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 13,
+     "local": "Espanyol",
+     "visitante": "Eldense"
+    },
+    {
+     "num": 14,
+     "local": "Sporting de Gijón",
+     "visitante": "Tenerife"
+    }
+   ],
+   "pleno15": {
+    "local": "Granada",
+    "visitante": "Girona"
+   },
+   "fecha": "2023-09-17",
+   "recaudacion_euros": 336419250,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 8,
+     "premio_euros": 67283
+    },
+    "13": {
+     "acertantes": 387,
+     "premio_euros": 651
+    },
+    "12": {
+     "acertantes": 6311,
+     "premio_euros": 39
+    },
+    "11": {
+     "acertantes": 51708,
+     "premio_euros": 4
+    },
+    "10": {
+     "acertantes": 190202,
+     "premio_euros": 1
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 7,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/7.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Feyenoord Rotterdam",
+     "visitante": "Celtic de Glasgow"
+    },
+    {
+     "num": 2,
+     "local": "Lazio",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Paris Saint-Germain",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 4,
+     "local": "Manchester City",
+     "visitante": "Estrella Roja de Belgrado"
+    },
+    {
+     "num": 5,
+     "local": "Barcelona",
+     "visitante": "Royal Antwerp"
+    },
+    {
+     "num": 6,
+     "local": "Shakhtar Donetsk",
+     "visitante": "Oporto"
+    },
+    {
+     "num": 7,
+     "local": "Bayern de Múnich",
+     "visitante": "Manchester United"
+    },
+    {
+     "num": 8,
+     "local": "Sevilla",
+     "visitante": "Racing Club de Lens"
+    },
+    {
+     "num": 9,
+     "local": "Arsenal",
+     "visitante": "PSV Eindhoven"
+    },
+    {
+     "num": 10,
+     "local": "Real Madrid",
+     "visitante": "Union Berlin"
+    },
+    {
+     "num": 11,
+     "local": "Sporting Braga",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 12,
+     "local": "Benfica",
+     "visitante": "Red Bull Salzburgo"
+    },
+    {
+     "num": 13,
+     "local": "Glasgow Rangers",
+     "visitante": "Betis"
+    },
+    {
+     "num": 14,
+     "local": "Panathinaikos",
+     "visitante": "Villarreal"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Sociedad",
+    "visitante": "Inter de Milán"
+   },
+   "fecha": "2023-09-20",
+   "recaudacion_euros": 111236025,
+   "premios": {
+    "pleno15": {
+     "acertantes": 3,
+     "premio_euros": 27809
+    },
+    "14": {
+     "acertantes": 17,
+     "premio_euros": 10469
+    },
+    "13": {
+     "acertantes": 765,
+     "premio_euros": 109
+    },
+    "12": {
+     "acertantes": 8487,
+     "premio_euros": 9
+    },
+    "11": {
+     "acertantes": 47975,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 157079,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 8,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/8.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Almería",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Celta"
+    },
+    {
+     "num": 3,
+     "local": "Betis",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 4,
+     "local": "Girona",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 5,
+     "local": "Osasuna",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 6,
+     "local": "Rayo Vallecano",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 7,
+     "local": "Alavés",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 8,
+     "local": "Real Sociedad",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 9,
+     "local": "Las Palmas",
+     "visitante": "Granada"
+    },
+    {
+     "num": 10,
+     "local": "Cartagena",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 11,
+     "local": "Racing de Ferrol",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 12,
+     "local": "Oviedo",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 13,
+     "local": "Racing de Santander",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 14,
+     "local": "Tenerife",
+     "visitante": "Espanyol"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2023-09-24",
+   "recaudacion_euros": 276953550,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 5,
+     "premio_euros": 88625
+    },
+    "13": {
+     "acertantes": 157,
+     "premio_euros": 1323
+    },
+    "12": {
+     "acertantes": 1915,
+     "premio_euros": 108
+    },
+    "11": {
+     "acertantes": 14812,
+     "premio_euros": 14
+    },
+    "10": {
+     "acertantes": 74637,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 9,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "X",
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/9.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Sevilla",
+     "visitante": "Almería"
+    },
+    {
+     "num": 2,
+     "local": "Mallorca",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 3,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 4,
+     "local": "Villarreal",
+     "visitante": "Girona"
+    },
+    {
+     "num": 5,
+     "local": "Real Madrid",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 6,
+     "local": "Cádiz",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 7,
+     "local": "Valencia",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 8,
+     "local": "Granada",
+     "visitante": "Betis"
+    },
+    {
+     "num": 9,
+     "local": "Celta",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 10,
+     "local": "Juventus",
+     "visitante": "Lecce"
+    },
+    {
+     "num": 11,
+     "local": "Cagliari",
+     "visitante": "AC Milan"
+    },
+    {
+     "num": 12,
+     "local": "Hellas Verona",
+     "visitante": "Atalanta"
+    },
+    {
+     "num": 13,
+     "local": "Inter de Milán",
+     "visitante": "Sassuolo"
+    },
+    {
+     "num": 14,
+     "local": "Nápoles",
+     "visitante": "Udinese"
+    }
+   ],
+   "pleno15": {
+    "local": "Osasuna",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2023-09-27",
+   "recaudacion_euros": 172747575,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 276396
+    },
+    "13": {
+     "acertantes": 15,
+     "premio_euros": 8637
+    },
+    "12": {
+     "acertantes": 517,
+     "premio_euros": 250
+    },
+    "11": {
+     "acertantes": 5741,
+     "premio_euros": 22
+    },
+    "10": {
+     "acertantes": 37746,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 10,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "X",
+    "2",
+    "X",
+    "X",
+    "1",
+    "2",
+    "2",
+    "2",
+    "1",
+    "02"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/10.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Getafe",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 2,
+     "local": "Rayo Vallecano",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 3,
+     "local": "Girona",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Real Sociedad",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 5,
+     "local": "Almería",
+     "visitante": "Granada"
+    },
+    {
+     "num": 6,
+     "local": "Alavés",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 7,
+     "local": "Betis",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 8,
+     "local": "Atlético de Madrid",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 9,
+     "local": "Eibar",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 10,
+     "local": "Elche",
+     "visitante": "Levante"
+    },
+    {
+     "num": 11,
+     "local": "Eldense",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 12,
+     "local": "Zaragoza",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 13,
+     "local": "Valladolid",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 14,
+     "local": "Huesca",
+     "visitante": "Sporting de Gijón"
+    }
+   ],
+   "pleno15": {
+    "local": "Las Palmas",
+    "visitante": "Celta"
+   },
+   "fecha": "2023-10-01",
+   "recaudacion_euros": 316956975,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 507131
+    },
+    "13": {
+     "acertantes": 78,
+     "premio_euros": 3047
+    },
+    "12": {
+     "acertantes": 1333,
+     "premio_euros": 178
+    },
+    "11": {
+     "acertantes": 10876,
+     "premio_euros": 21
+    },
+    "10": {
+     "acertantes": 55145,
+     "premio_euros": 5
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 11,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "2",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/11.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Manchester United",
+     "visitante": "Galatasaray"
+    },
+    {
+     "num": 2,
+     "local": "Copenhague",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 3,
+     "local": "Racing Club de Lens",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 4,
+     "local": "PSV Eindhoven",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 5,
+     "local": "Union Berlin",
+     "visitante": "Sporting Braga"
+    },
+    {
+     "num": 6,
+     "local": "Nápoles",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 7,
+     "local": "Red Bull Salzburgo",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 8,
+     "local": "Inter de Milán",
+     "visitante": "Benfica"
+    },
+    {
+     "num": 9,
+     "local": "Atlético de Madrid",
+     "visitante": "Feyenoord Rotterdam"
+    },
+    {
+     "num": 10,
+     "local": "Borussia Dortmund",
+     "visitante": "AC Milan"
+    },
+    {
+     "num": 11,
+     "local": "Newcastle",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 12,
+     "local": "RB Leipzig",
+     "visitante": "Manchester City"
+    },
+    {
+     "num": 13,
+     "local": "Betis",
+     "visitante": "Sparta Praga"
+    },
+    {
+     "num": 14,
+     "local": "Villarreal",
+     "visitante": "Rennes"
+    }
+   ],
+   "pleno15": {
+    "local": "Oporto",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2023-10-04",
+   "recaudacion_euros": 126517575,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 16,
+     "premio_euros": 5930
+    },
+    "12": {
+     "acertantes": 473,
+     "premio_euros": 200
+    },
+    "11": {
+     "acertantes": 6133,
+     "premio_euros": 15
+    },
+    "10": {
+     "acertantes": 40692,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 12,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "1",
+    "X",
+    "2",
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/12.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Cádiz",
+     "visitante": "Girona"
+    },
+    {
+     "num": 2,
+     "local": "Celta",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Alavés",
+     "visitante": "Betis"
+    },
+    {
+     "num": 4,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Almería"
+    },
+    {
+     "num": 5,
+     "local": "Granada",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 6,
+     "local": "Real Madrid",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 7,
+     "local": "Sevilla",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 8,
+     "local": "Villarreal",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 9,
+     "local": "Leganés",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 10,
+     "local": "Racing de Santander",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 11,
+     "local": "Zaragoza",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 12,
+     "local": "Tenerife",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 13,
+     "local": "Huesca",
+     "visitante": "Eldense"
+    },
+    {
+     "num": 14,
+     "local": "Valladolid",
+     "visitante": "Mirandés"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Real Sociedad"
+   },
+   "fecha": "2023-10-08",
+   "recaudacion_euros": 319212675,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 12,
+     "premio_euros": 19950
+    },
+    "12": {
+     "acertantes": 228,
+     "premio_euros": 1050
+    },
+    "11": {
+     "acertantes": 2465,
+     "premio_euros": 97
+    },
+    "10": {
+     "acertantes": 17307,
+     "premio_euros": 16
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 13,
+   "combinacion_ganadora": [
+    "2",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "X",
+    "2",
+    "X",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/13.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Mirandés",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 2,
+     "local": "Cartagena",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 3,
+     "local": "Sporting de Gijón",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 4,
+     "local": "Espanyol",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 5,
+     "local": "Burgos",
+     "visitante": "Villarreal B"
+    },
+    {
+     "num": 6,
+     "local": "Eldense",
+     "visitante": "Elche"
+    },
+    {
+     "num": 7,
+     "local": "Andorra",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 8,
+     "local": "Leganés",
+     "visitante": "Amorebieta"
+    },
+    {
+     "num": 9,
+     "local": "Eibar",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 10,
+     "local": "Levante",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 11,
+     "local": "Gales",
+     "visitante": "Croacia"
+    },
+    {
+     "num": 12,
+     "local": "Grecia",
+     "visitante": "Holanda"
+    },
+    {
+     "num": 13,
+     "local": "Bélgica",
+     "visitante": "Suecia"
+    },
+    {
+     "num": 14,
+     "local": "Bosnia-Herzegovina",
+     "visitante": "Portugal"
+    }
+   ],
+   "pleno15": {
+    "local": "Noruega",
+    "visitante": "España"
+   },
+   "fecha": "2023-10-15",
+   "recaudacion_euros": 249197100,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 3,
+     "premio_euros": 132905
+    },
+    "13": {
+     "acertantes": 135,
+     "premio_euros": 1384
+    },
+    "12": {
+     "acertantes": 1928,
+     "premio_euros": 96
+    },
+    "11": {
+     "acertantes": 15984,
+     "premio_euros": 11
+    },
+    "10": {
+     "acertantes": 79738,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 14,
+   "combinacion_ganadora": [
+    "X",
+    "2",
+    "X",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "2",
+    "X",
+    "2",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/14.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Sociedad",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 2,
+     "local": "Getafe",
+     "visitante": "Betis"
+    },
+    {
+     "num": 3,
+     "local": "Sevilla",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Celta",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Las Palmas",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 6,
+     "local": "Girona",
+     "visitante": "Almería"
+    },
+    {
+     "num": 7,
+     "local": "Villarreal",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 8,
+     "local": "Barcelona",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 9,
+     "local": "Tenerife",
+     "visitante": "Levante"
+    },
+    {
+     "num": 10,
+     "local": "Zaragoza",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 11,
+     "local": "Huesca",
+     "visitante": "Elche"
+    },
+    {
+     "num": 12,
+     "local": "Albacete",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 13,
+     "local": "Racing de Santander",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 14,
+     "local": "Valladolid",
+     "visitante": "Andorra"
+    }
+   ],
+   "pleno15": {
+    "local": "Valencia",
+    "visitante": "Cádiz"
+   },
+   "fecha": "2023-10-22",
+   "recaudacion_euros": 396499200,
+   "premios": {
+    "pleno15": {
+     "acertantes": 3,
+     "premio_euros": 705308
+    },
+    "14": {
+     "acertantes": 16,
+     "premio_euros": 39649
+    },
+    "13": {
+     "acertantes": 509,
+     "premio_euros": 584
+    },
+    "12": {
+     "acertantes": 6228,
+     "premio_euros": 47
+    },
+    "11": {
+     "acertantes": 42168,
+     "premio_euros": 7
+    },
+    "10": {
+     "acertantes": 179220,
+     "premio_euros": 1
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 15,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "X",
+    "2",
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "2",
+    "2",
+    "2",
+    "1",
+    "1",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/15.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Galatasaray",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 2,
+     "local": "Manchester United",
+     "visitante": "Copenhague"
+    },
+    {
+     "num": 3,
+     "local": "Sevilla",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 4,
+     "local": "Sporting Braga",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Union Berlin",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 6,
+     "local": "Inter de Milán",
+     "visitante": "Red Bull Salzburgo"
+    },
+    {
+     "num": 7,
+     "local": "Benfica",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 8,
+     "local": "Feyenoord Rotterdam",
+     "visitante": "Lazio"
+    },
+    {
+     "num": 9,
+     "local": "RB Leipzig",
+     "visitante": "Estrella Roja de Belgrado"
+    },
+    {
+     "num": 10,
+     "local": "Paris Saint-Germain",
+     "visitante": "AC Milan"
+    },
+    {
+     "num": 11,
+     "local": "Newcastle",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 12,
+     "local": "Barcelona",
+     "visitante": "Shakhtar Donetsk"
+    },
+    {
+     "num": 13,
+     "local": "Aris Limassol",
+     "visitante": "Betis"
+    },
+    {
+     "num": 14,
+     "local": "Racing Club de Lens",
+     "visitante": "PSV Eindhoven"
+    }
+   ],
+   "pleno15": {
+    "local": "Celtic de Glasgow",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2023-10-25",
+   "recaudacion_euros": 120699750,
+   "premios": {
+    "pleno15": {
+     "acertantes": 9,
+     "premio_euros": 10058
+    },
+    "14": {
+     "acertantes": 317,
+     "premio_euros": 609
+    },
+    "13": {
+     "acertantes": 5708,
+     "premio_euros": 15
+    },
+    "12": {
+     "acertantes": 43654,
+     "premio_euros": 4
+    },
+    "11": {
+     "acertantes": 155936,
+     "premio_euros": null
+    },
+    "10": {
+     "acertantes": 300200,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 16,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "2",
+    "2",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "X",
+    "22"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/16.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Almería",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 2,
+     "local": "Mallorca",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Cádiz",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 4,
+     "local": "Betis",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 5,
+     "local": "Rayo Vallecano",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 6,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 7,
+     "local": "Atlético de Madrid",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 8,
+     "local": "Granada",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 9,
+     "local": "Andorra",
+     "visitante": "Levante"
+    },
+    {
+     "num": 10,
+     "local": "Sporting de Gijón",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 11,
+     "local": "Elche",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 12,
+     "local": "Huesca",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 13,
+     "local": "Oviedo",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 14,
+     "local": "Burgos",
+     "visitante": "Zaragoza"
+    }
+   ],
+   "pleno15": {
+    "local": "Barcelona",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2023-10-29",
+   "recaudacion_euros": 326935875,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 32,
+     "premio_euros": 7662
+    },
+    "12": {
+     "acertantes": 561,
+     "premio_euros": 437
+    },
+    "11": {
+     "acertantes": 5142,
+     "premio_euros": 47
+    },
+    "10": {
+     "acertantes": 29955,
+     "premio_euros": 9
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 17,
+   "combinacion_ganadora": [
+    "2",
+    "X",
+    "X",
+    "1",
+    "X",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "X",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/17.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Osasuna",
+     "visitante": "Girona"
+    },
+    {
+     "num": 2,
+     "local": "Betis",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 3,
+     "local": "Celta",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 4,
+     "local": "Real Sociedad",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 5,
+     "local": "Alavés",
+     "visitante": "Almería"
+    },
+    {
+     "num": 6,
+     "local": "Valencia",
+     "visitante": "Granada"
+    },
+    {
+     "num": 7,
+     "local": "Villarreal",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 8,
+     "local": "Real Madrid",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 9,
+     "local": "Levante",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 10,
+     "local": "Valladolid",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 11,
+     "local": "Albacete",
+     "visitante": "Elche"
+    },
+    {
+     "num": 12,
+     "local": "Racing de Ferrol",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 13,
+     "local": "Alcorcón",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 14,
+     "local": "Zaragoza",
+     "visitante": "Oviedo"
+    }
+   ],
+   "pleno15": {
+    "local": "Getafe",
+    "visitante": "Cádiz"
+   },
+   "fecha": "2023-11-05",
+   "recaudacion_euros": 379341225,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 1579794
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 606945
+    },
+    "13": {
+     "acertantes": 81,
+     "premio_euros": 3512
+    },
+    "12": {
+     "acertantes": 1236,
+     "premio_euros": 230
+    },
+    "11": {
+     "acertantes": 12038,
+     "premio_euros": 23
+    },
+    "10": {
+     "acertantes": 67857,
+     "premio_euros": 5
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 18,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "2",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "1",
+    "X",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/18.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Atlético de Madrid",
+     "visitante": "Celtic de Glasgow"
+    },
+    {
+     "num": 2,
+     "local": "Lazio",
+     "visitante": "Feyenoord Rotterdam"
+    },
+    {
+     "num": 3,
+     "local": "Borussia Dortmund",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 4,
+     "local": "AC Milan",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 5,
+     "local": "Shakhtar Donetsk",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 6,
+     "local": "Oporto",
+     "visitante": "Royal Antwerp"
+    },
+    {
+     "num": 7,
+     "local": "Bayern de Múnich",
+     "visitante": "Galatasaray"
+    },
+    {
+     "num": 8,
+     "local": "Copenhague",
+     "visitante": "Manchester United"
+    },
+    {
+     "num": 9,
+     "local": "Arsenal",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 10,
+     "local": "PSV Eindhoven",
+     "visitante": "Racing Club de Lens"
+    },
+    {
+     "num": 11,
+     "local": "Nápoles",
+     "visitante": "Union Berlin"
+    },
+    {
+     "num": 12,
+     "local": "Real Madrid",
+     "visitante": "Sporting Braga"
+    },
+    {
+     "num": 13,
+     "local": "Maccabi Haifa",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 14,
+     "local": "Betis",
+     "visitante": "Aris Limassol"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Sociedad",
+    "visitante": "Benfica"
+   },
+   "fecha": "2023-11-08",
+   "recaudacion_euros": 117350550,
+   "premios": {
+    "pleno15": {
+     "acertantes": 2,
+     "premio_euros": 44006
+    },
+    "14": {
+     "acertantes": 7,
+     "premio_euros": 26822
+    },
+    "13": {
+     "acertantes": 464,
+     "premio_euros": 189
+    },
+    "12": {
+     "acertantes": 7251,
+     "premio_euros": 12
+    },
+    "11": {
+     "acertantes": 35560,
+     "premio_euros": 2
+    },
+    "10": {
+     "acertantes": 139122,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 19,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/19.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Rayo Vallecano",
+     "visitante": "Girona"
+    },
+    {
+     "num": 2,
+     "local": "Almería",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 3,
+     "local": "Osasuna",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 4,
+     "local": "Granada",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 5,
+     "local": "Real Madrid",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 6,
+     "local": "Mallorca",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 7,
+     "local": "Barcelona",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 8,
+     "local": "Sevilla",
+     "visitante": "Betis"
+    },
+    {
+     "num": 9,
+     "local": "Racing de Santander",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 10,
+     "local": "Elche",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 11,
+     "local": "Mirandés",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 12,
+     "local": "Sporting de Gijón",
+     "visitante": "Amorebieta"
+    },
+    {
+     "num": 13,
+     "local": "Burgos",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 14,
+     "local": "Huesca",
+     "visitante": "Espanyol"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Villarreal"
+   },
+   "fecha": "2023-11-12",
+   "recaudacion_euros": 331812000,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 530899
+    },
+    "13": {
+     "acertantes": 124,
+     "premio_euros": 2006
+    },
+    "12": {
+     "acertantes": 1902,
+     "premio_euros": 130
+    },
+    "11": {
+     "acertantes": 15480,
+     "premio_euros": 16
+    },
+    "10": {
+     "acertantes": 78843,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 20,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "X",
+    "2",
+    "1",
+    "2",
+    "X",
+    "1",
+    "X",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/20.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alcorcón",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 2,
+     "local": "Zaragoza",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 3,
+     "local": "Amorebieta",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 4,
+     "local": "Espanyol",
+     "visitante": "Elche"
+    },
+    {
+     "num": 5,
+     "local": "Racing de Ferrol",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 6,
+     "local": "Oviedo",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 7,
+     "local": "Eldense",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 8,
+     "local": "Cartagena",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 9,
+     "local": "Villarreal B",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 10,
+     "local": "Levante",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 11,
+     "local": "Holanda",
+     "visitante": "República de Irlanda"
+    },
+    {
+     "num": 12,
+     "local": "Letonia",
+     "visitante": "Croacia"
+    },
+    {
+     "num": 13,
+     "local": "Portugal",
+     "visitante": "Islandia"
+    },
+    {
+     "num": 14,
+     "local": "Escocia",
+     "visitante": "Noruega"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Georgia"
+   },
+   "fecha": "2023-11-19",
+   "recaudacion_euros": 2218740,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 354998
+    },
+    "13": {
+     "acertantes": 34,
+     "premio_euros": 4894
+    },
+    "12": {
+     "acertantes": 477,
+     "premio_euros": 348
+    },
+    "11": {
+     "acertantes": 3847,
+     "premio_euros": 43
+    },
+    "10": {
+     "acertantes": 22078,
+     "premio_euros": 9
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 21,
+   "combinacion_ganadora": [
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "X",
+    "X",
+    "X",
+    "2",
+    "1",
+    "2",
+    "1",
+    "X",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/21.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Rayo Vallecano",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 2,
+     "local": "Valencia",
+     "visitante": "Celta"
+    },
+    {
+     "num": 3,
+     "local": "Getafe",
+     "visitante": "Almería"
+    },
+    {
+     "num": 4,
+     "local": "Atlético de Madrid",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 5,
+     "local": "Villarreal",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 6,
+     "local": "Real Sociedad",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 7,
+     "local": "Cádiz",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Betis",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 9,
+     "local": "Burgos",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 10,
+     "local": "Albacete",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 11,
+     "local": "Eibar",
+     "visitante": "Levante"
+    },
+    {
+     "num": 12,
+     "local": "Leganés",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 13,
+     "local": "Mirandés",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 14,
+     "local": "Espanyol",
+     "visitante": "Alcorcón"
+    }
+   ],
+   "pleno15": {
+    "local": "Girona",
+    "visitante": "Athletic de Bilbao B"
+   },
+   "fecha": "2023-11-26",
+   "recaudacion_euros": 3642062,
+   "premios": {
+    "pleno15": {
+     "acertantes": 16,
+     "premio_euros": 49815
+    },
+    "14": {
+     "acertantes": 90,
+     "premio_euros": 6474
+    },
+    "13": {
+     "acertantes": 1554,
+     "premio_euros": 175
+    },
+    "12": {
+     "acertantes": 14904,
+     "premio_euros": 18
+    },
+    "11": {
+     "acertantes": 84434,
+     "premio_euros": 3
+    },
+    "10": {
+     "acertantes": 299851,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 22,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/22.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Feyenoord Rotterdam",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 2,
+     "local": "Paris Saint-Germain",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 3,
+     "local": "AC Milan",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 4,
+     "local": "Manchester City",
+     "visitante": "RB Leipzig"
+    },
+    {
+     "num": 5,
+     "local": "Barcelona",
+     "visitante": "Oporto"
+    },
+    {
+     "num": 6,
+     "local": "Galatasaray",
+     "visitante": "Manchester United"
+    },
+    {
+     "num": 7,
+     "local": "Bayern de Múnich",
+     "visitante": "Copenhague"
+    },
+    {
+     "num": 8,
+     "local": "Sevilla",
+     "visitante": "PSV Eindhoven"
+    },
+    {
+     "num": 9,
+     "local": "Arsenal",
+     "visitante": "Racing Club de Lens"
+    },
+    {
+     "num": 10,
+     "local": "Bragantino",
+     "visitante": "Union Berlin"
+    },
+    {
+     "num": 11,
+     "local": "Benfica",
+     "visitante": "Inter de Milán"
+    },
+    {
+     "num": 12,
+     "local": "Real Sociedad",
+     "visitante": "Red Bull Salzburgo"
+    },
+    {
+     "num": 13,
+     "local": "Sparta Praga",
+     "visitante": "Betis"
+    },
+    {
+     "num": 14,
+     "local": "Villarreal",
+     "visitante": "Panathinaikos"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Nápoles"
+   },
+   "fecha": "2023-11-29",
+   "recaudacion_euros": 1158642,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 2,
+     "premio_euros": 43449
+    },
+    "12": {
+     "acertantes": 42,
+     "premio_euros": 2069
+    },
+    "11": {
+     "acertantes": 522,
+     "premio_euros": 166
+    },
+    "10": {
+     "acertantes": 4438,
+     "premio_euros": 23
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 23,
+   "combinacion_ganadora": [
+    "2",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "X",
+    "X",
+    "X",
+    "1",
+    "1",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/23.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Girona",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 2,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 3,
+     "local": "Real Madrid",
+     "visitante": "Granada"
+    },
+    {
+     "num": 4,
+     "local": "Osasuna",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 5,
+     "local": "Mallorca",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 6,
+     "local": "Almería",
+     "visitante": "Betis"
+    },
+    {
+     "num": 7,
+     "local": "Sevilla",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 8,
+     "local": "Celta",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 9,
+     "local": "Cartagena",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 10,
+     "local": "Eldense",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 11,
+     "local": "Zaragoza",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 12,
+     "local": "Levante",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 13,
+     "local": "Racing de Ferrol",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 14,
+     "local": "Mirandés",
+     "visitante": "Racing de Santander"
+    }
+   ],
+   "pleno15": {
+    "local": "Barcelona",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2023-12-03",
+   "recaudacion_euros": 3388826,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 542212
+    },
+    "13": {
+     "acertantes": 40,
+     "premio_euros": 6354
+    },
+    "12": {
+     "acertantes": 683,
+     "premio_euros": 372
+    },
+    "11": {
+     "acertantes": 5937,
+     "premio_euros": 42
+    },
+    "10": {
+     "acertantes": 34662,
+     "premio_euros": 8
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 24,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/24.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alavés",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 2,
+     "local": "Betis",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Villarreal",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 4,
+     "local": "Mallorca",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 5,
+     "local": "Atlético de Madrid",
+     "visitante": "Almería"
+    },
+    {
+     "num": 6,
+     "local": "Granada",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 7,
+     "local": "Cádiz",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 8,
+     "local": "Barcelona",
+     "visitante": "Girona"
+    },
+    {
+     "num": 9,
+     "local": "Valladolid",
+     "visitante": "Amorebieta"
+    },
+    {
+     "num": 10,
+     "local": "Sporting de Gijón",
+     "visitante": "Levante"
+    },
+    {
+     "num": 11,
+     "local": "Burgos",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 12,
+     "local": "Racing de Santander",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 13,
+     "local": "Eibar",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 14,
+     "local": "Leganés",
+     "visitante": "Eldense"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Celta"
+   },
+   "fecha": "2023-12-10",
+   "recaudacion_euros": 3507327,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 561172
+    },
+    "13": {
+     "acertantes": 8,
+     "premio_euros": 32881
+    },
+    "12": {
+     "acertantes": 202,
+     "premio_euros": 1302
+    },
+    "11": {
+     "acertantes": 1178,
+     "premio_euros": 223
+    },
+    "10": {
+     "acertantes": 8375,
+     "premio_euros": 37
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 25,
+   "combinacion_ganadora": [
+    "2",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "00"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/25.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Manchester United",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 2,
+     "local": "Racing Club de Lens",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 3,
+     "local": "PSV Eindhoven",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 4,
+     "local": "Nápoles",
+     "visitante": "Sporting Braga"
+    },
+    {
+     "num": 5,
+     "local": "Union Berlin",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 6,
+     "local": "Inter de Milán",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 7,
+     "local": "Red Bull Salzburgo",
+     "visitante": "Benfica"
+    },
+    {
+     "num": 8,
+     "local": "Atlético de Madrid",
+     "visitante": "Lazio"
+    },
+    {
+     "num": 9,
+     "local": "Celtic de Glasgow",
+     "visitante": "Feyenoord Rotterdam"
+    },
+    {
+     "num": 10,
+     "local": "Borussia Dortmund",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 11,
+     "local": "Newcastle",
+     "visitante": "AC Milan"
+    },
+    {
+     "num": 12,
+     "local": "Oporto",
+     "visitante": "Shakhtar Donetsk"
+    },
+    {
+     "num": 13,
+     "local": "Betis",
+     "visitante": "Glasgow Rangers"
+    },
+    {
+     "num": 14,
+     "local": "Rennes",
+     "visitante": "Villarreal"
+    }
+   ],
+   "pleno15": {
+    "local": "Royal Antwerp",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2023-12-13",
+   "recaudacion_euros": 96967875,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 29,
+     "premio_euros": 2507
+    },
+    "12": {
+     "acertantes": 463,
+     "premio_euros": 157
+    },
+    "11": {
+     "acertantes": 3890,
+     "premio_euros": 18
+    },
+    "10": {
+     "acertantes": 19609,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 26,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "2",
+    "2",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/26.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Celta",
+     "visitante": "Granada"
+    },
+    {
+     "num": 2,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Sevilla",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 4,
+     "local": "Valencia",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 5,
+     "local": "Almería",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 6,
+     "local": "Real Sociedad",
+     "visitante": "Betis"
+    },
+    {
+     "num": 7,
+     "local": "Las Palmas",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 8,
+     "local": "Real Madrid",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 9,
+     "local": "Andorra",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 10,
+     "local": "Sporting de Gijón",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 11,
+     "local": "Alcorcón",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 12,
+     "local": "Levante",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 13,
+     "local": "Amorebieta",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 14,
+     "local": "Racing de Ferrol",
+     "visitante": "Tenerife"
+    }
+   ],
+   "pleno15": {
+    "local": "Girona",
+    "visitante": "Alavés"
+   },
+   "fecha": "2023-12-17",
+   "recaudacion_euros": 329115075,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 9,
+     "premio_euros": 27426
+    },
+    "12": {
+     "acertantes": 223,
+     "premio_euros": 1106
+    },
+    "11": {
+     "acertantes": 2528,
+     "premio_euros": 97
+    },
+    "10": {
+     "acertantes": 17203,
+     "premio_euros": 17
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 27,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "X",
+    "X",
+    "X",
+    "X",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "X",
+    "1",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/27.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Rayo Vallecano",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Granada",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 4,
+     "local": "Barcelona",
+     "visitante": "Almería"
+    },
+    {
+     "num": 5,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 6,
+     "local": "Villarreal",
+     "visitante": "Celta"
+    },
+    {
+     "num": 7,
+     "local": "Betis",
+     "visitante": "Girona"
+    },
+    {
+     "num": 8,
+     "local": "Cádiz",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 9,
+     "local": "Mallorca",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 10,
+     "local": "Espanyol",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 11,
+     "local": "Zaragoza",
+     "visitante": "Levante"
+    },
+    {
+     "num": 12,
+     "local": "Eibar",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 13,
+     "local": "Leganés",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 14,
+     "local": "Valladolid",
+     "visitante": "Racing de Ferrol"
+    }
+   ],
+   "pleno15": {
+    "local": "Alavés",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2023-12-20",
+   "recaudacion_euros": 2031905,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 10,
+     "premio_euros": 15239
+    },
+    "12": {
+     "acertantes": 143,
+     "premio_euros": 1065
+    },
+    "11": {
+     "acertantes": 1607,
+     "premio_euros": 94
+    },
+    "10": {
+     "acertantes": 9935,
+     "premio_euros": 18
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 28,
+   "combinacion_ganadora": [
+    "2",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "X",
+    "X",
+    "X",
+    "X",
+    "2",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/28.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "West Ham",
+     "visitante": "Manchester United"
+    },
+    {
+     "num": 2,
+     "local": "Fulham",
+     "visitante": "Burnley"
+    },
+    {
+     "num": 3,
+     "local": "Luton",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 4,
+     "local": "Nottingham Forest",
+     "visitante": "Bournemouth"
+    },
+    {
+     "num": 5,
+     "local": "Tottenham Hotspur",
+     "visitante": "Everton"
+    },
+    {
+     "num": 6,
+     "local": "Liverpool",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 7,
+     "local": "Wolverhampton Wanderers",
+     "visitante": "Chelsea"
+    },
+    {
+     "num": 8,
+     "local": "Frosinone",
+     "visitante": "Juventus"
+    },
+    {
+     "num": 9,
+     "local": "Bolonia",
+     "visitante": "Atalanta"
+    },
+    {
+     "num": 10,
+     "local": "Torino",
+     "visitante": "Udinese"
+    },
+    {
+     "num": 11,
+     "local": "Chievo Verona",
+     "visitante": "Cagliari"
+    },
+    {
+     "num": 12,
+     "local": "Inter de Milán",
+     "visitante": "Lecce"
+    },
+    {
+     "num": 13,
+     "local": "Roma",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 14,
+     "local": "Dundee",
+     "visitante": "Aberdeen"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Sevilla"
+   },
+   "fecha": "2023-12-24",
+   "recaudacion_euros": 1510586,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 12,
+     "premio_euros": 9441
+    },
+    "12": {
+     "acertantes": 192,
+     "premio_euros": 590
+    },
+    "11": {
+     "acertantes": 1978,
+     "premio_euros": 57
+    },
+    "10": {
+     "acertantes": 12364,
+     "premio_euros": 11
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 29,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/29.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Luton",
+     "visitante": "Chelsea"
+    },
+    {
+     "num": 2,
+     "local": "Aston Villa",
+     "visitante": "Burnley"
+    },
+    {
+     "num": 3,
+     "local": "Crystal Palace",
+     "visitante": "Brentford"
+    },
+    {
+     "num": 4,
+     "local": "Manchester City",
+     "visitante": "Sheffield United"
+    },
+    {
+     "num": 5,
+     "local": "Wolverhampton Wanderers",
+     "visitante": "Everton"
+    },
+    {
+     "num": 6,
+     "local": "Nottingham Forest",
+     "visitante": "Manchester United"
+    },
+    {
+     "num": 7,
+     "local": "Fulham",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 8,
+     "local": "Tottenham Hotspur",
+     "visitante": "Bournemouth"
+    },
+    {
+     "num": 9,
+     "local": "Atalanta",
+     "visitante": "Lecce"
+    },
+    {
+     "num": 10,
+     "local": "Cagliari",
+     "visitante": "Empoli"
+    },
+    {
+     "num": 11,
+     "local": "Udinese",
+     "visitante": "Bolonia"
+    },
+    {
+     "num": 12,
+     "local": "Chievo Verona",
+     "visitante": "Salernitana"
+    },
+    {
+     "num": 13,
+     "local": "AC Milan",
+     "visitante": "Sassuolo"
+    },
+    {
+     "num": 14,
+     "local": "Juventus",
+     "visitante": "Roma"
+    }
+   ],
+   "pleno15": {
+    "local": "Liverpool",
+    "visitante": "Newcastle"
+   },
+   "fecha": "2023-12-31",
+   "recaudacion_euros": 2199845,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 2244009
+    },
+    "14": {
+     "acertantes": 12,
+     "premio_euros": 29331
+    },
+    "13": {
+     "acertantes": 255,
+     "premio_euros": 647
+    },
+    "12": {
+     "acertantes": 3530,
+     "premio_euros": 46
+    },
+    "11": {
+     "acertantes": 27982,
+     "premio_euros": 5
+    },
+    "10": {
+     "acertantes": 125370,
+     "premio_euros": 1
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 30,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/30.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Getafe",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 2,
+     "local": "Real Sociedad",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 3,
+     "local": "Valencia",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 4,
+     "local": "Granada",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 5,
+     "local": "Celta",
+     "visitante": "Betis"
+    },
+    {
+     "num": 6,
+     "local": "Real Madrid",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 7,
+     "local": "Girona",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Osasuna",
+     "visitante": "Almería"
+    },
+    {
+     "num": 9,
+     "local": "Las Palmas",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 10,
+     "local": "Dundee",
+     "visitante": "St. Johnstone"
+    },
+    {
+     "num": 11,
+     "local": "Livingston",
+     "visitante": "Heart of Midlothian"
+    },
+    {
+     "num": 12,
+     "local": "Glasgow Rangers",
+     "visitante": "Kilmarnock"
+    },
+    {
+     "num": 13,
+     "local": "Ross County",
+     "visitante": "Aberdeen"
+    },
+    {
+     "num": 14,
+     "local": "St. Mirren",
+     "visitante": "Celtic de Glasgow"
+    }
+   ],
+   "pleno15": {
+    "local": "Sevilla",
+    "visitante": "Athletic de Bilbao B"
+   },
+   "fecha": "2024-01-03",
+   "recaudacion_euros": 1261850,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 10,
+     "premio_euros": 20189
+    },
+    "13": {
+     "acertantes": 158,
+     "premio_euros": 598
+    },
+    "12": {
+     "acertantes": 2117,
+     "premio_euros": 44
+    },
+    "11": {
+     "acertantes": 15010,
+     "premio_euros": 6
+    },
+    "10": {
+     "acertantes": 64401,
+     "premio_euros": 1
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 31,
+   "combinacion_ganadora": [
+    "2",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "X",
+    "2",
+    "1",
+    "2",
+    "2",
+    "02"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/31.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Amorebieta",
+     "visitante": "Celta"
+    },
+    {
+     "num": 2,
+     "local": "Arandina",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Barbastro",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "Burgos",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 5,
+     "local": "Castellón",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 6,
+     "local": "Eibar",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 7,
+     "local": "Elche",
+     "visitante": "Girona"
+    },
+    {
+     "num": 8,
+     "local": "Espanyol",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 9,
+     "local": "Cartagena",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 10,
+     "local": "Huesca",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 11,
+     "local": "Lugo",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 12,
+     "local": "Málaga",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 13,
+     "local": "Racing de Ferrol",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 14,
+     "local": "Unionistas de Salamanca",
+     "visitante": "Villarreal"
+    }
+   ],
+   "pleno15": {
+    "local": "Tenerife",
+    "visitante": "Las Palmas"
+   },
+   "fecha": "2024-01-07",
+   "recaudacion_euros": 1821106,
+   "premios": {
+    "pleno15": {
+     "acertantes": 12,
+     "premio_euros": 92853
+    },
+    "14": {
+     "acertantes": 1383,
+     "premio_euros": 210
+    },
+    "13": {
+     "acertantes": 72835,
+     "premio_euros": 1
+    },
+    "12": {
+     "acertantes": 160951,
+     "premio_euros": 1
+    },
+    "11": {
+     "acertantes": 287480,
+     "premio_euros": null
+    },
+    "10": {
+     "acertantes": 426275,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 32,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "X",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/32.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Las Palmas",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 2,
+     "local": "Mallorca",
+     "visitante": "Celta"
+    },
+    {
+     "num": 3,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 4,
+     "local": "Betis",
+     "visitante": "Granada"
+    },
+    {
+     "num": 5,
+     "local": "Almería",
+     "visitante": "Girona"
+    },
+    {
+     "num": 6,
+     "local": "Cádiz",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 7,
+     "local": "Alcorcón",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 8,
+     "local": "Levante",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 9,
+     "local": "Oviedo",
+     "visitante": "Amorebieta"
+    },
+    {
+     "num": 10,
+     "local": "Tenerife",
+     "visitante": "Elche"
+    },
+    {
+     "num": 11,
+     "local": "Burgos",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 12,
+     "local": "Racing de Ferrol",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 13,
+     "local": "Andorra",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 14,
+     "local": "Sporting de Gijón",
+     "visitante": "Huesca"
+    }
+   ],
+   "pleno15": {
+    "local": "Eldense",
+    "visitante": "Zaragoza"
+   },
+   "fecha": "2024-01-14",
+   "recaudacion_euros": 2911326,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 7,
+     "premio_euros": 31192
+    },
+    "12": {
+     "acertantes": 199,
+     "premio_euros": 1097
+    },
+    "11": {
+     "acertantes": 1906,
+     "premio_euros": 114
+    },
+    "10": {
+     "acertantes": 13453,
+     "premio_euros": 19
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 33,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "1",
+    "1",
+    "X",
+    "2",
+    "X",
+    "1",
+    "X",
+    "2",
+    "1",
+    "X",
+    "2",
+    "X",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/33.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Rayo Vallecano",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 2,
+     "local": "Granada",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Valencia",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 4,
+     "local": "Celta",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 5,
+     "local": "Osasuna",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 6,
+     "local": "Real Madrid",
+     "visitante": "Almería"
+    },
+    {
+     "num": 7,
+     "local": "Betis",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 8,
+     "local": "Girona",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 9,
+     "local": "Espanyol",
+     "visitante": "Villarreal B"
+    },
+    {
+     "num": 10,
+     "local": "Tenerife",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 11,
+     "local": "Racing de Ferrol",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 12,
+     "local": "Racing de Santander",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 13,
+     "local": "Huesca",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 14,
+     "local": "Elche",
+     "visitante": "Valladolid"
+    }
+   ],
+   "pleno15": {
+    "local": "Villarreal",
+    "visitante": "Mallorca"
+   },
+   "fecha": "2024-01-21",
+   "recaudacion_euros": 3358754,
+   "premios": {
+    "pleno15": {
+     "acertantes": 2,
+     "premio_euros": 597303
+    },
+    "14": {
+     "acertantes": 5,
+     "premio_euros": 107480
+    },
+    "13": {
+     "acertantes": 155,
+     "premio_euros": 1625
+    },
+    "12": {
+     "acertantes": 2353,
+     "premio_euros": 107
+    },
+    "11": {
+     "acertantes": 20983,
+     "premio_euros": 12
+    },
+    "10": {
+     "acertantes": 109084,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 34,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "2",
+    "2",
+    "2",
+    "X",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/34.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Sociedad",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 2,
+     "local": "Sevilla",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 3,
+     "local": "Barcelona",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 4,
+     "local": "Mallorca",
+     "visitante": "Betis"
+    },
+    {
+     "num": 5,
+     "local": "Celta",
+     "visitante": "Girona"
+    },
+    {
+     "num": 6,
+     "local": "Atlético de Madrid",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 7,
+     "local": "Las Palmas",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Cádiz",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 9,
+     "local": "Alcorcón",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 10,
+     "local": "Oviedo",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 11,
+     "local": "Levante",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 12,
+     "local": "Eldense",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 13,
+     "local": "Andorra",
+     "visitante": "Elche"
+    },
+    {
+     "num": 14,
+     "local": "Sporting de Gijón",
+     "visitante": "Racing de Ferrol"
+    }
+   ],
+   "pleno15": {
+    "local": "Getafe",
+    "visitante": "Granada"
+   },
+   "fecha": "2024-01-28",
+   "recaudacion_euros": 3336939,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 4,
+     "premio_euros": 62567
+    },
+    "12": {
+     "acertantes": 62,
+     "premio_euros": 4036
+    },
+    "11": {
+     "acertantes": 655,
+     "premio_euros": 382
+    },
+    "10": {
+     "acertantes": 5536,
+     "premio_euros": 54
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 35,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "2",
+    "2",
+    "2",
+    "1",
+    "2",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/35.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Valencia",
+     "visitante": "Almería"
+    },
+    {
+     "num": 2,
+     "local": "Osasuna",
+     "visitante": "Celta"
+    },
+    {
+     "num": 3,
+     "local": "Alavés",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "Girona",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 5,
+     "local": "Villarreal",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 6,
+     "local": "Granada",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 7,
+     "local": "Betis",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 8,
+     "local": "Real Madrid",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Albacete",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 10,
+     "local": "Huesca",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 11,
+     "local": "Leganés",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 12,
+     "local": "Tenerife",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 13,
+     "local": "Espanyol",
+     "visitante": "Levante"
+    },
+    {
+     "num": 14,
+     "local": "Zaragoza",
+     "visitante": "Sporting de Gijón"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Sevilla"
+   },
+   "fecha": "2024-02-04",
+   "recaudacion_euros": 3574024,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 285921
+    },
+    "13": {
+     "acertantes": 25,
+     "premio_euros": 10722
+    },
+    "12": {
+     "acertantes": 343,
+     "premio_euros": 781
+    },
+    "11": {
+     "acertantes": 2690,
+     "premio_euros": 99
+    },
+    "10": {
+     "acertantes": 16267,
+     "premio_euros": 19
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 36,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "2",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "X",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/36.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alavés",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 2,
+     "local": "Real Sociedad",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 3,
+     "local": "Las Palmas",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 4,
+     "local": "Getafe",
+     "visitante": "Celta"
+    },
+    {
+     "num": 5,
+     "local": "Mallorca",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 6,
+     "local": "Sevilla",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 7,
+     "local": "Barcelona",
+     "visitante": "Granada"
+    },
+    {
+     "num": 8,
+     "local": "Almería",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 9,
+     "local": "Eldense",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 10,
+     "local": "Sporting de Gijón",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 11,
+     "local": "Racing de Santander",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 12,
+     "local": "Alcorcón",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 13,
+     "local": "Eibar",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 14,
+     "local": "Burgos",
+     "visitante": "Racing de Ferrol"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Girona"
+   },
+   "fecha": "2024-02-11",
+   "recaudacion_euros": 3586359,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 5,
+     "premio_euros": 53795
+    },
+    "12": {
+     "acertantes": 117,
+     "premio_euros": 2298
+    },
+    "11": {
+     "acertantes": 1064,
+     "premio_euros": 252
+    },
+    "10": {
+     "acertantes": 7982,
+     "premio_euros": 40
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 37,
+   "combinacion_ganadora": [
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/37.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Copenhague",
+     "visitante": "Manchester City"
+    },
+    {
+     "num": 2,
+     "local": "Paris Saint-Germain",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 3,
+     "local": "Lazio",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 4,
+     "local": "Feyenoord Rotterdam",
+     "visitante": "Roma"
+    },
+    {
+     "num": 5,
+     "local": "BSC Young Boys",
+     "visitante": "Sporting Portugal"
+    },
+    {
+     "num": 6,
+     "local": "Galatasaray",
+     "visitante": "Sparta Praga"
+    },
+    {
+     "num": 7,
+     "local": "Shakhtar Donetsk",
+     "visitante": "Olympique Marsella"
+    },
+    {
+     "num": 8,
+     "local": "AC Milan",
+     "visitante": "Rennes"
+    },
+    {
+     "num": 9,
+     "local": "Racing Club de Lens",
+     "visitante": "Friburgo"
+    },
+    {
+     "num": 10,
+     "local": "Benfica",
+     "visitante": "Toulouse"
+    },
+    {
+     "num": 11,
+     "local": "Sporting Braga",
+     "visitante": "Qarabag FK"
+    },
+    {
+     "num": 12,
+     "local": "Olympiacos",
+     "visitante": "Ferencváros"
+    },
+    {
+     "num": 13,
+     "local": "Betis",
+     "visitante": "Dinamo Zagreb"
+    },
+    {
+     "num": 14,
+     "local": "Ajax Amsterdam",
+     "visitante": "Bodo-Glimt"
+    }
+   ],
+   "pleno15": {
+    "local": "RB Leipzig",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2024-02-14",
+   "recaudacion_euros": 933298,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 69997
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 149327
+    },
+    "13": {
+     "acertantes": 14,
+     "premio_euros": 4999
+    },
+    "12": {
+     "acertantes": 170,
+     "premio_euros": 411
+    },
+    "11": {
+     "acertantes": 2338,
+     "premio_euros": 29
+    },
+    "10": {
+     "acertantes": 18619,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 38,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "2",
+    "X",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/38.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Atlético de Madrid",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 2,
+     "local": "Osasuna",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 3,
+     "local": "Celta",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "Valencia",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 5,
+     "local": "Rayo Vallecano",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 6,
+     "local": "Granada",
+     "visitante": "Almería"
+    },
+    {
+     "num": 7,
+     "local": "Mallorca",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 8,
+     "local": "Betis",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 9,
+     "local": "Oviedo",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 10,
+     "local": "Sporting de Gijón",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 11,
+     "local": "Espanyol",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 12,
+     "local": "Albacete",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 13,
+     "local": "Leganés",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 14,
+     "local": "Elche",
+     "visitante": "Eibar"
+    }
+   ],
+   "pleno15": {
+    "local": "Athletic de Bilbao B",
+    "visitante": "Girona"
+   },
+   "fecha": "2024-02-18",
+   "recaudacion_euros": 3539665,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 2160501
+    },
+    "14": {
+     "acertantes": 12,
+     "premio_euros": 47195
+    },
+    "13": {
+     "acertantes": 417,
+     "premio_euros": 636
+    },
+    "12": {
+     "acertantes": 5327,
+     "premio_euros": 49
+    },
+    "11": {
+     "acertantes": 37907,
+     "premio_euros": 7
+    },
+    "10": {
+     "acertantes": 161430,
+     "premio_euros": 1
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 39,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "X",
+    "X",
+    "X",
+    "2",
+    "X",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/39.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Inter de Milán",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 2,
+     "local": "PSV Eindhoven",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 3,
+     "local": "Oporto",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 4,
+     "local": "Rennes",
+     "visitante": "AC Milan"
+    },
+    {
+     "num": 5,
+     "local": "Friburgo",
+     "visitante": "Racing Club de Lens"
+    },
+    {
+     "num": 6,
+     "local": "Toulouse",
+     "visitante": "Benfica"
+    },
+    {
+     "num": 7,
+     "local": "Qarabag FK",
+     "visitante": "Sporting Braga"
+    },
+    {
+     "num": 8,
+     "local": "Roma",
+     "visitante": "Feyenoord Rotterdam"
+    },
+    {
+     "num": 9,
+     "local": "Sporting Portugal",
+     "visitante": "BSC Young Boys"
+    },
+    {
+     "num": 10,
+     "local": "Sparta Praga",
+     "visitante": "Galatasaray"
+    },
+    {
+     "num": 11,
+     "local": "Olympique Marsella",
+     "visitante": "Shakhtar Donetsk"
+    },
+    {
+     "num": 12,
+     "local": "Dinamo Zagreb",
+     "visitante": "Betis"
+    },
+    {
+     "num": 13,
+     "local": "Bodo-Glimt",
+     "visitante": "Ajax Amsterdam"
+    },
+    {
+     "num": 14,
+     "local": "Ferencváros",
+     "visitante": "Olympiacos"
+    }
+   ],
+   "pleno15": {
+    "local": "Nápoles",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2024-02-21",
+   "recaudacion_euros": 926418,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 2,
+     "premio_euros": 34740
+    },
+    "12": {
+     "acertantes": 29,
+     "premio_euros": 2395
+    },
+    "11": {
+     "acertantes": 272,
+     "premio_euros": 255
+    },
+    "10": {
+     "acertantes": 1890,
+     "premio_euros": 44
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 40,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "X",
+    "X",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/40.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Granada",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Alavés",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 4,
+     "local": "Almería",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Cádiz",
+     "visitante": "Celta"
+    },
+    {
+     "num": 6,
+     "local": "Betis",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 7,
+     "local": "Las Palmas",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 8,
+     "local": "Real Madrid",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 9,
+     "local": "Racing de Santander",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 10,
+     "local": "Eibar",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 11,
+     "local": "Eldense",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 12,
+     "local": "Burgos",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 13,
+     "local": "Cartagena",
+     "visitante": "Elche"
+    },
+    {
+     "num": 14,
+     "local": "Amorebieta",
+     "visitante": "Albacete"
+    }
+   ],
+   "pleno15": {
+    "local": "Girona",
+    "visitante": "Rayo Vallecano"
+   },
+   "fecha": "2024-02-25",
+   "recaudacion_euros": 3027644,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 14,
+     "premio_euros": 16219
+    },
+    "12": {
+     "acertantes": 237,
+     "premio_euros": 958
+    },
+    "11": {
+     "acertantes": 2513,
+     "premio_euros": 90
+    },
+    "10": {
+     "acertantes": 15829,
+     "premio_euros": 17
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 41,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "X",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "X",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/41.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Sevilla",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 2,
+     "local": "Rayo Vallecano",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 3,
+     "local": "Getafe",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 4,
+     "local": "Valencia",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Villarreal",
+     "visitante": "Granada"
+    },
+    {
+     "num": 6,
+     "local": "Atlético de Madrid",
+     "visitante": "Betis"
+    },
+    {
+     "num": 7,
+     "local": "Mallorca",
+     "visitante": "Girona"
+    },
+    {
+     "num": 8,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 9,
+     "local": "Espanyol",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 10,
+     "local": "Racing de Ferrol",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 11,
+     "local": "Oviedo",
+     "visitante": "Levante"
+    },
+    {
+     "num": 12,
+     "local": "Burgos",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 13,
+     "local": "Tenerife",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 14,
+     "local": "Leganés",
+     "visitante": "Eibar"
+    }
+   ],
+   "pleno15": {
+    "local": "Osasuna",
+    "visitante": "Alavés"
+   },
+   "fecha": "2024-03-03",
+   "recaudacion_euros": 3743558,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 1209971
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 598969
+    },
+    "13": {
+     "acertantes": 35,
+     "premio_euros": 8021
+    },
+    "12": {
+     "acertantes": 540,
+     "premio_euros": 519
+    },
+    "11": {
+     "acertantes": 5010,
+     "premio_euros": 56
+    },
+    "10": {
+     "acertantes": 31417,
+     "premio_euros": 10
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 42,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "2",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/42.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Sociedad",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 2,
+     "local": "Bayern de Múnich",
+     "visitante": "Lazio"
+    },
+    {
+     "num": 3,
+     "local": "Manchester City",
+     "visitante": "Copenhague"
+    },
+    {
+     "num": 4,
+     "local": "Sparta Praga",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 5,
+     "local": "Roma",
+     "visitante": "Brighton & Hove Albion"
+    },
+    {
+     "num": 6,
+     "local": "Qarabag FK",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 7,
+     "local": "Olympique Marsella",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 8,
+     "local": "Benfica",
+     "visitante": "Glasgow Rangers"
+    },
+    {
+     "num": 9,
+     "local": "Friburgo",
+     "visitante": "West Ham"
+    },
+    {
+     "num": 10,
+     "local": "AC Milan",
+     "visitante": "Slavia Praga"
+    },
+    {
+     "num": 11,
+     "local": "Ajax Amsterdam",
+     "visitante": "Aston Villa"
+    },
+    {
+     "num": 12,
+     "local": "Molde",
+     "visitante": "Brujas"
+    },
+    {
+     "num": 13,
+     "local": "Sturm Graz",
+     "visitante": "Losc Lille"
+    },
+    {
+     "num": 14,
+     "local": "Olympiacos",
+     "visitante": "Maccabi Tel Aviv"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "RB Leipzig"
+   },
+   "fecha": "2024-03-06",
+   "recaudacion_euros": 921684,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 73734
+    },
+    "13": {
+     "acertantes": 48,
+     "premio_euros": 1440
+    },
+    "12": {
+     "acertantes": 756,
+     "premio_euros": 91
+    },
+    "11": {
+     "acertantes": 6255,
+     "premio_euros": 11
+    },
+    "10": {
+     "acertantes": 33020,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 43,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/43.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Valencia",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 2,
+     "local": "Cádiz",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Granada",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 4,
+     "local": "Girona",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 5,
+     "local": "Alavés",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 6,
+     "local": "Las Palmas",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 7,
+     "local": "Real Madrid",
+     "visitante": "Celta"
+    },
+    {
+     "num": 8,
+     "local": "Betis",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 9,
+     "local": "Albacete",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 10,
+     "local": "Valladolid",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 11,
+     "local": "Cartagena",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 12,
+     "local": "Levante",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 13,
+     "local": "Eibar",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 14,
+     "local": "Alcorcón",
+     "visitante": "Espanyol"
+    }
+   ],
+   "pleno15": {
+    "local": "Almería",
+    "visitante": "Sevilla"
+   },
+   "fecha": "2024-03-10",
+   "recaudacion_euros": 3153494,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 3,
+     "premio_euros": 168186
+    },
+    "13": {
+     "acertantes": 58,
+     "premio_euros": 4077
+    },
+    "12": {
+     "acertantes": 881,
+     "premio_euros": 268
+    },
+    "11": {
+     "acertantes": 8558,
+     "premio_euros": 27
+    },
+    "10": {
+     "acertantes": 54481,
+     "premio_euros": 5
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 44,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "X",
+    "22"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/44.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Arsenal",
+     "visitante": "Oporto"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 3,
+     "local": "Borussia Dortmund",
+     "visitante": "PSV Eindhoven"
+    },
+    {
+     "num": 4,
+     "local": "Villarreal",
+     "visitante": "Olympique Marsella"
+    },
+    {
+     "num": 5,
+     "local": "Glasgow Rangers",
+     "visitante": "Benfica"
+    },
+    {
+     "num": 6,
+     "local": "West Ham",
+     "visitante": "Friburgo"
+    },
+    {
+     "num": 7,
+     "local": "Slavia Praga",
+     "visitante": "AC Milan"
+    },
+    {
+     "num": 8,
+     "local": "Liverpool",
+     "visitante": "Sparta Praga"
+    },
+    {
+     "num": 9,
+     "local": "Brighton & Hove Albion",
+     "visitante": "Roma"
+    },
+    {
+     "num": 10,
+     "local": "Atalanta",
+     "visitante": "Sporting Portugal"
+    },
+    {
+     "num": 11,
+     "local": "Bayer Leverkusen",
+     "visitante": "Qarabag FK"
+    },
+    {
+     "num": 12,
+     "local": "Aston Villa",
+     "visitante": "Ajax Amsterdam"
+    },
+    {
+     "num": 13,
+     "local": "Losc Lille",
+     "visitante": "Sturm Graz"
+    },
+    {
+     "num": 14,
+     "local": "Maccabi Tel Aviv",
+     "visitante": "Olympiacos"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Inter de Milán"
+   },
+   "fecha": "2024-03-13",
+   "recaudacion_euros": 989715,
+   "premios": {
+    "pleno15": {
+     "acertantes": 29,
+     "premio_euros": 2559
+    },
+    "14": {
+     "acertantes": 132,
+     "premio_euros": 1199
+    },
+    "13": {
+     "acertantes": 3910,
+     "premio_euros": 18
+    },
+    "12": {
+     "acertantes": 22324,
+     "premio_euros": 6
+    },
+    "11": {
+     "acertantes": 76742,
+     "premio_euros": null
+    },
+    "10": {
+     "acertantes": 169872,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 45,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/45.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Mallorca",
+     "visitante": "Granada"
+    },
+    {
+     "num": 2,
+     "local": "Osasuna",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Getafe",
+     "visitante": "Girona"
+    },
+    {
+     "num": 4,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 5,
+     "local": "Sevilla",
+     "visitante": "Celta"
+    },
+    {
+     "num": 6,
+     "local": "Las Palmas",
+     "visitante": "Almería"
+    },
+    {
+     "num": 7,
+     "local": "Villarreal",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 8,
+     "local": "Rayo Vallecano",
+     "visitante": "Betis"
+    },
+    {
+     "num": 9,
+     "local": "Oviedo",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 10,
+     "local": "Tenerife",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 11,
+     "local": "Sporting de Gijón",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 12,
+     "local": "",
+     "visitante": "Valladolid",
+     "sin_equipos": true
+    },
+    {
+     "num": 13,
+     "local": "Elche",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 14,
+     "local": "Zaragoza",
+     "visitante": "Espanyol"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2024-03-17",
+   "recaudacion_euros": 3212100,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 4,
+     "premio_euros": 128484
+    },
+    "13": {
+     "acertantes": 87,
+     "premio_euros": 2769
+    },
+    "12": {
+     "acertantes": 1440,
+     "premio_euros": 167
+    },
+    "11": {
+     "acertantes": 12173,
+     "premio_euros": 19
+    },
+    "10": {
+     "acertantes": 66384,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 46,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "2",
+    "0M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/46.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alcorcón",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 2,
+     "local": "Cartagena",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 3,
+     "local": "Villarreal B",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 4,
+     "local": "Espanyol",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 5,
+     "local": "Amorebieta",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 6,
+     "local": "Huesca",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 7,
+     "local": "Valladolid",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 8,
+     "local": "Mirandés",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 9,
+     "local": "Levante",
+     "visitante": "Elche"
+    },
+    {
+     "num": 10,
+     "local": "Racing de Santander",
+     "visitante": "Eldense"
+    },
+    {
+     "num": 11,
+     "local": "República de Irlanda",
+     "visitante": "Bélgica"
+    },
+    {
+     "num": 12,
+     "local": "Inglaterra",
+     "visitante": "Brasil"
+    },
+    {
+     "num": 13,
+     "local": "Dinamarca",
+     "visitante": "Suiza"
+    },
+    {
+     "num": 14,
+     "local": "Francia",
+     "visitante": "Alemania"
+    }
+   ],
+   "pleno15": {
+    "local": "Albacete",
+    "visitante": ""
+   },
+   "fecha": "2024-03-24",
+   "recaudacion_euros": 1997980,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 696394
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 319676
+    },
+    "13": {
+     "acertantes": 2,
+     "premio_euros": 74924
+    },
+    "12": {
+     "acertantes": 107,
+     "premio_euros": 1400
+    },
+    "11": {
+     "acertantes": 1105,
+     "premio_euros": 135
+    },
+    "10": {
+     "acertantes": 7153,
+     "premio_euros": 25
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 47,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "X",
+    "2",
+    "X",
+    "2",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/47.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Getafe",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 2,
+     "local": "Almería",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 3,
+     "local": "Valencia",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 4,
+     "local": "Barcelona",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 5,
+     "local": "Celta",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 6,
+     "local": "Girona",
+     "visitante": "Betis"
+    },
+    {
+     "num": 7,
+     "local": "Alavés",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 8,
+     "local": "Real Madrid",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 9,
+     "local": "Valladolid",
+     "visitante": "Levante"
+    },
+    {
+     "num": 10,
+     "local": "Eibar",
+     "visitante": "Eldense"
+    },
+    {
+     "num": 11,
+     "local": "Leganés",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 12,
+     "local": "Sporting de Gijón",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 13,
+     "local": "",
+     "visitante": "Elche",
+     "sin_equipos": true
+    },
+    {
+     "num": 14,
+     "local": "Zaragoza",
+     "visitante": "Tenerife"
+    }
+   ],
+   "pleno15": {
+    "local": "Villarreal",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2024-03-31",
+   "recaudacion_euros": 3114820,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 322685
+    },
+    "14": {
+     "acertantes": 4,
+     "premio_euros": 124592
+    },
+    "13": {
+     "acertantes": 165,
+     "premio_euros": 1415
+    },
+    "12": {
+     "acertantes": 1944,
+     "premio_euros": 120
+    },
+    "11": {
+     "acertantes": 14311,
+     "premio_euros": 16
+    },
+    "10": {
+     "acertantes": 69721,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 48,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "X",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/48.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Eldense",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 2,
+     "local": "Levante",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 3,
+     "local": "Huesca",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 4,
+     "local": "Mirandés",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 5,
+     "local": "Villarreal B",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 6,
+     "local": "Espanyol",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 7,
+     "local": "Tenerife",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 8,
+     "local": "Cartagena",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 9,
+     "local": "Racing de Santander",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 10,
+     "local": "Crystal Palace",
+     "visitante": "Manchester City"
+    },
+    {
+     "num": 11,
+     "local": "Aston Villa",
+     "visitante": "Brentford"
+    },
+    {
+     "num": 12,
+     "local": "Brighton & Hove Albion",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 13,
+     "local": "Manchester United",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 14,
+     "local": "Sheffield United",
+     "visitante": "Chelsea"
+    }
+   ],
+   "pleno15": {
+    "local": "Athletic de Bilbao B",
+    "visitante": "Mallorca"
+   },
+   "fecha": "2024-04-07",
+   "recaudacion_euros": 1926537,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 3,
+     "premio_euros": 48163
+    },
+    "12": {
+     "acertantes": 127,
+     "premio_euros": 1137
+    },
+    "11": {
+     "acertantes": 1336,
+     "premio_euros": 108
+    },
+    "10": {
+     "acertantes": 8800,
+     "premio_euros": 19
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 49,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "2",
+    "X",
+    "2",
+    "X",
+    "X",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/49.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Arsenal",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 3,
+     "local": "Paris Saint-Germain",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "AC Milan",
+     "visitante": "Roma"
+    },
+    {
+     "num": 5,
+     "local": "Liverpool",
+     "visitante": "Atalanta"
+    },
+    {
+     "num": 6,
+     "local": "Bayer Leverkusen",
+     "visitante": "West Ham"
+    },
+    {
+     "num": 7,
+     "local": "Benfica",
+     "visitante": "Olympique Marsella"
+    },
+    {
+     "num": 8,
+     "local": "Brujas",
+     "visitante": "PAOK de Salónica"
+    },
+    {
+     "num": 9,
+     "local": "Olympiacos",
+     "visitante": "Fenerbahçe"
+    },
+    {
+     "num": 10,
+     "local": "Aston Villa",
+     "visitante": "Losc Lille"
+    },
+    {
+     "num": 11,
+     "local": "Viktoria Pilsen",
+     "visitante": "Fiorentina"
+    },
+    {
+     "num": 12,
+     "local": "Millwall",
+     "visitante": "Leicester City"
+    },
+    {
+     "num": 13,
+     "local": "Southampton",
+     "visitante": "Coventry City"
+    },
+    {
+     "num": 14,
+     "local": "Leeds United",
+     "visitante": "Sunderland"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Manchester City"
+   },
+   "fecha": "2024-04-10",
+   "recaudacion_euros": 878570,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 7,
+     "premio_euros": 9413
+    },
+    "12": {
+     "acertantes": 94,
+     "premio_euros": 700
+    },
+    "11": {
+     "acertantes": 809,
+     "premio_euros": 81
+    },
+    "10": {
+     "acertantes": 5440,
+     "premio_euros": 14
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 50,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "X",
+    "MM"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/50.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Atlético de Madrid",
+     "visitante": "Girona"
+    },
+    {
+     "num": 2,
+     "local": "Rayo Vallecano",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Mallorca",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Cádiz",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 5,
+     "local": "Las Palmas",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 6,
+     "local": "Granada",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 7,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 8,
+     "local": "Real Sociedad",
+     "visitante": "Almería"
+    },
+    {
+     "num": 9,
+     "local": "Sporting de Gijón",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 10,
+     "local": "Albacete",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 11,
+     "local": "Andorra",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 12,
+     "local": "Burgos",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 13,
+     "local": "Zaragoza",
+     "visitante": "Elche"
+    },
+    {
+     "num": 14,
+     "local": "Racing de Ferrol",
+     "visitante": "Huesca"
+    }
+   ],
+   "pleno15": {
+    "local": "Osasuna",
+    "visitante": "Valencia"
+   },
+   "fecha": "2024-04-14",
+   "recaudacion_euros": 3083040,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 8,
+     "premio_euros": 61660
+    },
+    "13": {
+     "acertantes": 307,
+     "premio_euros": 753
+    },
+    "12": {
+     "acertantes": 4099,
+     "premio_euros": 56
+    },
+    "11": {
+     "acertantes": 27637,
+     "premio_euros": 8
+    },
+    "10": {
+     "acertantes": 117967,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 51,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "2",
+    "2",
+    "2",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/51.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Borussia Dortmund",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 3,
+     "local": "Bayern de Múnich",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 4,
+     "local": "Roma",
+     "visitante": "AC Milan"
+    },
+    {
+     "num": 5,
+     "local": "Atalanta",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 6,
+     "local": "West Ham",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 7,
+     "local": "Olympique Marsella",
+     "visitante": "Benfica"
+    },
+    {
+     "num": 8,
+     "local": "Losc Lille",
+     "visitante": "Aston Villa"
+    },
+    {
+     "num": 9,
+     "local": "Fiorentina",
+     "visitante": "Viktoria Pilsen"
+    },
+    {
+     "num": 10,
+     "local": "PAOK de Salónica",
+     "visitante": "Brujas"
+    },
+    {
+     "num": 11,
+     "local": "Fenerbahçe",
+     "visitante": "Olympiacos"
+    },
+    {
+     "num": 12,
+     "local": "Celtic de Glasgow",
+     "visitante": "Hibernian"
+    },
+    {
+     "num": 13,
+     "local": "Glasgow City",
+     "visitante": "Partick Thistle"
+    },
+    {
+     "num": 14,
+     "local": "Heart of Midlothian",
+     "visitante": "Glasgow Rangers"
+    }
+   ],
+   "pleno15": {
+    "local": "Manchester City",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2024-04-17",
+   "recaudacion_euros": 870974,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 9,
+     "premio_euros": 15483
+    },
+    "13": {
+     "acertantes": 291,
+     "premio_euros": 224
+    },
+    "12": {
+     "acertantes": 3087,
+     "premio_euros": 21
+    },
+    "11": {
+     "acertantes": 17154,
+     "premio_euros": 3
+    },
+    "10": {
+     "acertantes": 60813,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 52,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/52.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Celta",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 2,
+     "local": "Rayo Vallecano",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 3,
+     "local": "Valencia",
+     "visitante": "Betis"
+    },
+    {
+     "num": 4,
+     "local": "Girona",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 5,
+     "local": "Getafe",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 6,
+     "local": "Almería",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 7,
+     "local": "Alavés",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Sevilla",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 9,
+     "local": "Racing de Santander",
+     "visitante": "Levante"
+    },
+    {
+     "num": 10,
+     "local": "Elche",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 11,
+     "local": "Huesca",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 12,
+     "local": "Espanyol",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 13,
+     "local": "Eibar",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 14,
+     "local": "Mirandés",
+     "visitante": "Burgos"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2024-04-21",
+   "recaudacion_euros": 3033711,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 5,
+     "premio_euros": 97078
+    },
+    "13": {
+     "acertantes": 96,
+     "premio_euros": 2370
+    },
+    "12": {
+     "acertantes": 1305,
+     "premio_euros": 174
+    },
+    "11": {
+     "acertantes": 10788,
+     "premio_euros": 21
+    },
+    "10": {
+     "acertantes": 59822,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 53,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "X",
+    "1",
+    "1",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/53.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Barcelona",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 2,
+     "local": "Alavés",
+     "visitante": "Celta"
+    },
+    {
+     "num": 3,
+     "local": "Atlético de Madrid",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 4,
+     "local": "Real Sociedad",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Cádiz",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 6,
+     "local": "Granada",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 7,
+     "local": "Villarreal",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 8,
+     "local": "Betis",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 9,
+     "local": "Leganés",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 10,
+     "local": "Elche",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 11,
+     "local": "Oviedo",
+     "visitante": "Tenerife"
+    },
+    {
+     "num": 12,
+     "local": "Levante",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 13,
+     "local": "Valladolid",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 14,
+     "local": "Albacete",
+     "visitante": "Eibar"
+    }
+   ],
+   "pleno15": {
+    "local": "Las Palmas",
+    "visitante": "Girona"
+   },
+   "fecha": "2024-04-28",
+   "recaudacion_euros": 3055930,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 244474
+    },
+    "13": {
+     "acertantes": 45,
+     "premio_euros": 5093
+    },
+    "12": {
+     "acertantes": 697,
+     "premio_euros": 328
+    },
+    "11": {
+     "acertantes": 6924,
+     "premio_euros": 33
+    },
+    "10": {
+     "acertantes": 40441,
+     "premio_euros": 6
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 54,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "1",
+    "X",
+    "X",
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "02"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/54.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Sociedad",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 2,
+     "local": "Real Madrid",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 3,
+     "local": "Mallorca",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Osasuna",
+     "visitante": "Betis"
+    },
+    {
+     "num": 5,
+     "local": "Celta",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 6,
+     "local": "Valencia",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 7,
+     "local": "Rayo Vallecano",
+     "visitante": "Almería"
+    },
+    {
+     "num": 8,
+     "local": "Sevilla",
+     "visitante": "Granada"
+    },
+    {
+     "num": 9,
+     "local": "Huesca",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 10,
+     "local": "Racing de Santander",
+     "visitante": "Elche"
+    },
+    {
+     "num": 11,
+     "local": "Cartagena",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 12,
+     "local": "Espanyol",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 13,
+     "local": "Eldense",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 14,
+     "local": "Zaragoza",
+     "visitante": "Burgos"
+    }
+   ],
+   "pleno15": {
+    "local": "Girona",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2024-05-05",
+   "recaudacion_euros": 3579966,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 286397
+    },
+    "13": {
+     "acertantes": 68,
+     "premio_euros": 3948
+    },
+    "12": {
+     "acertantes": 1322,
+     "premio_euros": 203
+    },
+    "11": {
+     "acertantes": 13778,
+     "premio_euros": 19
+    },
+    "10": {
+     "acertantes": 81353,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 55,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "2",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/55.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Celta"
+    },
+    {
+     "num": 3,
+     "local": "Cádiz",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 4,
+     "local": "Granada",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Alavés",
+     "visitante": "Girona"
+    },
+    {
+     "num": 6,
+     "local": "Betis",
+     "visitante": "Almería"
+    },
+    {
+     "num": 7,
+     "local": "Valencia",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 8,
+     "local": "Villarreal",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 9,
+     "local": "Mallorca",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 10,
+     "local": "Albacete",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 11,
+     "local": "Sporting de Gijón",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 12,
+     "local": "Levante",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 13,
+     "local": "Valladolid",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 14,
+     "local": "Racing de Santander",
+     "visitante": "Mirandés"
+    }
+   ],
+   "pleno15": {
+    "local": "Barcelona",
+    "visitante": "Real Sociedad"
+   },
+   "fecha": "2024-05-12",
+   "recaudacion_euros": 3491703,
+   "premios": {
+    "pleno15": {
+     "acertantes": 4,
+     "premio_euros": 417765
+    },
+    "14": {
+     "acertantes": 28,
+     "premio_euros": 19952
+    },
+    "13": {
+     "acertantes": 586,
+     "premio_euros": 446
+    },
+    "12": {
+     "acertantes": 6815,
+     "premio_euros": 38
+    },
+    "11": {
+     "acertantes": 47453,
+     "premio_euros": 5
+    },
+    "10": {
+     "acertantes": 197326,
+     "premio_euros": 1
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 56,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/56.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Almería",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 2,
+     "local": "Girona",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 3,
+     "local": "Real Sociedad",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 4,
+     "local": "Celta",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 5,
+     "local": "Las Palmas",
+     "visitante": "Betis"
+    },
+    {
+     "num": 6,
+     "local": "Sevilla",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 7,
+     "local": "Osasuna",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 8,
+     "local": "Rayo Vallecano",
+     "visitante": "Granada"
+    },
+    {
+     "num": 9,
+     "local": "Real Madrid",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 10,
+     "local": "Tottenham Hotspur",
+     "visitante": "Manchester City"
+    },
+    {
+     "num": 11,
+     "local": "Brighton & Hove Albion",
+     "visitante": "Chelsea"
+    },
+    {
+     "num": 12,
+     "local": "Manchester United",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 13,
+     "local": "Niza",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 14,
+     "local": "Stade de Reims",
+     "visitante": "Olympique Marsella"
+    }
+   ],
+   "pleno15": {
+    "local": "Getafe",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2024-05-15",
+   "recaudacion_euros": 1562178,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 22,
+     "premio_euros": 11361
+    },
+    "13": {
+     "acertantes": 447,
+     "premio_euros": 262
+    },
+    "12": {
+     "acertantes": 4562,
+     "premio_euros": 25
+    },
+    "11": {
+     "acertantes": 29317,
+     "premio_euros": 4
+    },
+    "10": {
+     "acertantes": 114699,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 57,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "X",
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "2",
+    "1",
+    "0M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/57.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Athletic de Bilbao B",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 3,
+     "local": "Betis",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 4,
+     "local": "Cádiz",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 5,
+     "local": "Alavés",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 6,
+     "local": "Mallorca",
+     "visitante": "Almería"
+    },
+    {
+     "num": 7,
+     "local": "Granada",
+     "visitante": "Celta"
+    },
+    {
+     "num": 8,
+     "local": "Valencia",
+     "visitante": "Girona"
+    },
+    {
+     "num": 9,
+     "local": "Villarreal",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 10,
+     "local": "Alcorcón",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 11,
+     "local": "Espanyol",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 12,
+     "local": "Leganés",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 13,
+     "local": "Eibar",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 14,
+     "local": "Mirandés",
+     "visitante": "Elche"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Osasuna"
+   },
+   "fecha": "2024-05-19",
+   "recaudacion_euros": 2480244,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 6,
+     "premio_euros": 66139
+    },
+    "13": {
+     "acertantes": 229,
+     "premio_euros": 812
+    },
+    "12": {
+     "acertantes": 2660,
+     "premio_euros": 69
+    },
+    "11": {
+     "acertantes": 18718,
+     "premio_euros": 9
+    },
+    "10": {
+     "acertantes": 85117,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 58,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "X",
+    "2",
+    "2",
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/58.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Almería",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 2,
+     "local": "Celta",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 3,
+     "local": "Getafe",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 4,
+     "local": "Girona",
+     "visitante": "Granada"
+    },
+    {
+     "num": 5,
+     "local": "Osasuna",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 6,
+     "local": "Rayo Vallecano",
+     "visitante": "Athletic de Bilbao B"
+    },
+    {
+     "num": 7,
+     "local": "Real Sociedad",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Sevilla",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 9,
+     "local": "Las Palmas",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 10,
+     "local": "Amorebieta",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 11,
+     "local": "Elche",
+     "visitante": "Eldense"
+    },
+    {
+     "num": 12,
+     "local": "Racing de Ferrol",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 13,
+     "local": "Levante",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 14,
+     "local": "Sporting de Gijón",
+     "visitante": "Eibar"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Betis"
+   },
+   "fecha": "2024-05-26",
+   "recaudacion_euros": 2936000,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 4,
+     "premio_euros": 55050
+    },
+    "12": {
+     "acertantes": 133,
+     "premio_euros": 1655
+    },
+    "11": {
+     "acertantes": 1397,
+     "premio_euros": 157
+    },
+    "10": {
+     "acertantes": 10004,
+     "premio_euros": 26
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 59,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "2",
+    "1",
+    "X",
+    "2",
+    "2",
+    "2",
+    "X",
+    "X",
+    "2",
+    "X",
+    "X",
+    "1",
+    "00"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/59.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alcorcón",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 2,
+     "local": "Andorra",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 3,
+     "local": "Eibar",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 4,
+     "local": "Eldense",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 5,
+     "local": "Huesca",
+     "visitante": "Levante"
+    },
+    {
+     "num": 6,
+     "local": "Tenerife",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 7,
+     "local": "Zaragoza",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 8,
+     "local": "Mirandés",
+     "visitante": "Amorebieta"
+    },
+    {
+     "num": 9,
+     "local": "Espanyol",
+     "visitante": "Cartagena"
+    },
+    {
+     "num": 10,
+     "local": "Leganés",
+     "visitante": "Elche"
+    },
+    {
+     "num": 11,
+     "local": "",
+     "visitante": "Racing de Santander",
+     "sin_equipos": true
+    },
+    {
+     "num": 12,
+     "local": "Molde",
+     "visitante": "Viking Stavanger"
+    },
+    {
+     "num": 13,
+     "local": "Stromsgodset",
+     "visitante": "Odds Ballklubb"
+    },
+    {
+     "num": 14,
+     "local": "Haugesund",
+     "visitante": "Bodo-Glimt"
+    }
+   ],
+   "pleno15": {
+    "local": "Borussia Dortmund",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2024-06-02",
+   "recaudacion_euros": 2152351,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 1387579
+    },
+    "14": {
+     "acertantes": 4,
+     "premio_euros": 86094
+    },
+    "13": {
+     "acertantes": 120,
+     "premio_euros": 1345
+    },
+    "12": {
+     "acertantes": 1065,
+     "premio_euros": 151
+    },
+    "11": {
+     "acertantes": 8813,
+     "premio_euros": 18
+    },
+    "10": {
+     "acertantes": 44904,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 60,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "2",
+    "02"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/60.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Suiza",
+     "visitante": "Austria"
+    },
+    {
+     "num": 2,
+     "local": "Suecia",
+     "visitante": "Serbia"
+    },
+    {
+     "num": 3,
+     "local": "Portugal",
+     "visitante": "Croacia"
+    },
+    {
+     "num": 4,
+     "local": "Dinamarca",
+     "visitante": "Noruega"
+    },
+    {
+     "num": 5,
+     "local": "Bélgica",
+     "visitante": "Luxemburgo"
+    },
+    {
+     "num": 6,
+     "local": "Estados Unidos",
+     "visitante": "Colombia"
+    },
+    {
+     "num": 7,
+     "local": "",
+     "visitante": "",
+     "sin_equipos": true
+    },
+    {
+     "num": 8,
+     "local": "",
+     "visitante": "",
+     "sin_equipos": true
+    },
+    {
+     "num": 9,
+     "local": "",
+     "visitante": "",
+     "sin_equipos": true
+    },
+    {
+     "num": 10,
+     "local": "",
+     "visitante": "",
+     "sin_equipos": true
+    },
+    {
+     "num": 11,
+     "local": "",
+     "visitante": "",
+     "sin_equipos": true
+    },
+    {
+     "num": 12,
+     "local": "",
+     "visitante": "",
+     "sin_equipos": true
+    },
+    {
+     "num": 13,
+     "local": "",
+     "visitante": "",
+     "sin_equipos": true
+    },
+    {
+     "num": 14,
+     "local": "",
+     "visitante": "",
+     "sin_equipos": true
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Irlanda del Norte"
+   },
+   "fecha": "2024-06-09",
+   "recaudacion_euros": 1104797,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 176767
+    },
+    "13": {
+     "acertantes": 37,
+     "premio_euros": 2239
+    },
+    "12": {
+     "acertantes": 625,
+     "premio_euros": 132
+    },
+    "11": {
+     "acertantes": 6233,
+     "premio_euros": 13
+    },
+    "10": {
+     "acertantes": 33924,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 61,
+   "combinacion_ganadora": [
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "1",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/61.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alemania",
+     "visitante": "Escocia"
+    },
+    {
+     "num": 2,
+     "local": "Hungría",
+     "visitante": "Suiza"
+    },
+    {
+     "num": 3,
+     "local": "Italia",
+     "visitante": "Albania"
+    },
+    {
+     "num": 4,
+     "local": "Eslovenia",
+     "visitante": "Dinamarca"
+    },
+    {
+     "num": 5,
+     "local": "Serbia",
+     "visitante": "Inglaterra"
+    },
+    {
+     "num": 6,
+     "local": "Polonia",
+     "visitante": "Holanda"
+    },
+    {
+     "num": 7,
+     "local": "Athletic de Bilbao Femenino",
+     "visitante": "Sevilla Femenino"
+    },
+    {
+     "num": 8,
+     "local": "Atlético de Madrid Femenino",
+     "visitante": "Villarreal Femenino"
+    },
+    {
+     "num": 9,
+     "local": "Levante Femenino",
+     "visitante": "Atlético de Madrid Femenino"
+    },
+    {
+     "num": 10,
+     "local": "Betis Femenino",
+     "visitante": "Tenerife Femenino"
+    },
+    {
+     "num": 11,
+     "local": "Eibar Femenino",
+     "visitante": "Granada Femenino"
+    },
+    {
+     "num": 12,
+     "local": "Valencia Femenino",
+     "visitante": "Barcelona Femenino"
+    },
+    {
+     "num": 13,
+     "local": "Real Sociedad Femenino",
+     "visitante": "Levante Las Planas"
+    },
+    {
+     "num": 14,
+     "local": "Sporting de Huelva",
+     "visitante": "Real Madrid Femenino"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Croacia"
+   },
+   "fecha": "2024-06-16",
+   "recaudacion_euros": 1239319,
+   "premios": {
+    "pleno15": {
+     "acertantes": 11,
+     "premio_euros": 39415
+    },
+    "14": {
+     "acertantes": 649,
+     "premio_euros": 305
+    },
+    "13": {
+     "acertantes": 8734,
+     "premio_euros": 10
+    },
+    "12": {
+     "acertantes": 46236,
+     "premio_euros": 4
+    },
+    "11": {
+     "acertantes": 147572,
+     "premio_euros": null
+    },
+    "10": {
+     "acertantes": 288333,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 62,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "X",
+    "2",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/62.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Polonia",
+     "visitante": "Austria"
+    },
+    {
+     "num": 2,
+     "local": "Holanda",
+     "visitante": "Francia"
+    },
+    {
+     "num": 3,
+     "local": "Eslovaquia",
+     "visitante": "Ucrania"
+    },
+    {
+     "num": 4,
+     "local": "Bélgica",
+     "visitante": "Rumanía"
+    },
+    {
+     "num": 5,
+     "local": "Georgia",
+     "visitante": "República Checa"
+    },
+    {
+     "num": 6,
+     "local": "Turquía",
+     "visitante": "Portugal"
+    },
+    {
+     "num": 7,
+     "local": "Suiza",
+     "visitante": "Alemania"
+    },
+    {
+     "num": 8,
+     "local": "Escocia",
+     "visitante": "Hungría"
+    },
+    {
+     "num": 9,
+     "local": "Croacia",
+     "visitante": "Italia"
+    },
+    {
+     "num": 10,
+     "local": "Perú",
+     "visitante": "Chile"
+    },
+    {
+     "num": 11,
+     "local": "Ecuador",
+     "visitante": "Venezuela"
+    },
+    {
+     "num": 12,
+     "local": "México",
+     "visitante": "Jamaica"
+    },
+    {
+     "num": 13,
+     "local": "Estados Unidos",
+     "visitante": "Bolivia"
+    },
+    {
+     "num": 14,
+     "local": "Uruguay",
+     "visitante": "Panamá"
+    }
+   ],
+   "pleno15": {
+    "local": "Albania",
+    "visitante": "España"
+   },
+   "fecha": "2024-06-23",
+   "recaudacion_euros": 1060913,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 84873
+    },
+    "13": {
+     "acertantes": 91,
+     "premio_euros": 874
+    },
+    "12": {
+     "acertantes": 988,
+     "premio_euros": 80
+    },
+    "11": {
+     "acertantes": 5917,
+     "premio_euros": 13
+    },
+    "10": {
+     "acertantes": 26248,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 63,
+   "combinacion_ganadora": [
+    "2",
+    "X",
+    "2",
+    "1",
+    "X",
+    "2",
+    "X",
+    "2",
+    "X",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/63.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Suiza",
+     "visitante": "Italia"
+    },
+    {
+     "num": 2,
+     "local": "Alemania",
+     "visitante": "Dinamarca"
+    },
+    {
+     "num": 3,
+     "local": "Inglaterra",
+     "visitante": "Eslovaquia"
+    },
+    {
+     "num": 4,
+     "local": "España",
+     "visitante": "Georgia"
+    },
+    {
+     "num": 5,
+     "local": "Francia",
+     "visitante": "Bélgica"
+    },
+    {
+     "num": 6,
+     "local": "Portugal",
+     "visitante": "Eslovenia"
+    },
+    {
+     "num": 7,
+     "local": "Rumanía",
+     "visitante": "Holanda"
+    },
+    {
+     "num": 8,
+     "local": "Austria",
+     "visitante": "Turquía"
+    },
+    {
+     "num": 9,
+     "local": "Canadá",
+     "visitante": "Chile"
+    },
+    {
+     "num": 10,
+     "local": "Jamaica",
+     "visitante": "Venezuela"
+    },
+    {
+     "num": 11,
+     "local": "México",
+     "visitante": "Ecuador"
+    },
+    {
+     "num": 12,
+     "local": "Bolivia",
+     "visitante": "Panamá"
+    },
+    {
+     "num": 13,
+     "local": "Estados Unidos",
+     "visitante": "Uruguay"
+    },
+    {
+     "num": 14,
+     "local": "Viking Stavanger",
+     "visitante": "Rosenborg"
+    }
+   ],
+   "pleno15": {
+    "local": "Argentina",
+    "visitante": "Perú"
+   },
+   "fecha": "2024-06-30",
+   "recaudacion_euros": 1190275,
+   "premios": {
+    "pleno15": {
+     "acertantes": 2,
+     "premio_euros": 140188
+    },
+    "14": {
+     "acertantes": 6,
+     "premio_euros": 31740
+    },
+    "13": {
+     "acertantes": 303,
+     "premio_euros": 294
+    },
+    "12": {
+     "acertantes": 3816,
+     "premio_euros": 23
+    },
+    "11": {
+     "acertantes": 24880,
+     "premio_euros": 3
+    },
+    "10": {
+     "acertantes": 93856,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 64,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "X",
+    "2",
+    "X",
+    "2",
+    "2",
+    "1",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/64.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Elfsborg",
+     "visitante": "Brommapojkarna"
+    },
+    {
+     "num": 2,
+     "local": "Mjällby AIF",
+     "visitante": "Sirius"
+    },
+    {
+     "num": 3,
+     "local": "AIK Solna",
+     "visitante": "Kalmar"
+    },
+    {
+     "num": 4,
+     "local": "Värnamo",
+     "visitante": "Göteborg"
+    },
+    {
+     "num": 5,
+     "local": "Malmoe",
+     "visitante": "Halmstads"
+    },
+    {
+     "num": 6,
+     "local": "GAIS Gotemburgo",
+     "visitante": "Hammarby"
+    },
+    {
+     "num": 7,
+     "local": "Norrköping",
+     "visitante": "Djurgårdens"
+    },
+    {
+     "num": 8,
+     "local": "Västerås SK",
+     "visitante": "BK Häcken"
+    },
+    {
+     "num": 9,
+     "local": "Bodo-Glimt",
+     "visitante": "Brann Bergen"
+    },
+    {
+     "num": 10,
+     "local": "KFUM Oslo",
+     "visitante": "Viking Stavanger"
+    },
+    {
+     "num": 11,
+     "local": "Kristiansund",
+     "visitante": "Fredrikstad"
+    },
+    {
+     "num": 12,
+     "local": "Hamarkameratene",
+     "visitante": "Tromsø IL"
+    },
+    {
+     "num": 13,
+     "local": "Molde",
+     "visitante": "Lillestrøm"
+    },
+    {
+     "num": 14,
+     "local": "Haugesund",
+     "visitante": "Sarpsborg 08"
+    }
+   ],
+   "pleno15": {
+    "local": "Rosenborg",
+    "visitante": "Odds Ballklubb"
+   },
+   "fecha": "2024-07-07",
+   "recaudacion_euros": 714373,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 160702
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 57149
+    },
+    "13": {
+     "acertantes": 96,
+     "premio_euros": 558
+    },
+    "12": {
+     "acertantes": 1348,
+     "premio_euros": 39
+    },
+    "11": {
+     "acertantes": 9806,
+     "premio_euros": 5
+    },
+    "10": {
+     "acertantes": 43377,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 65,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/65.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Mjällby AIF",
+     "visitante": "Malmoe"
+    },
+    {
+     "num": 2,
+     "local": "Sirius",
+     "visitante": "GAIS Gotemburgo"
+    },
+    {
+     "num": 3,
+     "local": "Djurgårdens",
+     "visitante": "Värnamo"
+    },
+    {
+     "num": 4,
+     "local": "BK Häcken",
+     "visitante": "Elfsborg"
+    },
+    {
+     "num": 5,
+     "local": "Kalmar",
+     "visitante": "Brommapojkarna"
+    },
+    {
+     "num": 6,
+     "local": "Västerås SK",
+     "visitante": "Norrköping"
+    },
+    {
+     "num": 7,
+     "local": "Hammarby",
+     "visitante": "Göteborg"
+    },
+    {
+     "num": 8,
+     "local": "Halmstads",
+     "visitante": "AIK Solna"
+    },
+    {
+     "num": 9,
+     "local": "Fredrikstad",
+     "visitante": "Molde"
+    },
+    {
+     "num": 10,
+     "local": "Odds Ballklubb",
+     "visitante": "Hamarkameratene"
+    },
+    {
+     "num": 11,
+     "local": "Lillestrøm",
+     "visitante": "Stromsgodset"
+    },
+    {
+     "num": 12,
+     "local": "Sandefjord",
+     "visitante": "Bodo-Glimt"
+    },
+    {
+     "num": 13,
+     "local": "Viking Stavanger",
+     "visitante": "Kristiansund"
+    },
+    {
+     "num": 14,
+     "local": "Tromsø IL",
+     "visitante": "KFUM Oslo"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Inglaterra"
+   },
+   "fecha": "2024-07-14",
+   "recaudacion_euros": 716508,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 1,
+     "premio_euros": 53738
+    },
+    "12": {
+     "acertantes": 62,
+     "premio_euros": 866
+    },
+    "11": {
+     "acertantes": 554,
+     "premio_euros": 97
+    },
+    "10": {
+     "acertantes": 3263,
+     "premio_euros": 19
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 66,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "2",
+    "2",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/66.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Kalmar",
+     "visitante": "Djurgårdens"
+    },
+    {
+     "num": 2,
+     "local": "Brommapojkarna",
+     "visitante": "Hammarby"
+    },
+    {
+     "num": 3,
+     "local": "Norrköping",
+     "visitante": "Halmstads"
+    },
+    {
+     "num": 4,
+     "local": "Göteborg",
+     "visitante": "Västerås SK"
+    },
+    {
+     "num": 5,
+     "local": "Elfsborg",
+     "visitante": "Mjällby AIF"
+    },
+    {
+     "num": 6,
+     "local": "Värnamo",
+     "visitante": "BK Häcken"
+    },
+    {
+     "num": 7,
+     "local": "GAIS Gotemburgo",
+     "visitante": "AIK Solna"
+    },
+    {
+     "num": 8,
+     "local": "Molde",
+     "visitante": "KFUM Oslo"
+    },
+    {
+     "num": 9,
+     "local": "Stromsgodset",
+     "visitante": "Tromsø IL"
+    },
+    {
+     "num": 10,
+     "local": "Hamarkameratene",
+     "visitante": "Fredrikstad"
+    },
+    {
+     "num": 11,
+     "local": "Haugesund",
+     "visitante": "Viking Stavanger"
+    },
+    {
+     "num": 12,
+     "local": "Kristiansund",
+     "visitante": "Sandefjord"
+    },
+    {
+     "num": 13,
+     "local": "Rosenborg",
+     "visitante": "Lillestrøm"
+    },
+    {
+     "num": 14,
+     "local": "Glasgow Rangers",
+     "visitante": "Manchester United"
+    }
+   ],
+   "pleno15": {
+    "local": "Sarpsborg 08",
+    "visitante": "Brann Bergen"
+   },
+   "fecha": "2024-07-21",
+   "recaudacion_euros": 645874,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 1,
+     "premio_euros": 48440
+    },
+    "12": {
+     "acertantes": 19,
+     "premio_euros": 2549
+    },
+    "11": {
+     "acertantes": 210,
+     "premio_euros": 230
+    },
+    "10": {
+     "acertantes": 1424,
+     "premio_euros": 40
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 67,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/67.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Argentina",
+     "visitante": "Marruecos"
+    },
+    {
+     "num": 2,
+     "local": "Uzbekistán",
+     "visitante": "España"
+    },
+    {
+     "num": 3,
+     "local": "Guinea Ecuatorial",
+     "visitante": "Nueva Zelanda"
+    },
+    {
+     "num": 4,
+     "local": "Egipto",
+     "visitante": "República Dominicana"
+    },
+    {
+     "num": 5,
+     "local": "Irak",
+     "visitante": "Ucrania"
+    },
+    {
+     "num": 6,
+     "local": "Japón",
+     "visitante": "Paraguay"
+    },
+    {
+     "num": 7,
+     "local": "Francia",
+     "visitante": "Estados Unidos"
+    },
+    {
+     "num": 8,
+     "local": "Malí",
+     "visitante": "Israel"
+    },
+    {
+     "num": 9,
+     "local": "Benfica",
+     "visitante": "Brentford"
+    },
+    {
+     "num": 10,
+     "local": "Canadá Femenino",
+     "visitante": "Nueva Zelanda Femenino"
+    },
+    {
+     "num": 11,
+     "local": "Alemania Femenino",
+     "visitante": "Australia Femenino"
+    },
+    {
+     "num": 12,
+     "local": "Nigeria Femenino",
+     "visitante": "Brasil Femenino"
+    },
+    {
+     "num": 13,
+     "local": "Francia Femenino",
+     "visitante": "Colombia Femenino"
+    },
+    {
+     "num": 14,
+     "local": "Estados Unidos Femenino",
+     "visitante": "Zambia Femenino"
+    }
+   ],
+   "pleno15": {
+    "local": "España Femenino",
+    "visitante": "Japón Femenino"
+   },
+   "fecha": "2024-07-24",
+   "recaudacion_euros": 454173,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 55,
+     "premio_euros": 619
+    },
+    "12": {
+     "acertantes": 756,
+     "premio_euros": 45
+    },
+    "11": {
+     "acertantes": 6055,
+     "premio_euros": 5
+    },
+    "10": {
+     "acertantes": 29012,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 68,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "2",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/68.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Argentina",
+     "visitante": "Irak"
+    },
+    {
+     "num": 2,
+     "local": "República Dominicana",
+     "visitante": "España"
+    },
+    {
+     "num": 3,
+     "local": "Ucrania",
+     "visitante": "Marruecos"
+    },
+    {
+     "num": 4,
+     "local": "Uzbekistán",
+     "visitante": "Egipto"
+    },
+    {
+     "num": 5,
+     "local": "Nueva Zelanda",
+     "visitante": "Estados Unidos"
+    },
+    {
+     "num": 6,
+     "local": "Israel",
+     "visitante": "Paraguay"
+    },
+    {
+     "num": 7,
+     "local": "Francia",
+     "visitante": "Guinea Ecuatorial"
+    },
+    {
+     "num": 8,
+     "local": "Japón",
+     "visitante": "Malí"
+    },
+    {
+     "num": 9,
+     "local": "PSV Eindhoven",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 10,
+     "local": "Nueva Zelanda Femenino",
+     "visitante": "Colombia Femenino"
+    },
+    {
+     "num": 11,
+     "local": "Brasil Femenino",
+     "visitante": "Japón Femenino"
+    },
+    {
+     "num": 12,
+     "local": "Australia Femenino",
+     "visitante": "Zambia Femenino"
+    },
+    {
+     "num": 13,
+     "local": "Francia Femenino",
+     "visitante": "Canadá Femenino"
+    },
+    {
+     "num": 14,
+     "local": "Estados Unidos Femenino",
+     "visitante": "Alemania Femenino"
+    }
+   ],
+   "pleno15": {
+    "local": "España Femenino",
+    "visitante": "Nigeria Femenino"
+   },
+   "fecha": "2024-07-28",
+   "recaudacion_euros": 662889,
+   "premios": {
+    "pleno15": {
+     "acertantes": 4,
+     "premio_euros": 108542
+    },
+    "14": {
+     "acertantes": 33,
+     "premio_euros": 3214
+    },
+    "13": {
+     "acertantes": 572,
+     "premio_euros": 86
+    },
+    "12": {
+     "acertantes": 4804,
+     "premio_euros": 10
+    },
+    "11": {
+     "acertantes": 26063,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 81210,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 69,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "2",
+    "1",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/69.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "República Dominicana",
+     "visitante": "Uzbekistán"
+    },
+    {
+     "num": 2,
+     "local": "España",
+     "visitante": "Egipto"
+    },
+    {
+     "num": 3,
+     "local": "Ucrania",
+     "visitante": "Argentina"
+    },
+    {
+     "num": 4,
+     "local": "Marruecos",
+     "visitante": "Irak"
+    },
+    {
+     "num": 5,
+     "local": "Estados Unidos",
+     "visitante": "Guinea Ecuatorial"
+    },
+    {
+     "num": 6,
+     "local": "Nueva Zelanda",
+     "visitante": "Francia"
+    },
+    {
+     "num": 7,
+     "local": "Paraguay",
+     "visitante": "Malí"
+    },
+    {
+     "num": 8,
+     "local": "Israel",
+     "visitante": "Japón"
+    },
+    {
+     "num": 9,
+     "local": "Real Madrid",
+     "visitante": "AC Milan"
+    },
+    {
+     "num": 10,
+     "local": "Japón Femenino",
+     "visitante": "Nigeria Femenino"
+    },
+    {
+     "num": 11,
+     "local": "Zambia Femenino",
+     "visitante": "Alemania Femenino"
+    },
+    {
+     "num": 12,
+     "local": "Australia Femenino",
+     "visitante": "Estados Unidos Femenino"
+    },
+    {
+     "num": 13,
+     "local": "Nueva Zelanda Femenino",
+     "visitante": "Francia Femenino"
+    },
+    {
+     "num": 14,
+     "local": "Colombia Femenino",
+     "visitante": "Canadá Femenino"
+    }
+   ],
+   "pleno15": {
+    "local": "Brasil Femenino",
+    "visitante": "España Femenino"
+   },
+   "fecha": "2024-07-31",
+   "recaudacion_euros": 420637,
+   "premios": {
+    "pleno15": {
+     "acertantes": 3,
+     "premio_euros": 10515
+    },
+    "14": {
+     "acertantes": 21,
+     "premio_euros": 3204
+    },
+    "13": {
+     "acertantes": 716,
+     "premio_euros": 44
+    },
+    "12": {
+     "acertantes": 8691,
+     "premio_euros": 7
+    },
+    "11": {
+     "acertantes": 40878,
+     "premio_euros": null
+    },
+    "10": {
+     "acertantes": 92036,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 70,
+   "combinacion_ganadora": [
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "1",
+    "2",
+    "2",
+    "2",
+    "2",
+    "02"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/70.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Estados Unidos Femenino",
+     "visitante": "Japón Femenino"
+    },
+    {
+     "num": 2,
+     "local": "España Femenino",
+     "visitante": "Colombia Femenino"
+    },
+    {
+     "num": 3,
+     "local": "Canadá Femenino",
+     "visitante": "Alemania Femenino"
+    },
+    {
+     "num": 4,
+     "local": "Francia Femenino",
+     "visitante": "Brasil Femenino"
+    },
+    {
+     "num": 5,
+     "local": "GAIS Gotemburgo",
+     "visitante": "Norrköping"
+    },
+    {
+     "num": 6,
+     "local": "Västerås SK",
+     "visitante": "AIK Solna"
+    },
+    {
+     "num": 7,
+     "local": "Brommapojkarna",
+     "visitante": "Halmstads"
+    },
+    {
+     "num": 8,
+     "local": "Djurgårdens",
+     "visitante": "Göteborg"
+    },
+    {
+     "num": 9,
+     "local": "Värnamo",
+     "visitante": "Sirius"
+    },
+    {
+     "num": 10,
+     "local": "Kalmar",
+     "visitante": "Hammarby"
+    },
+    {
+     "num": 11,
+     "local": "Bodo-Glimt",
+     "visitante": "Haugesund"
+    },
+    {
+     "num": 12,
+     "local": "Hamarkameratene",
+     "visitante": "Viking Stavanger"
+    },
+    {
+     "num": 13,
+     "local": "Kristiansund",
+     "visitante": "Lillestrøm"
+    },
+    {
+     "num": 14,
+     "local": "Fredrikstad",
+     "visitante": "KFUM Oslo"
+    }
+   ],
+   "pleno15": {
+    "local": "Stromsgodset",
+    "visitante": "Brann Bergen"
+   },
+   "fecha": "2024-08-04",
+   "recaudacion_euros": 528911,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "12": {
+     "acertantes": 7,
+     "premio_euros": 11333
+    },
+    "11": {
+     "acertantes": 131,
+     "premio_euros": 302
+    },
+    "10": {
+     "acertantes": 1046,
+     "premio_euros": 45
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 71,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "X",
+    "2",
+    "2",
+    "2",
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "2M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/71.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Norrköping",
+     "visitante": "Västerås SK"
+    },
+    {
+     "num": 2,
+     "local": "Halmstads",
+     "visitante": "Malmoe"
+    },
+    {
+     "num": 3,
+     "local": "Göteborg",
+     "visitante": "Värnamo"
+    },
+    {
+     "num": 4,
+     "local": "AIK Solna",
+     "visitante": "Mjällby AIF"
+    },
+    {
+     "num": 5,
+     "local": "Elfsborg",
+     "visitante": "GAIS Gotemburgo"
+    },
+    {
+     "num": 6,
+     "local": "Sirius",
+     "visitante": "Kalmar"
+    },
+    {
+     "num": 7,
+     "local": "BK Häcken",
+     "visitante": "Djurgårdens"
+    },
+    {
+     "num": 8,
+     "local": "Hammarby",
+     "visitante": "Brommapojkarna"
+    },
+    {
+     "num": 9,
+     "local": "Haugesund",
+     "visitante": "Hamarkameratene"
+    },
+    {
+     "num": 10,
+     "local": "Viking Stavanger",
+     "visitante": "Bodo-Glimt"
+    },
+    {
+     "num": 11,
+     "local": "KFUM Oslo",
+     "visitante": "Rosenborg"
+    },
+    {
+     "num": 12,
+     "local": "Odds Ballklubb",
+     "visitante": "Sarpsborg 08"
+    },
+    {
+     "num": 13,
+     "local": "Lillestrøm",
+     "visitante": "Molde"
+    },
+    {
+     "num": 14,
+     "local": "Brasil Femenino",
+     "visitante": "Estados Unidos Femenino"
+    }
+   ],
+   "pleno15": {
+    "local": "Francia",
+    "visitante": "España"
+   },
+   "fecha": "2024-08-11",
+   "recaudacion_euros": 494322,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 3,
+     "premio_euros": 26363
+    },
+    "13": {
+     "acertantes": 40,
+     "premio_euros": 926
+    },
+    "12": {
+     "acertantes": 416,
+     "premio_euros": 89
+    },
+    "11": {
+     "acertantes": 2718,
+     "premio_euros": 13
+    },
+    "10": {
+     "acertantes": 12125,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2023-2024",
+   "jornada": 72,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "X",
+    "1",
+    "1",
+    "1",
+    "2",
+    "X",
+    "2",
+    "X",
+    "1",
+    "X",
+    "2",
+    "2",
+    "MM"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2023-2024/quiniela/72.html"
+  }
+ ]
+}
