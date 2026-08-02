@@ -236,3 +236,66 @@ def test_deteccion_404_para():
     # acumular MAX_CONSECUTIVE_404 cuando no hay n_max detectado.
     assert cjl.MAX_CONSECUTIVE_404 == 3
     assert cjl.MAX_JORNADAS_GUESS == 80
+
+
+# ---------------------------------------------------------------------------
+# Casos reales de LD: partidos con equipos vacíos (aplazados / por confirmar)
+# ---------------------------------------------------------------------------
+
+def _html_con_filas_equipos_vacios(filas: str, pleno: str) -> str:
+    return (
+        "<html><body><h1>Quiniela - Jornada 46 - 2023-2024</h1>"
+        "<table><tr><th>P.</th><th>Equipos</th><th></th><th>1</th><th>X</th><th>2</th></tr>"
+        + filas
+        + '<tr><td>Pleno al 15</td><td></td><td></td><td></td><td></td><td></td></tr>'
+        + "</table><table>" + pleno + "</table>"
+        + "<p>Recaudación 3.212.100 €</p>"
+        + "<table><tr><th>Aciertos</th><th>Pleno al 15</th><th>14</th></tr>"
+        + "<tr><td>Acertantes</td><td>0</td><td>4</td></tr>"
+        + "<tr><td>Premios</td><td>-</td><td>128.484€</td></tr></table>"
+        + "</body></html>"
+    )
+
+
+def test_parse_jornada_con_local_vacio():
+    """Jornada 46 2023-24: el partido 12 tiene local vacío (solo 'Valladolid')."""
+    filas = "".join(
+        f"<tr><td>{i}</td><td>Local{i}</td><td>Visitante{i}</td><td>1</td><td>X</td><td>2</td></tr>"
+        for i in range(1, 15)
+    )
+    # Partido 12: local vacío (como en LD)
+    filas = filas.replace(
+        "<tr><td>12</td><td>Local12</td><td>Visitante12</td>",
+        "<tr><td>12</td><td></td><td>Valladolid</td>",
+    )
+    pleno = (
+        "<tr><td>Atlético de Madrid</td><td>0</td><td>1</td><td>2</td><td>M</td></tr>"
+        "<tr><td>Barcelona</td><td>0</td><td>1</td><td>2</td><td>M</td></tr>"
+    )
+    data = cjl.parse_jornada(_html_con_filas_equipos_vacios(filas, pleno))
+    assert len(data["partidos"]) == 14
+    p12 = next(p for p in data["partidos"] if p["num"] == 12)
+    assert p12["local"] == "" and p12["visitante"] == "Valladolid"
+    assert p12.get("sin_equipos") is True
+
+
+def test_parse_jornada_con_partidos_sin_equipos():
+    """Jornada 61 2023-24: boleto de selecciones con 8 partidos 'por confirmar'."""
+    filas = "".join(
+        f"<tr><td>{i}</td><td>Local{i}</td><td>Visitante{i}</td><td>1</td><td>X</td><td>2</td></tr>"
+        for i in range(1, 7)
+    )
+    filas += "".join(
+        f"<tr><td>{i}</td><td></td><td></td><td>1</td><td>X</td><td>2</td></tr>"
+        for i in range(7, 15)
+    )
+    pleno = (
+        "<tr><td>España</td><td>0</td><td>1</td><td>2</td><td>M</td></tr>"
+        "<tr><td>Irlanda del Norte</td><td>0</td><td>1</td><td>2</td><td>M</td></tr>"
+    )
+    data = cjl.parse_jornada(_html_con_filas_equipos_vacios(filas, pleno))
+    assert len(data["partidos"]) == 14
+    sin_equipos = [p for p in data["partidos"] if p.get("sin_equipos")]
+    assert len(sin_equipos) == 8
+    assert data["pleno15"] == {"local": "España", "visitante": "Irlanda del Norte"}
+    assert data["recaudacion_euros"] == 3212100

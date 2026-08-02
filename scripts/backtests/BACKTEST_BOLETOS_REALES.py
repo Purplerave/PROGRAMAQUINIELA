@@ -74,8 +74,7 @@ def load_tickets(tickets_dir: Path) -> list[dict]:
         for item in items:
             partidos = item.get("partidos", [])
             pleno = item.get("pleno15")
-            matches = [{"num": p["num"], "local": p["local"], "visitante": p["visitante"]} for p in partidos]
-            if pleno:
+            matches = [{"num": p["num"], "local": p["local"], "visitante": p["visitante"]} for p in partidos]            if pleno:
                 matches.append({"num": 15, "local": pleno["local"], "visitante": pleno["visitante"]})
             ticket = {
                 "temporada": item.get("temporada"),
@@ -154,7 +153,7 @@ def evaluate_ticket(ticket: dict, preds: pd.DataFrame, config: dict) -> dict | N
         "jornada": ticket["jornada"],
         "fecha_sorteo": ticket.get("fecha_sorteo"),
         "n_partidos_evaluados": len(group),
-        "faltantes": [f"{m['local']} - {m['visitante']}" for m in missing],
+        "faltantes": [f"{m['local'] or 'TBD'} - {m['visitante'] or 'TBD'}" for m in missing],
         "hits_3_dobles": hits,
         "accuracy_simple": float(group["best_pred"].eq(group["result"]).mean()),
         "accuracy_market": float(group.loc[market_valid, "favorite_market"].eq(group.loc[market_valid, "result"]).mean())

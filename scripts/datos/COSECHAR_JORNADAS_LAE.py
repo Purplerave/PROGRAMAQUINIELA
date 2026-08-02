@@ -158,20 +158,25 @@ def extract_rows(html: str) -> list[list[str]]:
 
 
 def _match_partido_row(row: list[str]) -> tuple[int, str, str] | None:
-    """Intenta leer una fila de partido: (num, local, visitante) o None."""
+    """Intenta leer una fila de partido: (num, local, visitante) o None.
+
+    Tolera partidos con local o visitante vacíos (boletos con equipos "por
+    confirmar" o aplazados: LD los publica en blanco). Solo exige que la
+    fila tenga el número y las columnas de signos.
+    """
     if len(row) < 4:
         return None
     m = re.fullmatch(r"(\d{1,2})", row[0].strip())
     if m:
         num = int(m.group(1))
-        if 1 <= num <= 14 and row[1].strip() and row[2].strip():
+        if 1 <= num <= 14:
             return num, row[1].strip(), row[2].strip()
     # Variante: primera celda vacía y el número en la segunda (columna extra)
     if not row[0].strip() and len(row) >= 5:
         m = re.fullmatch(r"(\d{1,2})", row[1].strip())
         if m:
             num = int(m.group(1))
-            if 1 <= num <= 14 and row[2].strip() and row[3].strip():
+            if 1 <= num <= 14:
                 return num, row[2].strip(), row[3].strip()
     return None
 
@@ -264,7 +269,10 @@ def parse_jornada(html: str) -> dict:
         if num in seen_nums:
             continue
         seen_nums.add(num)
-        partidos.append({"num": num, "local": local, "visitante": visitante})
+        partido: dict = {"num": num, "local": local, "visitante": visitante}
+        if not (local and visitante):
+            partido["sin_equipos"] = True  # "por confirmar"/aplazado en LD
+        partidos.append(partido)
 
     if len(partidos) < 14:
         raise ValueError(
