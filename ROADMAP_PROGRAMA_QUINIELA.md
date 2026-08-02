@@ -1,9 +1,22 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 01/08/2026 (config v4 + calibración + Dixon-Coles en producción).
+Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 1 cerrada: pleno DC + alias de equipos).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (01/08/2026 — T3 calibración + T4 Dixon-Coles)
+## Último avance (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
+
+- Pleno al 15 conectado al motor: `predict_pleno15_from_model` (Dixon-Coles,
+  rho −0,036) emite buckets 0/1/2/M, top-3 marcadores, selección y calidad;
+  integrado en paquete (`pleno15.modelo_maestro`) y en el contrato por partido
+  (`modelo_maestro.tipo = "pleno_15_marcador"`).
+- Alias controlados (`scripts/motor/team_names.py`): nombres comunes de jornada
+  → histórico (76 equipos) y → priors canónicos 2026/27; filiales separados.
+- Cuotas reales del JSON fluyen a features (mercado 0,951 de la v4 si existen);
+  sin cuotas: motor HGB+Poisson con aviso, nunca APU/LAE/Q15 como cuotas.
+- Backtest del motor idéntico tras el cambio (51,64 % / 8,63; 51,54 % / 8,50;
+  52,49 % / 8,64). Suite: 147 tests en verde. Detalle: REVISION_11.
+
+## Avance anterior (01/08/2026 — T3 calibración + T4 Dixon-Coles)
 
 - T3: `scripts/motor/calibration.py` con `VectorScalingCalibrator` (ECE 0,0326→0,0245, LogLoss 1,0010→1,0001 en walk-forward 5 temporadas). `MOTOR_PREDICCION_JORNADA` entrena calibrador 84/16 y aplica antes de emitir 1/X/2.
 - T4: `CONFIG_MOTOR_V2.json` → `master_model.dixon_coles {enabled:true, rho:-0.036, use_for_pleno:true}`. `features.py` soporta DC, `MOTOR_QUINIELA_MAESTRO.top_scorelines` y `add_pleno_al_15` usan `dc_score_probs` con rho estimado fuera de muestra. Walk-forward: LogLoss 1,0764→1,0761, pleno exacto 13,06%→13,14% (rho medio −0,036).
@@ -30,18 +43,23 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
 ## Prioridad inmediata
 
-### 1. Conectar la predicción real
+### 1. Conectar la predicción real — ✅ CERRADA (02/08/2026)
 
-Hacer que `PREDECIR_JORNADA.py` use las probabilidades del motor maestro
-entrenado mediante `compute_features_for_upcoming`.
+`PREDECIR_JORNADA.py` usa las probabilidades del motor maestro entrenado
+mediante `compute_features_for_upcoming` (REVISION_10 y REVISION_11).
 
 Criterios de aceptación:
 
-- Entrada estable con los partidos y cuotas reales disponibles.
-- Salida JSON con probabilidades 1/X/2, signo, confianza, dobles y Pleno al 15.
-- Ningún dato posterior al inicio del partido.
-- Los proxies Q15, LAE y APU no se interpretan como cuotas.
-- Pruebas con equipos conocidos, ascendidos, desconocidos y cuotas ausentes.
+- ✅ Entrada estable con los partidos y cuotas reales disponibles
+  (`odd_*`/`open_odd_*` del JSON pasan a features).
+- ✅ Salida JSON con probabilidades 1/X/2, signo, confianza, dobles
+  (`recomendacion_modelo` + boleto optimizado) y Pleno al 15
+  (buckets Dixon-Coles por lado, top marcadores, selección).
+- ✅ Ningún dato posterior al inicio del partido (tests de histórico truncado
+  idéntico, también para el pleno).
+- ✅ Los proxies Q15, LAE y APU no se interpretan como cuotas (tests).
+- ✅ Pruebas con equipos conocidos, ascendidos (priors vía alias), desconocidos
+  (media de liga marcada) y cuotas ausentes. 147 tests.
 
 ### 2. Optimización walk-forward multi-split
 

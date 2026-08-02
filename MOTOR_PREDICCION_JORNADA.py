@@ -41,6 +41,13 @@ from scripts.motor.calibration import VectorScalingCalibrator
 # Configuración de salida
 MODELS_DIR = settings.SALIDA_DIR / "modelos"
 
+# Pleno al 15: buckets de goles del boleto oficial y umbral para sugerir doble
+PLENO_BUCKET_LABELS = ("0", "1", "2", "M")
+_PLENO_ALT_GAP = 0.10
+# Lambdas de emergencia si ni features ni histórico ofrecen medias (no debería ocurrir)
+_FALLBACK_LAMBDA_HOME = 1.45
+_FALLBACK_LAMBDA_AWAY = 1.10
+
 # Modelo entrenado persistente
 _LOGIT_MODEL: Any = None
 _HGB_MODEL: Any = None
@@ -261,10 +268,16 @@ def _check_data_quality(feat_row: pd.Series) -> dict[str, Any]:
 
 def _apply_transition_priors(features_df: pd.DataFrame) -> pd.DataFrame:
     """Aplica priors de transición a equipos con poca muestra en la temporada actual.
-    
+
     Punto 5 Codex: Respetar la temporada y aplicar explícitamente los priors de transición.
     Punto 5 Codex (Rev 2): No añadir heurísticas de Elo nuevas no validadas.
+
+    La búsqueda de priors acepta nombres comunes de jornada ("Malaga CF",
+    "Castellón") traduciéndolos al nombre canónico del fichero de priors
+    ("Malaga CF", "CD Castellon") mediante scripts/motor/team_names.
     """
+    from scripts.motor.team_names import resolve_prior_name
+
     priors_path = settings.DATOS_DIR / "temporada_2026_27_estadisticas_base.json"
     if not priors_path.exists():
         return features_df
@@ -282,11 +295,16 @@ def _apply_transition_priors(features_df: pd.DataFrame) -> pd.DataFrame:
             pj_col = f"{side}_table_pj"
             ppg_col = f"{side}_table_ppg"
             pj = row.get(pj_col, 0)
-            
+
             # Si hay menos de 3 partidos en la temporada actual, usamos el prior
             if pj < 3:
                 team_name = row.get(side)
-                prior = normalized_priors.get(normalize_name(team_name))
+                # 1) Traducción por alias al nombre canónico del fichero de priors
+                canonical = resolve_prior_name(team_name)
+                prior = teams_priors.get(canonical) if canonical else None
+                # 2) Fallback: coincidencia normalizada directa (comportamiento anterior)
+                if prior is None:
+                    prior = normalized_priors.get(normalize_name(team_name))
                 if prior:
                     adj_ppg = prior.get("context", {}).get("adjusted_ppg")
                     if adj_ppg is not None:
@@ -301,6 +319,212 @@ def _apply_transition_priors(features_df: pd.DataFrame) -> pd.DataFrame:
         features_df["table_ppg_diff"] = features_df["home_table_ppg"] - features_df["away_table_ppg"]
         
     return features_df
+
+
+# ---------------------------------------------------------------------------
+# Pleno al 15 (Dixon-Coles, T4)
+# ---------------------------------------------------------------------------
+
+def _pleno_bucket_label(goals: int) -> str:
+    """Bucket oficial del Pleno al 15: 0, 1, 2 o M (3 o más goles)."""
+    return str(goals) if goals < 3 else "M"
+
+
+def _pleno_bucket_probs(score_probs: np.ndarray) -> tuple[dict[str, float], dict[str, float]]:
+    """Pasa la matriz de marcadores (G x G) a probabilidades de buckets por lado.
+
+    La matriz ya viene normalizada (DC recorta la cola en max_goals; la masa
+    residual por encima de 7 goles de cada lado es < 0,1 % y se renormaliza).
+    """
+    home = {bucket: 0.0 for bucket in PLENO_BUCKET_LABELS}
+    away = {bucket: 0.0 for bucket in PLENO_BUCKET_LABELS}
+    goals_n = score_probs.shape[0]
+    for hg in range(goals_n):
+        for ag in range(goals_n):
+            prob = float(score_probs[hg, ag])
+            home[_pleno_bucket_label(hg)] += prob
+            away[_pleno_bucket_label(ag)] += prob
+    total_home = sum(home.values()) or 1.0
+    total_away = sum(away.values()) or 1.0
+    home = {b: round(v / total_home, 4) for b, v in home.items()}
+    away = {b: round(v / total_away, 4) for b, v in away.items()}
+    return home, away
+
+
+def _pleno_select(bucket_probs: dict[str, float], gap: float = _PLENO_ALT_GAP) -> tuple[str, str | None]:
+    """Selecciona el bucket principal y una alternativa si el 2º está muy cerca."""
+    ordered = sorted(bucket_probs.items(), key=lambda item: item[1], reverse=True)
+    principal = ordered[0][0]
+    alternativa = ordered[1][0] if (ordered[0][1] - ordered[1][1]) < gap else None
+    return principal, alternativa
+
+
+def _league_mean_lambdas(history_df: pd.DataFrame, cutoff_date: pd.Timestamp) -> tuple[float, float]:
+    """Media histórica de goles por lado SOLO con partidos anteriores al corte.
+
+    Se usa como sustituto controlado cuando un equipo no tiene historial
+    (selecciones, ligas no cubiertas), de modo que el Pleno al 15 siempre
+    produce una salida estable y documentada (lambdas_fuente).
+    """
+    hist = history_df.copy()
+    hist["date"] = pd.to_datetime(hist["date"], errors="coerce")
+    hist = hist[hist["date"] < pd.to_datetime(cutoff_date)]
+    mean_home = float(hist["FTHG"].mean()) if len(hist) else np.nan
+    mean_away = float(hist["FTAG"].mean()) if len(hist) else np.nan
+    if np.isnan(mean_home):
+        mean_home = _FALLBACK_LAMBDA_HOME
+    if np.isnan(mean_away):
+        mean_away = _FALLBACK_LAMBDA_AWAY
+    return mean_home, mean_away
+
+
+def predict_pleno15_from_model(
+    partido15: dict[str, Any],
+    history_df: pd.DataFrame,
+    jornada: int,
+    cutoff_date: str | datetime,
+) -> dict[str, Any]:
+    """Predice el Pleno al 15 (marcador por buckets 0/1/2/M) con Dixon-Coles.
+
+    Usa las mismas features point-in-time que el resto de la jornada
+    (`compute_features_for_upcoming`, sin fuga temporal) y aplica el rho de
+    `master_model.dixon_coles` de la config activa (validado walk-forward, T4).
+
+    APU/LAE/Q15 y `marcadores_q15` NO se usan como entrada; se devuelven solo
+    como referencia comparativa.
+
+    Returns:
+        Contrato JSON del Pleno al 15 con buckets, top marcadores, selección,
+        confianza, calidad de datos y avisos.
+    """
+    from scripts.motor.dixon_coles import dc_score_probs
+
+    dc_cfg = settings.master_model_config().get("dixon_coles", {})
+    if not isinstance(dc_cfg, dict):
+        dc_cfg = {}
+    use_dc = bool(dc_cfg.get("enabled", False)) and bool(dc_cfg.get("use_for_pleno", False))
+    rho = float(dc_cfg.get("rho", 0.0)) if use_dc else 0.0
+    max_goals = int(dc_cfg.get("max_goals", 7))
+
+    local = partido15.get("local")
+    visitante = partido15.get("visitante")
+    fecha = partido15.get("fecha")
+
+    match = {
+        "home": local,
+        "away": visitante,
+        "date": fecha if fecha else cutoff_date,
+        "division": partido15.get("division"),  # None -> se infiere del histórico
+        "season": infer_season(fecha) if fecha else None,
+        "odd_1": partido15.get("odd_1"),
+        "odd_x": partido15.get("odd_x"),
+        "odd_2": partido15.get("odd_2"),
+    }
+
+    try:
+        features_df = compute_features_for_upcoming(
+            [match], history_df, cutoff_date=cutoff_date
+        )
+    except Exception as exc:
+        return {
+            "jornada": jornada,
+            "numero": 15,
+            "local": local,
+            "visitante": visitante,
+            "disponible": False,
+            "razon": f"error_features: {exc}",
+        }
+
+    if features_df.empty:
+        return {
+            "jornada": jornada,
+            "numero": 15,
+            "local": local,
+            "visitante": visitante,
+            "disponible": False,
+            "razon": "sin_features",
+        }
+
+    feat_row = features_df.iloc[0]
+    lambda_home = feat_row.get("lambda_home")
+    lambda_away = feat_row.get("lambda_away")
+    home_missing = pd.isna(lambda_home)
+    away_missing = pd.isna(lambda_away)
+
+    lambdas_fuente = "features_equipo"
+    if home_missing or away_missing:
+        mean_home, mean_away = _league_mean_lambdas(history_df, pd.to_datetime(cutoff_date))
+        if home_missing and away_missing:
+            lambdas_fuente = "media_liga"
+        else:
+            lambdas_fuente = "parcial_media_liga"
+        if home_missing:
+            lambda_home = mean_home
+        if away_missing:
+            lambda_away = mean_away
+    lambda_home = float(lambda_home)
+    lambda_away = float(lambda_away)
+
+    # Matriz de marcadores con Dixon-Coles (rho validado en T4) o Poisson
+    score_probs = dc_score_probs(
+        np.array([lambda_home]), np.array([lambda_away]), rho, max_goals=max_goals
+    )[0]
+
+    flat_idx = np.argsort(score_probs, axis=None)[::-1][:3]
+    top_marcadores = []
+    for idx in flat_idx:
+        hg, ag = np.unravel_index(idx, score_probs.shape)
+        top_marcadores.append({"score": f"{hg}-{ag}", "prob": round(float(score_probs[hg, ag]), 4)})
+
+    goles_local, goles_visitante = _pleno_bucket_probs(score_probs)
+    sel_local, alt_local = _pleno_select(goles_local)
+    sel_visitante, alt_visitante = _pleno_select(goles_visitante)
+
+    quality = _check_data_quality(feat_row)
+    avisos = list(quality["warnings"])
+    calidad = quality["quality_score"]
+    if lambdas_fuente != "features_equipo":
+        avisos.append("lambdas_media_liga")
+        calidad = round(max(0.0, calidad - 0.25), 2)
+
+    seleccion_confianza = round(
+        float(goles_local[sel_local]) * float(goles_visitante[sel_visitante]), 4
+    )
+
+    return {
+        "jornada": jornada,
+        "numero": 15,
+        "local": local,
+        "visitante": visitante,
+        "fecha": str(fecha)[:10] if fecha else None,
+        "disponible": calidad >= 0.2,
+        "modelo": "dixon_coles" if rho != 0.0 else "poisson_independiente",
+        "rho": rho,
+        "lambdas": {"local": round(lambda_home, 3), "visitante": round(lambda_away, 3)},
+        "lambdas_fuente": lambdas_fuente,
+        "marcador_predicho": top_marcadores[0]["score"],
+        "marcador_confianza": top_marcadores[0]["prob"],
+        "top_marcadores": top_marcadores,
+        "goles_local": goles_local,
+        "goles_visitante": goles_visitante,
+        "seleccion": {
+            "local": sel_local,
+            "visitante": sel_visitante,
+            "alternativa_local": alt_local,
+            "alternativa_visitante": alt_visitante,
+            "confianza": seleccion_confianza,
+            "nota": "Alternativa sugerida si el segundo bucket está a menos de "
+                    f"{_PLENO_ALT_GAP:.2f} del primero.",
+        },
+        "avisos": avisos,
+        "calidad_datos": calidad,
+        "fuente_probabilidades": {
+            "modelo_primario": "motor_maestro_pleno15",
+            "detalle": "Lambdas point-in-time (forma gf/ga + tiros) con Dixon-Coles. "
+                       "marcadores_q15 solo se adjunta como referencia, no se usa.",
+        },
+        "comparativa_marcadores_q15": partido15.get("marcadores_q15") or [],
+    }
 
 
 def predict_jornada_from_model(
@@ -325,9 +549,11 @@ def predict_jornada_from_model(
 
     # Normalizar partidos para la extracción de features
     normalized_matches = []
+    partido15 = None
     for p in partidos:
-        if p.get("num") == 15 and p.get("pleno15"):
-            # El Pleno al 15 se maneja separadamente
+        if p.get("num") == 15:
+            # El Pleno al 15 se maneja aparte con Dixon-Coles (buckets de goles)
+            partido15 = p
             continue
         
         # Respetar la temporada inferida de la fecha del partido
@@ -340,12 +566,38 @@ def predict_jornada_from_model(
             "date": fecha_partido,
             "division": p.get("division", "Primera"),
             "season": season,
+            # Cuotas reales si vienen en el JSON de jornada (entrada estable);
+            # APU/LAE/Q15 NO se pasan: nunca se interpretan como cuotas.
+            "odd_1": p.get("odd_1"),
+            "odd_x": p.get("odd_x"),
+            "odd_2": p.get("odd_2"),
+            "open_odd_1": p.get("open_odd_1"),
+            "open_odd_x": p.get("open_odd_x"),
+            "open_odd_2": p.get("open_odd_2"),
         })
+
+    # Pleno al 15 con Dixon-Coles (independiente del ensemble 1X2: solo lambdas)
+    pleno15_pred = None
+    if partido15 is not None:
+        try:
+            pleno15_pred = predict_pleno15_from_model(
+                partido15, history_df, jornada, cutoff_date
+            )
+        except Exception as e:
+            pleno15_pred = {
+                "jornada": jornada,
+                "numero": 15,
+                "local": partido15.get("local"),
+                "visitante": partido15.get("visitante"),
+                "disponible": False,
+                "razon": f"error_pleno15: {e}",
+            }
 
     if not normalized_matches:
         return {
             "jornada": jornada,
             "predicciones": [],
+            "pleno15": pleno15_pred,
             "estado": "sin_partidos",
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
@@ -363,6 +615,7 @@ def predict_jornada_from_model(
         return {
             "jornada": jornada,
             "error": f"Error calculando features: {str(e)}",
+            "pleno15": pleno15_pred,
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
 
@@ -370,6 +623,7 @@ def predict_jornada_from_model(
         return {
             "jornada": jornada,
             "error": "No se pudieron calcular features para los partidos",
+            "pleno15": pleno15_pred,
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
 
@@ -386,6 +640,7 @@ def predict_jornada_from_model(
         return {
             "jornada": jornada,
             "error": f"Error cargando modelos: {str(e)}",
+            "pleno15": pleno15_pred,
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
 
@@ -514,10 +769,11 @@ def predict_jornada_from_model(
     return {
         "jornada": jornada,
         "predicciones": results,
+        "pleno15": pleno15_pred,
         "estado": "completado" if results else "sin_datos",
         "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         "modelo_info": {
-            "version": "motor_maestro_hibrido_v1_calibrado_vector",
+            "version": "motor_maestro_hibrido_v2_calibrado_vector_pleno_dc",
             "fecha_entrenamiento": datetime.now().isoformat(timespec="seconds"),
             "partidos_entrenamiento": len(history_df) if history_df is not None else 0,
             "calibracion": {
@@ -586,7 +842,7 @@ def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
     predictions["jornada_data"] = {
         "source": f"DATOS/QUINIELA15_J{jornada}.json",
         "partidos_totales": len(partidos),
-        "tiene_pleno15": any(p.get("num") == 15 and p.get("pleno15") for p in partidos),
+        "tiene_pleno15": any(p.get("num") == 15 for p in partidos),
     }
 
     return predictions

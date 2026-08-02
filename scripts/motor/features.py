@@ -16,6 +16,7 @@ from scipy.stats import poisson
 
 import settings
 from scripts.motor.dixon_coles import dc_1x2 as dixon_coles_1x2
+from scripts.motor.team_names import resolve_history_name
 
 LABEL_MAP = {"1": 0, "X": 1, "2": 2}
 
@@ -603,9 +604,14 @@ class TeamStateTracker:
     def normalize_upcoming_match(
         self, match: dict[str, Any], cutoff_date: object
     ) -> dict[str, Any]:
-        """Normaliza un diccionario de partido futuro para su extracción sin resultado."""
-        home = str(match.get("home") or match.get("local") or "").strip()
-        away = str(match.get("away") or match.get("visitante") or "").strip()
+        """Normaliza un diccionario de partido futuro para su extracción sin resultado.
+
+        Traduce los nombres comunes de la jornada ("Athletic Club", "Málaga CF")
+        a los nombres exactos del histórico ("Ath Bilbao", "Malaga") mediante el
+        mapa controlado de scripts/motor/team_names.py. Lo no mapeado pasa intacto.
+        """
+        home = resolve_history_name(str(match.get("home") or match.get("local") or "").strip())
+        away = resolve_history_name(str(match.get("away") or match.get("visitante") or "").strip())
         dt_val = match.get("date") or match.get("fecha") or cutoff_date
         dt = pd.to_datetime(dt_val, errors="coerce")
         if pd.isna(dt):

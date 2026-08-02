@@ -340,20 +340,77 @@ class TestIntegration:
         assert match["probabilidades"]["fuente_principal"] == "fallback_apu_lae_q15"
 
     def test_pleno_15_exclusion(self):
-        """Punto 3 Codex (Rev 2): Confirmar que el partido 15 no recibe predicción 1X2 del modelo."""
+        """Punto 3 Codex (Rev 2): el partido 15 nunca recibe 1X2 del modelo.
+
+        Actualizado (02/08/2026): el partido 15 recibe la predicción de marcador
+        Dixon-Coles (`tipo == "pleno_15_marcador"`) pero jamás prob_1/prob_x/prob_2.
+        """
         from PREDECIR_JORNADA import _integrate_model_predictions
-        
+
+        # Caso A: sin predicción de pleno del modelo -> no disponible
         partidos = [{"num": 15, "local": "Hacken", "visitante": "AIK"}]
-        model_preds = {
-            "predicciones": [{"numero": 15, "prob_1": 0.5, "prob_x": 0.3, "prob_2": 0.2}]
-        }
-        
+        model_preds = {"predicciones": [{"numero": 15, "prob_1": 0.5, "prob_x": 0.3, "prob_2": 0.2}]}
+
         integrated = _integrate_model_predictions(partidos, model_preds)
         match = integrated[0]
-        
+
         assert match["modelo_maestro"]["disponible"] is False
-        assert match["modelo_maestro"]["razon"] == "pleno_15_solo_marcador"
+        assert match["modelo_maestro"]["tipo"] == "pleno_15_marcador"
         assert "prob_1" not in match["modelo_maestro"]
+        assert "prob_x" not in match["modelo_maestro"]
+        assert "prob_2" not in match["modelo_maestro"]
+
+    def test_pleno_15_modelo_dixon_coles_integrado(self):
+        """El partido 15 recibe buckets y marcador del modelo DC, sin 1X2."""
+        from PREDECIR_JORNADA import _integrate_model_predictions
+
+        partidos = [{"num": 15, "local": "Hacken", "visitante": "AIK"}]
+        model_preds = {
+            "predicciones": [],
+            "pleno15": {
+                "numero": 15,
+                "disponible": True,
+                "modelo": "dixon_coles",
+                "rho": -0.036,
+                "lambdas": {"local": 1.4, "visitante": 1.1},
+                "lambdas_fuente": "media_liga",
+                "marcador_predicho": "1-1",
+                "marcador_confianza": 0.1188,
+                "top_marcadores": [
+                    {"score": "1-1", "prob": 0.1188},
+                    {"score": "1-0", "prob": 0.1079},
+                    {"score": "0-1", "prob": 0.0848},
+                ],
+                "goles_local": {"0": 0.2466, "1": 0.3715, "2": 0.2410, "M": 0.1409},
+                "goles_visitante": {"0": 0.3329, "1": 0.3837, "2": 0.2081, "M": 0.0753},
+                "seleccion": {
+                    "local": "1",
+                    "visitante": "1",
+                    "alternativa_local": None,
+                    "alternativa_visitante": "0",
+                    "confianza": 0.1426,
+                },
+                "avisos": ["lambdas_media_liga"],
+                "calidad_datos": 0.45,
+                "fuente_probabilidades": {"modelo_primario": "motor_maestro_pleno15"},
+                "comparativa_marcadores_q15": [],
+            },
+        }
+
+        integrated = _integrate_model_predictions(partidos, model_preds)
+        match = integrated[0]
+        modelo = match["modelo_maestro"]
+
+        assert modelo["disponible"] is True
+        assert modelo["tipo"] == "pleno_15_marcador"
+        assert modelo["marcador_predicho"] == "1-1"
+        assert set(modelo["goles_local"]) == {"0", "1", "2", "M"}
+        assert set(modelo["goles_visitante"]) == {"0", "1", "2", "M"}
+        assert modelo["seleccion"]["local"] in {"0", "1", "2", "M"}
+        # Nunca debe exponer probabilidades 1X2
+        assert "prob_1" not in modelo
+        assert "prob_x" not in modelo
+        assert "prob_2" not in modelo
 
     def test_spanish_teams_reliability(self):
         """Añadir prueba con equipos españoles presentes en el histórico."""

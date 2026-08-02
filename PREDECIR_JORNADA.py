@@ -50,11 +50,21 @@ def normalize_name(value):
 
 
 def enrich_with_priors(partidos, priors):
-    """Añade priors de equipos a los partidos."""
+    """Añade priors de equipos a los partidos.
+
+    Acepta nombres comunes de jornada ("Castellón", "Malaga CF") traduciéndolos
+    al nombre canónico del fichero de priors ("CD Castellon", "Malaga CF")
+    mediante scripts/motor/team_names.
+    """
+    from scripts.motor.team_names import resolve_prior_name
+
     by_name = {normalize_name(name): stats for name, stats in priors.items()}
     for match in partidos:
         for side in ("local", "visitante"):
-            prior = by_name.get(normalize_name(match.get(side)))
+            canonical = resolve_prior_name(match.get(side))
+            prior = priors.get(canonical) if canonical else None
+            if prior is None:
+                prior = by_name.get(normalize_name(match.get(side)))
             if not prior:
                 continue
             context = prior.get("context", {})
@@ -105,12 +115,55 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
         num = match.get("num")
         pred = pred_by_num.get(num)
 
-        # Si es el pleno al 15, no le asignamos predicción 1X2 del modelo
+        # El partido 15 es el Pleno al 15: no recibe predicción 1X2; recibe
+        # la predicción de marcador (buckets 0/1/2/M) del modelo Dixon-Coles.
         if num == 15:
-            match["modelo_maestro"] = {
-                "disponible": False,
-                "razon": "pleno_15_solo_marcador",
-            }
+            pleno_pred = model_predictions.get("pleno15")
+            if pleno_pred and pleno_pred.get("disponible"):
+                match["modelo_maestro"] = {
+                    "disponible": True,
+                    "tipo": "pleno_15_marcador",
+                    "modelo": pleno_pred.get("modelo"),
+                    "rho": pleno_pred.get("rho"),
+                    "lambdas": pleno_pred.get("lambdas"),
+                    "lambdas_fuente": pleno_pred.get("lambdas_fuente"),
+                    "marcador_predicho": pleno_pred.get("marcador_predicho"),
+                    "marcador_confianza": pleno_pred.get("marcador_confianza"),
+                    "top_marcadores": pleno_pred.get("top_marcadores"),
+                    "goles_local": pleno_pred.get("goles_local"),
+                    "goles_visitante": pleno_pred.get("goles_visitante"),
+                    "seleccion": pleno_pred.get("seleccion"),
+                    "avisos": pleno_pred.get("avisos", []),
+                    "calidad_datos": pleno_pred.get("calidad_datos"),
+                    "fuente": pleno_pred.get("fuente_probabilidades"),
+                    "comparativa_marcadores_q15": pleno_pred.get("comparativa_marcadores_q15", []),
+                }
+            elif pleno_pred:
+                # Predicción generada pero de baja fiabilidad: se conserva el
+                # detalle claramente marcado, nunca como fuente principal.
+                match["modelo_maestro"] = {
+                    "disponible": False,
+                    "tipo": "pleno_15_marcador",
+                    "razon": pleno_pred.get("razon") or "baja_calidad_datos",
+                    "modelo": pleno_pred.get("modelo"),
+                    "lambdas_fuente": pleno_pred.get("lambdas_fuente"),
+                    "calidad_datos": pleno_pred.get("calidad_datos"),
+                    "avisos": pleno_pred.get("avisos", []),
+                    "detalle_baja_fiabilidad": {
+                        "marcador_predicho": pleno_pred.get("marcador_predicho"),
+                        "top_marcadores": pleno_pred.get("top_marcadores"),
+                        "goles_local": pleno_pred.get("goles_local"),
+                        "goles_visitante": pleno_pred.get("goles_visitante"),
+                        "seleccion": pleno_pred.get("seleccion"),
+                        "lambdas": pleno_pred.get("lambdas"),
+                    },
+                }
+            else:
+                match["modelo_maestro"] = {
+                    "disponible": False,
+                    "tipo": "pleno_15_marcador",
+                    "razon": "pleno15_sin_prediccion_modelo",
+                }
             continue
 
         if pred:
@@ -317,9 +370,20 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
     # 6. Generar avisos de priors
     match_warnings = prior_warnings_for_matches(partidos)
 
-    # 7. Extraer Pleno al 15
+    # 7. Extraer Pleno al 15 (diagnóstico Q15 como comparativa + modelo DC)
     pleno = next((p for p in partidos if p.get("num") == 15), None)
-    pleno_data = pleno.get("pleno15") if pleno else None
+    pleno_data = None
+    if pleno:
+        pleno_data = {
+            "nota": "El Pleno al 15 separa signo 1X2 de marcador por buckets 0/1/2/M.",
+            "modelo_maestro": pleno.get("modelo_maestro"),
+            "diagnostico_q15": pleno.get("pleno15"),
+            "fuente_principal": (
+                "motor_maestro_pleno15"
+                if (pleno.get("modelo_maestro") or {}).get("disponible")
+                else "fallback_marcadores_q15"
+            ),
+        }
 
     # 7.5 Boleto optimizado (T2): desarrollo global con presupuesto y valor.
     #     Usa las probabilidades del modelo cuando existen; si no, Q15 como
@@ -361,6 +425,10 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
             ) / max(1, len([p for p in partidos if p.get("num") != 15 and p.get("modelo_maestro", {}).get("disponible") is True])),
             3,
         ),
+        "pleno15_modelo_disponible": any(
+            p.get("num") == 15 and p.get("modelo_maestro", {}).get("disponible") is True
+            for p in partidos
+        ),
     }
 
     package = {
@@ -379,13 +447,14 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
         "resumen_modelo": resumen,
         "columnas": {
             "estado": "v3_modelo_integrado",
-            "nota": "La v3 integra el motor maestro para probabilidades principales. APU/LAE/Q15 se mantienen como referencia comparativa. El boleto optimizado se construye con OPTIMIZADOR_COLUMNAS (T2).",
+            "nota": "La v3 integra el motor maestro para probabilidades principales. APU/LAE/Q15 se mantienen como referencia comparativa. El boleto optimizado se construye con OPTIMIZADOR_COLUMNAS (T2). El Pleno al 15 lo predice el modelo Dixon-Coles (T4).",
             "cambios": [
                 "probabilidades.modelo ahora contiene predicciones del motor maestro",
                 "probabilidades.comparativa contiene APU/LAE/Q15 para referencia",
                 "recomendacion_modelo genera signos/dobles basados en el modelo",
                 "modelo_maestro contiene metadata de calidad y features",
                 "boleto_optimizado contiene desarrollo global, coste, distribución de aciertos y Monte Carlo",
+                "pleno15.modelo_maestro contiene buckets 0/1/2/M, top marcadores y selección Dixon-Coles",
             ],
         },
         "avisos": {

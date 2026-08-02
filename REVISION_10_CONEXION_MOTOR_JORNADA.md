@@ -133,9 +133,19 @@ El sistema garantiza que:
 
 ## Limitaciones
 
-1. **Equipos fuera del histórico**: Los equipos de ligas no españolas (ej. Noruega, Suecia en J74) no tienen datos y producen predicciones basadas en默认值
+1. **Equipos fuera del histórico**: Los equipos de ligas no españolas (ej. Noruega, Suecia en J74) no tienen datos y producen predicciones basadas en valores por defecto
 2. **Sin cuotas de mercado**: Para partidos sin cuotas, se usa solo Poisson + modelos ML
 3. **Entrenamiento local**: Los modelos se entrenan en cada ejecución (no hay persistencia de modelos)
+
+## Actualización 02/08/2026 (REVISION_11)
+
+- El Pleno al 15 ya predice marcador con el motor (`predict_pleno15_from_model`,
+  Dixon-Coles): buckets 0/1/2/M por lado, top-3 marcadores, selección y calidad,
+  integrados en el paquete (`pleno15.modelo_maestro`).
+- Alias controlados de nombres de equipo (`scripts/motor/team_names.py`) para
+  mapear nombres comunes de jornada al histórico y a los priors 2026/27.
+- Las cuotas reales del JSON de jornada (`odd_*`, `open_odd_*`) llegan a las
+  features; APU/LAE/Q15 siguen sin usarse como cuotas.
 
 ## Pruebas Ejecutadas
 
