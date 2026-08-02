@@ -3,7 +3,18 @@
 Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 4 cerrada: backtest de boletos reales LAE).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (02/08/2026 — prioridad 4 ampliada: temporada LAE)
+## Último avance (02/08/2026 — blindaje contrato API)
+
+- `scripts/motor/GENERAR_CONTRATO_API.py` deja de inventar `1-1` cuando el
+  Pleno al 15 no está disponible: ahora emite `disponible=false`, pronósticos
+  nulos y `motivo` explícito.
+- El contrato API pasa a validarse de forma ejecutable: 14 partidos normales,
+  partido 15 único, números sin duplicar, probabilidades numéricas normalizadas,
+  tipo de apuesta coherente y confianza en [0,1].
+- Añadidos tests específicos del contrato (`tests/test_api_contract.py`) y
+  `API_CONTRACT_DEFINITION.md` actualizado. Suite: 153 tests en verde.
+
+## Avance anterior (02/08/2026 — prioridad 4 ampliada: temporada LAE)
 
 - Fuente agregada `DATOS/boletos_lae_fuente/202526.json`: 75 jornadas
   2025-2026. Conversor `scripts/datos/CONVERTIR_FUENTE_BOLETOS_LAE.py` materializa

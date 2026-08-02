@@ -1,45 +1,98 @@
 # Contrato JSON/API — Liga de Maestros
 
-Este documento define el contrato estable para el intercambio de predicciones con la plataforma "Liga de Maestros". 
+Este documento define el contrato estable para entregar predicciones a la
+plataforma "Liga de Maestros".
 
-## Endpoint / Salida: `SALIDAS/api_maestros_J{jornada}.json`
+Generador:
 
-### Estructura del Objeto Principal
+```bash
+PYTHONPATH=. python scripts/motor/GENERAR_CONTRATO_API.py --jornada 74
+```
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| `jornada` | `int` | Número de la jornada de La Quiniela. |
-| `fecha_generacion` | `iso8601` | Marca de tiempo de la predicción. |
-| `modelo_version` | `string` | Identificador de la versión del motor utilizado. |
-| `partidos` | `list` | Lista de 14 objetos de partido (1-14). |
-| `pleno15` | `object` | Objeto especial para el partido 15. |
+Entrada esperada:
 
-### Objeto Partido (1-14)
+```text
+SALIDAS/paquete_jornada_J{jornada}.json
+```
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| `numero` | `int` | Número del partido en el boleto (1-14). |
-| `local` | `string` | Nombre del equipo local. |
-| `visitante` | `string` | Nombre del equipo visitante. |
-| `probabilidades` | `object` | Probabilidades normalizadas { "1", "X", "2" }. |
-| `signo_maestro` | `string` | Signo principal recomendado ("1", "X", "2"). |
-| `apuesta` | `string` | Sugerencia de apuesta ("1", "1X", "1X2", etc.). |
-| `tipo` | `string` | "simple", "doble" o "triple". |
-| `confianza` | `float` | Índice de certidumbre (0.0 a 1.0). |
+Salida:
 
-### Objeto Pleno 15
+```text
+SALIDAS/api_maestros_J{jornada}.json
+```
+
+El generador valida el contenido antes de escribir la salida. Si el paquete no
+cumple el contrato, falla explícitamente; no completa probabilidades ni
+pronósticos con valores ficticios.
+
+## Estructura principal
 
 | Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
+|---|---:|---|
+| `jornada` | `int` | Número de jornada. |
+| `fecha_generacion` | `string|null` | Fecha/hora de generación heredada del paquete. |
+| `modelo_version` | `string` | Versión del motor. |
+| `partidos` | `list[object]` | Exactamente 14 objetos, partidos 1-14. |
+| `pleno15` | `object` | Objeto específico del partido 15. |
+
+## Partido 1-14
+
+| Campo | Tipo | Regla |
+|---|---:|---|
+| `numero` | `int` | 1..14, sin duplicados. |
 | `local` | `string` | Equipo local. |
 | `visitante` | `string` | Equipo visitante. |
-| `marcador` | `string` | Marcador exacto más probable (ej. "2-1"). |
-| `pronostico_local` | `string` | Bucket local ("0", "1", "2", "M"). |
-| `pronostico_visitante` | `string` | Bucket visitante ("0", "1", "2", "M"). |
+| `probabilidades` | `object` | Exactamente claves `1`, `X`, `2`; valores numéricos [0,1]; suma ≈ 1. |
+| `fuente` | `string|null` | Fuente principal de probabilidades. |
+| `cuotas_disponibles` | `bool` | Indica si el paquete informó cuotas/mercado real disponible. |
+| `calidad` | `string|null` | Calidad o diagnóstico resumido si existe. |
+| `avisos` | `list[string]` | Avisos no bloqueantes. |
+| `signo_maestro` | `string` | `1`, `X` o `2`. |
+| `apuesta` | `string` | Signos únicos, subconjunto de `1X2`; debe contener `signo_maestro`. |
+| `tipo` | `string` | `simple`, `doble` o `triple`; debe coincidir con longitud de `apuesta`. |
+| `confianza` | `float` | Número entre 0 y 1. |
 
----
+## Pleno al 15
 
-## Ejemplo de Respuesta
+### Disponible
+
+```json
+{
+  "disponible": true,
+  "local": "Elche",
+  "visitante": "Betis",
+  "marcador": "2-1",
+  "pronostico_local": "2",
+  "pronostico_visitante": "1",
+  "calidad": "media",
+  "avisos": [],
+  "motivo": null
+}
+```
+
+`pronostico_local` y `pronostico_visitante` deben ser buckets `0`, `1`, `2` o
+`M`.
+
+### No disponible
+
+Cuando el modelo de Pleno al 15 no esté disponible, la API **no inventa** un
+marcador ni un `1-1` de relleno:
+
+```json
+{
+  "disponible": false,
+  "local": "Elche",
+  "visitante": "Betis",
+  "marcador": null,
+  "pronostico_local": null,
+  "pronostico_visitante": null,
+  "calidad": null,
+  "avisos": [],
+  "motivo": "modelo_pleno15_no_disponible"
+}
+```
+
+## Ejemplo abreviado
 
 ```json
 {
@@ -51,7 +104,11 @@ Este documento define el contrato estable para el intercambio de predicciones co
       "numero": 1,
       "local": "Real Madrid",
       "visitante": "Barcelona",
-      "probabilidades": { "1": 0.45, "X": 0.28, "2": 0.27 },
+      "probabilidades": {"1": 0.45, "X": 0.28, "2": 0.27},
+      "fuente": "ensemble_calibrado",
+      "cuotas_disponibles": true,
+      "calidad": "alta",
+      "avisos": [],
       "signo_maestro": "1",
       "apuesta": "1X",
       "tipo": "doble",
@@ -59,11 +116,15 @@ Este documento define el contrato estable para el intercambio de predicciones co
     }
   ],
   "pleno15": {
+    "disponible": false,
     "local": "Atletico",
     "visitante": "Sevilla",
-    "marcador": "1-1",
-    "pronostico_local": "1",
-    "pronostico_visitante": "1"
+    "marcador": null,
+    "pronostico_local": null,
+    "pronostico_visitante": null,
+    "calidad": null,
+    "avisos": [],
+    "motivo": "modelo_pleno15_no_disponible"
   }
 }
 ```
