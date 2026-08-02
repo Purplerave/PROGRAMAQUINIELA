@@ -236,14 +236,20 @@ def parse_float(value: Any) -> float | None:
     if value is None:
         return None
     if isinstance(value, (int, float)):
-        return float(value)
+        parsed = float(value)
+        if parsed != parsed:  # NaN
+            return None
+        return parsed
     text = str(value).strip().lower()
     if text in {"", "nan", "none", "null"}:
         return None
     try:
-        return float(text.replace(",", "."))
+        parsed = float(text.replace(",", "."))
     except ValueError:
         return None
+    if parsed != parsed:  # NaN
+        return None
+    return parsed
 
 
 def is_missing_value(value: Any) -> bool:
