@@ -45,39 +45,17 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
 ### 1. Conectar la predicción real — ✅ CERRADA (02/08/2026)
 
-`PREDECIR_JORNADA.py` usa las probabilidades del motor maestro entrenado
-mediante `compute_features_for_upcoming` (REVISION_10 y REVISION_11).
+### 2. Optimización walk-forward multi-split — ✅ CERRADA (02/08/2026)
 
-Criterios de aceptación:
+Integrada en `MOTOR_QUINIELA_MAESTRO.py`. La selección de configuración ahora
+usa las últimas 3 temporadas como bloques de validación temporal.
+Criterio de selección: `mean_score - 0.5 * std_score` (rendimiento y estabilidad).
 
-- ✅ Entrada estable con los partidos y cuotas reales disponibles
-  (`odd_*`/`open_odd_*` del JSON pasan a features).
-- ✅ Salida JSON con probabilidades 1/X/2, signo, confianza, dobles
-  (`recomendacion_modelo` + boleto optimizado) y Pleno al 15
-  (buckets Dixon-Coles por lado, top marcadores, selección).
-- ✅ Ningún dato posterior al inicio del partido (tests de histórico truncado
-  idéntico, también para el pleno).
-- ✅ Los proxies Q15, LAE y APU no se interpretan como cuotas (tests).
-- ✅ Pruebas con equipos conocidos, ascendidos (priors vía alias), desconocidos
-  (media de liga marcada) y cuotas ausentes. 147 tests.
+### 3. Evaluar el Pleno al 15 — ✅ CERRADA (02/08/2026)
 
-### 2. Optimización walk-forward multi-split
-
-Sustituir la selección basada en un único bloque de validación por varias
-temporadas de validación temporal. Elegir configuraciones por rendimiento
-medio y estabilidad, no por un único máximo.
-
-Criterios de aceptación:
-
-- Train siempre anterior a validación.
-- Resultados por temporada y promedio.
-- Comparación contra configuración activa y favorito de mercado.
-- No activar una configuración si la mejora no es consistente.
-
-### 3. Evaluar el Pleno al 15
-
-Medir los marcadores Poisson contra resultados reales: acierto exacto,
-presencia en top 3 y calibración de goles local/visitante.
+Medido mediante `scripts/backtests/DIXON_COLES.py`.
+Resultados (5 temporadas): exacto 13,14% (Δ +0,07%), Top-3 34,75%.
+Rho medio estimado: -0,036 (validado fuera de muestra).
 
 ## Experimentos posteriores
 

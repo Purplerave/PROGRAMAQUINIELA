@@ -502,25 +502,74 @@ def evaluate_config(frame: pd.DataFrame, pred_prefix: str, config: dict) -> dict
 
 
 def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dict]:
-    split_idx = int(len(train) * 0.84)
-    subtrain = train.iloc[:split_idx].copy()
-    valid = train.iloc[split_idx:].copy()
+    """Optimiza la configuración híbrida usando validación temporal multi-split.
 
-    logit = build_logit_model()
-    hgb = build_hgb_model()
-    logit.fit(subtrain[feature_columns() + ["division"]], subtrain["target"])
-    hgb.fit(subtrain[feature_columns()], subtrain["target"])
+    Si existen suficientes temporadas (>= 2), realiza un walk-forward por temporadas
+    (por defecto las últimas 3) para evaluar los candidatos basándose en el
+    rendimiento medio y la estabilidad. Si no, aplica un split temporal único 84/16.
+    """
+    usable = train.copy()
+    if "season" not in usable.columns or usable["season"].nunique() < 2:
+        # Fallback a split único 84/16 si no hay datos de temporada suficientes
+        split_idx = int(len(usable) * 0.84)
+        subtrain = usable.iloc[:split_idx].copy()
+        valid = usable.iloc[split_idx:].copy()
+        
+        logit_sub = build_logit_model()
+        hgb_sub = build_hgb_model()
+        logit_sub.fit(subtrain[feature_columns() + ["division"]], subtrain["target"])
+        hgb_sub.fit(subtrain[feature_columns()], subtrain["target"])
+        
+        valid_eval = add_market_baseline(valid)
+        logit_probs = predict_full_probs(logit_sub, valid, feature_columns() + ["division"])
+        hgb_probs = predict_full_probs(hgb_sub, valid, feature_columns())
+        valid_eval["logit_prob_1"] = logit_probs[:, 0]
+        valid_eval["logit_prob_x"] = logit_probs[:, 1]
+        valid_eval["logit_prob_2"] = logit_probs[:, 2]
+        valid_eval["hgb_prob_1"] = hgb_probs[:, 0]
+        valid_eval["hgb_prob_x"] = hgb_probs[:, 1]
+        valid_eval["hgb_prob_2"] = hgb_probs[:, 2]
+        
+        val_blocks = [valid_eval]
+    else:
+        # Validación multi-split por temporadas
+        seasons = sorted(usable["season"].dropna().unique().tolist(), key=season_sort_key)
+        # Usamos hasta las últimas 3 temporadas para validación
+        val_seasons = seasons[-3:]
+        
+        val_blocks = []
+        for v_season in val_seasons:
+            train_mask = usable["season"].apply(lambda s: season_sort_key(s) < season_sort_key(v_season))
+            val_mask = usable["season"] == v_season
+            
+            t_sub = usable[train_mask].copy()
+            v_sub = usable[val_mask].copy()
+            
+            if len(t_sub) < 500 or len(v_sub) < 50:
+                continue
+                
+            l_sub = build_logit_model()
+            h_sub = build_hgb_model()
+            l_sub.fit(t_sub[feature_columns() + ["division"]], t_sub["target"])
+            h_sub.fit(t_sub[feature_columns()], t_sub["target"])
+            
+            v_sub = add_market_baseline(v_sub)
+            l_probs = predict_full_probs(l_sub, v_sub, feature_columns() + ["division"])
+            h_probs = predict_full_probs(h_sub, v_sub, feature_columns())
+            
+            v_sub["logit_prob_1"] = l_probs[:, 0]
+            v_sub["logit_prob_x"] = l_probs[:, 1]
+            v_sub["logit_prob_2"] = l_probs[:, 2]
+            v_sub["hgb_prob_1"] = h_probs[:, 0]
+            v_sub["hgb_prob_x"] = h_probs[:, 1]
+            v_sub["hgb_prob_2"] = h_probs[:, 2]
+            val_blocks.append(v_sub)
+            
+        if not val_blocks:
+            # Fallback si no hay bloques válidos
+            return optimize_hybrid_config(usable.assign(season=np.nan))
 
-    valid_eval = add_market_baseline(valid)
-    logit_probs = predict_full_probs(logit, valid, feature_columns() + ["division"])
-    hgb_probs = predict_full_probs(hgb, valid, feature_columns())
-    valid_eval["logit_prob_1"] = logit_probs[:, 0]
-    valid_eval["logit_prob_x"] = logit_probs[:, 1]
-    valid_eval["logit_prob_2"] = logit_probs[:, 2]
-    valid_eval["hgb_prob_1"] = hgb_probs[:, 0]
-    valid_eval["hgb_prob_x"] = hgb_probs[:, 1]
-    valid_eval["hgb_prob_2"] = hgb_probs[:, 2]
-
+    # Definición de candidatos
     master_config = settings.master_model_config()
     default_weight_candidates = [
         {"logit": 0.35, "hgb": 0.00, "market": 0.45, "poisson": 0.20},
@@ -531,6 +580,7 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
     weight_candidates = master_config.get("weight_candidates") or default_weight_candidates
     if isinstance(config_weights, dict) and config_weights not in weight_candidates:
         weight_candidates = [config_weights, *weight_candidates]
+        
     draw_boosts = master_config.get("draw_boost_candidates", [master_config.get("draw_boost", 0.0)])
     segunda_draw_boosts = master_config.get("segunda_draw_boost_candidates", [master_config.get("segunda_draw_boost", 0.0)])
     double_draw_weights = master_config.get("double_draw_weight_candidates", [master_config.get("double_draw_weight", 0.70), 0.85])
@@ -563,20 +613,31 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
             "double_draw_threshold": draw_threshold,
             "x_disagreement_strategy": x_strategy,
         }
-        evaluation = evaluate_config(valid_eval, "opt", config)
-        payload = {
-            "config": config,
-            "score": evaluation["score"],
-            "accuracy_simple": evaluation["accuracy_simple"],
-            "mean_hits_3_dobles": evaluation["mean_hits_3_dobles"],
-        }
-        if best is None or payload["score"] > best["score"]:
-            best = payload
+        
+        scores = []
+        for block in val_blocks:
+            evaluation = evaluate_config(block, "opt", config)
+            scores.append(evaluation["score"])
+        
+        mean_score = np.mean(scores)
+        std_score = np.std(scores)
+        # Métrica de estabilidad: penalizamos la variabilidad entre temporadas
+        final_metric = mean_score - (0.5 * std_score)
+        
+        if best is None or final_metric > best["final_metric"]:
+            best = {
+                "config": config,
+                "final_metric": final_metric,
+                "mean_score": mean_score,
+                "std_score": std_score
+            }
 
+    # Re-entrenar modelos finales con TODO el historial proporcionado
     final_logit = build_logit_model()
     final_hgb = build_hgb_model()
     final_logit.fit(train[feature_columns() + ["division"]], train["target"])
     final_hgb.fit(train[feature_columns()], train["target"])
+    
     return final_logit, final_hgb, best["config"]
 
 
