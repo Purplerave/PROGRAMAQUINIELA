@@ -41,6 +41,38 @@ DEFAULT_OUT_DIR = settings.DATOS_DIR / "boletos_lae_reales"
 SIGNS = {"1", "X", "2"}
 
 
+class TextExtractor(HTMLParser):
+    """Convierte HTML en texto lineal preservando cortes estructurales básicos."""
+
+    BLOCK_TAGS = {"br", "div", "p", "li", "tr", "td", "th", "section", "article", "h1", "h2", "h3"}
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.parts: list[str] = []
+        self._skip_depth = 0
+
+    def handle_starttag(self, tag: str, attrs) -> None:  # noqa: ANN001 - API HTMLParser
+        tag = tag.lower()
+        if tag in {"script", "style", "noscript"}:
+            self._skip_depth += 1
+        elif tag in self.BLOCK_TAGS:
+            self.parts.append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        tag = tag.lower()
+        if tag in {"script", "style", "noscript"} and self._skip_depth:
+            self._skip_depth -= 1
+        elif tag in self.BLOCK_TAGS:
+            self.parts.append("\n")
+
+    def handle_data(self, data: str) -> None:
+        if not self._skip_depth:
+            self.parts.append(data)
+
+    def text(self) -> str:
+        return html.unescape("".join(self.parts))
+
+
 class TableExtractor(HTMLParser):
     """Extrae tablas HTML como filas/celdas de texto preservando saltos <br>."""
 
@@ -138,7 +170,33 @@ def parse_score_cell(cell: str) -> str:
     return f"{int(values[0])}-{int(values[1])}"
 
 
-def parse_result_table(html_text: str) -> list[ParsedMatch]:
+def _is_force_line(value: str) -> bool:
+    return bool(re.fullmatch(r"\(?\d{3,4}(?:\.\d+)?\)?", value.strip()))
+
+
+def _is_int_line(value: str) -> bool:
+    return bool(re.fullmatch(r"\d+", value.strip()))
+
+
+def _valid_sign(num: int, value: str) -> bool:
+    value = value.strip().upper().replace(" ", "")
+    if num < 15:
+        return value in SIGNS
+    return bool(re.fullmatch(r"[012M]-[012M]|\d+-\d+", value))
+
+
+def _ordered_or_raise(matches: list[ParsedMatch]) -> list[ParsedMatch]:
+    # La página puede tener tablas secundarias: nos quedamos con el primer set 1..15 completo.
+    by_num: dict[int, ParsedMatch] = {}
+    for match in matches:
+        by_num.setdefault(match.num, match)
+    ordered = [by_num[n] for n in range(1, 16) if n in by_num]
+    if len(ordered) != 15:
+        raise ValueError(f"No se han podido extraer 15 partidos; encontrados {len(ordered)}")
+    return ordered
+
+
+def _parse_from_tables(html_text: str) -> list[ParsedMatch]:
     parser = TableExtractor()
     parser.feed(html_text)
 
@@ -159,10 +217,8 @@ def parse_result_table(html_text: str) -> list[ParsedMatch]:
             except ValueError:
                 continue
             signo = row[3].strip().upper().replace(" ", "")
-            if num < 15 and signo not in SIGNS:
+            if not _valid_sign(num, signo):
                 # Evita capturar tablas secundarias o filas incompletas.
-                continue
-            if num == 15 and not re.fullmatch(r"[012M]-[012M]|\d+-\d+", signo):
                 continue
             matches.append(
                 ParsedMatch(
@@ -174,15 +230,95 @@ def parse_result_table(html_text: str) -> list[ParsedMatch]:
                     tipo="pleno15" if num == 15 else None,
                 )
             )
+    return _ordered_or_raise(matches)
 
-    # La página puede tener tablas secundarias: nos quedamos con el primer set 1..15 completo.
-    by_num: dict[int, ParsedMatch] = {}
-    for match in matches:
-        by_num.setdefault(match.num, match)
-    ordered = [by_num[n] for n in range(1, 16) if n in by_num]
-    if len(ordered) != 15:
-        raise ValueError(f"No se han podido extraer 15 partidos; encontrados {len(ordered)}")
-    return ordered
+
+def _visible_lines(html_text: str) -> list[str]:
+    parser = TextExtractor()
+    parser.feed(html_text)
+    text = parser.text()
+    text = re.sub(r"[ \t\r\f\v]+", " ", text)
+    return [line.strip() for line in text.splitlines() if line.strip()]
+
+
+def _previous_team(lines: list[str], pos: int, lower_bound: int) -> str | None:
+    for idx in range(pos - 1, lower_bound - 1, -1):
+        value = _clean_team_line(lines[idx])
+        if value and not _is_force_line(value) and not _is_int_line(value):
+            return value
+    return None
+
+
+def _next_team(lines: list[str], pos: int, upper_bound: int) -> tuple[str | None, int]:
+    for idx in range(pos + 1, min(upper_bound, len(lines))):
+        value = _clean_team_line(lines[idx])
+        if value and not _is_force_line(value) and not _is_int_line(value):
+            return value, idx
+    return None, pos
+
+
+def _parse_from_visible_text(html_text: str) -> list[ParsedMatch]:
+    """Fallback para HTML sin <table>: usa el texto visible en orden.
+
+    Algunas respuestas de Quiniela15 pueden llegar como markup responsive basado
+    en <div>. Este parser busca la secuencia oficial 1..15 y patrones:
+    local, fuerza, '-', visitante, fuerza, goles, signo.
+    """
+    lines = _visible_lines(html_text)
+    matches: list[ParsedMatch] = []
+    cursor = 0
+    for num in range(1, 16):
+        found: ParsedMatch | None = None
+        candidate_positions = [i for i in range(cursor, len(lines)) if lines[i] == str(num)]
+        for start in candidate_positions:
+            window_end = min(len(lines), start + 80)
+            dash_positions = [i for i in range(start + 1, window_end) if lines[i] == "-"]
+            for dash in dash_positions:
+                local = _previous_team(lines, dash, start + 1)
+                visitante, away_pos = _next_team(lines, dash, window_end)
+                if not local or not visitante:
+                    continue
+                # Buscar marcador tras el visitante: entero, '-', entero.
+                score_pos = None
+                for idx in range(away_pos + 1, window_end - 2):
+                    if _is_force_line(lines[idx]):
+                        continue
+                    if _is_int_line(lines[idx]) and lines[idx + 1] == "-" and _is_int_line(lines[idx + 2]):
+                        score_pos = idx
+                        break
+                if score_pos is None:
+                    continue
+                resultado = f"{int(lines[score_pos])}-{int(lines[score_pos + 2])}"
+                signo = None
+                for idx in range(score_pos + 3, min(score_pos + 12, len(lines))):
+                    maybe = lines[idx].strip().upper().replace(" ", "")
+                    if _valid_sign(num, maybe):
+                        signo = maybe
+                        break
+                if signo is None:
+                    continue
+                found = ParsedMatch(
+                    num=num,
+                    local=local,
+                    visitante=visitante,
+                    resultado=resultado,
+                    signo=signo,
+                    tipo="pleno15" if num == 15 else None,
+                )
+                cursor = score_pos + 3
+                break
+            if found is not None:
+                break
+        if found is not None:
+            matches.append(found)
+    return _ordered_or_raise(matches)
+
+
+def parse_result_table(html_text: str) -> list[ParsedMatch]:
+    try:
+        return _parse_from_tables(html_text)
+    except ValueError:
+        return _parse_from_visible_text(html_text)
 
 
 def fetch_html(url: str, timeout: int = 30) -> str:
@@ -256,6 +392,12 @@ def main() -> None:
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--sleep", type=float, default=0.5, help="pausa entre descargas")
     parser.add_argument("--dry-run", action="store_true", help="parsea e informa, pero no escribe ficheros")
+    parser.add_argument(
+        "--debug-dir",
+        type=Path,
+        default=None,
+        help="guarda el HTML recibido y el texto visible cuando una jornada falla",
+    )
     args = parser.parse_args()
 
     jornadas = parse_jornadas(args)
@@ -263,6 +405,7 @@ def main() -> None:
     errors: dict[int, str] = {}
     for jornada in jornadas:
         url = BASE_URL.format(jornada=jornada)
+        html_text = ""
         try:
             html_text = fetch_html(url)
             matches = parse_result_table(html_text)
@@ -279,6 +422,18 @@ def main() -> None:
                 print(f"J{jornada:03d}: escrito {out_path}")
         except Exception as exc:  # noqa: BLE001 - importación batch, queremos continuar
             errors[jornada] = str(exc)
+            if args.debug_dir is not None:
+                args.debug_dir.mkdir(parents=True, exist_ok=True)
+                try:
+                    html_text = locals().get("html_text", "")
+                    (args.debug_dir / f"quiniela15_J{jornada:03d}.html").write_text(
+                        html_text, encoding="utf-8", errors="replace"
+                    )
+                    (args.debug_dir / f"quiniela15_J{jornada:03d}.txt").write_text(
+                        "\n".join(_visible_lines(html_text)), encoding="utf-8", errors="replace"
+                    )
+                except Exception as debug_exc:  # noqa: BLE001
+                    print(f"J{jornada:03d}: no pude guardar debug: {debug_exc}", file=sys.stderr)
             print(f"J{jornada:03d}: ERROR {exc}", file=sys.stderr)
         time.sleep(max(0.0, args.sleep))
 
