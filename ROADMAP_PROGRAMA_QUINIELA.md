@@ -1,7 +1,66 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 1 cerrada: pleno DC + alias de equipos).
+Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (sesión de
+auditoría externa + evaluación por boletos reales).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
+
+## ⚠️ PUNTO DE CONTINUACIÓN — leer primero en el próximo chat (02/08/2026)
+
+**Contexto:** se respondió a una auditoría externa (ChatGPT) que criticaba que
+el motor no supera al mercado y que la métrica "8,63/15 con tres dobles" se
+calculaba sobre bloques arbitrarios de 15 partidos. Trabajo completo:
+`REVISION_12_RESPUESTA_AUDITORIA_Y_JORNADAS_REALES.md` + commits
+`74459a0`, `9079b8a`, `80388cf`, `bc4d801`, `77e5d6d`, `fffa46e`, `97b4294`,
+`ce6b113`, `66cf532` en la rama `arena/019fc30c-programaquiniela`.
+
+**Estado de la evaluación por boletos reales (PROVISIONAL, con el bug de
+fechas corregido pero SIN re-ejecutar):**
+
+El usuario cosechó 220 boletos oficiales (LD + quinielafutbol) y ejecutó el
+backtest con la versión ANTIGUA (fechas mal). Resultado provisional:
+
+```
+MEDIA: 8.25 aciertos con 3 dobles por boleto (55.0% sobre 15)
+Acierto simple medio: 50.39% | mercado: 49.98%
+Validación vs combinación oficial: 9 desajustes en 95 boletos
+Boletos NO evaluados: 127  (jornadas de verano sin fútbol español)
+```
+
+⚠️ ESTOS NÚMEROS ESTÁN DESACTUALIZADOS. El bug de fechas (LD pone noticias
+con fecha 2026 antes de la fecha de la jornada; el parser cogía la primera)
+hizo que ~80 boletos con fútbol español quedaran sin unir (127 no evaluados
+en vez de ~45). El fix ya está en `66cf532` (_match_fecha filtra por años de
+la temporada).
+
+### PRÓXIMOS PASOS EN ORDEN (lo que debe hacer el próximo chat)
+
+1. `git pull` en la máquina del usuario (Windows, PS).
+2. Re-cosechar (usa caché, no re-descarga): 
+   `.\.venv\Scripts\python.exe scripts\datos\COSECHAR_JORNADAS_LAE.py`
+   → 2023-24 debe dar `72 cosechadas | 0 fallidas` y sin avisos de fecha.
+3. Re-ejecutar backtest:
+   `.\.venv\Scripts\python.exe scripts\backtests\BACKTEST_BOLETOS_REALES.py --tickets DATOS\jornadas_lae`
+   → Esperar: NO evaluados ≈ 40-50 (solo verano), MEDIA y desajustes nuevos.
+4. Comprobar si los 9 desajustes bajan; si quedan, listar los boletos
+   afectados (el JSON `salida/backtest_boletos_reales.json` tiene
+   `boletos_no_evaluados` y por-boleto) y decidir si es error de datos o de
+   la combinación oficial.
+5. Guardar el dataset en GitHub (no se ha subido aún):
+   `git add DATOS/jornadas_lae/*.json`
+   `git commit -m "Dataset de boletos reales 2023-2026 (N boletos)"`
+   `git push`
+6. Actualizar `REVISION_12` y este ROADMAP con la MEDIA definitiva y la
+   conclusión (¿el motor supera al mercado en boletos reales? provisional:
+   +0,41 pp — prometedor pero con la muestra incompleta).
+7. Pendientes de la auditoría (sin empezar): modelo ataque/defensa (Poisson
+   de goles, mejora Pleno y casos sin cuotas), suite de invariantes
+   temporales, ROI real con premios/recaudación, bootstrap por jornada.
+
+**Nota de sesión:** al usuario le sale la MEDIA provisional arriba; ya se le
+explicó que los 127 no evaluados son en parte jornadas de verano reales
+(~45) y en parte el bug de fechas (~80, ya corregido). No tocar el motor
+(`MOTOR_QUINIELA_MAESTRO.py`): sus cifras de referencia (51,64 %/51,56 %)
+no cambian.
 
 ## Último avance (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
 
@@ -80,8 +139,14 @@ sustituido por jornadas reales:
 - Muestra validada en `DATOS/jornadas_lae_muestra/` (3 boletos con premios y
   recaudación): 8/14, 7/15 y 8/15 aciertos con 3 dobles; 0 desajustes vs la
   combinación oficial.
-- Pendiente: ejecutar la cosecha completa (~224 páginas, requiere internet) y
-  reportar medias con bootstrap por jornada + ROI real con premios.
+- Cosecha completa hecha por el usuario: **220 boletos** (2023-24: 68+4
+  fallidas antes del fix; 2024-25: 76; 2025-26: 76).
+- **Resultado provisional del backtest (CON bug de fechas, desactualizado):**
+  MEDIA 8,25/15 con 3 dobles (55,0 %); motor 50,39 % vs mercado 49,98 %;
+  9 desajustes en 95 boletos; 127 no evaluados.
+- **Pendiente:** re-cosechar con el fix de fechas (`66cf532`) y re-ejecutar
+  el backtest; esperar ~45 no evaluados (verano) y números definitivos.
+  Luego: medias con bootstrap por jornada + ROI real con premios.
 
 ## Experimentos posteriores
 

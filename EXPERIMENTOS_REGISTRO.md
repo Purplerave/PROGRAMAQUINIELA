@@ -59,3 +59,15 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Pendiente:** cosecha completa (~224 boletos) en máquina con internet;
   después, medias con bootstrap y ROI real (recaudación + premios ya
   disponibles en los boletos cosechados).
+
+## 2026-08-02 — Experimento #5b: Backtest sobre 220 boletos reales (resultado provisional)
+- **Estado:** PROVISIONAL — ejecutado con el bug de fechas (LD ponía noticias
+  de 2026 antes de la fecha de la jornada; ~80 boletos españoles sin unir).
+  Fix subido en `66cf532`; pendiente re-cosechar + re-ejecutar.
+- **Métricas (provisionales):** MEDIA 8,25/15 con 3 dobles (55,0 %);
+  acierto simple motor 50,39 % vs mercado 49,98 % (+0,41 pp);
+  9 desajustes vs combinación oficial en 95 boletos; 127 no evaluados
+  (≈45 de verano reales + ≈80 por el bug de fechas).
+- **Siguiente:** repetir con el fix; si los números se mantienen, el motor
+  superaría al mercado en boletos reales (~+0,4 pp), lo que matiza la
+  conclusión de la auditoría (empate en jornadas reconstruidas).
