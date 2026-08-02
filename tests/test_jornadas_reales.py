@@ -339,3 +339,34 @@ def test_load_tickets_pleno_sin_visitante_no_rompe(tmp_path):
     pleno = tickets[0]["matches"][-1]
     assert pleno["num"] == 15 and pleno["local"] == "Atlético de Madrid"
     assert pleno["visitante"] == ""
+
+
+def test_match_fecha_mes_capitalizado():
+    """LD escribe '17 de Marzo de 2024' (mes con mayúscula): debe parsearse igual."""
+    html = "<table><tr><td>17 de Marzo de 2024</td><td>Resultados</td></tr></table>"
+    assert cjl._match_fecha(html) == "2024-03-17"
+
+
+def test_parse_jornada_con_fecha_real():
+    """Una jornada real con fila de fecha '15 de Diciembre de 2024' la incluye."""
+    html = (
+        "<html><body><h1>Quiniela - Jornada 29 - 2024-2025</h1>"
+        "<table><tr><td>15 de Diciembre de 2024</td><td>Resultados</td></tr></table>"
+        + LD_HTML
+        + "</body></html>"
+    )
+    data = cjl.parse_jornada(html)
+    assert data["fecha"] == "2024-12-15"
+    assert len(data["partidos"]) == 14
+
+
+def test_join_ticket_sin_fecha_no_rompe_y_no_une():
+    """Un boleto sin fecha no debe reventar: no une nada y devuelve todo 'missing'."""
+    preds = _preds_frame()
+    t_sin_fecha = {
+        "fecha_sorteo": None,
+        "matches": [{"num": i + 1, "local": f"Local{i}", "visitante": f"Visitante{i}"} for i in range(15)],
+    }
+    joined, missing = bbr.join_ticket(t_sin_fecha, preds)
+    assert joined.empty
+    assert len(missing) == 15

@@ -210,6 +210,9 @@ def main() -> int:
     results = []
     no_unidos: list[str] = []
     for t in tickets:
+        if not t.get("fecha_sorteo"):
+            no_unidos.append(f"{t.get('temporada')} J{t.get('jornada')} (sin fecha)")
+            continue
         r = evaluate_ticket(t, preds, config)
         if r is None:
             no_unidos.append(f"{t.get('temporada')} J{t.get('jornada')}")

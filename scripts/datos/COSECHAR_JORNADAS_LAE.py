@@ -246,7 +246,8 @@ def _match_recaudacion(html: str) -> int | None:
 
 
 def _match_fecha(html: str) -> str | None:
-    m = re.search(r"(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})", html)
+    # Los meses aparecen capitalizados en LD ("17 de Marzo de 2024")
+    m = re.search(r"(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})", html, re.IGNORECASE)
     if not m:
         return None
     dia, mes, ano = m.groups()
@@ -456,6 +457,8 @@ def cosechar(
                 continue
 
             data["temporada"] = temporada
+            if data.get("fecha") is None:
+                print(f"  aviso: jornada {n}: fecha no detectada (el backtest no podrá unirla)")
             data["jornada"] = n
             data["combinacion_ganadora"] = comb_by_j.get(n)
             data["fuente"] = url
