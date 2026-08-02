@@ -1,9 +1,34 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 1 cerrada: pleno DC + alias de equipos).
+Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (backtest de
+boletos reales LAE auditado y reparado).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
+## Último avance (02/08/2026 — backtest boletos reales LAE)
+
+- Backtest realista sobre boletos históricos LAE incorporado como salida
+  auditada: `salida/backtest_boletos_reales.json`.
+- Resultado actual: 97 boletos evaluados dentro del dominio Primera/Segunda,
+  127 boletos no evaluados por estar fuera del dominio del motor
+  (selecciones/ligas extranjeras/verano). Media: 8,247 aciertos con 3 dobles;
+  acierto simple medio 50,39 % vs mercado 49,98 %.
+- Se detectaron 9 desajustes iniciales contra combinación oficial. Causa
+  principal: combinaciones LAE 2025-2026 mal parseadas o ausentes en varias
+  jornadas. Reparado desde HTML cacheado con
+  `scripts/datos/REPARAR_COMBINACIONES_LAE_DESDE_CACHE.py`.
+- Auditoría nueva: `scripts/backtests/AUDITAR_LAE_VS_HISTORICO.py` cruza LAE
+  contra histórico partido a partido. `scripts/backtests/ANALIZAR_BACKTEST_BOLETOS_REALES.py`
+  resume el JSON y exporta CSV de incidencias. `scripts/backtests/REPARAR_BACKTEST_BOLETOS_REALES_DESDE_LAE.py`
+  refresca la validación del JSON desde LAE reparado respetando boletos con
+  partidos faltantes.
+- Estado final de validación oficial: 1 desajuste documentado en 97 boletos.
+  Caso pendiente/especial: 2025-2026 J9, Valencia - Oviedo; combinación oficial
+  marca `1`, histórico local registra 1-2 (`2`) jugado el 30/09/2025, después
+  del sorteo del 28/09/2025. No cambiar el motor por este caso; tratarlo como
+  aplazado/post-sorteo o revisar fuente oficial alternativa si se quiere cierre
+  0 desajustes.
+
+## Avance anterior (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
 
 - Pleno al 15 conectado al motor: `predict_pleno15_from_model` (Dixon-Coles,
   rho −0,036) emite buckets 0/1/2/M, top-3 marcadores, selección y calidad;
@@ -35,6 +60,8 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
   (favorito de mercado: 51,56 %).
 - Backtest 2025-2026: 51,54 % y 8,50/15.
 - Backtest 2024-2025: 52,49 % y 8,64/15.
+- Backtest boletos reales LAE: 50,39 % simple, 49,98 % mercado, 8,247 aciertos
+  con 3 dobles; validación oficial con 1 caso especial documentado.
 - Log Loss, Brier y ECE disponibles (scripts de backtest nuevos).
 - Features point-in-time para partidos futuros implementadas sin resultado y
   sin fuga temporal.
@@ -56,6 +83,14 @@ Criterio de selección: `mean_score - 0.5 * std_score` (rendimiento y estabilida
 Medido mediante `scripts/backtests/DIXON_COLES.py`.
 Resultados (5 temporadas): exacto 13,14% (Δ +0,07%), Top-3 34,75%.
 Rho medio estimado: -0,036 (validado fuera de muestra).
+
+### 4. Backtest de boletos reales LAE — ✅ VALIDADO CON 1 CASO ESPECIAL (02/08/2026)
+
+Continuación si se abre otro chat: partir de `ROADMAP_PROGRAMA_QUINIELA.md`,
+`salida/desajustes_backtest_boletos_reales.csv` y
+`salida/auditoria_lae_vs_historico.csv`. Queda únicamente decidir si se acepta
+J9 Valencia-Oviedo como aplazado/post-sorteo o si se busca una fuente oficial
+LAE alternativa para dejar la validación en 0 desajustes.
 
 ## Experimentos posteriores
 
