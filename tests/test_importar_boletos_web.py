@@ -1,4 +1,4 @@
-from scripts.datos.IMPORTAR_BOLETOS_QUINIELA15 import build_payload, parse_result_table
+from scripts.datos.IMPORTAR_BOLETOS_WEB import build_payload, parse_result_table
 from scripts.motor.team_names import resolve_history_name
 
 
@@ -69,7 +69,7 @@ def test_parse_result_table_accepts_sorteo_without_score():
 
 def test_build_payload_is_compatible_with_lae_backtest_schema():
     matches = parse_result_table(SAMPLE_HTML)
-    payload = build_payload(1, matches, "2025-2026", "https://www.quiniela15.com/resultados-quiniela/1")
+    payload = build_payload(1, matches, "2025-2026", "https://example.com/resultados/1")
 
     assert payload["id"] == "Q15_2025_2026_J001"
     assert payload["temporada"] == "2025-2026"
@@ -77,7 +77,7 @@ def test_build_payload_is_compatible_with_lae_backtest_schema():
     assert payload["partidos"][14]["tipo"] == "pleno15"
 
 
-def test_aliases_observados_en_quiniela15_jornada_1():
+def test_aliases_observados_en_fuente_web_jornada_1():
     assert resolve_history_name("Athletic") == "Ath Bilbao"
     assert resolve_history_name("R. Sociedad") == "Sociedad"
     assert resolve_history_name("R. Santander") == "Santander"

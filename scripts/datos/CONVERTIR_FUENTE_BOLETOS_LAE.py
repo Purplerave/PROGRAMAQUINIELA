@@ -1,4 +1,4 @@
-"""Convierte una fuente agregada de jornadas Quiniela15 a JSON por boleto.
+"""Convierte una fuente agregada de jornadas a JSON por boleto.
 
 Entrada esperada: lista JSON con jornadas y campo ``partidos`` (15 partidos).
 Salida: un fichero por jornada en DATOS/boletos_lae_reales, compatible con
@@ -88,7 +88,7 @@ def normalize_jornada(raw: dict[str, Any]) -> dict[str, Any]:
         "id": raw.get("id") or f"Q15_2025_2026_J{jornada:03d}",
         "jornada_q15": jornada,
         "temporada": raw.get("temporada", "2025-2026"),
-        "fuente": raw.get("fuente", "Quiniela15"),
+        "fuente": raw.get("fuente", "fuente_externa"),
         "source_url": raw.get("source_url"),
         "competicion_tipo": raw.get("competicion_tipo"),
         "validable_historico": bool(raw.get("validable_historico")),
@@ -97,7 +97,7 @@ def normalize_jornada(raw: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Convierte fuente agregada Quiniela15 a boletos individuales")
+    parser = argparse.ArgumentParser(description="Convierte fuente agregada a boletos individuales")
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--out-dir", type=Path, default=DEFAULT_OUT_DIR)
     parser.add_argument("--incluir-no-validables", action="store_true")

@@ -1,6 +1,6 @@
 """scripts/motor/team_names.py — Resolución controlada de nombres de equipo.
 
-Problema: los JSON de jornada (quiniela15, LAE, etc.) usan nombres comunes
+Problema: los JSON de jornada (fuentes externas, LAE, etc.) usan nombres comunes
 en español ("Athletic Club", "Málaga CF", "RC Deportivo") mientras que el
 histórico usa los nombres cortos de football-data ("Ath Bilbao", "Malaga",
 "La Coruna"). Sin traducción, los equipos se tratan como desconocidos.

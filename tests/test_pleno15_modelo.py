@@ -184,7 +184,7 @@ class TestPleno15Modelo:
         assert pleno_full["goles_visitante"] == pleno_trunc["goles_visitante"]
 
     def test_marcadores_q15_no_son_entrada(self, raw_history_subset):
-        """marcadores_q15 (scrape Q15) solo es comparativa: no altera el modelo."""
+        """marcadores_q15 solo es comparativa: no altera el modelo."""
         base = {
             "num": 15,
             "local": "Real Madrid",

@@ -1,16 +1,16 @@
-"""Importa boletos/resultados reales desde Quiniela15.
+"""Importa boletos/resultados reales desde una fuente web externa.
 
-Quiniela15 publica páginas de resultados con el orden real del boleto (1-14) y
+La fuente publica páginas de resultados con el orden real del boleto (1-14) y
 el Pleno al 15. Este script descarga esas páginas y genera JSON compatibles con
 ``scripts/backtests/BACKTEST_BOLETOS_LAE.py``.
 
 Ejemplos:
-    python scripts/datos/IMPORTAR_BOLETOS_QUINIELA15.py --desde 1 --hasta 60
-    python scripts/datos/IMPORTAR_BOLETOS_QUINIELA15.py --jornadas 1,2,3 --dry-run
+    python scripts/datos/IMPORTAR_BOLETOS_WEB.py --desde 1 --hasta 60
+    python scripts/datos/IMPORTAR_BOLETOS_WEB.py --jornadas 1,2,3 --dry-run
 
 Notas:
-- La fuente no es SELAE directa: se etiqueta como ``Quiniela15`` y se conserva la
-  URL de procedencia.
+- La fuente no es SELAE directa: se etiqueta como fuente web externa y se conserva
+  la URL de procedencia.
 - No decide si un boleto pertenece al histórico español disponible. Después de
   importar, valida con:
       PYTHONPATH=. python scripts/backtests/BACKTEST_BOLETOS_LAE.py --solo-validar
@@ -274,7 +274,7 @@ def _next_team(lines: list[str], pos: int, upper_bound: int) -> tuple[str | None
 def _parse_from_visible_text(html_text: str) -> list[ParsedMatch]:
     """Fallback para HTML sin <table>: usa el texto visible en orden.
 
-    Algunas respuestas de Quiniela15 pueden llegar como markup responsive basado
+    Algunas respuestas de la fuente pueden llegar como markup responsive basado
     en <div>. Este parser busca la secuencia oficial 1..15 y patrones:
     local, fuerza, '-', visitante, fuerza, goles, signo.
     """
@@ -371,9 +371,9 @@ def build_payload(jornada: int, matches: list[ParsedMatch], temporada: str, sour
         "id": f"Q15_{temporada.replace('-', '_')}_J{jornada:03d}",
         "jornada_q15": jornada,
         "temporada": temporada,
-        "fuente": "Quiniela15/resultados-quiniela",
+        "fuente": "fuente_web_externa/resultados",
         "source_url": source_url,
-        "nota": "Importado desde Quiniela15. Validar contra histórico antes de usar en métricas.",
+        "nota": "Importado desde fuente web externa. Validar contra histórico antes de usar en métricas.",
         "partidos": [
             {
                 "num": match.num,
@@ -412,10 +412,10 @@ def parse_jornadas(args: argparse.Namespace) -> list[int]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Importa resultados/boletos desde Quiniela15")
+    parser = argparse.ArgumentParser(description="Importa resultados/boletos desde fuente web externa")
     parser.add_argument("--jornadas", help="lista separada por comas, ej. 1,2,3")
-    parser.add_argument("--desde", type=int, help="primera jornada Q15")
-    parser.add_argument("--hasta", type=int, help="última jornada Q15")
+    parser.add_argument("--desde", type=int, help="primera jornada")
+    parser.add_argument("--hasta", type=int, help="última jornada")
     parser.add_argument("--temporada", default="2025-2026", help="temporada a escribir en el JSON")
     parser.add_argument("--out-dir", type=Path, default=DEFAULT_OUT_DIR)
     parser.add_argument("--overwrite", action="store_true")
@@ -455,10 +455,10 @@ def main() -> None:
                 args.debug_dir.mkdir(parents=True, exist_ok=True)
                 try:
                     html_text = locals().get("html_text", "")
-                    (args.debug_dir / f"quiniela15_J{jornada:03d}.html").write_text(
+                    (args.debug_dir / f"fuente_web_J{jornada:03d}.html").write_text(
                         html_text, encoding="utf-8", errors="replace"
                     )
-                    (args.debug_dir / f"quiniela15_J{jornada:03d}.txt").write_text(
+                    (args.debug_dir / f"fuente_web_J{jornada:03d}.txt").write_text(
                         "\n".join(_visible_lines(html_text)), encoding="utf-8", errors="replace"
                     )
                 except Exception as debug_exc:  # noqa: BLE001

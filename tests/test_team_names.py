@@ -1,6 +1,6 @@
 """Pruebas de scripts/motor/team_names.py y de su conexión con features/priors.
 
-Garantiza que los nombres comunes de las jornadas (quiniela15) se traducen a
+Garantiza que los nombres comunes de las jornadas se traducen a
 los nombres del histórico y a los nombres canónicos de los priors 2026/27,
 de forma explícita y sin fundir filiales ni inventar equipos.
 """

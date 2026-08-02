@@ -1,11 +1,11 @@
-# REVISION_13 — Backtest LAE temporada 2025-2026 desde Quiniela15
+# REVISION_13 — Backtest LAE temporada 2025-2026 con fuente agregada
 
 Fecha: 02/08/2026
 
 ## Fuente recibida
 
 - Fichero agregado: `DATOS/boletos_lae_fuente/202526.json`.
-- Contenido: 75 jornadas Quiniela15 de la temporada 2025-2026.
+- Contenido: 75 jornadas de la temporada 2025-2026.
 - Clasificación declarada en la fuente:
   - `espana_liga`: 47 jornadas.
   - `europa`: 17 jornadas.
@@ -50,12 +50,12 @@ DATOS/boletos_lae_reales/Q15_2025_2026_J*.json
   - `resultado: null`
   - `signo: 1/X/2`
   - `tipo: sorteo`
-- Signos de Quiniela15 con anotación, por ejemplo:
+- Signos con anotación de sorteo, por ejemplo:
   - `1** sorteado` → `1`
   - `X** sorteado` → `X`
 - En el bloque validado final hay 4 partidos resueltos por sorteo.
 
-## Validación del bloque Q15
+## Validación del bloque importado
 
 Comando:
 
@@ -75,7 +75,7 @@ Resultado:
 }
 ```
 
-## Backtest global sobre boletos reales Q15 validados
+## Backtest global sobre boletos reales validados
 
 Comando:
 
