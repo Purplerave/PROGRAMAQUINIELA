@@ -80,6 +80,15 @@ def main() -> int:
             updated += 1
             continue
 
+        # El backtest original solo valida contra combinación oficial los boletos
+        # completamente evaluados. Si hay faltantes, la predicción se mide sobre
+        # 14 partidos y no se debe contar como desajuste oficial el partido que
+        # el motor no cubre.
+        if boleto.get("faltantes"):
+            boleto["desajustes_vs_combinacion_oficial"] = 0.0
+            updated += 1
+            continue
+
         audit_rows = audit_jornada(jornada_lae, history)
         mismatches = sum(1 for row in audit_rows if row.get("estado") == "DESAJUSTE")
         boleto["desajustes_vs_combinacion_oficial"] = float(mismatches)
