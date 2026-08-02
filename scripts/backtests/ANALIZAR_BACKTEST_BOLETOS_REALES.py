@@ -232,6 +232,72 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer.writerows(rows)
 
 
+def parse_float(value: Any) -> float | None:
+    if value is None:
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    text = str(value).strip().lower()
+    if text in {"", "nan", "none", "null"}:
+        return None
+    try:
+        return float(text.replace(",", "."))
+    except ValueError:
+        return None
+
+
+def is_missing_value(value: Any) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, float) and value != value:  # NaN
+        return True
+    return str(value).strip().lower() in {"", "nan", "none", "null"}
+
+
+def has_mismatch_count_key(row: dict[str, Any]) -> bool:
+    return any("desajustes" in norm(key) for key in row.keys())
+
+
+def filter_rows_requiring_official_audit(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Devuelve solo jornadas con desajustes oficiales o combinación ausente.
+
+    Algunos JSON guardan un resumen por boleto, no una lista detallada de cada
+    desajuste. En ese caso el campo ``desajustes_vs_combinacion_oficial`` marca
+    cuántos signos no cuadran. Exportar las 95/97 filas confunde, así que aquí
+    reducimos el CSV de auditoría a las jornadas realmente problemáticas.
+    """
+
+    if not rows or not all(isinstance(row, dict) for row in rows):
+        return rows
+    if not any(has_mismatch_count_key(row) for row in rows):
+        return rows
+
+    filtered: list[dict[str, Any]] = []
+    for row in rows:
+        mismatch_total = 0.0
+        has_mismatch_field = False
+        for key, value in row.items():
+            if "desajustes" not in norm(key):
+                continue
+            has_mismatch_field = True
+            parsed = parse_float(value)
+            if parsed is not None:
+                mismatch_total += parsed
+
+        combination_missing = any(
+            is_missing_value(value)
+            for key, value in row.items()
+            if "combinacion_ganadora" in norm(key)
+            or "combinacion oficial" in norm(key)
+            or "combinacion_oficial" in norm(key)
+        )
+
+        if (has_mismatch_field and mismatch_total > 0) or combination_missing:
+            filtered.append(row)
+
+    return filtered
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Audita el JSON del backtest de boletos reales y extrae desajustes."
@@ -292,32 +358,52 @@ def main() -> int:
         mismatch_items = [item.objeto for item in candidates[: args.max_candidates]]
         source = "candidatos genéricos"
 
-    rows: list[dict[str, Any]] = []
+    all_rows: list[dict[str, Any]] = []
     for idx, item in enumerate(mismatch_items, 1):
         if isinstance(item, dict):
             flat = flatten_dict(item)
         else:
             flat = {"valor": item}
         flat = {"n": idx, **flat}
-        rows.append(flat)
+        all_rows.append(flat)
+
+    audit_rows = filter_rows_requiring_official_audit(all_rows)
+    audit_items = [mismatch_items[int(row["n"]) - 1] for row in audit_rows if "n" in row]
+    if not audit_items:
+        audit_items = mismatch_items
+
+    total_desajustes = 0.0
+    for row in audit_rows:
+        for key, value in row.items():
+            if "desajustes" in norm(key):
+                parsed = parse_float(value)
+                if parsed is not None:
+                    total_desajustes += parsed
 
     summary_path = output_dir / "resumen_backtest_boletos_reales.txt"
     candidates_path = output_dir / "candidatos_desajustes_backtest_boletos_reales.json"
+    all_rows_csv_path = output_dir / "boletos_backtest_boletos_reales.csv"
     mismatch_json_path = output_dir / "desajustes_backtest_boletos_reales.json"
     mismatch_csv_path = output_dir / "desajustes_backtest_boletos_reales.csv"
 
     summary_lines.append("")
     summary_lines.append(f"EXPORTADO DESDE: {source}")
+    summary_lines.append(f"FILAS EXPORTADAS EN CSV GENERAL: {len(all_rows)}")
+    summary_lines.append(f"FILAS QUE REQUIEREN AUDITORÍA OFICIAL: {len(audit_rows)}")
+    if total_desajustes:
+        summary_lines.append(f"SUMA DE DESAJUSTES EN FILAS AUDITADAS: {total_desajustes:g}")
     summary_lines.append(f"RESUMEN: {summary_path}")
     summary_lines.append(f"CANDIDATOS: {candidates_path}")
+    summary_lines.append(f"CSV GENERAL: {all_rows_csv_path}")
     summary_lines.append(f"DESAJUSTES JSON: {mismatch_json_path}")
     summary_lines.append(f"DESAJUSTES CSV: {mismatch_csv_path}")
 
     output_dir.mkdir(parents=True, exist_ok=True)
     summary_path.write_text("\n".join(summary_lines) + "\n", encoding="utf-8")
     write_json(candidates_path, json_candidates)
-    write_json(mismatch_json_path, mismatch_items)
-    write_csv(mismatch_csv_path, rows)
+    write_json(mismatch_json_path, audit_items)
+    write_csv(all_rows_csv_path, all_rows)
+    write_csv(mismatch_csv_path, audit_rows)
 
     print("\n".join(summary_lines))
     return 0
