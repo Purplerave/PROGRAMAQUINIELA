@@ -208,10 +208,11 @@ def main() -> int:
         return 1
 
     results = []
+    no_unidos: list[str] = []
     for t in tickets:
         r = evaluate_ticket(t, preds, config)
         if r is None:
-            print(f"  aviso: boleto {t.get('temporada')} J{t.get('jornada')} sin partidos unidos")
+            no_unidos.append(f"{t.get('temporada')} J{t.get('jornada')}")
             continue
         results.append(r)
 
@@ -242,12 +243,21 @@ def main() -> int:
         print(f"  Validación vs combinación oficial: {int(desaj.sum())} desajustes "
               f"en {int(desaj.notna().sum())} boletos")
 
+    if no_unidos:
+        print()
+        print(f"  Boletos NO evaluados (sin partidos en el histórico español): {len(no_unidos)}")
+        print("   " + ", ".join(no_unidos[:12]) + (" ..." if len(no_unidos) > 12 else ""))
+        print("   (jornadas de verano: selecciones/ligas nórdicas; el motor solo cubre")
+        print("    Primera y Segunda española, por eso no se unen a las predicciones)")
+
     out_path = settings.SALIDA_DIR / "backtest_boletos_reales.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(
         json.dumps(
             {
                 "n_boletos": len(df),
+                "n_boletos_no_evaluados": len(no_unidos),
+                "boletos_no_evaluados": no_unidos,
                 "media_aciertos_3_dobles": float(media),
                 "acierto_simple_medio": float(df["accuracy_simple"].mean()),
                 "acierto_mercado_medio": float(df["accuracy_market"].mean()),
