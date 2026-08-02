@@ -1,9 +1,9 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 1 cerrada: pleno DC + alias de equipos).
+Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 1 cerrada + P2/P3 evaluadas: walk-forward pesos + pleno DC).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
+## Último avance (02/08/2026 — prioridad 1 cerrada + evaluación P2/P3)
 
 - Pleno al 15 conectado al motor: `predict_pleno15_from_model` (Dixon-Coles,
   rho −0,036) emite buckets 0/1/2/M, top-3 marcadores, selección y calidad;
@@ -15,6 +15,33 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
   sin cuotas: motor HGB+Poisson con aviso, nunca APU/LAE/Q15 como cuotas.
 - Backtest del motor idéntico tras el cambio (51,64 % / 8,63; 51,54 % / 8,50;
   52,49 % / 8,64). Suite: 147 tests en verde. Detalle: REVISION_11.
+
+### Evaluación Prioridad 2 (Optimización walk-forward multi-split) — 02/08/2026
+Ejecutado `scripts/backtests/WALK_FORWARD_PESOS.py --historico original`.
+- 5 temporadas (2021-26), train < target, split interno 84/16.
+- Pesos consenso acumulado: logit≈0, hgb=0.049, market=0.951, poisson=0.
+- **Exactamente los mismos que config activa v4.**
+- Promedio acierto:
+  - Mercado: 50.52%
+  - Consenso acumulado: 50.64% (+0.12 pp), gana 3/5 temporadas
+  - Ensemble activo actual: 49.76% (gana solo 1/5)
+- Métricas (LogLoss/Brier/ECE/3-dobles) prácticamente idénticas.
+- **Decisión según reglas**: mejora no consistente/material. **No se cambia config activa.**
+- Archivo: `salida/walk_forward_pesos.json`
+
+### Evaluación Prioridad 3 (Evaluar el Pleno al 15) — 02/08/2026
+Ejecutado `scripts/backtests/DIXON_COLES.py --historico original`.
+- Walk-forward por temporada + rho fuera de muestra.
+- Dixon-Coles vs Poisson:
+  - Pleno exacto: 13.06% → 13.14% (+0.07 pp)
+  - LogLoss 1X2: 1.0764 → 1.0761
+  - Top-3: estable (ya integrado).
+- Rho medio: −0.036 (confirmado).
+- **Conclusión**: mejora marginal positiva ya integrada en `CONFIG_MOTOR_V2` + motor + `add_pleno_al_15`.
+  No requiere cambios adicionales.
+
+- Suite completa: **147/147 tests OK**.
+- Ablación (ABLACION_MODELOS): confirma dominio del mercado.
 
 ## Avance anterior (01/08/2026 — T3 calibración + T4 Dixon-Coles)
 
@@ -61,7 +88,7 @@ Criterios de aceptación:
 - ✅ Pruebas con equipos conocidos, ascendidos (priors vía alias), desconocidos
   (media de liga marcada) y cuotas ausentes. 147 tests.
 
-### 2. Optimización walk-forward multi-split
+### 2. Optimización walk-forward multi-split — ✅ CERRADA (02/08/2026)
 
 Sustituir la selección basada en un único bloque de validación por varias
 temporadas de validación temporal. Elegir configuraciones por rendimiento
@@ -69,15 +96,23 @@ medio y estabilidad, no por un único máximo.
 
 Criterios de aceptación:
 
-- Train siempre anterior a validación.
-- Resultados por temporada y promedio.
-- Comparación contra configuración activa y favorito de mercado.
-- No activar una configuración si la mejora no es consistente.
+- ✅ Train siempre anterior a validación.
+- ✅ Resultados por temporada y promedio.
+- ✅ Comparación contra configuración activa y favorito de mercado.
+- ✅ No activar una configuración si la mejora no es consistente.
 
-### 3. Evaluar el Pleno al 15
+**Resultado (WALK_FORWARD_PESOS.py)**: Pesos consenso acumulado idénticos a la
+config activa v4 (market 0.951). Mejora +0.12 pp pero **no consistente** (gana 3/5).
+**No se cambia la configuración activa.**
+
+### 3. Evaluar el Pleno al 15 — ✅ CERRADA (02/08/2026)
 
 Medir los marcadores Poisson contra resultados reales: acierto exacto,
 presencia en top 3 y calibración de goles local/visitante.
+
+**Resultado (DIXON_COLES.py)**: Mejora marginal en pleno exacto (+0.07 pp) y LogLoss
+ya integrada (rho −0.036) en `CONFIG_MOTOR_V2.json`, `MOTOR_QUINIELA_MAESTRO` y
+`add_pleno_al_15`. **No se requieren cambios adicionales.**
 
 ## Experimentos posteriores
 
