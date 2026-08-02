@@ -1,0 +1,76 @@
+﻿temporada,jornada,fecha,num,tipo,local,visitante,local_historico,visitante_historico,fecha_historico,marcador_historico,signo_historico,signo_oficial,estado,causa_probable,source_file
+2025-2026,9,2025-09-28,1,1X2,Getafe,Levante,Getafe,Levante,2025-09-27,1-1,X,X,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,9,2025-09-28,2,1X2,Mallorca,Alavés,Mallorca,Alaves,2025-09-27,1-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,9,2025-09-28,3,1X2,Villarreal,Athletic de Bilbao,Villarreal,Ath Bilbao,2025-09-27,1-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,9,2025-09-28,4,1X2,Rayo Vallecano,Sevilla,Vallecano,Sevilla,2025-09-28,0-1,2,2,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,9,2025-09-28,5,1X2,Elche,Celta,Elche,Celta,2025-09-28,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,9,2025-09-28,6,1X2,Betis,Osasuna,Betis,Osasuna,2025-09-28,2-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,9,2025-09-28,7,1X2,Barcelona,Real Sociedad,Barcelona,Sociedad,2025-09-28,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,9,2025-09-28,8,1X2,Valencia,Oviedo,Valencia,Oviedo,2025-09-30,1-2,2,1,DESAJUSTE,Resultado histórico no coincide con combinación oficial; revisar aplazado/sorteo/orden/fuente,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,9,2025-09-28,9,1X2,Eibar,Deportivo,Eibar,La Coruna,2025-09-27,1-1,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,9,2025-09-28,10,1X2,Racing de Santander,Andorra,Santander,Andorra,2025-09-27,1-2,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,9,2025-09-28,11,1X2,Las Palmas,Almería,Las Palmas,Almeria,2025-09-27,0-1,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,9,2025-09-28,12,1X2,Burgos,Málaga,Burgos,Malaga,2025-09-28,2-1,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,9,2025-09-28,13,1X2,Cádiz,Ceuta,Cadiz,Ceuta,2025-09-28,0-0,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,9,2025-09-28,14,1X2,Sporting de Gijón,Albacete,Sp Gijon,Albacete,2025-09-28,3-4,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,9,2025-09-28,15,PLENO15,Atlético de Madrid,Real Madrid,Ath Madrid,Real Madrid,2025-09-27,5-2,M2,M2,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,1,1X2,Rayo Vallecano,Osasuna,Vallecano,Osasuna,2026-01-24,1-3,2,2,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,2,1X2,Valencia,Espanyol,Valencia,Espanol,2026-01-24,3-2,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,3,1X2,Sevilla,Athletic de Bilbao,Sevilla,Ath Bilbao,2026-01-24,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,4,1X2,Villarreal,Real Madrid,Villarreal,Real Madrid,2026-01-24,0-2,2,2,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,5,1X2,Atlético de Madrid,Mallorca,Ath Madrid,Mallorca,2026-01-25,3-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,6,1X2,Barcelona,Oviedo,Barcelona,Oviedo,2026-01-25,3-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,7,1X2,Real Sociedad,Celta,Sociedad,Celta,2026-01-25,3-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,8,1X2,Alavés,Betis,Alaves,Betis,2026-01-25,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,37,2026-01-25,9,1X2,Valladolid,Albacete,Valladolid,Albacete,2026-01-24,0-1,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,37,2026-01-25,10,1X2,Las Palmas,Córdoba,Las Palmas,Cordoba,2026-01-24,1-2,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,37,2026-01-25,11,1X2,Andorra,Huesca,Andorra,Huesca,2026-01-25,1-1,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,37,2026-01-25,12,1X2,Eibar,Almería,Eibar,Almeria,2026-01-25,1-0,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,37,2026-01-25,13,1X2,Zaragoza,Castellón,Zaragoza,Castellon,2026-01-25,0-0,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,37,2026-01-25,14,1X2,Deportivo,Racing de Santander,La Coruna,Santander,2026-01-25,0-1,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,37,2026-01-25,15,PLENO15,Girona,Getafe,Girona,Getafe,2026-01-26,1-1,11,11,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,1,1X2,Getafe,Betis,Getafe,Betis,2026-03-08,2-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,2,1X2,Levante,Girona,Levante,Girona,2026-03-07,1-1,X,X,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,3,1X2,Atlético de Madrid,Real Sociedad,Ath Madrid,Sociedad,2026-03-07,3-2,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,4,1X2,Celta,Real Madrid,Celta,Real Madrid,2026-03-06,1-2,2,2,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,5,1X2,Villarreal,Elche,Villarreal,Elche,2026-03-08,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,6,1X2,Sevilla,Rayo Vallecano,Sevilla,Vallecano,2026-03-08,1-1,X,X,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,7,1X2,Valencia,Alavés,Valencia,Alaves,2026-03-08,3-2,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,8,1X2,Espanyol,Oviedo,Espanol,Oviedo,2026-03-09,1-1,X,X,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,46,2026-03-08,9,1X2,Huesca,Albacete,Huesca,Albacete,2026-03-07,0-0,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,46,2026-03-08,10,1X2,Málaga,Valladolid,Malaga,Valladolid,2026-03-07,3-3,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,46,2026-03-08,11,1X2,Andorra,Sporting de Gijón,Andorra,Sp Gijon,2026-03-08,1-0,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,46,2026-03-08,12,1X2,Racing de Santander,Córdoba,Santander,Cordoba,2026-03-08,4-3,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,46,2026-03-08,13,1X2,Leganés,Eibar,Leganes,Eibar,2026-03-08,0-1,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,46,2026-03-08,14,1X2,Deportivo,Granada,La Coruna,Granada,2026-03-08,0-2,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,46,2026-03-08,15,PLENO15,Athletic de Bilbao,Barcelona,Ath Bilbao,Barcelona,2026-03-07,0-1,01,01,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,1,1X2,Girona,Athletic de Bilbao,Girona,Ath Bilbao,2026-03-14,3-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,2,1X2,Atlético de Madrid,Getafe,Ath Madrid,Getafe,2026-03-14,1-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,3,1X2,Oviedo,Valencia,Oviedo,Valencia,2026-03-14,1-0,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,4,1X2,Real Madrid,Elche,Real Madrid,Elche,2026-03-14,4-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,5,1X2,Mallorca,Espanyol,Mallorca,Espanol,2026-03-15,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,6,1X2,Barcelona,Sevilla,Barcelona,Sevilla,2026-03-15,5-2,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,7,1X2,Betis,Celta,Betis,Celta,2026-03-15,1-1,X,X,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,8,1X2,Rayo Vallecano,Levante,Vallecano,Levante,2026-03-16,1-1,X,X,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,48,2026-03-15,9,1X2,Valladolid,Leganés,Valladolid,Leganes,2026-03-14,3-2,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,48,2026-03-15,10,1X2,Zaragoza,Almería,Zaragoza,Almeria,2026-03-14,2-0,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,48,2026-03-15,11,1X2,Ceuta,Deportivo,Ceuta,La Coruna,2026-03-14,1-2,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,48,2026-03-15,12,1X2,Eibar,Burgos,Eibar,Burgos,2026-03-15,0-0,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,48,2026-03-15,13,1X2,Sporting de Gijón,Castellón,Sp Gijon,Castellon,2026-03-15,4-1,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,48,2026-03-15,14,1X2,Albacete,Las Palmas,Albacete,Las Palmas,2026-03-16,2-1,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,48,2026-03-15,15,PLENO15,Real Sociedad,Osasuna,Sociedad,Osasuna,2026-03-15,3-1,M1,M1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,1,1X2,Betis,Real Madrid,Betis,Real Madrid,2026-04-24,1-1,X,X,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,2,1X2,Alavés,Mallorca,Alaves,Mallorca,2026-04-25,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,3,1X2,Getafe,Barcelona,Getafe,Barcelona,2026-04-25,0-2,2,2,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,4,1X2,Valencia,Girona,Valencia,Girona,2026-04-25,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,5,1X2,Atlético de Madrid,Athletic de Bilbao,Ath Madrid,Ath Bilbao,2026-04-25,3-2,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,6,1X2,Rayo Vallecano,Real Sociedad,Vallecano,Sociedad,2026-04-26,3-3,X,X,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,7,1X2,Oviedo,Elche,Oviedo,Elche,2026-04-26,1-2,2,2,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,8,1X2,Osasuna,Sevilla,Osasuna,Sevilla,2026-04-26,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,9,1X2,Villarreal,Celta,Villarreal,Celta,2026-04-26,2-1,1,1,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
+2025-2026,59,2026-04-26,10,1X2,Burgos,Deportivo,Burgos,La Coruna,2026-04-25,1-1,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,59,2026-04-26,11,1X2,Málaga,Castellón,Malaga,Castellon,2026-04-25,2-3,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,59,2026-04-26,12,1X2,Granada,Almería,Granada,Almeria,2026-04-26,2-4,2,2,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,59,2026-04-26,13,1X2,Huesca,Zaragoza,Huesca,Zaragoza,2026-04-26,1-0,1,1,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,59,2026-04-26,14,1X2,Ceuta,Racing de Santander,Ceuta,Santander,2026-04-26,0-0,X,X,OK,,DATOS\historico_raw\SEGUNDA\SP2_2526.csv
+2025-2026,59,2026-04-26,15,PLENO15,Espanyol,Levante,Espanol,Levante,2026-04-27,0-0,00,00,OK,,DATOS\historico_raw\PRIMERA\SP1_2526.csv
