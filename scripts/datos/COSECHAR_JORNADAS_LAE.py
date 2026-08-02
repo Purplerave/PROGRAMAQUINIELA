@@ -245,19 +245,52 @@ def _match_recaudacion(html: str) -> int | None:
     return _parse_euros(m.group(1)) if m else None
 
 
-def _match_fecha(html: str) -> str | None:
-    # Los meses aparecen capitalizados en LD ("17 de Marzo de 2024")
-    m = re.search(r"(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})", html, re.IGNORECASE)
-    if not m:
+def _match_fecha(html: str, temporada: str | None = None) -> str | None:
+    """Fecha de la jornada: '17 de Marzo de 2024' (meses capitalizados o no).
+
+    Las páginas de LD incluyen fechas de noticias en el lateral (p.ej.
+    '2 de Agosto de 2026') que pueden aparecer ANTES de la fecha de la
+    jornada en el HTML. Para no coger una fecha ajena, se filtran las
+    fechas por los años de la temporada (p.ej. 2023-2024 -> 2023/2024) y
+    se devuelve la primera que encaje; si ninguna encaja, se usa la
+    primera fecha válida como último recurso.
+    """
+    matches = list(
+        re.finditer(r"(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})", html, re.IGNORECASE)
+    )
+    if not matches:
         return None
-    dia, mes, ano = m.groups()
-    mes_num = MESES.get(mes.lower())
-    if not mes_num:
-        return None
-    return f"{ano}-{mes_num:02d}-{int(dia):02d}"
+
+    allowed: set[int] | None = None
+    if temporada:
+        try:
+            y0 = int(str(temporada).split("-")[0])
+            allowed = {y0, y0 + 1}
+        except (ValueError, IndexError):
+            allowed = None
+
+    def to_iso(m: re.Match) -> str | None:
+        dia, mes, ano = m.groups()
+        mes_num = MESES.get(mes.lower())
+        if not mes_num:
+            return None
+        return f"{ano}-{mes_num:02d}-{int(dia):02d}"
+
+    if allowed is not None:
+        for m in matches:
+            if int(m.group(3)) not in allowed:
+                continue
+            iso = to_iso(m)
+            if iso:
+                return iso
+    for m in matches:
+        iso = to_iso(m)
+        if iso:
+            return iso
+    return None
 
 
-def parse_jornada(html: str) -> dict:
+def parse_jornada(html: str, temporada: str | None = None) -> dict:
     """Parsea el HTML de una jornada de Libertad Digital.
 
     Devuelve un dict con 'partidos' (14), 'pleno15', 'fecha', 'recaudacion_euros'
@@ -292,7 +325,7 @@ def parse_jornada(html: str) -> dict:
     return {
         "partidos": partidos,
         "pleno15": _match_pleno(rows),
-        "fecha": _match_fecha(html),
+        "fecha": _match_fecha(html, temporada),
         "recaudacion_euros": _match_recaudacion(html),
         "premios": _match_premios(tables),
     }
@@ -443,7 +476,7 @@ def cosechar(
                     n_max = detected
 
             try:
-                data = parse_jornada(html)
+                data = parse_jornada(html, temporada)
             except ValueError as exc:
                 fallidas.append(n)
                 saved = ""

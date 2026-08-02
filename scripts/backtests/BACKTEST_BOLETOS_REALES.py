@@ -236,6 +236,12 @@ def main() -> int:
             f"(simple {r['accuracy_simple']:.1%} | mercado {mercado}){faltantes}"
         )
     print("-" * 78)
+    for season, g in df.groupby("temporada"):
+        print(
+            f"  {season}: {len(g):>2} boletos | media {g['hits_3_dobles'].mean():.2f}/15 "
+            f"| simple {g['accuracy_simple'].mean():.1%} | mercado {g['accuracy_market'].mean():.1%}"
+        )
+    print("-" * 78)
     media = df["hits_3_dobles"].mean()
     print(f"  MEDIA: {media:.2f} aciertos con 3 dobles por boleto "
           f"({media / 15.0:.1%} sobre 15)")

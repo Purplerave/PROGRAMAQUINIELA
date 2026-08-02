@@ -370,3 +370,28 @@ def test_join_ticket_sin_fecha_no_rompe_y_no_une():
     joined, missing = bbr.join_ticket(t_sin_fecha, preds)
     assert joined.empty
     assert len(missing) == 15
+
+
+def test_match_fecha_ignora_fecha_de_noticia_anterior():
+    """LD mete fechas de noticias ('2 de Agosto de 2026') antes de la fecha
+    de la jornada; sin filtro por temporada se cogería la fecha equivocada."""
+    html = (
+        "<div class='noticia'>Feijóo... 2 de Agosto de 2026</div>"
+        "<table><tr><td>17 de Marzo de 2024</td><td>Resultados</td></tr></table>"
+    )
+    # Sin temporada: coge la primera (la noticia) -> comportamiento antiguo
+    assert cjl._match_fecha(html) == "2026-08-02"
+    # Con temporada: filtra por 2023/2024 -> la fecha real de la jornada
+    assert cjl._match_fecha(html, "2023-2024") == "2024-03-17"
+
+
+def test_parse_jornada_filtra_fecha_por_temporada():
+    """Con temporada, la fecha de la jornada se elige aunque haya una noticia
+    de 2026 antes en el HTML."""
+    html = (
+        "<html><body><div>Noticia del 2 de Agosto de 2026</div>"
+        "<table><tr><td>15 de Diciembre de 2024</td><td>Resultados</td></tr></table>"
+        + LD_HTML + "</body></html>"
+    )
+    data = cjl.parse_jornada(html, "2023-2024")
+    assert data["fecha"] == "2024-12-15"
