@@ -178,11 +178,20 @@ def _is_int_line(value: str) -> bool:
     return bool(re.fullmatch(r"\d+", value.strip()))
 
 
-def _valid_sign(num: int, value: str) -> bool:
-    value = value.strip().upper().replace(" ", "")
+def _normalize_sign(num: int, value: str) -> str | None:
+    """Normaliza el signo oficial, tolerando anotaciones como '1** sorteado'."""
+    compact = value.strip().upper().replace(" ", "")
     if num < 15:
-        return value in SIGNS
-    return bool(re.fullmatch(r"[012M]-[012M]|\d+-\d+", value))
+        if compact in SIGNS:
+            return compact
+        match = re.match(r"^([1X2])(?:\*+|SORTEADO|\\\*|\W)", compact)
+        return match.group(1) if match else None
+    match = re.search(r"([012M]-[012M]|\d+-\d+)", compact)
+    return match.group(1) if match else None
+
+
+def _valid_sign(num: int, value: str) -> bool:
+    return _normalize_sign(num, value) is not None
 
 
 def _ordered_or_raise(matches: list[ParsedMatch]) -> list[ParsedMatch]:
@@ -221,8 +230,8 @@ def _parse_from_tables(html_text: str) -> list[ParsedMatch]:
             except ValueError:
                 resultado = None
                 tipo = "sorteo" if num < 15 else "pleno15_sin_marcador"
-            signo = row[3].strip().upper().replace(" ", "")
-            if not _valid_sign(num, signo):
+            signo = _normalize_sign(num, row[3])
+            if signo is None:
                 # Evita capturar tablas secundarias o filas incompletas.
                 continue
             matches.append(
@@ -310,8 +319,9 @@ def _parse_from_visible_text(html_text: str) -> list[ParsedMatch]:
                     maybe = lines[idx].strip().upper().replace(" ", "")
                     if _is_force_line(maybe):
                         continue
-                    if _valid_sign(num, maybe):
-                        signo = maybe
+                    normalized = _normalize_sign(num, lines[idx])
+                    if normalized is not None:
+                        signo = normalized
                         cursor_after = idx + 1
                         break
                 if signo is None:

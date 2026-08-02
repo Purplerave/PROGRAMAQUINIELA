@@ -54,7 +54,7 @@ def test_parse_result_table_extracts_15_matches_and_pleno():
 def test_parse_result_table_accepts_sorteo_without_score():
     html = SAMPLE_HTML.replace(
         "<tr><td>8</td><td>Espanyol<br>(1)<br>-<br>At. Madrid<br>(2)</td><td>2<br>-<br>1</td><td>1</td><td>2</td></tr>",
-        "<tr><td>8</td><td>Valencia<br>(1)<br>-<br>Real Oviedo<br>(2)</td><td></td><td>1</td><td>1</td></tr>",
+        "<tr><td>8</td><td>Valencia<br>(1)<br>-<br>Real Oviedo<br>(2)</td><td>-<br>*<br>** sorteado</td><td>1** sorteado</td><td>1</td></tr>",
     )
 
     matches = parse_result_table(html)
