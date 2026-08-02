@@ -57,6 +57,32 @@ Medido mediante `scripts/backtests/DIXON_COLES.py`.
 Resultados (5 temporadas): exacto 13,14% (Δ +0,07%), Top-3 34,75%.
 Rho medio estimado: -0,036 (validado fuera de muestra).
 
+### 4. Evaluación por jornadas reales — ✅ CERRADA (02/08/2026)
+
+La métrica antigua de "aciertos con tres dobles" agrupaba bloques de 15
+partidos consecutivos del CSV (mezclaba fines de semana distintos). Se ha
+sustituido por jornadas reales:
+
+- `scripts/datos/CONSTRUIR_JORNADAS_HISTORICAS.py` reconstruye 129 jornadas
+  2023-2026 desde el dataset Highlightly (agrupación por sábado ancla,
+  validada contra 3 boletos oficiales).
+- `scripts/backtests/BACKTEST_JORNADAS_REALES.py`: sobre 103 jornadas (2.131
+  partidos), motor 51,17 % vs mercado 51,18 %. La métrica antigua inflaba
+  ~1,5 pp (57,1 % vs 55,6 % sobre los mismos partidos).
+- Conclusión honesta: la ventaja sobre el mercado no está demostrada; el
+  motor y el mercado empatan en jornadas reales. Detalle: REVISION_12.
+
+### 5. Boletos reales de La Quiniela (cosecha) — 🔄 EN CURSO
+
+- `scripts/datos/COSECHAR_JORNADAS_LAE.py` descarga los 15 partidos oficiales
+  de cada boleto (libertaddigital.com) + combinación ganadora
+  (quinielafutbol.info), con caché y reanudable.
+- Muestra validada en `DATOS/jornadas_lae_muestra/` (3 boletos con premios y
+  recaudación): 8/14, 7/15 y 8/15 aciertos con 3 dobles; 0 desajustes vs la
+  combinación oficial.
+- Pendiente: ejecutar la cosecha completa (~224 páginas, requiere internet) y
+  reportar medias con bootstrap por jornada + ROI real con premios.
+
 ## Experimentos posteriores
 
 Ejecutar por separado y conservar solo si mejoran el walk-forward:
@@ -67,6 +93,12 @@ Ejecutar por separado y conservar solo si mejoran el walk-forward:
    cuando exista una fuente histórica consistente.
 4. Registro append-only de experimento, configuración, fecha y métricas.
 5. Contrato JSON o API estable para entregar el pronóstico a Liga de Maestros.
+6. Modelo ataque/defensa (Poisson) como motor independiente de goles: primer
+   paso natural para mejorar el Pleno al 15 y los casos sin cuotas. Objetivo
+   realista: +0,2-0,3 pp fuera de muestra, no +2-3 pp.
+7. Suite explícita de invariantes temporales del pipeline completo
+   (estado antes del resultado, cuotas disponibles al cierre, calibración
+   solo con train, pesos no elegidos mirando el test).
 
 ## Reglas
 

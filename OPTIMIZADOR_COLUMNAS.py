@@ -166,7 +166,13 @@ def enforce_limits(
     max_dobles: int | None,
     max_triples: int | None,
 ) -> list[tuple]:
-    """Si hay más dobles/triples de los permitidos, degrada los menos valiosos."""
+    """Si hay más dobles/triples de los permitidos, degrada los menos valiosos.
+
+    La degradación NO fija el signo local por defecto: el simple resultante es
+    el de mayor utilidad según la misma función que usa la programación
+    dinámica (``log_value``: probable y poco popular). Así, si el mejor simple
+    es X o 2, se degrada a ese signo, no a "1".
+    """
     result = list(selected)
 
     def score_at(i: int) -> float:
@@ -177,14 +183,20 @@ def enforce_limits(
         cov = float(sum(p[SIGN_INDEX[s]] for s in signs))
         return cov + eta * (max(w[SIGN_INDEX[s]] for s in signs) - bv)
 
+    def best_simple_at(i: int) -> tuple:
+        """Mejor simple del partido i según la utilidad del optimizador."""
+        w = log_value(probs[i], public[i], alpha)
+        sign = SIGNS[int(np.argmax(w))]
+        return (sign, (sign,))
+
     while max_dobles is not None and sum(1 for _, s in result if len(s) == 2) > max_dobles:
         cand = [i for i, (_, s) in enumerate(result) if len(s) == 2]
         i = min(cand, key=score_at)
-        result[i] = ("1", ("1",))
+        result[i] = best_simple_at(i)
     while max_triples is not None and sum(1 for _, s in result if len(s) == 3) > max_triples:
         cand = [i for i, (_, s) in enumerate(result) if len(s) == 3]
         i = min(cand, key=score_at)
-        result[i] = ("1", ("1",))
+        result[i] = best_simple_at(i)
     return result
 
 

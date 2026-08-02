@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "nota": "Muestra validada de boletos reales de La Quiniela (15 partidos: 14 + pleno al 15).",
+  "fuente_partidos": "https://www.libertaddigital.com/deportes/liga/{temporada}/quiniela/{jornada}.html",
+  "fuente_combinacion": "https://www.quinielafutbol.info/historico/resultados-la-quiniela-{temporada}.html",
+  "fecha_cosecha": "2026-08-02",
+  "boletos": [
+    {
+      "temporada": "2023-2024",
+      "jornada": 4,
+      "fecha_sorteo": "2023-09-03",
+      "recaudacion_euros": 360336300,
+      "premios": {
+        "pleno15": {"acertantes": 1, "premio_euros": 1880417},
+        "14": {"acertantes": 2, "premio_euros": 288269},
+        "13": {"acertantes": 108, "premio_euros": 2502},
+        "12": {"acertantes": 1578, "premio_euros": 171},
+        "11": {"acertantes": 13716, "premio_euros": 19},
+        "10": {"acertantes": 74249, "premio_euros": 4}
+      },
+      "combinacion_ganadora": ["1","1","1","1","1","X","X","1","X","2","X","2","2","1","12"],
+      "partidos": [
+        {"num": 1, "local": "Girona", "visitante": "Las Palmas"},
+        {"num": 2, "local": "Real Madrid", "visitante": "Getafe"},
+        {"num": 3, "local": "Alavés", "visitante": "Valencia"},
+        {"num": 4, "local": "Betis", "visitante": "Rayo Vallecano"},
+        {"num": 5, "local": "Real Sociedad", "visitante": "Granada"},
+        {"num": 6, "local": "Mallorca", "visitante": "Athletic de Bilbao", "nota": "LD lo etiqueta 'Athletic de Bilbao B'; el histórico confirma Athletic (Primera)"},
+        {"num": 7, "local": "Atlético de Madrid", "visitante": "Sevilla", "nota": "aplazado al 2023-12-23"},
+        {"num": 8, "local": "Sporting de Gijón", "visitante": "Burgos"},
+        {"num": 9, "local": "Levante", "visitante": "Oviedo"},
+        {"num": 10, "local": "Villarreal B", "visitante": "Cartagena"},
+        {"num": 11, "local": "Elche", "visitante": "Racing de Santander"},
+        {"num": 12, "local": "Andorra", "visitante": "Tenerife"},
+        {"num": 13, "local": "Eibar", "visitante": "Leganés"},
+        {"num": 14, "local": "Espanyol", "visitante": "Amorebieta"}
+      ],
+      "pleno15": {"local": "Osasuna", "visitante": "Barcelona"}
+    },
+    {
+      "temporada": "2024-2025",
+      "jornada": 29,
+      "fecha_sorteo": "2024-12-15",
+      "recaudacion_euros": 301845225,
+      "premios": {
+        "pleno15": {"acertantes": 0, "premio_euros": null},
+        "14": {"acertantes": 0, "premio_euros": null},
+        "13": {"acertantes": 2, "premio_euros": 113191},
+        "12": {"acertantes": 23, "premio_euros": 9842},
+        "11": {"acertantes": 176, "premio_euros": 1286},
+        "10": {"acertantes": 1209, "premio_euros": 224}
+      },
+      "combinacion_ganadora": ["X","1","1","X","X","2","X","2","1","1","1","2","X","2","10"],
+      "partidos": [
+        {"num": 1, "local": "Espanyol", "visitante": "Osasuna"},
+        {"num": 2, "local": "Mallorca", "visitante": "Girona"},
+        {"num": 3, "local": "Sevilla", "visitante": "Celta"},
+        {"num": 4, "local": "Rayo Vallecano", "visitante": "Real Madrid"},
+        {"num": 5, "local": "Alavés", "visitante": "Athletic de Bilbao"},
+        {"num": 6, "local": "Villarreal", "visitante": "Betis"},
+        {"num": 7, "local": "Real Sociedad", "visitante": "Las Palmas"},
+        {"num": 8, "local": "Barcelona", "visitante": "Leganés"},
+        {"num": 9, "local": "Cádiz", "visitante": "Albacete"},
+        {"num": 10, "local": "Eibar", "visitante": "Zaragoza"},
+        {"num": 11, "local": "Oviedo", "visitante": "Granada"},
+        {"num": 12, "local": "Sporting de Gijón", "visitante": "Racing de Ferrol"},
+        {"num": 13, "local": "Burgos", "visitante": "Málaga"},
+        {"num": 14, "local": "Racing de Santander", "visitante": "Huesca"}
+      ],
+      "pleno15": {"local": "Atlético de Madrid", "visitante": "Getafe"}
+    },
+    {
+      "temporada": "2025-2026",
+      "jornada": 22,
+      "fecha_sorteo": "2025-11-23",
+      "recaudacion_euros": 397307700,
+      "premios": {
+        "pleno15": {"acertantes": 0, "premio_euros": null},
+        "14": {"acertantes": 4, "premio_euros": 158923},
+        "13": {"acertantes": 97, "premio_euros": 3071},
+        "12": {"acertantes": 1560, "premio_euros": 191},
+        "11": {"acertantes": 15592, "premio_euros": 19},
+        "10": {"acertantes": 90252, "premio_euros": 3}
+      },
+      "combinacion_ganadora": ["2","1","2","1","X","X","2","X","2","X","1","1","2","1","21"],
+      "partidos": [
+        {"num": 1, "local": "Alavés", "visitante": "Celta"},
+        {"num": 2, "local": "Barcelona", "visitante": "Athletic de Bilbao"},
+        {"num": 3, "local": "Osasuna", "visitante": "Real Sociedad"},
+        {"num": 4, "local": "Villarreal", "visitante": "Mallorca"},
+        {"num": 5, "local": "Oviedo", "visitante": "Rayo Vallecano"},
+        {"num": 6, "local": "Betis", "visitante": "Girona"},
+        {"num": 7, "local": "Getafe", "visitante": "Atlético de Madrid"},
+        {"num": 8, "local": "Elche", "visitante": "Real Madrid"},
+        {"num": 9, "local": "Leganés", "visitante": "Almería"},
+        {"num": 10, "local": "Granada", "visitante": "Córdoba"},
+        {"num": 11, "local": "Deportivo", "visitante": "Ceuta"},
+        {"num": 12, "local": "Huesca", "visitante": "Sporting de Gijón"},
+        {"num": 13, "local": "Burgos", "visitante": "Racing de Santander"},
+        {"num": 14, "local": "Málaga", "visitante": "Mirandés"}
+      ],
+      "pleno15": {"local": "Espanyol", "visitante": "Sevilla"}
+    }
+  ]
+}

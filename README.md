@@ -79,7 +79,8 @@ logit 0.0, hgb 0.049, market 0.951, poisson 0.0). Ultima ejecucion validada
 
 - 13.446 partidos limpios.
 - 51,64 % de acierto simple en el test principal (favorito de mercado: 51,56 %).
-- 8,63 aciertos de media sobre 15 con tres dobles.
+- 8,63 aciertos de media sobre 15 con tres dobles (metrica de bloques de 15;
+  ver nota).
 - Temporada 2024-25: 52,49 % y 8,64/15 con tres dobles (mercado 52,38 %).
 - Temporada 2025-26 completa: 51,54 % y 8,50/15 con tres dobles (mercado 51,54 %).
 
@@ -87,3 +88,13 @@ Las cifras se obtuvieron con la configuracion incluida en el repositorio.
 Hash del dataset historico (PRIMERA + SEGUNDA): `51a9688ac065015da9335512af5a34a8`.
 
 Estas cifras son una referencia reproducible, no una garantia de resultados.
+
+**Nota sobre la metrica de dobles (02/08/2026):** el "8,63/15 con tres dobles"
+se calcula agrupando bloques de 15 partidos consecutivos del CSV, que pueden
+mezclar fines de semana distintos. Sobre jornadas reales reconstruidas
+(2023-2026, `scripts/backtests/BACKTEST_JORNADAS_REALES.py`) el motor obtiene
+un 51,17 % de acierto simple frente al 51,18 % del favorito de mercado, y la
+evaluacion sobre boletos oficiales de 15 partidos esta disponible con
+`scripts/backtests/BACKTEST_BOLETOS_REALES.py` (muestra en
+`DATOS/jornadas_lae_muestra/`; cosecha completa con
+`scripts/datos/COSECHAR_JORNADAS_LAE.py`). Detalle: `REVISION_12`.

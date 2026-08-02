@@ -32,3 +32,30 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Configuración:** Walk-forward estimando rho fuera de muestra.
 - **Resultado:** **IMPLEMENTADO** (validación concluida).
 - **Métricas:** Mejora del acierto exacto de marcador (+0.07% absoluto) y ligera mejora en LogLoss 1X2.
+
+## 2026-08-02 — Experimento #4: Evaluación por jornadas reales (Highlightly)
+- **Objetivo:** Sustituir la métrica de "aciertos con 3 dobles" sobre bloques
+  arbitrarios de 15 partidos por jornadas reales de fin de semana.
+- **Configuración:** `CONSTRUIR_JORNADAS_HISTORICAS.py` (agrupación por sábado
+  ancla: viernes-sábado-domingo + lunes anterior; entresemana excluido) +
+  `BACKTEST_JORNADAS_REALES.py`.
+- **Resultado:** **IMPLEMENTADO** (evaluación nueva; el motor no cambia).
+- **Métricas (103 jornadas, 2.131 partidos):** motor 51,17 % vs mercado
+  51,18 %; media 11,50 aciertos con 3 dobles sobre ~21 partidos/jornada.
+  La métrica antigua sobre los mismos partidos daba 57,1 % (inflado ~1,5 pp
+  porque mezclaba fines de semana distintos).
+- **Razón:** La ventaja de +0,08 pp del test principal no se sostiene fuera
+  de la métrica de bloques; el motor y el mercado empatan en jornadas reales.
+
+## 2026-08-02 — Experimento #5: Boletos reales de La Quiniela (muestra + cosechador)
+- **Objetivo:** Evaluar el motor sobre los 15 partidos oficiales de cada
+  boleto (14 + pleno), con premios y recaudación reales.
+- **Configuración:** `COSECHAR_JORNADAS_LAE.py` (libertaddigital.com +
+  quinielafutbol.info) + `BACKTEST_BOLETOS_REALES.py`.
+- **Resultado:** **EN CURSO** (cosechador listo; muestra de 3 boletos validada).
+- **Métricas (muestra):** 8/14 (J4 2023-24, sin el aplazado AtM-Sevilla),
+  7/15 (J29 2024-25), 8/15 (J22 2025-26) con 3 dobles; 0 desajustes entre el
+  histórico y la combinación ganadora oficial.
+- **Pendiente:** cosecha completa (~224 boletos) en máquina con internet;
+  después, medias con bootstrap y ROI real (recaudación + premios ya
+  disponibles en los boletos cosechados).
