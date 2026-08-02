@@ -16,3 +16,6 @@ SALIDAS/*
 *.log
 .idea/
 .vscode/
+
+# HTML crudo de la cosecha de boletos (regenerable con COSECHAR_JORNADAS_LAE.py)
+DATOS/jornadas_lae/cache/

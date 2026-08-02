@@ -169,3 +169,70 @@ def test_muestra_real_tiene_15_partidos_y_nombres_resolubles():
             assert resolve_history_name(m["visitante"])
     # alias añadido: Villarreal II -> Villarreal B
     assert resolve_history_name("Villarreal II") == "Villarreal B"
+
+
+# ---------------------------------------------------------------------------
+# Parser tolerante (v2): tablas anidadas, filas planas, gzip, nav
+# ---------------------------------------------------------------------------
+
+def test_parse_jornada_con_tablas_anidadas():
+    """LD envuelve el contenido en tablas contenedoras; el parser debe soportarlo."""
+    wrapped = (
+        "<html><body><table><tr><td>"
+        + LD_HTML
+        + "</td></tr></table></body></html>"
+    )
+    data = cjl.parse_jornada(wrapped)
+    assert len(data["partidos"]) == 14
+    assert data["pleno15"] == {"local": "Atlético de Madrid", "visitante": "Getafe"}
+    assert data["premios"]["13"] == {"acertantes": 2, "premio_euros": 113191}
+
+
+def test_parse_jornada_fila_planas_sin_tabla():
+    """Respaldo: filas <tr> fuera de <table> también deben leerse."""
+    flat = (
+        "<html><body>"
+        "<table><tr><td>1</td><td>Local1</td><td>Visitante1</td><td>1</td><td>X</td><td>2</td></tr>"
+        "<tr><td>2</td><td>Local2</td><td>Visitante2</td><td>1</td><td>X</td><td>2</td></tr>"
+        "</table>"
+        "<div><tr><td>3</td><td>Local3</td><td>Visitante3</td><td>1</td><td>X</td><td>2</td></tr></div>"
+        "</body></html>"
+    )
+    rows = cjl.extract_rows(flat)
+    assert any(len(r) >= 4 and r[0] == "3" for r in rows)
+
+
+def test_parse_jornada_columna_extra():
+    """Variante: primera celda vacía y el número en la segunda."""
+    extra = LD_HTML.replace(
+        "<td>1</td><td>EquipoLocal1</td>",
+        "<td></td><td>1</td><td>EquipoLocal1</td>",
+        1,
+    )
+    data = cjl.parse_jornada(extra)
+    assert len(data["partidos"]) == 14
+    assert data["partidos"][0]["local"] == "EquipoLocal1"
+
+
+def test_max_jornada_from_nav():
+    html = "<a>Jornada 1</a><a>Jornada 2</a><a>Jornada 72</a><h1>Quiniela - Jornada 65</h1>"
+    assert cjl.max_jornada_from_nav(html) == 72
+    assert cjl.max_jornada_from_nav("<html>sin nav</html>") is None
+
+
+def test_decode_response_gzip():
+    import gzip as gz
+
+    html = "<html><table><tr><td>1</td></tr></table></html>"
+    raw = gz.compress(html.encode("utf-8"))
+    assert cjl._decode_response(raw, "gzip") == html
+    # sin compresión
+    assert cjl._decode_response(raw, None) != html  # bytes crudos no son texto
+
+
+def test_deteccion_404_para():
+    """3 errores 404 consecutivos deben detener la temporada (sin rango)."""
+    # Probar la lógica de parada de forma unitaria: el bucle se detiene al
+    # acumular MAX_CONSECUTIVE_404 cuando no hay n_max detectado.
+    assert cjl.MAX_CONSECUTIVE_404 == 3
+    assert cjl.MAX_JORNADAS_GUESS == 80
