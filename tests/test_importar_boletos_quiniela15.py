@@ -51,6 +51,22 @@ def test_parse_result_table_extracts_15_matches_and_pleno():
     assert matches[14].signo == "1-1"
 
 
+def test_parse_result_table_accepts_sorteo_without_score():
+    html = SAMPLE_HTML.replace(
+        "<tr><td>8</td><td>Espanyol<br>(1)<br>-<br>At. Madrid<br>(2)</td><td>2<br>-<br>1</td><td>1</td><td>2</td></tr>",
+        "<tr><td>8</td><td>Valencia<br>(1)<br>-<br>Real Oviedo<br>(2)</td><td></td><td>1</td><td>1</td></tr>",
+    )
+
+    matches = parse_result_table(html)
+
+    assert len(matches) == 15
+    assert matches[7].num == 8
+    assert matches[7].local == "Valencia"
+    assert matches[7].resultado is None
+    assert matches[7].signo == "1"
+    assert matches[7].tipo == "sorteo"
+
+
 def test_build_payload_is_compatible_with_lae_backtest_schema():
     matches = parse_result_table(SAMPLE_HTML)
     payload = build_payload(1, matches, "2025-2026", "https://www.quiniela15.com/resultados-quiniela/1")

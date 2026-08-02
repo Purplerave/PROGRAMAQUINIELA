@@ -130,7 +130,7 @@ class ParsedMatch:
     num: int
     local: str
     visitante: str
-    resultado: str
+    resultado: str | None
     signo: str
     tipo: str | None = None
 
@@ -213,9 +213,14 @@ def _parse_from_tables(html_text: str) -> list[ParsedMatch]:
                 continue
             try:
                 local, visitante = parse_match_cell(row[1])
-                resultado = parse_score_cell(row[2])
             except ValueError:
                 continue
+            try:
+                resultado = parse_score_cell(row[2])
+                tipo = "pleno15" if num == 15 else None
+            except ValueError:
+                resultado = None
+                tipo = "sorteo" if num < 15 else "pleno15_sin_marcador"
             signo = row[3].strip().upper().replace(" ", "")
             if not _valid_sign(num, signo):
                 # Evita capturar tablas secundarias o filas incompletas.
@@ -227,7 +232,7 @@ def _parse_from_tables(html_text: str) -> list[ParsedMatch]:
                     visitante=visitante,
                     resultado=resultado,
                     signo=signo,
-                    tipo="pleno15" if num == 15 else None,
+                    tipo=tipo,
                 )
             )
     return _ordered_or_raise(matches)
@@ -286,14 +291,28 @@ def _parse_from_visible_text(html_text: str) -> list[ParsedMatch]:
                     if _is_int_line(lines[idx]) and lines[idx + 1] == "-" and _is_int_line(lines[idx + 2]):
                         score_pos = idx
                         break
-                if score_pos is None:
-                    continue
-                resultado = f"{int(lines[score_pos])}-{int(lines[score_pos + 2])}"
+
+                resultado = None
                 signo = None
-                for idx in range(score_pos + 3, min(score_pos + 12, len(lines))):
+                tipo = "pleno15" if num == 15 else None
+                if score_pos is not None:
+                    resultado = f"{int(lines[score_pos])}-{int(lines[score_pos + 2])}"
+                    sign_start = score_pos + 3
+                    cursor_after = sign_start
+                else:
+                    # Caso especial real: partido de boleto aplazado/resuelto por sorteo.
+                    # No hay marcador en la página, pero sí signo oficial del boleto.
+                    sign_start = away_pos + 1
+                    cursor_after = sign_start
+                    tipo = "sorteo" if num < 15 else "pleno15_sin_marcador"
+
+                for idx in range(sign_start, min(sign_start + 20, len(lines))):
                     maybe = lines[idx].strip().upper().replace(" ", "")
+                    if _is_force_line(maybe):
+                        continue
                     if _valid_sign(num, maybe):
                         signo = maybe
+                        cursor_after = idx + 1
                         break
                 if signo is None:
                     continue
@@ -303,9 +322,9 @@ def _parse_from_visible_text(html_text: str) -> list[ParsedMatch]:
                     visitante=visitante,
                     resultado=resultado,
                     signo=signo,
-                    tipo="pleno15" if num == 15 else None,
+                    tipo=tipo,
                 )
-                cursor = score_pos + 3
+                cursor = cursor_after
                 break
             if found is not None:
                 break

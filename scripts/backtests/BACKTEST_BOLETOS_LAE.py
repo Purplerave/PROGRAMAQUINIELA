@@ -51,9 +51,10 @@ class TicketMatch:
     away: str
     home_history: str
     away_history: str
-    score: str
+    score: str | None
     sign: str
     is_pleno15: bool
+    is_sorteo: bool
     history_index: int
     history_date: str
     division: str
@@ -129,28 +130,44 @@ def validate_ticket_against_history(ticket: dict, history: pd.DataFrame) -> list
             )
         row = candidates.iloc[0]
 
-        score = str(raw_match["resultado"]).replace(" ", "")
-        hg, ag = _parse_score(score)
-        sign_from_score = _score_to_sign(score)
+        raw_score = raw_match.get("resultado")
+        score = str(raw_score).replace(" ", "") if raw_score not in {None, ""} else None
         declared_sign = str(raw_match.get("signo", "")).strip().upper().replace(" ", "")
-        is_pleno15 = num == 15 or raw_match.get("tipo") == "pleno15"
+        tipo = str(raw_match.get("tipo", "")).strip().lower()
+        is_pleno15 = num == 15 or tipo == "pleno15"
+        is_sorteo = tipo == "sorteo" or (not is_pleno15 and score is None)
 
-        if int(row["FTHG"]) != hg or int(row["FTAG"]) != ag:
-            raise ValueError(
-                f"{ticket['id']} #{num}: marcador LAE {score} no coincide con "
-                f"histórico {int(row['FTHG'])}-{int(row['FTAG'])}"
-            )
-        if is_pleno15:
-            if declared_sign != score:
+        if is_sorteo:
+            if declared_sign not in {"1", "X", "2"}:
                 raise ValueError(
-                    f"{ticket['id']} #15: Pleno al 15 debe declarar marcador exacto; "
-                    f"signo={declared_sign!r}, resultado={score!r}"
+                    f"{ticket['id']} #{num}: partido resuelto por sorteo sin signo 1/X/2 válido: "
+                    f"{declared_sign!r}"
                 )
-        elif declared_sign != sign_from_score:
-            raise ValueError(
-                f"{ticket['id']} #{num}: signo LAE {declared_sign!r} no coincide "
-                f"con marcador {score} -> {sign_from_score}"
-            )
+            sign_for_ticket = declared_sign
+        else:
+            if score is None:
+                raise ValueError(f"{ticket['id']} #{num}: falta resultado para partido no marcado como sorteo")
+            hg, ag = _parse_score(score)
+            sign_from_score = _score_to_sign(score)
+            if int(row["FTHG"]) != hg or int(row["FTAG"]) != ag:
+                raise ValueError(
+                    f"{ticket['id']} #{num}: marcador LAE {score} no coincide con "
+                    f"histórico {int(row['FTHG'])}-{int(row['FTAG'])}"
+                )
+            if is_pleno15:
+                if declared_sign != score:
+                    raise ValueError(
+                        f"{ticket['id']} #15: Pleno al 15 debe declarar marcador exacto; "
+                        f"signo={declared_sign!r}, resultado={score!r}"
+                    )
+                sign_for_ticket = score
+            elif declared_sign != sign_from_score:
+                raise ValueError(
+                    f"{ticket['id']} #{num}: signo LAE {declared_sign!r} no coincide "
+                    f"con marcador {score} -> {sign_from_score}"
+                )
+            else:
+                sign_for_ticket = sign_from_score
 
         matches.append(
             TicketMatch(
@@ -162,8 +179,9 @@ def validate_ticket_against_history(ticket: dict, history: pd.DataFrame) -> list
                 home_history=home_hist,
                 away_history=away_hist,
                 score=score,
-                sign=score if is_pleno15 else sign_from_score,
+                sign=sign_for_ticket,
                 is_pleno15=is_pleno15,
+                is_sorteo=is_sorteo,
                 history_index=int(row.name),
                 history_date=str(pd.to_datetime(row["date"]).date()),
                 division=str(row["division"]),
@@ -187,6 +205,7 @@ def validate_tickets(paths: Iterable[Path], history: pd.DataFrame) -> dict:
             "tickets": len(tickets),
             "partidos": len(all_matches),
             "plenos15": sum(m.is_pleno15 for m in all_matches),
+            "sorteos": sum(m.is_sorteo for m in all_matches),
             "temporadas": sorted({m.season for m in all_matches}),
         },
     }
@@ -214,7 +233,9 @@ def _ticket_pick_rows(matches: list[TicketMatch], predictions: pd.DataFrame) -> 
                 "ticket_id": match.ticket_id,
                 "ticket_num": match.num,
                 "ticket_score": match.score,
+                "ticket_sign": match.sign,
                 "ticket_is_pleno15": match.is_pleno15,
+                "ticket_is_sorteo": match.is_sorteo,
             }
         )
         rows.append(item)
@@ -230,8 +251,8 @@ def score_real_ticket(matches: list[TicketMatch], predictions: pd.DataFrame, con
         raise ValueError(f"{matches[0].ticket_id}: esperado 14 partidos + 1 pleno; recibido {len(main)} + {len(pleno)}")
 
     prefix = "latest" if "latest_pred" in frame.columns else "best"
-    main["modelo_simple_hit"] = main[f"{prefix}_pred"].eq(main["result"]).astype(int)
-    main["mercado_simple_hit"] = main["favorite_market"].eq(main["result"]).astype(int)
+    main["modelo_simple_hit"] = main[f"{prefix}_pred"].eq(main["ticket_sign"]).astype(int)
+    main["mercado_simple_hit"] = main["favorite_market"].eq(main["ticket_sign"]).astype(int)
     main["double"] = [
         build_double(p1, px, p2, config["double_draw_threshold"])
         for p1, px, p2 in zip(main[f"{prefix}_prob_1"], main[f"{prefix}_prob_x"], main[f"{prefix}_prob_2"])
@@ -260,15 +281,16 @@ def score_real_ticket(matches: list[TicketMatch], predictions: pd.DataFrame, con
     model_hits_3_dobles = 0
     market_hits_3_dobles = 0
     for idx, row in main.iterrows():
+        official_sign = row["ticket_sign"]
         if idx in double_idx:
-            model_hits_3_dobles += int(row["result"] in row["double"])
+            model_hits_3_dobles += int(official_sign in row["double"])
         else:
-            model_hits_3_dobles += int(row[f"{prefix}_pred"] == row["result"])
+            model_hits_3_dobles += int(row[f"{prefix}_pred"] == official_sign)
 
         if idx in market_double_idx:
-            market_hits_3_dobles += int(row["result"] in row["market_double"])
+            market_hits_3_dobles += int(official_sign in row["market_double"])
         else:
-            market_hits_3_dobles += int(row["favorite_market"] == row["result"])
+            market_hits_3_dobles += int(row["favorite_market"] == official_sign)
 
     pleno_row = pleno.iloc[0]
     pleno_scores_raw = pleno_row.get("pleno15_top_scores")
@@ -283,6 +305,7 @@ def score_real_ticket(matches: list[TicketMatch], predictions: pd.DataFrame, con
         "ticket_id": matches[0].ticket_id,
         "season": matches[0].season,
         "partidos_1_14": 14,
+        "sorteos_1_14": int(main["ticket_is_sorteo"].sum()),
         "modelo_aciertos_simples": int(main["modelo_simple_hit"].sum()),
         "mercado_aciertos_simples": int(main["mercado_simple_hit"].sum()),
         "modelo_aciertos_3_dobles": int(model_hits_3_dobles),
