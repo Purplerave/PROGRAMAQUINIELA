@@ -512,6 +512,13 @@ def main():
         except Exception as e:
             print(f"Nota: No se pudieron guardar predicciones: {e}")
 
+    # T5 (Exp #5): Generar contrato API estable para Liga de Maestros
+    try:
+        from scripts.motor.GENERAR_CONTRATO_API import generate_api_contract
+        generate_api_contract(args.jornada)
+    except Exception as e:
+        print(f"Nota: No se pudo generar contrato API: {e}")
+
     print(f"OK -> {out_path}")
     print(json.dumps({
         "jornada": args.jornada,
