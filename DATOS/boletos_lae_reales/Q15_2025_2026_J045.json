@@ -1,0 +1,117 @@
+{
+  "id": "Q15_2025_2026_J045",
+  "jornada_q15": 45,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/45",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Rayo",
+      "visitante": "Athletic",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 2,
+      "local": "Barcelona",
+      "visitante": "Villarreal",
+      "resultado": "4-1",
+      "signo": "1"
+    },
+    {
+      "num": 3,
+      "local": "Mallorca",
+      "visitante": "R. Sociedad",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 4,
+      "local": "Real Oviedo",
+      "visitante": "At. Madrid",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 5,
+      "local": "Elche",
+      "visitante": "Espanyol",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 6,
+      "local": "Valencia",
+      "visitante": "Osasuna",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 7,
+      "local": "Girona",
+      "visitante": "Celta",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 8,
+      "local": "Real Madrid",
+      "visitante": "Getafe",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 9,
+      "local": "R. Zaragoza",
+      "visitante": "Burgos",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 10,
+      "local": "Granada",
+      "visitante": "Málaga",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 11,
+      "local": "Castellón",
+      "visitante": "R. Santander",
+      "resultado": "1-3",
+      "signo": "2"
+    },
+    {
+      "num": 12,
+      "local": "Sporting Gijón",
+      "visitante": "Leganés",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 13,
+      "local": "C. Leonesa",
+      "visitante": "Las Palmas",
+      "resultado": "0-3",
+      "signo": "2"
+    },
+    {
+      "num": 14,
+      "local": "Eibar",
+      "visitante": "Cádiz",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 15,
+      "local": "Betis",
+      "visitante": "Sevilla",
+      "resultado": "2-2",
+      "signo": "2-2",
+      "tipo": "pleno15"
+    }
+  ]
+}

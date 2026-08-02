@@ -1,0 +1,117 @@
+{
+  "id": "Q15_2025_2026_J030",
+  "jornada_q15": 30,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/30",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Real Oviedo",
+      "visitante": "Celta",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 2,
+      "local": "Levante",
+      "visitante": "R. Sociedad",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 3,
+      "local": "Osasuna",
+      "visitante": "Alavés",
+      "resultado": "3-0",
+      "signo": "1"
+    },
+    {
+      "num": 4,
+      "local": "Real Madrid",
+      "visitante": "Sevilla",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 5,
+      "local": "Girona",
+      "visitante": "At. Madrid",
+      "resultado": "0-3",
+      "signo": "2"
+    },
+    {
+      "num": 6,
+      "local": "Villarreal",
+      "visitante": "Barcelona",
+      "resultado": "0-2",
+      "signo": "2"
+    },
+    {
+      "num": 7,
+      "local": "Elche",
+      "visitante": "Rayo",
+      "resultado": "4-0",
+      "signo": "1"
+    },
+    {
+      "num": 8,
+      "local": "Betis",
+      "visitante": "Getafe",
+      "resultado": "4-0",
+      "signo": "1"
+    },
+    {
+      "num": 9,
+      "local": "Andorra",
+      "visitante": "Deportivo",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 10,
+      "local": "Huesca",
+      "visitante": "R. Santander",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 11,
+      "local": "Málaga",
+      "visitante": "Almería",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 12,
+      "local": "Burgos",
+      "visitante": "R. Zaragoza",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 13,
+      "local": "Granada",
+      "visitante": "Albacete",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 14,
+      "local": "Cádiz",
+      "visitante": "Castellón",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 15,
+      "local": "Athletic",
+      "visitante": "Espanyol",
+      "resultado": "1-2",
+      "signo": "1-2",
+      "tipo": "pleno15"
+    }
+  ]
+}

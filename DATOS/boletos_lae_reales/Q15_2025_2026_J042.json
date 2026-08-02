@@ -1,0 +1,117 @@
+{
+  "id": "Q15_2025_2026_J042",
+  "jornada_q15": 42,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/42",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Elche",
+      "visitante": "Osasuna",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 2,
+      "local": "Getafe",
+      "visitante": "Villarreal",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 3,
+      "local": "Levante",
+      "visitante": "Valencia",
+      "resultado": "0-2",
+      "signo": "2"
+    },
+    {
+      "num": 4,
+      "local": "Real Madrid",
+      "visitante": "R. Sociedad",
+      "resultado": "4-1",
+      "signo": "1"
+    },
+    {
+      "num": 5,
+      "local": "Sevilla",
+      "visitante": "Alavés",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 6,
+      "local": "Real Oviedo",
+      "visitante": "Athletic",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 7,
+      "local": "Girona",
+      "visitante": "Barcelona",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 8,
+      "local": "Mallorca",
+      "visitante": "Betis",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 9,
+      "local": "Espanyol",
+      "visitante": "Celta",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 10,
+      "local": "Albacete",
+      "visitante": "Sporting Gijón",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 11,
+      "local": "Burgos",
+      "visitante": "Cádiz",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 12,
+      "local": "Castellón",
+      "visitante": "Deportivo",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 13,
+      "local": "Eibar",
+      "visitante": "R. Santander",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 14,
+      "local": "Mirandés",
+      "visitante": "Las Palmas",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 15,
+      "local": "Rayo",
+      "visitante": "At. Madrid",
+      "resultado": "3-0",
+      "signo": "3-0",
+      "tipo": "pleno15"
+    }
+  ]
+}

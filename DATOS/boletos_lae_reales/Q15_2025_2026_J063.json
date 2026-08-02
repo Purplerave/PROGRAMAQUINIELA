@@ -1,0 +1,117 @@
+{
+  "id": "Q15_2025_2026_J063",
+  "jornada_q15": 63,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/63",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Athletic",
+      "visitante": "Celta",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 2,
+      "local": "At. Madrid",
+      "visitante": "Girona",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 3,
+      "local": "Barcelona",
+      "visitante": "Betis",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 4,
+      "local": "Elche",
+      "visitante": "Getafe",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 5,
+      "local": "Levante",
+      "visitante": "Mallorca",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 6,
+      "local": "Rayo",
+      "visitante": "Villarreal",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 7,
+      "local": "R. Sociedad",
+      "visitante": "Valencia",
+      "resultado": "3-4",
+      "signo": "2"
+    },
+    {
+      "num": 8,
+      "local": "Real Oviedo",
+      "visitante": "Alavés",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 9,
+      "local": "Osasuna",
+      "visitante": "Espanyol",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 10,
+      "local": "Ceuta",
+      "visitante": "Málaga",
+      "resultado": "1-4",
+      "signo": "2"
+    },
+    {
+      "num": 11,
+      "local": "R. Santander",
+      "visitante": "Valladolid",
+      "resultado": "4-1",
+      "signo": "1"
+    },
+    {
+      "num": 12,
+      "local": "Almería",
+      "visitante": "Las Palmas",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 13,
+      "local": "Castellón",
+      "visitante": "Cádiz",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 14,
+      "local": "Leganés",
+      "visitante": "Huesca",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 15,
+      "local": "Sevilla",
+      "visitante": "Real Madrid",
+      "resultado": "0-1",
+      "signo": "0-1",
+      "tipo": "pleno15"
+    }
+  ]
+}

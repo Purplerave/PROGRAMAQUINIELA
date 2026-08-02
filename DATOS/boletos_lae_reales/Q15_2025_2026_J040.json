@@ -1,0 +1,119 @@
+{
+  "id": "Q15_2025_2026_J040",
+  "jornada_q15": 40,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/40",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Rayo",
+      "visitante": "Real Oviedo",
+      "resultado": null,
+      "signo": "1",
+      "tipo": "sorteo"
+    },
+    {
+      "num": 2,
+      "local": "Barcelona",
+      "visitante": "Mallorca",
+      "resultado": "3-0",
+      "signo": "1"
+    },
+    {
+      "num": 3,
+      "local": "Sevilla",
+      "visitante": "Girona",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 4,
+      "local": "R. Sociedad",
+      "visitante": "Elche",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 5,
+      "local": "Alavés",
+      "visitante": "Getafe",
+      "resultado": "0-2",
+      "signo": "2"
+    },
+    {
+      "num": 6,
+      "local": "Athletic",
+      "visitante": "Levante",
+      "resultado": "4-2",
+      "signo": "1"
+    },
+    {
+      "num": 7,
+      "local": "At. Madrid",
+      "visitante": "Betis",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 8,
+      "local": "Villarreal",
+      "visitante": "Espanyol",
+      "resultado": "4-1",
+      "signo": "1"
+    },
+    {
+      "num": 9,
+      "local": "Cádiz",
+      "visitante": "Almería",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 10,
+      "local": "Valladolid",
+      "visitante": "Castellón",
+      "resultado": "0-4",
+      "signo": "2"
+    },
+    {
+      "num": 11,
+      "local": "Ceuta",
+      "visitante": "Córdoba",
+      "resultado": null,
+      "signo": "X",
+      "tipo": "sorteo"
+    },
+    {
+      "num": 12,
+      "local": "Deportivo",
+      "visitante": "Albacete",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 13,
+      "local": "Sporting Gijón",
+      "visitante": "Huesca",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 14,
+      "local": "Málaga",
+      "visitante": "C. Leonesa",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 15,
+      "local": "Valencia",
+      "visitante": "Real Madrid",
+      "resultado": "0-2",
+      "signo": "0-2",
+      "tipo": "pleno15"
+    }
+  ]
+}

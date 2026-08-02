@@ -1,0 +1,118 @@
+{
+  "id": "Q15_2025_2026_J019",
+  "jornada_q15": 19,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/19",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Girona",
+      "visitante": "Alavés",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 2,
+      "local": "Sevilla",
+      "visitante": "Osasuna",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 3,
+      "local": "At. Madrid",
+      "visitante": "Levante",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 4,
+      "local": "Espanyol",
+      "visitante": "Villarreal",
+      "resultado": "0-2",
+      "signo": "2"
+    },
+    {
+      "num": 5,
+      "local": "Athletic",
+      "visitante": "Real Oviedo",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 6,
+      "local": "Valencia",
+      "visitante": "Betis",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 7,
+      "local": "Mallorca",
+      "visitante": "Getafe",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 8,
+      "local": "Celta",
+      "visitante": "Barcelona",
+      "resultado": "2-4",
+      "signo": "2"
+    },
+    {
+      "num": 9,
+      "local": "Huesca",
+      "visitante": "Andorra",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 10,
+      "local": "Málaga",
+      "visitante": "Córdoba",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 11,
+      "local": "Las Palmas",
+      "visitante": "R. Santander",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 12,
+      "local": "Ceuta",
+      "visitante": "Almería",
+      "resultado": null,
+      "signo": "X",
+      "tipo": "sorteo"
+    },
+    {
+      "num": 13,
+      "local": "Granada",
+      "visitante": "R. Zaragoza",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 14,
+      "local": "Cádiz",
+      "visitante": "Valladolid",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 15,
+      "local": "Rayo",
+      "visitante": "Real Madrid",
+      "resultado": "0-0",
+      "signo": "0-0",
+      "tipo": "pleno15"
+    }
+  ]
+}

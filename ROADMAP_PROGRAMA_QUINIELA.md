@@ -3,7 +3,18 @@
 Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 4 cerrada: backtest de boletos reales LAE).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (02/08/2026 — prioridad 4 cerrada: boletos reales LAE)
+## Último avance (02/08/2026 — prioridad 4 ampliada: temporada LAE/Q15)
+
+- Fuente agregada `DATOS/boletos_lae_fuente/202526.json`: 75 jornadas Quiniela15
+  2025-2026. Conversor `scripts/datos/CONVERTIR_FUENTE_BOLETOS_LAE.py` materializa
+  solo boletos que pasan validación estricta contra histórico español.
+- Bloque validado: 35 boletos Q15, 525 partidos, 35 plenos y 4 sorteos/aplazados
+  soportados (`tipo=sorteo`). Backtest real con `--pattern 'Q15_*.json'`.
+- Resultado agregado 2025-26: modelo 7,31 simples vs mercado 7,29; con 3 dobles
+  modelo 7,97 vs mercado 8,11; Pleno al 15 5/35 exactos y 14/35 top-3. Detalle:
+  `REVISION_13_BACKTEST_LAE_TEMPORADA_2025_26.md`.
+
+## Avance anterior (02/08/2026 — prioridad 4 cerrada: boletos reales LAE)
 
 - Nuevo backtest de boletos oficiales reales: `scripts/backtests/BACKTEST_BOLETOS_LAE.py`.
   Valida boleto 1-14 + Pleno al 15 contra histórico y evalúa simples, 3 dobles y

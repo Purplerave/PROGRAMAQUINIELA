@@ -93,11 +93,11 @@ def load_ticket(path: Path) -> dict:
     return ticket
 
 
-def iter_ticket_paths(path_or_dir: Path | None = None) -> list[Path]:
+def iter_ticket_paths(path_or_dir: Path | None = None, pattern: str = "*.json") -> list[Path]:
     base = path_or_dir or DEFAULT_FIXTURES_DIR
     if base.is_file():
         return [base]
-    return sorted(base.glob("*.json"))
+    return sorted(base.glob(pattern))
 
 
 def validate_ticket_against_history(ticket: dict, history: pd.DataFrame) -> list[TicketMatch]:
@@ -319,9 +319,9 @@ def score_real_ticket(matches: list[TicketMatch], predictions: pd.DataFrame, con
     }
 
 
-def run_lae_backtest(path_or_dir: Path | None = None, historico: str = "original") -> dict:
+def run_lae_backtest(path_or_dir: Path | None = None, historico: str = "original", pattern: str = "*.json") -> dict:
     raw = load_raw_history(historico)
-    paths = iter_ticket_paths(path_or_dir)
+    paths = iter_ticket_paths(path_or_dir, pattern=pattern)
     validation = validate_tickets(paths, raw)
     features = rolling_team_features(raw)
     by_ticket = []
@@ -361,20 +361,21 @@ def _json_default(value):
 def main() -> None:
     parser = argparse.ArgumentParser(description="Backtest de boletos reales oficiales LAE")
     parser.add_argument("--path", type=Path, default=None, help="JSON o directorio de boletos LAE")
+    parser.add_argument("--pattern", default="*.json", help="patrón glob si --path es un directorio (ej. Q15_*.json)")
     parser.add_argument("--historico", choices=("original", "saneado"), default="original")
     parser.add_argument("--solo-validar", action="store_true", help="solo valida los boletos contra el histórico; no entrena modelos")
     args = parser.parse_args()
 
     raw = load_raw_history(args.historico)
-    paths = iter_ticket_paths(args.path)
+    paths = iter_ticket_paths(args.path, pattern=args.pattern)
     if not paths:
-        raise FileNotFoundError(f"No hay boletos JSON en {args.path or DEFAULT_FIXTURES_DIR}")
+        raise FileNotFoundError(f"No hay boletos JSON en {args.path or DEFAULT_FIXTURES_DIR} con patrón {args.pattern!r}")
 
     if args.solo_validar:
         payload = validate_tickets(paths, raw)
-        result = {"historico": args.historico, "validacion": payload["summary"]}
+        result = {"historico": args.historico, "pattern": args.pattern, "validacion": payload["summary"]}
     else:
-        result = run_lae_backtest(args.path, args.historico)
+        result = run_lae_backtest(args.path, args.historico, pattern=args.pattern)
 
     settings.SALIDA_DIR.mkdir(parents=True, exist_ok=True)
     out = settings.SALIDA_DIR / "backtest_boletos_lae.json"

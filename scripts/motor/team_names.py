@@ -63,7 +63,7 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Celta": ["RC Celta", "Celta de Vigo", "Celta Vigo", "RC Celta de Vigo", "Real Club Celta"],
     "Ceuta": ["AD Ceuta FC", "AD Ceuta"],
     "Cordoba": ["Cordoba CF", "Córdoba", "Córdoba CF"],
-    "Cultural Leonesa": ["Cultural y Deportiva Leonesa", "Leonesa"],
+    "Cultural Leonesa": ["C. Leonesa", "Cultural y Deportiva Leonesa", "Leonesa"],
     "Eibar": ["SD Eibar"],
     "Elche": ["Elche CF"],
     "Eldense": ["CD Eldense"],

@@ -1,0 +1,117 @@
+{
+  "id": "Q15_2025_2026_J044",
+  "jornada_q15": 44,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/44",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "R. Sociedad",
+      "visitante": "Real Oviedo",
+      "resultado": "3-3",
+      "signo": "X"
+    },
+    {
+      "num": 2,
+      "local": "Betis",
+      "visitante": "Rayo",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 3,
+      "local": "Osasuna",
+      "visitante": "Real Madrid",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 4,
+      "local": "At. Madrid",
+      "visitante": "Espanyol",
+      "resultado": "4-2",
+      "signo": "1"
+    },
+    {
+      "num": 5,
+      "local": "Getafe",
+      "visitante": "Sevilla",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 6,
+      "local": "Barcelona",
+      "visitante": "Levante",
+      "resultado": "3-0",
+      "signo": "1"
+    },
+    {
+      "num": 7,
+      "local": "Celta",
+      "visitante": "Mallorca",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 8,
+      "local": "Villarreal",
+      "visitante": "Valencia",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 9,
+      "local": "Almería",
+      "visitante": "Córdoba",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 10,
+      "local": "Las Palmas",
+      "visitante": "Castellón",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 11,
+      "local": "Sporting Gijón",
+      "visitante": "Valladolid",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 12,
+      "local": "Andorra",
+      "visitante": "R. Zaragoza",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 13,
+      "local": "R. Santander",
+      "visitante": "Burgos",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 14,
+      "local": "Málaga",
+      "visitante": "Albacete",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 15,
+      "local": "Alavés",
+      "visitante": "Girona",
+      "resultado": "2-2",
+      "signo": "2-2",
+      "tipo": "pleno15"
+    }
+  ]
+}

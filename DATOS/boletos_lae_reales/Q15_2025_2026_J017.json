@@ -1,0 +1,117 @@
+{
+  "id": "Q15_2025_2026_J017",
+  "jornada_q15": 17,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/17",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Villarreal",
+      "visitante": "Rayo",
+      "resultado": "4-0",
+      "signo": "1"
+    },
+    {
+      "num": 2,
+      "local": "At. Madrid",
+      "visitante": "Sevilla",
+      "resultado": "3-0",
+      "signo": "1"
+    },
+    {
+      "num": 3,
+      "local": "Real Madrid",
+      "visitante": "Valencia",
+      "resultado": "4-0",
+      "signo": "1"
+    },
+    {
+      "num": 4,
+      "local": "Levante",
+      "visitante": "Celta",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 5,
+      "local": "Alavés",
+      "visitante": "Espanyol",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 6,
+      "local": "Barcelona",
+      "visitante": "Elche",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 7,
+      "local": "Betis",
+      "visitante": "Mallorca",
+      "resultado": "3-0",
+      "signo": "1"
+    },
+    {
+      "num": 8,
+      "local": "Real Oviedo",
+      "visitante": "Osasuna",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 9,
+      "local": "Leganés",
+      "visitante": "Burgos",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 10,
+      "local": "Almería",
+      "visitante": "Eibar",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 11,
+      "local": "Andorra",
+      "visitante": "Cádiz",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 12,
+      "local": "Sporting Gijón",
+      "visitante": "Las Palmas",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 13,
+      "local": "Castellón",
+      "visitante": "Málaga",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 14,
+      "local": "R. Zaragoza",
+      "visitante": "Deportivo",
+      "resultado": "0-2",
+      "signo": "2"
+    },
+    {
+      "num": 15,
+      "local": "R. Sociedad",
+      "visitante": "Athletic",
+      "resultado": "3-2",
+      "signo": "3-2",
+      "tipo": "pleno15"
+    }
+  ]
+}

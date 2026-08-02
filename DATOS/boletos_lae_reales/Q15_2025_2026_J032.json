@@ -1,0 +1,117 @@
+{
+  "id": "Q15_2025_2026_J032",
+  "jornada_q15": 32,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/32",
+  "competicion_tipo": "espana_liga",
+  "validable_historico": true,
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Celta",
+      "visitante": "Valencia",
+      "resultado": "4-1",
+      "signo": "1"
+    },
+    {
+      "num": 2,
+      "local": "Osasuna",
+      "visitante": "Athletic",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 3,
+      "local": "Elche",
+      "visitante": "Villarreal",
+      "resultado": "1-3",
+      "signo": "2"
+    },
+    {
+      "num": 4,
+      "local": "Espanyol",
+      "visitante": "Barcelona",
+      "resultado": "0-2",
+      "signo": "2"
+    },
+    {
+      "num": 5,
+      "local": "Sevilla",
+      "visitante": "Levante",
+      "resultado": "0-3",
+      "signo": "2"
+    },
+    {
+      "num": 6,
+      "local": "Real Madrid",
+      "visitante": "Betis",
+      "resultado": "5-1",
+      "signo": "1"
+    },
+    {
+      "num": 7,
+      "local": "Alavés",
+      "visitante": "Real Oviedo",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 8,
+      "local": "Mallorca",
+      "visitante": "Girona",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 9,
+      "local": "Castellón",
+      "visitante": "Huesca",
+      "resultado": "4-1",
+      "signo": "1"
+    },
+    {
+      "num": 10,
+      "local": "Valladolid",
+      "visitante": "R. Santander",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 11,
+      "local": "Córdoba",
+      "visitante": "Burgos",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 12,
+      "local": "Sporting Gijón",
+      "visitante": "Málaga",
+      "resultado": "1-3",
+      "signo": "2"
+    },
+    {
+      "num": 13,
+      "local": "R. Zaragoza",
+      "visitante": "Las Palmas",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 14,
+      "local": "Deportivo",
+      "visitante": "Cádiz",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 15,
+      "local": "R. Sociedad",
+      "visitante": "At. Madrid",
+      "resultado": "1-1",
+      "signo": "1-1",
+      "tipo": "pleno15"
+    }
+  ]
+}
