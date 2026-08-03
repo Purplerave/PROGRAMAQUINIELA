@@ -88,22 +88,14 @@ y vs el favorito de mercado (51,56 % simple / 8,55 tres dobles).
 ---
 
 ### 2. Señal de divergencia modelo-mercado para decisiones quinielísticas (dobles)
-- **Estado:** PENDIENTE — **MAYOR ROI RECOMENDADO**.
-- **Objetivo:** usar la brecha entre probabilidad del motor v4 y cuotas reales
-  del JSON para seleccionar/agresividad de dobles.
-- **Datos:** cuotas real del JSON (ya en features, flujo v4), predicciones
-  `predict_pleno15_from_model` / `MOTOR_PREDICCION_JORNADA`.
-- **Método:** calcular divergencia por partido (modelo − mercado); usar como
-  feature o regla de decisión (ej. si divergencia positiva por encima de margen,
-  incluir en doble; si negativa, excluir). Evaluar con `scripts/backtests/`.
-- **Criterio de activación:** mejora en media 3 dobles > 8,63/15 con estabilidad
-  (std baja) en multi-split; no activar por una sola temporada.
-- **Métricas mínimas:** acierto simple, 3 dobles, distribución de divergencias,
-  tasa de acierto por cuartil, comparación vs favorito.
-- **Ventaja:** no requiere nuevas fuentes de datos ni features de xG; opera sobre
-  lo existente (mercado 0,951).
-- **Recomendación:** PRIORIDAD 1 para siguiente experimento. Iniciar con análisis
-  descriptivo de divergencia en históricos (13.446) y luego A/B walk-forward.
+- **Estado:** IMPLEMENTADO (`scripts/backtests/EXPERIMENTO_DIVERGENCIA.py`), PENDIENTE DE ACTIVACIÓN.
+- **Objetivo:** usar la brecha entre probabilidad del modelo v4 (HGB entrado con `feature_columns()`) y cuotas reales del JSON (`add_market_baseline`) para seleccionar/agresividad de dobles.
+- **Datos:** cuotas reales del JSON (ya en features, flujo v4), histórico 13.446 con `rolling_team_features` point-in-time; sin fuga temporal (train solo con `season < target`).
+- **Método (ya existente):** `build_hgb_model()` entrenado por temporada; `predict_full_probs()` emite 1/X/2; `add_market_baseline()` añade probabilidad de mercado; `diff = hgb_prob - market_prob`; análisis por tramos (`pd.cut` en bins −1 a 1) reportando `actual_rate` vs `avg_market`. El valor detectado es `actual_rate − avg_market` por bin.
+- **Criterio de activación:** mejora en media 3 dobles > 8,63/15 con estabilidad (std baja) en multi-split; no activar por una sola temporada; validar contra favorito de mercado (51,56 % / 8,55).
+- **Métricas mínimas (ya calculadas por script):** acierto simple, 3 dobles, distribución de divergencias por bin, tasa de acierto por cuartil, delta vs mercado por tramo.
+- **Ventaja:** no requiere nuevas fuentes de datos ni features de xG; opera sobre lo existente (mercado 0,951).
+- **Recomendación:** PRIORIDAD 1. Ejecutar `python scripts/backtests/EXPERIMENTO_DIVERGENCIA.py` en temporada objetivo ampliada (ya cubre 2023-26); comparar `value` por bin con criterio de activación; si hay bin consistente con `value > 0` y significancia, evaluar como regla de decisión para dobles sin cambiar `CONFIG_MOTOR_V2.json`.
 
 ---
 
