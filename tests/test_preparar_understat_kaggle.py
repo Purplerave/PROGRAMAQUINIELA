@@ -160,3 +160,22 @@ def test_detecta_la_liga_por_equipos_en_zip_consolidado(tmp_path):
     filas = prep.convertir(partidos)
     assert len(filas) == 2
     assert filas[0]["home"] == "Real Madrid"
+
+
+def test_lee_csv_separado_por_punto_y_coma(tmp_path):
+    """El match_info.csv real usa ';' como delimitador."""
+    liga = tmp_path / "understats" / "La_Liga"; liga.mkdir(parents=True, exist_ok=True)
+    cab = (";id;fid;h;a;date;league_id;season;h_goals;a_goals;team_h;team_a;h_xg;a_xg;"
+           "h_w;h_d;h_l;league;h_shot;a_shot;h_shotOnTarget;a_shotOnTarget;h_deep;a_deep;a_ppda;h_ppda")
+    fila = ("0;5826;862055;137;147;2014-08-23 18:00:00;4;2014;1;0;Malaga;Athletic Club;"
+            "1.32107;1.14151;0.3996;0.3315;0.2689;La liga;12;12;3;5;4;5;6.3000;12.0714")
+    (liga / "match_info.csv").write_text(cab + "\n" + fila + "\n", encoding="utf-8")
+
+    partidos = prep.localizar_partidos_la_liga(tmp_path)
+    filas = prep.convertir(partidos)
+    assert len(filas) == 1
+    f = filas[0]
+    assert f["home"] == "Malaga"
+    assert f["away"] == "Athletic Club"
+    assert abs(f["home_xg"] - 1.32107) < 1e-4
+    assert abs(f["away_xg"] - 1.14151) < 1e-4

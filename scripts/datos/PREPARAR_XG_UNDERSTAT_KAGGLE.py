@@ -84,12 +84,39 @@ def _encontrar_col(df: pd.DataFrame, sinónimos: set[str]) -> str | None:
     return None
 
 
+def _leer_csv(path) -> pd.DataFrame:
+    """Lee un CSV detectando el delimitador (coma, ';', tab, pipe).
+
+    Acepta un ``Path``, un archivo abierto (con ``.read()``) o un texto crudo.
+    """
+    import io
+
+    if hasattr(path, "read"):
+        texto = path.read()
+        buf = texto if isinstance(texto, str) else texto.decode("utf-8", errors="replace")
+    elif isinstance(path, (str, Path)):
+        p = Path(path)
+        buf = p.read_text(encoding="utf-8", errors="replace") if p.exists() else str(path)
+    else:
+        buf = str(path)
+
+    for sep in (",", ";", "\t", "|"):
+        try:
+            df = pd.read_csv(io.StringIO(buf), sep=sep)
+            if len(df.columns) > 1:  # el separador correcto produce >1 columna
+                return df
+        except Exception:
+            continue
+    # Fallback: lectura estándar
+    return pd.read_csv(io.StringIO(buf))
+
+
 def _cargar_tabla(path_or_zip: Path | zipfile.ZipFile, nombre: str) -> pd.DataFrame:
     """Carga un CSV (de carpeta o de un ZIP) en un DataFrame."""
     if isinstance(path_or_zip, zipfile.ZipFile):
         with path_or_zip.open(nombre) as f:
-            return pd.read_csv(f)
-    return pd.read_csv(path_or_zip / nombre)
+            return _leer_csv(f)
+    return _leer_csv(path_or_zip / nombre)
 
 
 def _leer_csvs(origen) -> list[tuple[str, pd.DataFrame]]:
@@ -109,7 +136,7 @@ def _leer_csvs(origen) -> list[tuple[str, pd.DataFrame]]:
     else:
         for archivo in sorted(origen.rglob("*.csv")):
             try:
-                tablas.append((archivo.as_posix(), pd.read_csv(archivo)))
+                tablas.append((archivo.as_posix(), _leer_csv(archivo)))
             except Exception:
                 pass
     return tablas
