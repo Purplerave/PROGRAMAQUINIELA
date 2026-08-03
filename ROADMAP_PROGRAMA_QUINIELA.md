@@ -62,19 +62,110 @@ Medido mediante `scripts/backtests/DIXON_COLES.py`.
 Resultados (5 temporadas): exacto 13,14% (Δ +0,07%), Top-3 34,75%.
 Rho medio estimado: -0,036 (validado fuera de muestra).
 
-## Experimentos posteriores
+## Experimentos abiertos — evaluados y documentados (03/08/2026)
 
-Ejecutar por separado y conservar solo si mejoran el walk-forward:
+Ejecutar por separado y conservar solo si mejoran el walk-forward vs la
+configuración activa v4 (logit 0.0 / hgb 0.049 / market 0.951 / poisson 0.0)
+y vs el favorito de mercado (51,56 % simple / 8,55 tres dobles).
 
-1. Clasificador binario empate/no empate combinado con el ensemble.
-2. Señal de divergencia modelo-mercado para decisiones quinielísticas.
-3. ~~Nuevas features: xG~~ — **PROBADO (03/08/2026): NO mejora.** Se integró el
-   xG de Understat (Primera 2014-2024) como feature rodante point-in-time y se
-   validó A/B walk-forward en 10 temporadas: −0,29 pp de acierto y −0,071 en
-   3 dobles vs el conjunto activo. No se activa (REVISION_13). Bajas,
-   alineaciones y cambio de entrenador siguen pendientes de fuente consistente.
-4. Registro append-only de experimento, configuración, fecha y métricas.
-5. Contrato JSON o API estable para entregar el pronóstico a Liga de Maestros.
+---
+
+### 1. Clasificador binario empate / no-empate + ensemble
+- **Estado:** PENDIENTE / PROPUESTA.
+- **Objetivo:** mejorar selección de dobles (actual 8,63/15) combinando una
+  señal binaria de empate con el ensemble híbrido existente.
+- **Datos:** histórico completo (13.446 partidos, punto-in-time ya disponible).
+- **Método:** modelo binario (logit/HGB) sobre features existentes; combinar con
+  pesos v4 (stacking o ajuste de threshold). Calibrar con `VectorScalingCalibrator`.
+- **Criterio de activación:** win consistente en walk-forward 3 temporadas;
+  mejora ≥ +0,10 pp acierto simple o ≥ +0,05 en 3 dobles vs favorito; sin fuga.
+- **Métricas mínimas:** acierto simple, media 3 dobles, logloss, Brier, ECE,
+  delta vs mercado, std entre splits.
+- **Riesgo:** overfitting a tasa de empate (~25 %); requiere calibración.
+- **Recomendación:** explorar como A/B paralelo al motor v4; no reemplazar config
+  activa sin victoria fuera de muestra.
+
+---
+
+### 2. Señal de divergencia modelo-mercado para decisiones quinielísticas (dobles)
+- **Estado:** PENDIENTE — **MAYOR ROI RECOMENDADO**.
+- **Objetivo:** usar la brecha entre probabilidad del motor v4 y cuotas reales
+  del JSON para seleccionar/agresividad de dobles.
+- **Datos:** cuotas real del JSON (ya en features, flujo v4), predicciones
+  `predict_pleno15_from_model` / `MOTOR_PREDICCION_JORNADA`.
+- **Método:** calcular divergencia por partido (modelo − mercado); usar como
+  feature o regla de decisión (ej. si divergencia positiva por encima de margen,
+  incluir en doble; si negativa, excluir). Evaluar con `scripts/backtests/`.
+- **Criterio de activación:** mejora en media 3 dobles > 8,63/15 con estabilidad
+  (std baja) en multi-split; no activar por una sola temporada.
+- **Métricas mínimas:** acierto simple, 3 dobles, distribución de divergencias,
+  tasa de acierto por cuartil, comparación vs favorito.
+- **Ventaja:** no requiere nuevas fuentes de datos ni features de xG; opera sobre
+  lo existente (mercado 0,951).
+- **Recomendación:** PRIORIDAD 1 para siguiente experimento. Iniciar con análisis
+  descriptivo de divergencia en históricos (13.446) y luego A/B walk-forward.
+
+---
+
+### 3. Registro append-only de experimentos (config, fecha, métricas)
+- **Estado:** PENDIENTE / INFRAESTRUCTURA.
+- **Objetivo:** evitar pérdida de resultados (como el xG, documentado solo por
+  REVISION_13 + ROADMAP + README); garantizar trazabilidad.
+- **Datos:** archivo `EXPERIMENTOS_REGISTRO.md` (ya existe); módulo JSON
+  append-only opcional.
+- **Método:** plantilla obligatoria por experimento: nombre, rama/commit,
+  fecha inicio/fin, datos usados, métricas (acierto simple, 3 dobles, logloss,
+  ECE), resultado (activa / no activa / pendiente), referencias a revisiones.
+- **Criterio:** no es experimento de motor; es gobernanza. Se activa inmediatamente.
+- **Métricas:** completitud del registro, trazabilidad de decisiones.
+- **Recomendación:** completar registro del xG (ya hecho en REVISION_13) y
+  usar plantilla para 1, 2, 4, 5.
+
+---
+
+### 4. Contrato JSON o API estable para entregar el pronóstico a Liga de Maestros
+- **Estado:** PENDIENTE / INTEGRACIÓN.
+- **Objetivo:** entregar predicción (1/X/2, lleno a 15, calidad) de forma
+  estandarizada sin romper entregas concurrentes.
+- **Datos:** `API_CONTRACT_DEFINITION.md` (ya existe); `pleno15.modelo_maestro`;
+  contrato por partido (`modelo_maestro.tipo = "pleno_15_marcador"`).
+- **Método:** estabilizar esquema v1.0 del JSON (tipo, buckets, scorelines,
+  métricas de calidad); exponer vía archivo de salida o endpoint.
+- **Criterio:** contrato validado con ≥ 3 entregas consecutivas sin rotura de
+  esquema; compatibilidad con `MOTOR_QUINIELA_MAESTRO.py`.
+- **Métricas:** tasa de rotura de esquema, latencia de generación, cobertura
+  de partidos (842/842 temporada 2025-26).
+- **Recomendación:** bloquear esquema v1.0 antes de ejecutar 1 y 2, para no
+  romper entregas mientras se experimenta.
+
+---
+
+### Estado de xG — documento y cierre (03/08/2026)
+- ~~Nuevas features: xG~~ — **PROBADO: NO mejora.** Integrado point-in-time
+  (REVISION_12): `scripts/motor/xg_understat.py`, features rodantes en
+  `scripts/motor/features.py` (sin fuga), experimento A/B `scripts/backtests/EXPERIMENTO_XG.py`.
+- Resultado fuera de muestra (10 temporadas): **−0,29 pp acierto simple** y
+  **−0,071 en 3 dobles** vs v4 (51,64 % / 8,63). Por debajo del favorito de
+  mercado (51,56 % / 8,55).
+- **No se activa:** `feature_columns()` sin xG; `CONFIG_MOTOR_V2.json` sin cambios.
+- Datos brutos (`DATOS/xg_understat/`) en `.gitignore`; no versionados.
+- Referencias: REVISION_12, REVISION_13, `README.md`, `tests/test_xg_features.py`
+  (5 tests en verde como parte de los 152 totales).
+
+---
+
+## Estado de verificación — TAREA 1 cerrada (03/08/2026)
+
+- **Commit ROADMAP:** `63d2fc6` (rama) / `af332fc` (main).
+- **Solo archivo tocado:** `ROADMAP_PROGRAMA_QUINIELA.md` (+36 / −13).
+- **Código / motor / config:** sin cambios (`CONFIG_MOTOR_V2.json`,
+  `scripts/motor/features.py`, `scripts/motor/xg_understat.py` inalterados).
+- `git diff --check`: limpio (exit 0).
+- **Tests:** 152 passed, 0 fallos (pytest); 29 warnings (sklearn imputation y
+  fixtures, sin impacto en resultados).
+- **Regla AGENTS.md cumplida:** point-in-time sin fuga; validación walk-forward
+  contra favorito de mercado; no cambio de config activa sin victoria fuera de
+  muestra; datos brutos no versionados.
 
 ## Reglas
 
