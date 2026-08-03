@@ -19,6 +19,7 @@ lectura; este cliente NO modifica nada del histórico ni del motor.
 from __future__ import annotations
 
 import os
+import time
 from pathlib import Path
 from typing import Optional
 
@@ -84,10 +85,20 @@ class HighlightlyClient:
                          or BASE_URL)
         self.rapidapi_host = rapidapi_host or RAPIDAPI_HOST
 
-    def _get(self, path: str, params: Optional[dict] = None) -> dict:
+    def _get(self, path: str, params: Optional[dict] = None, reintentos: int = 3,
+             espera: float = 2.0) -> dict:
+        """GET con reintentos ante rate-limit (429) y espera entre intentos."""
         url = f"{self.base_url}{path}"
-        headers = {"x-rapidapi-key": self.api_key, "x-rapidapi-host": self.rapidapi_host}
-        resp = self.session.get(url, headers=headers, params=params, timeout=TIMEOUT)
+        headers = {"x-rapidapi-key": self.api_key}
+        if self.rapidapi_host:
+            headers["x-rapidapi-host"] = self.rapidapi_host
+        for intento in range(reintentos):
+            resp = self.session.get(url, headers=headers, params=params, timeout=TIMEOUT)
+            if resp.status_code == 429:
+                time.sleep(espera * (intento + 1))
+                continue
+            resp.raise_for_status()
+            return resp.json()
         resp.raise_for_status()
         return resp.json()
 

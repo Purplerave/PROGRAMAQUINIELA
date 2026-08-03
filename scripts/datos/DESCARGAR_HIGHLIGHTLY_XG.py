@@ -28,12 +28,13 @@ import argparse
 import csv
 import json
 import sys
+import time
 from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[0]))
 
-from highlightly_client import HighlightlyClient, parse_estadisticas, localizar_campo_xg  # noqa: E402
+from highlightly_client import BASE_URL, HighlightlyClient, parse_estadisticas, localizar_campo_xg  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SALIDA = ROOT / "DATOS" / "highlightly_dataset" / "highlightly_la_liga_xg.csv"
@@ -113,6 +114,7 @@ def probar_endpoints(cliente: HighlightlyClient, match_id: int) -> dict:
     for nombre, fn in pruebas.items():
         try:
             data = fn()
+            time.sleep(2)  # respetar el rate limit entre endpoints
         except Exception as e:
             resultado[nombre] = {"error": str(e)[:120]}
             continue
@@ -134,11 +136,14 @@ def main():
     parser.add_argument("--prueba", type=int, default=0, help="Descarga solo N partidos (prueba) y no escribe CSV")
     parser.add_argument("--raw", type=int, default=None, help="Vuelca el JSON crudo de /statistics de un match_id")
     parser.add_argument("--probe", type=int, default=None, help="Sondea statistics/match/boxscore y reporta donde esta el xG")
+    parser.add_argument("--host", choices=["rapidapi", "directo"], default="rapidapi", help="Host a usar (rapidapi por defecto)")
     parser.add_argument("--confirm", action="store_true", help="Escribe el CSV (sin sobrescribir)")
     args = parser.parse_args()
 
+    base_url = BASE_URL if args.host == "directo" else None
+    rapidapi_host = None if args.host == "directo" else None
     try:
-        cliente = HighlightlyClient()
+        cliente = HighlightlyClient(base_url=base_url, rapidapi_host=rapidapi_host)
     except RuntimeError as exc:
         print(f"ERROR: {exc}")
         print("Configura la clave antes de continuar. Ver ENV_EJEMPLO.md.")
