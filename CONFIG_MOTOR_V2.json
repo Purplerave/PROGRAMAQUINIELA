@@ -8,29 +8,66 @@
       "poisson": 0.0
     },
     "weight_candidates": [
-      {"logit": 0.0, "hgb": 0.049, "market": 0.951, "poisson": 0.0},
-      {"logit": 0.0, "hgb": 0.10, "market": 0.90, "poisson": 0.0},
-      {"logit": 0.0, "hgb": 0.20, "market": 0.80, "poisson": 0.0},
-      {"logit": 0.05, "hgb": 0.10, "market": 0.80, "poisson": 0.05}
+      {
+        "logit": 0.0,
+        "hgb": 0.049,
+        "market": 0.951,
+        "poisson": 0.0
+      },
+      {
+        "logit": 0.0,
+        "hgb": 0.1,
+        "market": 0.9,
+        "poisson": 0.0
+      },
+      {
+        "logit": 0.0,
+        "hgb": 0.2,
+        "market": 0.8,
+        "poisson": 0.0
+      },
+      {
+        "logit": 0.05,
+        "hgb": 0.1,
+        "market": 0.8,
+        "poisson": 0.05
+      }
     ],
     "draw_boost": 0.0,
     "segunda_draw_boost": 0.0,
-    "double_draw_weight": 0.70,
-    "double_disagreement_weight": 0.20,
+    "double_draw_weight": 0.7,
+    "double_disagreement_weight": 0.2,
     "double_segunda_bonus": 0.05,
-    "double_draw_threshold": 0.30,
+    "double_draw_threshold": 0.3,
     "x_disagreement_strategy": "none",
-    "draw_boost_candidates": [0.0],
-    "segunda_draw_boost_candidates": [0.0],
-    "double_draw_weight_candidates": [0.70, 0.85],
-    "double_disagreement_weight_candidates": [0.20],
-    "double_segunda_bonus_candidates": [0.0, 0.05],
-    "double_draw_threshold_candidates": [0.30],
-    "x_disagreement_strategy_candidates": ["none", "market_pick_only"],
+    "draw_boost_candidates": [
+      0.0
+    ],
+    "segunda_draw_boost_candidates": [
+      0.0
+    ],
+    "double_draw_weight_candidates": [
+      0.7,
+      0.85
+    ],
+    "double_disagreement_weight_candidates": [
+      0.2
+    ],
+    "double_segunda_bonus_candidates": [
+      0.0,
+      0.05
+    ],
+    "double_draw_threshold_candidates": [
+      0.3
+    ],
+    "x_disagreement_strategy_candidates": [
+      "none",
+      "market_pick_only"
+    ],
     "elo_base": 1500,
     "elo_k_factor": 24,
     "elo_home_advantage": 55,
-    "goal_per_sot": 0.30,
+    "goal_per_sot": 0.3,
     "hgb_learning_rate": 0.06,
     "hgb_max_depth": 6,
     "hgb_max_iter": 300,
@@ -48,23 +85,27 @@
     "weights": {
       "market": 0.55,
       "poisson": 0.25,
-      "elo": 0.20
+      "elo": 0.2
     },
     "fallback_sources": {
-      "market_proxy_order": ["apu", "lae", "q15"],
+      "market_proxy_order": [
+        "apu",
+        "lae",
+        "q15"
+      ],
       "public_proxy": "q15"
     },
     "thresholds": {
-      "logical_fixed_prob": 0.60,
+      "logical_fixed_prob": 0.6,
       "favorite_overbet_value": -0.15,
       "trap_public_favorite": 0.65,
-      "trap_market_favorite_max": 0.50,
+      "trap_market_favorite_max": 0.5,
       "hidden_draw_market": 0.28,
       "hidden_draw_public_max": 0.22,
       "visitor_value_market": 0.23,
       "visitor_value_public_max": 0.14,
       "triple_min": 0.25,
-      "triple_max": 0.40
+      "triple_max": 0.4
     },
     "risk_gap_points": {
       "low": 0.25,
@@ -87,7 +128,10 @@
   },
   "nordic_football_data": {
     "enabled": false,
-    "leagues": ["Allsvenskan", "Eliteserien"],
+    "leagues": [
+      "Allsvenskan",
+      "Eliteserien"
+    ],
     "refresh_days": 3,
     "use": "historical_diagnostic_only",
     "reason": "Walk-forward 2023-2026: market 53.02% accuracy and 8.43/14 with three doubles; historical models and calibrated blends did not improve it"
@@ -96,12 +140,23 @@
     "misma_categoria": 1.0,
     "segunda_a_primera": 0.78,
     "primera_a_segunda": 1.12,
-    "primera_rfef_a_segunda": 0.70,
+    "primera_rfef_a_segunda": 0.7,
     "filial_primera_rfef_a_segunda": 0.66,
     "sin_muestra": null
   },
   "pleno15": {
     "column_sign": "1X2 separado de marcador",
-    "buckets": ["0", "1", "2", "M"]
+    "buckets": [
+      "0",
+      "1",
+      "2",
+      "M"
+    ]
+  },
+  "decision_thresholds": {
+    "calidad_min": 0.2,
+    "confianza_min": 0.7,
+    "gap_min": 0.25,
+    "double_sorted_prob_min": 0.25
   }
 }
