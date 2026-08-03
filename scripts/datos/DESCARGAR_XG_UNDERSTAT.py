@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import random
 import sys
 import time
 from datetime import date
@@ -50,41 +51,75 @@ from understat_xg import (  # noqa: E402
 
 LEAGUE = "La_liga"
 BASE_URL = "https://understat.com/league/{league}/{year}"
+HOME_URL = "https://understat.com/"
 DEFAULT_SALIDA = ROOT / "DATOS" / "xg_understat" / "understat_la_liga_xg.csv"
 TEMP_HDR = ["match_id", "season", "datetime", "home", "away",
             "home_goals", "away_goals", "home_xg", "away_xg"]
 
-# User-Agent de navegador moderno (Understat bloquea UAs genéricos/robots).
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-)
+# Rotación de User-Agents (estrategia A de la guía de Manus).
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/119.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
+]
 
-DELAY_SEGUNDOS = 1.5
+DELAY_SEGUNDOS = (2.0, 5.0)  # delay aleatorio (estrategia C)
 
 
-def _obtener_html(url: str, usar_curl_cffi: bool, impersonate: str = "chrome") -> tuple[str, str]:
-    """Obtiene el HTML de Understat. Devuelve (html, motor_usado).
+def _headers_navegador(ua: str) -> dict:
+    """Headers completos de un navegador real (estrategia B)."""
+    return {
+        "User-Agent": ua,
+        "Referer": HOME_URL,
+        "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,webp,*/*;q=0.8",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+    }
 
-    - ``usar_curl_cffi``: usa curl_cffi imitando el TLS de un navegador real.
-    - ``impersonate``: perfil TLS de curl_cffi (chrome/safari/firefox/edge...).
+
+def _obtener_html(url: str, usar_curl_cffi: bool, impersonate: str = "chrome",
+                  proxies: dict | None = None) -> tuple[str, str]:
+    """Obtiene el HTML de Understat simulando un navegador real.
+
+    Devuelve (html, motor_usado). Aplica las técnicas anti-bot de Manus:
+    sesión con cookies, headers de navegador, UA aleatorio, delays y proxy.
     """
+    ua = random.choice(USER_AGENTS)
+    headers = _headers_navegador(ua)
+
     if usar_curl_cffi and _HAY_CURL_CFFI:
         from curl_cffi import requests as cffi_requests
-        resp = cffi_requests.get(url, timeout=40, impersonate=impersonate)
+        s = cffi_requests.Session(impersonate=impersonate)
+        try:
+            s.get(HOME_URL, timeout=40)  # cookies de la home (estrategia D)
+        except Exception:
+            pass
+        resp = s.get(url, headers=headers, timeout=40, proxies=proxies)
         resp.raise_for_status()
         return resp.text, f"curl_cffi({impersonate})"
+
     if requests is None:
         raise RuntimeError("Falta la dependencia 'requests'. Instala con: pip install -r requirements.txt")
-    resp = requests.get(url, timeout=40, headers={"User-Agent": USER_AGENT})
+    s = requests.Session()
+    s.headers.update(headers)
+    try:
+        s.get(HOME_URL, timeout=40)  # primera peticion a la home para cookies (D)
+    except Exception:
+        pass
+    resp = s.get(url, timeout=40, proxies=proxies)
     resp.raise_for_status()
-    return resp.text, "requests"
+    return resp.text, "requests+session"
 
 
-def descargar_temporada(year: int, usar_curl_cffi: bool = False, impersonate: str = "chrome") -> list[dict]:
+def descargar_temporada(year: int, usar_curl_cffi: bool = False, impersonate: str = "chrome",
+                        proxies: dict | None = None) -> list[dict]:
     """Descarga y parsea los partidos con xG de una temporada de La Liga."""
     url = BASE_URL.format(league=LEAGUE, year=year)
-    texto, motor = _obtener_html(url, usar_curl_cffi, impersonate)
+    texto, motor = _obtener_html(url, usar_curl_cffi, impersonate, proxies)
     print(f"  [{motor}] longitud {len(texto)} chars")
     partidos = parse_dates_data(texto)
     if not partidos:
@@ -95,22 +130,24 @@ def descargar_temporada(year: int, usar_curl_cffi: bool = False, impersonate: st
     return partidos
 
 
-def descargar(desde: int, hasta: int, usar_curl_cffi: bool = False, impersonate: str = "chrome") -> list[dict]:
+def descargar(desde: int, hasta: int, usar_curl_cffi: bool = False, impersonate: str = "chrome",
+              proxies: dict | None = None) -> list[dict]:
     """Descarga un rango de temporadas y las consolida."""
     todos: list[dict] = []
     for year in range(desde, hasta + 1):
-        partidos = descargar_temporada(year, usar_curl_cffi, impersonate)
+        partidos = descargar_temporada(year, usar_curl_cffi, impersonate, proxies)
         print(f"  temporada {year}/{year+1}: {len(partidos)} partidos con xG")
         todos.extend(partidos)
         if year != hasta:
-            time.sleep(DELAY_SEGUNDOS)
+            time.sleep(random.uniform(*DELAY_SEGUNDOS))  # delay aleatorio (C)
     return todos
 
 
-def diagnosticar_temporada(year: int, usar_curl_cffi: bool = False, impersonate: str = "chrome"):
+def diagnosticar_temporada(year: int, usar_curl_cffi: bool = False, impersonate: str = "chrome",
+                           proxies: dict | None = None):
     """Inspecciona la respuesta real de Understat para una temporada."""
     url = BASE_URL.format(league=LEAGUE, year=year)
-    texto, motor = _obtener_html(url, usar_curl_cffi, impersonate)
+    texto, motor = _obtener_html(url, usar_curl_cffi, impersonate, proxies)
     print(f"URL: {url}")
     print(f"Motor: {motor}")
     print(f"Longitud HTML: {len(texto)} chars")
@@ -141,15 +178,20 @@ def main():
     parser.add_argument("--salida", type=Path, default=DEFAULT_SALIDA, help="Ruta del CSV de salida")
     parser.add_argument("--curl-cffi", action="store_true", help="Usa curl_cffi (imita navegador) para sortear bloqueos")
     parser.add_argument("--impersonate", type=str, default="chrome", help="Perfil TLS de curl_cffi (chrome/safari/firefox/edge)")
+    parser.add_argument("--proxy", type=str, default=None, help="Proxy (estrategia E): http://usuario:pass@ip:puerto")
     parser.add_argument("--confirm", action="store_true", help="Escribe el CSV (sin sobrescribir)")
     args = parser.parse_args()
+
+    proxies = None
+    if args.proxy:
+        proxies = {"http": args.proxy, "https": args.proxy}
 
     if args.curl_cffi and not _HAY_CURL_CFFI:
         print("curl_cffi no está instalado. Se usará requests normal.")
         print("Para sortear bloqueos: pip install curl_cffi")
 
     if args.diagnostico is not None:
-        diagnosticar_temporada(args.diagnostico, args.curl_cffi, args.impersonate)
+        diagnosticar_temporada(args.diagnostico, args.curl_cffi, args.impersonate, proxies)
         return 0
 
     if args.desde > args.hasta:
@@ -159,7 +201,7 @@ def main():
         print("Modo prueba: se descargan y muestran los datos sin escribir el CSV.")
         print(f"Usa --confirm para guardarlos en {args.salida}")
 
-    todos = descargar(args.desde, args.hasta, args.curl_cffi, args.impersonate)
+    todos = descargar(args.desde, args.hasta, args.curl_cffi, args.impersonate, proxies)
     print(f"\nTotal: {len(todos)} partidos con xG (La Liga {args.desde}/{args.desde+1} a {args.hasta}/{args.hasta+1})")
     if todos:
         print("Ejemplo:")
