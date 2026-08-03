@@ -86,11 +86,11 @@ Ejecutar por separado y conservar solo si mejoran el walk-forward:
 3. Nuevas features: xG, bajas, alineaciones y cambio de entrenador, únicamente
    cuando exista una fuente histórica consistente.
    ✅ EVALUADO (03/08/2026) — parcialmente DESBLOQUEADO.
-   - xG: fuente histórica real localizada (Understat, La Liga 2014/15+ ≈ 75 %
-     de Primera; 0 % Segunda) + integración con la API PRO de Highlightly
-     (cliente y descargador listos). PENDIENTE de descarga real por el
-     usuario y validación fuera de muestra antes de tocar el motor
-     (REVISION_13 y REVISION_14).
+   - xG: fuente histórica real localizada y elegida = **Understat** (La Liga
+     2014/15+ ≈ 75 % de Primera; 0 % Segunda). Highlightly **descartado para
+     xG histórico** (validado: solo da xG en temporada 2025/26). PENDIENTE de
+     descargar el xG real con Understat y validarlo fuera de muestra antes de
+     tocar el motor (REVISION_13 y REVISION_14).
    - Bajas/alineaciones/entrenador: sin fuente histórica consistente → se
      mantienen bloqueadas.
 4. Registro append-only de experimento, configuración, fecha y métricas.

@@ -8,6 +8,15 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 
 ---
 
+## 2026-08-03 — Highlightly descartado para xG histórico (validado con la cuenta real)
+- **Objetivo:** Aprovechar el plan PRO de Highlightly (host directo) para xG.
+- **Configuracion:** Cliente + descargador; probes en varias temporadas.
+- **Resultado:** **RECHAZADO para xG histórico**.
+- **Datos (validados):** xG sí en temporada 2025/26 (p.ej. 2.41); **no** en
+  2022/23 ni 2019/20. Alcance de xG muy reciente.
+- **Razon:** no cubre el histórico necesario; el xG histórico profundo está en
+  Understat (desde 2014/15). Detalle: REVISION_14.
+
 ## 2026-08-03 — Integración API PRO Highlightly para xG (parte de #3)
 - **Objetivo:** Aprovechar el plan PRO de Highlightly (7500 llamadas) para
   descargar xG por partido de La Liga con la clave del usuario.

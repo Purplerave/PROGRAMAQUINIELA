@@ -77,3 +77,21 @@ una respuesta y, si el esquema difiere, se ajusta el parser con datos reales.
   obtener el CSV de xG real.
 - El motor sigue sin tocarse. Tras obtener el xG real, el siguiente paso es
   construir features rodantes de xG y validarlas fuera de muestra.
+
+## Veredicto final (validado con la cuenta real del usuario, 03/08/2026)
+
+Probes realizados en el host directo de Highlightly:
+
+| Temporada | Partido | xG en statistics/match_detail |
+|---|---|---|
+| 2025/26 | Real Madrid vs Atletico (2026) | ✅ Sí (2.41) |
+| 2022/23 | Cadiz vs Real Madrid (2023) | ❌ No |
+| 2019/20 | Levante vs Getafe (2020) | ❌ No |
+
+**Conclusión:** Highlightly solo ofrece xG en temporadas **muy recientes**
+(2025/26), no en el histórico. Para un histórico profundo (2010-11 a 2025-26),
+Highlightly **no sirve**.
+
+**Decisión:** la fuente de xG para este proyecto es **Understat** (gratis, xG
+por partido de La Liga 2014/15+, sin API key). Highlightly queda disponible
+solo para temporada actual si se quisiera, pero no es la fuente de histórico.

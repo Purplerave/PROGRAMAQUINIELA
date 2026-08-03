@@ -95,6 +95,20 @@
       },
       "razon": "El sandbox no tiene salida a internet ni puede inyectar headers; el usuario ejecuta la descarga con su clave PRO.",
       "referencia": "REVISION_14_HIGHLIGHTLY_API.md"
+    },
+    {
+      "id": 8,
+      "fecha": "2026-08-03",
+      "nombre": "Highlightly descartado para xG historico (validado cuenta real)",
+      "resultado": "RECHAZADO",
+      "configuracion": "Host directo Highlightly; probes 2019/20, 2022/23, 2025/26",
+      "metricas": {
+        "xg_2025_26": "si (2.41)",
+        "xg_2022_23": "no",
+        "xg_2019_20": "no"
+      },
+      "razon": "Highlightly solo da xG en temporada muy reciente; se adopta Understat para historico.",
+      "referencia": "REVISION_14_HIGHLIGHTLY_API.md"
     }
   ]
 }
