@@ -1,15 +1,18 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 03/08/2026 (exp. #3 features futuras evaluado: bloqueado por datos).
+Estado consolidado el 29/07/2026. Actualizado el 03/08/2026 (experimentos #3, #4 y #5 cerrados).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (03/08/2026 — experimento #3 evaluado: features futuras)
+## Último avance (03/08/2026 — experimentos #3, #4 y #5 cerrados)
 
-- Estudio de viabilidad de xG, bajas, alineaciones y cambio de entrenador:
-  cobertura histórica 0 % para las 4 familias; ninguna fuente consistente en
-  el repo (histórico solo tiene tiros/SOT al 75,8 %). No se toca el motor.
-  Reproducible: `scripts/datos/VERIFICAR_FEATURES_FUTURAS.py`. Detalle:
-  REVISION_12.
+- #3 (features futuras): estudio de viabilidad; cobertura 0 % para xG, bajas,
+  alineaciones y entrenador → no se toca el motor. Reproducible:
+  `scripts/datos/VERIFICAR_FEATURES_FUTURAS.py`. Detalle: REVISION_12.
+- #4 (registro append-only): `scripts/registro_experimentos.py` +
+  `DATOS/registro_experimentos.json` (ids incrementales, traza completa).
+- #5 (contrato estable Liga de Maestros): `GENERAR_CONTRATO_API.py`
+  refactorizado con esquema versionado y validación. Detalle:
+  `API_CONTRACT_DEFINITION.md`.
 
 ## Último avance (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
 
@@ -79,7 +82,13 @@ Ejecutar por separado y conservar solo si mejoran el walk-forward:
    familias; no existe fuente histórica consistente en el repo (ver
    REVISION_12). Sin fuentes nuevas no se toca el motor.
 4. Registro append-only de experimento, configuración, fecha y métricas.
+   ✅ CERRADA (03/08/2026). `scripts/registro_experimentos.py` mantiene
+   `DATOS/registro_experimentos.json` (append-only, ids incrementales, traza
+   completa: fecha, configuración, métricas, resultado, razón, referencia).
 5. Contrato JSON o API estable para entregar el pronóstico a Liga de Maestros.
+   ✅ CERRADA (03/08/2026). `GENERAR_CONTRATO_API.py` refactorizado: esquema
+   versionado (`contrato_version`), función pura testeable y validación antes
+   de escribir `SALIDAS/api_maestros_J{jornada}.json`.
 
 ## Reglas
 

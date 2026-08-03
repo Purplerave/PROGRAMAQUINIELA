@@ -2,7 +2,18 @@
 
 Este documento registra los experimentos realizados, sus configuraciones y sus resultados walk-forward. Solo se aplican al motor principal aquellos que demuestran una mejora consistente.
 
+> Registro machine-readable (append-only): `DATOS/registro_experimentos.json`,
+> mantenido por `scripts/registro_experimentos.py` (ROADMAP #4). Este MD
+> resume las entradas; el JSON es la fuente estructurada con traza completa.
+
 ---
+
+## 2026-08-03 — Infraestructura: registro append-only (#4) + contrato estable (#5)
+- **Registro:** `scripts/registro_experimentos.py` + `DATOS/registro_experimentos.json`.
+  Append-only con ids incrementales; nunca modifica ni elimina entradas previas.
+- **Contrato:** `scripts/motor/GENERAR_CONTRATO_API.py` refactorizado con esquema
+  versionado (`contrato_version`) y validación previa a escritura.
+- **Resultado:** **IMPLEMENTADO**. Tests: 8 contrato + 6 registro.
 
 ## 2026-08-02 — Experimento #1: Clasificador Binario de Empates
 - **Objetivo:** Mejorar la predicción del signo X mediante un modelo especializado Draw vs No-Draw.

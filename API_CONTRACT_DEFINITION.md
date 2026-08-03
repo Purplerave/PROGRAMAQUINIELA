@@ -4,10 +4,15 @@ Este documento define el contrato estable para el intercambio de predicciones co
 
 ## Endpoint / Salida: `SALIDAS/api_maestros_J{jornada}.json`
 
+Generado por `scripts/motor/GENERAR_CONTRATO_API.py` a partir del paquete de la
+jornada. El contrato es **estable**: lleva versionado de esquema
+(`contrato_version`, semver) y se valida antes de escribirse.
+
 ### Estructura del Objeto Principal
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
+| `contrato_version` | `string` | Versión del esquema del contrato (semver). Solo cambia el major ante cambios no retrocompatibles; los campos se añaden de forma aditiva. |
 | `jornada` | `int` | Número de la jornada de La Quiniela. |
 | `fecha_generacion` | `iso8601` | Marca de tiempo de la predicción. |
 | `modelo_version` | `string` | Identificador de la versión del motor utilizado. |

@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "registro": [
+    {
+      "id": 1,
+      "fecha": "2026-08-02",
+      "nombre": "Experimento #1: Clasificador Binario de Empates",
+      "resultado": "RECHAZADO",
+      "configuracion": "HistGradientBoostingClassifier binario integrado en ensemble 1X2",
+      "metricas": {
+        "AUC": 0.5539,
+        "LogLoss_1X2_activo": 0.9945,
+        "LogLoss_1X2_exp": 0.998,
+        "acierto_activo": "51.66%",
+        "acierto_exp": "51.35%"
+      },
+      "razon": "El modelo binario no captura patrones de empate que el mercado no descuente ya; empeora las metricas globales.",
+      "referencia": "EXPERIMENTOS_REGISTRO.md"
+    },
+    {
+      "id": 2,
+      "fecha": "2026-08-02",
+      "nombre": "Experimento #2: Señal de Divergencia Modelo-Mercado",
+      "resultado": "RECHAZADO",
+      "configuracion": "Analisis de acierto en tramos de divergencia P(HGB) - P(Market)",
+      "metricas": {
+        "valor_tramo_gt10pct": "+0.48%",
+        "valor_tramo_5_10pct": "-0.33%"
+      },
+      "razon": "La senal es debil e inconsistente entre temporadas; el mercado es altamente eficiente respecto a las variables estadisticas.",
+      "referencia": "EXPERIMENTOS_REGISTRO.md"
+    },
+    {
+      "id": 3,
+      "fecha": "2026-08-02",
+      "nombre": "Prioridad #2: Optimización Walk-Forward Multi-Split",
+      "resultado": "IMPLEMENTADO",
+      "configuracion": "Validacion temporal en ultimas 3 temporadas; metrica mean - 0.5*std",
+      "metricas": {},
+      "razon": "Mayor estabilidad en pesos/boosts; evita sobreajuste a rachas cortas.",
+      "referencia": "ROADMAP_PROGRAMA_QUINIELA.md"
+    },
+    {
+      "id": 4,
+      "fecha": "2026-08-02",
+      "nombre": "Prioridad #3: Evaluación Dixon-Coles (Pleno al 15)",
+      "resultado": "IMPLEMENTADO",
+      "configuracion": "Walk-forward estimando rho fuera de muestra",
+      "metricas": {
+        "mejora_acierto_exacto": "+0.07%",
+        "top3": "34.75%",
+        "rho_medio": -0.036
+      },
+      "razon": "Mejora del acierto exacto de marcador y ligera mejora en LogLoss 1X2.",
+      "referencia": "ROADMAP_PROGRAMA_QUINIELA.md"
+    },
+    {
+      "id": 5,
+      "fecha": "2026-08-03",
+      "nombre": "Experimento #3: Features futuras (xG, bajas, alineaciones, entrenador)",
+      "resultado": "RECHAZADO/BLOQUEADO POR DATOS",
+      "configuracion": "Estudio de cobertura reproducible (VERIFICAR_FEATURES_FUTURAS.py)",
+      "metricas": {
+        "cobertura_xg": 0,
+        "cobertura_bajas": 0,
+        "cobertura_alineaciones": 0,
+        "cobertura_entrenador": 0
+      },
+      "razon": "No existe fuente historica consistente; no se toca el motor.",
+      "referencia": "REVISION_12_FEATURES_FUTURAS_VIABILIDAD.md"
+    }
+  ]
+}
