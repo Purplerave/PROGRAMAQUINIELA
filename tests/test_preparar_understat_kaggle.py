@@ -140,3 +140,23 @@ def test_mapea_columnas_reales_de_match_info(tmp_path):
     assert f["away_sot"] == 4
     assert f["home_deep"] == 12
     assert f["away_ppda"] == 90
+
+
+def test_detecta_la_liga_por_equipos_en_zip_consolidado(tmp_path):
+    # Simula un ZIP/carpeta SIN la ruta La_Liga: varios CSV de partidos por liga
+    # (formato h_title/a_title), y debe elegir el de La Liga por equipos.
+    epl = tmp_path / "EPL"; epl.mkdir(parents=True)
+    (epl / "matches.csv").write_text(
+        "id,datetime,h_title,a_title,h_goals,a_goals,xG_h,xG_a\n"
+        "1,2020-01-01,Arsenal,Chelsea,2,1,1.9,1.4\n"
+        "2,2020-01-01,Liverpool,Man City,3,0,2.2,1.1\n", encoding="utf-8")
+    liga = tmp_path / "SPAIN"; liga.mkdir(parents=True)
+    (liga / "matches.csv").write_text(
+        "id,datetime,h_title,a_title,h_goals,a_goals,xG_h,xG_a\n"
+        "10,2020-01-01,Real Madrid,Getafe,3,0,3.13,0.98\n"
+        "11,2020-01-01,Barcelona,Elche,2,0,2.44,0.30\n", encoding="utf-8")
+
+    partidos = prep.localizar_partidos_la_liga(tmp_path)
+    filas = prep.convertir(partidos)
+    assert len(filas) == 2
+    assert filas[0]["home"] == "Real Madrid"

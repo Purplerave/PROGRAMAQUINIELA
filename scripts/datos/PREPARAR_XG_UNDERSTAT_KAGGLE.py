@@ -116,8 +116,14 @@ def _leer_csvs(origen) -> list[tuple[str, pd.DataFrame]]:
 
 
 def _es_ruta_la_liga(nombre: str) -> bool:
+    """True si la ruta indica la carpeta de La Liga (un SEGMENTO de dir = La_Liga).
+
+    Usa segmentos exactos para no confundir con rutas temporales de pytest que
+    puedan contener la subcadena "la_liga" en el nombre del directorio raíz.
+    """
     n = nombre.replace("\\", "/").lower()
-    return "laliga" in n.replace("_", "") or "la_liga" in n
+    segmentos = n.split("/")
+    return any(seg in ("la_liga", "laliga") for seg in segmentos)
 
 
 def _es_match_data(nombre: str) -> bool:
@@ -125,45 +131,90 @@ def _es_match_data(nombre: str) -> bool:
     return n.endswith("match_data.csv") or n.endswith("matches.csv")
 
 
-def localizar_partidos_la_liga(origen) -> pd.DataFrame:
-    """Localiza la tabla de partidos con xG por equipo dentro de los CSVs.
+# Equipos característicos de La Liga (para detectar la liga por contenido,
+# no solo por ruta, ya que el ZIP puede venir consolidado).
+_EQUIPOS_LA_LIGA = {
+    "Real Madrid", "Barcelona", "Atletico Madrid", "Athletic Club", "Real Betis",
+    "Sevilla", "Valencia", "Villarreal", "Real Sociedad", "Celta Vigo", "Getafe",
+    "Osasuna", "Mallorca", "Espanyol", "Girona", "Alaves", "Rayo Vallecano",
+    "Levante", "Cadiz", "Granada", "Elche", "Leganes", "Valladolid", "Almeria",
+    "Huesca", "Las Palmas", "Eibar", "Malaga", "Deportivo La Coruna", "Betis",
+    "Real Oviedo", "Tenerife", "Gimnastic", "Zaragoza", "Albacete", "Lugo",
+}
 
-    Escanea TODOS los CSVs de La Liga y elige el que tenga la estructura más
-    completa de "partido": equipo local + equipo visitante + xG local + xG
-    visitante (por fila). Eso descarta la tabla de temporada por equipo
-    (match_data.csv, que tiene xG pero no por partido local/visitante).
+
+def _es_equipo_la_liga(nombre) -> bool:
+    if not isinstance(nombre, str):
+        return False
+    norm = "".join(c for c in nombre.lower() if c.isalnum())
+    return any(
+        "".join(c for c in e.lower() if c.isalnum()) in norm
+        for e in _EQUIPOS_LA_LIGA
+    )
+
+
+def _proporcion_la_liga(df: pd.DataFrame) -> float:
+    """Fraccion de filas cuyo local o visitante es un equipo de La Liga."""
+    col_h = _encontrar_col(df, _NOMBRES_EQ_LOCAL)
+    col_a = _encontrar_col(df, _NOMBRES_EQ_VISIT)
+    if col_h is None or col_a is None:
+        return 0.0
+    n = len(df)
+    if n == 0:
+        return 0.0
+    total = sum(
+        1 for _, f in df.iterrows()
+        if _es_equipo_la_liga(f.get(col_h)) or _es_equipo_la_liga(f.get(col_a))
+    )
+    return total / n
+
+
+def localizar_partidos_la_liga(origen) -> pd.DataFrame:
+    """Localiza la tabla de partidos de La Liga con xG por equipo.
+
+    Primero busca por ruta (carpeta ``La_Liga``). Si no la encuentra, cae a
+    detección por contenido: entre todos los CSV con estructura de partido,
+    elige el que tenga mayor proporción de equipos de La Liga. Esto evita
+    elegir por error otra liga (p.ej. Ligue 1 con Mónaco/Lyon).
     """
     candidatos = _leer_csvs(origen)
-    la_liga = [(nombre, df) for nombre, df in candidatos if _es_ruta_la_liga(nombre)]
+    la_liga_ruta = [(nombre, df) for nombre, df in candidatos if _es_ruta_la_liga(nombre)]
 
-    # Prioridad 1: el archivo de partidos por excelencia, match_info.csv,
-    # que en understatapi contiene: id, fid, h, a, date, season, h_goals,
-    # a_goals, team_h, team_a, h_xg, a_xg, h_w/h_d/h_l, league, h_shot,
-    # a_shot, h_shotOnTarget, a_shotOnTarget, h_deep, a_deep, h_ppda, a_ppda.
-    for nombre, df in la_liga:
+    # Prioridad 1: match_info.csv dentro de la ruta de La Liga.
+    for nombre, df in la_liga_ruta:
         if nombre.replace("\\", "/").lower().endswith("match_info.csv"):
             if _puntuar_tabla_partidos(df) > 0:
                 return df
 
-    mejor = None
-    mejor_punt = -1
-    for nombre, df in la_liga:
+    # Prioridad 2: cualquier CSV de La Liga (por ruta) con estructura de partido.
+    mejor_ruta = None
+    mejor_ruta_punt = -1
+    for nombre, df in la_liga_ruta:
         punt = _puntuar_tabla_partidos(df)
-        if punt > mejor_punt:
-            mejor = (nombre, df)
-            mejor_punt = punt
+        if punt > mejor_ruta_punt:
+            mejor_ruta = df
+            mejor_ruta_punt = punt
+    if mejor_ruta is not None:
+        return mejor_ruta
 
-    if mejor is None:
-        # Fallback: cualquier CSV (de cualquier liga) con estructura de partido.
-        for nombre, df in candidatos:
-            punt = _puntuar_tabla_partidos(df)
-            if punt > mejor_punt:
-                mejor = (nombre, df)
-                mejor_punt = punt
+    # Prioridad 3 (fallback robusto): entre todos los CSV con estructura de
+    # partido, elige el que tenga la mayor proporcion de equipos de La Liga
+    # (por contenido), de modo que no confunda con otra liga (p.ej. Ligue 1).
+    mejores = []
+    for nombre, df in candidatos:
+        if _puntuar_tabla_partidos(df) > 0:
+            mejores.append((nombre, _proporcion_la_liga(df), df))
+    if mejores:
+        mejores.sort(key=lambda t: t[1], reverse=True)
+        mejor_nombre, mejor_prop, mejor_df = mejores[0]
+        if mejor_prop >= 0.5:  # al menos la mitad de los partidos son de La Liga
+            return mejor_df
 
-    if mejor is None:
-        raise ValueError("No se encontró una tabla de partidos con xG en el dataset.")
-    return mejor[1]
+    raise ValueError(
+        "No se encontró la tabla de partidos de La Liga con xG. "
+        "¿El ZIP es de understat-database? Revisa las rutas: " +
+        ", ".join(n for n, _ in candidatos[:10])
+    )
 
 
 def _puntuar_tabla_partidos(df: pd.DataFrame) -> int:
