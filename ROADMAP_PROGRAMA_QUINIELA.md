@@ -90,7 +90,7 @@ y vs el favorito de mercado (51,56 % simple / 8,55 tres dobles).
 ---
 
 ### 2. Señal de divergencia modelo-mercado para decisiones quinielísticas (dobles)
-- **Estado:** IMPLEMENTADO (`scripts/backtests/EXPERIMENTO_DIVERGENCIA.py`), PENDIENTE DE ACTIVACIÓN.
+- **Estado:** RECHAZADO como activación universal / VALIDADO CONDICIONAL (solo rango +0.05/+0.10 muestra valor; alta divergencia = sobreconfianza). No se activa sin restricción por rango.
 - **Objetivo:** usar la brecha entre probabilidad del modelo v4 (HGB entrado con `feature_columns()`) y cuotas reales del JSON (`add_market_baseline`) para seleccionar/agresividad de dobles.
 - **Datos:** cuotas reales del JSON (ya en features, flujo v4), histórico 13.446 con `rolling_team_features` point-in-time; sin fuga temporal (train solo con `season < target`).
 - **Método (ya existente):** `build_hgb_model()` entrenado por temporada; `predict_full_probs()` emite 1/X/2; `add_market_baseline()` añade probabilidad de mercado; `diff = hgb_prob - market_prob`; análisis por tramos (`pd.cut` en bins −1 a 1) reportando `actual_rate` vs `avg_market`. El valor detectado es `actual_rate − avg_market` por bin.
