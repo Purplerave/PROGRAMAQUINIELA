@@ -63,6 +63,10 @@ al repositorio.
 - `CONFIG_MOTOR_V2.json`: parametros activos del motor.
 - `DATOS/historico_raw/`: CSV historicos necesarios para reproducir el backtest.
 - `scripts/backtests/`: evaluacion walk-forward por temporada.
+- `scripts/motor/xg_understat.py`: carga y fusion del xG de Understat (Primera
+  2014-2024). Añade columnas de xG al historico; aditivo y no afecta al modelo.
+- `scripts/backtests/EXPERIMENTO_XG.py`: A/B walk-forward Sin-xG vs Con-xG.
+- `REVISION_*.md`: informes tecnicos (validaciones, experimentos y decisiones).
 
 ## Reglas de evaluacion
 
@@ -87,3 +91,16 @@ Las cifras se obtuvieron con la configuracion incluida en el repositorio.
 Hash del dataset historico (PRIMERA + SEGUNDA): `51a9688ac065015da9335512af5a34a8`.
 
 Estas cifras son una referencia reproducible, no una garantia de resultados.
+
+## xG (Understat) — experimento evaluado, no activo
+
+Se integro el xG de disparo de Understat (Primera, 2014-2024; validado en
+`REVISION_12_XG_UNDERSTAT.md`) como feature rodante point-in-time en
+`scripts/motor/features.py`. El experimento A/B walk-forward en 10 temporadas
+(`REVISION_13_XG_INTEGRACION.md`, reproducido con
+`python scripts/backtests/EXPERIMENTO_XG.py --solo-primera --max-seasons 10`)
+mostró que **no mejora el modelo fuera de muestra** (−0,29 pp de acierto y
+−0,071 en la media de tres dobles vs el conjunto activo). Por ello **no se
+activa** en `feature_columns()` ni en la configuracion. La infraestructura queda
+aditiva y disponible por si en el futuro se justifica (p. ej. xG posicional o
+cobertura de Segunda).
