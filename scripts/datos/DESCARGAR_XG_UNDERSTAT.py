@@ -63,26 +63,29 @@ USER_AGENT = (
 DELAY_SEGUNDOS = 1.5
 
 
-def _obtener_html(url: str, usar_curl_cffi: bool) -> str:
-    """Obtiene el HTML de Understat, usando curl_cffi si se pide (anti-bots)."""
-    if usar_curl_cffi and _HAY_CURL_CFFI:
-        # curl_cffi imita el TLS de un navegador real (evita Cloudflare).
-        from curl_cffi import requests as cffi_requests
+def _obtener_html(url: str, usar_curl_cffi: bool, impersonate: str = "chrome") -> tuple[str, str]:
+    """Obtiene el HTML de Understat. Devuelve (html, motor_usado).
 
-        resp = cffi_requests.get(url, timeout=40, impersonate="chrome")
+    - ``usar_curl_cffi``: usa curl_cffi imitando el TLS de un navegador real.
+    - ``impersonate``: perfil TLS de curl_cffi (chrome/safari/firefox/edge...).
+    """
+    if usar_curl_cffi and _HAY_CURL_CFFI:
+        from curl_cffi import requests as cffi_requests
+        resp = cffi_requests.get(url, timeout=40, impersonate=impersonate)
         resp.raise_for_status()
-        return resp.text
+        return resp.text, f"curl_cffi({impersonate})"
     if requests is None:
         raise RuntimeError("Falta la dependencia 'requests'. Instala con: pip install -r requirements.txt")
     resp = requests.get(url, timeout=40, headers={"User-Agent": USER_AGENT})
     resp.raise_for_status()
-    return resp.text
+    return resp.text, "requests"
 
 
-def descargar_temporada(year: int, usar_curl_cffi: bool = False) -> list[dict]:
+def descargar_temporada(year: int, usar_curl_cffi: bool = False, impersonate: str = "chrome") -> list[dict]:
     """Descarga y parsea los partidos con xG de una temporada de La Liga."""
     url = BASE_URL.format(league=LEAGUE, year=year)
-    texto = _obtener_html(url, usar_curl_cffi)
+    texto, motor = _obtener_html(url, usar_curl_cffi, impersonate)
+    print(f"  [{motor}] longitud {len(texto)} chars")
     partidos = parse_dates_data(texto)
     if not partidos:
         raise RuntimeError(
@@ -92,11 +95,11 @@ def descargar_temporada(year: int, usar_curl_cffi: bool = False) -> list[dict]:
     return partidos
 
 
-def descargar(desde: int, hasta: int, usar_curl_cffi: bool = False) -> list[dict]:
+def descargar(desde: int, hasta: int, usar_curl_cffi: bool = False, impersonate: str = "chrome") -> list[dict]:
     """Descarga un rango de temporadas y las consolida."""
     todos: list[dict] = []
     for year in range(desde, hasta + 1):
-        partidos = descargar_temporada(year, usar_curl_cffi)
+        partidos = descargar_temporada(year, usar_curl_cffi, impersonate)
         print(f"  temporada {year}/{year+1}: {len(partidos)} partidos con xG")
         todos.extend(partidos)
         if year != hasta:
@@ -104,11 +107,12 @@ def descargar(desde: int, hasta: int, usar_curl_cffi: bool = False) -> list[dict
     return todos
 
 
-def diagnosticar_temporada(year: int, usar_curl_cffi: bool = False):
+def diagnosticar_temporada(year: int, usar_curl_cffi: bool = False, impersonate: str = "chrome"):
     """Inspecciona la respuesta real de Understat para una temporada."""
     url = BASE_URL.format(league=LEAGUE, year=year)
-    texto = _obtener_html(url, usar_curl_cffi)
+    texto, motor = _obtener_html(url, usar_curl_cffi, impersonate)
     print(f"URL: {url}")
+    print(f"Motor: {motor}")
     print(f"Longitud HTML: {len(texto)} chars")
     bloques = {
         "datesData": _DATES_RE.search(texto),
@@ -136,6 +140,7 @@ def main():
     parser.add_argument("--hasta", type=int, default=date.today().year - 1, help="Última temporada (año de inicio)")
     parser.add_argument("--salida", type=Path, default=DEFAULT_SALIDA, help="Ruta del CSV de salida")
     parser.add_argument("--curl-cffi", action="store_true", help="Usa curl_cffi (imita navegador) para sortear bloqueos")
+    parser.add_argument("--impersonate", type=str, default="chrome", help="Perfil TLS de curl_cffi (chrome/safari/firefox/edge)")
     parser.add_argument("--confirm", action="store_true", help="Escribe el CSV (sin sobrescribir)")
     args = parser.parse_args()
 
@@ -144,7 +149,7 @@ def main():
         print("Para sortear bloqueos: pip install curl_cffi")
 
     if args.diagnostico is not None:
-        diagnosticar_temporada(args.diagnostico, args.curl_cffi)
+        diagnosticar_temporada(args.diagnostico, args.curl_cffi, args.impersonate)
         return 0
 
     if args.desde > args.hasta:
@@ -154,7 +159,7 @@ def main():
         print("Modo prueba: se descargan y muestran los datos sin escribir el CSV.")
         print(f"Usa --confirm para guardarlos en {args.salida}")
 
-    todos = descargar(args.desde, args.hasta, args.curl_cffi)
+    todos = descargar(args.desde, args.hasta, args.curl_cffi, args.impersonate)
     print(f"\nTotal: {len(todos)} partidos con xG (La Liga {args.desde}/{args.desde+1} a {args.hasta}/{args.hasta+1})")
     if todos:
         print("Ejemplo:")
