@@ -181,6 +181,12 @@ def get_expected_columns() -> list[str]:
         "shots_against_diff",
         "sot_diff",
         "sot_against_diff",
+        "home_xg_5",
+        "away_xg_5",
+        "home_xg_against_5",
+        "away_xg_against_5",
+        "xg_for_diff",
+        "xg_against_diff",
         "market_move_1",
         "market_move_x",
         "market_move_2",
@@ -214,6 +220,10 @@ def finalize_feature_dataframe(feat_df: pd.DataFrame) -> pd.DataFrame:
     out["sot_diff"] = out["home_sot_5"] - out["away_sot_5"]
     out["sot_against_diff"] = (
         out["away_sot_against_5"] - out["home_sot_against_5"]
+    )
+    out["xg_for_diff"] = out["home_xg_5"] - out["away_xg_5"]
+    out["xg_against_diff"] = (
+        out["away_xg_against_5"] - out["home_xg_against_5"]
     )
     out["market_move_1"] = out["market_1"] - out["open_market_1"]
     out["market_move_x"] = out["market_x"] - out["open_market_x"]
@@ -270,6 +280,8 @@ class TeamStateTracker:
                 "shots_against": [],
                 "sot": [],
                 "sot_against": [],
+                "xg": [],
+                "xg_against": [],
                 "elo": self.base_elo,
                 "last_date": None,
             }
@@ -399,6 +411,11 @@ class TeamStateTracker:
         home_shots_against = self.avg_last(home_hist["shots_against"])
         away_shots_against = self.avg_last(away_hist["shots_against"])
 
+        home_xg = self.avg_last(home_hist["xg"])
+        away_xg = self.avg_last(away_hist["xg"])
+        home_xg_against = self.avg_last(home_hist["xg_against"])
+        away_xg_against = self.avg_last(away_hist["xg_against"])
+
         last_date_home = home_hist["last_date"]
         last_date_away = away_hist["last_date"]
         days_rest_home = (
@@ -458,6 +475,10 @@ class TeamStateTracker:
             "away_sot_5": away_sot,
             "home_sot_against_5": home_sot_against,
             "away_sot_against_5": away_sot_against,
+            "home_xg_5": home_xg,
+            "away_xg_5": away_xg,
+            "home_xg_against_5": home_xg_against,
+            "away_xg_against_5": away_xg_against,
             "home_table_pos": home_pos,
             "away_table_pos": away_pos,
             "table_pos_diff": (
@@ -535,6 +556,16 @@ class TeamStateTracker:
             if "AST" in row and pd.notna(row.get("AST"))
             else np.nan
         )
+        h_xg = (
+            float(row["home_xg"])
+            if "home_xg" in row and pd.notna(row.get("home_xg"))
+            else np.nan
+        )
+        a_xg = (
+            float(row["away_xg"])
+            if "away_xg" in row and pd.notna(row.get("away_xg"))
+            else np.nan
+        )
 
         if result == "1":
             home_pts, away_pts = 3, 0
@@ -551,6 +582,8 @@ class TeamStateTracker:
         home_hist["shots_against"].append(ass)
         home_hist["sot"].append(hst)
         home_hist["sot_against"].append(ast)
+        home_hist["xg"].append(h_xg)
+        home_hist["xg_against"].append(a_xg)
 
         away_hist["gf"].append(ag)
         away_hist["ga"].append(hg)
@@ -560,6 +593,8 @@ class TeamStateTracker:
         away_hist["shots_against"].append(hs)
         away_hist["sot"].append(ast)
         away_hist["sot_against"].append(hst)
+        away_hist["xg"].append(a_xg)
+        away_hist["xg_against"].append(h_xg)
 
         expected_home = 1 / (
             1

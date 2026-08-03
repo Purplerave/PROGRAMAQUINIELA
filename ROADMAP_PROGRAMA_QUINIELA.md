@@ -63,8 +63,11 @@ Ejecutar por separado y conservar solo si mejoran el walk-forward:
 
 1. Clasificador binario empate/no empate combinado con el ensemble.
 2. Señal de divergencia modelo-mercado para decisiones quinielísticas.
-3. Nuevas features: xG, bajas, alineaciones y cambio de entrenador, únicamente
-   cuando exista una fuente histórica consistente.
+3. ~~Nuevas features: xG~~ — **PROBADO (03/08/2026): NO mejora.** Se integró el
+   xG de Understat (Primera 2014-2024) como feature rodante point-in-time y se
+   validó A/B walk-forward en 10 temporadas: −0,29 pp de acierto y −0,071 en
+   3 dobles vs el conjunto activo. No se activa (REVISION_13). Bajas,
+   alineaciones y cambio de entrenador siguen pendientes de fuente consistente.
 4. Registro append-only de experimento, configuración, fecha y métricas.
 5. Contrato JSON o API estable para entregar el pronóstico a Liga de Maestros.
 
