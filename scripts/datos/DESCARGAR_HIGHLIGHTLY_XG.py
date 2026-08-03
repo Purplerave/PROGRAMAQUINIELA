@@ -127,6 +127,22 @@ def probar_endpoints(cliente: HighlightlyClient, match_id: int) -> dict:
     return resultado
 
 
+
+
+def listar_partidos_temporada(cliente: HighlightlyClient, league_id: int, season: str, limite: int = 10):
+    """Devuelve los ultimos partidos finalizados de una temporada (con su id)."""
+    partidos = cliente.obtener_partidos(league_id, season)
+    finalizados = []
+    for m in partidos:
+        status = str(m.get("status") or "").lower()
+        if status and not status.startswith("finished"):
+            continue
+        resumen = extraer_partido_resumido(m)
+        if resumen["match_id"] is not None:
+            finalizados.append(resumen)
+    return finalizados[-limite:]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--desde", type=int, default=2014, help="Primera temporada (año de inicio)")
@@ -137,6 +153,7 @@ def main():
     parser.add_argument("--raw", type=int, default=None, help="Vuelca el JSON crudo de /statistics de un match_id")
     parser.add_argument("--probe", type=int, default=None, help="Sondea statistics/match/boxscore y reporta donde esta el xG")
     parser.add_argument("--host", choices=["rapidapi", "directo"], default="rapidapi", help="Host a usar (rapidapi por defecto)")
+    parser.add_argument("--probe-ultimo", action="store_true", help="Lista los ultimos partidos finalizados de la temporada y sus ids")
     parser.add_argument("--confirm", action="store_true", help="Escribe el CSV (sin sobrescribir)")
     args = parser.parse_args()
 
@@ -159,6 +176,15 @@ def main():
         print(f"Probe del match {args.probe} (donde esta el xG?):")
         for nombre, info in resumen.items():
             print(f"  {nombre:15} -> {info}")
+        return 0
+
+    if args.probe_ultimo:
+        league_id = args.league_id or localizar_la_liga(cliente).get("id")
+        season = args.season or str(date.today().year - 1)
+        ultimos = listar_partidos_temporada(cliente, league_id, season)
+        print(f"Ultimos partidos finalizados de la temporada {season} (league {league_id}):")
+        for m in ultimos:
+            print(f"  id={m['match_id']}  {m['home']} vs {m['away']}  @ {m['datetime']}")
         return 0
 
     if args.season:
