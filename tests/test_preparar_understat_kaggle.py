@@ -96,3 +96,23 @@ def test_ignora_otras_ligas_y_elige_la_liga(tmp_path):
     # Debe elegir La Liga (2 filas), no EPL.
     assert len(filas) == 2
     assert filas[0]["home"] == "Real Madrid"
+
+
+def test_descarta_tabla_de_temporada_sin_partidos(tmp_path):
+    # match_data.csv es la tabla de temporada por equipo (xG pero NO por partido).
+    liga = tmp_path / "understats" / "La_Liga"; liga.mkdir(parents=True, exist_ok=True)
+    (liga / "match_data.csv").write_text(
+        "id,title,year,wins,draws,loses,pts,xG,xGA,result\n"
+        "1,Real Madrid,2014,30,4,4,94,95.0,35.0,W\n"
+        "2,Barcelona,2014,30,4,4,94,100.0,28.0,W\n", encoding="utf-8")
+    # match_info.csv SI es el de partidos con xG por equipo.
+    (liga / "match_info.csv").write_text(
+        "match_id,season,datetime,h_title,a_title,h_goals,a_goals,h_xg,a_xg\n"
+        "1001,2014,2014-08-25,Real Madrid,Getafe,7,3,3.13,0.98\n", encoding="utf-8")
+
+    partidos = prep.localizar_partidos_la_liga(tmp_path)
+    filas = prep.convertir(partidos)
+    # Debe elegir match_info (partidos), no match_data (temporada).
+    assert len(filas) == 1
+    assert filas[0]["home"] == "Real Madrid"
+    assert filas[0]["home_xg"] == 3.13

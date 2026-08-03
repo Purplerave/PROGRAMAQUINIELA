@@ -42,16 +42,19 @@ DEFAULT_SALIDA = ROOT / "DATOS" / "xg_understat" / "understat_la_liga_xg.csv"
 TEMP_HDR = ["match_id", "season", "datetime", "home", "away",
             "home_goals", "away_goals", "home_xg", "away_xg"]
 
-# Sinónimos de columnas aceptados (normalizados a minusculas/sin espacios).
-_NOMBRES_XG_LOCAL = {"xg_h", "xg_for", "xgh", "xg_home", "home_xg", "xghome", "hgx"}
-_NOMBRES_XG_VISIT = {"xg_a", "xg_against", "xga", "xg_away", "away_xg", "xgaway", "agx"}
-_NOMBRES_EQ_LOCAL = {"home_team", "hteam", "h_team", "hometeam", "team_h", "home"}
-_NOMBRES_EQ_VISIT = {"away_team", "ateam", "a_team", "awayteam", "team_a", "away"}
-_NOMBRES_FECHA = {"datetime", "date", "match_date", "kickoff"}
-_NOMBRES_TEMP = {"season", "season_id", "year"}
-_NOMBRES_GOALS_LOCAL = {"h_goals", "goals_h", "home_goals", "hg", "fthg"}
-_NOMBRES_GOALS_VISIT = {"a_goals", "goals_a", "away_goals", "ag", "ftag"}
-_NOMBRES_MATCH_ID = {"id", "match_id", "matchid"}
+# Sinónimos de columnas aceptados (NORMALIZADOS: minusculas y sin no-alfanum).
+# Equipos local/visitante (incluye la nomenclatura de understatapi).
+_NOMBRES_EQ_LOCAL = {"htitle", "hteam", "hteamid", "h_team", "hometeam", "team_h", "home", "home_team"}
+_NOMBRES_EQ_VISIT = {"atitle", "ateam", "ateamid", "a_team", "awayteam", "team_a", "away", "away_team"}
+# xG local/visitante.
+_NOMBRES_XG_LOCAL = {"hxg", "xgh", "xgfor", "xg_home", "home_xg", "homexg", "hgx"}
+_NOMBRES_XG_VISIT = {"axg", "xga", "xgagainst", "xg_away", "away_xg", "awayxg", "agx"}
+# Goles local/visitante.
+_NOMBRES_GOALS_LOCAL = {"hgoals", "goalsh", "homegoals", "hg", "fthg", "h_goals"}
+_NOMBRES_GOALS_VISIT = {"agoals", "goalsa", "awaygoals", "ag", "ftag", "a_goals"}
+_NOMBRES_FECHA = {"datetime", "date", "matchdate", "kickoff"}
+_NOMBRES_TEMP = {"season", "seasonid", "year"}
+_NOMBRES_MATCH_ID = {"id", "matchid"}
 
 
 def _norm(col: str) -> str:
@@ -107,40 +110,53 @@ def _es_match_data(nombre: str) -> bool:
 
 
 def localizar_partidos_la_liga(origen) -> pd.DataFrame:
-    """Localiza la tabla de partidos de La Liga con xG dentro de los CSVs.
+    """Localiza la tabla de partidos con xG por equipo dentro de los CSVs.
 
-    Estrategia:
-    1. Preferir el archivo ``match_data.csv`` dentro de una ruta de La Liga.
-    2. Si no, cualquier CSV de La Liga que tenga columnas de xG + equipos.
-    3. Fallback: la tabla con más xG.
+    Escanea TODOS los CSVs de La Liga y elige el que tenga la estructura más
+    completa de "partido": equipo local + equipo visitante + xG local + xG
+    visitante (por fila). Eso descarta la tabla de temporada por equipo
+    (match_data.csv, que tiene xG pero no por partido local/visitante).
     """
     candidatos = _leer_csvs(origen)
+    la_liga = [(nombre, df) for nombre, df in candidatos if _es_ruta_la_liga(nombre)]
 
-    def _tiene_xg_y_eq(df):
-        cols = {_norm(c) for c in df.columns}
-        tiene_xg = bool((cols & _NOMBRES_XG_LOCAL) | (cols & _NOMBRES_XG_VISIT))
-        tiene_eq = bool((cols & _NOMBRES_EQ_LOCAL) | (cols & _NOMBRES_EQ_VISIT))
-        return tiene_xg and tiene_eq
+    mejor = None
+    mejor_punt = -1
+    for nombre, df in la_liga:
+        punt = _puntuar_tabla_partidos(df)
+        if punt > mejor_punt:
+            mejor = (nombre, df)
+            mejor_punt = punt
 
-    # 1. match_data de La Liga
-    for nombre, df in candidatos:
-        if _es_ruta_la_liga(nombre) and _es_match_data(nombre) and _tiene_xg_y_eq(df):
-            return df
+    if mejor is None:
+        # Fallback: cualquier CSV (de cualquier liga) con estructura de partido.
+        for nombre, df in candidatos:
+            punt = _puntuar_tabla_partidos(df)
+            if punt > mejor_punt:
+                mejor = (nombre, df)
+                mejor_punt = punt
 
-    # 2. Cualquier CSV de La Liga con xG + equipos
-    la_liga_xg = [
-        df for nombre, df in candidatos
-        if _es_ruta_la_liga(nombre) and _tiene_xg_y_eq(df)
-    ]
-    if la_liga_xg:
-        return max(la_liga_xg, key=len)
+    if mejor is None:
+        raise ValueError("No se encontró una tabla de partidos con xG en el dataset.")
+    return mejor[1]
 
-    # 3. Fallback: tabla con más xG
-    todas_xg = [df for _, df in candidatos if _tiene_xg_y_eq(df)]
-    if todas_xg:
-        return max(todas_xg, key=len)
 
-    raise ValueError("No se encontró una tabla de partidos de La Liga con xG en el dataset.")
+def _puntuar_tabla_partidos(df: pd.DataFrame) -> int:
+    """Puntua una tabla segun si tiene estructura de partido con xG por equipo."""
+    cols = {_norm(c) for c in df.columns}
+    puntos = 0
+    puntos += 1 if (cols & _NOMBRES_EQ_LOCAL) else 0
+    puntos += 1 if (cols & _NOMBRES_EQ_VISIT) else 0
+    puntos += 2 if (cols & _NOMBRES_XG_LOCAL) else 0
+    puntos += 2 if (cols & _NOMBRES_XG_VISIT) else 0
+    puntos += 1 if (cols & _NOMBRES_GOALS_LOCAL) else 0
+    puntos += 1 if (cols & _NOMBRES_GOALS_VISIT) else 0
+    # Debe tener como minimo equipos + xG por cada lado para ser "de partido".
+    tiene_equipos = bool(cols & _NOMBRES_EQ_LOCAL) and bool(cols & _NOMBRES_EQ_VISIT)
+    tiene_xg = bool(cols & _NOMBRES_XG_LOCAL) and bool(cols & _NOMBRES_XG_VISIT)
+    if not (tiene_equipos and tiene_xg):
+        return -1  # no es tabla de partidos con xG por equipo
+    return puntos
 
 
 def _celda_valor(fila, col: str | None):
