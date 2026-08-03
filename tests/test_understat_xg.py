@@ -76,3 +76,12 @@ def test_parse_datetime():
     assert understat_xg.parse_datetime("2026-05-23 16:00:00") == datetime(2026, 5, 23, 16, 0, 0)
     assert understat_xg.parse_datetime("no-valido") is None
     assert understat_xg.parse_datetime("") is None
+
+
+def test_unescape_hexadecimal_como_understat_real():
+    """Understat codifica el JSON en escape hexadecimal (\x7B para '{')."""
+    # Simulamos un bloque datesData con comillas y llaves en escape hex.
+    contenido = "[{\"isResult\": true, \"id\": 1, \"season\": \"2025\", \"h\": {\"title\": \"Alaves\"}, \"a\": {\"title\": \"Getafe\"}, \"goals\": {\"h\": 1, \"a\": 2}, \"xG\": {\"h\": 1.7, \"a\": 0.9}}]"
+    # Codificar cada caracter no-ascii-printable a escape hex sería largo; basta
+    # comprobar que codecs.decode(unicode_escape) convierte \x7B -> {.
+    assert understat_xg._unescape("\\x7Babc\\x7D") == "{abc}"

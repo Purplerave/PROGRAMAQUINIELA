@@ -21,6 +21,7 @@ Referencia del esquema (objeto de partido en ``datesData``):
 
 from __future__ import annotations
 
+import codecs
 import json
 import re
 from datetime import datetime
@@ -30,16 +31,28 @@ from typing import Optional
 # \' (secuencia \\.) y el cierre es ');. Consumimos (?:[^'\\]|\\.) como unidad.
 _DATES_RE = re.compile(r"var\s+datesData\s*=\s*JSON\.parse\('((?:[^'\\]|\\.)+)'\);")
 _TEAMS_RE = re.compile(r"var\s+teamsData\s*=\s*JSON\.parse\('((?:[^'\\]|\\.)+)'\);")
+# Otros bloques que Understat puede exponer.
+_PLAYERS_RE = re.compile(r"var\s+playersData\s*=\s*JSON\.parse\('((?:[^'\\]|\\.)+)'\);")
+_SHOTS_RE = re.compile(r"var\s+shotsData\s*=\s*JSON\.parse\('((?:[^'\\]|\\.)+)'\);")
+_GROUPS_RE = re.compile(r"var\s+groupsData\s*=\s*JSON\.parse\('((?:[^'\\]|\\.)+)'\);")
 
 
 def _unescape(js_str: str) -> str:
-    """Desescapa el JSON de Understat (apóstrofes y secuencias Unicode)."""
-    # Understat escapa los apóstrofes como \' y secuencias Unicode como \uXXXX.
+    """Desescapa el JSON de Understat (escape Unicode/hexadecimal).
+
+    Understat codifica los datos en escape hexadecimal (``\\x7B`` para ``{``) y
+    Unicode (``\\u00E1`` para ``á``) dentro de ``JSON.parse('...')``. Se
+    decodifican con ``unicode_escape`` (igual que la implementación de
+    referencia de Manus AI), tras desescapar los apóstrofes.
+    """
     out = js_str.replace("\\'", "'")
     try:
-        return out.encode("latin-1", errors="ignore").decode("unicode_escape")
+        return codecs.decode(out, "unicode_escape")
     except Exception:
-        return out
+        try:
+            return bytes(out, "utf-8").decode("unicode_escape")
+        except Exception:
+            return out
 
 
 def _extraer(regex, html: str) -> Optional[str]:
