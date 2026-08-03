@@ -8,6 +8,16 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 
 ---
 
+## 2026-08-03 — xG Understat: fuente histórica localizada (parte de #3)
+- **Objetivo:** Desbloquear la familia xG del punto #3 (features futuras).
+- **Configuracion:** Understat como fuente gratuita de xG por partido
+  (La Liga). Scripts: DESCARGAR_XG_UNDERSTAT.py y MEDIR_COBERTURA_XG.py.
+- **Resultado:** **PENDIENTE DE VALIDACION** (fuente localizada, no integrada).
+- **Cobertura estimada:** Primera 2014/15+ = 12 temporadas (~75 % de Primera);
+  Segunda = 0 %. Gestion de ausentes: imputacion / flag sin_xg.
+- **Razon:** requiere descarga real y validacion fuera de muestra antes de tocar
+  el motor (regla del proyecto). Detalle: REVISION_13.
+
 ## 2026-08-03 — Infraestructura: registro append-only (#4) + contrato estable (#5)
 - **Registro:** `scripts/registro_experimentos.py` + `DATOS/registro_experimentos.json`.
   Append-only con ids incrementales; nunca modifica ni elimina entradas previas.

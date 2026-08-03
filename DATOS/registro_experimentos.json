@@ -68,6 +68,20 @@
       },
       "razon": "No existe fuente historica consistente; no se toca el motor.",
       "referencia": "REVISION_12_FEATURES_FUTURAS_VIABILIDAD.md"
+    },
+    {
+      "id": 6,
+      "fecha": "2026-08-03",
+      "nombre": "Experimento xG: fuente histórica Understat (parte de #3)",
+      "resultado": "PENDIENTE DE VALIDACION",
+      "configuracion": "Understat xG por partido (La Liga 2014/15+); scripts DESCARGAR_XG_UNDERSTAT.py y MEDIR_COBERTURA_XG.py",
+      "metricas": {
+        "cobertura_primera": "~75%",
+        "cobertura_segunda": "0%",
+        "temporadas_primera": 12
+      },
+      "razon": "Fuente historica real localizada; requiere descarga y validacion fuera de muestra antes de tocar el motor.",
+      "referencia": "REVISION_13_XG_VIABILIDAD.md"
     }
   ]
 }

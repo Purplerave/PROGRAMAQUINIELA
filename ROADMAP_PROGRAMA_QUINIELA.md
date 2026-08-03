@@ -1,13 +1,20 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 03/08/2026 (experimentos #3, #4 y #5 cerrados).
+Estado consolidado el 29/07/2026. Actualizado el 03/08/2026 (experimentos #3-xG, #4 y #5 avanzados).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (03/08/2026 — experimentos #3, #4 y #5 cerrados)
+## Último avance (03/08/2026 — xG desbloqueado + #4 y #5 cerrados)
 
-- #3 (features futuras): estudio de viabilidad; cobertura 0 % para xG, bajas,
-  alineaciones y entrenador → no se toca el motor. Reproducible:
-  `scripts/datos/VERIFICAR_FEATURES_FUTURAS.py`. Detalle: REVISION_12.
+- #3 (xG): fuente histórica real localizada (Understat, La Liga 2014/15+,
+  ≈ 75 % de Primera; 0 % Segunda). Scripts de descarga y medición de cobertura
+  listos (`DESCARGAR_XG_UNDERSTAT.py`, `MEDIR_COBERTURA_XG.py`). PENDIENTE de
+  descargar y validar fuera de muestra antes de tocar el motor. Detalle:
+  REVISION_13.
+- #4 (registro append-only): `scripts/registro_experimentos.py` +
+  `DATOS/registro_experimentos.json` (ids incrementales, traza completa).
+- #5 (contrato estable Liga de Maestros): `GENERAR_CONTRATO_API.py`
+  refactorizado con esquema versionado y validación. Detalle:
+  `API_CONTRACT_DEFINITION.md`.
 - #4 (registro append-only): `scripts/registro_experimentos.py` +
   `DATOS/registro_experimentos.json` (ids incrementales, traza completa).
 - #5 (contrato estable Liga de Maestros): `GENERAR_CONTRATO_API.py`
@@ -78,9 +85,12 @@ Ejecutar por separado y conservar solo si mejoran el walk-forward:
    ✅ EVALUADO (02/08/2026) — RECHAZADO (señal débil e inconsistente).
 3. Nuevas features: xG, bajas, alineaciones y cambio de entrenador, únicamente
    cuando exista una fuente histórica consistente.
-   ✅ EVALUADO (03/08/2026) — BLOQUEADO POR DATOS. Cobertura 0 % para las 4
-   familias; no existe fuente histórica consistente en el repo (ver
-   REVISION_12). Sin fuentes nuevas no se toca el motor.
+   ✅ EVALUADO (03/08/2026) — parcialmente DESBLOQUEADO.
+   - xG: fuente histórica real localizada (Understat, La Liga 2014/15+ ≈ 75 %
+     de Primera; 0 % Segunda). PENDIENTE de descarga + validación fuera de
+     muestra antes de tocar el motor (REVISION_13).
+   - Bajas/alineaciones/entrenador: sin fuente histórica consistente → se
+     mantienen bloqueadas.
 4. Registro append-only de experimento, configuración, fecha y métricas.
    ✅ CERRADA (03/08/2026). `scripts/registro_experimentos.py` mantiene
    `DATOS/registro_experimentos.json` (append-only, ids incrementales, traza
