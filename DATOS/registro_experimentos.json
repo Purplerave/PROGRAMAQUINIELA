@@ -82,6 +82,19 @@
       },
       "razon": "Fuente historica real localizada; requiere descarga y validacion fuera de muestra antes de tocar el motor.",
       "referencia": "REVISION_13_XG_VIABILIDAD.md"
+    },
+    {
+      "id": 7,
+      "fecha": "2026-08-03",
+      "nombre": "Integración API PRO Highlightly para xG (parte de #3)",
+      "resultado": "IMPLEMENTADO (cliente/descargador/tests) - pendiente de descarga real por el usuario",
+      "configuracion": "Cliente highlightly_client.py + DESCARGAR_HIGHLIGHTLY_XG.py; auth x-rapidapi-key desde .env",
+      "metricas": {
+        "tests": 8,
+        "suite_total": 177
+      },
+      "razon": "El sandbox no tiene salida a internet ni puede inyectar headers; el usuario ejecuta la descarga con su clave PRO.",
+      "referencia": "REVISION_14_HIGHLIGHTLY_API.md"
     }
   ]
 }

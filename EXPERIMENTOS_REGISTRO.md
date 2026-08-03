@@ -8,6 +8,16 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 
 ---
 
+## 2026-08-03 — Integración API PRO Highlightly para xG (parte de #3)
+- **Objetivo:** Aprovechar el plan PRO de Highlightly (7500 llamadas) para
+  descargar xG por partido de La Liga con la clave del usuario.
+- **Configuracion:** Cliente highlightly_client.py + DESCARGAR_HIGHLIGHTLY_XG.py
+  (auth x-rapidapi-key desde .env, ignorado por git). Modos --prueba y --raw.
+- **Resultado:** **IMPLEMENTADO** (cliente, descargador y tests); la descarga
+  real la ejecuta el usuario con su clave (el sandbox no tiene salida a red).
+- **Razon:** preparar el pipeline y validarlo; al obtener el CSV real se mide
+  cobertura y se validan features rodantes fuera de muestra. Detalle: REVISION_14.
+
 ## 2026-08-03 — xG Understat: fuente histórica localizada (parte de #3)
 - **Objetivo:** Desbloquear la familia xG del punto #3 (features futuras).
 - **Configuracion:** Understat como fuente gratuita de xG por partido

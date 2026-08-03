@@ -44,8 +44,8 @@ def leer_xg(path: Path) -> pd.DataFrame:
     return df
 
 
-def cobertura() -> dict:
-    xg = leer_xg(DEFAULT_XG)
+def cobertura(ruta_xg: Path | None = None) -> dict:
+    xg = leer_xg(ruta_xg or DEFAULT_XG)
     if xg.empty:
         return {"xg_presente": False, "mensaje": "No hay CSV de xG. Ejecuta primero DESCARGAR_XG_UNDERSTAT.py"}
 
@@ -97,10 +97,11 @@ def cobertura() -> dict:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--xg", type=Path, default=None, help="CSV de xG a medir (por defecto: Understat)")
     parser.add_argument("--confirm", action="store_true", help="Escribe el informe JSON (sin sobrescribir)")
     args = parser.parse_args()
 
-    report = cobertura()
+    report = cobertura(args.xg)
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
     if args.confirm and report.get("xg_presente"):
