@@ -32,3 +32,16 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Configuración:** Walk-forward estimando rho fuera de muestra.
 - **Resultado:** **IMPLEMENTADO** (validación concluida).
 - **Métricas:** Mejora del acierto exacto de marcador (+0.07% absoluto) y ligera mejora en LogLoss 1X2.
+
+---
+
+## 2026-08-03 — Experimento #2: Divergencia Modelo-Mercado (segunda corrida, resultados actualizados)
+- **Estado:** IMPLEMENTADO + PROBADO hoy.
+- **Resultado:** CONDICIONAL / NO ACTIVA. Señal positiva solo en rango moderado `+0.05` a `+0.10` (+0.020, 849 casos); divergencia `>+0.10` negativa (−0.021, 245 casos, sobreconfianza).
+- **Referencia:** `scripts/backtests/EXPERIMENTO_DIVERGENCIA.py`; resultados documentados en `ROADMAP_PROGRAMA_QUINIELA.md`.
+- **Acción:** no activa como regla universal; si se restringe a rango `+0.05/+0.10` podría evaluarse en multi-split adicional.
+
+## 2026-08-03 — Experimento #4: Contrato JSON/API (estado final)
+- **Estado:** DOCUMENTADO / ESTABLE.
+- **Referencia:** `API_CONTRACT_DEFINITION.md`.
+- **Acción:** bloquear esquema v1.0 antes de nuevos experimentos.

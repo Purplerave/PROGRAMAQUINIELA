@@ -71,7 +71,9 @@ y vs el favorito de mercado (51,56 % simple / 8,55 tres dobles).
 ---
 
 ### 1. Clasificador binario empate / no-empate + ensemble
-- **Estado:** PENDIENTE / PROPUESTA.
+- **Estado:** RECHAZADO (ver `EXPERIMENTOS_REGISTRO.md` 2026-08-02).
+- **Resultado:** AUC 0,5539; LogLoss 1X2 empeora (0,9945 → 0,9980); acierto 51,66 % → 51,35 %.
+- **Razón:** Modelo binario no captura patrones fuera del mercado; combinación global empeora.
 - **Objetivo:** mejorar selección de dobles (actual 8,63/15) combinando una
   señal binaria de empate con el ensemble híbrido existente.
 - **Datos:** histórico completo (13.446 partidos, punto-in-time ya disponible).
@@ -111,7 +113,7 @@ y vs el favorito de mercado (51,56 % simple / 8,55 tres dobles).
 ---
 
 ### 3. Registro append-only de experimentos (config, fecha, métricas)
-- **Estado:** PENDIENTE / INFRAESTRUCTURA.
+- **Estado:** DOCUMENTADO / ESTABLE (`EXPERIMENTOS_REGISTRO.md` actualizado 03/08/2026; plantilla obligatoria creada).
 - **Objetivo:** evitar pérdida de resultados (como el xG, documentado solo por
   REVISION_13 + ROADMAP + README); garantizar trazabilidad.
 - **Datos:** archivo `EXPERIMENTOS_REGISTRO.md` (ya existe); módulo JSON
@@ -127,7 +129,7 @@ y vs el favorito de mercado (51,56 % simple / 8,55 tres dobles).
 ---
 
 ### 4. Contrato JSON o API estable para entregar el pronóstico a Liga de Maestros
-- **Estado:** PENDIENTE / INTEGRACIÓN.
+- **Estado:** DOCUMENTADO / ESTABLE (`API_CONTRACT_DEFINITION.md`; esquema v1.0 bloqueado, sin rotura en entregas).
 - **Objetivo:** entregar predicción (1/X/2, lleno a 15, calidad) de forma
   estandarizada sin romper entregas concurrentes.
 - **Datos:** `API_CONTRACT_DEFINITION.md` (ya existe); `pleno15.modelo_maestro`;
