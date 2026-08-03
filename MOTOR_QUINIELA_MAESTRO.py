@@ -21,6 +21,7 @@ from scripts.motor.features import (
     rolling_team_features,
     safe_pair_mean,
 )
+from scripts.motor.xg_understat import merge_xg
 
 
 ROOT = settings.QUINIELAS_ROOT
@@ -143,6 +144,7 @@ def load_raw_history(source: str = "original") -> pd.DataFrame:
     df["FTHG"] = df["FTHG"].astype(int)
     df["FTAG"] = df["FTAG"].astype(int)
     df = df[df["result"].isin(LABEL_MAP)].copy()
+    df = merge_xg(df)
     return df.sort_values(["date", "division", "home", "away"]).reset_index(drop=True)
 
 
