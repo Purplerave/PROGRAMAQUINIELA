@@ -96,6 +96,12 @@ class HighlightlyClient:
     def obtener_alineaciones(self, match_id: int) -> dict:
         return self._get(f"/football/lineups/{match_id}")
 
+    def obtener_boxscore(self, match_id: int) -> dict:
+        return self._get(f"/football/match-box-score/{match_id}")
+
+    def obtener_matches_season(self, league_id: int, season: str) -> list[dict]:
+        return self.obtener_partidos(league_id, season)
+
 
 def _normalizar_lista(data) -> list:
     """Acepta una lista directa o un objeto con clave de lista (data/results/...)."""
@@ -143,3 +149,34 @@ def _float_o_none(value) -> Optional[float]:
         return v if v == v else None
     except (TypeError, ValueError):
         return None
+
+
+def _es_marcador_xg(texto: str, marcadores) -> bool:
+    plano = "".join(ch for ch in texto.lower() if ch.isalnum())
+    return any(m in plano for m in marcadores)
+
+
+def localizar_campo_xg(objeto, marcadores: tuple[str, ...] = ("xG", "xg", "expectedgoal", "expected goals", "expected_goals")):
+    """Recorre recursivamente un JSON y devuelve (ruta, valor) del primer xG.
+
+    Busca claves Y valores de texto cuyo nombre coincida con algún marcador de
+    xG (case-insensitive, sin espacios/puntuación). Sirve para localizar dónde
+    está el xG cuando el esquema de la API no es el esperado (endpoint o
+    formato distinto). Devuelve (ruta, valor) o None si no lo encuentra.
+    """
+    if isinstance(objeto, dict):
+        for k, v in objeto.items():
+            if isinstance(k, str) and _es_marcador_xg(k, marcadores):
+                return f"$['{k}']", v
+            if isinstance(v, str) and _es_marcador_xg(v, marcadores):
+                hermano = objeto.get("value") if isinstance(objeto.get("value"), (int, float)) else None
+                return f"$['{k}']", hermano if hermano is not None else v
+            sub = localizar_campo_xg(v, marcadores)
+            if sub is not None:
+                return f"$['{k}']" + sub[0], sub[1]
+    elif isinstance(objeto, list):
+        for i, item in enumerate(objeto):
+            sub = localizar_campo_xg(item, marcadores)
+            if sub is not None:
+                return f"[{i}]" + sub[0], sub[1]
+    return None

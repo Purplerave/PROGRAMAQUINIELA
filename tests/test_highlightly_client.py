@@ -82,3 +82,19 @@ class TestCargaClave:
     def test_obtener_api_key_desde_variable_env(self, monkeypatch):
         monkeypatch.setenv("HIGHLIGHTLY_API_KEY", "mi-clave")
         assert hl.obtener_api_key() == "mi-clave"
+
+
+class TestLocalizarXG:
+    def test_encuentra_xg_anidado(self):
+        objeto = {"a": {"b": [{"stats": {"xG": 3.13}}]}}
+        ruta, valor = hl.localizar_campo_xg(objeto)
+        assert valor == 3.13
+        assert "xG" in ruta
+
+    def test_devuelve_none_si_no_hay(self):
+        assert hl.localizar_campo_xg({"a": [{"b": 1}]}) is None
+
+    def test_encuentra_expected_goals(self):
+        objeto = {"statistics": [{"displayName": "Expected Goals", "value": 0.98}]}
+        ruta, valor = hl.localizar_campo_xg(objeto)
+        assert valor == 0.98

@@ -33,7 +33,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[0]))
 
-from highlightly_client import HighlightlyClient, parse_estadisticas  # noqa: E402
+from highlightly_client import HighlightlyClient, parse_estadisticas, localizar_campo_xg  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SALIDA = ROOT / "DATOS" / "highlightly_dataset" / "highlightly_la_liga_xg.csv"
@@ -100,6 +100,31 @@ def descargar_temporada(cliente, league_id, season, limite=None) -> list[dict]:
     return filas
 
 
+
+
+def probar_endpoints(cliente: HighlightlyClient, match_id: int) -> dict:
+    """Prueba varios endpoints y reporta en cual aparece xG."""
+    resultado = {}
+    pruebas = {
+        "statistics": lambda: cliente.obtener_estadisticas(match_id),
+        "match_detail": lambda: cliente.obtener_partido(match_id),
+        "box_score": lambda: cliente.obtener_boxscore(match_id),
+    }
+    for nombre, fn in pruebas.items():
+        try:
+            data = fn()
+        except Exception as e:
+            resultado[nombre] = {"error": str(e)[:120]}
+            continue
+        hit = localizar_campo_xg(data)
+        if hit:
+            ruta, valor = hit
+            resultado[nombre] = {"tiene_xg": True, "ruta": ruta, "valor": valor}
+        else:
+            resultado[nombre] = {"tiene_xg": False}
+    return resultado
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--desde", type=int, default=2014, help="Primera temporada (año de inicio)")
@@ -108,6 +133,7 @@ def main():
     parser.add_argument("--season", type=str, default=None, help="Temporada única (ej. 2025). Evita el rango.")
     parser.add_argument("--prueba", type=int, default=0, help="Descarga solo N partidos (prueba) y no escribe CSV")
     parser.add_argument("--raw", type=int, default=None, help="Vuelca el JSON crudo de /statistics de un match_id")
+    parser.add_argument("--probe", type=int, default=None, help="Sondea statistics/match/boxscore y reporta donde esta el xG")
     parser.add_argument("--confirm", action="store_true", help="Escribe el CSV (sin sobrescribir)")
     args = parser.parse_args()
 
@@ -121,6 +147,13 @@ def main():
     if args.raw is not None:
         print(json.dumps(cliente.obtener_estadisticas(args.raw), ensure_ascii=False, indent=2))
         print("\nParsed xG:", parse_estadisticas(cliente.obtener_estadisticas(args.raw)))
+        return 0
+
+    if args.probe is not None:
+        resumen = probar_endpoints(cliente, args.probe)
+        print(f"Probe del match {args.probe} (donde esta el xG?):")
+        for nombre, info in resumen.items():
+            print(f"  {nombre:15} -> {info}")
         return 0
 
     if args.season:
