@@ -74,7 +74,11 @@ def _cargar_tabla(path_or_zip: Path | zipfile.ZipFile, nombre: str) -> pd.DataFr
 
 
 def _leer_csvs(origen) -> list[tuple[str, pd.DataFrame]]:
-    """Devuelve [(nombre, dataframe)] de todos los CSV en el ZIP o carpeta."""
+    """Devuelve [(nombre_ruta, dataframe)] de todos los CSV en el ZIP o carpeta.
+
+    En carpeta busca recursivamente (los CSV viven en subcarpetas de liga,
+    p.ej. `understats/La_Liga/match_data.csv`).
+    """
     tablas: list[tuple[str, pd.DataFrame]] = []
     if isinstance(origen, zipfile.ZipFile):
         for nombre in origen.namelist():
@@ -84,47 +88,59 @@ def _leer_csvs(origen) -> list[tuple[str, pd.DataFrame]]:
                 except Exception:
                     pass
     else:
-        for archivo in sorted(origen.glob("*.csv")):
+        for archivo in sorted(origen.rglob("*.csv")):
             try:
-                tablas.append((archivo.name, pd.read_csv(archivo)))
+                tablas.append((archivo.as_posix(), pd.read_csv(archivo)))
             except Exception:
                 pass
     return tablas
 
 
+def _es_ruta_la_liga(nombre: str) -> bool:
+    n = nombre.replace("\\", "/").lower()
+    return "laliga" in n.replace("_", "") or "la_liga" in n
+
+
+def _es_match_data(nombre: str) -> bool:
+    n = nombre.replace("\\", "/").lower()
+    return n.endswith("match_data.csv") or n.endswith("matches.csv")
+
+
 def localizar_partidos_la_liga(origen) -> pd.DataFrame:
-    """Localiza la tabla de partidos de La Liga con xG dentro de los CSVs."""
-    mejor = None
-    mejor_puntuacion = 0
-    for nombre, df in _leer_csvs(origen):
+    """Localiza la tabla de partidos de La Liga con xG dentro de los CSVs.
+
+    Estrategia:
+    1. Preferir el archivo ``match_data.csv`` dentro de una ruta de La Liga.
+    2. Si no, cualquier CSV de La Liga que tenga columnas de xG + equipos.
+    3. Fallback: la tabla con más xG.
+    """
+    candidatos = _leer_csvs(origen)
+
+    def _tiene_xg_y_eq(df):
         cols = {_norm(c) for c in df.columns}
-        tiene_xg = bool(cols & _NOMBRES_XG_LOCAL | cols & _NOMBRES_XG_VISIT)
-        tiene_eq = bool(cols & _NOMBRES_EQ_LOCAL | cols & _NOMBRES_EQ_VISIT)
-        if not (tiene_xg and tiene_eq):
-            continue
-        # Buscar marca de La Liga en la fila/columna de liga, si existe.
-        es_la_liga = False
-        col_liga = _encontrar_col(df, {"league", "league_name", "leagueid", "competition", "liga"})
-        if col_liga:
-            vals = df[col_liga].astype(str).str.lower()
-            es_la_liga = vals.str.contains("laliga", regex=False).any() or vals.str.contains("la liga", regex=False).any()
-        elif "la_liga" in nombre.lower() or "laliga" in nombre.lower():
-            es_la_liga = True
-        puntuacion = (2 if es_la_liga else 0) + (2 if tiene_xg else 0) + (1 if tiene_eq else 0)
-        if es_la_liga and puntuacion > mejor_puntuacion:
-            mejor = df
-            mejor_puntuacion = puntuacion
-    if mejor is None:
-        # Fallback: si no hay columna de liga, devolver la tabla con mas xG.
-        candidatas = [
-            df for _, df in _leer_csvs(origen)
-            if (set(_norm(c) for c in df.columns) & _NOMBRES_XG_LOCAL | set(_norm(c) for c in df.columns) & _NOMBRES_XG_VISIT)
-        ]
-        if candidatas:
-            mejor = max(candidatas, key=len)
-    if mejor is None:
-        raise ValueError("No se encontró una tabla de partidos de La Liga con xG en el dataset.")
-    return mejor
+        tiene_xg = bool((cols & _NOMBRES_XG_LOCAL) | (cols & _NOMBRES_XG_VISIT))
+        tiene_eq = bool((cols & _NOMBRES_EQ_LOCAL) | (cols & _NOMBRES_EQ_VISIT))
+        return tiene_xg and tiene_eq
+
+    # 1. match_data de La Liga
+    for nombre, df in candidatos:
+        if _es_ruta_la_liga(nombre) and _es_match_data(nombre) and _tiene_xg_y_eq(df):
+            return df
+
+    # 2. Cualquier CSV de La Liga con xG + equipos
+    la_liga_xg = [
+        df for nombre, df in candidatos
+        if _es_ruta_la_liga(nombre) and _tiene_xg_y_eq(df)
+    ]
+    if la_liga_xg:
+        return max(la_liga_xg, key=len)
+
+    # 3. Fallback: tabla con más xG
+    todas_xg = [df for _, df in candidatos if _tiene_xg_y_eq(df)]
+    if todas_xg:
+        return max(todas_xg, key=len)
+
+    raise ValueError("No se encontró una tabla de partidos de La Liga con xG en el dataset.")
 
 
 def _celda_valor(fila, col: str | None):
