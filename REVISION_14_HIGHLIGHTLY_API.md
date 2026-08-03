@@ -95,3 +95,15 @@ Highlightly **no sirve**.
 **Decisión:** la fuente de xG para este proyecto es **Understat** (gratis, xG
 por partido de La Liga 2014/15+, sin API key). Highlightly queda disponible
 solo para temporada actual si se quisiera, pero no es la fuente de histórico.
+
+## Vía alternativa para el xG histórico: dataset de Kaggle
+
+Como Cloudflare bloquea la IP del usuario en understat.com, se adoptó una
+**fuente Kaggle ya descargada**: `mexwell/understat-database` (Understat
+2014-2023, incluye La Liga). El conversor
+`scripts/datos/PREPARAR_XG_UNDERSTAT_KAGGLE.py` transforma el ZIP/CSV al
+esquema de xG estándar que consume `MEDIR_COBERTURA_XG.py`.
+
+Descarga: https://www.kaggle.com/api/v1/datasets/download/mexwell/understat-database
+Nota: cubre 2014-2023; las temporadas 2023-24, 2024-25 y 2025-26 quedarían
+sin xG salvo que se complete con otra fuente (Highlightly solo da la reciente).

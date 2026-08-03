@@ -109,6 +109,19 @@
       },
       "razon": "Highlightly solo da xG en temporada muy reciente; se adopta Understat para historico.",
       "referencia": "REVISION_14_HIGHLIGHTLY_API.md"
+    },
+    {
+      "id": 9,
+      "fecha": "2026-08-03",
+      "nombre": "Preparador xG de Understat via Kaggle (evita Cloudflare)",
+      "resultado": "IMPLEMENTADO",
+      "configuracion": "PREPARAR_XG_UNDERSTAT_KAGGLE.py convierte el dataset mexwell/understat-database a CSV de xG",
+      "metricas": {
+        "fuente": "Kaggle mexwell/understat-database (2014-2023)",
+        "tests": 4
+      },
+      "razon": "Cloudflare bloquea la IP del usuario en understat.com; Kaggle ya tiene los datos descargados.",
+      "referencia": "REVISION_14_HIGHLIGHTLY_API.md"
     }
   ]
 }

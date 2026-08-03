@@ -8,6 +8,15 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 
 ---
 
+## 2026-08-03 — xG Understat via Kaggle (fuente alternativa)
+- **Objetivo:** Obtener xG historico de La Liga sin pasar por el bloqueo de
+  Cloudflare de understat.com.
+- **Configuracion:** Dataset Kaggle `mexwell/understat-database` (2014-2023) +
+  PREPARAR_XG_UNDERSTAT_KAGGLE.py que lo convierte a CSV de xG.
+- **Resultado:** **IMPLEMENTADO** (conversor + tests).
+- **Razon:** Desde la IP del usuario, Cloudflare bloquea understat.com; el
+  dataset de Kaggle ya contiene los datos extraidos. Detalle: REVISION_14.
+
 ## 2026-08-03 — Highlightly descartado para xG histórico (validado con la cuenta real)
 - **Objetivo:** Aprovechar el plan PRO de Highlightly (host directo) para xG.
 - **Configuracion:** Cliente + descargador; probes en varias temporadas.
