@@ -1,20 +1,25 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 1 cerrada: pleno DC + alias de equipos).
+Estado consolidado el 29/07/2026. Actualizado el 03/08/2026 (prioridad 4 cerrada: experimento xG negativo documentado, motor v4 sin cambios).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
+## Último avance (03/08/2026 — prioridad 4 cerrada: xG Understat evaluado, NO activa)
 
-- Pleno al 15 conectado al motor: `predict_pleno15_from_model` (Dixon-Coles,
-  rho −0,036) emite buckets 0/1/2/M, top-3 marcadores, selección y calidad;
-  integrado en paquete (`pleno15.modelo_maestro`) y en el contrato por partido
-  (`modelo_maestro.tipo = "pleno_15_marcador"`).
-- Alias controlados (`scripts/motor/team_names.py`): nombres comunes de jornada
-  → histórico (76 equipos) y → priors canónicos 2026/27; filiales separados.
-- Cuotas reales del JSON fluyen a features (mercado 0,951 de la v4 si existen);
-  sin cuotas: motor HGB+Poisson con aviso, nunca APU/LAE/Q15 como cuotas.
-- Backtest del motor idéntico tras el cambio (51,64 % / 8,63; 51,54 % / 8,50;
-  52,49 % / 8,64). Suite: 147 tests en verde. Detalle: REVISION_11.
+- xG Understat (Primera 2014-2024) integrado point-in-time: validación dataset
+  (REVISION_12), módulo `scripts/motor/xg_understat.py`, features rodantes en
+  `scripts/motor/features.py` (sin fuga temporal, sin resultado futuro), experimento
+  A/B `scripts/backtests/EXPERIMENTO_XG.py`. Datos brutos en `DATOS/xg_understat/`
+  ignorados por `.gitignore` (no versionados).
+- Resultado fuera de muestra (10 temporadas walk-forward): −0,29 pp acierto
+  simple y −0,071 en 3 dobles vs la configuración activa v4 (logit 0.0 /
+  hgb 0.049 / market 0.951 / poisson 0.0). No mejora el favorito de mercado
+  (51,56 % / 8,55). Documentado en REVISION_13 y `README.md`.
+- No se activa: `feature_columns()` sin xG, `CONFIG_MOTOR_V2.json` sin cambios,
+  motor hibrido sigue dominado por mercado. Suite: 152 tests en verde.
+- `git diff --check`: limpio. Backtest de referencia mantenido: 51,64 % / 8,63.
+- Experimentos pendientes (sin alterar motor activo): 1 clasificador binario
+  empate/no-empate + ensemble; 2 divergencia modelo-mercado (mayor ROI); 3
+  registro append-only; 4 contrato JSON/API para Liga de Maestros.
 
 ## Avance anterior (01/08/2026 — T3 calibración + T4 Dixon-Coles)
 
