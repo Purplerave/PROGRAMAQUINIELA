@@ -43,6 +43,10 @@ TEMP_HDR = ["match_id", "season", "datetime", "home", "away",
 
 NOMBRE_LIGA = "La Liga"
 
+# Id de La Liga conocido (observado al probar con --prueba 5).
+# Se usa cuando no se pasa --league-id y /leagues no está disponible.
+LEAGUE_ID_LA_LIGA = 119924
+
 
 def _equipo_nombre(objeto) -> str:
     if not isinstance(objeto, dict):
@@ -179,7 +183,7 @@ def main():
         return 0
 
     if args.probe_ultimo:
-        league_id = args.league_id or localizar_la_liga(cliente).get("id")
+        league_id = args.league_id or LEAGUE_ID_LA_LIGA
         season = args.season or str(date.today().year - 1)
         ultimos = listar_partidos_temporada(cliente, league_id, season)
         print(f"Ultimos partidos finalizados de la temporada {season} (league {league_id}):")
@@ -194,7 +198,7 @@ def main():
             parser.error("--desde debe ser <= --hasta")
         temporadas = [str(a) for a in range(args.desde, args.hasta + 1)]
 
-    league_id = args.league_id or localizar_la_liga(cliente).get("id")
+    league_id = args.league_id or LEAGUE_ID_LA_LIGA
     print(f"Usando league_id={league_id} ({NOMBRE_LIGA})")
 
     filas: list[dict] = []
