@@ -116,3 +116,27 @@ def test_descarta_tabla_de_temporada_sin_partidos(tmp_path):
     assert len(filas) == 1
     assert filas[0]["home"] == "Real Madrid"
     assert filas[0]["home_xg"] == 3.13
+
+
+def test_mapea_columnas_reales_de_match_info(tmp_path):
+    # Columnas tal y como las expone match_info.csv de understatapi.
+    liga = tmp_path / "understats" / "La_Liga"; liga.mkdir(parents=True, exist_ok=True)
+    cab = ("id,fid,h,a,date,league_id,season,h_goals,a_goals,team_h,team_a,"
+           "h_xg,a_xg,h_w,h_d,h_l,league,h_shot,a_shot,h_shotOnTarget,a_shotOnTarget,"
+           "h_deep,a_deep,a_ppda,h_ppda")
+    fila = ("1001,77,88,89,2026-08-20,123,2014,7,3,Real Madrid,Getafe,"
+            "3.13,0.98,1,0,0,La Liga,21,8,9,4,12,5,90,80")
+    (liga / "match_info.csv").write_text(cab + "\n" + fila + "\n", encoding="utf-8")
+
+    partidos = prep.localizar_partidos_la_liga(tmp_path)
+    filas = prep.convertir(partidos)
+    assert len(filas) == 1
+    f = filas[0]
+    assert f["home"] == "Real Madrid"
+    assert f["away"] == "Getafe"
+    assert f["home_xg"] == 3.13
+    assert f["away_xg"] == 0.98
+    assert f["home_shots"] == 21
+    assert f["away_sot"] == 4
+    assert f["home_deep"] == 12
+    assert f["away_ppda"] == 90

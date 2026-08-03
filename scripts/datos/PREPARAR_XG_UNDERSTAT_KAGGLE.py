@@ -38,14 +38,18 @@ sys.path.insert(0, str(ROOT / "scripts" / "motor"))
 
 from team_names import resolve_history_name  # noqa: E402
 
+# Columnas extras que se conservan en la salida (ademas de xG).
+EXTRA_COLS = ["home_shots", "away_shots", "home_sot", "away_sot",
+              "home_deep", "away_deep", "home_ppda", "away_ppda"]
+
 DEFAULT_SALIDA = ROOT / "DATOS" / "xg_understat" / "understat_la_liga_xg.csv"
 TEMP_HDR = ["match_id", "season", "datetime", "home", "away",
-            "home_goals", "away_goals", "home_xg", "away_xg"]
+            "home_goals", "away_goals", "home_xg", "away_xg"] + EXTRA_COLS
 
 # Sinónimos de columnas aceptados (NORMALIZADOS: minusculas y sin no-alfanum).
 # Equipos local/visitante (incluye la nomenclatura de understatapi).
-_NOMBRES_EQ_LOCAL = {"htitle", "hteam", "hteamid", "h_team", "hometeam", "team_h", "home", "home_team"}
-_NOMBRES_EQ_VISIT = {"atitle", "ateam", "ateamid", "a_team", "awayteam", "team_a", "away", "away_team"}
+_NOMBRES_EQ_LOCAL = {"htitle", "hteam", "hteamid", "h_team", "hometeam", "teamh", "team_h", "home", "home_team"}
+_NOMBRES_EQ_VISIT = {"atitle", "ateam", "ateamid", "a_team", "awayteam", "teama", "team_a", "away", "away_team"}
 # xG local/visitante.
 _NOMBRES_XG_LOCAL = {"hxg", "xgh", "xgfor", "xg_home", "home_xg", "homexg", "hgx"}
 _NOMBRES_XG_VISIT = {"axg", "xga", "xgagainst", "xg_away", "away_xg", "awayxg", "agx"}
@@ -55,6 +59,18 @@ _NOMBRES_GOALS_VISIT = {"agoals", "goalsa", "awaygoals", "ag", "ftag", "a_goals"
 _NOMBRES_FECHA = {"datetime", "date", "matchdate", "kickoff"}
 _NOMBRES_TEMP = {"season", "seasonid", "year"}
 _NOMBRES_MATCH_ID = {"id", "matchid"}
+
+# Features extra que match_info.csv expone (local/visitante).
+_NOMBRES_SHOT_LOCAL = {"hshot", "h_shot", "hshots"}
+_NOMBRES_SHOT_VISIT = {"ashot", "a_shot", "ashots"}
+_NOMBRES_SOT_LOCAL = {"hshotontarget", "h_sot", "hshotsontarget"}
+_NOMBRES_SOT_VISIT = {"ashotontarget", "a_sot", "ashotsontarget"}
+_NOMBRES_DEEP_LOCAL = {"hdeep", "h_deep"}
+_NOMBRES_DEEP_VISIT = {"adeep", "a_deep"}
+_NOMBRES_PPDA_LOCAL = {"hppda", "h_ppda"}
+_NOMBRES_PPDA_VISIT = {"appda", "a_ppda"}
+
+# Columnas extras que se conservan en la salida (ademas de xG).
 
 
 def _norm(col: str) -> str:
@@ -120,6 +136,15 @@ def localizar_partidos_la_liga(origen) -> pd.DataFrame:
     candidatos = _leer_csvs(origen)
     la_liga = [(nombre, df) for nombre, df in candidatos if _es_ruta_la_liga(nombre)]
 
+    # Prioridad 1: el archivo de partidos por excelencia, match_info.csv,
+    # que en understatapi contiene: id, fid, h, a, date, season, h_goals,
+    # a_goals, team_h, team_a, h_xg, a_xg, h_w/h_d/h_l, league, h_shot,
+    # a_shot, h_shotOnTarget, a_shotOnTarget, h_deep, a_deep, h_ppda, a_ppda.
+    for nombre, df in la_liga:
+        if nombre.replace("\\", "/").lower().endswith("match_info.csv"):
+            if _puntuar_tabla_partidos(df) > 0:
+                return df
+
     mejor = None
     mejor_punt = -1
     for nombre, df in la_liga:
@@ -168,15 +193,9 @@ def _celda_valor(fila, col: str | None):
 def convertir(partidos: pd.DataFrame) -> list[dict]:
     """Transforma la tabla de partidos al esquema estandar de salida.
 
-    Si la tabla tiene columna de liga, se conservan solo las filas de La Liga
-    (para el caso de un fichero unico con varias ligas).
+    Cada CSV del dataset corresponde a una sola liga (ya seleccionada por ruta
+    en ``localizar_partidos_la_liga``), por lo que no se filtra por liga aquí.
     """
-    col_liga = _encontrar_col(partidos, {"league", "league_name", "leagueid", "competition", "liga"})
-    if col_liga is not None:
-        vals = partidos[col_liga].astype(str).str.lower()
-        es_la_liga = vals.str.contains("laliga", regex=False) | vals.str.contains("la liga", regex=False)
-        partidos = partidos[es_la_liga]
-
     col_xg_h = _encontrar_col(partidos, _NOMBRES_XG_LOCAL)
     col_xg_a = _encontrar_col(partidos, _NOMBRES_XG_VISIT)
     col_eq_h = _encontrar_col(partidos, _NOMBRES_EQ_LOCAL)
@@ -187,25 +206,38 @@ def convertir(partidos: pd.DataFrame) -> list[dict]:
     col_gl_a = _encontrar_col(partidos, _NOMBRES_GOALS_VISIT)
     col_id = _encontrar_col(partidos, _NOMBRES_MATCH_ID)
 
+    # Columnas extras (tiros, tiros a puerta, deep, ppda) por equipo.
+    mapa_extra = [
+        ("home_shots", _encontrar_col(partidos, _NOMBRES_SHOT_LOCAL)),
+        ("away_shots", _encontrar_col(partidos, _NOMBRES_SHOT_VISIT)),
+        ("home_sot", _encontrar_col(partidos, _NOMBRES_SOT_LOCAL)),
+        ("away_sot", _encontrar_col(partidos, _NOMBRES_SOT_VISIT)),
+        ("home_deep", _encontrar_col(partidos, _NOMBRES_DEEP_LOCAL)),
+        ("away_deep", _encontrar_col(partidos, _NOMBRES_DEEP_VISIT)),
+        ("home_ppda", _encontrar_col(partidos, _NOMBRES_PPDA_LOCAL)),
+        ("away_ppda", _encontrar_col(partidos, _NOMBRES_PPDA_VISIT)),
+    ]
+
     filas: list[dict] = []
     for _, fila in partidos.iterrows():
         home = _celda_valor(fila, col_eq_h)
         away = _celda_valor(fila, col_eq_a)
         if home is None or away is None:
             continue
-        filas.append(
-            {
-                "match_id": _celda_valor(fila, col_id),
-                "season": _celda_valor(fila, col_temp),
-                "datetime": _celda_valor(fila, col_fecha),
-                "home": home,
-                "away": away,
-                "home_goals": _celda_valor(fila, col_gl_h),
-                "away_goals": _celda_valor(fila, col_gl_a),
-                "home_xg": _celda_valor(fila, col_xg_h),
-                "away_xg": _celda_valor(fila, col_xg_a),
-            }
-        )
+        fila_out = {
+            "match_id": _celda_valor(fila, col_id),
+            "season": _celda_valor(fila, col_temp),
+            "datetime": _celda_valor(fila, col_fecha),
+            "home": home,
+            "away": away,
+            "home_goals": _celda_valor(fila, col_gl_h),
+            "away_goals": _celda_valor(fila, col_gl_a),
+            "home_xg": _celda_valor(fila, col_xg_h),
+            "away_xg": _celda_valor(fila, col_xg_a),
+        }
+        for nombre, col in mapa_extra:
+            fila_out[nombre] = _celda_valor(fila, col)
+        filas.append(fila_out)
     return filas
 
 
