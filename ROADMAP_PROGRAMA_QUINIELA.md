@@ -95,7 +95,18 @@ y vs el favorito de mercado (51,56 % simple / 8,55 tres dobles).
 - **Criterio de activación:** mejora en media 3 dobles > 8,63/15 con estabilidad (std baja) en multi-split; no activar por una sola temporada; validar contra favorito de mercado (51,56 % / 8,55).
 - **Métricas mínimas (ya calculadas por script):** acierto simple, 3 dobles, distribución de divergencias por bin, tasa de acierto por cuartil, delta vs mercado por tramo.
 - **Ventaja:** no requiere nuevas fuentes de datos ni features de xG; opera sobre lo existente (mercado 0,951).
-- **Recomendación:** PRIORIDAD 1. Ejecutar `python scripts/backtests/EXPERIMENTO_DIVERGENCIA.py` en temporada objetivo ampliada (ya cubre 2023-26); comparar `value` por bin con criterio de activación; si hay bin consistente con `value > 0` y significancia, evaluar como regla de decisión para dobles sin cambiar `CONFIG_MOTOR_V2.json`.
+- **Resultado de prueba (03/08/2026):** `python scripts/backtests/EXPERIMENTO_DIVERGENCIA.py`
+  (2023-24 a 2025-26, 3 temporadas walk-forward):
+  - `(-1.0, -0.1]`: 183 casos, actual_rate 0.426 vs market 0.408 → **+0.018**
+  - `(-0.1, -0.05]`: 826 casos, 0.315 vs 0.332 → −0.017
+  - `(-0.05, 0.05]`: 5475 casos, 0.321 vs 0.322 → ~0 (bulk sin señal)
+  - `(0.05, 0.1]`: 849 casos, **0.393 vs 0.374 → +0.020** ✅ señal positiva
+  - `(0.1, 1.0]`: 245 casos, 0.384 vs 0.404 → **−0.021** ❌ divergencia excesiva = sobreconfianza
+  - **Conclusión:** solo el rango moderado `+0.05` a `+0.10` muestra valor consistente;
+    no se activa como regla universal; requiere restricción por rango si se usa.
+- **Recomendación:** PRIORIDAD 1. Validar restricción `diff ∈ [0.05, 0.10]` en
+  walk-forward multi-split; si mejora 3 dobles > 8,63/15 con estabilidad,
+  implementar como regla de decisión para dobles sin cambiar `CONFIG_MOTOR_V2.json`.
 
 ---
 
