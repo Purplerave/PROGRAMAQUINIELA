@@ -21,6 +21,19 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Métricas:** Valor extra en tramo >10%: +0.48%. En tramo 5-10%: -0.33%.
 - **Razón:** La señal es demasiado débil e inconsistente entre temporadas. El mercado es altamente eficiente respecto a las variables estadísticas disponibles (Elo, forma, goles).
 
+## 2026-08-03 — Experimento #3: Features futuras (xG, bajas, alineaciones, entrenador)
+- **Objetivo:** Evaluar viabilidad de incorporar features de xG, bajas/lesiones,
+  alineaciones y cambio de entrenador al motor.
+- **Configuración:** Estudio de cobertura reproducible
+  (`scripts/datos/VERIFICAR_FEATURES_FUTURAS.py`), escaneando historico,
+  Highlightly y priors de temporada.
+- **Resultado:** **RECHAZADO / BLOQUEADO POR DATOS**.
+- **Métricas de cobertura:** xG 0%, bajas 0%, alineaciones 0%, entrenador 0%.
+  Contraste: tiros/SOT ya usados cubren el 75,8% del historico.
+- **Razón:** No existe ninguna fuente historica consistente que cumpla la
+  condicion del roadmap ("unicamente cuando exista una fuente historica
+  consistente"). Detalle: REVISION_12.
+
 ## 2026-08-02 — Prioridad #2: Optimización Walk-Forward Multi-Split
 - **Objetivo:** Sustituir validación de un solo bloque por validación temporal en múltiples temporadas.
 - **Configuración:** Evaluación de candidatos en las últimas 3 temporadas; métrica `mean - 0.5 * std`.

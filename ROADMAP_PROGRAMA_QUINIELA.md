@@ -1,7 +1,15 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 02/08/2026 (prioridad 1 cerrada: pleno DC + alias de equipos).
+Estado consolidado el 29/07/2026. Actualizado el 03/08/2026 (exp. #3 features futuras evaluado: bloqueado por datos).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
+
+## Último avance (03/08/2026 — experimento #3 evaluado: features futuras)
+
+- Estudio de viabilidad de xG, bajas, alineaciones y cambio de entrenador:
+  cobertura histórica 0 % para las 4 familias; ninguna fuente consistente en
+  el repo (histórico solo tiene tiros/SOT al 75,8 %). No se toca el motor.
+  Reproducible: `scripts/datos/VERIFICAR_FEATURES_FUTURAS.py`. Detalle:
+  REVISION_12.
 
 ## Último avance (02/08/2026 — prioridad 1 cerrada: conexión predicción real)
 
@@ -62,9 +70,14 @@ Rho medio estimado: -0,036 (validado fuera de muestra).
 Ejecutar por separado y conservar solo si mejoran el walk-forward:
 
 1. Clasificador binario empate/no empate combinado con el ensemble.
+   ✅ EVALUADO (02/08/2026) — RECHAZADO (empeora LogLoss y acierto).
 2. Señal de divergencia modelo-mercado para decisiones quinielísticas.
+   ✅ EVALUADO (02/08/2026) — RECHAZADO (señal débil e inconsistente).
 3. Nuevas features: xG, bajas, alineaciones y cambio de entrenador, únicamente
    cuando exista una fuente histórica consistente.
+   ✅ EVALUADO (03/08/2026) — BLOQUEADO POR DATOS. Cobertura 0 % para las 4
+   familias; no existe fuente histórica consistente en el repo (ver
+   REVISION_12). Sin fuentes nuevas no se toca el motor.
 4. Registro append-only de experimento, configuración, fecha y métricas.
 5. Contrato JSON o API estable para entregar el pronóstico a Liga de Maestros.
 
