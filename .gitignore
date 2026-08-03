@@ -14,5 +14,9 @@ SALIDAS/*
 *.joblib
 *.pkl
 *.log
+
+# Datos brutos descargados (procedencia externa, no se versionan)
+DATOS/xg_understat/
+DATOS/*.csv
 .idea/
 .vscode/
