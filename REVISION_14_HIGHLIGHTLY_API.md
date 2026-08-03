@@ -25,8 +25,8 @@ validación posterior.
 
 - Host directo: `https://sports.highlightly.net`
 - Header obligatorio: `x-rapidapi-key: <clave>`
-- Vía RapidAPI: además `x-rapidapi-host` (si el usuario se registró por
-  RapidAPI; este cliente usa el host directo).
+- Vía RapidAPI: además `x-rapidapi-host` **`football-highlights-api.p.rapidapi.com`**
+  (confirmado por el usuario). El cliente usa este host por defecto.
 
 ## Entregables
 

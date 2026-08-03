@@ -16,6 +16,10 @@ HIGHLIGHTLY_API_KEY=TU_CLAVE_AQUI
 Sustituye `TU_CLAVE_AQUI` por tu clave real (sin comillas). Se lee desde la
 variable de entorno `HIGHLIGHTLY_API_KEY` o desde este `.env`.
 
+Tu plan es **vía RapidAPI** (host `football-highlights-api.p.rapidapi.com`),
+que es el host que usa el cliente por defecto (header `x-rapidapi-host`). No
+necesitas configurar nada más.
+
 ## 2. Dónde está la clave
 
 - **Host directo:** `https://sports.highlightly.net`, header `x-rapidapi-key`.
