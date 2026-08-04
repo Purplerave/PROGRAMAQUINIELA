@@ -35,6 +35,10 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
   jornadas; los otros 40 son jornadas europeas/internacionales (fuera de
   cobertura del histórico Primera/Segunda), 0 inconsistentes. Muestra real
   total: 40 boletos (5 quiniela15 + 35 XML).
+- **Evaluación real ampliada (35 boletos, 490 partidos):** unión motor 51,84 %
+  = mercado (consistente con referencia 2025-26, IC95 [47,4–56,3 %]); 3 dobles
+  8,06/14 = 57,6 % (el proxy 8,63/15 = 57,5 % queda validado en tasa); Pleno
+  bucket 5/35 = 14,3 % (top-1 `1-1`). Sin ROI hasta escrutinio LAE.
 
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
 

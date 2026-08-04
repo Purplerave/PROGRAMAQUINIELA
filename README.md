@@ -143,10 +143,12 @@ Football-Data:
 python scripts/datos/COMPONER_BOLETOS_XML.py
 ```
 
-Primera evaluación real (5 boletos 2025-26, J001/J002/J003/J005/J007):
-simples 7,00/14 (motor = mercado, config v4 mercado-dominante), tres dobles
-7,60/14, Pleno exacto 2/5. Sin escrutinio oficial LAE no hay ROI; la
-referencia del test completo (51,64 % / 51,56 %) no cambia.
+Evaluación real ampliada (35 boletos XML 2025-26, 490 partidos): simples
+7,26/14 (motor = mercado, config v4 mercado-dominante), tres dobles 8,06/14
+(57,6 % — el proxy 8,63/15 = 57,5 % queda validado en tasa), Pleno bucket
+5/35. Unión motor 51,84 % = mercado (consistente con la referencia 2025-26).
+Sin escrutinio oficial LAE no hay ROI; la referencia del test completo
+(51,64 % / 51,56 %) no cambia.
 
 Los JSON auditados se incorporan en `DATOS/quiniela_historica/` según su
 `README.md`. El ROI realizado exige además el escrutinio/premio oficial por

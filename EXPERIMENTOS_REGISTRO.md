@@ -108,4 +108,8 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   a nombres LAE (incluidas siglas con puntos). El evaluador acepta varias
   propuestas y da agregado global. Validado en sandbox (XML sintético +
   histórico real): 3/3 compuestos; global 8 boletos, motor 51,79 % = mercado.
-  Suite: 190 tests en verde.
+  Suite: 192 tests en verde.
+- **Evaluación real ampliada (35 boletos XML, 490 partidos):** unión motor
+  51,84 % = mercado (dentro del IC95 de la referencia 2025-26); 3 dobles
+  8,06/14 = 57,6 % ≈ proxy 57,5 % (validación del proxy en tasa); Pleno bucket
+  5/35 = 14,3 % (top-1 `1-1`). Sin ROI. Muestra real: 40 boletos (5 + 35).

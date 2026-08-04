@@ -675,3 +675,37 @@ principal (35 jornadas) y la quiniela15 como validación cruzada.
 
 Pendiente: ejecutar el evaluador con la propuesta XML (y opcionalmente ambas)
 para la evaluación agregada real.
+
+### 9.11 Evaluación real ampliada (35 boletos XML, 490 partidos)
+
+Ejecutado el evaluador con la propuesta XML (35 boletos):
+
+```text
+Media por boleto evaluado: simples 7.26/14 | mercado 7.26/14 | 3 dobles 8.06/14 | 15 con pleno(bucket) 8.20/15
+Acierto sobre la unión de partidos: motor 51.84% | mercado 51.84%
+Pleno exacto: 5/35 | bucket: 5/35
+
+GLOBAL: 35 boletos evaluados, 490 partidos en unión
+  simples 7.26/14 | mercado 7.26/14 | 3 dobles 8.06/14 | 15 con pleno 8.20/15
+  unión: motor 51.84% | mercado 51.84% | pleno exacto 5/35 | bucket 5/35
+```
+
+Lectura:
+
+1. **Unión 51,84 % en 490 partidos** es consistente con la referencia 2025-26
+   (motor 51,43 % / mercado 51,54 % en la caché): IC95 de 51,84 % con n=490 ≈
+   [47,4 %, 56,3 %], la referencia cae dentro. La muestra real ya no es ruido
+   de 70 partidos y no muestra desviación significativa del mercado.
+2. **Motor == mercado** (config v4 mercado-dominante, ~99 % de picks idénticos
+   al favorito), como en la evaluación de 5 boletos.
+3. **3 dobles sobre boletos reales: 8,06/14 = 57,57 %** frente al proxy de
+   bloques artificiales 8,63/15 = 57,53 %: **las tasas coinciden casi
+   exactamente**, lo que valida retrospectivamente que el proxy no estaba
+   desviado en tasa (aunque los denominadores difieren: 14 partidos + Pleno
+   separado en boletos reales frente a 15 filas mecánicas en el proxy).
+4. **Pleno:** 5/35 = 14,3 % (IC95 ≈ [2,7 %, 25,9 %]) con el top-1 del modelo
+   (casi siempre `1-1`). La infraestructura guarda `pleno15_top_scores`
+   (top-3); evaluar el bucket en top-3 es el siguiente paso natural.
+5. **Sin ROI** (no hay escrutinio oficial LAE).
+
+La muestra de boletos reales queda en **40** (5 quiniela15 + 35 XML).
