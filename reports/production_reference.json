@@ -4,7 +4,7 @@
   "generado_por": "scripts/reports/GENERAR_PRODUCTION_REFERENCE.py",
   "git": {
     "repositorio": "Purplerave/PROGRAMAQUINIELA",
-    "commit_sha": "d01269971957ce99a66337e5d6bad06def8d33f5",
+    "commit_sha": "a77c3e9232910fe8d09103dbef4d0affec02766a",
     "branch": "arena/019fcdd6-programaquiniela",
     "arbol_limpio": true,
     "cambios_sin_commit": 0
@@ -63,7 +63,7 @@
     }
   },
   "entorno": {
-    "fecha_generacion": "2026-08-04T18:05:57+0000",
+    "fecha_generacion": "2026-08-04T18:51:56+0000",
     "plataforma": "Linux-6.1.158+-x86_64-with-glibc2.36",
     "python": "3.11.2",
     "numpy": "2.2.6",
@@ -308,9 +308,9 @@
   "resultado_tests": {
     "comando": "/home/user/PROGRAMAQUINIELA/.venv/bin/python -m pytest tests/ -q",
     "exit_code": 0,
-    "resumen": "189 passed, 29 warnings in 72.44s (0:01:12)",
-    "duracion_segundos": 72.9,
-    "salida_tail": "  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method\n    fixturefunc = resolve_fixture_function(fixturedef, request)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n189 passed, 29 warnings in 72.44s (0:01:12)"
+    "resumen": "189 passed, 29 warnings in 73.68s (0:01:13)",
+    "duracion_segundos": 74.0,
+    "salida_tail": "  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method\n    fixturefunc = resolve_fixture_function(fixturedef, request)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n189 passed, 29 warnings in 73.68s (0:01:13)"
   },
   "reproducir": {
     "backtest": "python scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py",
