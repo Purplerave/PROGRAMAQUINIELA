@@ -44,6 +44,10 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
   (estable 4 temporadas). El maestro emite `pleno15_bucket` y el evaluador
   mide `pleno_top3_bucket` sobre los boletos reales. Referencia intacta
   (51,64/51,56). Suite: 196 tests.
+- **Pleno top-3 real (35 boletos): 15/35 = 42,9 %** (bucket 5/35 = 14,3 %);
+  cubriendo el Pleno con los 3 marcadores más probables la media del "15"
+  pasa de 8,20 a ≈ 8,49/15. El contrato API v1.1 expone de forma aditiva
+  `pleno15.bucket` y `pleno15.top_marcadores`. Suite: 197 tests.
 
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
 

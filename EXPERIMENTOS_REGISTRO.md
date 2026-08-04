@@ -120,5 +120,8 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   33,6–35,5 %) triplica el top-1. Implementado: `pleno_bucket_pick` y
   `pleno15_bucket` en el maestro (aditivo, contrato intacto) y
   `pleno_top3_bucket` en el evaluador. Referencia intacta 51,64/51,56.
-  Estado: IMPLEMENTADO (métrica de decisión); pendiente reejecutar en el
-  equipo del usuario para ver top-3 real sobre los 35 boletos.
+  Estado: IMPLEMENTADO (métrica de decisión); validado en el equipo del
+  usuario sobre los 35 boletos: **top-3 real 15/35 = 42,9 %** (bucket 5/35 =
+  14,3 %); media del "15" con cobertura top-3 ≈ 8,49/15. El contrato API v1.1
+  expone aditivamente `pleno15.bucket` y `pleno15.top_marcadores`. Suite: 200
+  tests.

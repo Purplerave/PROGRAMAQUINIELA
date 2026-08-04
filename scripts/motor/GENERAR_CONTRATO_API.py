@@ -39,10 +39,15 @@ def generate_api_contract(jornada: int):
             mm = p.get("modelo_maestro", {})
             if mm.get("disponible"):
                 sel = mm.get("seleccion", {})
+                pleno_bucket = None
+                if sel.get("local") and sel.get("visitante"):
+                    pleno_bucket = f"{sel['local']}-{sel['visitante']}"
                 api_out["pleno15"] = {
                     "local": p.get("local"),
                     "visitante": p.get("visitante"),
                     "marcador": mm.get("marcador_predicho"),
+                    "bucket": pleno_bucket,
+                    "top_marcadores": mm.get("top_marcadores") or [],
                     "pronostico_local": sel.get("local"),
                     "pronostico_visitante": sel.get("visitante"),
                     "origen_prediccion": prediction_origin(p)
@@ -54,6 +59,8 @@ def generate_api_contract(jornada: int):
                     "local": p.get("local"),
                     "visitante": p.get("visitante"),
                     "marcador": diag.get("top_marcadores", [{}])[0].get("score") if diag.get("top_marcadores") else None,
+                    "bucket": None,
+                    "top_marcadores": diag.get("top_marcadores") or [],
                     "pronostico_local": "1", # Default fallback
                     "pronostico_visitante": "1",
                     "origen_prediccion": prediction_origin(p)

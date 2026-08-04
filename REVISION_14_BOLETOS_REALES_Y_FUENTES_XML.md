@@ -756,3 +756,22 @@ Usa la caché existente (el top-3 sale de `pleno15_top_scores` ya guardado).
 Para ver también `pleno15_bucket` (campo nuevo) hay que regenerar con
 `--no-cache` (~2 min). Esperable sobre los 35 boletos: bucket ≈ 5/35 y
 top-3 ≈ 12/35 (34,5 %).
+
+### 9.13 Resultado real del Pleno top-3 y contrato ampliado
+
+Reejecutado el evaluador con la propuesta XML (35 boletos):
+
+```text
+Pleno exacto: 5/35 | bucket: 5/35 | top3: 15/35
+```
+
+- **Bucket top-1: 5/35 = 14,3 %** (techo del modelo, coherente con el test).
+- **Cobertura top-3: 15/35 = 42,9 %** (IC95 ≈ [26,5 %, 59,3 %]; la tasa del
+  test, 34,5 %, cae dentro). Cubriendo el Pleno con los 3 marcadores más
+  probables, la media del "15" pasa de 8,20 a **≈ 8,49/15** (8,06 + 0,43).
+
+Para que esa cobertura sea explotable, el **contrato API v1.1** amplía el
+`pleno15` de forma **aditiva** (sin romper el esquema): se mantiene
+`marcador` (top-1 exacto) y se añaden `bucket` (0/1/2/M del modelo) y
+`top_marcadores` (los 3 marcadores más probables con su probabilidad), ya
+disponibles en el paquete de jornada. Suite: 200 tests en verde.
