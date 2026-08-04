@@ -88,8 +88,8 @@ logit 0.0, hgb 0.049, market 0.951, poisson 0.0). Ultima ejecucion validada
 
 - 13.446 partidos limpios.
 - 51,64 % de acierto simple en el test principal (favorito de mercado: 51,56 %).
-- 8,65 aciertos de media sobre 15 con tres dobles (regla anti-sobreconfianza activa).
-- Temporada 2024-25: 52,61 % y 8,71/15 con tres dobles (mercado 52,38 %).
+- 8,63 aciertos de media sobre 15 con tres dobles.
+- Temporada 2024-25: 52,61 % y 8,70/15 con tres dobles (mercado 52,38 %).
 - Temporada 2025-26 completa: 51,43 % y 8,48/15 con tres dobles (mercado 51,54 %).
 
 La métrica de tres dobles es un indicador agregado: el histórico se ordena y se
@@ -145,7 +145,7 @@ python scripts/datos/COMPONER_BOLETOS_XML.py
 
 Evaluación real ampliada (35 boletos XML 2025-26, 490 partidos): simples
 7,26/14 (motor = mercado, config v4 mercado-dominante), tres dobles 8,06/14
-(57,6 % — el proxy 8,65/15 = 57,7 % queda validado en tasa), Pleno bucket
+(57,6 % — el proxy 8,63/15 = 57,5 % queda validado en tasa), Pleno bucket
 5/35. Unión motor 51,84 % = mercado (consistente con la referencia 2025-26).
 Sin escrutinio oficial LAE no hay ROI; la referencia del test completo
 (51,64 % / 51,56 %) no cambia.

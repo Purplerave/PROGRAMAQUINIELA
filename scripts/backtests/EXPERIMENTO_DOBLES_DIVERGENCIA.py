@@ -189,7 +189,7 @@ def run_experiment() -> None:
         per = " | ".join(f"{s[-2:]}: {v:.3f}" for s, v in summary["per_season"].items())
         print(f"{label:<26} {summary['mean_hits']:>6.3f} {summary['std']:>6.3f} {summary['n_blocks']:>8}   {per}")
     print("-" * 88)
-    print("Referencias: proxy activo README 8,65/15 | mercado 8,55/15")
+    print("Referencias: proxy activo README 8,63/15 | mercado 8,55/15")
     print("\nNota: la mejora debe ser consistente (media > baseline y, idealmente,")
     print("std baja entre temporadas) para considerarla; no vale una sola temporada.")
 

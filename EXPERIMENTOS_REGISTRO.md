@@ -127,13 +127,13 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   tests.
 - **2026-08-04 — Dobles: regla anti-sobreconfianza (divergencia HGB-mercado
   > 0.10).** Objetivo: mejorar la selección de los 3 dobles usando la
-  divergencia modelo-mercado (el experimento previo mostró que diff > 0.10 es
-  sobreconfianza sin valor). Validado en walk-forward multi-split
-  (2023-24/24-25/25-26, config producción): excluir esos partidos de los
-  dobles gana en las 3 temporadas (baseline 8,577 → 8,637; std 1,913 → 1,871)
-  y en el test principal 8,63 → 8,65/15; simple 51,64 % intacto. Los bonus por
-  rango [0.05, 0.10] y el modo restringido no mejoraron. Implementado como
-  regla configurable (`double_avoid_overconfidence: true`, umbral 0,1) en
-  `simulate_dobles` y en `QUINIELA_REAL.evaluate_official_doubles`
-  (boletos reales). Estado: **IMPLEMENTADO / ACTIVO**. Referencia:
-  `scripts/backtests/EXPERIMENTO_DOBLES_DIVERGENCIA.py`.
+  divergencia modelo-mercado. Resultado: mejoraba el proxy global (8,63 →
+  8,65/15, +3 en 179 bloques) y el walk-forward 2023-24/24-25, pero
+  **empeoraba en 2025-26** (proxy −4 aciertos; 28/179 bloques cambian, 15
+  mejoran / 13 empeoran) y en los **35 boletos reales de 2025-26** (3 dobles
+  8,06 → 8,03/14 = −1 acierto). Decisión: **RECHAZADA / NO ACTIVA**
+  (`double_avoid_overconfidence: false`): la mejora no era consistente en la
+  temporada de operación real y la auditoría de boletos reales la refutó.
+  Código y experimento conservados y documentados
+  (`EXPERIMENTO_DOBLES_DIVERGENCIA.py`); referencia restaurada 51,64 % /
+  8,63/15.

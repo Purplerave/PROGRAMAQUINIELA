@@ -14,7 +14,7 @@ genera las predicciones del motor en modo producción (pesos congelados de
 
 No calcula ROI: sin escrutinio/premio oficial por categoría no hay retorno
 (`missing_official_payouts`). La métrica proxy de bloques artificiales
-(8,65/15) se mantiene como referencia del README; este script la sustituye
+(8,63/15) se mantiene como referencia del README; este script la sustituye
 solo cuando hay boletos oficiales completos.
 
 Uso:
@@ -243,7 +243,7 @@ def evaluate_ticket_results(
         "aggregate": aggregate,
         "attach_stats": attach_stats,
         "nota": "Sin escrutinio oficial por categoria no se calcula ROI (status missing_official_payouts). "
-                "La referencia proxy del README (8,65/15) se calcula sobre bloques artificiales de 15 filas "
+                "La referencia proxy del README (8,63/15) se calcula sobre bloques artificiales de 15 filas "
                 "y no es comparable directamente con los boletos oficiales.",
     }
 
@@ -343,11 +343,11 @@ def main() -> int:
         "schema_version": "1.0",
         "modo_motor": "produccion",
         "config_weights": config["weights"],
-        "reference_proxy_3_dobles": "8,65/15 bloques artificiales (no comparable directamente)",
+        "reference_proxy_3_dobles": "8,63/15 bloques artificiales (no comparable directamente)",
         "propuestas": propuestas,
         "aggregate_global": global_agg,
         "nota": "Sin escrutinio oficial por categoria no se calcula ROI (status missing_official_payouts). "
-                "La referencia proxy del README (8,65/15) se calcula sobre bloques artificiales de 15 filas "
+                "La referencia proxy del README (8,63/15) se calcula sobre bloques artificiales de 15 filas "
                 "y no es comparable directamente con los boletos oficiales.",
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
