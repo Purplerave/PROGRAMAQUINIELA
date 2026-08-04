@@ -611,3 +611,36 @@ Procedencia de esta ampliación: composición LAE vía quinielista.es (XML
 auditado) + resultados Football-Data; la salida sigue siendo
 `proposal_not_official_lae`. No se descargan datos nuevos ni se versiona nada
 externo.
+
+### 9.9 Nomenclatura real del XML de quinielista.es (resuelta)
+
+El primer intento en el equipo del usuario dio **0/75 contrastados**: todos
+los boletos cayeron en `out_of_coverage` por nombres de equipo. El
+diagnóstico del compositor reveló la convención real del XML: **nombres
+cortos en mayúsculas con puntos**:
+
+| XML | Clave canónica | Resolución |
+|---|---|---|
+| `R.OVIEDO` | `r oviedo` | → `oviedo` (Real Oviedo) |
+| `ATH.CLUB` | `ath club` | → `ath bilbao` (Athletic Club) |
+| `R.MADRID` | `r madrid` | → `real madrid` |
+| `RACING S.` | `racing s` | → `santander` (Racing de Santander) |
+| `ANDORRA FC` | `andorra fc` | → `andorra` |
+| `SPORTING` | `sporting` | → `sp gijon` (Sporting de Gijón) |
+| `DEP.ALAVES` | `dep alaves` | → `alaves` |
+| `CULT.LEONESA` | `cult leonesa` | → `cultural leonesa` |
+
+Ya funcionaban sin cambios: `VILLARREAL`, `SEVILLA`, `CASTELLÓN`,
+`LAS PALMAS`, `RAYO`, `BETIS`, `MALLORCA`, `ALBACETE`, `CEUTA` (nombres
+completos o alias previos como `R.SOCIEDAD`, `R.ZARAGOZA`, `AT.MADRID`).
+
+Se añadieron los alias faltantes y el diagnóstico ahora **agrega todas las
+claves canónicas sin contraste** de la colección (no solo una muestra), con
+ejemplo crudo y frecuencia, para detectar de una pasada cualquier nombre
+residual. Reproducido en el sandbox con XML sintético de nomenclatura
+quinielista sobre fixtures reales 2025-26: **3/3 boletos compuestos y
+contrastados**. Suite: 192 tests en verde.
+
+Pendiente: reejecutar el compositor en el equipo del usuario; si quedan
+claves desconocidas (p. ej. en jornadas europeas), el diagnóstico las listará
+todas y se ampliará la tabla en una iteración.

@@ -166,6 +166,26 @@ def test_importer_repairs_console_mojibake_and_known_ticket_aliases():
     assert canonical_team("R. Sociedad B") == "sociedad b"
 
 
+def test_quinielista_short_names_resolve_to_football_data_teams():
+    # Nomenclatura corta real de quinielista.es (mayúsculas, con puntos).
+    assert canonical_team("R.OVIEDO") == "oviedo"
+    assert canonical_team("ATH.CLUB") == "ath bilbao"
+    assert canonical_team("R.MADRID") == "real madrid"
+    assert canonical_team("RACING S.") == "santander"
+    assert canonical_team("ANDORRA FC") == "andorra"
+    assert canonical_team("SPORTING") == "sp gijon"
+    assert canonical_team("R.SOCIEDAD") == "sociedad"
+    assert canonical_team("R.ZARAGOZA") == "zaragoza"
+    assert canonical_team("AT.MADRID") == "ath madrid"
+    assert canonical_team("R.SOCIEDAD B") == "sociedad b"
+    assert canonical_team("DEP.ALAVES") == "alaves"
+    assert canonical_team("CULT.LEONESA") == "cultural leonesa"
+    # Nombres completos que ya funcionan sin alias.
+    assert canonical_team("VILLARREAL") == "villarreal"
+    assert canonical_team("CASTELLÓN") == "castellon"
+    assert canonical_team("LAS PALMAS") == "las palmas"
+
+
 def test_lae_style_aliases_resolve_to_football_data_teams():
     # Nombres oficiales estilo LAE / quinielista.es -> CSV Football-Data.
     assert canonical_team("Athletic Club") == "ath bilbao"

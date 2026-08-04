@@ -118,3 +118,29 @@ def test_prefers_lae_variant_when_both_exist(tmp_path):
     source_tickets = build_source_tickets(jornadas, 2026, "2025-2026")
     assert len(source_tickets) == 1
     assert "lae" in source_tickets[0]["fuente"]
+
+
+def test_diagnose_unmatched_aggregates_unknown_keys(capsys):
+    from scripts.datos.COMPONER_BOLETOS_XML import diagnose_unmatched
+
+    out_of_coverage = [
+        {"unmatched": [
+            {"num": 1, "local": "R.OVIEDO", "visitante": "ATH.CLUB"},
+            {"num": 2, "local": "R.MADRID", "visitante": "RACING S."},
+        ]},
+        {"unmatched": [
+            {"num": 3, "local": "ANDORRA FC", "visitante": "SPORTING"},
+            {"num": 4, "local": "R.OVIEDO", "visitante": "ATH.CLUB"},
+        ]},
+    ]
+    history = pd.DataFrame({"home": [], "away": []})
+    diagnose_unmatched(out_of_coverage, history)
+    captured = capsys.readouterr()
+    # Con los alias nuevos, las claves ya están resueltas; al no estar en el
+    # histórico vacío del test aparecen como desconocidas con su clave final.
+    assert "oviedo" in captured.out
+    assert "ath bilbao" in captured.out
+    assert "real madrid" in captured.out
+    assert "andorra" in captured.out
+    assert "sp gijon" in captured.out
+    assert "2 apariciones" in captured.out  # R.OVIEDO aparece dos veces
