@@ -115,6 +115,17 @@ Las cifras se obtuvieron en modo producción con la configuración incluida en
 el repositorio; ese modo nunca reoptimiza los pesos durante la ejecución.
 Hash del dataset historico (PRIMERA + SEGUNDA): `51a9688ac065015da9335512af5a34a8`.
 
+Referencia de produccion reproducible (commit SHA, hashes SHA-256 de datasets
+y configuracion, entorno, protocolo de evaluacion, metricas por temporada y
+division, y resultado de tests): `reports/production_reference.json`, generada
+con `python scripts/reports/GENERAR_PRODUCTION_REFERENCE.py`.
+
+Contrato de columnas (auditoria externa 04/08/2026, P0): 3 dobles sobre los 14
+partidos = 8 columnas a 0,75 EUR = 6,00 EUR maximo; Pleno al 15 separado. El
+optimizador (`OPTIMIZADOR_COLUMNAS.py`) evalua exhaustivamente las 364
+combinaciones de tres dobles, selecciona por segunda probabilidad y calcula
+exactamente P(>=10) ... P(>=14) por convolucion.
+
 Estas cifras son una referencia reproducible, no una garantia de resultados.
 
 ## xG (Understat) — experimento evaluado, no activo

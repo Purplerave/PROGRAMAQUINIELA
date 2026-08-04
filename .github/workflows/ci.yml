@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  tests:
+    name: Suite de tests (pytest + diff check)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: git diff --check
+        run: git diff --check
+
+      - name: Suite de tests
+        run: python -m pytest tests/ -q
+
+  contrato-columnas:
+    name: Contrato de columnas P0 (3 dobles = 8 columnas = 6,00 EUR)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validar contrato y optimizador
+        run: |
+          python - <<'EOF'
+          import json
+          import settings
+          from OPTIMIZADOR_COLUMNAS import columns_contract, three_double_combinations, optimize_jornada
+
+          c = columns_contract()
+          assert c["doubles"] == 3, c
+          assert c["columns_per_ticket"] == 8, c
+          assert c["price_per_column"] == 0.75, c
+          assert c["max_cost"] == 6.0, c
+          assert 2 ** c["doubles"] == c["columns_per_ticket"]
+          assert len(three_double_combinations(14, 3)) == 364
+
+          payload = optimize_jornada(74, fuente_prob="q15", publico="lae", n_sims=2000)
+          assert payload["n_columnas"] == 8
+          assert payload["coste_euros"] == 6.0
+          assert payload["evaluacion_exhaustiva"]["n_combinaciones"] == 364
+          assert set(payload["probabilidades_exactas"]) == {
+              "p_ge_10", "p_ge_11", "p_ge_12", "p_ge_13", "p_ge_14",
+          }
+          assert payload["pleno15"]["num"] == 15
+          assert all(d["num"] != 15 for d in payload["desarrollo"])
+          print("Contrato P0 OK:", json.dumps(c, ensure_ascii=False))
+          EOF

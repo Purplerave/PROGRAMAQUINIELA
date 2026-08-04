@@ -124,9 +124,13 @@
     ]
   },
   "columns": {
+    "contract_version": "2026-08-04",
+    "doubles": 3,
+    "columns_per_ticket": 8,
     "price_per_column": 0.75,
-    "beam_size": 6000,
-    "default_budget": 128
+    "max_cost": 6.0,
+    "pleno15_separado": true,
+    "nota": "Contrato P0 (auditoria externa 04/08/2026): 3 dobles sobre 14 partidos = 8 columnas a 0,75 EUR/columna; coste maximo 6,00 EUR. El Pleno al 15 se juega aparte."
   },
   "nordic_football_data": {
     "enabled": false,

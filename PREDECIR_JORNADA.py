@@ -395,7 +395,8 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
             ),
         }
 
-    # 7.5 Boleto optimizado (T2): desarrollo global con presupuesto y valor.
+    # 7.5 Boleto optimizado (T2): contrato fijo de columnas (P0 2026-08-04):
+    #     3 dobles = 8 columnas a 0,75 EUR = 6,00 EUR máximo, Pleno al 15 aparte.
     #     Usa las probabilidades del modelo cuando existen; si no, Q15 como
     #     fuente de probabilidades y LAE como popularidad del público.
     boleto_optimizado = None
@@ -407,12 +408,10 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
             pm = match.get("probabilidades", {}).get("modelo")
             if isinstance(pm, dict) and all(s in pm for s in ("1", "X", "2")):
                 probs_override[match.get("num")] = pm
-        budget = int(settings.CONFIG.get("columns", {}).get("default_budget", 128))
         boleto_optimizado = optimize_jornada(
             jornada,
             fuente_prob="q15",
             publico="lae",
-            presupuesto=budget,
             probs_override=probs_override or None,
         )
     except Exception as exc:
