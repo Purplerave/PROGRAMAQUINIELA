@@ -164,6 +164,30 @@ def compose_tickets(
     return result
 
 
+def diagnose_unmatched(out_of_coverage: list[dict[str, Any]], history: pd.DataFrame, sample: int = 12) -> None:
+    """Imprime una muestra de partidos sin contrastar con su diagnóstico.
+
+    Ayuda a localizar nombres de equipo del XML que no casan con Football-Data:
+    muestra el nombre crudo, su clave canónica y cuántas veces esa clave aparece
+    como local/visitante en el histórico cargado (0 = el nombre no se resuelve).
+    """
+    seen = 0
+    for record in out_of_coverage:
+        for match in record.get("unmatched", []):
+            if seen >= sample:
+                return
+            home = canonical_team(match["local"])
+            away = canonical_team(match["visitante"])
+            print(
+                f"  [{match['num']:>2}] {match['local']!r} ({home!r} -> local en CSV: "
+                f"{(history['home'] == home).sum()}) | {match['visitante']!r} ({away!r} -> "
+                f"visitante en CSV: {(history['away'] == away).sum()})"
+            )
+            seen += 1
+    if not seen:
+        print("  (sin partidos sin contrastar)")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--xml-dir", type=Path, default=DEFAULT_XML_DIR)
@@ -205,6 +229,9 @@ def main() -> int:
     print(f"Boletos compuestos y contrastados: {len(tickets)}")
     print(f"Fuera de cobertura Football-Data (p. ej. competiciones europeas): {len(out_of_coverage)}")
     print(f"Fallidos/inconsistentes: {len(failures)}")
+    if out_of_coverage:
+        print("Diagnóstico de nombres sin contrastar (muestra):")
+        diagnose_unmatched(out_of_coverage, history)
     print(f"Propuesta: {args.output}")
     return 0 if not failures else 1
 
