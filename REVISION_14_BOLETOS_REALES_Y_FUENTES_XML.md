@@ -427,18 +427,52 @@ Fallidos/inconsistentes: 0
 ```
 
 - **5 boletos aceptados** como `tickets` (15 partidos contrastados contra
-  Football-Data 2025-26, con fecha derivada por coincidencia única).
-- **4 boletos en `out_of_coverage`**: entre ellos, de la sesión previa, J006
-  por `Athletic - Arsenal` y J010 por `FC Kairat Almaty - Real Madrid` en el
-  Pleno. Un motivo `no_en_football_data` no es un error de datos, sino
-  cobertura del histórico (competiciones europeas, Copa).
-- **0 inconsistentes** (`failures` vacío): ningún marcador/signo contradice a
-  Football-Data.
+  Football-Data 2025-26, con fecha derivada por coincidencia única): J001,
+  J002, J003, J005 y J007.
+- **4 boletos en `out_of_coverage`** con el detalle confirmado:
 
-El detalle de las otras dos jornadas fuera de cobertura queda pendiente de
-contrastar con el JSON de propuesta generado.
+| Boleto | Cubiertos | Motivo |
+|---|---:|---|
+| J004 | 9/15 | Partidos 10–15 internacionales (Letonia–Serbia, Eire–Hungría, Alemania–Irlanda N., Luxemburgo–Eslovaquia, Polonia–Finlandia, Turquía–España) |
+| J006 | 0/15 | Jornada 100 % europea (Athletic–Arsenal, Real Madrid–Marseille, Man. City–Nápoles, Newcastle–Barcelona, Liverpool–At. Madrid…) |
+| J008 | 9/15 | Partidos 9–14 europeos (Estrella Roja–Celtic, Betis–Nottingham Forest, Nice–Roma, Aston Villa–Bolonia, Salzburgo–Oporto, Stuttgart–Celta) |
+| J010 | 0/15 | Jornada 100 % europea (FC Kairat Almaty–Real Madrid, Barcelona–PSG, Celta–PAOK Salónica, Ludogorets–Betis…) |
 
-Para integrar el resultado en esta rama, adjuntar o pegar el JSON de propuesta
-(`salida\quiniela_historica_propuesta_2025_2026.json`) y se contrastará aquí
-contra el mismo CSV antes de decidir si pasa a `DATOS/quiniela_historica/`
-con su procedencia.
+Los motivos `no_en_football_data` no son errores de datos: son jornadas
+mixtas o europeas fuera del histórico Primera/Segunda. Un boleto solo entra
+en `failures` si algún marcador/signo contradice a Football-Data; aquí
+**ninguno** (`failures` vacío).
+
+### 9.5 Evaluador de aciertos reales (`EVALUAR_ACIERTOS_BOLETOS.py`)
+
+Commit añade `scripts/backtests/EVALUAR_ACIERTOS_BOLETOS.py`: conecta las
+predicciones del motor (modo producción, pesos congelados, test principal)
+con los boletos aceptados de la propuesta y mide por boleto:
+
+- aciertos simples sobre los 14 partidos oficiales (motor y favorito de
+  mercado);
+- aciertos con **tres dobles sobre los 14 partidos reales del boleto**
+  (misma lógica de selección que el proxy, pero sin bloques artificiales);
+- Pleno al 15: marcador exacto y bucket (`M-2`) del modelo frente al oficial.
+
+El cruce exige fecha + local + visitante únicos (sin aproximaciones) y un
+boleto se evalúa solo si sus 14 partidos aparecen en el test del motor; si
+algún partido falta (p. ej. fila descartada por cuotas ausentes en el CSV),
+se reporta `cobertura_incompleta` sin fabricar la media. No calcula ROI:
+sin escrutinio oficial por categoría devuelve `missing_official_payouts`.
+
+Uso (primera ejecución entrena el motor y guarda caché en `salida/`):
+
+```powershell
+python scripts\backtests\EVALUAR_ACIERTOS_BOLETOS.py
+```
+
+Validación en el sandbox con boletos sintéticos construidos sobre fixtures
+reales 2025-26 (importador + evaluador, extremo a extremo): 5/5 evaluados,
+media simples 7,20/14 = mercado, 3 dobles 8,00/14, acierto unión motor
+51,43 % = mercado 51,43 % (coherente con la referencia 2025-26). Suite:
+179 tests en verde.
+
+Para el resultado real: ejecutar el evaluador en el equipo del usuario con
+la propuesta ya generada y pegar aquí la salida (o el JSON
+`salida\evaluacion_aciertos_boletos_2025_2026.json`).

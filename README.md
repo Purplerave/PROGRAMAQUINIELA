@@ -121,6 +121,19 @@ clasifica cada boleto en `tickets` (15 partidos contrastados), `out_of_coverage`
 `salida/quiniela_historica_propuesta_2025_2026.json`. No modifica los JSON
 fuente ni los CSV, y la salida se marca `proposal_not_official_lae`.
 
+Para medir aciertos reales del motor sobre los boletos aceptados (sin ROI):
+
+```powershell
+python scripts/backtests/EVALUAR_ACIERTOS_BOLETOS.py
+```
+
+El evaluador genera las predicciones del test principal en modo producción
+(la primera ejecución entrena y guarda caché en `salida/`), cruza por
+fecha+equipos sin aproximaciones y reporta por boleto aciertos simples,
+tres dobles sobre los 14 partidos reales y el Pleno al 15. Si un partido no
+aparece en el test (p. ej. fila sin cuotas), el boleto se marca
+`cobertura_incompleta` y no se evalúa a medias.
+
 Los JSON auditados se incorporan en `DATOS/quiniela_historica/` según su
 `README.md`. El ROI realizado exige además el escrutinio/premio oficial por
 categoría; sin él el módulo devuelve aciertos y coste, pero no inventa retorno.

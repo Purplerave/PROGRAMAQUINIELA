@@ -84,7 +84,14 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Validación:** 175 tests en verde (+8); reproducción con fixtures reales:
   boleto español completo aceptado, J006 (`Athletic-Arsenal`) y J010
   (`FC Kairat Almaty-Real Madrid`) clasificados `out_of_coverage` 14/15.
-- **Estado:** ejecutado con los 9 JSON reales: 5 aceptados, 4 fuera de
-  cobertura, 0 inconsistentes. Pendiente contrastar la propuesta generada
+- **Estado:** ejecutado con los 9 JSON reales: 5 aceptados (J001, J002, J003,
+  J005, J007), 4 fuera de cobertura (J004/J008 mixtas, J006/J010 100 %
+  europeas), 0 inconsistentes.
+- **Continuación:** `scripts/backtests/EVALUAR_ACIERTOS_BOLETOS.py` conecta
+  las predicciones del motor (producción) con los boletos aceptados y mide
+  aciertos simples, 3 dobles sobre los 14 reales y Pleno; sin escrutinio no
+  hay ROI. Validado extremo a extremo en el sandbox (sintético sobre
+  fixtures reales): unión motor 51,43 % = mercado 51,43 %. Suite: 179 tests.
+- **Pendiente:** ejecutar el evaluador con la propuesta real y contrastar
   antes de decidir el paso a `DATOS/quiniela_historica/` con procedencia
   auditada.

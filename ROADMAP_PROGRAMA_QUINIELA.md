@@ -13,10 +13,16 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 - Auditoría de alias: los 13 alias mapean a equipos reales del CSV y no hay
   colisiones canónicas en ninguna temporada. El Pleno acepta marcador exacto o
   bucket (`M-2`). Suite: 175 tests en verde.
-- Ejecutado con los 9 JSON reales: **5 boletos aceptados, 4 fuera de
-  cobertura** (entre ellos J006 por `Athletic-Arsenal` y J010 por
-  `FC Kairat Almaty-Real Madrid`), **0 inconsistentes**. Pendiente contrastar
-  la propuesta generada antes de decidir el paso a
+- Ejecutado con los 9 JSON reales: **5 boletos aceptados** (J001, J002, J003,
+  J005, J007), **4 fuera de cobertura** (J004/J008 mixtas con partidos
+  internacionales/europeos; J006/J010 jornadas 100 % europeas), **0
+  inconsistentes**.
+- Añadido `scripts/backtests/EVALUAR_ACIERTOS_BOLETOS.py`: conecta las
+  predicciones del motor (modo producción) con los boletos aceptados y mide
+  aciertos simples, tres dobles sobre los 14 reales y Pleno al 15; sin
+  escrutinio no calcula ROI. Validado extremo a extremo en el sandbox.
+- Pendiente: ejecutar el evaluador con la propuesta real en el equipo del
+  usuario y contrastar el resultado antes de decidir el paso a
   `DATOS/quiniela_historica/` con procedencia auditada.
 
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
