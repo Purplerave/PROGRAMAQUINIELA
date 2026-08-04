@@ -644,3 +644,34 @@ contrastados**. Suite: 192 tests en verde.
 Pendiente: reejecutar el compositor en el equipo del usuario; si quedan
 claves desconocidas (p. ej. en jornadas europeas), el diagnóstico las listará
 todas y se ampliará la tabla en una iteración.
+
+### 9.10 Ampliación confirmada: 35 boletos compuestos desde XML
+
+Reejecutado con los alias de nomenclatura corta:
+
+```text
+Jornadas con XML válido: 75
+Boletos compuestos y contrastados: 35
+Fuera de cobertura Football-Data (p. ej. competiciones europeas): 40
+Fallidos/inconsistentes: 0
+```
+
+- **35 boletos de jornadas de liga** (Primera/Segunda) aceptados con fecha y
+  resultado derivados de Football-Data y composición LAE vía quinielista.es.
+- **40 jornadas fuera de cobertura**: el diagnóstico agregado confirma que las
+  ~290 claves sin contraste son **equipos europeos y selecciones nacionales**
+  (`PSG`, `LIVERPOOL`, `ARSENAL`, `B.LEVERKUSEN`, `OL. MARSELLA`,
+  `ESPAÑA`, `TURQUÍA`, `ALEMANIA`…). Es cobertura real del histórico (el
+  motor solo cubre Primera y Segunda), **no** un problema de alias. El
+  vocabulario español de liga ya se resuelve íntegro.
+- **0 inconsistentes**: ningún marcador/signo contradice a Football-Data.
+
+La muestra de boletos reales pasa de 5 (quiniela15.com) a **40** (5 + 35 XML).
+Nota metodológica: las jornadas 1..3/5/7 existen en ambas fuentes (quiniela15
+y XML); el evaluador las trata como boletos distintos por `ticket_id`, por lo
+que el agregado global puede contar dos veces la misma jornada. Para la
+ampliación de muestra se recomienda usar la propuesta XML como fuente
+principal (35 jornadas) y la quiniela15 como validación cruzada.
+
+Pendiente: ejecutar el evaluador con la propuesta XML (y opcionalmente ambas)
+para la evaluación agregada real.

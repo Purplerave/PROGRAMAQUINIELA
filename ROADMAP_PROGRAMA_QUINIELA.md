@@ -29,7 +29,12 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 - **Ampliación de muestra:** `COMPONER_BOLETOS_XML.py` compone boletos desde
   los XML auditados de quinielista.es + resultados Football-Data (sin
   descargas nuevas); el evaluador acepta varias propuestas con agregado
-  global. Alias LAE ampliados. Suite: 190 tests en verde.
+  global. Alias LAE ampliados. Suite: 192 tests en verde.
+- **Resultado real:** con la nomenclatura corta del XML resuelta
+  (`R.OVIEDO`, `ATH.CLUB`, `RACING S.`…), **35 boletos compuestos** de 75
+  jornadas; los otros 40 son jornadas europeas/internacionales (fuera de
+  cobertura del histórico Primera/Segunda), 0 inconsistentes. Muestra real
+  total: 40 boletos (5 quiniela15 + 35 XML).
 
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
 
