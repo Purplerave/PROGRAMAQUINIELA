@@ -102,3 +102,22 @@ def test_realized_roi_requires_official_payouts_and_calculates_when_present():
     assert result["cost"] == 1.5
     assert result["return"] == 1000.0
     assert result["profit"] == 998.5
+
+
+def test_double_avoid_overconfidence_mask_excludes_overconfident_match():
+    from scripts.backtests.QUINIELA_REAL import double_avoid_overconfidence_mask
+
+    frame = pd.DataFrame({
+        "hgb_prob_1": [0.30, 0.55], "hgb_prob_x": [0.35, 0.25], "hgb_prob_2": [0.35, 0.20],
+        "market_1": [0.50, 0.50], "market_x": [0.20, 0.30], "market_2": [0.30, 0.20],
+    })
+    # Fila 0: top HGB = X (0.35), diff vs market_x = 0.15 > 0.10 -> excluida.
+    # Fila 1: top HGB = 1 (0.55), diff vs market_1 = 0.05 -> no excluida.
+    mask = double_avoid_overconfidence_mask(frame, {"double_avoid_overconfidence": True, "double_avoid_overconfidence_threshold": 0.1}, "pred")
+    assert list(mask) == [True, False]
+    # Desactivada -> nada excluido.
+    mask_off = double_avoid_overconfidence_mask(frame, {"double_avoid_overconfidence": False}, "pred")
+    assert not mask_off.any()
+    # Sin columnas de mercado -> defensiva, nada excluido.
+    mask_no_market = double_avoid_overconfidence_mask(frame.drop(columns=["market_1", "market_x", "market_2"]), {"double_avoid_overconfidence": True}, "pred")
+    assert not mask_no_market.any()

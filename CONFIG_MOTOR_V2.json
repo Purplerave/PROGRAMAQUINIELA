@@ -40,6 +40,8 @@
     "double_segunda_bonus": 0.05,
     "double_draw_threshold": 0.3,
     "x_disagreement_strategy": "none",
+    "double_avoid_overconfidence": true,
+    "double_avoid_overconfidence_threshold": 0.1,
     "draw_boost_candidates": [
       0.0
     ],

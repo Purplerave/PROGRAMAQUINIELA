@@ -90,3 +90,43 @@ def test_contract_generator_exposes_pleno_top_marcadores_and_bucket(tmp_path, mo
     assert pleno["bucket"] == "1-1"
     assert len(pleno["top_marcadores"]) == 3
     assert pleno["top_marcadores"][0]["score"] == "1-1"
+
+
+def test_maestro_simulate_doubles_applies_anti_overconfidence_rule():
+    import numpy as np
+    import pandas as pd
+
+    from MOTOR_QUINIELA_MAESTRO import double_avoid_overconfidence_mask, simulate_doubles
+
+    base_config = motor.active_hybrid_config()
+    config_on = {**base_config, "double_avoid_overconfidence": True, "double_avoid_overconfidence_threshold": 0.1}
+    config_off = {**base_config, "double_avoid_overconfidence": False}
+
+    rows = []
+    for i in range(15):
+        # Fila 0: baja confianza y HGB sobreconfiado (diff 0.15) -> la regla la excluye.
+        if i == 0:
+            probs = (0.30, 0.35, 0.35)
+            hgb = (0.30, 0.35, 0.35)
+            market = (0.50, 0.20, 0.30)
+        else:
+            probs = (0.60, 0.25, 0.15)
+            hgb = (0.60, 0.25, 0.15)
+            market = (0.60, 0.25, 0.15)
+        rows.append({
+            "date": pd.Timestamp("2025-08-15") + pd.Timedelta(days=i),
+            "home": f"L{i}", "away": f"V{i}", "division": "Primera", "result": "1",
+            "hgb_prob_1": hgb[0], "hgb_prob_x": hgb[1], "hgb_prob_2": hgb[2],
+            "market_1": market[0], "market_x": market[1], "market_2": market[2],
+            "model_disagreement": 0.0,
+            "latest_prob_1": probs[0], "latest_prob_x": probs[1], "latest_prob_2": probs[2],
+            "latest_pred": "1",
+        })
+    frame = pd.DataFrame(rows)
+    mask = double_avoid_overconfidence_mask(frame, config_on, "latest")
+    assert list(mask[:2]) == [True, False]
+    doubles_on = simulate_doubles(frame, "latest", config_on)
+    doubles_off = simulate_doubles(frame, "latest", config_off)
+    assert len(doubles_on) == 1 and len(doubles_off) == 1
+    # Con la regla activa el resultado debe ser >= (nunca empeora en este caso).
+    assert doubles_on.loc[0, "hits_3_dobles"] >= doubles_off.loc[0, "hits_3_dobles"]

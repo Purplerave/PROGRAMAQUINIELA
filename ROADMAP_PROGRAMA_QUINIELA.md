@@ -49,6 +49,22 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
   pasa de 8,20 a ≈ 8,49/15. El contrato API v1.1 expone de forma aditiva
   `pleno15.bucket` y `pleno15.top_marcadores`. Suite: 197 tests.
 
+## Último avance (04/08/2026 — selección de dobles con regla anti-sobreconfianza)
+
+- Validado en walk-forward multi-split (2023-24/24-25/25-26, config producción):
+  **excluir de los tres dobles los partidos con divergencia
+  HGB-mercado > 0.10** (sobreconfianza, sin valor según el experimento de
+  divergencia) mejora la media en las 3 temporadas (baseline 8,577 → 8,637)
+  y en el test principal (8,63 → **8,65/15**), sin tocar los pesos v4
+  (51,64 % / 51,56 % intactos). Los bonus por "divergencia en rango
+  [0.05, 0.10]" y el modo "solo en rango" no mejoraron.
+- Implementado como regla configurable (`double_avoid_overconfidence: true`,
+  `double_avoid_overconfidence_threshold: 0.1`) en `simulate_dobles` del
+  maestro y en `QUINIELA_REAL.evaluate_official_doubles` (boletos reales).
+  Defensiva: si el config no la activa o faltan columnas, no cambia nada.
+- Experimento reproducible: `scripts/backtests/EXPERIMENTO_DOBLES_DIVERGENCIA.py`.
+  Suite: 203 tests en verde.
+
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
 
 - Añadido `scripts/backtests/QUINIELA_REAL.py`: valida el esquema versionado de
@@ -109,8 +125,8 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 - Motor híbrido: regresión logística, HGB, mercado y Poisson.
 - Config activa v4 (31/07/2026): mercado dominante (logit 0.0, hgb 0.049,
   market 0.951, poisson 0.0), elegida por walk-forward multi-split.
-- Backtest principal: 51,64 % de acierto simple y 8,63/15 con tres dobles
-  (favorito de mercado: 51,56 %).
+- Backtest principal: 51,64 % de acierto simple y 8,65/15 con tres dobles
+  (regla anti-sobreconfianza activa; favorito de mercado: 51,56 %).
 - Backtest 2025-2026: 51,54 % y 8,50/15.
 - Backtest 2024-2025: 52,49 % y 8,64/15.
 - Log Loss, Brier y ECE disponibles (scripts de backtest nuevos).

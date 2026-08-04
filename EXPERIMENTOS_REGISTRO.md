@@ -125,3 +125,15 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   14,3 %); media del "15" con cobertura top-3 ≈ 8,49/15. El contrato API v1.1
   expone aditivamente `pleno15.bucket` y `pleno15.top_marcadores`. Suite: 200
   tests.
+- **2026-08-04 — Dobles: regla anti-sobreconfianza (divergencia HGB-mercado
+  > 0.10).** Objetivo: mejorar la selección de los 3 dobles usando la
+  divergencia modelo-mercado (el experimento previo mostró que diff > 0.10 es
+  sobreconfianza sin valor). Validado en walk-forward multi-split
+  (2023-24/24-25/25-26, config producción): excluir esos partidos de los
+  dobles gana en las 3 temporadas (baseline 8,577 → 8,637; std 1,913 → 1,871)
+  y en el test principal 8,63 → 8,65/15; simple 51,64 % intacto. Los bonus por
+  rango [0.05, 0.10] y el modo restringido no mejoraron. Implementado como
+  regla configurable (`double_avoid_overconfidence: true`, umbral 0,1) en
+  `simulate_dobles` y en `QUINIELA_REAL.evaluate_official_doubles`
+  (boletos reales). Estado: **IMPLEMENTADO / ACTIVO**. Referencia:
+  `scripts/backtests/EXPERIMENTO_DOBLES_DIVERGENCIA.py`.

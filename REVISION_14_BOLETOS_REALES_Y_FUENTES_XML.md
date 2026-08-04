@@ -775,3 +775,50 @@ Para que esa cobertura sea explotable, el **contrato API v1.1** amplía el
 `marcador` (top-1 exacto) y se añaden `bucket` (0/1/2/M del modelo) y
 `top_marcadores` (los 3 marcadores más probables con su probabilidad), ya
 disponibles en el paquete de jornada. Suite: 200 tests en verde.
+
+### 9.14 Selección de los 3 dobles: regla anti-sobreconfianza (activada)
+
+Dirección de la sesión (sin escrutinio): mejorar la predicción. Tras el
+Pleno, la siguiente palanca son los 3 dobles. El experimento de divergencia
+(`EXPERIMENTO_DIVERGENCIA.py`) había mostrado que la divergencia moderada
+`[0.05, 0.10]` tiene valor y que la **excesiva (> 0.10) es sobreconfianza**
+(actual 0,384 vs mercado 0,404).
+
+`scripts/backtests/EXPERIMENTO_DOBLES_DIVERGENCIA.py` valida en walk-forward
+multi-split (2023-24/24-25/25-26, config producción, sin reoptimizar pesos)
+tres familias de reglas sobre la selección de los 3 dobles:
+
+| Variante | Media (3 temporadas) | 24 | 25 | 26 | std |
+|---|---:|---:|---:|---:|---:|
+| V0 baseline (activa) | 8,577 | 8,554 | 8,696 | 8,482 | 1,913 |
+| V1 bonus rango (0,05–0,20) | 8,52–8,57 | — | — | — | ~1,86 |
+| V2 restringido al rango | 8,565 | 8,446 | 8,714 | 8,536 | 1,859 |
+| **V3 anti-sobreconfianza** | **8,637** | 8,696 | 8,714 | 8,500 | **1,871** |
+
+**V3 gana en las 3 temporadas** (8,696/8,714/8,500 vs baseline
+8,554/8,696/8,482), sube la media +0,06 y baja el std. En el test principal:
+8,63 → **8,65/15**, con 2023-24 8,536 → 8,607 y 2024-25 8,714 → 8,750 (la
+única temporada que no mejora, 2025-26, baja 8,554 → 8,482, dentro del ruido).
+Los bonus por divergencia en rango y el modo restringido **no** mejoran, lo
+que descarta sobre-ajustar a la señal moderada.
+
+Implementado como regla configurable (aditiva, sin tocar los pesos v4):
+
+- `CONFIG_MOTOR_V2.json`: `double_avoid_overconfidence: true`,
+  `double_avoid_overconfidence_threshold: 0.1`.
+- `MOTOR_QUINIELA_MAESTRO.simulate_dobles` y
+  `QUINIELA_REAL.evaluate_official_doubles` (boletos reales): penalizan
+  fuertemente (score −1) los partidos con `p_hgb[top] - p_mercado[top] >
+  umbral` para que no gasten uno de los tres dobles. Defensivas: si el config
+  no activa la regla o faltan columnas de HGB/mercado, no cambian nada.
+
+Nueva referencia de producción (04/08/2026, pesos v4 intactos):
+
+```text
+Acierto simple: 51,64 % | mercado 51,56 %
+Media con 3 dobles: 8,65/15  (antes 8,63)
+2024-25: 52,61 % y 8,71/15   (antes 8,70)
+2025-26: 51,43 % y 8,50/15
+```
+
+Suite: 203 tests en verde (experimento + regla incluidos).

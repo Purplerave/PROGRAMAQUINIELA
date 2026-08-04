@@ -176,6 +176,31 @@ def build_double(prob1: float, probx: float, prob2: float, draw_threshold: float
     return "".join(sorted((top, second), key=lambda sign: DOUBLE_ORDER[sign]))
 
 
+def double_avoid_overconfidence_mask(frame: pd.DataFrame, config: dict, pred_prefix: str) -> np.ndarray:
+    """Máscara de partidos sobreconfiados que no deben ser dobles (regla activa).
+
+    Igual que en el maestro: un partido con divergencia
+    ``p_hgb[signo_top] - p_mercado[signo_top] > umbral`` (por defecto 0.10) no
+    debe gastar uno de los tres dobles. Defensiva: si el config no la activa o
+    faltan columnas de mercado, no excluye nada.
+    """
+    if not config.get("double_avoid_overconfidence", False):
+        return np.zeros(len(frame), dtype=bool)
+    threshold = float(config.get("double_avoid_overconfidence_threshold", 0.10))
+    # La divergencia se mide con el HGB frente al mercado; fallback al prefijo.
+    prob_cols = ["hgb_prob_1", "hgb_prob_x", "hgb_prob_2"]
+    if not set(prob_cols).issubset(frame.columns):
+        prob_cols = [f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]
+    market_cols = ["market_1", "market_x", "market_2"]
+    if not set(prob_cols).issubset(frame.columns) or not set(market_cols).issubset(frame.columns):
+        return np.zeros(len(frame), dtype=bool)
+    probs = frame[prob_cols].to_numpy(dtype=float)
+    market = frame[market_cols].to_numpy(dtype=float)
+    top = probs.argmax(axis=1)
+    diff = probs[np.arange(len(probs)), top] - market[np.arange(len(probs)), top]
+    return diff > threshold
+
+
 def evaluate_official_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.DataFrame:
     """Evalúa tres dobles por boleto oficial de 14 partidos.
 
@@ -205,6 +230,7 @@ def evaluate_official_doubles(frame: pd.DataFrame, pred_prefix: str, config: dic
             + config["double_disagreement_weight"] * group["model_disagreement"]
             + np.where(group["division"].eq("Segunda"), config["double_segunda_bonus"], 0.0)
         )
+        value = value - np.where(double_avoid_overconfidence_mask(group, config, pred_prefix), 1.0, 0.0)
         double_numbers = set(group.loc[value.nlargest(3).index, "official_ticket_number"])
         hits = sum(
             (row["official_ticket_result"] in row["double"])
