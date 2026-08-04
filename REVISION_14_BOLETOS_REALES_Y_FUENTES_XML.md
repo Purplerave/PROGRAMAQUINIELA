@@ -222,8 +222,9 @@ partidos ordenados:
 
 - posiciones 1..14: marcador `goles_local-goles_visitante` y signo `1`, `X` o
   `2` coherente;
-- posición 15: marcador y `signo` en formato de marcador exacto, por ejemplo
-  `1-1` para `Elche - Betis`.
+- posición 15: marcador exacto y signo de **bucket de Pleno**. Quiniela15
+  conserva `1-1` cuando ambos goles son 0..2, pero usa `M2` para un marcador
+  como `3-2` (`M` = tres o más goles).
 
 Se observaron cadenas como `AlavÃ©s`, `MÃ¡laga` y `CastellÃ³n` en la consola
 PowerShell. Esto es mojibake de visualización/lectura ANSI de PowerShell, no se

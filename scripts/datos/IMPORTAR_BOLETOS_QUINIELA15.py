@@ -34,6 +34,7 @@ ALIASES = {
     "real oviedo": "oviedo",
     "r sociedad": "sociedad",
     "r santander": "santander",
+    "r zaragoza": "zaragoza",
     "espanyol": "espanol",
     "sporting gijon": "sp gijon",
     "deportivo": "la coruna",
@@ -61,6 +62,15 @@ def canonical_team(value: object) -> str:
 
 def sign_from_goals(home_goals: int, away_goals: int) -> str:
     return "1" if home_goals > away_goals else "2" if home_goals < away_goals else "X"
+
+
+def pleno_bucket_from_score(home_goals: int, away_goals: int) -> str:
+    """Representación Quiniela15 del Pleno: marcador normal o bucket M (3+)."""
+    home = "M" if home_goals >= 3 else str(home_goals)
+    away = "M" if away_goals >= 3 else str(away_goals)
+    # Quiniela15 conserva el guion cuando ambos goles están en 0..2 (p. ej. 1-1)
+    # y usa la notación oficial compacta al intervenir M (p. ej. M2).
+    return f"{home}-{away}" if home != "M" and away != "M" else f"{home}{away}"
 
 
 def load_season_history(season: str) -> pd.DataFrame:
@@ -128,8 +138,10 @@ def match_history(source_match: dict[str, Any], history: pd.DataFrame, ticket_id
     expected_sign = sign_from_goals(int(row.home_goals), int(row.away_goals))
     if source_match["num"] < 15 and source_match["signo"] != expected_sign:
         raise ValueError(f"{ticket_id} #{source_match['num']}: signo fuente={source_match['signo']} != Football-Data={expected_sign}")
-    if source_match["num"] == 15 and source_match["signo"] != expected_score:
-        raise ValueError(f"{ticket_id} #15: signo debe ser el marcador exacto {expected_score}")
+    if source_match["num"] == 15:
+        expected_pleno = pleno_bucket_from_score(int(row.home_goals), int(row.away_goals))
+        if source_match["signo"] != expected_pleno:
+            raise ValueError(f"{ticket_id} #15: signo fuente={source_match['signo']} != bucket Pleno={expected_pleno}")
     return {
         "date": row.date.strftime("%Y-%m-%d"),
         "home": repair_mojibake(source_match["local"]),
