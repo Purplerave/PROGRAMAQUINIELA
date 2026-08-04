@@ -4,7 +4,7 @@ import json
 
 import pandas as pd
 
-from scripts.datos.IMPORTAR_BOLETOS_QUINIELA15 import canonical_team, import_tickets
+from scripts.datos.IMPORTAR_BOLETOS_QUINIELA15 import canonical_team, import_tickets, pleno_bucket_from_score
 
 
 def source_ticket() -> dict:
@@ -45,3 +45,11 @@ def test_importer_repairs_console_mojibake_and_known_ticket_aliases():
     assert canonical_team("Rayo") == "vallecano"
     assert canonical_team("R. Sociedad") == "sociedad"
     assert canonical_team("Sporting GijÃ³n") == "sp gijon"
+    assert canonical_team("C. Leonesa") == "cultural leonesa"
+    assert canonical_team("R. Sociedad B") == "sociedad b"
+
+
+def test_pleno_bucket_uses_hyphen_with_m_marker():
+    assert pleno_bucket_from_score(1, 1) == "1-1"
+    assert pleno_bucket_from_score(3, 2) == "M-2"
+    assert pleno_bucket_from_score(4, 5) == "M-M"

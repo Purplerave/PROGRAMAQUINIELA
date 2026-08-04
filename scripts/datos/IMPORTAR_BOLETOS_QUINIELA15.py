@@ -35,6 +35,8 @@ ALIASES = {
     "r sociedad": "sociedad",
     "r santander": "santander",
     "r zaragoza": "zaragoza",
+    "c leonesa": "cultural leonesa",
+    "r sociedad b": "sociedad b",
     "espanyol": "espanol",
     "sporting gijon": "sp gijon",
     "deportivo": "la coruna",
@@ -68,9 +70,8 @@ def pleno_bucket_from_score(home_goals: int, away_goals: int) -> str:
     """Representación Quiniela15 del Pleno: marcador normal o bucket M (3+)."""
     home = "M" if home_goals >= 3 else str(home_goals)
     away = "M" if away_goals >= 3 else str(away_goals)
-    # Quiniela15 conserva el guion cuando ambos goles están en 0..2 (p. ej. 1-1)
-    # y usa la notación oficial compacta al intervenir M (p. ej. M2).
-    return f"{home}-{away}" if home != "M" and away != "M" else f"{home}{away}"
+    # Quiniela15 usa siempre guion; M representa tres o más goles (p. ej. M-2).
+    return f"{home}-{away}"
 
 
 def load_season_history(season: str) -> pd.DataFrame:
