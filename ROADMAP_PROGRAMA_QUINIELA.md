@@ -3,6 +3,18 @@
 Estado consolidado el 29/07/2026. Actualizado el 04/08/2026 (P0 de reproducibilidad y contrato v1.1).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
+## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
+
+- Añadido `scripts/backtests/QUINIELA_REAL.py`: valida el esquema versionado de
+  boletos LAE (partidos 1–14, fecha por partido y Pleno al 15), une predicciones
+  solo por fecha+equipos sin aproximaciones y evalúa tres dobles sobre 14
+  partidos reales únicamente si el boleto está completo.
+- El mismo módulo calcula retorno realizado de columnas solo cuando llega el
+  escrutinio/premio oficial por categoría; sin `payouts` devuelve explícitamente
+  `missing_official_payouts`, no un ROI estimado.
+- Falta incorporar y contrastar el histórico externo de boletos/escutinios.
+  `DATOS/quiniela_historica/README.md` fija el contrato y trazabilidad exigida.
+
 ## Último avance (04/08/2026 — P0 reproducibilidad y contrato v1.1)
 
 - El comando principal ahora arranca en `--modo produccion`: entrena con el

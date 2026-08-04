@@ -97,6 +97,20 @@ parte en bloques mecánicos de 15 partidos para seleccionar tres dobles. **No
 reconstruye los boletos oficiales de La Quiniela ni estima ROI, premios o el
 resultado de jornadas reales.**
 
+## Boletos oficiales y ROI
+
+El soporte de backtest real está en `scripts/backtests/QUINIELA_REAL.py`. Solo
+acepta jornadas que declaren los 14 partidos oficiales, sus fechas, el Pleno al
+15 y su fuente trazable; nunca infiere un boleto desde filas consecutivas.
+
+```powershell
+python scripts/backtests/QUINIELA_REAL.py
+```
+
+Los JSON auditados se incorporan en `DATOS/quiniela_historica/` según su
+`README.md`. El ROI realizado exige además el escrutinio/premio oficial por
+categoría; sin él el módulo devuelve aciertos y coste, pero no inventa retorno.
+
 Las cifras se obtuvieron en modo producción con la configuración incluida en
 el repositorio; ese modo nunca reoptimiza los pesos durante la ejecución.
 Hash del dataset historico (PRIMERA + SEGUNDA): `51a9688ac065015da9335512af5a34a8`.

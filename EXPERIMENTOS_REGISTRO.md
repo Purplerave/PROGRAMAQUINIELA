@@ -59,3 +59,15 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   simple, mercado 51,56 %, 8,63/15 en el test principal. Suite: 155 tests.
 - **Nota metodológica:** 3 dobles es agrupación mecánica de 15 filas, no
   reconstrucción de boletos oficiales ni ROI.
+
+---
+
+## 2026-08-04 — Infraestructura: boletos oficiales y ROI realizado
+- **Objetivo:** sustituir la métrica proxy de bloques de 15 por una evaluación
+  posible sobre boletos oficiales y evitar presentar retorno teórico como ROI.
+- **Implementación:** `scripts/backtests/QUINIELA_REAL.py` valida tickets
+  explícitos 1–14/Pleno, los une por fecha+equipos y descarta boletos con
+  cobertura incompleta. `evaluate_realized_roi` exige pagos oficiales.
+- **Estado:** infraestructura probada; pendiente cargar histórico auditado de
+  fixtures y escrutinios LAE. No se modifica la métrica de referencia proxy
+  hasta disponer de esa cobertura.
