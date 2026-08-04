@@ -78,13 +78,19 @@ lo que importa (P(≥12/13/14) y EV), no solo acierto simple.
 4. Mercado + regla de divergencia **restringida al rango +0.05/+0.10** (el único
    tramo con señal según `EXPERIMENTOS_REGISTRO.md`).
 
-**Criterios de aceptación:**
-- [ ] Tabla comparativa con: acierto simple, media 3 dobles, P(≥12), P(≥13),
-      P(≥14), EV(6€) y ROI, por brazo.
-- [ ] **Regla de decisión escrita:** un brazo sustituye al activo solo si mejora
-      EV o P(≥12) de forma consistente (mejora en ≥4 de las últimas 5 temporadas
-      y `mean - 0.5*std` superior). Si ninguno mejora → se documenta y se congela
-      el peso de mercado explícitamente.
+**Criterios de aceptación:**  ✅ **COMPLETADO (04/08/2026)**
+- [x] Tabla comparativa con acierto simple, media aciertos, P(≥12/13/14) y ROI por
+      brazo (`scripts/backtests/EXPERIMENTO_ENSEMBLES_ECONOMICO.py`).
+- [x] **Regla de decisión escrita y aplicada** (≥4 de últimas 5 temporadas mejor
+      P(≥12) + `mean-0.5*std` superior). Resultado: **ningún brazo sustituye al
+      activo**; se congela el peso de mercado y se documenta.
+
+**Resultado (walk-forward 2019-2026, premios ESTIMADOS):** la **calibración**
+(`mercado_hgb_calib`) es el brazo más robusto — misma P(≥12) media que el mercado
+(3,36%) pero **menor varianza** (std 0,024 vs 0,040 del activo) y mejor score
+robusto (0,0214 vs 0,0053). Gana P(≥12) en 3/5 (umbral 4), así que aún NO sustituye,
+pero es la candidata prioritaria de P1. La divergencia da buen ROI pero es
+inconsistente (1/5). Detalle en `EXPERIMENTOS_REGISTRO.md`.
 
 ### P0.3 — Separar el core de predicción (`prediction_engine`)
 **Por qué:** hoy `MOTOR_QUINIELA_MAESTRO.py` (906 líneas) mezcla carga de datos,
@@ -107,6 +113,22 @@ serio es peligroso y ralentiza P1.
 ---
 
 ## FASE P1 — Siguiente ciclo (2–4 semanas). Aquí está el edge, si existe.
+
+> 🔎 **Actualización tras P0.2 (04/08/2026):** el brazo con calibración es el más
+> robusto de los cuatro (misma P(≥12) media que el mercado con menor varianza).
+> No superó el umbral estricto (3/5 vs 4/5 requerido), pero es la palanca P1 más
+> prometedora. Nueva sub-tarea **P1.0**.
+
+### P1.0 — Consolidar la calibración como brazo activo (prioritario)
+**Por qué:** P0.2 muestra que calibrar el blend reduce la varianza de P(≥12) sin
+perder EV. El motor de predicción (`MOTOR_PREDICCION_JORNADA`) ya calibra 84/16;
+falta llevar esa señal al **backtest/ensamble activo** y volver a aplicar la regla
+de decisión con más temporadas o un holdout mejor.
+
+**Criterios de aceptación:**
+- [ ] Calibración integrada en el path de backtest (no solo en predicción de jornada).
+- [ ] Reejecutar P0.2: si `mercado_hgb_calib` alcanza ≥4/5 en P(≥12) → se activa;
+      si no, se documenta el motivo y se mantiene congelado.
 
 ### P1.1 — Ataque real al edge en contextos que el mercado descuenta mal
 **Por qué:** las features estadísticas clásicas (Elo, forma, tiros) ya están
@@ -179,7 +201,7 @@ Dixon-Coles donde sí se usan), o se justifica su presencia con un experimento.
 | Prio | Tarea | Coste | Impacto | Estado |
 |------|-------|-------|---------|--------|
 | P0.1 | Métrica económica EV/ROI del boleto 6 € | M | 🔥 Alto | ✅ Hecho (04/08) |
-| P0.2 | Experimento limpio de ensembles (EV, P≥12/13/14) | M | 🔥 Alto | Pendiente |
+| P0.2 | Experimento limpio de ensembles (EV, P≥12/13/14) | M | 🔥 Alto | ✅ Hecho (04/08) |
 | P0.3 | Extraer `prediction_engine` (core aislado) | L | Alto | Pendiente |
 | P1.1 | Edge por contexto (rotaciones/descenso/fatiga) | L | ⭐ Potencial | Pendiente |
 | P1.2 | Simplificar ensemble (quitar pesos 0) | S | Medio | Pendiente |

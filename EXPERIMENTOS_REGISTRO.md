@@ -69,3 +69,35 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   COLOCACIÓN de dobles sí marca diferencia material en las categorías que pagan.
   El ROI positivo depende de premios estimados y de la varianza (una jornada de 13
   domina la media): NO es una garantía. Sirve como métrica de decisión para P0.2.
+
+## 2026-08-04 — P0.2 (roadmap auditoría): Experimento limpio de ensembles con métrica económica
+- **Objetivo:** comparar 4 brazos de probabilidad 1X2 midiendo P(≥12/13/14) y ROI
+  del boleto de 6 € (no solo acierto simple), con regla de decisión numérica.
+- **Estado:** IMPLEMENTADO. Ningún brazo cumple el umbral de sustitución.
+- **Entregables:** `scripts/backtests/EXPERIMENTO_ENSEMBLES_ECONOMICO.py`,
+  `salida/experimento_ensembles_economico.json`, `tests/test_experimento_ensembles.py`.
+- **Brazos:** (1) solo_mercado; (2) mercado_hgb (pesos activos); (3) mercado_hgb_calib
+  (VectorScaling, holdout temporal interno 40% sin fuga); (4) mercado_divergencia
+  (empujón solo en el rango moderado +0.05..+0.10 de HGB−mercado).
+- **Protocolo:** walk-forward 2019-2026; calibración ajustada con el 40% inicial de
+  cada temporada, métricas económicas SOLO sobre el 60% de evaluación (evita optimismo).
+- **Resultados agregados (premios ESTIMADOS):**
+
+  | Brazo | mean P(≥12) | std P(≥12) | score robusto | ROI global | mean acierto |
+  |---|---|---|---|---|---|
+  | solo_mercado | 3,36% | 0,043 | 0,0122 | +42% | 50,53% |
+  | mercado_hgb (activo) | 2,52% | 0,040 | 0,0053 | +146% | 50,81% |
+  | **mercado_hgb_calib** | **3,36%** | **0,024** | **0,0214** | +165% | 49,89% |
+  | mercado_divergencia | 3,36% | 0,033 | 0,0171 | **+176%** | 50,78% |
+
+- **Decisión (regla P0.2):** ningún brazo `sustituye_al_activo` (todos `false`).
+  - `mercado_hgb_calib`: gana P(≥12) en **3 de las últimas 5** (umbral 4) pero con el
+    **mejor score robusto** (mayor media, menor varianza). Candidato claro para P1.
+  - `mercado_divergencia`: mejor ROI pero solo gana P(≥12) en 1 de 5 → inconsistente
+    (confirma el registro previo del experimento de divergencia).
+- **Lectura honesta / hallazgo:** el HGB residual SIN calibrar (el activo) tiene la
+  P(≥12) más baja y la mayor varianza. La **calibración** es la palanca más
+  prometedora (mejora robustez sin sacrificar EV) — matiza el veredicto de la
+  auditoría de que "más calibración no ayuda". No supera el umbral estricto todavía;
+  no se cambian los pesos activos. ⚠️ ROI dependiente de premios estimados y de
+  varianza alta (una temporada, 2022-23, domina la media): no es garantía.
