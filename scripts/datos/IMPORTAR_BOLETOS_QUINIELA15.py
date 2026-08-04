@@ -35,7 +35,9 @@ DEFAULT_SOURCE = ROOT / "DATOS" / "boletos_lae_reales"
 DEFAULT_OUTPUT = ROOT / "salida" / "quiniela_historica_propuesta_2025_2026.json"
 SIGNS = {"1", "X", "2"}
 
-# Alias mínimos observados en boletos Quiniela15 frente a Football-Data.
+# Alias mínimos observados en boletos Quiniela15 y en la composición XML de
+# quinielista.es (nombres estilo LAE) frente a Football-Data. Las claves están
+# en el espacio canónico de canonical_team (minúsculas, sin signos).
 ALIASES = {
     # Nombres Quiniela15 -> nombres efectivos del CSV Football-Data 2025-26.
     "at madrid": "ath madrid",
@@ -51,6 +53,96 @@ ALIASES = {
     "sporting gijon": "sp gijon",
     "deportivo": "la coruna",
     "andorra": "andorra",
+    # Nombres estilo LAE / quinielista.es (composición oficial) -> CSV.
+    # Nota: los puntos de las siglas ("F.C.") se convierten en espacios en el
+    # espacio canónico ("f c barcelona"), por lo que se incluyen ambas formas.
+    "athletic club": "ath bilbao",
+    "athletic bilbao": "ath bilbao",
+    "atletico de madrid": "ath madrid",
+    "club atletico de madrid": "ath madrid",
+    "fc barcelona": "barcelona",
+    "f c barcelona": "barcelona",
+    "real betis": "betis",
+    "real betis balompie": "betis",
+    "rcd espanyol": "espanol",
+    "rcd espanyol de barcelona": "espanol",
+    "r c d espanyol": "espanol",
+    "r c d espanyol de barcelona": "espanol",
+    "real sociedad": "sociedad",
+    "real sociedad b": "sociedad b",
+    "real sporting de gijon": "sp gijon",
+    "sporting de gijon": "sp gijon",
+    "rc deportivo": "la coruna",
+    "r c deportivo": "la coruna",
+    "deportivo de la coruna": "la coruna",
+    "racing de santander": "santander",
+    "real valladolid": "valladolid",
+    "real valladolid cf": "valladolid",
+    "real valladolid c f": "valladolid",
+    "cultural y deportiva leonesa": "cultural leonesa",
+    "real zaragoza": "zaragoza",
+    "rayo vallecano": "vallecano",
+    "ud almeria": "almeria",
+    "u d almeria": "almeria",
+    "fc andorra": "andorra",
+    "f c andorra": "andorra",
+    "cd castellon": "castellon",
+    "c d castellon": "castellon",
+    "ad ceuta fc": "ceuta",
+    "a d ceuta fc": "ceuta",
+    "cd leganes": "leganes",
+    "c d leganes": "leganes",
+    "cd mirandes": "mirandes",
+    "c d mirandes": "mirandes",
+    "sd eibar": "eibar",
+    "s d eibar": "eibar",
+    "sd huesca": "huesca",
+    "s d huesca": "huesca",
+    "ud las palmas": "las palmas",
+    "u d las palmas": "las palmas",
+    "cadiz cf": "cadiz",
+    "cadiz c f": "cadiz",
+    "elche cf": "elche",
+    "elche c f": "elche",
+    "granada cf": "granada",
+    "granada c f": "granada",
+    "malaga cf": "malaga",
+    "malaga c f": "malaga",
+    "cordoba cf": "cordoba",
+    "cordoba c f": "cordoba",
+    "burgos cf": "burgos",
+    "burgos c f": "burgos",
+    "albacete balompie": "albacete",
+    "ca osasuna": "osasuna",
+    "c a osasuna": "osasuna",
+    "rc celta": "celta",
+    "r c celta": "celta",
+    "rcd mallorca": "mallorca",
+    "r c d mallorca": "mallorca",
+    "deportivo alaves": "alaves",
+    "real madrid cf": "real madrid",
+    "real madrid c f": "real madrid",
+    "r madrid": "real madrid",
+    "r oviedo": "oviedo",
+    "ath club": "ath bilbao",
+    "ath club bilbao": "ath bilbao",
+    "racing s": "santander",
+    "andorra fc": "andorra",
+    "sporting": "sp gijon",
+    "dep alaves": "alaves",
+    "dep la coruna": "la coruna",
+    "deportivo la coruna": "la coruna",
+    "cult leonesa": "cultural leonesa",
+    "getafe cf": "getafe",
+    "getafe c f": "getafe",
+    "girona fc": "girona",
+    "girona f c": "girona",
+    "sevilla fc": "sevilla",
+    "sevilla f c": "sevilla",
+    "valencia cf": "valencia",
+    "valencia c f": "valencia",
+    "villarreal cf": "villarreal",
+    "villarreal c f": "villarreal",
 }
 
 
@@ -232,14 +324,60 @@ def build_proposal(payload: dict[str, Any], enriched: list[dict[str, Any]], file
     }
 
 
+def classify_enriched(
+    payload: dict[str, Any],
+    matches: list[dict[str, Any]],
+    enriched: list[dict[str, Any]],
+    file_name: str,
+) -> tuple[str, dict[str, Any]]:
+    """Clasifica un boleto ya enriquecido partido a partido.
+
+    Devuelve ``(kind, record)`` donde ``kind`` es ``"ticket"``,
+    ``"out_of_coverage"`` o ``"failure"`` y ``record`` es la entrada de la
+    propuesta correspondiente. Un boleto con cualquier partido inconsistente
+    (marcador/signo distinto a Football-Data o coincidencia ambigua) va a
+    ``failure``; solo los que fallan exclusivamente por partidos ausentes en
+    Football-Data van a ``out_of_coverage``; el resto, ya contrastados, a
+    ``ticket``. Reutilizable por otros compositores (p. ej. XML de
+    quinielista.es + resultados Football-Data).
+    """
+    errors = [item for item in enriched if item["status"] == "error"]
+    base = {
+        "file": file_name,
+        "ticket_id": str(payload["id"]),
+        "jornada": int(payload["jornada_q15"]),
+        "source_url": payload["source_url"],
+    }
+    if not errors:
+        return "ticket", build_proposal(payload, enriched, file_name)
+    unmatched = [item for item in errors if item["motivo"] == "no_en_football_data"]
+    inconsistent = [item for item in errors if item["motivo"] != "no_en_football_data"]
+    if unmatched and not inconsistent:
+        return "out_of_coverage", {
+            **base,
+            "reason": "out_of_coverage",
+            "matches_covered": sum(item["status"] == "matched" for item in enriched),
+            "matches_total": len(matches),
+            "unmatched": [
+                {"num": item["num"], "local": item["local"], "visitante": item["visitante"], "motivo": item["motivo"]}
+                for item in unmatched
+            ],
+        }
+    return "failure", {
+        **base,
+        "reason": "inconsistent",
+        "error": errors[0]["detalle"],
+        "match_errors": [
+            {"num": item["num"], "local": item["local"], "visitante": item["visitante"], "motivo": item["motivo"], "detalle": item["detalle"]}
+            for item in errors
+        ],
+    }
+
+
 def import_tickets(source_dir: Path, season: str, history: pd.DataFrame) -> dict[str, list[dict[str, Any]]]:
     """Importa y clasifica los boletos de una carpeta fuente.
 
     Devuelve ``{"tickets": [...], "out_of_coverage": [...], "failures": [...]}``.
-    Un boleto con cualquier partido inconsistente (marcador/signo distinto a
-    Football-Data o coincidencia ambigua) va a ``failures``; solo los que
-    fallan exclusivamente por partidos ausentes en Football-Data van a
-    ``out_of_coverage``; el resto, ya contrastados, a ``tickets``.
     """
     result: dict[str, list[dict[str, Any]]] = {"tickets": [], "out_of_coverage": [], "failures": []}
     if not source_dir.is_dir():
@@ -254,39 +392,8 @@ def import_tickets(source_dir: Path, season: str, history: pd.DataFrame) -> dict
             result["failures"].append({"file": path.name, "reason": "invalid_schema", "error": str(exc)})
             continue
         enriched = [enrich_match(match, history, str(payload["id"])) for match in matches]
-        errors = [item for item in enriched if item["status"] == "error"]
-        base = {
-            "file": path.name,
-            "ticket_id": str(payload["id"]),
-            "jornada": int(payload["jornada_q15"]),
-            "source_url": payload["source_url"],
-        }
-        if not errors:
-            result["tickets"].append(build_proposal(payload, enriched, path.name))
-        else:
-            unmatched = [item for item in errors if item["motivo"] == "no_en_football_data"]
-            inconsistent = [item for item in errors if item["motivo"] != "no_en_football_data"]
-            if unmatched and not inconsistent:
-                result["out_of_coverage"].append({
-                    **base,
-                    "reason": "out_of_coverage",
-                    "matches_covered": sum(item["status"] == "matched" for item in enriched),
-                    "matches_total": len(matches),
-                    "unmatched": [
-                        {"num": item["num"], "local": item["local"], "visitante": item["visitante"], "motivo": item["motivo"]}
-                        for item in unmatched
-                    ],
-                })
-            else:
-                result["failures"].append({
-                    **base,
-                    "reason": "inconsistent",
-                    "error": errors[0]["detalle"],
-                    "match_errors": [
-                        {"num": item["num"], "local": item["local"], "visitante": item["visitante"], "motivo": item["motivo"], "detalle": item["detalle"]}
-                        for item in errors
-                    ],
-                })
+        kind, record = classify_enriched(payload, matches, enriched, path.name)
+        result[{"ticket": "tickets", "out_of_coverage": "out_of_coverage", "failure": "failures"}[kind]].append(record)
     result["tickets"].sort(key=lambda ticket: ticket["jornada"])
     return result
 

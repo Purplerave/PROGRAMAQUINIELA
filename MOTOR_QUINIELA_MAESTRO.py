@@ -439,6 +439,35 @@ def build_double(prob1: float, probx: float, prob2: float, draw_threshold: float
     return "".join(sorted((top_sign, second_sign), key=lambda sign: DOUBLE_ORDER[sign]))
 
 
+def double_avoid_overconfidence_mask(frame: pd.DataFrame, config: dict, pred_prefix: str) -> np.ndarray:
+    """Máscara de partidos sobreconfiados que no deben ser dobles (regla activa).
+
+    Un partido es "sobreconfiado" cuando la probabilidad del HGB para su signo
+    favorito supera a la del mercado en más del umbral (por defecto 0.10). El
+    experimento de divergencia mostró que esa divergencia excesiva no tiene
+    valor (sobreconfianza), y el walk-forward multi-split valida que excluir
+    esos partidos de los tres dobles mejora la media con estabilidad.
+    Devuelve un array de bool (True = excluir de dobles). Es defensiva: si el
+    config no activa la regla o faltan las columnas de HGB/mercado, no excluye.
+    """
+    if not config.get("double_avoid_overconfidence", False):
+        return np.zeros(len(frame), dtype=bool)
+    threshold = float(config.get("double_avoid_overconfidence_threshold", 0.10))
+    # La divergencia se mide con el HGB frente al mercado; si no hay HGB
+    # (p. ej. un frame externo), se cae a las probs del prefijo.
+    hgb_cols = ["hgb_prob_1", "hgb_prob_x", "hgb_prob_2"]
+    if not set(hgb_cols).issubset(frame.columns):
+        hgb_cols = [f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]
+    market_cols = ["market_1", "market_x", "market_2"]
+    if not set(hgb_cols).issubset(frame.columns) or not set(market_cols).issubset(frame.columns):
+        return np.zeros(len(frame), dtype=bool)
+    hgb = frame[hgb_cols].to_numpy(dtype=float)
+    mkt = frame[market_cols].to_numpy(dtype=float)
+    top = hgb.argmax(axis=1)
+    diff = hgb[np.arange(len(hgb)), top] - mkt[np.arange(len(hgb)), top]
+    return diff > threshold
+
+
 def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.DataFrame:
     ordered = frame.sort_values(["date", "division", "home", "away"]).reset_index(drop=True).copy()
     ordered["double"] = [
@@ -456,6 +485,9 @@ def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.
         + config["double_disagreement_weight"] * ordered["model_disagreement"]
         + np.where(ordered["division"].eq("Segunda"), config["double_segunda_bonus"], 0.0)
     )
+    # Regla anti-sobreconfianza: los partidos con divergencia HGB-mercado > umbral
+    # no deben gastar uno de los tres dobles (penalización grande en el score).
+    score = score - np.where(double_avoid_overconfidence_mask(ordered, config, pred_prefix), 1.0, 0.0)
     ordered["double_value_score"] = score
 
     jornada_scores = []
@@ -512,6 +544,8 @@ HYBRID_CONFIG_KEYS = (
     "double_segunda_bonus",
     "double_draw_threshold",
     "x_disagreement_strategy",
+    "double_avoid_overconfidence",
+    "double_avoid_overconfidence_threshold",
 )
 
 
@@ -688,6 +722,56 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
     return final_logit, final_hgb, best["config"]
 
 
+def pleno_bucket_from_score(home_goals: int, away_goals: int) -> str:
+    """Bucket oficial del Pleno al 15: 0/1/2 o M (3 o más goles)."""
+    home = "M" if home_goals >= 3 else str(home_goals)
+    away = "M" if away_goals >= 3 else str(away_goals)
+    return f"{home}-{away}"
+
+
+def pleno_bucket_pick(
+    lambda_home: float,
+    lambda_away: float,
+    rho: float | None = None,
+    max_goals: int = 5,
+) -> tuple[str, float, list[dict]]:
+    """Mejor bucket del Pleno al 15 y top marcadores a partir de las lambdas.
+
+    Devuelve ``(bucket, prob_bucket, top_scores)`` donde ``bucket`` es el
+    bucket (0/1/2/M) con más masa de probabilidad (agrega los marcadores con 3+
+    goles, que es como se juega el Pleno), ``prob_bucket`` su probabilidad y
+    ``top_scores`` los top-N marcadores exactos. Usa Poisson o Dixon-Coles
+    según ``rho``, igual que ``top_scorelines``.
+    """
+    if np.isnan(lambda_home) or np.isnan(lambda_away):
+        return "1-1", 0.0, []
+    scores = top_scorelines(lambda_home, lambda_away, max_goals=max_goals, top_n=3, rho=rho)
+    if not scores:
+        return "1-1", 0.0, []
+    if rho:
+        try:
+            from scripts.motor.dixon_coles import dc_score_probs
+
+            grid = dc_score_probs(
+                np.array([lambda_home]), np.array([lambda_away]), float(rho), max_goals=max_goals
+            )[0]
+        except Exception:
+            grid = None
+    else:
+        grid = None
+    buckets: dict[str, float] = {}
+    for hg in range(max_goals + 1):
+        for ag in range(max_goals + 1):
+            if grid is not None:
+                prob = float(grid[hg, ag])
+            else:
+                prob = float(poisson.pmf(hg, lambda_home) * poisson.pmf(ag, lambda_away))
+            bucket = pleno_bucket_from_score(hg, ag)
+            buckets[bucket] = buckets.get(bucket, 0.0) + prob
+    best = max(buckets.items(), key=lambda item: item[1])
+    return best[0], float(best[1]), scores
+
+
 def add_pleno_al_15(frame: pd.DataFrame, rho: float | None = None) -> pd.DataFrame:
     """Añade columnas de Pleno al 15 usando Poisson independiente o Dixon-Coles.
 
@@ -704,13 +788,15 @@ def add_pleno_al_15(frame: pd.DataFrame, rho: float | None = None) -> pd.DataFra
         except Exception:
             rho = 0.0
 
-    top_scores = [
-        top_scorelines(lh, la, max_goals=5, top_n=3, rho=rho)
+    buckets_picks = [
+        pleno_bucket_pick(lh, la, rho=rho, max_goals=5)
         for lh, la in zip(out["lambda_home"], out["lambda_away"])
     ]
-    out["pleno15_top_scores"] = [json.dumps(scores, ensure_ascii=False) for scores in top_scores]
-    out["pleno15_marcador"] = [scores[0]["score"] if scores else None for scores in top_scores]
-    out["pleno15_confianza"] = [scores[0]["prob"] if scores else None for scores in top_scores]
+    out["pleno15_top_scores"] = [json.dumps(scores, ensure_ascii=False) for _, _, scores in buckets_picks]
+    out["pleno15_marcador"] = [scores[0]["score"] if scores else None for _, _, scores in buckets_picks]
+    out["pleno15_confianza"] = [scores[0]["prob"] if scores else None for _, _, scores in buckets_picks]
+    out["pleno15_bucket"] = [bucket for bucket, _, _ in buckets_picks]
+    out["pleno15_bucket_prob"] = [prob for _, prob, _ in buckets_picks]
     out["pleno15_local_goles_esperados"] = out["lambda_home"]
     out["pleno15_visitante_goles_esperados"] = out["lambda_away"]
     return out
