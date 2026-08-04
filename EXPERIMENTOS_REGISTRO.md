@@ -96,8 +96,38 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   - `mercado_divergencia`: mejor ROI pero solo gana P(≥12) en 1 de 5 → inconsistente
     (confirma el registro previo del experimento de divergencia).
 - **Lectura honesta / hallazgo:** el HGB residual SIN calibrar (el activo) tiene la
-  P(≥12) más baja y la mayor varianza. La **calibración** es la palanca más
-  prometedora (mejora robustez sin sacrificar EV) — matiza el veredicto de la
-  auditoría de que "más calibración no ayuda". No supera el umbral estricto todavía;
-  no se cambian los pesos activos. ⚠️ ROI dependiente de premios estimados y de
-  varianza alta (una temporada, 2022-23, domina la media): no es garantía.
+  P(≥12) más baja y la mayor varianza. La **calibración** parecía la palanca más
+  prometedora (mejor robustez). No supera el umbral estricto; no se cambian los
+  pesos activos. ⚠️ ROI dependiente de premios estimados y de varianza alta.
+- **⚠️ CORRECCIÓN (ver P1.0):** el brazo de calibración de este experimento se
+  ajustó con un holdout DE LA PROPIA temporada de test (primeras jornadas), lo que
+  introduce optimismo. Al reevaluar la calibración SIN FUGA en P1.0 (ajuste solo
+  con temporadas anteriores), la señal **desaparece**: la calibración pasa a ser
+  PEOR que el activo. La conclusión de P0.2 sobre la calibración queda **anulada**
+  por P1.0.
+
+## 2026-08-04 — P1.0 (roadmap auditoría): Consolidar calibración (leak-free) → RECHAZADA
+- **Objetivo:** decidir si la calibración VectorScaling debe activarse en el motor,
+  reevaluándola SIN FUGA (ajuste con la receta de producción: 84/16 del train, el
+  calibrador nunca ve la temporada de test).
+- **Estado:** **RECHAZADO** (no se activa). Corrige el optimismo de P0.2.
+- **Entregables:** `scripts/backtests/CONSOLIDAR_CALIBRACION.py`,
+  `salida/consolidar_calibracion.json`, `tests/test_consolidar_calibracion.py`.
+- **Protocolo:** walk-forward 2019-2026; calibrador ajustado con el 84/16 del
+  conjunto de entrenamiento (temporadas anteriores); economía sobre TODAS las
+  jornadas de la temporada de test.
+- **Resultados agregados (premios ESTIMADOS):**
+
+  | Brazo | mean P(≥12) | std P(≥12) | score robusto | ROI global |
+  |---|---|---|---|---|
+  | activo (ensemble híbrido) | **3,57%** | 0,023 | **0,0240** | **+130%** |
+  | calibrado (leak-free) | 2,04% | 0,018 | 0,0116 | +84% |
+
+- **Decisión (regla P1.0):** el calibrado gana P(≥12) en **0 de las últimas 5**
+  temporadas (2 empates), peor score robusto y peor ROI → `sustituye: false`.
+- **Lección clave:** la aparente ventaja de la calibración en P0.2 era un ARTEFACTO
+  de fuga temporal (calibrar con jornadas de la propia temporada evaluada). Con
+  evaluación rigurosa, la calibración NO mejora y de hecho reduce P(≥12). Se
+  mantiene la calibración en `MOTOR_PREDICCION_JORNADA` (mejora ECE/LogLoss como
+  diagnóstico) pero **NO se añade al camino crítico del boleto**. Confirma el
+  veredicto de la auditoría: el mercado es muy eficiente; más calibración no da edge.

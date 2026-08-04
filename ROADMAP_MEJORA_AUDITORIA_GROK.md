@@ -114,21 +114,22 @@ serio es peligroso y ralentiza P1.
 
 ## FASE P1 — Siguiente ciclo (2–4 semanas). Aquí está el edge, si existe.
 
-> 🔎 **Actualización tras P0.2 (04/08/2026):** el brazo con calibración es el más
-> robusto de los cuatro (misma P(≥12) media que el mercado con menor varianza).
-> No superó el umbral estricto (3/5 vs 4/5 requerido), pero es la palanca P1 más
-> prometedora. Nueva sub-tarea **P1.0**.
+> 🔎 **Actualización tras P1.0 (04/08/2026):** la ventaja de la calibración que
+> sugería P0.2 era un **artefacto de fuga temporal**. Reevaluada sin fuga, la
+> calibración es PEOR que el activo (P(≥12) 2,04% vs 3,57%, 0/5 temporadas). Se
+> mantiene solo como diagnóstico (ECE/LogLoss), NO en el camino crítico del boleto.
+> Esto refuerza el veredicto de la auditoría: el mercado es muy eficiente.
 
-### P1.0 — Consolidar la calibración como brazo activo (prioritario)
-**Por qué:** P0.2 muestra que calibrar el blend reduce la varianza de P(≥12) sin
-perder EV. El motor de predicción (`MOTOR_PREDICCION_JORNADA`) ya calibra 84/16;
-falta llevar esa señal al **backtest/ensamble activo** y volver a aplicar la regla
-de decisión con más temporadas o un holdout mejor.
+### P1.0 — Consolidar la calibración como brazo activo  ❌ **RECHAZADA (04/08/2026)**
+**Resultado:** `scripts/backtests/CONSOLIDAR_CALIBRACION.py` ajusta el calibrador
+con la receta de producción (84/16 del train, sin fuga; nunca ve la temporada de
+test) y aplica la regla de decisión de P0.2.
 
-**Criterios de aceptación:**
-- [ ] Calibración integrada en el path de backtest (no solo en predicción de jornada).
-- [ ] Reejecutar P0.2: si `mercado_hgb_calib` alcanza ≥4/5 en P(≥12) → se activa;
-      si no, se documenta el motivo y se mantiene congelado.
+**Criterios de aceptación:**  ✅ evaluado, hipótesis descartada
+- [x] Calibración integrada en el path de backtest (leak-free).
+- [x] Regla aplicada: calibrado gana P(≥12) en **0/5** → **NO se activa**. Score
+      robusto 0,0116 vs 0,0240 del activo; ROI +84% vs +130%. Documentado en
+      `EXPERIMENTOS_REGISTRO.md`. El resultado positivo de P0.2 queda anulado.
 
 ### P1.1 — Ataque real al edge en contextos que el mercado descuenta mal
 **Por qué:** las features estadísticas clásicas (Elo, forma, tiros) ya están
@@ -222,6 +223,9 @@ Coste: S = horas, M = 1–3 días, L = semana+.
 - Añadir más features estadísticas clásicas esperando que batan al mercado → el
   histórico dice que no. El mercado ya las descuenta.
 - Activar xG → evaluado, **−0,29 pp**, no entra.
+- Añadir la calibración VectorScaling al camino crítico del boleto → **P1.0 la
+  rechazó** con evaluación sin fuga (P(≥12) 2,04% vs 3,57% del activo, 0/5). Se
+  mantiene solo como diagnóstico de ECE/LogLoss.
 
 **Principio rector:** aceptar que el mercado es el rey, **medir en dinero**, y cazar
 solo ineficiencias sistemáticas específicas. Todo lo demás es ingeniería de lujo
