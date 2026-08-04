@@ -215,13 +215,45 @@ Estos JSON son una fuente piloto prometedora porque contienen equipos,
 resultado y signo. Sin embargo, no se deben etiquetar como oficiales LAE sin
 contraste: su fuente declarada es `Quiniela15/resultados-quiniela`.
 
-Falta confirmar, para los nueve JSON:
+### Validación posterior del piloto J001
 
-1. que cada uno tiene los 15 partidos y un Pleno al 15 reconocible;
-2. el formato de resultado del partido 15;
-3. si incluyen fecha, escrutinio o premios;
-4. si los partidos 1..14 se emparejan de forma única contra el histórico
-   Football-Data 2025-26.
+El usuario ejecutó la inspección de J001. Quedó confirmado que contiene 15
+partidos ordenados:
+
+- posiciones 1..14: marcador `goles_local-goles_visitante` y signo `1`, `X` o
+  `2` coherente;
+- posición 15: marcador y `signo` en formato de marcador exacto, por ejemplo
+  `1-1` para `Elche - Betis`.
+
+Se observaron cadenas como `AlavÃ©s`, `MÃ¡laga` y `CastellÃ³n` en la consola
+PowerShell. Esto es mojibake de visualización/lectura ANSI de PowerShell, no se
+debe corregir manualmente en los JSON fuente. El importador lee UTF-8 con BOM y
+aplica una reparación conservadora solo para el emparejamiento.
+
+No hay fecha ni pagos/escrutinio en el esquema observado. La fecha se puede
+derivar únicamente tras coincidencia única de local+visitante contra
+Football-Data de la misma temporada; ROI continúa bloqueado hasta disponer de
+premios verificables.
+
+### Importador de propuesta
+
+Commit `93552eb` añade:
+
+```powershell
+python scripts/datos/IMPORTAR_BOLETOS_QUINIELA15.py
+```
+
+El importador procesa `DATOS/boletos_lae_reales/Q15_*.json`, repara mojibake,
+exige posiciones 1..15, deriva fechas por coincidencia única contra
+Football-Data, y compara marcador y signo antes de escribir:
+
+```text
+salida/quiniela_historica_propuesta_2025_2026.json
+```
+
+No altera JSON fuente, no escribe en `DATOS/quiniela_historica/` y marca la
+salida como `proposal_not_official_lae`. Todo boleto ambiguo o con un marcador
+inconsistente queda en `failures` y no se usa.
 
 ---
 
