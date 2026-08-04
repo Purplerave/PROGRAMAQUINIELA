@@ -14,11 +14,16 @@ pip install -r requirements-dev.txt
 
 ## Uso
 
-Evaluacion principal (usa el histórico original por defecto):
+Evaluación de producción (usa el histórico original por defecto y los pesos
+congelados en `CONFIG_MOTOR_V2.json`):
 
 ```powershell
-python MOTOR_QUINIELA_MAESTRO.py --historico original
+python MOTOR_QUINIELA_MAESTRO.py --historico original --modo produccion
 ```
+
+Para explorar de nuevo los candidatos de hiperparámetros, use explícitamente
+`--modo busqueda`. Ese modo es experimental: no actualiza la configuración ni
+es la fuente de la cifra de referencia.
 
 Para seleccionar el histórico saneado (debe existir previamente):
 
@@ -79,15 +84,21 @@ mejora una subida obtenida solo sobre los mismos datos usados para ajustar.
 
 Configuracion activa: `motor_quinielistico_v4` (weights mercado-dominantes:
 logit 0.0, hgb 0.049, market 0.951, poisson 0.0). Ultima ejecucion validada
-(31/07/2026, numpy 2.2.6 / pandas 2.3.3 / scipy 1.16.3 / scikit-learn 1.7.2):
+(04/08/2026, numpy 2.2.6 / pandas 2.3.3 / scipy 1.16.3 / scikit-learn 1.7.2):
 
 - 13.446 partidos limpios.
 - 51,64 % de acierto simple en el test principal (favorito de mercado: 51,56 %).
 - 8,63 aciertos de media sobre 15 con tres dobles.
-- Temporada 2024-25: 52,49 % y 8,64/15 con tres dobles (mercado 52,38 %).
-- Temporada 2025-26 completa: 51,54 % y 8,50/15 con tres dobles (mercado 51,54 %).
+- Temporada 2024-25: 52,61 % y 8,70/15 con tres dobles (mercado 52,38 %).
+- Temporada 2025-26 completa: 51,43 % y 8,48/15 con tres dobles (mercado 51,54 %).
 
-Las cifras se obtuvieron con la configuracion incluida en el repositorio.
+La métrica de tres dobles es un indicador agregado: el histórico se ordena y se
+parte en bloques mecánicos de 15 partidos para seleccionar tres dobles. **No
+reconstruye los boletos oficiales de La Quiniela ni estima ROI, premios o el
+resultado de jornadas reales.**
+
+Las cifras se obtuvieron en modo producción con la configuración incluida en
+el repositorio; ese modo nunca reoptimiza los pesos durante la ejecución.
 Hash del dataset historico (PRIMERA + SEGUNDA): `51a9688ac065015da9335512af5a34a8`.
 
 Estas cifras son una referencia reproducible, no una garantia de resultados.

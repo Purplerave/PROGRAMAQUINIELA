@@ -45,3 +45,17 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Estado:** DOCUMENTADO / ESTABLE.
 - **Referencia:** `API_CONTRACT_DEFINITION.md`.
 - **Acción:** bloquear esquema v1.0 antes de nuevos experimentos.
+
+---
+
+## 2026-08-04 — P0: referencia congelada y trazabilidad de origen
+- **Objetivo:** separar una evaluación reproducible de la búsqueda de candidatos
+  y eliminar ambigüedad del contrato para jornadas mixtas.
+- **Implementación:** `MOTOR_QUINIELA_MAESTRO.py --modo produccion` usa solo
+  `master_model.weights` y reglas activas; `--modo busqueda` conserva el
+  walk-forward exploratorio sin modificar la referencia. Contrato JSON v1.1
+  incorpora `origen_prediccion`.
+- **Validación:** ejecución de producción con dependencias fijadas: 51,64 %
+  simple, mercado 51,56 %, 8,63/15 en el test principal. Suite: 155 tests.
+- **Nota metodológica:** 3 dobles es agrupación mecánica de 15 filas, no
+  reconstrucción de boletos oficiales ni ROI.

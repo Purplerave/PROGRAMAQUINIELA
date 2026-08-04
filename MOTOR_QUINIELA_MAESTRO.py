@@ -1,6 +1,7 @@
 import argparse
 import itertools
 import json
+from copy import deepcopy
 from pathlib import Path
 
 import numpy as np
@@ -503,6 +504,50 @@ def evaluate_config(frame: pd.DataFrame, pred_prefix: str, config: dict) -> dict
     }
 
 
+HYBRID_CONFIG_KEYS = (
+    "draw_boost",
+    "segunda_draw_boost",
+    "double_draw_weight",
+    "double_disagreement_weight",
+    "double_segunda_bonus",
+    "double_draw_threshold",
+    "x_disagreement_strategy",
+)
+
+
+def active_hybrid_config() -> dict:
+    """Devuelve una copia inmutable de facto de la configuración publicada.
+
+    El modo de producción no debe volver a seleccionar hiperparámetros: evalúa
+    exactamente estos pesos y reglas, persistidos en CONFIG_MOTOR_V2.json.
+    """
+    master_config = settings.master_model_config()
+    weights = master_config.get("weights")
+    if not isinstance(weights, dict):
+        raise ValueError("CONFIG_MOTOR_V2.json no define master_model.weights.")
+    missing = [key for key in HYBRID_CONFIG_KEYS if key not in master_config]
+    if missing:
+        raise ValueError(f"Faltan parámetros híbridos activos: {', '.join(missing)}")
+    return {
+        "weights": deepcopy(weights),
+        **{key: deepcopy(master_config[key]) for key in HYBRID_CONFIG_KEYS},
+    }
+
+
+def fit_hybrid_models(train: pd.DataFrame, selection_mode: str = "production") -> tuple[Pipeline, Pipeline, dict]:
+    """Entrena los modelos y selecciona configuración según el modo explícito."""
+    if selection_mode == "search":
+        return optimize_hybrid_config(train)
+    if selection_mode != "production":
+        raise ValueError("selection_mode debe ser 'production' o 'search'.")
+
+    final_logit = build_logit_model()
+    final_hgb = build_hgb_model()
+    final_logit.fit(train[feature_columns() + ["division"]], train["target"])
+    final_hgb.fit(train[feature_columns()], train["target"])
+    return final_logit, final_hgb, active_hybrid_config()
+
+
 def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dict]:
     """Optimiza la configuración híbrida usando validación temporal multi-split.
 
@@ -692,7 +737,9 @@ def season_sort_key(season: object) -> tuple[int, str]:
         return (0, text)
 
 
-def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFrame, dict]:
+def run_season_backtest(
+    df: pd.DataFrame, target_season: str, selection_mode: str = "production"
+) -> tuple[pd.DataFrame, dict]:
     usable = df[df["result"].isin(LABEL_MAP)].copy()
     usable["target"] = usable["result"].map(LABEL_MAP)
     usable = usable.sort_values(["date", "division", "home", "away"]).reset_index(drop=True)
@@ -735,7 +782,7 @@ def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFr
         except Exception:
             rho_est = -0.036
 
-    logit, hgb, best_config = optimize_hybrid_config(train)
+    logit, hgb, best_config = fit_hybrid_models(train, selection_mode)
     test_eval = add_market_baseline(test)
     logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
     hgb_probs = predict_full_probs(hgb, test, feature_columns())
@@ -758,21 +805,26 @@ def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFr
         "test_date_to": str(test["date"].max().date()),
         "divisions_test": {division: int(count) for division, count in test["division"].value_counts().sort_index().items()},
         "best_config": best_config,
+        "selection_mode": selection_mode,
         "dixon_coles_rho": rho_est,
         "latest_season_model": summarize_results(test_eval, "latest", best_config),
     }
     return predictions, metrics
 
 
-def run_latest_season_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+def run_latest_season_backtest(
+    df: pd.DataFrame, selection_mode: str = "production"
+) -> tuple[pd.DataFrame, dict]:
     usable = df[df["result"].isin(LABEL_MAP)].copy()
     seasons = sorted(usable["season"].dropna().unique().tolist(), key=season_sort_key)
     if len(seasons) < 2:
         raise ValueError("No hay temporadas suficientes para separar entrenamiento y última temporada.")
-    return run_season_backtest(df, seasons[-1])
+    return run_season_backtest(df, seasons[-1], selection_mode)
 
 
-def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+def run_backtest(
+    df: pd.DataFrame, selection_mode: str = "production"
+) -> tuple[pd.DataFrame, dict]:
     usable = df[df["result"].isin(LABEL_MAP)].copy()
     usable["target"] = usable["result"].map(LABEL_MAP)
     usable = usable.sort_values(["date", "division", "home", "away"]).reset_index(drop=True)
@@ -803,7 +855,7 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         except Exception:
             rho_est = -0.036
 
-    logit, hgb, best_config = optimize_hybrid_config(train)
+    logit, hgb, best_config = fit_hybrid_models(train, selection_mode)
     test_eval = add_market_baseline(test)
     logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
     hgb_probs = predict_full_probs(hgb, test, feature_columns())
@@ -824,6 +876,7 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         "test_matches": int(len(test)),
         "divisions": {division: int(count) for division, count in usable["division"].value_counts().sort_index().items()},
         "best_config": best_config,
+        "selection_mode": selection_mode,
         "dixon_coles_rho": rho_est,
         "optimized_model": summarize_results(test_eval, "best", best_config),
     }
@@ -838,13 +891,21 @@ def main() -> None:
         default="original",
         help="fuente histórica (por defecto: original)",
     )
+    parser.add_argument(
+        "--modo",
+        choices=("produccion", "busqueda"),
+        default="produccion",
+        help=("produccion evalúa los pesos congelados; busqueda vuelve a optimizar "
+              "candidatos y no debe usarse como cifra de referencia"),
+    )
     args = parser.parse_args()
+    selection_mode = "production" if args.modo == "produccion" else "search"
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     raw = load_raw_history(args.historico)
     features = rolling_team_features(raw)
-    predictions, metrics = run_backtest(features)
-    latest_predictions, latest_metrics = run_latest_season_backtest(features)
-    completed_predictions, completed_metrics = run_season_backtest(features, "2024-2025")
+    predictions, metrics = run_backtest(features, selection_mode)
+    latest_predictions, latest_metrics = run_latest_season_backtest(features, selection_mode)
+    completed_predictions, completed_metrics = run_season_backtest(features, "2024-2025", selection_mode)
 
     predictions.to_csv(OUT_DIR / "predicciones_backtest_optimizadas.csv", index=False, encoding="utf-8-sig")
     (OUT_DIR / "backtest_resumen_optimizado.json").write_text(
@@ -866,12 +927,13 @@ def main() -> None:
     print("MOTOR QUINIELA MAESTRO - VERSION OPTIMIZADA")
     print("=" * 68)
     print(f"Base usada: {RAW_BASE}")
+    print(f"Modo: {args.modo} ({'pesos congelados' if selection_mode == 'production' else 'búsqueda exploratoria'})")
     print(f"Partidos limpios: {metrics['dataset_matches']}")
     print(f"Train: {metrics['train_matches']}  |  Test: {metrics['test_matches']}")
     print(f"Fecha de corte test: {metrics['split_date']}")
     print(f"Reparto divisiones: {metrics['divisions']}")
     print("-" * 68)
-    print("CONFIG GANADORA")
+    print("CONFIG EVALUADA")
     print(json.dumps(metrics["best_config"], ensure_ascii=False, indent=2))
     print("-" * 68)
     final = metrics["optimized_model"]

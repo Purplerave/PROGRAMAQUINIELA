@@ -1,7 +1,22 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 03/08/2026 (prioridad 4 cerrada: experimento xG negativo documentado, motor v4 sin cambios).
+Estado consolidado el 29/07/2026. Actualizado el 04/08/2026 (P0 de reproducibilidad y contrato v1.1).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
+
+## Último avance (04/08/2026 — P0 reproducibilidad y contrato v1.1)
+
+- El comando principal ahora arranca en `--modo produccion`: entrena con el
+  corte temporal habitual, pero evalúa exclusivamente los pesos congelados en
+  `CONFIG_MOTOR_V2.json`. `--modo busqueda` conserva la reoptimización como
+  experimento explícito y no puede ser cifra de referencia.
+- Reproducido en producción: 51,64 % vs 51,56 % del mercado y 8,63/15 en el
+  test principal (13.446 partidos; dependencias fijadas). En las temporadas
+  individuales: 2024-25 52,61 %/8,70 y 2025-26 51,43 %/8,48.
+- README aclara que los tres dobles se calculan sobre bloques artificiales de
+  15 filas: no son boletos oficiales ni una métrica de ROI.
+- `API_CONTRACT_DEFINITION.md` pasa a v1.1 y añade `origen_prediccion`
+  (`motor_v4`, `manual_pendiente`, `manual_revisado`) por partido y Pleno 15.
+  El generador lo propaga y usa `motor_v4` como fallback compatible.
 
 ## Último avance (03/08/2026 — prioridad 4 cerrada: xG Understat evaluado, NO activa)
 

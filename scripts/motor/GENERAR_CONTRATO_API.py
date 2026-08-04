@@ -4,6 +4,15 @@ import argparse
 from pathlib import Path
 from datetime import datetime
 
+
+ORIGENES_PREDICCION_VALIDOS = {"motor_v4", "manual_pendiente", "manual_revisado"}
+
+
+def prediction_origin(match: dict) -> str:
+    """Propaga el origen explícito del paquete, con fallback v1.0 seguro."""
+    origin = match.get("origen_prediccion", match.get("origen", "motor_v4"))
+    return origin if origin in ORIGENES_PREDICCION_VALIDOS else "motor_v4"
+
 def generate_api_contract(jornada: int):
     # Rutas
     paquete_path = Path(f"SALIDAS/paquete_jornada_J{jornada}.json")
@@ -35,7 +44,8 @@ def generate_api_contract(jornada: int):
                     "visitante": p.get("visitante"),
                     "marcador": mm.get("marcador_predicho"),
                     "pronostico_local": sel.get("local"),
-                    "pronostico_visitante": sel.get("visitante")
+                    "pronostico_visitante": sel.get("visitante"),
+                    "origen_prediccion": prediction_origin(p)
                 }
             else:
                 # Fallback a diagnostico Q15 si el modelo no está disponible
@@ -45,7 +55,8 @@ def generate_api_contract(jornada: int):
                     "visitante": p.get("visitante"),
                     "marcador": diag.get("top_marcadores", [{}])[0].get("score") if diag.get("top_marcadores") else None,
                     "pronostico_local": "1", # Default fallback
-                    "pronostico_visitante": "1"
+                    "pronostico_visitante": "1",
+                    "origen_prediccion": prediction_origin(p)
                 }
             continue
             
@@ -64,7 +75,8 @@ def generate_api_contract(jornada: int):
             "signo_maestro": rm.get("signo_principal"),
             "apuesta": rm.get("apuesta_recomendada"),
             "tipo": rm.get("tipo_apuesta"),
-            "confianza": rm.get("confianza_modelo")
+            "confianza": rm.get("confianza_modelo"),
+            "origen_prediccion": prediction_origin(p)
         }
         api_out["partidos"].append(match_out)
         
