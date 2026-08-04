@@ -3,6 +3,11 @@
 Proporciona tanto el cálculo rodante para histórico (`rolling_team_features`)
 como la extracción point-in-time para partidos futuros (`compute_features_for_upcoming`),
 compartiendo una única arquitectura de cálculo de estado sin fuga temporal.
+
+Sin fuga temporal entre partidos de la misma fecha: las features de todos los
+partidos de una fecha se extraen antes de aplicar los resultados de esa fecha
+al estado (por lotes por fecha), de modo que ningún partido ve resultados,
+Elo, forma, tabla o descanso de otros partidos disputados el mismo día.
 """
 
 from __future__ import annotations
@@ -623,7 +628,13 @@ class TeamStateTracker:
     def process_history(
         self, history_df: pd.DataFrame, cutoff_date: object = None
     ) -> None:
-        """Procesa cronológicamente un histórico de partidos hasta la fecha de corte."""
+        """Procesa cronológicamente un histórico de partidos hasta la fecha de corte.
+
+        Sin fuga temporal entre partidos de la misma fecha: primero se
+        actualizan todos los partidos de una fecha con el estado previo a esa
+        fecha, y solo después se aplican sus resultados al estado. Ningún
+        partido ve resultados de otros partidos disputados el mismo día.
+        """
         df = history_df.copy()
         df["date"] = pd.to_datetime(df["date"], errors="coerce")
         if cutoff_date is not None:
@@ -633,8 +644,9 @@ class TeamStateTracker:
         df = df.sort_values(["date", "division", "home", "away"]).reset_index(
             drop=True
         )
-        for _, row in df.iterrows():
-            self.update_match(row)
+        for _, group in df.groupby("date", sort=False):
+            for _, row in group.iterrows():
+                self.update_match(row)
 
     def normalize_upcoming_match(
         self, match: dict[str, Any], cutoff_date: object
@@ -717,25 +729,104 @@ class TeamStateTracker:
 
 
 def rolling_team_features(df: pd.DataFrame) -> pd.DataFrame:
-    """Calcula las features evolutivas sobre un dataset histórico completo."""
+    """Calcula las features evolutivas sobre un dataset histórico completo.
+
+    Sin fuga temporal entre partidos de la misma fecha: las features de todos
+    los partidos de una fecha se extraen con el estado previo a esa fecha, y
+    solo después se aplican los resultados de esa fecha al estado. Así ningún
+    partido utiliza información de otros partidos disputados el mismo día
+    (resultados, Elo, forma, tabla o descanso).
+    """
     df_sorted = df.copy()
     df_sorted = df_sorted.sort_values(
         ["date", "division", "home", "away"]
     ).reset_index(drop=True)
     tracker = TeamStateTracker()
     rows = []
-    for _, row in df_sorted.iterrows():
-        feat = tracker.extract_match_features(row, is_upcoming=False)
-        rows.append(feat)
-        tracker.update_match(row)
+    for _, group in df_sorted.groupby("date", sort=False):
+        # 1) Extraer features de TODOS los partidos de la fecha con el estado
+        #    anterior a la fecha (sin ver resultados del mismo día).
+        for _, row in group.iterrows():
+            feat = tracker.extract_match_features(row, is_upcoming=False)
+            rows.append(feat)
+        # 2) Aplicar después los resultados de la fecha al estado.
+        for _, row in group.iterrows():
+            tracker.update_match(row)
     feat_df = pd.DataFrame(rows)
     return finalize_feature_dataframe(feat_df)
+
+
+ODDS_TIMESTAMP_FIELDS = ("odds_observed_at", "prediction_cutoff_at", "kickoff_at")
+
+
+def validate_odds_timestamps(
+    partidos: list[dict[str, Any]],
+    *,
+    fields: tuple[str, str, str] = ODDS_TIMESTAMP_FIELDS,
+) -> dict:
+    """Valida (opcional) la invariante temporal de las cuotas de cada partido:
+
+        odds_observed_at <= prediction_cutoff_at < kickoff_at
+
+    - `odds_observed_at`:    instante en que se observaron las cuotas usadas.
+    - `prediction_cutoff_at`: instante de corte de la predicción (debe ser
+      posterior o igual a la observación de cuotas y anterior al inicio).
+    - `kickoff_at`:           inicio del partido.
+
+    Cada partido debe declarar los tres timestamps en sus campos (por defecto
+    `odds_observed_at`, `prediction_cutoff_at`, `kickoff_at`). Devuelve:
+
+        {
+            "ok": bool,
+            "partidos_validados": int,
+            "violaciones": [
+                {"num": ..., "issues": [...], "timestamps": {...}}, ...
+            ]
+        }
+
+    Un partido con timestamps ausentes o no parseables se considera violación.
+    """
+    if len(fields) != 3:
+        raise ValueError(f"Se necesitan exactamente 3 campos de timestamp, recibidos: {fields}")
+    odds_field, cutoff_field, kickoff_field = fields
+    violations: list[dict[str, Any]] = []
+    for match in partidos:
+        num = match.get("num")
+        timestamps = {f: match.get(f) for f in fields}
+        issues: list[str] = []
+        parsed: dict[str, pd.Timestamp] = {}
+        for field, value in timestamps.items():
+            if value is None or (isinstance(value, str) and not value.strip()):
+                issues.append(f"{field}_ausente")
+                continue
+            ts = pd.to_datetime(value, errors="coerce")
+            if pd.isna(ts):
+                issues.append(f"{field}_invalido")
+                continue
+            parsed[field] = ts
+        if issues:
+            violations.append(
+                {"num": num, "issues": issues, "timestamps": timestamps}
+            )
+            continue
+        if parsed[odds_field] > parsed[cutoff_field]:
+            issues.append("cuotas_observadas_despues_del_corte")
+        if not (parsed[cutoff_field] < parsed[kickoff_field]):
+            issues.append("corte_no_anterior_al_kickoff")
+        if issues:
+            violations.append(
+                {"num": num, "issues": issues, "timestamps": timestamps}
+            )
+    validados = len(partidos) - len(violations)
+    return {"ok": not violations, "partidos_validados": validados, "violaciones": violations}
 
 
 def compute_features_for_upcoming(
     partidos: list[dict[str, Any]] | pd.DataFrame,
     history_df: pd.DataFrame,
     cutoff_date: object,
+    *,
+    check_odds_timestamps: bool = False,
 ) -> pd.DataFrame:
     """Construye las features previas a partidos futuros sin necesitar resultado ni fuga temporal.
 
@@ -743,7 +834,26 @@ def compute_features_for_upcoming(
     - Solo utiliza los partidos de `history_df` con `date < cutoff_date`.
     - No modifica ni actualiza los estados rodantes entre los partidos futuros.
     - No requiere FTHG, FTAG, result ni cuotas Q15/LAE/APU.
+    - Si `check_odds_timestamps=True`, valida la invariante opcional
+      `odds_observed_at <= prediction_cutoff_at < kickoff_at` de cada partido
+      y lanza ValueError si algún partido la incumple (o no la declara).
     """
+    if check_odds_timestamps:
+        if isinstance(partidos, pd.DataFrame):
+            match_list_for_validation = partidos.to_dict("records")
+        else:
+            match_list_for_validation = list(partidos)
+        report = validate_odds_timestamps(match_list_for_validation)
+        if not report["ok"]:
+            details = "; ".join(
+                f"partido {v['num']}: {', '.join(v['issues'])}"
+                for v in report["violaciones"]
+            )
+            raise ValueError(
+                f"Validación de cuotas fallida "
+                f"({len(report['violaciones'])}/{len(partidos)} partidos): {details}"
+            )
+
     tracker = TeamStateTracker()
     tracker.process_history(history_df, cutoff_date=cutoff_date)
 

@@ -1,9 +1,35 @@
 # Hoja de ruta del Programa Quiniela
 
-Estado consolidado el 29/07/2026. Actualizado el 03/08/2026 (prioridad 4 cerrada: experimento xG negativo documentado, motor v4 sin cambios).
+Estado consolidado el 29/07/2026. Actualizado el 04/08/2026 (recomendaciones P0 de la auditoría externa del 04/08/2026 cerradas).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (03/08/2026 — prioridad 4 cerrada: xG Understat evaluado, NO activa)
+## Último avance (04/08/2026 — P0 auditoría externa: contrato de columnas, optimizador exhaustivo, sin fuga intra-fecha, validación de cuotas, referencia de producción, CI)
+
+- **Contrato de columnas fijo** en `CONFIG_MOTOR_V2.json` (v2026-08-04): 3 dobles
+  = 8 columnas a 0,75 EUR = 6,00 EUR máximo; Pleno al 15 separado. Eliminadas
+  las claves ambiguas `default_budget` y `beam_size` de la configuración y de
+  todos los consumidores (`OPTIMIZADOR_COLUMNAS.py`, `PREDECIR_JORNADA.py`).
+- **`OPTIMIZADOR_COLUMNAS.py` reescrito**: evalúa exhaustivamente las
+  C(14,3)=364 combinaciones de tres dobles, selecciona por segunda
+  probabilidad (maximiza aciertos esperados) y calcula exactamente
+  P(≥10), P(≥11), P(≥12), P(≥13) y P(≥14) por convolución (sin Monte Carlo).
+- **`scripts/motor/features.py`**: procesado por lotes por fecha (primero
+  extrae features de todos los partidos de una fecha, luego aplica sus
+  resultados), eliminando la fuga temporal entre partidos de la misma fecha;
+  nueva validación opcional de cuotas
+  `odds_observed_at <= prediction_cutoff_at < kickoff_at`.
+- **Referencia de producción reproducible**: `reports/production_reference.json`
+  generada por `scripts/reports/GENERAR_PRODUCTION_REFERENCE.py` (commit SHA,
+  hashes SHA-256 de datasets y configuración, entorno, protocolo, métricas por
+  temporada y división, resultado de tests).
+- **Tests y CI**: +37 tests (189 en verde) y `.github/workflows/ci.yml`
+  (pytest + `git diff --check` + validación del contrato). Sin cambios en los
+  pesos activos del modelo (`master_model.weights` intactos) y sin sustituir
+  datasets.
+- `git diff --check`: limpio. Backtest walk-forward 2019-2026 reejecutado con
+  la corrección de fuga intra-fecha.
+
+## Avance anterior (03/08/2026 — prioridad 4 cerrada: xG Understat evaluado, NO activa)
 
 - xG Understat (Primera 2014-2024) integrado point-in-time: validación dataset
   (REVISION_12), módulo `scripts/motor/xg_understat.py`, features rodantes en
