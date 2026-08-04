@@ -134,6 +134,11 @@ tres dobles sobre los 14 partidos reales y el Pleno al 15. Si un partido no
 aparece en el test (p. ej. fila sin cuotas), el boleto se marca
 `cobertura_incompleta` y no se evalúa a medias.
 
+Primera evaluación real (5 boletos 2025-26, J001/J002/J003/J005/J007):
+simples 7,00/14 (motor = mercado, config v4 mercado-dominante), tres dobles
+7,60/14, Pleno exacto 2/5. Sin escrutinio oficial LAE no hay ROI; la
+referencia del test completo (51,64 % / 51,56 %) no cambia.
+
 Los JSON auditados se incorporan en `DATOS/quiniela_historica/` según su
 `README.md`. El ROI realizado exige además el escrutinio/premio oficial por
 categoría; sin él el módulo devuelve aciertos y coste, pero no inventa retorno.

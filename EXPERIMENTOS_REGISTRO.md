@@ -95,3 +95,9 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Pendiente:** ejecutar el evaluador con la propuesta real y contrastar
   antes de decidir el paso a `DATOS/quiniela_historica/` con procedencia
   auditada.
+- **Evaluación real (confirmada, 5 boletos):** simples 7,00/14 (motor =
+  mercado; config v4 mercado-dominante, best_pred == favorite_market en ~99 %
+  del test), 3 dobles 7,60/14, Pleno exacto 2/5 (top-1 `1-1` en los 5).
+  Referencia del test reproducida en sandbox: 51,64/51,56 %. Sin ROI hasta
+  disponer de escrutinio oficial LAE. Muestra pequeña (70 partidos), no
+  comparable con el proxy de bloques artificiales.

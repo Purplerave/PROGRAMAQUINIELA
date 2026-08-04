@@ -24,6 +24,11 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 - Pendiente: ejecutar el evaluador con la propuesta real en el equipo del
   usuario y contrastar el resultado antes de decidir el paso a
   `DATOS/quiniela_historica/` con procedencia auditada.
+- **Primera evaluación real (confirmada):** 5 boletos (J001, J002, J003,
+  J005, J007) → simples 7,00/14 (motor = mercado por config mercado-dominante
+  v4), 3 dobles 7,60/14 sobre los 14 reales, Pleno exacto 2/5 (modelo top-1
+  `1-1` en los 5). Referencia del test completo reproducida en sandbox:
+  51,64 % / 51,56 %. Sin escrutinio LAE no hay ROI.
 
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
 

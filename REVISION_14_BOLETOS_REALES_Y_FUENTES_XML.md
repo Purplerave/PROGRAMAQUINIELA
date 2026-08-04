@@ -519,3 +519,54 @@ tiene las columnas mínimas, se verá un aviso `[xg_understat] Aviso: ...` y la
 ejecución continúa sin xG (comportamiento correcto: el xG no está activo).
 Para recuperar el xG del experimento, regenerar el CSV con el preparador de la
 rama local usando el esquema canónico (`date;team_h;team_a;h_xg;a_xg;...`).
+
+### 9.7 Evaluación real de aciertos (confirmada en el equipo del usuario)
+
+Ejecutado `EVALUAR_ACIERTOS_BOLETOS.py` con la propuesta real (5 boletos
+aceptados: J001, J002, J003, J005, J007):
+
+```text
+Predicciones del test principal: 2690 filas (train 10756 / test 2690, split 2023-04-16)
+
+J01 Q15_2025_2026_J001: simples 6/14 | mercado 6/14 | 3 dobles 8/14 | pleno 1-1 (modelo 1-1) exacto=1
+J02 Q15_2025_2026_J002: simples 7/14 | mercado 7/14 | 3 dobles 7/14 | pleno 1-2 (modelo 1-1) exacto=0
+J03 Q15_2025_2026_J003: simples 6/14 | mercado 6/14 | 3 dobles 6/14 | pleno 1-1 (modelo 1-1) exacto=1
+J05 Q15_2025_2026_J005: simples 9/14 | mercado 9/14 | 3 dobles 9/14 | pleno 3-2 (modelo 1-1) exacto=0
+J07 Q15_2025_2026_J007: simples 7/14 | mercado 7/14 | 3 dobles 8/14 | pleno 2-0 (modelo 1-1) exacto=0
+
+Media por boleto evaluado: simples 7.00/14 | mercado 7.00/14 | 3 dobles 7.60/14 | 15 con pleno(bucket) 8.00/15
+Acierto sobre la unión de partidos: motor 50.00% | mercado 50.00%
+Pleno exacto: 2/5 | bucket: 2/5
+```
+
+Lectura honesta:
+
+1. **Motor == mercado por construcción.** La config activa v4 es
+   mercado-dominante (market 0.951) con `x_disagreement_strategy:
+   market_pick_only`; contrastado en el sandbox con las mismas predicciones:
+   `best_pred == favorite_market` en 2.665/2.690 filas del test (~99 %). Por
+   eso los 5 boletos dan idénticos aciertos de motor y mercado: la métrica de
+   simple no aporta información adicional sobre el favorito de mercado, tal
+   como ya refleja la referencia global (51,64 % vs 51,56 %).
+2. **Referencia reproducida.** Sobre el mismo test (2.690 filas, split
+   2023-04-16) el sandbox reproduce exactamente: motor 51,6357 %, mercado
+   51,5613 % (README: 51,64/51,56).
+3. **Tres dobles sobre boletos reales: 7,60/14 (54,3 %)** frente a 7,00/14
+   simples (+0,6 aciertos/boleto). **No es comparable** con el proxy de
+   bloques artificiales (8,63/15 = 57,5 % sobre todo el test): distinta
+   construcción y muestra (70 partidos reales en 5 boletos).
+4. **Pleno al 15:** el modelo eligió `1-1` como marcador más probable en los
+   5 boletos (comportamiento conocido del top-1 con lambdas bajas); exacto
+   2/5 y bucket 2/5. La infraestructura ya guarda `pleno15_top_scores`
+   (top-3), que permitirá evaluar también cobertura del bucket en top-3.
+5. **Unión 50,00 % sobre 70 partidos** está dentro del ruido de muestra de la
+   referencia 2025-26 (51,4 %; IC95 ≈ ±11 pp en n=70).
+6. **Sin ROI:** no hay escrutinio/premio oficial LAE; la métrica se queda en
+   aciertos y coste (`missing_official_payouts`).
+
+Siguiente paso natural: ampliar la muestra con más jornadas reales (más
+JSON de quiniela15.com) y, cuando exista escrutinio LAE auditado, incorporar
+`payouts` al contrato para medir retorno real. Los datos externos siguen fuera
+de Git; la fuente quiniela15.com no es oficial LAE, por lo que estos tickets
+permanecen como propuesta contrastada hasta tener procedencia/licencia y
+contraste LAE explícitos (contrato `DATOS/quiniela_historica/README.md`).
