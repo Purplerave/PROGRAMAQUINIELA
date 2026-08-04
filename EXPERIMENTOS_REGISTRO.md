@@ -71,3 +71,18 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Estado:** infraestructura probada; pendiente cargar histórico auditado de
   fixtures y escrutinios LAE. No se modifica la métrica de referencia proxy
   hasta disponer de esa cobertura.
+
+## 2026-08-04 — Infraestructura: importador de boletos Quiniela15 clasificado
+- **Objetivo:** distinguir boletos españoles completos de los que quedan fuera
+  de cobertura (competiciones europeas) y de los inconsistentes, preservando el
+  motivo exacto de cada partido (REVISION_14 §5 y §9).
+- **Implementación:** `scripts/datos/IMPORTAR_BOLETOS_QUINIELA15.py` clasifica
+  cada boleto en `tickets` / `out_of_coverage` / `failures`; el Pleno acepta
+  marcador exacto o bucket (`M-2`); alias auditados contra los CSV reales
+  2025-26 (sin colisiones canónicas). Salida:
+  `salida/quiniela_historica_propuesta_2025_2026.json`.
+- **Validación:** 175 tests en verde (+8); reproducción con fixtures reales:
+  boleto español completo aceptado, J006 (`Athletic-Arsenal`) y J010
+  (`FC Kairat Almaty-Real Madrid`) clasificados `out_of_coverage` 14/15.
+- **Estado:** pendiente ejecutar con los 9 JSON reales en el equipo del usuario
+  y decidir el paso a `DATOS/quiniela_historica/` con procedencia auditada.

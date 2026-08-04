@@ -3,6 +3,20 @@
 Estado consolidado el 29/07/2026. Actualizado el 04/08/2026 (P0 de reproducibilidad y contrato v1.1).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
+## Último avance (04/08/2026 — importador de boletos Quiniela15 clasificado)
+
+- `scripts/datos/IMPORTAR_BOLETOS_QUINIELA15.py` clasifica cada boleto real en
+  `tickets` (15 partidos contrastados contra Football-Data 2025-26),
+  `out_of_coverage` (partidos fuera de cobertura, p. ej. `Athletic-Arsenal` en
+  J006 o `FC Kairat Almaty-Real Madrid` en J010) o `failures` (marcador/signo
+  inconsistente o esquema inválido), preservando el motivo exacto por partido.
+- Auditoría de alias: los 13 alias mapean a equipos reales del CSV y no hay
+  colisiones canónicas en ninguna temporada. El Pleno acepta marcador exacto o
+  bucket (`M-2`). Suite: 175 tests en verde.
+- Pendiente: ejecutar el importador con los 9 JSON reales (J001-J008, J010) en
+  el equipo del usuario y decidir, con la propuesta resultante, el paso a
+  `DATOS/quiniela_historica/` con procedencia auditada.
+
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
 
 - Añadido `scripts/backtests/QUINIELA_REAL.py`: valida el esquema versionado de

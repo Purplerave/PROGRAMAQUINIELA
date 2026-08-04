@@ -339,3 +339,93 @@ En la rama de Arena:
 Los warnings existentes son de columnas de tiros totalmente ausentes en parte
 de los tests y una deprecación de fixture de pytest; no son fallos de los
 módulos de boletos/XML.
+
+---
+
+## 9. Continuación — auditoría de alias y clasificación del importador (2026-08-04)
+
+Relevo de la sesión `arena/019fcc8f-programaquiniela` (commit base `68103ff`
++ los 10 commits de infraestructura). Sin datos locales del usuario en el
+sandbox, se verificó todo lo reproducible y se endureció el importador.
+
+### 9.1 Auditoría de alias contra Football-Data real 2025-26
+
+Contra `SP1_2526.csv` + `SP2_2526.csv` (842 partidos, sin duplicados
+fecha+local+visitante):
+
+- Los **13 alias** del importador mapean a equipos reales del CSV:
+  `At Madrid→Ath Madrid`, `Athletic→Ath Bilbao`, `Rayo→Vallecano`,
+  `Real Oviedo→Oviedo`, `R. Sociedad→Sociedad`, `R. Santander→Santander`,
+  `R. Zaragoza→Zaragoza`, `C. Leonesa→Cultural Leonesa`,
+  `R. Sociedad B→Sociedad B`, `Espanyol→Espanol`,
+  `Sporting Gijón→Sp Gijon`, `Deportivo→La Coruna`, `Andorra→Andorra`.
+- **Sin colisiones canónicas**: en ninguna temporada del histórico dos equipos
+  distintos comparten clave canónica; el emparejamiento único es seguro.
+- Los nombres del CSV ya están normalizados (canónico == nombre en minúsculas).
+
+### 9.2 Endurecimiento de `IMPORTAR_BOLETOS_QUINIELA15.py`
+
+El importador ahora **clasifica cada boleto en tres grupos** en lugar de
+abortar al primer partido no contrastado, preservando el motivo exacto:
+
+- `tickets`: los 15 partidos contrastados contra Football-Data (propuesta
+  evaluable; compatible con el esquema que valida `QUINIELA_REAL.validate_ticket`).
+- `out_of_coverage`: boleto que solo falla por partidos ausentes en
+  Football-Data (competiciones europeas, Copa u otras fuera de la temporada).
+  Informa `matches_covered` y la lista `unmatched` con número, equipos y motivo.
+- `failures`: boleto con `reason: "inconsistent"` (marcador/signo distinto a
+  Football-Data o coincidencia ambigua) o `reason: "invalid_schema"`, con el
+  detalle de cada partido en `match_errors`.
+
+Además, el Pleno al 15 acepta el marcador en forma exacta (`3-2`) **o** en
+bucket (`M-2`) en `resultado`, manteniendo la validación del bucket en `signo`
+y conservando el marcador exacto contrastado en la propuesta.
+
+Salida:
+
+```json
+{
+  "schema_version": "1.0",
+  "source": {"name": "Quiniela15, contrastada contra Football-Data", "status": "proposal_not_official_lae"},
+  "summary": {"total": 9, "accepted": 7, "out_of_coverage": 2, "rejected": 0},
+  "tickets": [], "out_of_coverage": [], "failures": []
+}
+```
+
+Código de salida: `0` salvo que existan boletos `rejected` (inconsistentes o de
+esquema inválido), que devuelven `1` para llamar la atención.
+
+### 9.3 Reproducción con fixtures reales
+
+Con boletos reconstruidos a partir de los CSV reales 2025-26 (nombres estilo
+Quiniela15, mojibake `AlavÃ©s`, Pleno en bucket):
+
+- Boleto íntegramente español → `accepted` (14 partidos + Pleno con fecha
+  derivada y signos validados).
+- `J006` con `Athletic - Arsenal` → `out_of_coverage` (14/15 cubiertos,
+  partido 7 no contrastable).
+- `J010` con `FC Kairat Almaty - Real Madrid` en el Pleno → `out_of_coverage`
+  (14/15 cubiertos, partido 15 no contrastable).
+
+Suite completa: **175 passed, 29 warnings** (antes: 164; +8 nuevos tests del
+importador, incluida la integración contra los CSV reales).
+
+### 9.4 Acción pendiente en el equipo del usuario
+
+Con los 9 JSON reales en `DATOS\boletos_lae_reales\`:
+
+```powershell
+python scripts\datos\IMPORTAR_BOLETOS_QUINIELA15.py
+```
+
+Producirá `salida\quiniela_historica_propuesta_2025_2026.json` con el resumen
+esperado: `J001-J005`, `J007-J008` como `tickets` (si sus 15 partidos son
+españoles y coherentes) y `J006`/`J010` en `out_of_coverage` (14/15) por
+`Athletic - Arsenal` y `FC Kairat Almaty - Real Madrid`. Si algún boleto cae
+en `failures`, revisar el motivo exacto en `match_errors` antes de continuar;
+un motivo `no_en_football_data` dentro de `out_of_coverage` no es un error de
+datos, sino cobertura del histórico.
+
+Para integrar el resultado en esta rama, enviar el JSON de propuesta generado
+(o los 9 JSON fuente) y se contrastará aquí contra el mismo CSV antes de
+decidir si pasa a `DATOS/quiniela_historica/` con su procedencia.

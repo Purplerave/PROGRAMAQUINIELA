@@ -107,6 +107,20 @@ acepta jornadas que declaren los 14 partidos oficiales, sus fechas, el Pleno al
 python scripts/backtests/QUINIELA_REAL.py
 ```
 
+Los boletos de resultados de `quiniela15.com` (composición, marcador y signo,
+sin fecha ni escrutinio) se transforman y contrastan contra Football-Data con:
+
+```powershell
+python scripts/datos/IMPORTAR_BOLETOS_QUINIELA15.py
+```
+
+El importador deriva la fecha solo por coincidencia única local+visitante y
+clasifica cada boleto en `tickets` (15 partidos contrastados), `out_of_coverage`
+(partidos fuera de Football-Data, p. ej. competiciones europeas) o `failures`
+(marcador/signo inconsistente o esquema inválido), escribiendo
+`salida/quiniela_historica_propuesta_2025_2026.json`. No modifica los JSON
+fuente ni los CSV, y la salida se marca `proposal_not_official_lae`.
+
 Los JSON auditados se incorporan en `DATOS/quiniela_historica/` según su
 `README.md`. El ROI realizado exige además el escrutinio/premio oficial por
 categoría; sin él el módulo devuelve aciertos y coste, pero no inventa retorno.
