@@ -476,3 +476,46 @@ media simples 7,20/14 = mercado, 3 dobles 8,00/14, acierto unión motor
 Para el resultado real: ejecutar el evaluador en el equipo del usuario con
 la propuesta ya generada y pegar aquí la salida (o el JSON
 `salida\evaluacion_aciertos_boletos_2025_2026.json`).
+
+### 9.6 Incidente: `KeyError: 'date'` en `merge_xg` (CSV xG con esquema distinto)
+
+Al ejecutar el evaluador en el equipo del usuario falló:
+
+```text
+File "...\scripts\motor\xg_understat.py", line 69, in load_xg_frame
+    "date": pd.to_datetime(raw["date"], errors="coerce"),
+KeyError: 'date'
+```
+
+Causa: en el equipo existe `DATOS\xg_understat\understat_la_liga_xg.csv`
+(generado por el preparador de la rama local del usuario, con esquema y
+separador distintos de los canónicos `date;team_h;team_a;h_xg;...`). El
+cargador asumía ese esquema fijo y reventaba. El xG es aditivo y **no está
+activo** en el motor, así que un CSV con otro formato no debe tumbar el flujo.
+
+Solución (`scripts/motor/xg_understat.py`):
+
+- Detección de separador (`;`, `,`, tabulador) con `utf-8-sig`.
+- Mapeo de sinónimos de columnas (p. ej. `match_date`/`fecha` → `date`,
+  `home_team`/`local` → `team_h`, `home_xg`/`xg_h` → `h_xg`, etc.).
+- Columnas opcionales (`h_deep`, `a_deep`, `h_ppda`, `a_ppda`) ausentes → NaN.
+- Si faltan las columnas mínimas (fecha, local, visitante, xG local/visitante):
+  aviso claro por stderr y `None`; el motor continúa sin xG.
+
+Verificado en el sandbox con un CSV de esquema alternativo (se carga y mapea)
+y con uno sin columnas mínimas (aviso + flujo intacto). Suite: 183 tests en
+verde (+4 nuevos de carga tolerante).
+
+En el equipo del usuario, actualizar el módulo y reejecutar:
+
+```powershell
+git fetch origin arena/019fcc8f-programaquiniela
+git checkout FETCH_HEAD -- scripts/motor/xg_understat.py
+python scripts\backtests\EVALUAR_ACIERTOS_BOLETOS.py
+```
+
+Si el CSV xG se carga con el nuevo mapeo, se fusiona igual que antes; si no
+tiene las columnas mínimas, se verá un aviso `[xg_understat] Aviso: ...` y la
+ejecución continúa sin xG (comportamiento correcto: el xG no está activo).
+Para recuperar el xG del experimento, regenerar el CSV con el preparador de la
+rama local usando el esquema canónico (`date;team_h;team_a;h_xg;a_xg;...`).

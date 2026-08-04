@@ -119,3 +119,67 @@ def test_upcoming_features_have_xg_columns():
     out = compute_features_for_upcoming([match], history, cutoff_date="2020-05-01")
     for col in XG_COLS:
         assert col in out.columns
+
+
+# --- Carga robusta del CSV de xG (esquema/separador tolerante) ---
+
+
+def _write_xg_csv(tmp_path, text: str, name: str = "understat_la_liga_xg.csv") -> Path:
+    path = tmp_path / name
+    path.write_text(text, encoding="utf-8")
+    return path
+
+
+def test_load_xg_frame_canonical_semicolon(monkeypatch, tmp_path):
+    path = _write_xg_csv(
+        tmp_path,
+        "date;team_h;team_a;h_xg;a_xg;h_deep;a_deep;h_ppda;a_ppda\n"
+        "2020-01-05;AA;BB;1.5;0.8;2.1;1.0;110.0;120.0\n",
+    )
+    monkeypatch.setattr("scripts.motor.xg_understat.XG_CSV", path)
+    from scripts.motor.xg_understat import load_xg_frame
+
+    frame = load_xg_frame()
+    assert frame is not None
+    assert len(frame) == 1
+    assert frame.loc[0, "home_xg"] == 1.5
+    assert frame.loc[0, "away_xg"] == 0.8
+    assert frame.loc[0, "home"] == "AA"
+    assert frame.loc[0, "away"] == "BB"
+
+
+def test_load_xg_frame_alternative_schema_and_separator(monkeypatch, tmp_path):
+    # Esquema de otro preparador: comas y nombres distintos.
+    path = _write_xg_csv(
+        tmp_path,
+        "match_date,home_team,away_team,home_xg,away_xg\n"
+        "2020-01-05,AA,BB,1.5,0.8\n",
+    )
+    monkeypatch.setattr("scripts.motor.xg_understat.XG_CSV", path)
+    from scripts.motor.xg_understat import load_xg_frame
+
+    frame = load_xg_frame()
+    assert frame is not None
+    assert len(frame) == 1
+    assert frame.loc[0, "home_xg"] == 1.5
+    assert frame.loc[0, "away_xg"] == 0.8
+    # Columnas opcionales ausentes -> NaN, no error.
+    assert pd.isna(frame.loc[0, "home_xg_deep"])
+
+
+def test_load_xg_frame_unexpected_schema_returns_none_with_warning(monkeypatch, tmp_path, capsys):
+    path = _write_xg_csv(tmp_path, "foo;bar\n1;2\n")
+    monkeypatch.setattr("scripts.motor.xg_understat.XG_CSV", path)
+    from scripts.motor.xg_understat import load_xg_frame
+
+    frame = load_xg_frame()
+    assert frame is None
+    captured = capsys.readouterr()
+    assert "no tiene las columnas esperadas" in captured.err
+
+
+def test_load_xg_frame_missing_file_returns_none(monkeypatch, tmp_path):
+    monkeypatch.setattr("scripts.motor.xg_understat.XG_CSV", tmp_path / "no_existe.csv")
+    from scripts.motor.xg_understat import load_xg_frame
+
+    assert load_xg_frame() is None
