@@ -294,3 +294,38 @@ class TestEquiposAscendidos:
         out = _apply_transition_priors(df)
         assert pd.isna(out.loc[0, "home_table_ppg"])
         assert out.loc[0, "away_table_ppg"] == 1.2
+
+
+# ============================================================================
+# TEST: helper de bucket del maestro (MOTOR_QUINIELA_MAESTRO.pleno_bucket_pick)
+# ============================================================================
+
+class TestMaestroPlenoBucketPick:
+    def test_bucket_pick_agrega_marcadores_con_m(self):
+        from MOTOR_QUINIELA_MAESTRO import pleno_bucket_pick
+
+        # Lambdas bajas: el mejor bucket suele ser 1-1 o 0-0; con 3+ hay masa M.
+        bucket, prob, top_scores = pleno_bucket_pick(1.3, 1.2, rho=None, max_goals=5)
+        assert isinstance(bucket, str) and "-" in bucket
+        assert 0.0 < prob <= 1.0
+        assert len(top_scores) == 3
+        # Las probabilidades de los buckets (con M agregado) suman ~1.
+        assert prob > 0.05
+
+    def test_bucket_pick_altas_lambdas_puede_entrar_en_m(self):
+        from MOTOR_QUINIELA_MAESTRO import pleno_bucket_pick
+
+        # Lambdas altas: 3+ goles tiene masa relevante; el pick puede ser M-x.
+        bucket, prob, _ = pleno_bucket_pick(2.6, 2.4, rho=None, max_goals=5)
+        assert prob > 0.05
+        # Con rho de config no debe fallar y devuelve el mismo formato.
+        bucket_dc, prob_dc, _ = pleno_bucket_pick(2.6, 2.4, rho=-0.036, max_goals=5)
+        assert isinstance(bucket_dc, str) and prob_dc > 0.0
+
+    def test_bucket_pick_lambdas_nan_devuelve_fallback(self):
+        from MOTOR_QUINIELA_MAESTRO import pleno_bucket_pick
+
+        bucket, prob, scores = pleno_bucket_pick(float("nan"), 1.2, rho=None)
+        assert bucket == "1-1"
+        assert prob == 0.0
+        assert scores == []

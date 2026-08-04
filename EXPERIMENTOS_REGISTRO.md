@@ -113,3 +113,12 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   51,84 % = mercado (dentro del IC95 de la referencia 2025-26); 3 dobles
   8,06/14 = 57,6 % ≈ proxy 57,5 % (validación del proxy en tasa); Pleno bucket
   5/35 = 14,3 % (top-1 `1-1`). Sin ROI. Muestra real: 40 boletos (5 + 35).
+- **2026-08-04 — Pleno al 15: bucket del modelo y cobertura top-3.**
+  Objetivo: mejorar el Pleno (5/35 real) sin escrutinio. Análisis en el test:
+  la selección del bucket ya es óptima (13,20 % top-1 vs techo 13,30 %;
+  argmax con M +0,04 pp), pero la **cobertura top-3 = 34,46 %** (estable
+  33,6–35,5 %) triplica el top-1. Implementado: `pleno_bucket_pick` y
+  `pleno15_bucket` en el maestro (aditivo, contrato intacto) y
+  `pleno_top3_bucket` en el evaluador. Referencia intacta 51,64/51,56.
+  Estado: IMPLEMENTADO (métrica de decisión); pendiente reejecutar en el
+  equipo del usuario para ver top-3 real sobre los 35 boletos.

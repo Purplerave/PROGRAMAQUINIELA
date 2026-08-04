@@ -688,6 +688,56 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
     return final_logit, final_hgb, best["config"]
 
 
+def pleno_bucket_from_score(home_goals: int, away_goals: int) -> str:
+    """Bucket oficial del Pleno al 15: 0/1/2 o M (3 o más goles)."""
+    home = "M" if home_goals >= 3 else str(home_goals)
+    away = "M" if away_goals >= 3 else str(away_goals)
+    return f"{home}-{away}"
+
+
+def pleno_bucket_pick(
+    lambda_home: float,
+    lambda_away: float,
+    rho: float | None = None,
+    max_goals: int = 5,
+) -> tuple[str, float, list[dict]]:
+    """Mejor bucket del Pleno al 15 y top marcadores a partir de las lambdas.
+
+    Devuelve ``(bucket, prob_bucket, top_scores)`` donde ``bucket`` es el
+    bucket (0/1/2/M) con más masa de probabilidad (agrega los marcadores con 3+
+    goles, que es como se juega el Pleno), ``prob_bucket`` su probabilidad y
+    ``top_scores`` los top-N marcadores exactos. Usa Poisson o Dixon-Coles
+    según ``rho``, igual que ``top_scorelines``.
+    """
+    if np.isnan(lambda_home) or np.isnan(lambda_away):
+        return "1-1", 0.0, []
+    scores = top_scorelines(lambda_home, lambda_away, max_goals=max_goals, top_n=3, rho=rho)
+    if not scores:
+        return "1-1", 0.0, []
+    if rho:
+        try:
+            from scripts.motor.dixon_coles import dc_score_probs
+
+            grid = dc_score_probs(
+                np.array([lambda_home]), np.array([lambda_away]), float(rho), max_goals=max_goals
+            )[0]
+        except Exception:
+            grid = None
+    else:
+        grid = None
+    buckets: dict[str, float] = {}
+    for hg in range(max_goals + 1):
+        for ag in range(max_goals + 1):
+            if grid is not None:
+                prob = float(grid[hg, ag])
+            else:
+                prob = float(poisson.pmf(hg, lambda_home) * poisson.pmf(ag, lambda_away))
+            bucket = pleno_bucket_from_score(hg, ag)
+            buckets[bucket] = buckets.get(bucket, 0.0) + prob
+    best = max(buckets.items(), key=lambda item: item[1])
+    return best[0], float(best[1]), scores
+
+
 def add_pleno_al_15(frame: pd.DataFrame, rho: float | None = None) -> pd.DataFrame:
     """Añade columnas de Pleno al 15 usando Poisson independiente o Dixon-Coles.
 
@@ -704,13 +754,15 @@ def add_pleno_al_15(frame: pd.DataFrame, rho: float | None = None) -> pd.DataFra
         except Exception:
             rho = 0.0
 
-    top_scores = [
-        top_scorelines(lh, la, max_goals=5, top_n=3, rho=rho)
+    buckets_picks = [
+        pleno_bucket_pick(lh, la, rho=rho, max_goals=5)
         for lh, la in zip(out["lambda_home"], out["lambda_away"])
     ]
-    out["pleno15_top_scores"] = [json.dumps(scores, ensure_ascii=False) for scores in top_scores]
-    out["pleno15_marcador"] = [scores[0]["score"] if scores else None for scores in top_scores]
-    out["pleno15_confianza"] = [scores[0]["prob"] if scores else None for scores in top_scores]
+    out["pleno15_top_scores"] = [json.dumps(scores, ensure_ascii=False) for _, _, scores in buckets_picks]
+    out["pleno15_marcador"] = [scores[0]["score"] if scores else None for _, _, scores in buckets_picks]
+    out["pleno15_confianza"] = [scores[0]["prob"] if scores else None for _, _, scores in buckets_picks]
+    out["pleno15_bucket"] = [bucket for bucket, _, _ in buckets_picks]
+    out["pleno15_bucket_prob"] = [prob for _, prob, _ in buckets_picks]
     out["pleno15_local_goles_esperados"] = out["lambda_home"]
     out["pleno15_visitante_goles_esperados"] = out["lambda_away"]
     return out

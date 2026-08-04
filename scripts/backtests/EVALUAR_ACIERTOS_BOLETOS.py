@@ -167,16 +167,31 @@ def evaluate_ticket_results(
         pleno = ticket["pleno15"]
         pleno_key = (_iso(pleno["date"]), key_name(pleno["home"]), key_name(pleno["away"]))
         candidates = index.get(pleno_key, [])
-        pleno_exact = pleno_bucket = None
+        pleno_exact = pleno_bucket = pleno_top3 = None
+        pleno_modelo_bucket = None
         if len(candidates) == 1:
             row = predictions.loc[candidates[0]]
             official_score = str(pleno["score"])
+            official_bucket = pleno_bucket_from_source(official_score)
             model_top = row.get("pleno15_marcador")
             if pd.notna(model_top):
                 pleno_exact = int(str(model_top) == official_score)
-                official_bucket = pleno_bucket_from_source(official_score)
-                model_bucket = pleno_bucket_from_source(str(model_top))
-                pleno_bucket = int(official_bucket is not None and official_bucket == model_bucket)
+            # Bucket del modelo: usa el bucket agregado (0/1/2/M) si existe;
+            # si no (caché vieja), deriva del marcador top-1.
+            model_bucket_raw = row.get("pleno15_bucket")
+            model_bucket = str(model_bucket_raw) if pd.notna(model_bucket_raw) else pleno_bucket_from_source(str(model_top)) if pd.notna(model_top) else None
+            pleno_modelo_bucket = model_bucket
+            if official_bucket is not None and model_bucket is not None:
+                pleno_bucket = int(official_bucket == model_bucket)
+            # Cobertura top-3: ¿el bucket oficial está entre los buckets de los
+            # 3 marcadores más probables? (triplica la cobertura del top-1).
+            top3 = []
+            try:
+                top3 = json.loads(row.get("pleno15_top_scores") or "[]")
+            except (TypeError, ValueError, json.JSONDecodeError):
+                top3 = []
+            top3_buckets = {pleno_bucket_from_source(str(item.get("score", ""))) for item in top3 if isinstance(item, dict)}
+            pleno_top3 = int(official_bucket in top3_buckets) if official_bucket is not None else None
         pleno_hit = 1 if pleno_bucket else 0
         summary.update({
             "evaluated": True,
@@ -186,8 +201,10 @@ def evaluate_ticket_results(
             "hits_15_con_pleno_bucket": hits_dobles + pleno_hit,
             "pleno_exacto": pleno_exact,
             "pleno_bucket": pleno_bucket,
+            "pleno_top3_bucket": pleno_top3,
             "pleno_oficial": str(pleno["score"]),
             "pleno_modelo": str(predictions.loc[candidates[0]].get("pleno15_marcador")) if len(candidates) == 1 else None,
+            "pleno_modelo_bucket": pleno_modelo_bucket,
             "doubles_positions": double_numbers,
             "matches": [
                 {
@@ -216,6 +233,7 @@ def evaluate_ticket_results(
             "mean_hits_15_con_pleno_bucket": float(sum(row["hits_15_con_pleno_bucket"] for row in evaluated) / len(evaluated)),
             "pleno_exacto_total": sum(1 for row in evaluated if row["pleno_exacto"]),
             "pleno_bucket_total": sum(1 for row in evaluated if row["pleno_bucket"]),
+            "pleno_top3_bucket_total": sum(1 for row in evaluated if row.get("pleno_top3_bucket")),
         }
         attached_all = joined[joined["official_ticket_id"].isin([row["ticket_id"] for row in evaluated])]
         aggregate["accuracy_motor_union"] = float(attached_all[f"{pred_prefix}_pred"].eq(attached_all["official_ticket_result"]).mean())
@@ -246,6 +264,7 @@ def aggregate_rows(rows: list[dict[str, Any]]) -> dict[str, Any] | None:
         "mean_hits_15_con_pleno_bucket": float(sum(row["hits_15_con_pleno_bucket"] for row in evaluated) / n),
         "pleno_exacto_total": sum(1 for row in evaluated if row["pleno_exacto"]),
         "pleno_bucket_total": sum(1 for row in evaluated if row["pleno_bucket"]),
+        "pleno_top3_bucket_total": sum(1 for row in evaluated if row.get("pleno_top3_bucket")),
         "accuracy_motor_union": float(sum(union_motor) / len(union_motor)) if union_motor else None,
         "accuracy_market_union": float(sum(union_market) / len(union_market)) if union_market else None,
         "matches_union": len(union_motor),
@@ -315,7 +334,7 @@ def main() -> int:
                   f"15 con pleno(bucket) {agg['mean_hits_15_con_pleno_bucket']:.2f}/15")
             print(f"Acierto sobre la unión de partidos: motor {agg['accuracy_motor_union']:.2%} | "
                   f"mercado {agg['accuracy_market_union']:.2%}")
-            print(f"Pleno exacto: {agg['pleno_exacto_total']}/{agg['n_tickets']} | bucket: {agg['pleno_bucket_total']}/{agg['n_tickets']}")
+            print(f"Pleno exacto: {agg['pleno_exacto_total']}/{agg['n_tickets']} | bucket: {agg['pleno_bucket_total']}/{agg['n_tickets']} | top3: {agg.get('pleno_top3_bucket_total', 0)}/{agg['n_tickets']}")
         else:
             print("Ningún boleto pudo evaluarse por cobertura incompleta.")
 
@@ -341,7 +360,7 @@ def main() -> int:
         print(f"  simples {global_agg['mean_hits_simple_14']:.2f}/14 | mercado {global_agg['mean_hits_market_14']:.2f}/14 | "
               f"3 dobles {global_agg['mean_hits_3dobles_14']:.2f}/14 | 15 con pleno {global_agg['mean_hits_15_con_pleno_bucket']:.2f}/15")
         print(f"  unión: motor {global_agg['accuracy_motor_union']:.2%} | mercado {global_agg['accuracy_market_union']:.2%} | "
-              f"pleno exacto {global_agg['pleno_exacto_total']}/{global_agg['n_tickets']} | bucket {global_agg['pleno_bucket_total']}/{global_agg['n_tickets']}")
+              f"pleno exacto {global_agg['pleno_exacto_total']}/{global_agg['n_tickets']} | bucket {global_agg['pleno_bucket_total']}/{global_agg['n_tickets']} | top3 {global_agg.get('pleno_top3_bucket_total', 0)}/{global_agg['n_tickets']}")
     print(f"Detalle: {args.output}")
     return 0
 

@@ -39,6 +39,11 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
   = mercado (consistente con referencia 2025-26, IC95 [47,4–56,3 %]); 3 dobles
   8,06/14 = 57,6 % (el proxy 8,63/15 = 57,5 % queda validado en tasa); Pleno
   bucket 5/35 = 14,3 % (top-1 `1-1`). Sin ROI hasta escrutinio LAE.
+- **Pleno (2026-08-04, sin escrutinio):** la selección del bucket ya es óptima
+  (13,2 % ≈ techo 13,3 %); el margen está en la **cobertura top-3 = 34,5 %**
+  (estable 4 temporadas). El maestro emite `pleno15_bucket` y el evaluador
+  mide `pleno_top3_bucket` sobre los boletos reales. Referencia intacta
+  (51,64/51,56). Suite: 196 tests.
 
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)
 

@@ -61,6 +61,8 @@ def predictions_frame() -> pd.DataFrame:
             "best_prob_1": probs[0], "best_prob_x": probs[1], "best_prob_2": probs[2],
             "best_pred": "1",
             "pleno15_marcador": "2-1",
+            "pleno15_bucket": "2-1",
+            "pleno15_top_scores": '[{"score": "2-1", "prob": 0.12}, {"score": "1-1", "prob": 0.11}, {"score": "1-0", "prob": 0.09}]',
         })
     rows.append({
         "date": pd.Timestamp("2025-08-31"), "home": "Girona", "away": "Vallecano",
@@ -70,6 +72,8 @@ def predictions_frame() -> pd.DataFrame:
         "best_prob_1": 0.2, "best_prob_x": 0.2, "best_prob_2": 0.6,
         "best_pred": "2",
         "pleno15_marcador": "2-1",
+        "pleno15_bucket": "2-1",
+        "pleno15_top_scores": '[{"score": "2-1", "prob": 0.12}, {"score": "1-1", "prob": 0.11}, {"score": "1-0", "prob": 0.09}]',
     })
     return pd.DataFrame(rows)
 
@@ -123,11 +127,28 @@ def test_evaluator_marks_incomplete_ticket_when_a_match_is_missing():
 def test_evaluator_reports_pleno_miss_when_model_score_differs():
     ticket = base_ticket()
     frame = predictions_frame()
-    frame.loc[frame["date"] == pd.Timestamp("2025-08-31"), "pleno15_marcador"] = "1-0"
+    mask = frame["date"] == pd.Timestamp("2025-08-31")
+    frame.loc[mask, "pleno15_marcador"] = "1-0"
+    frame.loc[mask, "pleno15_bucket"] = "1-0"
     result = evaluate_ticket_results(frame, [ticket], CONFIG)
     row = result["tickets"][0]
     assert row["pleno_exacto"] == 0
     assert row["pleno_bucket"] == 0
+    # El bucket oficial 2-1 sigue dentro del top-3 de marcadores -> cobertura 1.
+    assert row["pleno_top3_bucket"] == 1
+
+
+def test_evaluator_pleno_top3_coverage_uses_top_scores():
+    ticket = base_ticket()
+    frame = predictions_frame()
+    # El bucket oficial 2-1 no está en el top-3 -> cobertura 0.
+    mask = frame["date"] == pd.Timestamp("2025-08-31")
+    frame.loc[mask, "pleno15_top_scores"] = '[{"score": "0-0", "prob": 0.2}, {"score": "1-0", "prob": 0.15}, {"score": "0-1", "prob": 0.1}]'
+    result = evaluate_ticket_results(frame, [ticket], CONFIG)
+    row = result["tickets"][0]
+    assert row["pleno_top3_bucket"] == 0
+    # El bucket del modelo sigue acertando (pleno15_bucket 2-1).
+    assert row["pleno_bucket"] == 1
 
 
 def test_aggregate_rows_across_proposals():
@@ -135,12 +156,12 @@ def test_aggregate_rows_across_proposals():
 
     row_a = {
         "evaluated": True, "hits_simple_14": 7, "hits_market_14": 7, "hits_3dobles_14": 8,
-        "hits_15_con_pleno_bucket": 9, "pleno_exacto": 0, "pleno_bucket": 1,
+        "hits_15_con_pleno_bucket": 9, "pleno_exacto": 0, "pleno_bucket": 1, "pleno_top3_bucket": 1,
         "matches": [{"hit_motor": True, "hit_market": True}] * 14,
     }
     row_b = {
         "evaluated": True, "hits_simple_14": 9, "hits_market_14": 9, "hits_3dobles_14": 9,
-        "hits_15_con_pleno_bucket": 10, "pleno_exacto": 1, "pleno_bucket": 1,
+        "hits_15_con_pleno_bucket": 10, "pleno_exacto": 1, "pleno_bucket": 1, "pleno_top3_bucket": 0,
         "matches": [{"hit_motor": True, "hit_market": False}] * 14,
     }
     agg = aggregate_rows([row_a, row_b])
@@ -149,6 +170,7 @@ def test_aggregate_rows_across_proposals():
     assert agg["mean_hits_3dobles_14"] == 8.5
     assert agg["pleno_exacto_total"] == 1
     assert agg["pleno_bucket_total"] == 2
+    assert agg["pleno_top3_bucket_total"] == 1
     assert agg["matches_union"] == 28
     assert abs(agg["accuracy_motor_union"] - 1.0) < 1e-9
     assert abs(agg["accuracy_market_union"] - 0.5) < 1e-9

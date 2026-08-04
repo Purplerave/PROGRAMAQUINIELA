@@ -709,3 +709,50 @@ Lectura:
 5. **Sin ROI** (no hay escrutinio oficial LAE).
 
 La muestra de boletos reales queda en **40** (5 quiniela15 + 35 XML).
+
+### 9.12 Mejora del Pleno al 15: bucket del modelo y cobertura top-3
+
+Dirección de la sesión: **sin escrutinio/ROI; prioridad a que el motor
+prediga lo mejor posible**. Análisis cuantitativo del Pleno sobre el test
+(2.690 partidos con marcador real, rho=−0.04, Dixon-Coles):
+
+| Métrica del bucket (0/1/2/M) | Tasa | Nota |
+|---|---:|---|
+| Marcador exacto top-1 | 13,20 % | ≈ techo teórico (prob. media del mejor bucket = 13,30 %) |
+| Mejor bucket agregando 3+ (M) | 13,23 % | +0,04 pp: la selección ya es óptima |
+| **Cobertura top-3** | **34,46 %** | **2,6× el top-1**; estable por temporada (33,6–35,5 %) |
+
+Conclusión: **no hay margen en cambiar la selección del bucket** (el modelo ya
+elige el de mayor masa); el margen está en **explotar el top-3 de marcadores**
+(34,5 % de cobertura del bucket oficial frente a 13,2 % del top-1), y en medir
+esa cobertura sobre los boletos reales.
+
+Cambios:
+
+- `MOTOR_QUINIELA_MAESTRO.pleno_bucket_pick`: mejor bucket (agrega la masa de
+  marcadores con 3+ goles, como se juega el Pleno) + top-3 marcadores, con
+  Poisson o DC. `add_pleno_al_15` emite además `pleno15_bucket` y
+  `pleno15_bucket_prob` (aditivo; `pleno15_marcador` sigue siendo el top-1
+  exacto por contrato). En ~4,3 % de los partidos el bucket agregado mejora al
+  derivado del top-1.
+- `EVALUAR_ACIERTOS_BOLETOS.py`: compara el bucket oficial con
+  `pleno15_bucket` (fallback al top-1 si la caché es antigua) y añade
+  `pleno_top3_bucket` (¿el bucket oficial está entre los buckets de los 3
+  marcadores más probables?). El agregado reporta exacto / bucket / **top3**.
+
+Validación en sandbox: referencia intacta (motor 51,6357 % / mercado
+51,5613 %); cobertura top-3 almacenada 34,46 %. Suite: 196 tests en verde.
+
+En el equipo del usuario, actualizar el evaluador y reejecutar:
+
+```powershell
+git fetch origin arena/019fcc8f-programaquiniela
+git checkout FETCH_HEAD -- scripts/backtests/EVALUAR_ACIERTOS_BOLETOS.py
+python scripts\backtests\EVALUAR_ACIERTOS_BOLETOS.py --propuesta ^
+  salida\quiniela_historica_propuesta_xml_2025_2026.json
+```
+
+Usa la caché existente (el top-3 sale de `pleno15_top_scores` ya guardado).
+Para ver también `pleno15_bucket` (campo nuevo) hay que regenerar con
+`--no-cache` (~2 min). Esperable sobre los 35 boletos: bucket ≈ 5/35 y
+top-3 ≈ 12/35 (34,5 %).
