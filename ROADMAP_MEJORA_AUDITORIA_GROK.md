@@ -57,11 +57,13 @@ dobles/triples) y el resultado real, calcule:
       exacta de `OPTIMIZADOR_COLUMNAS.py` (misma fuente de verdad) — `tests/test_economics.py`.
 - [x] `reports/production_reference.json` incluye el bloque `economia`.
 
-**Resultado medido (ex-post, 392 jornadas, premios ESTIMADOS):** boleto modelo
-ROI **+130%** (volátil: −83,6%..+658,6% por temporada) con **P(≥12)=3,57%**;
-solo-mercado a 6 € ROI **−61,4%** con P(≥12)=0,77%. Delta ROI **+1,91**. El edge
-NO está en el acierto simple (ruido), está en la colocación de dobles. ⚠️ Depende
-de premios estimados y de varianza alta; no es garantía. Ver `EXPERIMENTOS_REGISTRO.md`.
+**Resultado medido (ex-post, 392 jornadas, premios ESTIMADOS manus.ai, 3 escenarios):**
+modelo **P(≥12)=3,57%** vs solo-mercado 0,77% (~4,7× más). ROI del boleto de 6 € por
+escenario — modelo vs solo-mercado: **fácil −93%/−99%**, **normal −50%/−92%**,
+**difícil +492%/−13%**. El modelo bate a solo-mercado en los tres, pero el juego solo
+es rentable en jornadas "difíciles" (botes). ⚠️ La cifra "+130%" de la primera versión
+estaba inflada (premio de 14 sobreestimado + varianza); corregida el 04/08/2026. El
+edge NO está en el acierto simple (ruido), está en la colocación de dobles. Ver `EXPERIMENTOS_REGISTRO.md`.
 
 > ⚠️ Nota de honestidad: los importes de premio de La Quiniela son variables (pozo,
 > nº de acertantes). El EV será **estimado con premios medios históricos** y debe

@@ -4,7 +4,7 @@
   "generado_por": "scripts/reports/GENERAR_PRODUCTION_REFERENCE.py",
   "git": {
     "repositorio": "Purplerave/PROGRAMAQUINIELA",
-    "commit_sha": "9ca38265d4be6898cd86b2b306df063103f3f365",
+    "commit_sha": "459560ba1309afc1ecc545c8ec85812aae55340b",
     "branch": "arena/019fce65-programaquiniela",
     "arbol_limpio": false,
     "cambios_sin_commit": 5
@@ -53,17 +53,17 @@
       "DATOS/QUINIELA15_J72.json": "fa7162a4a2a52904c49731f82b773e7142314a5cf556193b6896be06c9fe4b57",
       "DATOS/QUINIELA15_J73.json": "5b89a7ac6c4a0ed608d70271d0449137200ebeb6f3a5011b3e66a5481c0ea171",
       "DATOS/QUINIELA15_J74.json": "82b6525f0a776f7f263105df728c7ba70a2c46233b77dd7ffa4350fa72e473d1",
-      "CONFIG_MOTOR_V2.json": "f256372fbb9d5205c1df82fc511c9b80fa25c2ce03ffda842ab1a02055a15b65"
+      "CONFIG_MOTOR_V2.json": "768b39237566885f861bf03837eaeb0ddfa0552f70d97a9a4c19ae0a163f144d"
     },
     "resumen": {
       "algoritmo": "sha256",
       "dataset_historico_combinado": "8de2041787cd9fba2616be1d13ebb7ec66fe81237e594008d22a18276f67c95f",
-      "configuracion": "f256372fbb9d5205c1df82fc511c9b80fa25c2ce03ffda842ab1a02055a15b65",
+      "configuracion": "768b39237566885f861bf03837eaeb0ddfa0552f70d97a9a4c19ae0a163f144d",
       "n_archivos": 43
     }
   },
   "entorno": {
-    "fecha_generacion": "2026-08-04T20:33:30+0000",
+    "fecha_generacion": "2026-08-04T21:27:25+0000",
     "plataforma": "Linux-6.1.158+-x86_64-with-glibc2.36",
     "python": "3.11.2",
     "numpy": "2.2.6",
@@ -308,27 +308,66 @@
   "economia": {
     "fuente": "salida/evaluacion_economica.json",
     "premios_estimados": true,
-    "nota": "ROI EX-POST con premios medios históricos (variables por jornada). Orientativo, no garantía. Pleno al 15 excluido (se juega aparte).",
+    "nota": "ROI EX-POST con premios estimados (manus.ai; variables por jornada). Orientativo, no garantía. Pleno al 15 excluido (se juega aparte). Ver 'sensibilidad_escenarios' para el rango fácil/normal/difícil.",
+    "escenario_por_defecto": "normal",
     "jornadas_totales": 392,
     "modelo": {
       "coste_total_eur": 2352.0,
-      "premio_total_eur": 5409.0,
-      "roi": 1.2997448979591837,
+      "premio_total_eur": 1169.25,
+      "roi": -0.5028698979591837,
       "mean_hits": 8.002551020408163,
       "p_ge_12": 0.03571428571428571,
       "p_ge_13": 0.002551020408163265,
       "p_ge_14": 0.0
     },
     "solo_favoritos_mercado": {
-      "premio_total_eur": 907.0,
-      "roi_1col": 2.0850340136054424,
-      "roi_6eur": -0.6143707482993197,
+      "premio_total_eur": 193.0,
+      "roi_1col": -0.3435374149659864,
+      "roi_6eur": -0.9179421768707483,
       "mean_hits": 6.910714285714286,
       "p_ge_12": 0.007653061224489796,
       "p_ge_13": 0.0,
       "p_ge_14": 0.0
     },
-    "delta_roi_vs_market_6eur": 1.9141156462585034,
+    "delta_roi_vs_market_6eur": 0.4150722789115646,
+    "sensibilidad_escenarios": {
+      "facil": {
+        "modelo": {
+          "premio_total_eur": 157.5,
+          "coste_total_eur": 2352.0,
+          "roi": -0.9330357142857143
+        },
+        "solo_favoritos_mercado_6eur": {
+          "premio_total_eur": 28.5,
+          "coste_total_eur": 2352.0,
+          "roi": -0.9878826530612245
+        }
+      },
+      "normal": {
+        "modelo": {
+          "premio_total_eur": 1169.25,
+          "coste_total_eur": 2352.0,
+          "roi": -0.5028698979591837
+        },
+        "solo_favoritos_mercado_6eur": {
+          "premio_total_eur": 193.0,
+          "coste_total_eur": 2352.0,
+          "roi": -0.9179421768707483
+        }
+      },
+      "dificil": {
+        "modelo": {
+          "premio_total_eur": 13925.0,
+          "coste_total_eur": 2352.0,
+          "roi": 4.920493197278912
+        },
+        "solo_favoritos_mercado_6eur": {
+          "premio_total_eur": 2035.0,
+          "coste_total_eur": 2352.0,
+          "roi": -0.13477891156462585
+        }
+      }
+    },
     "reproducir": "python scripts/backtests/EVALUACION_ECONOMICA.py"
   },
   "resultado_tests": {

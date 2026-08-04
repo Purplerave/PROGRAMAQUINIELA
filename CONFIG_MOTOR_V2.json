@@ -132,14 +132,44 @@
   },
   "economia": {
     "prizes_eur": {
-      "14": 80000.0,
-      "13": 2000.0,
-      "12": 200.0,
-      "11": 25.0,
-      "10": 6.0
+      "14": 40000.0,
+      "13": 500.0,
+      "12": 35.0,
+      "11": 5.5,
+      "10": 2.25
+    },
+    "escenario_por_defecto": "normal",
+    "escenarios_premios_eur": {
+      "facil": {
+        "14": 3250.0,
+        "13": 45.0,
+        "12": 6.0,
+        "11": 1.5,
+        "10": 0.0
+      },
+      "normal": {
+        "14": 40000.0,
+        "13": 500.0,
+        "12": 35.0,
+        "11": 5.5,
+        "10": 2.25
+      },
+      "dificil": {
+        "14": 150000.0,
+        "13": 6000.0,
+        "12": 500.0,
+        "11": 45.0,
+        "10": 10.0
+      }
+    },
+    "escenarios_rangos_eur": {
+      "nota_rangos": "Rangos (min-max) por escenario de la estimación manus.ai; los valores puntuales de arriba son los puntos medios.",
+      "facil": {"14": [1500, 5000], "13": [30, 60], "12": [4, 8], "11": [1, 2], "10": [0, 0]},
+      "normal": {"14": [20000, 60000], "13": [200, 800], "12": [20, 50], "11": [3, 8], "10": [1.5, 3]},
+      "dificil": {"14": [150000, 300000], "13": [2000, 10000], "12": [200, 800], "11": [20, 70], "10": [5, 15]}
     },
     "premios_estimados": true,
-    "nota": "P0.1 (roadmap auditoria 04/08/2026): premios medios historicos ORIENTATIVOS por categoria (medianas aprox. de sorteos publicos 2024-2026). Los premios de La Quiniela son VARIABLES por jornada (bote y numero de acertantes); el EV/ROI derivado es una ESTIMACION, no una garantia. Pleno al 15 excluido (se juega aparte)."
+    "nota": "P0.1 (roadmap auditoria 04/08/2026): premios por escenario segun estimacion manus.ai de La Quiniela espanola (facil=muchos acertantes, normal=media historica, dificil=sorpresas/botes). prizes_eur = puntos medios del escenario 'normal'. Los premios reales son VARIABLES por jornada; el EV/ROI derivado es una ESTIMACION, no una garantia. El minimo de 10 aciertos puede no cobrarse en jornadas faciles. Pleno al 15 excluido (se juega aparte)."
   },
   "nordic_football_data": {
     "enabled": false,

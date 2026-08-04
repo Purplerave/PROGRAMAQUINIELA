@@ -46,16 +46,26 @@ import OPTIMIZADOR_COLUMNAS as opt  # noqa: E402  (reutiliza convolución exacta
 # juega y evalúa aparte según el contrato P0).
 PRIZE_CATEGORIES = (14, 13, 12, 11, 10)
 
-# Premios medios históricos ORIENTATIVOS por categoría, en euros. Medianas
-# aproximadas a partir de sorteos públicos 2024-2026 (El País, 20minutos, La Bruja
-# de Oro, Lottoster). Son variables por jornada; se pueden sobreescribir vía
+# Premios ORIENTATIVOS por categoría, en euros. Puntos medios del escenario
+# "normal" (media histórica) de la estimación manus.ai de La Quiniela española.
+# Son variables por jornada; se pueden sobreescribir vía
 # CONFIG_MOTOR_V2.json → "economia".prizes_eur o un fichero externo.
 DEFAULT_PRIZES_EUR = {
-    14: 80000.0,   # 1ª categoría (14 aciertos), sin bote acumulado
-    13: 2000.0,    # 2ª categoría
-    12: 200.0,     # 3ª categoría
-    11: 25.0,      # 4ª categoría
-    10: 6.0,       # 5ª categoría
+    14: 40000.0,   # 1ª categoría (14 aciertos)
+    13: 500.0,     # 2ª categoría
+    12: 35.0,      # 3ª categoría
+    11: 5.5,       # 4ª categoría
+    10: 2.25,      # 5ª categoría
+}
+
+# Escenarios de premio (puntos medios de los rangos manus.ai): fácil = muchos
+# acertantes (premios bajos), normal = media histórica, difícil = sorpresas/botes
+# (premios altos). Permiten análisis de sensibilidad del EV/ROI en vez de un único
+# número frágil. Se pueden sobreescribir vía economia.escenarios_premios_eur.
+DEFAULT_SCENARIOS_EUR = {
+    "facil":   {14: 3250.0,   13: 45.0,   12: 6.0,   11: 1.5,  10: 0.0},
+    "normal":  {14: 40000.0,  13: 500.0,  12: 35.0,  11: 5.5,  10: 2.25},
+    "dificil": {14: 150000.0, 13: 6000.0, 12: 500.0, 11: 45.0, 10: 10.0},
 }
 
 
@@ -76,6 +86,37 @@ def load_prizes(config: dict | None = None) -> dict[int, float]:
             except (TypeError, ValueError):
                 continue
     return prizes
+
+
+def load_scenarios(config: dict | None = None) -> dict[str, dict[int, float]]:
+    """Escenarios de premio (fácil/normal/difícil) desde config, con defaults.
+
+    Prioridad: CONFIG_MOTOR_V2.json → economia.escenarios_premios_eur; si no,
+    DEFAULT_SCENARIOS_EUR. Cada escenario es {categoria: premio_eur}.
+    """
+    cfg = config if config is not None else settings.CONFIG
+    econ = cfg.get("economia", {}) if isinstance(cfg, dict) else {}
+    raw = econ.get("escenarios_premios_eur") if isinstance(econ, dict) else None
+    scenarios = {k: dict(v) for k, v in DEFAULT_SCENARIOS_EUR.items()}
+    if isinstance(raw, dict):
+        for name, table in raw.items():
+            if not isinstance(table, dict):
+                continue
+            parsed = {}
+            for k, v in table.items():
+                try:
+                    parsed[int(k)] = float(v)
+                except (TypeError, ValueError):
+                    continue
+            if parsed:
+                scenarios[name] = parsed
+    return scenarios
+
+
+def default_scenario_name(config: dict | None = None) -> str:
+    cfg = config if config is not None else settings.CONFIG
+    econ = cfg.get("economia", {}) if isinstance(cfg, dict) else {}
+    return str(econ.get("escenario_por_defecto", "normal")) if isinstance(econ, dict) else "normal"
 
 
 def _as_prob_vectors(probs) -> list[np.ndarray]:
@@ -146,6 +187,33 @@ def expected_prize(dist: np.ndarray, prizes: dict[int, float] | None = None) -> 
     return ev
 
 
+def ev_by_scenario(
+    dist: np.ndarray,
+    *,
+    config: dict | None = None,
+    cost: float | None = None,
+    scenarios: dict[str, dict[int, float]] | None = None,
+) -> dict:
+    """EV y ROI del boleto bajo cada escenario de premio (fácil/normal/difícil).
+
+    Devuelve un análisis de sensibilidad: en vez de un único EV frágil, un
+    intervalo según la liquidez de la jornada. `cost` por defecto = contrato P0.
+    """
+    scenarios = scenarios if scenarios is not None else load_scenarios(config)
+    if cost is None:
+        cost = float(opt.columns_contract(config)["max_cost"])
+    out = {}
+    for name, prizes in scenarios.items():
+        ev = expected_prize(dist, prizes)
+        out[name] = {
+            "premios_eur": {str(k): float(v) for k, v in prizes.items()},
+            "ev_premios_eur": float(ev),
+            "ev_neto_eur": float(ev - cost),
+            "roi": float((ev - cost) / cost) if cost > 0 else float("nan"),
+        }
+    return out
+
+
 def evaluate_ticket_economics(
     probs,
     selected: list[tuple] | None = None,
@@ -199,6 +267,8 @@ def evaluate_ticket_economics(
         "ev_premios_eur": float(ev_gross),
         "ev_neto_eur": float(ev_net),
         "roi": float(roi),
+        "escenario_por_defecto": default_scenario_name(config),
+        "ev_por_escenario": ev_by_scenario(dist, config=config, cost=cost),
     }
 
 

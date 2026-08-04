@@ -125,6 +125,47 @@ def test_compare_model_vs_market_keys():
     )
 
 
+def test_load_scenarios_has_three_scenarios():
+    sc = econ.load_scenarios({})
+    assert set(sc) >= {"facil", "normal", "dificil"}
+    # ordenación esperada: difícil paga más que normal, y normal más que fácil.
+    assert sc["dificil"][14] > sc["normal"][14] > sc["facil"][14]
+    assert sc["dificil"][12] > sc["normal"][12] > sc["facil"][12]
+
+
+def test_load_scenarios_override():
+    sc = econ.load_scenarios(
+        {"economia": {"escenarios_premios_eur": {"normal": {"14": 99999.0}}}}
+    )
+    assert sc["normal"][14] == pytest.approx(99999.0)
+    # los otros escenarios se mantienen por defecto
+    assert sc["facil"][14] == econ.DEFAULT_SCENARIOS_EUR["facil"][14]
+
+
+def test_ev_by_scenario_monotonic():
+    # Distribución degenerada en 14 aciertos: EV = premio(14) de cada escenario.
+    dist = np.zeros(15)
+    dist[14] = 1.0
+    out = econ.ev_by_scenario(dist, cost=6.0)
+    assert out["dificil"]["ev_premios_eur"] > out["normal"]["ev_premios_eur"]
+    assert out["normal"]["ev_premios_eur"] > out["facil"]["ev_premios_eur"]
+    # ROI coherente con EV y coste
+    for name, d in out.items():
+        assert d["roi"] == pytest.approx((d["ev_premios_eur"] - 6.0) / 6.0)
+
+
+def test_evaluate_ticket_includes_scenarios():
+    result = econ.evaluate_ticket_economics(_sample_probs(11))
+    assert "ev_por_escenario" in result
+    assert set(result["ev_por_escenario"]) >= {"facil", "normal", "dificil"}
+    assert result["escenario_por_defecto"] == "normal"
+
+
+def test_default_prizes_match_normal_scenario():
+    # prizes_eur por defecto = puntos medios del escenario normal (coherencia).
+    assert econ.DEFAULT_PRIZES_EUR == econ.DEFAULT_SCENARIOS_EUR["normal"]
+
+
 def test_load_prizes_defaults_and_override():
     base = econ.load_prizes({})
     assert base[14] == econ.DEFAULT_PRIZES_EUR[14]

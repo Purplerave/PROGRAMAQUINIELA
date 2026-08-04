@@ -281,10 +281,12 @@ def main() -> None:
             "fuente": str(ECONOMIA_JSON.relative_to(PROJECT_ROOT)),
             "premios_estimados": econ_full.get("premios_estimados", True),
             "nota": econ_full.get("nota"),
+            "escenario_por_defecto": econ_full.get("escenario_por_defecto"),
             "jornadas_totales": econ_full.get("jornadas_totales"),
             "modelo": econ_full.get("modelo"),
             "solo_favoritos_mercado": econ_full.get("solo_favoritos_mercado"),
             "delta_roi_vs_market_6eur": econ_full.get("delta_roi_vs_market_6eur"),
+            "sensibilidad_escenarios": econ_full.get("sensibilidad_escenarios"),
             "reproducir": "python scripts/backtests/EVALUACION_ECONOMICA.py",
         }
 

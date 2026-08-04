@@ -60,11 +60,25 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   - Bloque `economia` en `reports/production_reference.json`.
   - 11 tests nuevos (`tests/test_economics.py`), suite total 200 en verde.
 - **Resultado (ex-post, 392 jornadas 2019-2026, premios ESTIMADOS):**
-  - Boleto modelo (3 dobles, 6 €): **ROI +130%** agregado pero MUY volátil por
-    temporada (−83,6% a +658,6%); media 8,00 aciertos; **P(≥12) = 3,57%**.
-  - Solo favoritos de mercado (mismo presupuesto 6 €): **ROI −61,4%**; media 6,91
-    aciertos; **P(≥12) = 0,77%**.
-  - **Delta ROI vs mercado (6 €): +1,91**; el modelo llega a 12 aciertos ~4,7× más a menudo.
+  - Media 8,00 aciertos y **P(≥12) = 3,57%** (modelo) vs 6,91 aciertos y **0,77%**
+    (solo-mercado): el modelo llega a 12 aciertos ~4,7× más a menudo.
+  - **ROI del boleto de 6 € por escenario** (actualizado 04/08/2026 con la
+    estimación manus.ai — ver bloque de premios):
+
+    | Escenario | Modelo | Solo-mercado |
+    |---|---|---|
+    | Fácil (muchos acertantes) | −93,3% | −98,8% |
+    | **Normal (media histórica)** | **−50,3%** | −91,8% |
+    | Difícil (sorpresas/botes) | **+492%** | −13,5% |
+
+  - **El modelo bate a solo-mercado en los 3 escenarios**, pero el juego solo es
+    rentable en jornadas "difíciles" (botes grandes, pocos acertantes). En jornada
+    normal pierde ~50%.
+  - ⚠️ **Corrección importante:** el "ROI +130%" que reportaba la primera versión de
+    P0.1 estaba INFLADO por un premio de 14 sobreestimado (80.000 € → 40.000 €) y por
+    la varianza de una sola temporada. Con premios mejor fundamentados el promedio es
+    negativo (esperable en un juego de azar); el edge real está en batir a solo-mercado
+    y en capturar los botes.
 - **Lectura honesta:** en acierto simple el edge es ruido (+0,24 pp), pero la
   COLOCACIÓN de dobles sí marca diferencia material en las categorías que pagan.
   El ROI positivo depende de premios estimados y de la varianza (una jornada de 13

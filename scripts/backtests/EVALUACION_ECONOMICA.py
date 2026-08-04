@@ -205,14 +205,40 @@ def main() -> None:
 
     total_model_cost = cost * total_jornadas
     total_market_cost_full = cost * total_jornadas
+
+    # Análisis de sensibilidad: ROI del modelo y del mercado bajo cada escenario
+    # de premio (fácil / normal / difícil) de la estimación manus.ai.
+    scenarios = econ.load_scenarios()
+
+    def roi_under(hits_list, scenario_prizes, ticket_cost):
+        prize = sum(
+            float(scenario_prizes.get(h, 0.0)) if h >= 10 else 0.0 for h in hits_list
+        )
+        total_cost = ticket_cost * len(hits_list)
+        return {
+            "premio_total_eur": prize,
+            "coste_total_eur": total_cost,
+            "roi": (prize - total_cost) / total_cost if total_cost else None,
+        }
+
+    sensibilidad = {}
+    for name, sp in scenarios.items():
+        sensibilidad[name] = {
+            "modelo": roi_under(all_model_hits, sp, cost),
+            "solo_favoritos_mercado_6eur": roi_under(all_market_hits, sp, cost),
+        }
+
     summary = {
         "contrato": contract,
         "premios_usados_eur": {str(k): float(v) for k, v in prizes.items()},
         "premios_estimados": True,
+        "escenario_por_defecto": econ.default_scenario_name(),
         "nota": (
-            "ROI EX-POST con premios medios históricos (variables por jornada). "
-            "Orientativo, no garantía. Pleno al 15 excluido (se juega aparte)."
+            "ROI EX-POST con premios estimados (manus.ai; variables por jornada). "
+            "Orientativo, no garantía. Pleno al 15 excluido (se juega aparte). "
+            "Ver 'sensibilidad_escenarios' para el rango fácil/normal/difícil."
         ),
+        "sensibilidad_escenarios": sensibilidad,
         "jornadas_totales": total_jornadas,
         "modelo": {
             "coste_total_eur": total_model_cost,
