@@ -27,14 +27,17 @@ SIGNS = {"1", "X", "2"}
 
 # Alias mínimos observados en boletos Quiniela15 frente a Football-Data.
 ALIASES = {
+    # Nombres Quiniela15 -> nombres efectivos del CSV Football-Data 2025-26.
     "at madrid": "ath madrid",
     "athletic": "ath bilbao",
-    "r sociedad": "real sociedad",
+    "rayo": "vallecano",
+    "real oviedo": "oviedo",
+    "r sociedad": "sociedad",
     "r santander": "santander",
-    "malaga": "malaga",
+    "espanyol": "espanol",
+    "sporting gijon": "sp gijon",
     "deportivo": "la coruna",
-    "andorra": "fc andorra",
-    "castellon": "castellon",
+    "andorra": "andorra",
 }
 
 

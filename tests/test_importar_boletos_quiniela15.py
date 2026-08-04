@@ -40,5 +40,8 @@ def test_importer_creates_valid_proposal_with_derived_dates(tmp_path):
     assert tickets[0]["pleno15"]["score"] == "2-1"
 
 
-def test_importer_repairs_console_mojibake():
+def test_importer_repairs_console_mojibake_and_known_ticket_aliases():
     assert canonical_team("AlavÃ©s") == "alaves"
+    assert canonical_team("Rayo") == "vallecano"
+    assert canonical_team("R. Sociedad") == "sociedad"
+    assert canonical_team("Sporting GijÃ³n") == "sp gijon"

@@ -235,6 +235,25 @@ derivar únicamente tras coincidencia única de local+visitante contra
 Football-Data de la misma temporada; ROI continúa bloqueado hasta disponer de
 premios verificables.
 
+### Primer intento de cruce (estado 2026-08-04)
+
+El primer intento rechazó los 9 boletos, correctamente, en la primera
+coincidencia ausente de cada uno. Reveló dos clases de causa:
+
+1. **Alias de nomenclatura** entre Quiniela15 y Football-Data: `Rayo`/
+   `Vallecano`, `R. Sociedad`/`Sociedad`, `Real Oviedo`/`Oviedo`,
+   `Athletic`/`Ath Bilbao`, `Espanyol`/`Espanol`, `Sporting Gijón`/`Sp Gijon`
+   y `Deportivo`/`La Coruna`. El importador incorpora ahora estos alias
+   explícitos y testeados; no usa emparejamiento aproximado.
+2. **Partidos fuera de Primera/Segunda**, que el histórico/modelo actual no
+   cubre: al menos `Athletic - Arsenal` (J006) y `FC Kairat Almaty - Real
+   Madrid` (J010). Estos no deben forzarse ni imputarse. Un boleto que los
+   contenga no podrá evaluarse como boleto completo del motor español hasta
+   disponer de predicciones históricas compatibles para esas competiciones.
+
+El siguiente reintento debe distinguir boletos españoles completos de los que
+quedan fuera de cobertura, preservando el motivo exacto en `failures`.
+
 ### Importador de propuesta
 
 Commit `93552eb` añade:
