@@ -166,6 +166,28 @@ def test_importer_repairs_console_mojibake_and_known_ticket_aliases():
     assert canonical_team("R. Sociedad B") == "sociedad b"
 
 
+def test_lae_style_aliases_resolve_to_football_data_teams():
+    # Nombres oficiales estilo LAE / quinielista.es -> CSV Football-Data.
+    assert canonical_team("Athletic Club") == "ath bilbao"
+    assert canonical_team("Atlético de Madrid") == "ath madrid"
+    assert canonical_team("F.C. Barcelona") == "barcelona"
+    assert canonical_team("Real Betis Balompié") == "betis"
+    assert canonical_team("R.C.D. Espanyol de Barcelona") == "espanol"
+    assert canonical_team("Real Sociedad") == "sociedad"
+    assert canonical_team("Real Sociedad B") == "sociedad b"
+    assert canonical_team("Real Sporting de Gijón") == "sp gijon"
+    assert canonical_team("RC Deportivo") == "la coruna"
+    assert canonical_team("Deportivo de La Coruña") == "la coruna"
+    assert canonical_team("Racing de Santander") == "santander"
+    assert canonical_team("Real Valladolid C.F.") == "valladolid"
+    assert canonical_team("Cultural y Deportiva Leonesa") == "cultural leonesa"
+    assert canonical_team("Real Zaragoza") == "zaragoza"
+    assert canonical_team("C.D. Leganés") == "leganes"
+    assert canonical_team("U.D. Las Palmas") == "las palmas"
+    assert canonical_team("Cádiz C.F.") == "cadiz"
+    assert canonical_team("Málaga C.F.") == "malaga"
+
+
 def test_pleno_bucket_uses_hyphen_with_m_marker():
     assert pleno_bucket_from_score(1, 1) == "1-1"
     assert pleno_bucket_from_score(3, 2) == "M-2"

@@ -230,25 +230,42 @@ def evaluate_ticket_results(
     }
 
 
+def aggregate_rows(rows: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Agrega filas de boleto evaluadas de una o varias propuestas."""
+    evaluated = [row for row in rows if row.get("evaluated")]
+    if not evaluated:
+        return None
+    n = len(evaluated)
+    union_motor = [match["hit_motor"] for row in evaluated for match in row["matches"]]
+    union_market = [match["hit_market"] for row in evaluated for match in row["matches"]]
+    return {
+        "n_tickets": n,
+        "mean_hits_simple_14": float(sum(row["hits_simple_14"] for row in evaluated) / n),
+        "mean_hits_market_14": float(sum(row["hits_market_14"] for row in evaluated) / n),
+        "mean_hits_3dobles_14": float(sum(row["hits_3dobles_14"] for row in evaluated) / n),
+        "mean_hits_15_con_pleno_bucket": float(sum(row["hits_15_con_pleno_bucket"] for row in evaluated) / n),
+        "pleno_exacto_total": sum(1 for row in evaluated if row["pleno_exacto"]),
+        "pleno_bucket_total": sum(1 for row in evaluated if row["pleno_bucket"]),
+        "accuracy_motor_union": float(sum(union_motor) / len(union_motor)) if union_motor else None,
+        "accuracy_market_union": float(sum(union_market) / len(union_market)) if union_market else None,
+        "matches_union": len(union_motor),
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--propuesta", type=Path, default=DEFAULT_PROPUESTA)
+    parser.add_argument("--propuesta", type=Path, nargs="+", default=[DEFAULT_PROPUESTA])
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
     parser.add_argument("--no-cache", action="store_true", help="Recomputa las predicciones sin leer ni escribir la caché")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
 
-    if not args.propuesta.is_file():
-        print(f"No existe la propuesta: {args.propuesta}")
+    missing = [str(path) for path in args.propuesta if not path.is_file()]
+    if missing:
+        print("No existe(n) la(s) propuesta(s):")
+        for path in missing:
+            print(f"  - {path}")
         print("Ejecuta primero: python scripts/datos/IMPORTAR_BOLETOS_QUINIELA15.py")
-        return 1
-
-    payload = load_propuesta(args.propuesta)
-    tickets = payload["tickets"]
-    print(f"Propuesta: {args.propuesta}")
-    print(f"Boletos aceptados disponibles: {len(tickets)}")
-    if not tickets:
-        print("No hay boletos aceptados (sección 'tickets' vacía).")
         return 1
 
     predictions, metrics = load_or_compute_predictions(args.cache, use_cache=not args.no_cache)
@@ -259,41 +276,72 @@ def main() -> int:
     from MOTOR_QUINIELA_MAESTRO import active_hybrid_config
 
     config = active_hybrid_config()
-    result = evaluate_ticket_results(predictions, tickets, config, pred_prefix=PRED_PREFIX)
 
+    propuestas: list[dict[str, Any]] = []
+    all_rows: list[dict[str, Any]] = []
+    for propuesta_path in args.propuesta:
+        payload = load_propuesta(propuesta_path)
+        tickets = payload["tickets"]
+        print(f"\nPropuesta: {propuesta_path}")
+        print(f"Boletos aceptados disponibles: {len(tickets)}")
+        if not tickets:
+            print("No hay boletos aceptados (sección 'tickets' vacía).")
+            continue
+        result = evaluate_ticket_results(predictions, tickets, config, pred_prefix=PRED_PREFIX)
+        propuestas.append({
+            "propuesta": str(propuesta_path),
+            "tickets": result["tickets"],
+            "aggregate": result["aggregate"],
+            "attach_stats": result["attach_stats"],
+        })
+        all_rows.extend(result["tickets"])
+
+        print("-" * 78)
+        for row in result["tickets"]:
+            if not row.get("evaluated"):
+                print(f"J{row['jornada']:02d} {row['ticket_id']}: {row['reason']} ({row['matches_attached']}/{row['matches_expected']})")
+                continue
+            print(
+                f"J{row['jornada']:02d} {row['ticket_id']}: simples {row['hits_simple_14']}/14 | "
+                f"mercado {row['hits_market_14']}/14 | 3 dobles {row['hits_3dobles_14']}/14 | "
+                f"pleno {row['pleno_oficial']} (modelo {row['pleno_modelo']}) exacto={row['pleno_exacto']}"
+            )
+        print("-" * 78)
+        agg = result["aggregate"]
+        if agg:
+            print(f"Media por boleto evaluado: simples {agg['mean_hits_simple_14']:.2f}/14 | "
+                  f"mercado {agg['mean_hits_market_14']:.2f}/14 | "
+                  f"3 dobles {agg['mean_hits_3dobles_14']:.2f}/14 | "
+                  f"15 con pleno(bucket) {agg['mean_hits_15_con_pleno_bucket']:.2f}/15")
+            print(f"Acierto sobre la unión de partidos: motor {agg['accuracy_motor_union']:.2%} | "
+                  f"mercado {agg['accuracy_market_union']:.2%}")
+            print(f"Pleno exacto: {agg['pleno_exacto_total']}/{agg['n_tickets']} | bucket: {agg['pleno_bucket_total']}/{agg['n_tickets']}")
+        else:
+            print("Ningún boleto pudo evaluarse por cobertura incompleta.")
+
+    global_agg = aggregate_rows(all_rows)
     report = {
         "schema_version": "1.0",
-        "propuesta": str(args.propuesta),
         "modo_motor": "produccion",
         "config_weights": config["weights"],
         "reference_proxy_3_dobles": "8,63/15 bloques artificiales (no comparable directamente)",
-        **result,
+        "propuestas": propuestas,
+        "aggregate_global": global_agg,
+        "nota": "Sin escrutinio oficial por categoria no se calcula ROI (status missing_official_payouts). "
+                "La referencia proxy del README (8,63/15) se calcula sobre bloques artificiales de 15 filas "
+                "y no es comparable directamente con los boletos oficiales.",
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print("-" * 78)
-    for row in result["tickets"]:
-        if not row.get("evaluated"):
-            print(f"J{row['jornada']:02d} {row['ticket_id']}: {row['reason']} ({row['matches_attached']}/{row['matches_expected']})")
-            continue
-        print(
-            f"J{row['jornada']:02d} {row['ticket_id']}: simples {row['hits_simple_14']}/14 | "
-            f"mercado {row['hits_market_14']}/14 | 3 dobles {row['hits_3dobles_14']}/14 | "
-            f"pleno {row['pleno_oficial']} (modelo {row['pleno_modelo']}) exacto={row['pleno_exacto']}"
-        )
-    print("-" * 78)
-    agg = result["aggregate"]
-    if agg:
-        print(f"Media por boleto evaluado: simples {agg['mean_hits_simple_14']:.2f}/14 | "
-              f"mercado {agg['mean_hits_market_14']:.2f}/14 | "
-              f"3 dobles {agg['mean_hits_3dobles_14']:.2f}/14 | "
-              f"15 con pleno(bucket) {agg['mean_hits_15_con_pleno_bucket']:.2f}/15")
-        print(f"Acierto sobre la unión de partidos: motor {agg['accuracy_motor_union']:.2%} | "
-              f"mercado {agg['accuracy_market_union']:.2%}")
-        print(f"Pleno exacto: {agg['pleno_exacto_total']}/{agg['n_tickets']} | bucket: {agg['pleno_bucket_total']}/{agg['n_tickets']}")
-    else:
-        print("Ningún boleto pudo evaluarse por cobertura incompleta.")
+    if global_agg:
+        print("\n" + "=" * 78)
+        print(f"GLOBAL ({len(args.propuesta)} propuesta(s)): "
+              f"{global_agg['n_tickets']} boletos evaluados, {global_agg['matches_union']} partidos en unión")
+        print(f"  simples {global_agg['mean_hits_simple_14']:.2f}/14 | mercado {global_agg['mean_hits_market_14']:.2f}/14 | "
+              f"3 dobles {global_agg['mean_hits_3dobles_14']:.2f}/14 | 15 con pleno {global_agg['mean_hits_15_con_pleno_bucket']:.2f}/15")
+        print(f"  unión: motor {global_agg['accuracy_motor_union']:.2%} | mercado {global_agg['accuracy_market_union']:.2%} | "
+              f"pleno exacto {global_agg['pleno_exacto_total']}/{global_agg['n_tickets']} | bucket {global_agg['pleno_bucket_total']}/{global_agg['n_tickets']}")
     print(f"Detalle: {args.output}")
     return 0
 

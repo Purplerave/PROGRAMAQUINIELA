@@ -101,3 +101,11 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   Referencia del test reproducida en sandbox: 51,64/51,56 %. Sin ROI hasta
   disponer de escrutinio oficial LAE. Muestra pequeña (70 partidos), no
   comparable con el proxy de bloques artificiales.
+- **Ampliación de muestra:** `scripts/datos/COMPONER_BOLETOS_XML.py` compone
+  boletos desde los XML auditados de quinielista.es (composición LAE 1..15)
+  + resultados Football-Data, con la misma clasificación
+  tickets/out_of_coverage/failures (clasificador compartido). Alias ampliados
+  a nombres LAE (incluidas siglas con puntos). El evaluador acepta varias
+  propuestas y da agregado global. Validado en sandbox (XML sintético +
+  histórico real): 3/3 compuestos; global 8 boletos, motor 51,79 % = mercado.
+  Suite: 190 tests en verde.

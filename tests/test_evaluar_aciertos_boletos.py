@@ -128,3 +128,28 @@ def test_evaluator_reports_pleno_miss_when_model_score_differs():
     row = result["tickets"][0]
     assert row["pleno_exacto"] == 0
     assert row["pleno_bucket"] == 0
+
+
+def test_aggregate_rows_across_proposals():
+    from scripts.backtests.EVALUAR_ACIERTOS_BOLETOS import aggregate_rows
+
+    row_a = {
+        "evaluated": True, "hits_simple_14": 7, "hits_market_14": 7, "hits_3dobles_14": 8,
+        "hits_15_con_pleno_bucket": 9, "pleno_exacto": 0, "pleno_bucket": 1,
+        "matches": [{"hit_motor": True, "hit_market": True}] * 14,
+    }
+    row_b = {
+        "evaluated": True, "hits_simple_14": 9, "hits_market_14": 9, "hits_3dobles_14": 9,
+        "hits_15_con_pleno_bucket": 10, "pleno_exacto": 1, "pleno_bucket": 1,
+        "matches": [{"hit_motor": True, "hit_market": False}] * 14,
+    }
+    agg = aggregate_rows([row_a, row_b])
+    assert agg["n_tickets"] == 2
+    assert agg["mean_hits_simple_14"] == 8.0
+    assert agg["mean_hits_3dobles_14"] == 8.5
+    assert agg["pleno_exacto_total"] == 1
+    assert agg["pleno_bucket_total"] == 2
+    assert agg["matches_union"] == 28
+    assert abs(agg["accuracy_motor_union"] - 1.0) < 1e-9
+    assert abs(agg["accuracy_market_union"] - 0.5) < 1e-9
+    assert aggregate_rows([{"evaluated": False, "reason": "cobertura_incompleta"}]) is None

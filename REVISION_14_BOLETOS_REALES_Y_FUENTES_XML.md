@@ -570,3 +570,44 @@ JSON de quiniela15.com) y, cuando exista escrutinio LAE auditado, incorporar
 de Git; la fuente quiniela15.com no es oficial LAE, por lo que estos tickets
 permanecen como propuesta contrastada hasta tener procedencia/licencia y
 contraste LAE explícitos (contrato `DATOS/quiniela_historica/README.md`).
+
+### 9.8 Ampliación de muestra: compositor desde XML quinielista + Football-Data
+
+Para ampliar la muestra sin depender de más descargas, se aprovechan los
+**148 XML ya auditados** en `salida\quinielista_raw\` (composición oficial
+LAE 1..15, SHA-256 por manifiesto) y se les añaden los resultados de
+Football-Data:
+
+```powershell
+python scripts\datos\COMPONER_BOLETOS_XML.py
+```
+
+- `load_xml_jornadas`: solo admite evidencias cuyo SHA-256 coincide con su
+  manifiesto y cuya estructura 1..15 es válida; prefiere la variante `lae`.
+- `enrich_from_football_data`: localiza cada partido por coincidencia única
+  local+visitante (fecha y resultado derivados de Football-Data).
+- Clasificación idéntica a la del importador (`classify_enriched` extraído y
+  compartido): `tickets` / `out_of_coverage` / `failures`.
+- Alias ampliados a nombres oficiales estilo LAE/quinielista (Athletic Club,
+  Atlético de Madrid, R.C.D. Espanyol, Racing de Santander, U.D. Las Palmas,
+  C.D. Leganés…), incluidas las formas con siglas con puntos (`f c barcelona`).
+
+El evaluador ahora acepta **varias propuestas** (`--propuesta` repetible) y
+reporta agregado global:
+
+```powershell
+python scripts\backtests\EVALUAR_ACIERTOS_BOLETOS.py --propuesta ^
+  salida\quiniela_historica_propuesta_2025_2026.json ^
+  salida\quiniela_historica_propuesta_xml_2025_2026.json
+```
+
+Validado en el sandbox (XML sintético con nombres LAE de fixtures reales
+2025-26 + histórico real): 3/3 boletos compuestos y contrastados; evaluador
+multi-propuesta con 8 boletos / 112 partidos en unión, global motor 51,79 %
+= mercado 51,79 %. Suite: 190 tests en verde (+11: compositor, alias LAE y
+agregado global).
+
+Procedencia de esta ampliación: composición LAE vía quinielista.es (XML
+auditado) + resultados Football-Data; la salida sigue siendo
+`proposal_not_official_lae`. No se descargan datos nuevos ni se versiona nada
+externo.

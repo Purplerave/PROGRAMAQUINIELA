@@ -132,7 +132,16 @@ El evaluador genera las predicciones del test principal en modo producción
 fecha+equipos sin aproximaciones y reporta por boleto aciertos simples,
 tres dobles sobre los 14 partidos reales y el Pleno al 15. Si un partido no
 aparece en el test (p. ej. fila sin cuotas), el boleto se marca
-`cobertura_incompleta` y no se evalúa a medias.
+`cobertura_incompleta` y no se evalúa a medias. Se pueden evaluar varias
+propuestas a la vez repitiendo `--propuesta`.
+
+Además de los JSON de quiniela15.com, se pueden componer boletos desde los
+XML auditados de quinielista.es (composición LAE 1..15) + resultados de
+Football-Data:
+
+```powershell
+python scripts/datos/COMPONER_BOLETOS_XML.py
+```
 
 Primera evaluación real (5 boletos 2025-26, J001/J002/J003/J005/J007):
 simples 7,00/14 (motor = mercado, config v4 mercado-dominante), tres dobles
