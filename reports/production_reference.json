@@ -1,0 +1,320 @@
+{
+  "documento": "Referencia de producción — motor quinielístico",
+  "version": "1.0",
+  "generado_por": "scripts/reports/GENERAR_PRODUCTION_REFERENCE.py",
+  "git": {
+    "repositorio": "Purplerave/PROGRAMAQUINIELA",
+    "commit_sha": "a77c3e9232910fe8d09103dbef4d0affec02766a",
+    "branch": "arena/019fcdd6-programaquiniela",
+    "arbol_limpio": true,
+    "cambios_sin_commit": 0
+  },
+  "hashes": {
+    "archivos": {
+      "DATOS/historico_raw/PRIMERA/SP1_1011.csv": "447870c073febe4ad7136a33a421af9b432ee6c3162500aedf70f8e1a8bfa5a5",
+      "DATOS/historico_raw/PRIMERA/SP1_1112.csv": "fc44a77e2ae439e426f13ce00244ea978b0d88ff8a20649765563efd7ee383f2",
+      "DATOS/historico_raw/PRIMERA/SP1_1213.csv": "9fba4298e7fe68943d742cbfb2a26e481fa1f47ea03c9cf1479a8dce468b36a4",
+      "DATOS/historico_raw/PRIMERA/SP1_1314.csv": "3511f6cf4cde676246a1b20f59a5d40d48d24b316b546113c8b643bd697429b1",
+      "DATOS/historico_raw/PRIMERA/SP1_1415.csv": "0ca041307776ada15e05e5e8c3fc484fdc53cc501e4cdc5f847051ca0aa214bf",
+      "DATOS/historico_raw/PRIMERA/SP1_1516.csv": "fece2ca76165b166260ac419fed33fbfdc4dab8ad0dd83cd286573fabfba167d",
+      "DATOS/historico_raw/PRIMERA/SP1_1617.csv": "8bff16320119b083209d7b04461982d7a3f821af380e76f25e0124268f88cdc9",
+      "DATOS/historico_raw/PRIMERA/SP1_1718.csv": "dd1c4191142f4463ddc5881016153e99f6114c5e61225507f6110df81df75e03",
+      "DATOS/historico_raw/PRIMERA/SP1_1819.csv": "cc8f57eeb02af6283a7dd520bd04826c73d15b57c35167174ae9be431b708576",
+      "DATOS/historico_raw/PRIMERA/SP1_1920.csv": "43f2546211bab4bcf90d287ba9ec6e037144366c41b042be0e9d5529201af2b2",
+      "DATOS/historico_raw/PRIMERA/SP1_2021.csv": "452586dd68c3fe7ef2bce747ef42e123f1f72659c5bd2b0e3fbe5df23dc25cc1",
+      "DATOS/historico_raw/PRIMERA/SP1_2122.csv": "34c7dfca71d4811d8dca1a30271006bec7f42892453601b1076cc297b28a1037",
+      "DATOS/historico_raw/PRIMERA/SP1_2223.csv": "a14f0133951dd721f310e3378efe591a241e647342c18825223e05dc8aadb003",
+      "DATOS/historico_raw/PRIMERA/SP1_2324.csv": "c124815dae7337325a67623fa05493ef870f67f78828aa86b0f60d5bea20f0fc",
+      "DATOS/historico_raw/PRIMERA/SP1_2425.csv": "bb544fa35b029896047a4bd7c12f3c8e50ff40451bb582c003549482fdeaa8a8",
+      "DATOS/historico_raw/PRIMERA/SP1_2526.csv": "95596a8dbb8adb1bd7e9b86701c279569955477ae97c77bc1c146375da81b1c3",
+      "DATOS/historico_raw/SEGUNDA/SP2_1011.csv": "720f71c0e64752316cabab2963acb20fcf1845c1bbdbda7151df8b9a8b6af097",
+      "DATOS/historico_raw/SEGUNDA/SP2_1112.csv": "2ebae5fd4967ce19a1bed1e186ddc86e948ec542619b41efc9b8a41995a4859b",
+      "DATOS/historico_raw/SEGUNDA/SP2_1213.csv": "54f672ee03ba51d84648e07fac1ba54598cc07c169b2248f7ca076b91a322a3b",
+      "DATOS/historico_raw/SEGUNDA/SP2_1314.csv": "240e35f66d434fa2df8331be652401fdf15a60dfb485a197cd394066a806e27f",
+      "DATOS/historico_raw/SEGUNDA/SP2_1415.csv": "4d3d8cfea2bd510968c816fb9c5cc3d9de350cd5ef1937c41ef4b4ec638ce379",
+      "DATOS/historico_raw/SEGUNDA/SP2_1516.csv": "4efe9a24477b6c1a3b21c523b19edbccd2b2d095d8e86c4534b8485a8d77decd",
+      "DATOS/historico_raw/SEGUNDA/SP2_1617.csv": "55678d3d67dfddf80a0314810a58b6a264d338fd289753a65e6067cc77cf5e78",
+      "DATOS/historico_raw/SEGUNDA/SP2_1718.csv": "1a5f4ad4bb08e1cc8c92eaf007537d3ece4f035f502b95d24b49043b462d5cc1",
+      "DATOS/historico_raw/SEGUNDA/SP2_1819.csv": "734360930585eed5a380534362718d9b9644f05ed3dd929f97f921f756f85ec1",
+      "DATOS/historico_raw/SEGUNDA/SP2_1920.csv": "0faafdecc9f29bcba28a015cfbd7db1e588ff6f1f55175ff6411484d7eacdfe4",
+      "DATOS/historico_raw/SEGUNDA/SP2_2021.csv": "13b35d35cab19cbcbc1b1fa91f300ee4234169ba84606cf7acebf4f90f225a0b",
+      "DATOS/historico_raw/SEGUNDA/SP2_2122.csv": "0599b7bf901564ccecb4c5536621a440c5ad8577f5a9aaeacae2beed6a551a10",
+      "DATOS/historico_raw/SEGUNDA/SP2_2223.csv": "386cf620d2ede3ef98b9fc31705d126a5ebde884e53630c2f5497eeb63c5dd4c",
+      "DATOS/historico_raw/SEGUNDA/SP2_2324.csv": "590dcbc359583621d18615dea0d7d85ecb55446611484d767b3fe600deed0e71",
+      "DATOS/historico_raw/SEGUNDA/SP2_2425.csv": "b9f07dc4cb1b8824dabff663c2f2171b15ebb132d1b05622ac37a391e93a8351",
+      "DATOS/historico_raw/SEGUNDA/SP2_2526.csv": "ed4d982d3dcbb16176386fe5370c85b9abac38996328eb2a577ca920c21139ba",
+      "DATOS/highlightly_dataset/highlightly_partidos_2023_2026.csv": "cdc906e114ae75265f4cd8e049938f6c108481837ddf22349ac5f8693e60707a",
+      "DATOS/temporada_2026_27_equipos.json": "ce612a923ec36585789937ec75ab12a1b9c24f710af5c0d5aa0cc327fde4b9ae",
+      "DATOS/temporada_2026_27_estadisticas_base.json": "2bfbae26a2557fbb864617bbc8a0b58c1a274c9ea9ca6289529dbf805ed32d07",
+      "DATOS/QUINIELA15_J66.json": "dfe09edb588a5cb485c89651b4c6d0fe74bb217c877e414f0ed5f4b05c1505a8",
+      "DATOS/QUINIELA15_J67.json": "173794e0946caf990fe146f48554f491f3602a48c994f0720984f1bfe9e42f9b",
+      "DATOS/QUINIELA15_J68.json": "d58e283f799863418a402814430b21ae83e577a7a8a91d1ad8af6a5b59e62914",
+      "DATOS/QUINIELA15_J69.json": "849662ebe0336d47b930810ff07791b73c78d57eb4f2318afe934ad61be58d85",
+      "DATOS/QUINIELA15_J72.json": "fa7162a4a2a52904c49731f82b773e7142314a5cf556193b6896be06c9fe4b57",
+      "DATOS/QUINIELA15_J73.json": "5b89a7ac6c4a0ed608d70271d0449137200ebeb6f3a5011b3e66a5481c0ea171",
+      "DATOS/QUINIELA15_J74.json": "82b6525f0a776f7f263105df728c7ba70a2c46233b77dd7ffa4350fa72e473d1",
+      "CONFIG_MOTOR_V2.json": "d777e63997750189ce263bf5e1ce9d42975a61d20cf2b7f8147820108591c231"
+    },
+    "resumen": {
+      "algoritmo": "sha256",
+      "dataset_historico_combinado": "8de2041787cd9fba2616be1d13ebb7ec66fe81237e594008d22a18276f67c95f",
+      "configuracion": "d777e63997750189ce263bf5e1ce9d42975a61d20cf2b7f8147820108591c231",
+      "n_archivos": 43
+    }
+  },
+  "entorno": {
+    "fecha_generacion": "2026-08-04T18:51:56+0000",
+    "plataforma": "Linux-6.1.158+-x86_64-with-glibc2.36",
+    "python": "3.11.2",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit_learn": "1.7.2",
+    "pytest": "9.1.1"
+  },
+  "protocolo_evaluacion": {
+    "tipo": "backtest walk-forward por temporada",
+    "train": "todas las temporadas anteriores a la temporada objetivo",
+    "test": "la temporada objetivo completa (842 partidos)",
+    "horizonte": "2019-2020 .. 2025-2026 (7 temporadas)",
+    "contrato_columnas": "3 dobles sobre 14 partidos = 8 columnas a 0,75 EUR = 6,00 EUR max.; Pleno al 15 separado (contrato P0 2026-08-04)",
+    "seleccion_dobles": "evaluación exhaustiva de las C(14,3)=364 combinaciones y selección por segunda probabilidad (maximiza aciertos esperados)",
+    "comparacion": "favorito de mercado (accuracy_market_favorite)",
+    "metricas_reportadas": [
+      "accuracy_simple",
+      "accuracy_market_favorite",
+      "mean_hits_3_dobles",
+      "best_jornada_3_dobles",
+      "accuracy por división (Primera/Segunda)"
+    ],
+    "script": "scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py"
+  },
+  "metricas_por_temporada": [
+    {
+      "season": "2019-2020",
+      "train_matches": 7552,
+      "test_matches": 842,
+      "date_from": "2019-08-16",
+      "date_to": "2020-08-07",
+      "accuracy_simple": 0.4691211401425178,
+      "accuracy_market_favorite": 0.45961995249406173,
+      "mean_hits_3_dobles": 8.035714285714286,
+      "best_jornada_3_dobles": 11,
+      "divisiones": {
+        "Primera": {
+          "matches": 380,
+          "accuracy_simple": 0.5210526315789473,
+          "accuracy_market_favorite": 0.5184210526315789
+        },
+        "Segunda": {
+          "matches": 462,
+          "accuracy_simple": 0.4264069264069264,
+          "accuracy_market_favorite": 0.41125541125541126
+        }
+      }
+    },
+    {
+      "season": "2020-2021",
+      "train_matches": 8394,
+      "test_matches": 842,
+      "date_from": "2020-09-12",
+      "date_to": "2021-05-30",
+      "accuracy_simple": 0.5083135391923991,
+      "accuracy_market_favorite": 0.502375296912114,
+      "mean_hits_3_dobles": 8.625,
+      "best_jornada_3_dobles": 13,
+      "divisiones": {
+        "Primera": {
+          "matches": 380,
+          "accuracy_simple": 0.5447368421052632,
+          "accuracy_market_favorite": 0.5447368421052632
+        },
+        "Segunda": {
+          "matches": 462,
+          "accuracy_simple": 0.47835497835497837,
+          "accuracy_market_favorite": 0.4675324675324675
+        }
+      }
+    },
+    {
+      "season": "2021-2022",
+      "train_matches": 9236,
+      "test_matches": 842,
+      "date_from": "2021-08-13",
+      "date_to": "2022-05-29",
+      "accuracy_simple": 0.4845605700712589,
+      "accuracy_market_favorite": 0.47980997624703087,
+      "mean_hits_3_dobles": 8.375,
+      "best_jornada_3_dobles": 12,
+      "divisiones": {
+        "Primera": {
+          "matches": 380,
+          "accuracy_simple": 0.5263157894736842,
+          "accuracy_market_favorite": 0.5184210526315789
+        },
+        "Segunda": {
+          "matches": 462,
+          "accuracy_simple": 0.45021645021645024,
+          "accuracy_market_favorite": 0.44805194805194803
+        }
+      }
+    },
+    {
+      "season": "2022-2023",
+      "train_matches": 10078,
+      "test_matches": 842,
+      "date_from": "2022-08-12",
+      "date_to": "2023-06-04",
+      "accuracy_simple": 0.49643705463182897,
+      "accuracy_market_favorite": 0.501187648456057,
+      "mean_hits_3_dobles": 8.589285714285714,
+      "best_jornada_3_dobles": 13,
+      "divisiones": {
+        "Primera": {
+          "matches": 380,
+          "accuracy_simple": 0.5394736842105263,
+          "accuracy_market_favorite": 0.5421052631578948
+        },
+        "Segunda": {
+          "matches": 462,
+          "accuracy_simple": 0.461038961038961,
+          "accuracy_market_favorite": 0.4675324675324675
+        }
+      }
+    },
+    {
+      "season": "2023-2024",
+      "train_matches": 10920,
+      "test_matches": 842,
+      "date_from": "2023-08-11",
+      "date_to": "2024-06-02",
+      "accuracy_simple": 0.5083135391923991,
+      "accuracy_market_favorite": 0.505938242280285,
+      "mean_hits_3_dobles": 8.535714285714286,
+      "best_jornada_3_dobles": 14,
+      "divisiones": {
+        "Primera": {
+          "matches": 380,
+          "accuracy_simple": 0.55,
+          "accuracy_market_favorite": 0.5552631578947368
+        },
+        "Segunda": {
+          "matches": 462,
+          "accuracy_simple": 0.474025974025974,
+          "accuracy_market_favorite": 0.4653679653679654
+        }
+      }
+    },
+    {
+      "season": "2024-2025",
+      "train_matches": 11762,
+      "test_matches": 842,
+      "date_from": "2024-08-15",
+      "date_to": "2025-06-01",
+      "accuracy_simple": 0.5213776722090261,
+      "accuracy_market_favorite": 0.5237529691211401,
+      "mean_hits_3_dobles": 8.732142857142858,
+      "best_jornada_3_dobles": 12,
+      "divisiones": {
+        "Primera": {
+          "matches": 380,
+          "accuracy_simple": 0.5526315789473685,
+          "accuracy_market_favorite": 0.5552631578947368
+        },
+        "Segunda": {
+          "matches": 462,
+          "accuracy_simple": 0.49567099567099565,
+          "accuracy_market_favorite": 0.49783549783549785
+        }
+      }
+    },
+    {
+      "season": "2025-2026",
+      "train_matches": 12604,
+      "test_matches": 842,
+      "date_from": "2025-08-15",
+      "date_to": "2026-05-31",
+      "accuracy_simple": 0.5166270783847982,
+      "accuracy_market_favorite": 0.5154394299287411,
+      "mean_hits_3_dobles": 8.482142857142858,
+      "best_jornada_3_dobles": 13,
+      "divisiones": {
+        "Primera": {
+          "matches": 380,
+          "accuracy_simple": 0.5447368421052632,
+          "accuracy_market_favorite": 0.5447368421052632
+        },
+        "Segunda": {
+          "matches": 462,
+          "accuracy_simple": 0.4935064935064935,
+          "accuracy_market_favorite": 0.49134199134199136
+        }
+      }
+    }
+  ],
+  "metricas_agregadas": {
+    "temporadas": 7,
+    "media_accuracy_simple": 0.5006786562606039,
+    "media_accuracy_market": 0.49830335934849,
+    "media_3_dobles": 8.482142857142858,
+    "mejor_temporada_simple": [
+      {
+        "season": "2024-2025",
+        "train_matches": 11762,
+        "test_matches": 842,
+        "date_from": "2024-08-15",
+        "date_to": "2025-06-01",
+        "accuracy_simple": 0.5213776722090261,
+        "accuracy_market_favorite": 0.5237529691211401,
+        "mean_hits_3_dobles": 8.732142857142858,
+        "best_jornada_3_dobles": 12,
+        "primera_matches": 380,
+        "primera_accuracy": 0.5526315789473685,
+        "segunda_matches": 462,
+        "segunda_accuracy": 0.49567099567099565
+      }
+    ],
+    "peor_temporada_simple": [
+      {
+        "season": "2019-2020",
+        "train_matches": 7552,
+        "test_matches": 842,
+        "date_from": "2019-08-16",
+        "date_to": "2020-08-07",
+        "accuracy_simple": 0.4691211401425178,
+        "accuracy_market_favorite": 0.45961995249406173,
+        "mean_hits_3_dobles": 8.035714285714286,
+        "best_jornada_3_dobles": 11,
+        "primera_matches": 380,
+        "primera_accuracy": 0.5210526315789473,
+        "segunda_matches": 462,
+        "segunda_accuracy": 0.4264069264069264
+      }
+    ],
+    "csv": "/home/user/PROGRAMAQUINIELA/salida/backtest_historico_temporadas.csv",
+    "json": "/home/user/PROGRAMAQUINIELA/salida/backtest_historico_temporadas.json",
+    "stability": {
+      "mean_accuracy": 0.5006786562606039,
+      "std_accuracy": 0.01720898857564434,
+      "cv_accuracy": 0.034371324522144274,
+      "min_accuracy": 0.4691211401425178,
+      "max_accuracy": 0.5213776722090261,
+      "trend": 0.006871394638615579,
+      "mean_market": 0.49830335934849,
+      "std_market": 0.02022350108686983,
+      "mean_gap_vs_market": 0.002375296912114022
+    }
+  },
+  "resultado_tests": {
+    "comando": "/home/user/PROGRAMAQUINIELA/.venv/bin/python -m pytest tests/ -q",
+    "exit_code": 0,
+    "resumen": "189 passed, 29 warnings in 73.68s (0:01:13)",
+    "duracion_segundos": 74.0,
+    "salida_tail": "  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method\n    fixturefunc = resolve_fixture_function(fixturedef, request)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n189 passed, 29 warnings in 73.68s (0:01:13)"
+  },
+  "reproducir": {
+    "backtest": "python scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py",
+    "tests": "python -m pytest tests/ -q",
+    "referencia": "python scripts/reports/GENERAR_PRODUCTION_REFERENCE.py"
+  }
+}
