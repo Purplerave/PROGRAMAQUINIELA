@@ -206,6 +206,7 @@ Dixon-Coles donde sí se usan), o se justifica su presencia con un experimento.
 | P0.1 | Métrica económica EV/ROI del boleto 6 € | M | 🔥 Alto | ✅ Hecho (04/08) |
 | P0.2 | Experimento limpio de ensembles (EV, P≥12/13/14) | M | 🔥 Alto | ✅ Hecho (04/08) |
 | P0.3 | Extraer `prediction_engine` (core aislado) | L | Alto | Pendiente |
+| P1.0 | Consolidar calibración (leak-free) | M | — | ❌ Rechazada (04/08) |
 | P1.1 | Edge por contexto (rotaciones/descenso/fatiga) | L | ⭐ Potencial | Pendiente |
 | P1.2 | Simplificar ensemble (quitar pesos 0) | S | Medio | Pendiente |
 | P1.3 | Decidir dataset oficial (original vs saneado) | S | Medio | Pendiente |
