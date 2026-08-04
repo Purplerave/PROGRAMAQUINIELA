@@ -410,22 +410,35 @@ Quiniela15, mojibake `AlavÃ©s`, Pleno en bucket):
 Suite completa: **175 passed, 29 warnings** (antes: 164; +8 nuevos tests del
 importador, incluida la integración contra los CSV reales).
 
-### 9.4 Acción pendiente en el equipo del usuario
+### 9.4 Ejecución en el equipo del usuario (confirmada)
 
-Con los 9 JSON reales en `DATOS\boletos_lae_reales\`:
+Ejecutado con los 9 JSON reales:
 
 ```powershell
 python scripts\datos\IMPORTAR_BOLETOS_QUINIELA15.py
 ```
 
-Producirá `salida\quiniela_historica_propuesta_2025_2026.json` con el resumen
-esperado: `J001-J005`, `J007-J008` como `tickets` (si sus 15 partidos son
-españoles y coherentes) y `J006`/`J010` en `out_of_coverage` (14/15) por
-`Athletic - Arsenal` y `FC Kairat Almaty - Real Madrid`. Si algún boleto cae
-en `failures`, revisar el motivo exacto en `match_errors` antes de continuar;
-un motivo `no_en_football_data` dentro de `out_of_coverage` no es un error de
-datos, sino cobertura del histórico.
+Resultado:
 
-Para integrar el resultado en esta rama, enviar el JSON de propuesta generado
-(o los 9 JSON fuente) y se contrastará aquí contra el mismo CSV antes de
-decidir si pasa a `DATOS/quiniela_historica/` con su procedencia.
+```text
+Boletos convertidos y contrastados: 5
+Fuera de cobertura Football-Data (p. ej. competiciones europeas): 4
+Fallidos/inconsistentes: 0
+```
+
+- **5 boletos aceptados** como `tickets` (15 partidos contrastados contra
+  Football-Data 2025-26, con fecha derivada por coincidencia única).
+- **4 boletos en `out_of_coverage`**: entre ellos, de la sesión previa, J006
+  por `Athletic - Arsenal` y J010 por `FC Kairat Almaty - Real Madrid` en el
+  Pleno. Un motivo `no_en_football_data` no es un error de datos, sino
+  cobertura del histórico (competiciones europeas, Copa).
+- **0 inconsistentes** (`failures` vacío): ningún marcador/signo contradice a
+  Football-Data.
+
+El detalle de las otras dos jornadas fuera de cobertura queda pendiente de
+contrastar con el JSON de propuesta generado.
+
+Para integrar el resultado en esta rama, adjuntar o pegar el JSON de propuesta
+(`salida\quiniela_historica_propuesta_2025_2026.json`) y se contrastará aquí
+contra el mismo CSV antes de decidir si pasa a `DATOS/quiniela_historica/`
+con su procedencia.

@@ -13,8 +13,10 @@ Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 - Auditoría de alias: los 13 alias mapean a equipos reales del CSV y no hay
   colisiones canónicas en ninguna temporada. El Pleno acepta marcador exacto o
   bucket (`M-2`). Suite: 175 tests en verde.
-- Pendiente: ejecutar el importador con los 9 JSON reales (J001-J008, J010) en
-  el equipo del usuario y decidir, con la propuesta resultante, el paso a
+- Ejecutado con los 9 JSON reales: **5 boletos aceptados, 4 fuera de
+  cobertura** (entre ellos J006 por `Athletic-Arsenal` y J010 por
+  `FC Kairat Almaty-Real Madrid`), **0 inconsistentes**. Pendiente contrastar
+  la propuesta generada antes de decidir el paso a
   `DATOS/quiniela_historica/` con procedencia auditada.
 
 ## Último avance (04/08/2026 — infraestructura de boletos oficiales y ROI)

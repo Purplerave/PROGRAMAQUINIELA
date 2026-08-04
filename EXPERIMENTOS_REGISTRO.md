@@ -84,5 +84,7 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Validación:** 175 tests en verde (+8); reproducción con fixtures reales:
   boleto español completo aceptado, J006 (`Athletic-Arsenal`) y J010
   (`FC Kairat Almaty-Real Madrid`) clasificados `out_of_coverage` 14/15.
-- **Estado:** pendiente ejecutar con los 9 JSON reales en el equipo del usuario
-  y decidir el paso a `DATOS/quiniela_historica/` con procedencia auditada.
+- **Estado:** ejecutado con los 9 JSON reales: 5 aceptados, 4 fuera de
+  cobertura, 0 inconsistentes. Pendiente contrastar la propuesta generada
+  antes de decidir el paso a `DATOS/quiniela_historica/` con procedencia
+  auditada.
