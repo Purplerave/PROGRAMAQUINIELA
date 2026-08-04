@@ -4,10 +4,10 @@
   "generado_por": "scripts/reports/GENERAR_PRODUCTION_REFERENCE.py",
   "git": {
     "repositorio": "Purplerave/PROGRAMAQUINIELA",
-    "commit_sha": "a77c3e9232910fe8d09103dbef4d0affec02766a",
-    "branch": "arena/019fcdd6-programaquiniela",
-    "arbol_limpio": true,
-    "cambios_sin_commit": 0
+    "commit_sha": "9ca38265d4be6898cd86b2b306df063103f3f365",
+    "branch": "arena/019fce65-programaquiniela",
+    "arbol_limpio": false,
+    "cambios_sin_commit": 5
   },
   "hashes": {
     "archivos": {
@@ -53,17 +53,17 @@
       "DATOS/QUINIELA15_J72.json": "fa7162a4a2a52904c49731f82b773e7142314a5cf556193b6896be06c9fe4b57",
       "DATOS/QUINIELA15_J73.json": "5b89a7ac6c4a0ed608d70271d0449137200ebeb6f3a5011b3e66a5481c0ea171",
       "DATOS/QUINIELA15_J74.json": "82b6525f0a776f7f263105df728c7ba70a2c46233b77dd7ffa4350fa72e473d1",
-      "CONFIG_MOTOR_V2.json": "d777e63997750189ce263bf5e1ce9d42975a61d20cf2b7f8147820108591c231"
+      "CONFIG_MOTOR_V2.json": "f256372fbb9d5205c1df82fc511c9b80fa25c2ce03ffda842ab1a02055a15b65"
     },
     "resumen": {
       "algoritmo": "sha256",
       "dataset_historico_combinado": "8de2041787cd9fba2616be1d13ebb7ec66fe81237e594008d22a18276f67c95f",
-      "configuracion": "d777e63997750189ce263bf5e1ce9d42975a61d20cf2b7f8147820108591c231",
+      "configuracion": "f256372fbb9d5205c1df82fc511c9b80fa25c2ce03ffda842ab1a02055a15b65",
       "n_archivos": 43
     }
   },
   "entorno": {
-    "fecha_generacion": "2026-08-04T18:51:56+0000",
+    "fecha_generacion": "2026-08-04T20:33:30+0000",
     "plataforma": "Linux-6.1.158+-x86_64-with-glibc2.36",
     "python": "3.11.2",
     "numpy": "2.2.6",
@@ -305,12 +305,35 @@
       "mean_gap_vs_market": 0.002375296912114022
     }
   },
+  "economia": {
+    "fuente": "salida/evaluacion_economica.json",
+    "premios_estimados": true,
+    "nota": "ROI EX-POST con premios medios históricos (variables por jornada). Orientativo, no garantía. Pleno al 15 excluido (se juega aparte).",
+    "jornadas_totales": 392,
+    "modelo": {
+      "coste_total_eur": 2352.0,
+      "premio_total_eur": 5409.0,
+      "roi": 1.2997448979591837,
+      "mean_hits": 8.002551020408163,
+      "p_ge_12": 0.03571428571428571,
+      "p_ge_13": 0.002551020408163265,
+      "p_ge_14": 0.0
+    },
+    "solo_favoritos_mercado": {
+      "premio_total_eur": 907.0,
+      "roi_1col": 2.0850340136054424,
+      "roi_6eur": -0.6143707482993197,
+      "mean_hits": 6.910714285714286,
+      "p_ge_12": 0.007653061224489796,
+      "p_ge_13": 0.0,
+      "p_ge_14": 0.0
+    },
+    "delta_roi_vs_market_6eur": 1.9141156462585034,
+    "reproducir": "python scripts/backtests/EVALUACION_ECONOMICA.py"
+  },
   "resultado_tests": {
     "comando": "/home/user/PROGRAMAQUINIELA/.venv/bin/python -m pytest tests/ -q",
-    "exit_code": 0,
-    "resumen": "189 passed, 29 warnings in 73.68s (0:01:13)",
-    "duracion_segundos": 74.0,
-    "salida_tail": "  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method\n    fixturefunc = resolve_fixture_function(fixturedef, request)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n189 passed, 29 warnings in 73.68s (0:01:13)"
+    "omitido": true
   },
   "reproducir": {
     "backtest": "python scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py",

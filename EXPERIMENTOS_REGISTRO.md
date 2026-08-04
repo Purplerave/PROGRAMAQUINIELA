@@ -45,3 +45,27 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
 - **Estado:** DOCUMENTADO / ESTABLE.
 - **Referencia:** `API_CONTRACT_DEFINITION.md`.
 - **Acción:** bloquear esquema v1.0 antes de nuevos experimentos.
+
+---
+
+## 2026-08-04 — P0.1 (roadmap auditoría): Métrica económica del boleto de 6 €
+- **Objetivo:** dejar de medir solo "aciertos" y medir DINERO (coste, EV, ROI,
+  distribución de premios) del contrato P0, y comparar contra "solo favoritos de mercado".
+- **Estado:** IMPLEMENTADO.
+- **Entregables:**
+  - `evaluation/economics.py` — EV ex-ante por convolución exacta (misma fuente de
+    verdad que `OPTIMIZADOR_COLUMNAS`), P(exacto k) y P(≥k), premios configurables.
+  - `scripts/backtests/EVALUACION_ECONOMICA.py` — ROI ex-post walk-forward por temporada.
+  - `CONFIG_MOTOR_V2.json → economia` (premios medios históricos, etiquetados como estimados).
+  - Bloque `economia` en `reports/production_reference.json`.
+  - 11 tests nuevos (`tests/test_economics.py`), suite total 200 en verde.
+- **Resultado (ex-post, 392 jornadas 2019-2026, premios ESTIMADOS):**
+  - Boleto modelo (3 dobles, 6 €): **ROI +130%** agregado pero MUY volátil por
+    temporada (−83,6% a +658,6%); media 8,00 aciertos; **P(≥12) = 3,57%**.
+  - Solo favoritos de mercado (mismo presupuesto 6 €): **ROI −61,4%**; media 6,91
+    aciertos; **P(≥12) = 0,77%**.
+  - **Delta ROI vs mercado (6 €): +1,91**; el modelo llega a 12 aciertos ~4,7× más a menudo.
+- **Lectura honesta:** en acierto simple el edge es ruido (+0,24 pp), pero la
+  COLOCACIÓN de dobles sí marca diferencia material en las categorías que pagan.
+  El ROI positivo depende de premios estimados y de la varianza (una jornada de 13
+  domina la media): NO es una garantía. Sirve como métrica de decisión para P0.2.
