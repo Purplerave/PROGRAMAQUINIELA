@@ -14,11 +14,16 @@ pip install -r requirements-dev.txt
 
 ## Uso
 
-Evaluacion principal (usa el histórico original por defecto):
+Evaluación de producción (usa el histórico original por defecto y los pesos
+congelados en `CONFIG_MOTOR_V2.json`):
 
 ```powershell
-python MOTOR_QUINIELA_MAESTRO.py --historico original
+python MOTOR_QUINIELA_MAESTRO.py --historico original --modo produccion
 ```
+
+Para explorar de nuevo los candidatos de hiperparámetros, use explícitamente
+`--modo busqueda`. Ese modo es experimental: no actualiza la configuración ni
+es la fuente de la cifra de referencia.
 
 Para seleccionar el histórico saneado (debe existir previamente):
 
@@ -63,6 +68,10 @@ al repositorio.
 - `CONFIG_MOTOR_V2.json`: parametros activos del motor.
 - `DATOS/historico_raw/`: CSV historicos necesarios para reproducir el backtest.
 - `scripts/backtests/`: evaluacion walk-forward por temporada.
+- `scripts/motor/xg_understat.py`: carga y fusion del xG de Understat (Primera
+  2014-2024). Añade columnas de xG al historico; aditivo y no afecta al modelo.
+- `scripts/backtests/EXPERIMENTO_XG.py`: A/B walk-forward Sin-xG vs Con-xG.
+- `REVISION_*.md`: informes tecnicos (validaciones, experimentos y decisiones).
 
 ## Reglas de evaluacion
 
@@ -75,15 +84,48 @@ mejora una subida obtenida solo sobre los mismos datos usados para ajustar.
 
 Configuracion activa: `motor_quinielistico_v4` (weights mercado-dominantes:
 logit 0.0, hgb 0.049, market 0.951, poisson 0.0). Ultima ejecucion validada
-(31/07/2026, numpy 2.2.6 / pandas 2.3.3 / scipy 1.16.3 / scikit-learn 1.7.2):
+(04/08/2026, numpy 2.2.6 / pandas 2.3.3 / scipy 1.16.3 / scikit-learn 1.7.2):
 
 - 13.446 partidos limpios.
 - 51,64 % de acierto simple en el test principal (favorito de mercado: 51,56 %).
 - 8,63 aciertos de media sobre 15 con tres dobles.
-- Temporada 2024-25: 52,49 % y 8,64/15 con tres dobles (mercado 52,38 %).
-- Temporada 2025-26 completa: 51,54 % y 8,50/15 con tres dobles (mercado 51,54 %).
+- Temporada 2024-25: 52,61 % y 8,70/15 con tres dobles (mercado 52,38 %).
+- Temporada 2025-26 completa: 51,43 % y 8,48/15 con tres dobles (mercado 51,54 %).
 
-Las cifras se obtuvieron con la configuracion incluida en el repositorio.
+La métrica de tres dobles es un indicador agregado: el histórico se ordena y se
+parte en bloques mecánicos de 15 partidos para seleccionar tres dobles. **No
+reconstruye los boletos oficiales de La Quiniela ni estima ROI, premios o el
+resultado de jornadas reales.**
+
+## Boletos oficiales y ROI
+
+El soporte de backtest real está en `scripts/backtests/QUINIELA_REAL.py`. Solo
+acepta jornadas que declaren los 14 partidos oficiales, sus fechas, el Pleno al
+15 y su fuente trazable; nunca infiere un boleto desde filas consecutivas.
+
+```powershell
+python scripts/backtests/QUINIELA_REAL.py
+```
+
+Los JSON auditados se incorporan en `DATOS/quiniela_historica/` según su
+`README.md`. El ROI realizado exige además el escrutinio/premio oficial por
+categoría; sin él el módulo devuelve aciertos y coste, pero no inventa retorno.
+
+Las cifras se obtuvieron en modo producción con la configuración incluida en
+el repositorio; ese modo nunca reoptimiza los pesos durante la ejecución.
 Hash del dataset historico (PRIMERA + SEGUNDA): `51a9688ac065015da9335512af5a34a8`.
 
 Estas cifras son una referencia reproducible, no una garantia de resultados.
+
+## xG (Understat) — experimento evaluado, no activo
+
+Se integro el xG de disparo de Understat (Primera, 2014-2024; validado en
+`REVISION_12_XG_UNDERSTAT.md`) como feature rodante point-in-time en
+`scripts/motor/features.py`. El experimento A/B walk-forward en 10 temporadas
+(`REVISION_13_XG_INTEGRACION.md`, reproducido con
+`python scripts/backtests/EXPERIMENTO_XG.py --solo-primera --max-seasons 10`)
+mostró que **no mejora el modelo fuera de muestra** (−0,29 pp de acierto y
+−0,071 en la media de tres dobles vs el conjunto activo). Por ello **no se
+activa** en `feature_columns()` ni en la configuracion. La infraestructura queda
+aditiva y disponible por si en el futuro se justifica (p. ej. xG posicional o
+cobertura de Segunda).

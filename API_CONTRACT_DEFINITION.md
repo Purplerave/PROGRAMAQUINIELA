@@ -1,4 +1,4 @@
-# Contrato JSON/API — Liga de Maestros
+# Contrato JSON/API v1.1 — Liga de Maestros
 
 Este documento define el contrato estable para el intercambio de predicciones con la plataforma "Liga de Maestros". 
 
@@ -31,6 +31,12 @@ jornada. El contrato es **estable**: lleva versionado de esquema
 | `apuesta` | `string` | Sugerencia de apuesta ("1", "1X", "1X2", etc.). |
 | `tipo` | `string` | "simple", "doble" o "triple". |
 | `confianza` | `float` | Índice de certidumbre (0.0 a 1.0). |
+| `origen_prediccion` | `string` | Origen auditable: `motor_v4`, `manual_pendiente` o `manual_revisado`. |
+
+`origen_prediccion` permite jornadas mixtas sin inferir el origen a partir del
+signo. Los consumidores v1.0 que ignoren campos desconocidos siguen siendo
+compatibles; los consumidores v1.1 deben conservarlo y mostrarlo. Si el paquete
+fuente no aporta origen, el generador emite `motor_v4` por compatibilidad.
 
 ### Objeto Pleno 15
 
@@ -41,6 +47,7 @@ jornada. El contrato es **estable**: lleva versionado de esquema
 | `marcador` | `string` | Marcador exacto más probable (ej. "2-1"). |
 | `pronostico_local` | `string` | Bucket local ("0", "1", "2", "M"). |
 | `pronostico_visitante` | `string` | Bucket visitante ("0", "1", "2", "M"). |
+| `origen_prediccion` | `string` | Mismo origen auditable que los partidos 1-14. |
 
 ---
 
@@ -60,7 +67,8 @@ jornada. El contrato es **estable**: lleva versionado de esquema
       "signo_maestro": "1",
       "apuesta": "1X",
       "tipo": "doble",
-      "confianza": 0.65
+      "confianza": 0.65,
+      "origen_prediccion": "motor_v4"
     }
   ],
   "pleno15": {

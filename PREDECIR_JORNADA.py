@@ -169,7 +169,11 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
         if pred:
             # Punto 2 Codex: No presentar como fiable si la calidad es muy baja
             calidad = pred.get("calidad_datos", 0)
-            es_fiable = calidad >= 0.2  # Umbral de fiabilidad
+            try:
+                umbral_calidad = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("calidad_min", 0.2)
+            except Exception:
+                umbral_calidad = 0.2
+            es_fiable = calidad >= umbral_calidad  # Umbral de fiabilidad (configurable)
 
             # Reemplazar probabilities.modelo con las del motor maestro
             match["modelo_maestro"] = {
@@ -290,10 +294,16 @@ def build_recommendation_for_match(match: dict) -> dict:
     # Determinar tipo de apuesta
     gap_primero_segundo = sorted_probs[0][1] - sorted_probs[1][1]
 
-    if confianza >= 0.7 and gap_primero_segundo >= 0.25:
+    try:
+        umbral_conf = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("confianza_min", 0.7)
+        umbral_gap = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("gap_min", 0.25)
+        umbral_doble = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("double_sorted_prob_min", 0.25)
+    except Exception:
+        umbral_conf, umbral_gap, umbral_doble = 0.7, 0.25, 0.25
+    if confianza >= umbral_conf and gap_primero_segundo >= umbral_gap:
         tipo_apuesta = "simple"
         signos = signo_principal
-    elif confianza >= 0.5 and sorted_probs[1][1] >= 0.25:
+    elif confianza >= 0.5 and sorted_probs[1][1] >= umbral_doble:
         tipo_apuesta = "doble"
         segundo = sorted_probs[1][0]
         signos = "".join(sorted([signo_principal, segundo], key=["1", "X", "2"].index))
@@ -406,6 +416,7 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
             probs_override=probs_override or None,
         )
     except Exception as exc:
+        logging.error("PREDECIR_JORNADA: %s", exc, exc_info=True)
         boleto_optimizado = {"error": f"no_disponible: {exc}"}
 
     # 8. Construir paquete final
