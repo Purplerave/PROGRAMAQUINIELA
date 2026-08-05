@@ -145,3 +145,14 @@ Este documento registra los experimentos realizados, sus configuraciones y sus r
   mantiene la calibración en `MOTOR_PREDICCION_JORNADA` (mejora ECE/LogLoss como
   diagnóstico) pero **NO se añade al camino crítico del boleto**. Confirma el
   veredicto de la auditoría: el mercado es muy eficiente; más calibración no da edge.
+
+## 2026-08-05 — P1.2 (roadmap auditoría): Simplificar ensemble (quitar pesos 0 y limpiar camino crítico) → COMPLETADO
+- **Objetivo:** quitar `logit` y `poisson` de los candidatos del ensemble activo (peso 0.0) y limpiar su entrenamiento del camino crítico, reduciendo deuda técnica y acelerando el backtest e inferencia para futuros experimentos.
+- **Estado:** **COMPLETADO** (iso-resultado verificado con toda la batería de tests).
+- **Cambios realizados:**
+  - En `CONFIG_MOTOR_V2.json`, se elimina de `weight_candidates` el candidato con peso en logit/poisson, manteniendo únicamente candidatos que combinan fuentes con peso > 0 (`hgb` y `market`).
+  - En `MOTOR_QUINIELA_MAESTRO.py` (`optimize_hybrid_config`) y `MOTOR_PREDICCION_JORNADA.py` (`_train_models`), el modelo logit solo se entrena e infiere condicionalmente si algún candidato del ensemble lo requiere (`needs_logit > 0`).
+  - En `apply_hybrid_config`, se soporta de forma robusta la ausencia de columnas `logit_prob_*` o `poisson_*` cuando su peso es 0.0, y la divergencia entre modelos (`model_disagreement`) toma valor 0.0 cuando no se entrena el modelo secundario.
+- **Resultado / Iso-resultado:**
+  - Cero alteración en las probabilidades y decisiones del ensemble activo (peso 0.0 en logit/poisson).
+  - Tiempos de prueba e inferencia en backtest optimizados al eliminar los ajustes de `LogisticRegression` (OneHot + StandardScaler sobre más de 100 features) que no aportaban señal al ensemble.

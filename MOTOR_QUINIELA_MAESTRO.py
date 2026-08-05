@@ -375,27 +375,28 @@ def add_market_baseline(frame: pd.DataFrame) -> pd.DataFrame:
 def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.DataFrame:
     out = frame.copy()
     weights = config["weights"]
-    draw_boost = config["draw_boost"]
-    segunda_draw_boost = config["segunda_draw_boost"]
+    draw_boost = config.get("draw_boost", 0.0)
+    segunda_draw_boost = config.get("segunda_draw_boost", 0.0)
 
-    out[f"{prefix}_prob_1"] = (
-        weights["logit"] * out["logit_prob_1"]
-        + weights["hgb"] * out["hgb_prob_1"]
-        + weights["market"] * out["market_1"].fillna(0)
-        + weights["poisson"] * out["poisson_1"].fillna(0)
-    )
-    out[f"{prefix}_prob_x"] = (
-        weights["logit"] * out["logit_prob_x"]
-        + weights["hgb"] * out["hgb_prob_x"]
-        + weights["market"] * out["market_x"].fillna(0)
-        + weights["poisson"] * out["poisson_x"].fillna(0)
-    )
-    out[f"{prefix}_prob_2"] = (
-        weights["logit"] * out["logit_prob_2"]
-        + weights["hgb"] * out["hgb_prob_2"]
-        + weights["market"] * out["market_2"].fillna(0)
-        + weights["poisson"] * out["poisson_2"].fillna(0)
-    )
+    w_logit = weights.get("logit", 0.0)
+    w_hgb = weights.get("hgb", 0.0)
+    w_market = weights.get("market", 0.0)
+    w_poisson = weights.get("poisson", 0.0)
+
+    for s in ("1", "x", "2"):
+        prob = (
+            w_hgb * out[f"hgb_prob_{s}"]
+            + w_market * out[f"market_{s}"].fillna(0)
+        )
+        if w_logit > 0:
+            if f"logit_prob_{s}" not in out.columns:
+                raise KeyError(f"La columna logit_prob_{s} es requerida en el ensemble (peso logit > 0).")
+            prob = prob + w_logit * out[f"logit_prob_{s}"]
+        if w_poisson > 0:
+            if f"poisson_{s}" not in out.columns:
+                raise KeyError(f"La columna poisson_{s} es requerida en el ensemble (peso poisson > 0).")
+            prob = prob + w_poisson * out[f"poisson_{s}"].fillna(0)
+        out[f"{prefix}_prob_{s}"] = prob
 
     out[f"{prefix}_prob_x"] = out[f"{prefix}_prob_x"] + draw_boost
     segunda_mask = out["division"].eq("Segunda")
@@ -416,12 +417,16 @@ def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.Da
             out["favorite_market"].ne("X")
         )
         out.loc[x_disagree, f"{prefix}_pred"] = out.loc[x_disagree, "favorite_market"]
-    out[f"{prefix}_hit"] = (out[f"{prefix}_pred"] == out["result"]).astype(int)
-    out["model_disagreement"] = (
-        (out["logit_prob_1"] - out["hgb_prob_1"]).abs()
-        + (out["logit_prob_x"] - out["hgb_prob_x"]).abs()
-        + (out["logit_prob_2"] - out["hgb_prob_2"]).abs()
-    ) / 3.0
+    if "result" in out.columns:
+        out[f"{prefix}_hit"] = (out[f"{prefix}_pred"] == out["result"]).astype(int)
+    if "logit_prob_1" in out.columns and "hgb_prob_1" in out.columns:
+        out["model_disagreement"] = (
+            (out["logit_prob_1"] - out["hgb_prob_1"]).abs()
+            + (out["logit_prob_x"] - out["hgb_prob_x"]).abs()
+            + (out["logit_prob_2"] - out["hgb_prob_2"]).abs()
+        ) / 3.0
+    else:
+        out["model_disagreement"] = 0.0
     return out
 
 
@@ -503,7 +508,7 @@ def evaluate_config(frame: pd.DataFrame, pred_prefix: str, config: dict) -> dict
     }
 
 
-def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dict]:
+def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline | None, Pipeline, dict]:
     """Optimiza la configuración híbrida usando validación temporal multi-split.
 
     Si existen suficientes temporadas (>= 2), realiza un walk-forward por temporadas
@@ -511,23 +516,37 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
     rendimiento medio y la estabilidad. Si no, aplica un split temporal único 84/16.
     """
     usable = train.copy()
+    master_config = settings.master_model_config()
+    default_weight_candidates = [
+        {"logit": 0.0, "hgb": 0.049, "market": 0.951, "poisson": 0.0},
+        {"logit": 0.0, "hgb": 0.1, "market": 0.9, "poisson": 0.0},
+        {"logit": 0.0, "hgb": 0.2, "market": 0.8, "poisson": 0.0},
+    ]
+    config_weights = master_config.get("weights")
+    weight_candidates = master_config.get("weight_candidates") or default_weight_candidates
+    if isinstance(config_weights, dict) and config_weights not in weight_candidates:
+        weight_candidates = [config_weights, *weight_candidates]
+    needs_logit = any(w.get("logit", 0.0) > 0 for w in weight_candidates)
+
     if "season" not in usable.columns or usable["season"].nunique() < 2:
         # Fallback a split único 84/16 si no hay datos de temporada suficientes
         split_idx = int(len(usable) * 0.84)
         subtrain = usable.iloc[:split_idx].copy()
         valid = usable.iloc[split_idx:].copy()
         
-        logit_sub = build_logit_model()
+        logit_sub = build_logit_model() if needs_logit else None
         hgb_sub = build_hgb_model()
-        logit_sub.fit(subtrain[feature_columns() + ["division"]], subtrain["target"])
+        if needs_logit and logit_sub is not None:
+            logit_sub.fit(subtrain[feature_columns() + ["division"]], subtrain["target"])
         hgb_sub.fit(subtrain[feature_columns()], subtrain["target"])
         
         valid_eval = add_market_baseline(valid)
-        logit_probs = predict_full_probs(logit_sub, valid, feature_columns() + ["division"])
+        if needs_logit and logit_sub is not None:
+            logit_probs = predict_full_probs(logit_sub, valid, feature_columns() + ["division"])
+            valid_eval["logit_prob_1"] = logit_probs[:, 0]
+            valid_eval["logit_prob_x"] = logit_probs[:, 1]
+            valid_eval["logit_prob_2"] = logit_probs[:, 2]
         hgb_probs = predict_full_probs(hgb_sub, valid, feature_columns())
-        valid_eval["logit_prob_1"] = logit_probs[:, 0]
-        valid_eval["logit_prob_x"] = logit_probs[:, 1]
-        valid_eval["logit_prob_2"] = logit_probs[:, 2]
         valid_eval["hgb_prob_1"] = hgb_probs[:, 0]
         valid_eval["hgb_prob_x"] = hgb_probs[:, 1]
         valid_eval["hgb_prob_2"] = hgb_probs[:, 2]
@@ -550,18 +569,20 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
             if len(t_sub) < 500 or len(v_sub) < 50:
                 continue
                 
-            l_sub = build_logit_model()
+            l_sub = build_logit_model() if needs_logit else None
             h_sub = build_hgb_model()
-            l_sub.fit(t_sub[feature_columns() + ["division"]], t_sub["target"])
+            if needs_logit and l_sub is not None:
+                l_sub.fit(t_sub[feature_columns() + ["division"]], t_sub["target"])
             h_sub.fit(t_sub[feature_columns()], t_sub["target"])
             
             v_sub = add_market_baseline(v_sub)
-            l_probs = predict_full_probs(l_sub, v_sub, feature_columns() + ["division"])
+            if needs_logit and l_sub is not None:
+                l_probs = predict_full_probs(l_sub, v_sub, feature_columns() + ["division"])
+                v_sub["logit_prob_1"] = l_probs[:, 0]
+                v_sub["logit_prob_x"] = l_probs[:, 1]
+                v_sub["logit_prob_2"] = l_probs[:, 2]
             h_probs = predict_full_probs(h_sub, v_sub, feature_columns())
             
-            v_sub["logit_prob_1"] = l_probs[:, 0]
-            v_sub["logit_prob_x"] = l_probs[:, 1]
-            v_sub["logit_prob_2"] = l_probs[:, 2]
             v_sub["hgb_prob_1"] = h_probs[:, 0]
             v_sub["hgb_prob_x"] = h_probs[:, 1]
             v_sub["hgb_prob_2"] = h_probs[:, 2]
@@ -571,18 +592,6 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
             # Fallback si no hay bloques válidos
             return optimize_hybrid_config(usable.assign(season=np.nan))
 
-    # Definición de candidatos
-    master_config = settings.master_model_config()
-    default_weight_candidates = [
-        {"logit": 0.35, "hgb": 0.00, "market": 0.45, "poisson": 0.20},
-        {"logit": 0.25, "hgb": 0.25, "market": 0.35, "poisson": 0.15},
-        {"logit": 0.30, "hgb": 0.20, "market": 0.30, "poisson": 0.20},
-    ]
-    config_weights = master_config.get("weights")
-    weight_candidates = master_config.get("weight_candidates") or default_weight_candidates
-    if isinstance(config_weights, dict) and config_weights not in weight_candidates:
-        weight_candidates = [config_weights, *weight_candidates]
-        
     draw_boosts = master_config.get("draw_boost_candidates", [master_config.get("draw_boost", 0.0)])
     segunda_draw_boosts = master_config.get("segunda_draw_boost_candidates", [master_config.get("segunda_draw_boost", 0.0)])
     double_draw_weights = master_config.get("double_draw_weight_candidates", [master_config.get("double_draw_weight", 0.70), 0.85])
@@ -635,9 +644,10 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
             }
 
     # Re-entrenar modelos finales con TODO el historial proporcionado
-    final_logit = build_logit_model()
+    final_logit = build_logit_model() if needs_logit else None
     final_hgb = build_hgb_model()
-    final_logit.fit(train[feature_columns() + ["division"]], train["target"])
+    if needs_logit and final_logit is not None:
+        final_logit.fit(train[feature_columns() + ["division"]], train["target"])
     final_hgb.fit(train[feature_columns()], train["target"])
     
     return final_logit, final_hgb, best["config"]
@@ -737,11 +747,12 @@ def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFr
 
     logit, hgb, best_config = optimize_hybrid_config(train)
     test_eval = add_market_baseline(test)
-    logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
+    if logit is not None:
+        logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
+        test_eval["logit_prob_1"] = logit_probs[:, 0]
+        test_eval["logit_prob_x"] = logit_probs[:, 1]
+        test_eval["logit_prob_2"] = logit_probs[:, 2]
     hgb_probs = predict_full_probs(hgb, test, feature_columns())
-    test_eval["logit_prob_1"] = logit_probs[:, 0]
-    test_eval["logit_prob_x"] = logit_probs[:, 1]
-    test_eval["logit_prob_2"] = logit_probs[:, 2]
     test_eval["hgb_prob_1"] = hgb_probs[:, 0]
     test_eval["hgb_prob_x"] = hgb_probs[:, 1]
     test_eval["hgb_prob_2"] = hgb_probs[:, 2]
@@ -805,11 +816,12 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
 
     logit, hgb, best_config = optimize_hybrid_config(train)
     test_eval = add_market_baseline(test)
-    logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
+    if logit is not None:
+        logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
+        test_eval["logit_prob_1"] = logit_probs[:, 0]
+        test_eval["logit_prob_x"] = logit_probs[:, 1]
+        test_eval["logit_prob_2"] = logit_probs[:, 2]
     hgb_probs = predict_full_probs(hgb, test, feature_columns())
-    test_eval["logit_prob_1"] = logit_probs[:, 0]
-    test_eval["logit_prob_x"] = logit_probs[:, 1]
-    test_eval["logit_prob_2"] = logit_probs[:, 2]
     test_eval["hgb_prob_1"] = hgb_probs[:, 0]
     test_eval["hgb_prob_x"] = hgb_probs[:, 1]
     test_eval["hgb_prob_2"] = hgb_probs[:, 2]
