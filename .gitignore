@@ -20,3 +20,5 @@ DATOS/xg_understat/
 DATOS/*.csv
 .idea/
 .vscode/
+salida/datos_limpios/
+salida/modelos/

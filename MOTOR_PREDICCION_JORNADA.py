@@ -23,13 +23,20 @@ import numpy as np
 import pandas as pd
 import settings
 
-from MOTOR_QUINIELA_MAESTRO import (
+# Core de predicción (aislado en P0.3): NO importa de MOTOR_QUINIELA_MAESTRO
+# ni de este módulo; dirección unidireccional.
+from prediction_engine import (
     add_market_baseline,
     apply_hybrid_config,
     build_hgb_model,
     build_logit_model,
     feature_columns,
     predict_full_probs,
+)
+from prediction_engine import PredictionEngine
+from MOTOR_QUINIELA_MAESTRO import (
+    add_pleno_al_15,  # re-export de prediction_engine.pleno (compat)
+    load_raw_history,
 )
 from scripts.motor.features import (
     compute_features_for_upcoming,
@@ -96,8 +103,6 @@ def load_or_train_models(
         pass
 
     if history_df is None:
-        from MOTOR_QUINIELA_MAESTRO import load_raw_history
-
         history_df = load_raw_history()
 
     # Entrenar modelos + calibrador
@@ -125,7 +130,7 @@ def _train_models(
     Returns:
         (logit_full, hgb_full, config_best, calibrator_or_None)
     """
-    from MOTOR_QUINIELA_MAESTRO import optimize_hybrid_config
+    from prediction_engine.training import optimize_hybrid_config
 
     features_df = rolling_team_features(df)
 
@@ -818,8 +823,6 @@ def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
 
     Este es el punto de entrada principal desde PREDECIR_JORNADA.py.
     """
-    from MOTOR_QUINIELA_MAESTRO import load_raw_history
-
     # Cargar datos de la jornada
     jornada_data = load_jornada_json(jornada)
     partidos = jornada_data.get("partidos", [])
