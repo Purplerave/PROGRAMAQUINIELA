@@ -408,11 +408,20 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
             pm = match.get("probabilidades", {}).get("modelo")
             if isinstance(pm, dict) and all(s in pm for s in ("1", "X", "2")):
                 probs_override[match.get("num")] = pm
+        # Extraer modelo_maestro del Pleno 15 para pasarlo al optimizador
+        pleno_match = next((p for p in partidos if p.get("num") == 15), None)
+        pleno_mm = None
+        if pleno_match:
+            mm = pleno_match.get("modelo_maestro")
+            if isinstance(mm, dict) and mm.get("disponible"):
+                pleno_mm = mm
+
         boleto_optimizado = optimize_jornada(
             jornada,
             fuente_prob="q15",
             publico="lae",
             probs_override=probs_override or None,
+            pleno_modelo=pleno_mm,
         )
     except Exception as exc:
         logging.error("PREDECIR_JORNADA: %s", exc, exc_info=True)

@@ -86,7 +86,7 @@ def _procesar_pleno(p: dict, paquete: dict) -> dict:
     mm = p.get("modelo_maestro", {}) if isinstance(p.get("modelo_maestro"), dict) else {}
     if mm.get("disponible"):
         sel = mm.get("seleccion") or {}
-        return {
+        result = {
             "local": p.get("local"),
             "visitante": p.get("visitante"),
             "marcador": mm.get("marcador_predicho"),
@@ -94,6 +94,16 @@ def _procesar_pleno(p: dict, paquete: dict) -> dict:
             "pronostico_visitante": sel.get("visitante"),
             "origen_prediccion": prediction_origin(p),
         }
+        # Añadir distribución de goles si el modelo Dixon-Coles los proporciona
+        if mm.get("goles_local"):
+            result["goles_local"] = mm["goles_local"]
+        if mm.get("goles_visitante"):
+            result["goles_visitante"] = mm["goles_visitante"]
+        if mm.get("top_marcadores"):
+            result["top_marcadores"] = mm["top_marcadores"]
+        if mm.get("lambdas"):
+            result["lambdas"] = mm["lambdas"]
+        return result
     # Fallback al diagnóstico Q15 (marcadores) cuando el modelo no está.
     diag = (paquete.get("pleno15") or {}).get("diagnostico_q15") if isinstance(paquete.get("pleno15"), dict) else {}
     if not isinstance(diag, dict):
