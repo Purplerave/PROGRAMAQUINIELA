@@ -25,12 +25,6 @@
         "hgb": 0.2,
         "market": 0.8,
         "poisson": 0.0
-      },
-      {
-        "logit": 0.05,
-        "hgb": 0.1,
-        "market": 0.8,
-        "poisson": 0.05
       }
     ],
     "draw_boost": 0.0,

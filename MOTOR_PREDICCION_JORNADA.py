@@ -79,8 +79,7 @@ def load_or_train_models(
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
     if (
-        _LOGIT_MODEL is not None
-        and _HGB_MODEL is not None
+        _HGB_MODEL is not None
         and _MASTER_CONFIG is not None
     ):
         # Si ya existe calibrador en memoria, devolverlo; si no, entrenar solo calibrador no es trivial,
@@ -162,21 +161,19 @@ def _train_models(
 
         # Entrenar modelos temporales solo con subtrain
         cols = feature_columns()
-        # Logit necesita columna division
-        logit_sub = build_logit_model()
+        needs_logit = config_best.get("weights", {}).get("logit", 0.0) > 0
         hgb_sub = build_hgb_model()
-
-        logit_sub.fit(subtrain[cols + ["division"]], subtrain["target"])
         hgb_sub.fit(subtrain[cols], subtrain["target"])
-
-        # Probabilidades en validación
-        logit_valid_probs = predict_full_probs(logit_sub, valid, cols + ["division"])
         hgb_valid_probs = predict_full_probs(hgb_sub, valid, cols)
 
         valid_for_cal = valid.copy()
-        valid_for_cal["logit_prob_1"] = logit_valid_probs[:, 0]
-        valid_for_cal["logit_prob_x"] = logit_valid_probs[:, 1]
-        valid_for_cal["logit_prob_2"] = logit_valid_probs[:, 2]
+        if needs_logit:
+            logit_sub = build_logit_model()
+            logit_sub.fit(subtrain[cols + ["division"]], subtrain["target"])
+            logit_valid_probs = predict_full_probs(logit_sub, valid, cols + ["division"])
+            valid_for_cal["logit_prob_1"] = logit_valid_probs[:, 0]
+            valid_for_cal["logit_prob_x"] = logit_valid_probs[:, 1]
+            valid_for_cal["logit_prob_2"] = logit_valid_probs[:, 2]
         valid_for_cal["hgb_prob_1"] = hgb_valid_probs[:, 0]
         valid_for_cal["hgb_prob_x"] = hgb_valid_probs[:, 1]
         valid_for_cal["hgb_prob_2"] = hgb_valid_probs[:, 2]
@@ -646,13 +643,14 @@ def predict_jornada_from_model(
 
     # Obtener probabilidades de cada modelo
     cols = feature_columns()
-    logit_probs = predict_full_probs(logit, features_df, cols + ["division"])
+    if logit is not None:
+        logit_probs = predict_full_probs(logit, features_df, cols + ["division"])
+        features_df["logit_prob_1"] = logit_probs[:, 0]
+        features_df["logit_prob_x"] = logit_probs[:, 1]
+        features_df["logit_prob_2"] = logit_probs[:, 2]
     hgb_probs = predict_full_probs(hgb, features_df, cols)
 
     # Preparar DataFrame para apply_hybrid_config
-    features_df["logit_prob_1"] = logit_probs[:, 0]
-    features_df["logit_prob_x"] = logit_probs[:, 1]
-    features_df["logit_prob_2"] = logit_probs[:, 2]
     features_df["hgb_prob_1"] = hgb_probs[:, 0]
     features_df["hgb_prob_x"] = hgb_probs[:, 1]
     features_df["hgb_prob_2"] = hgb_probs[:, 2]
