@@ -394,6 +394,7 @@ def _optimize_partidos(
     alpha: float = 0.6,
     pleno_num: int = 15,
     probs_override: dict | None = None,
+    pleno_modelo: dict | None = None,
     n_sims: int = 20000,
 ) -> dict:
     """Optimiza el boleto de una lista de partidos bajo el contrato de columnas.
@@ -449,6 +450,17 @@ def _optimize_partidos(
             "signo": pleno_sign,
             "prob_favorito": round(float(np.max(pp)), 4),
         }
+        # Enriquecer con goles del modelo Dixon-Coles si están disponibles
+        mm = pleno_match.get("modelo_maestro", {})
+        if not isinstance(mm, dict) or not mm.get("disponible"):
+            mm = pleno_modelo or {}
+        if isinstance(mm, dict) and mm.get("disponible") and mm.get("tipo") == "pleno_15_marcador":
+            pleno_info["marcador_predicho"] = mm.get("marcador_predicho")
+            pleno_info["top_marcadores"] = mm.get("top_marcadores")
+            pleno_info["goles_local"] = mm.get("goles_local")
+            pleno_info["goles_visitante"] = mm.get("goles_visitante")
+            pleno_info["lambdas"] = mm.get("lambdas")
+            pleno_info["seleccion"] = mm.get("seleccion")
 
     return {
         "jornada": jornada,
@@ -485,6 +497,7 @@ def optimize_jornada(
     alpha: float = 0.6,
     pleno_num: int = 15,
     probs_override: dict | None = None,
+    pleno_modelo: dict | None = None,
     n_sims: int = 20000,
 ) -> dict:
     """Optimiza el boleto de una jornada completa (14 partidos + pleno aparte).
@@ -503,7 +516,7 @@ def optimize_jornada(
     return _optimize_partidos(
         data["partidos"], jornada=jornada, fuente_prob=fuente_prob, publico=publico,
         alpha=alpha, pleno_num=pleno_num, probs_override=probs_override,
-        n_sims=n_sims,
+        pleno_modelo=pleno_modelo, n_sims=n_sims,
     )
 
 

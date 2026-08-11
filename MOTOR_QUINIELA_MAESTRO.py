@@ -1,6 +1,7 @@
 import argparse
 import itertools
 import json
+from copy import deepcopy
 from pathlib import Path
 
 import numpy as np
@@ -375,27 +376,28 @@ def add_market_baseline(frame: pd.DataFrame) -> pd.DataFrame:
 def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.DataFrame:
     out = frame.copy()
     weights = config["weights"]
-    draw_boost = config["draw_boost"]
-    segunda_draw_boost = config["segunda_draw_boost"]
+    draw_boost = config.get("draw_boost", 0.0)
+    segunda_draw_boost = config.get("segunda_draw_boost", 0.0)
 
-    out[f"{prefix}_prob_1"] = (
-        weights["logit"] * out["logit_prob_1"]
-        + weights["hgb"] * out["hgb_prob_1"]
-        + weights["market"] * out["market_1"].fillna(0)
-        + weights["poisson"] * out["poisson_1"].fillna(0)
-    )
-    out[f"{prefix}_prob_x"] = (
-        weights["logit"] * out["logit_prob_x"]
-        + weights["hgb"] * out["hgb_prob_x"]
-        + weights["market"] * out["market_x"].fillna(0)
-        + weights["poisson"] * out["poisson_x"].fillna(0)
-    )
-    out[f"{prefix}_prob_2"] = (
-        weights["logit"] * out["logit_prob_2"]
-        + weights["hgb"] * out["hgb_prob_2"]
-        + weights["market"] * out["market_2"].fillna(0)
-        + weights["poisson"] * out["poisson_2"].fillna(0)
-    )
+    w_logit = weights.get("logit", 0.0)
+    w_hgb = weights.get("hgb", 0.0)
+    w_market = weights.get("market", 0.0)
+    w_poisson = weights.get("poisson", 0.0)
+
+    for s in ("1", "x", "2"):
+        prob = (
+            w_hgb * out[f"hgb_prob_{s}"]
+            + w_market * out[f"market_{s}"].fillna(0)
+        )
+        if w_logit > 0:
+            if f"logit_prob_{s}" not in out.columns:
+                raise KeyError(f"La columna logit_prob_{s} es requerida en el ensemble (peso logit > 0).")
+            prob = prob + w_logit * out[f"logit_prob_{s}"]
+        if w_poisson > 0:
+            if f"poisson_{s}" not in out.columns:
+                raise KeyError(f"La columna poisson_{s} es requerida en el ensemble (peso poisson > 0).")
+            prob = prob + w_poisson * out[f"poisson_{s}"].fillna(0)
+        out[f"{prefix}_prob_{s}"] = prob
 
     out[f"{prefix}_prob_x"] = out[f"{prefix}_prob_x"] + draw_boost
     segunda_mask = out["division"].eq("Segunda")
@@ -416,12 +418,16 @@ def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.Da
             out["favorite_market"].ne("X")
         )
         out.loc[x_disagree, f"{prefix}_pred"] = out.loc[x_disagree, "favorite_market"]
-    out[f"{prefix}_hit"] = (out[f"{prefix}_pred"] == out["result"]).astype(int)
-    out["model_disagreement"] = (
-        (out["logit_prob_1"] - out["hgb_prob_1"]).abs()
-        + (out["logit_prob_x"] - out["hgb_prob_x"]).abs()
-        + (out["logit_prob_2"] - out["hgb_prob_2"]).abs()
-    ) / 3.0
+    if "result" in out.columns:
+        out[f"{prefix}_hit"] = (out[f"{prefix}_pred"] == out["result"]).astype(int)
+    if "logit_prob_1" in out.columns and "hgb_prob_1" in out.columns:
+        out["model_disagreement"] = (
+            (out["logit_prob_1"] - out["hgb_prob_1"]).abs()
+            + (out["logit_prob_x"] - out["hgb_prob_x"]).abs()
+            + (out["logit_prob_2"] - out["hgb_prob_2"]).abs()
+        ) / 3.0
+    else:
+        out["model_disagreement"] = 0.0
     return out
 
 
@@ -436,6 +442,35 @@ def build_double(prob1: float, probx: float, prob2: float, draw_threshold: float
         if top_sign == "2":
             return "X2"
     return "".join(sorted((top_sign, second_sign), key=lambda sign: DOUBLE_ORDER[sign]))
+
+
+def double_avoid_overconfidence_mask(frame: pd.DataFrame, config: dict, pred_prefix: str) -> np.ndarray:
+    """Máscara de partidos sobreconfiados que no deben ser dobles (regla activa).
+
+    Un partido es "sobreconfiado" cuando la probabilidad del HGB para su signo
+    favorito supera a la del mercado en más del umbral (por defecto 0.10). El
+    experimento de divergencia mostró que esa divergencia excesiva no tiene
+    valor (sobreconfianza), y el walk-forward multi-split valida que excluir
+    esos partidos de los tres dobles mejora la media con estabilidad.
+    Devuelve un array de bool (True = excluir de dobles). Es defensiva: si el
+    config no activa la regla o faltan las columnas de HGB/mercado, no excluye.
+    """
+    if not config.get("double_avoid_overconfidence", False):
+        return np.zeros(len(frame), dtype=bool)
+    threshold = float(config.get("double_avoid_overconfidence_threshold", 0.10))
+    # La divergencia se mide con el HGB frente al mercado; si no hay HGB
+    # (p. ej. un frame externo), se cae a las probs del prefijo.
+    hgb_cols = ["hgb_prob_1", "hgb_prob_x", "hgb_prob_2"]
+    if not set(hgb_cols).issubset(frame.columns):
+        hgb_cols = [f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]
+    market_cols = ["market_1", "market_x", "market_2"]
+    if not set(hgb_cols).issubset(frame.columns) or not set(market_cols).issubset(frame.columns):
+        return np.zeros(len(frame), dtype=bool)
+    hgb = frame[hgb_cols].to_numpy(dtype=float)
+    mkt = frame[market_cols].to_numpy(dtype=float)
+    top = hgb.argmax(axis=1)
+    diff = hgb[np.arange(len(hgb)), top] - mkt[np.arange(len(hgb)), top]
+    return diff > threshold
 
 
 def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.DataFrame:
@@ -455,6 +490,9 @@ def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.
         + config["double_disagreement_weight"] * ordered["model_disagreement"]
         + np.where(ordered["division"].eq("Segunda"), config["double_segunda_bonus"], 0.0)
     )
+    # Regla anti-sobreconfianza: los partidos con divergencia HGB-mercado > umbral
+    # no deben gastar uno de los tres dobles (penalización grande en el score).
+    score = score - np.where(double_avoid_overconfidence_mask(ordered, config, pred_prefix), 1.0, 0.0)
     ordered["double_value_score"] = score
 
     jornada_scores = []
@@ -503,7 +541,58 @@ def evaluate_config(frame: pd.DataFrame, pred_prefix: str, config: dict) -> dict
     }
 
 
-def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dict]:
+HYBRID_CONFIG_KEYS = (
+    "draw_boost",
+    "segunda_draw_boost",
+    "double_draw_weight",
+    "double_disagreement_weight",
+    "double_segunda_bonus",
+    "double_draw_threshold",
+    "x_disagreement_strategy",
+    "double_avoid_overconfidence",
+    "double_avoid_overconfidence_threshold",
+)
+
+
+def active_hybrid_config() -> dict:
+    """Devuelve una copia inmutable de facto de la configuración publicada.
+
+    El modo de producción no debe volver a seleccionar hiperparámetros: evalúa
+    exactamente estos pesos y reglas, persistidos en CONFIG_MOTOR_V2.json.
+    """
+    master_config = settings.master_model_config()
+    weights = master_config.get("weights")
+    if not isinstance(weights, dict):
+        raise ValueError("CONFIG_MOTOR_V2.json no define master_model.weights.")
+    missing = [key for key in HYBRID_CONFIG_KEYS if key not in master_config]
+    if missing:
+        raise ValueError(f"Faltan parámetros híbridos activos: {', '.join(missing)}")
+    return {
+        "weights": deepcopy(weights),
+        **{key: deepcopy(master_config[key]) for key in HYBRID_CONFIG_KEYS},
+    }
+
+
+def fit_hybrid_models(train: pd.DataFrame, selection_mode: str = "production") -> tuple[Pipeline | None, Pipeline, dict]:
+    """Entrena los modelos y selecciona configuración según el modo explícito."""
+    if selection_mode == "search":
+        return optimize_hybrid_config(train)
+    if selection_mode != "production":
+        raise ValueError("selection_mode debe ser 'production' o 'search'.")
+
+    final_hgb = build_hgb_model()
+    final_hgb.fit(train[feature_columns()], train["target"])
+    cfg = active_hybrid_config()
+    logit_weight = cfg["weights"].get("logit", 0.0)
+    if logit_weight != 0.0:
+        final_logit = build_logit_model()
+        final_logit.fit(train[feature_columns() + ["division"]], train["target"])
+    else:
+        final_logit = None
+    return final_logit, final_hgb, cfg
+
+
+def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline | None, Pipeline, dict]:
     """Optimiza la configuración híbrida usando validación temporal multi-split.
 
     Si existen suficientes temporadas (>= 2), realiza un walk-forward por temporadas
@@ -511,23 +600,37 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
     rendimiento medio y la estabilidad. Si no, aplica un split temporal único 84/16.
     """
     usable = train.copy()
+    master_config = settings.master_model_config()
+    default_weight_candidates = [
+        {"logit": 0.0, "hgb": 0.049, "market": 0.951, "poisson": 0.0},
+        {"logit": 0.0, "hgb": 0.1, "market": 0.9, "poisson": 0.0},
+        {"logit": 0.0, "hgb": 0.2, "market": 0.8, "poisson": 0.0},
+    ]
+    config_weights = master_config.get("weights")
+    weight_candidates = master_config.get("weight_candidates") or default_weight_candidates
+    if isinstance(config_weights, dict) and config_weights not in weight_candidates:
+        weight_candidates = [config_weights, *weight_candidates]
+    needs_logit = any(w.get("logit", 0.0) > 0 for w in weight_candidates)
+
     if "season" not in usable.columns or usable["season"].nunique() < 2:
         # Fallback a split único 84/16 si no hay datos de temporada suficientes
         split_idx = int(len(usable) * 0.84)
         subtrain = usable.iloc[:split_idx].copy()
         valid = usable.iloc[split_idx:].copy()
         
-        logit_sub = build_logit_model()
+        logit_sub = build_logit_model() if needs_logit else None
         hgb_sub = build_hgb_model()
-        logit_sub.fit(subtrain[feature_columns() + ["division"]], subtrain["target"])
+        if needs_logit and logit_sub is not None:
+            logit_sub.fit(subtrain[feature_columns() + ["division"]], subtrain["target"])
         hgb_sub.fit(subtrain[feature_columns()], subtrain["target"])
         
         valid_eval = add_market_baseline(valid)
-        logit_probs = predict_full_probs(logit_sub, valid, feature_columns() + ["division"])
+        if needs_logit and logit_sub is not None:
+            logit_probs = predict_full_probs(logit_sub, valid, feature_columns() + ["division"])
+            valid_eval["logit_prob_1"] = logit_probs[:, 0]
+            valid_eval["logit_prob_x"] = logit_probs[:, 1]
+            valid_eval["logit_prob_2"] = logit_probs[:, 2]
         hgb_probs = predict_full_probs(hgb_sub, valid, feature_columns())
-        valid_eval["logit_prob_1"] = logit_probs[:, 0]
-        valid_eval["logit_prob_x"] = logit_probs[:, 1]
-        valid_eval["logit_prob_2"] = logit_probs[:, 2]
         valid_eval["hgb_prob_1"] = hgb_probs[:, 0]
         valid_eval["hgb_prob_x"] = hgb_probs[:, 1]
         valid_eval["hgb_prob_2"] = hgb_probs[:, 2]
@@ -550,18 +653,20 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
             if len(t_sub) < 500 or len(v_sub) < 50:
                 continue
                 
-            l_sub = build_logit_model()
+            l_sub = build_logit_model() if needs_logit else None
             h_sub = build_hgb_model()
-            l_sub.fit(t_sub[feature_columns() + ["division"]], t_sub["target"])
+            if needs_logit and l_sub is not None:
+                l_sub.fit(t_sub[feature_columns() + ["division"]], t_sub["target"])
             h_sub.fit(t_sub[feature_columns()], t_sub["target"])
             
             v_sub = add_market_baseline(v_sub)
-            l_probs = predict_full_probs(l_sub, v_sub, feature_columns() + ["division"])
+            if needs_logit and l_sub is not None:
+                l_probs = predict_full_probs(l_sub, v_sub, feature_columns() + ["division"])
+                v_sub["logit_prob_1"] = l_probs[:, 0]
+                v_sub["logit_prob_x"] = l_probs[:, 1]
+                v_sub["logit_prob_2"] = l_probs[:, 2]
             h_probs = predict_full_probs(h_sub, v_sub, feature_columns())
             
-            v_sub["logit_prob_1"] = l_probs[:, 0]
-            v_sub["logit_prob_x"] = l_probs[:, 1]
-            v_sub["logit_prob_2"] = l_probs[:, 2]
             v_sub["hgb_prob_1"] = h_probs[:, 0]
             v_sub["hgb_prob_x"] = h_probs[:, 1]
             v_sub["hgb_prob_2"] = h_probs[:, 2]
@@ -571,18 +676,6 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
             # Fallback si no hay bloques válidos
             return optimize_hybrid_config(usable.assign(season=np.nan))
 
-    # Definición de candidatos
-    master_config = settings.master_model_config()
-    default_weight_candidates = [
-        {"logit": 0.35, "hgb": 0.00, "market": 0.45, "poisson": 0.20},
-        {"logit": 0.25, "hgb": 0.25, "market": 0.35, "poisson": 0.15},
-        {"logit": 0.30, "hgb": 0.20, "market": 0.30, "poisson": 0.20},
-    ]
-    config_weights = master_config.get("weights")
-    weight_candidates = master_config.get("weight_candidates") or default_weight_candidates
-    if isinstance(config_weights, dict) and config_weights not in weight_candidates:
-        weight_candidates = [config_weights, *weight_candidates]
-        
     draw_boosts = master_config.get("draw_boost_candidates", [master_config.get("draw_boost", 0.0)])
     segunda_draw_boosts = master_config.get("segunda_draw_boost_candidates", [master_config.get("segunda_draw_boost", 0.0)])
     double_draw_weights = master_config.get("double_draw_weight_candidates", [master_config.get("double_draw_weight", 0.70), 0.85])
@@ -635,12 +728,63 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline, Pipeline, dic
             }
 
     # Re-entrenar modelos finales con TODO el historial proporcionado
-    final_logit = build_logit_model()
+    final_logit = build_logit_model() if needs_logit else None
     final_hgb = build_hgb_model()
-    final_logit.fit(train[feature_columns() + ["division"]], train["target"])
+    if needs_logit and final_logit is not None:
+        final_logit.fit(train[feature_columns() + ["division"]], train["target"])
     final_hgb.fit(train[feature_columns()], train["target"])
     
     return final_logit, final_hgb, best["config"]
+
+
+def pleno_bucket_from_score(home_goals: int, away_goals: int) -> str:
+    """Bucket oficial del Pleno al 15: 0/1/2 o M (3 o más goles)."""
+    home = "M" if home_goals >= 3 else str(home_goals)
+    away = "M" if away_goals >= 3 else str(away_goals)
+    return f"{home}-{away}"
+
+
+def pleno_bucket_pick(
+    lambda_home: float,
+    lambda_away: float,
+    rho: float | None = None,
+    max_goals: int = 5,
+) -> tuple[str, float, list[dict]]:
+    """Mejor bucket del Pleno al 15 y top marcadores a partir de las lambdas.
+
+    Devuelve ``(bucket, prob_bucket, top_scores)`` donde ``bucket`` es el
+    bucket (0/1/2/M) con más masa de probabilidad (agrega los marcadores con 3+
+    goles, que es como se juega el Pleno), ``prob_bucket`` su probabilidad y
+    ``top_scores`` los top-N marcadores exactos. Usa Poisson o Dixon-Coles
+    según ``rho``, igual que ``top_scorelines``.
+    """
+    if np.isnan(lambda_home) or np.isnan(lambda_away):
+        return "1-1", 0.0, []
+    scores = top_scorelines(lambda_home, lambda_away, max_goals=max_goals, top_n=3, rho=rho)
+    if not scores:
+        return "1-1", 0.0, []
+    if rho:
+        try:
+            from scripts.motor.dixon_coles import dc_score_probs
+
+            grid = dc_score_probs(
+                np.array([lambda_home]), np.array([lambda_away]), float(rho), max_goals=max_goals
+            )[0]
+        except Exception:
+            grid = None
+    else:
+        grid = None
+    buckets: dict[str, float] = {}
+    for hg in range(max_goals + 1):
+        for ag in range(max_goals + 1):
+            if grid is not None:
+                prob = float(grid[hg, ag])
+            else:
+                prob = float(poisson.pmf(hg, lambda_home) * poisson.pmf(ag, lambda_away))
+            bucket = pleno_bucket_from_score(hg, ag)
+            buckets[bucket] = buckets.get(bucket, 0.0) + prob
+    best = max(buckets.items(), key=lambda item: item[1])
+    return best[0], float(best[1]), scores
 
 
 def add_pleno_al_15(frame: pd.DataFrame, rho: float | None = None) -> pd.DataFrame:
@@ -659,13 +803,15 @@ def add_pleno_al_15(frame: pd.DataFrame, rho: float | None = None) -> pd.DataFra
         except Exception:
             rho = 0.0
 
-    top_scores = [
-        top_scorelines(lh, la, max_goals=5, top_n=3, rho=rho)
+    buckets_picks = [
+        pleno_bucket_pick(lh, la, rho=rho, max_goals=5)
         for lh, la in zip(out["lambda_home"], out["lambda_away"])
     ]
-    out["pleno15_top_scores"] = [json.dumps(scores, ensure_ascii=False) for scores in top_scores]
-    out["pleno15_marcador"] = [scores[0]["score"] if scores else None for scores in top_scores]
-    out["pleno15_confianza"] = [scores[0]["prob"] if scores else None for scores in top_scores]
+    out["pleno15_top_scores"] = [json.dumps(scores, ensure_ascii=False) for _, _, scores in buckets_picks]
+    out["pleno15_marcador"] = [scores[0]["score"] if scores else None for _, _, scores in buckets_picks]
+    out["pleno15_confianza"] = [scores[0]["prob"] if scores else None for _, _, scores in buckets_picks]
+    out["pleno15_bucket"] = [bucket for bucket, _, _ in buckets_picks]
+    out["pleno15_bucket_prob"] = [prob for _, prob, _ in buckets_picks]
     out["pleno15_local_goles_esperados"] = out["lambda_home"]
     out["pleno15_visitante_goles_esperados"] = out["lambda_away"]
     return out
@@ -692,7 +838,9 @@ def season_sort_key(season: object) -> tuple[int, str]:
         return (0, text)
 
 
-def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFrame, dict]:
+def run_season_backtest(
+    df: pd.DataFrame, target_season: str, selection_mode: str = "production"
+) -> tuple[pd.DataFrame, dict]:
     usable = df[df["result"].isin(LABEL_MAP)].copy()
     usable["target"] = usable["result"].map(LABEL_MAP)
     usable = usable.sort_values(["date", "division", "home", "away"]).reset_index(drop=True)
@@ -735,13 +883,14 @@ def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFr
         except Exception:
             rho_est = -0.036
 
-    logit, hgb, best_config = optimize_hybrid_config(train)
+    logit, hgb, best_config = fit_hybrid_models(train, selection_mode)
     test_eval = add_market_baseline(test)
-    logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
+    if logit is not None:
+        logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
+        test_eval["logit_prob_1"] = logit_probs[:, 0]
+        test_eval["logit_prob_x"] = logit_probs[:, 1]
+        test_eval["logit_prob_2"] = logit_probs[:, 2]
     hgb_probs = predict_full_probs(hgb, test, feature_columns())
-    test_eval["logit_prob_1"] = logit_probs[:, 0]
-    test_eval["logit_prob_x"] = logit_probs[:, 1]
-    test_eval["logit_prob_2"] = logit_probs[:, 2]
     test_eval["hgb_prob_1"] = hgb_probs[:, 0]
     test_eval["hgb_prob_x"] = hgb_probs[:, 1]
     test_eval["hgb_prob_2"] = hgb_probs[:, 2]
@@ -758,21 +907,26 @@ def run_season_backtest(df: pd.DataFrame, target_season: str) -> tuple[pd.DataFr
         "test_date_to": str(test["date"].max().date()),
         "divisions_test": {division: int(count) for division, count in test["division"].value_counts().sort_index().items()},
         "best_config": best_config,
+        "selection_mode": selection_mode,
         "dixon_coles_rho": rho_est,
         "latest_season_model": summarize_results(test_eval, "latest", best_config),
     }
     return predictions, metrics
 
 
-def run_latest_season_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+def run_latest_season_backtest(
+    df: pd.DataFrame, selection_mode: str = "production"
+) -> tuple[pd.DataFrame, dict]:
     usable = df[df["result"].isin(LABEL_MAP)].copy()
     seasons = sorted(usable["season"].dropna().unique().tolist(), key=season_sort_key)
     if len(seasons) < 2:
         raise ValueError("No hay temporadas suficientes para separar entrenamiento y última temporada.")
-    return run_season_backtest(df, seasons[-1])
+    return run_season_backtest(df, seasons[-1], selection_mode)
 
 
-def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+def run_backtest(
+    df: pd.DataFrame, selection_mode: str = "production"
+) -> tuple[pd.DataFrame, dict]:
     usable = df[df["result"].isin(LABEL_MAP)].copy()
     usable["target"] = usable["result"].map(LABEL_MAP)
     usable = usable.sort_values(["date", "division", "home", "away"]).reset_index(drop=True)
@@ -803,13 +957,14 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         except Exception:
             rho_est = -0.036
 
-    logit, hgb, best_config = optimize_hybrid_config(train)
+    logit, hgb, best_config = fit_hybrid_models(train, selection_mode)
     test_eval = add_market_baseline(test)
-    logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
+    if logit is not None:
+        logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
+        test_eval["logit_prob_1"] = logit_probs[:, 0]
+        test_eval["logit_prob_x"] = logit_probs[:, 1]
+        test_eval["logit_prob_2"] = logit_probs[:, 2]
     hgb_probs = predict_full_probs(hgb, test, feature_columns())
-    test_eval["logit_prob_1"] = logit_probs[:, 0]
-    test_eval["logit_prob_x"] = logit_probs[:, 1]
-    test_eval["logit_prob_2"] = logit_probs[:, 2]
     test_eval["hgb_prob_1"] = hgb_probs[:, 0]
     test_eval["hgb_prob_x"] = hgb_probs[:, 1]
     test_eval["hgb_prob_2"] = hgb_probs[:, 2]
@@ -824,6 +979,7 @@ def run_backtest(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         "test_matches": int(len(test)),
         "divisions": {division: int(count) for division, count in usable["division"].value_counts().sort_index().items()},
         "best_config": best_config,
+        "selection_mode": selection_mode,
         "dixon_coles_rho": rho_est,
         "optimized_model": summarize_results(test_eval, "best", best_config),
     }
@@ -838,13 +994,21 @@ def main() -> None:
         default="original",
         help="fuente histórica (por defecto: original)",
     )
+    parser.add_argument(
+        "--modo",
+        choices=("produccion", "busqueda"),
+        default="produccion",
+        help=("produccion evalúa los pesos congelados; busqueda vuelve a optimizar "
+              "candidatos y no debe usarse como cifra de referencia"),
+    )
     args = parser.parse_args()
+    selection_mode = "production" if args.modo == "produccion" else "search"
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     raw = load_raw_history(args.historico)
     features = rolling_team_features(raw)
-    predictions, metrics = run_backtest(features)
-    latest_predictions, latest_metrics = run_latest_season_backtest(features)
-    completed_predictions, completed_metrics = run_season_backtest(features, "2024-2025")
+    predictions, metrics = run_backtest(features, selection_mode)
+    latest_predictions, latest_metrics = run_latest_season_backtest(features, selection_mode)
+    completed_predictions, completed_metrics = run_season_backtest(features, "2024-2025", selection_mode)
 
     predictions.to_csv(OUT_DIR / "predicciones_backtest_optimizadas.csv", index=False, encoding="utf-8-sig")
     (OUT_DIR / "backtest_resumen_optimizado.json").write_text(
@@ -866,12 +1030,13 @@ def main() -> None:
     print("MOTOR QUINIELA MAESTRO - VERSION OPTIMIZADA")
     print("=" * 68)
     print(f"Base usada: {RAW_BASE}")
+    print(f"Modo: {args.modo} ({'pesos congelados' if selection_mode == 'production' else 'búsqueda exploratoria'})")
     print(f"Partidos limpios: {metrics['dataset_matches']}")
     print(f"Train: {metrics['train_matches']}  |  Test: {metrics['test_matches']}")
     print(f"Fecha de corte test: {metrics['split_date']}")
     print(f"Reparto divisiones: {metrics['divisions']}")
     print("-" * 68)
-    print("CONFIG GANADORA")
+    print("CONFIG EVALUADA")
     print(json.dumps(metrics["best_config"], ensure_ascii=False, indent=2))
     print("-" * 68)
     final = metrics["optimized_model"]

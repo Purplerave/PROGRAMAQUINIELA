@@ -1,13 +1,18 @@
-# Contrato JSON/API — Liga de Maestros
+# Contrato JSON/API v1.1 — Liga de Maestros
 
 Este documento define el contrato estable para el intercambio de predicciones con la plataforma "Liga de Maestros". 
 
 ## Endpoint / Salida: `SALIDAS/api_maestros_J{jornada}.json`
 
+Generado por `scripts/motor/GENERAR_CONTRATO_API.py` a partir del paquete de la
+jornada. El contrato es **estable**: lleva versionado de esquema
+(`contrato_version`, semver) y se valida antes de escribirse.
+
 ### Estructura del Objeto Principal
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
+| `contrato_version` | `string` | Versión del esquema del contrato (semver). Solo cambia el major ante cambios no retrocompatibles; los campos se añaden de forma aditiva. |
 | `jornada` | `int` | Número de la jornada de La Quiniela. |
 | `fecha_generacion` | `iso8601` | Marca de tiempo de la predicción. |
 | `modelo_version` | `string` | Identificador de la versión del motor utilizado. |
@@ -26,6 +31,12 @@ Este documento define el contrato estable para el intercambio de predicciones co
 | `apuesta` | `string` | Sugerencia de apuesta ("1", "1X", "1X2", etc.). |
 | `tipo` | `string` | "simple", "doble" o "triple". |
 | `confianza` | `float` | Índice de certidumbre (0.0 a 1.0). |
+| `origen_prediccion` | `string` | Origen auditable: `motor_v4`, `manual_pendiente` o `manual_revisado`. |
+
+`origen_prediccion` permite jornadas mixtas sin inferir el origen a partir del
+signo. Los consumidores v1.0 que ignoren campos desconocidos siguen siendo
+compatibles; los consumidores v1.1 deben conservarlo y mostrarlo. Si el paquete
+fuente no aporta origen, el generador emite `motor_v4` por compatibilidad.
 
 ### Objeto Pleno 15
 
@@ -36,6 +47,7 @@ Este documento define el contrato estable para el intercambio de predicciones co
 | `marcador` | `string` | Marcador exacto más probable (ej. "2-1"). |
 | `pronostico_local` | `string` | Bucket local ("0", "1", "2", "M"). |
 | `pronostico_visitante` | `string` | Bucket visitante ("0", "1", "2", "M"). |
+| `origen_prediccion` | `string` | Mismo origen auditable que los partidos 1-14. |
 
 ---
 
@@ -55,7 +67,8 @@ Este documento define el contrato estable para el intercambio de predicciones co
       "signo_maestro": "1",
       "apuesta": "1X",
       "tipo": "doble",
-      "confianza": 0.65
+      "confianza": 0.65,
+      "origen_prediccion": "motor_v4"
     }
   ],
   "pleno15": {

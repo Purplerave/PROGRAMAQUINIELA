@@ -25,12 +25,6 @@
         "hgb": 0.2,
         "market": 0.8,
         "poisson": 0.0
-      },
-      {
-        "logit": 0.05,
-        "hgb": 0.1,
-        "market": 0.8,
-        "poisson": 0.05
       }
     ],
     "draw_boost": 0.0,
@@ -40,6 +34,8 @@
     "double_segunda_bonus": 0.05,
     "double_draw_threshold": 0.3,
     "x_disagreement_strategy": "none",
+    "double_avoid_overconfidence": true,
+    "double_avoid_overconfidence_threshold": 0.1,
     "draw_boost_candidates": [
       0.0
     ],

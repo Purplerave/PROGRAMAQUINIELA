@@ -5,6 +5,7 @@ __pycache__/
 venv/
 .env
 .env.*
+.mimocode/
 
 salida/*
 !salida/.gitkeep
@@ -14,6 +15,7 @@ SALIDAS/*
 *.joblib
 *.pkl
 *.log
+202526.json
 
 # Datos brutos descargados (procedencia externa, no se versionan)
 DATOS/xg_understat/

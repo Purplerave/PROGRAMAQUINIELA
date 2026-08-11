@@ -78,12 +78,15 @@ def _blend_active(df: pd.DataFrame) -> np.ndarray:
     w = settings.master_model_config()["weights"]
     out = np.zeros((len(df), 3), dtype=float)
     for j, s in enumerate(("1", "x", "2")):
-        out[:, j] = (
-            w["logit"] * df[f"logit_prob_{s}"].to_numpy(float)
-            + w["hgb"] * df[f"hgb_prob_{s}"].to_numpy(float)
-            + w["market"] * df[f"market_{s}"].fillna(0).to_numpy(float)
-            + w["poisson"] * df[f"poisson_{s}"].fillna(0).to_numpy(float)
+        val = (
+            w.get("hgb", 0.0) * df[f"hgb_prob_{s}"].to_numpy(float)
+            + w.get("market", 0.0) * df[f"market_{s}"].fillna(0).to_numpy(float)
         )
+        if w.get("logit", 0.0) > 0 and f"logit_prob_{s}" in df.columns:
+            val = val + w["logit"] * df[f"logit_prob_{s}"].to_numpy(float)
+        if w.get("poisson", 0.0) > 0 and f"poisson_{s}" in df.columns:
+            val = val + w["poisson"] * df[f"poisson_{s}"].fillna(0).to_numpy(float)
+        out[:, j] = val
     return _renorm(out)
 
 
