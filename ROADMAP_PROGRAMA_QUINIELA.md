@@ -3,7 +3,24 @@
 Estado consolidado el 29/07/2026. Actualizado el 04/08/2026 (recomendaciones P0 de la auditoría externa del 04/08/2026 cerradas).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (04/08/2026 — P0 auditoría externa: contrato de columnas, optimizador exhaustivo, sin fuga intra-fecha, validación de cuotas, referencia de producción, CI)
+## Último avance (04/08/2026 — P0.1 roadmap auditoría: métrica económica del boleto de 6 €)
+
+- **Métrica económica implementada** (`ROADMAP_MEJORA_AUDITORIA_GROK.md`, P0.1):
+  - `evaluation/economics.py`: EV ex-ante del boleto por convolución exacta
+    (reutiliza `OPTIMIZADOR_COLUMNAS`), P(exacto k)/P(≥k), premios configurables.
+  - `scripts/backtests/EVALUACION_ECONOMICA.py`: ROI ex-post walk-forward por
+    temporada, modelo vs "solo favoritos de mercado".
+  - `CONFIG_MOTOR_V2.json → economia`: premios medios históricos (etiquetados como
+    ESTIMADOS; los premios reales son variables por jornada).
+  - Bloque `economia` en `reports/production_reference.json`; +11 tests (200 en verde).
+- **Resultado (ex-post, 392 jornadas 2019-2026, premios estimados):** boleto modelo
+  ROI **+130%** (muy volátil por temporada: −83,6%..+658,6%), media 8,00 aciertos,
+  **P(≥12)=3,57%**; solo-mercado a 6 € ROI **−61,4%**, P(≥12)=0,77%. El edge no está
+  en el acierto simple (ruido) sino en la colocación de dobles. No es garantía
+  (depende de premios estimados y de varianza alta). Siguiente: P0.2 (experimento
+  limpio de ensembles con esta métrica).
+
+## Avance anterior (04/08/2026 — P0 auditoría externa: contrato de columnas, optimizador exhaustivo, sin fuga intra-fecha, validación de cuotas, referencia de producción, CI)
 
 - **Contrato de columnas fijo** en `CONFIG_MOTOR_V2.json` (v2026-08-04): 3 dobles
   = 8 columnas a 0,75 EUR = 6,00 EUR máximo; Pleno al 15 separado. Eliminadas

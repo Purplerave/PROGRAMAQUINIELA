@@ -41,6 +41,7 @@ import settings
 BACKTEST_SCRIPT = PROJECT_ROOT / "scripts" / "backtests" / "BACKTEST_HISTORICO_TEMPORADAS.py"
 BACKTEST_JSON = settings.SALIDA_DIR / "backtest_historico_temporadas.json"
 BACKTEST_RESUMEN_JSON = settings.SALIDA_DIR / "backtest_historico_temporadas_resumen.json"
+ECONOMIA_JSON = settings.SALIDA_DIR / "evaluacion_economica.json"
 DEFAULT_OUT = PROJECT_ROOT / "reports" / "production_reference.json"
 
 
@@ -272,6 +273,23 @@ def main() -> None:
         backtest = run_backtest()
     por_temporada, resumen_bt = metrics_from_backtest(backtest)
 
+    # 5b) Métrica económica (P0.1). Resumen compacto si existe la evaluación.
+    economia = None
+    if ECONOMIA_JSON.is_file():
+        econ_full = json.loads(ECONOMIA_JSON.read_text(encoding="utf-8"))
+        economia = {
+            "fuente": str(ECONOMIA_JSON.relative_to(PROJECT_ROOT)),
+            "premios_estimados": econ_full.get("premios_estimados", True),
+            "nota": econ_full.get("nota"),
+            "escenario_por_defecto": econ_full.get("escenario_por_defecto"),
+            "jornadas_totales": econ_full.get("jornadas_totales"),
+            "modelo": econ_full.get("modelo"),
+            "solo_favoritos_mercado": econ_full.get("solo_favoritos_mercado"),
+            "delta_roi_vs_market_6eur": econ_full.get("delta_roi_vs_market_6eur"),
+            "sensibilidad_escenarios": econ_full.get("sensibilidad_escenarios"),
+            "reproducir": "python scripts/backtests/EVALUACION_ECONOMICA.py",
+        }
+
     # 6) Tests
     tests = None
     if args.skip_tests:
@@ -289,6 +307,7 @@ def main() -> None:
         "protocolo_evaluacion": protocolo,
         "metricas_por_temporada": por_temporada,
         "metricas_agregadas": resumen_bt,
+        "economia": economia,
         "resultado_tests": tests,
         "reproducir": {
             "backtest": f"python {BACKTEST_SCRIPT.relative_to(PROJECT_ROOT)}",
