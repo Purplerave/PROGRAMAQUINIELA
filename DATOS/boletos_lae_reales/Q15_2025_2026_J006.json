@@ -1,0 +1,116 @@
+{
+  "id": "Q15_2025_2026_J006",
+  "jornada_q15": 6,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15/resultados-quiniela",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/6",
+  "nota": "Importado desde Quiniela15. Validar contra histórico antes de usar en métricas.",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Athletic",
+      "visitante": "Arsenal",
+      "resultado": "0-2",
+      "signo": "2"
+    },
+    {
+      "num": 2,
+      "local": "PSV",
+      "visitante": "Union St. Gilloise",
+      "resultado": "1-3",
+      "signo": "2"
+    },
+    {
+      "num": 3,
+      "local": "Benfica",
+      "visitante": "Qarabag",
+      "resultado": "2-3",
+      "signo": "2"
+    },
+    {
+      "num": 4,
+      "local": "Juventus",
+      "visitante": "B. Dortmund",
+      "resultado": "4-4",
+      "signo": "X"
+    },
+    {
+      "num": 5,
+      "local": "Real Madrid",
+      "visitante": "Marseille",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 6,
+      "local": "Tottenham",
+      "visitante": "Villarreal",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 7,
+      "local": "Ajax",
+      "visitante": "Inter Milan",
+      "resultado": "0-2",
+      "signo": "2"
+    },
+    {
+      "num": 8,
+      "local": "B. Munich",
+      "visitante": "Chelsea",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 9,
+      "local": "PSG",
+      "visitante": "Atalanta",
+      "resultado": "4-0",
+      "signo": "1"
+    },
+    {
+      "num": 10,
+      "local": "Brujas",
+      "visitante": "Mónaco",
+      "resultado": "4-1",
+      "signo": "1"
+    },
+    {
+      "num": 11,
+      "local": "Copenhague",
+      "visitante": "Leverkusen",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 12,
+      "local": "Eintracht F.",
+      "visitante": "Galatasaray",
+      "resultado": "5-1",
+      "signo": "1"
+    },
+    {
+      "num": 13,
+      "local": "Man. City",
+      "visitante": "Nápoles",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 14,
+      "local": "Newcastle",
+      "visitante": "Barcelona",
+      "resultado": "1-2",
+      "signo": "2"
+    },
+    {
+      "num": 15,
+      "local": "Liverpool",
+      "visitante": "At. Madrid",
+      "resultado": "3-2",
+      "signo": "M-2",
+      "tipo": "pleno15"
+    }
+  ]
+}

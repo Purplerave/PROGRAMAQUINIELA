@@ -27,19 +27,32 @@ def test_active_hybrid_config_matches_persisted_weights_and_is_a_copy():
 
 def test_contract_generator_propagates_allowed_prediction_origin(tmp_path, monkeypatch):
     generator = load_contract_generator()
-    package = {
-        "fecha_generacion": "2026-08-04T00:00:00",
-        "modelo_info": {"version": "motor_quinielistico_v4"},
-        "partidos": [{
-            "num": 1, "local": "Local", "visitante": "Visitante",
+    partidos = []
+    for i in range(1, 15):
+        partidos.append({
+            "num": i, "local": f"Local{i}", "visitante": f"Visitante{i}",
             "origen_prediccion": "manual_revisado",
             "probabilidades": {"modelo": {"1": 0.5, "X": 0.25, "2": 0.25}},
-            "recomendacion_modelo": {},
-        }],
+            "recomendacion_modelo": {"signo": "1", "dobles": []},
+        })
+    partidos.append({
+        "num": 15, "local": "Local15", "visitante": "Visitante15",
+        "modelo_maestro": {
+            "disponible": True,
+            "marcador_predicho": "1-0",
+            "seleccion": {"local": 1, "visitante": 0},
+        },
+    })
+    package = {
+        "jornada": 1,
+        "fecha_generacion": "2026-08-04T00:00:00",
+        "modelo_info": {"version": "motor_quinielistico_v4"},
+        "partidos": partidos,
     }
     (tmp_path / "SALIDAS").mkdir()
     (tmp_path / "SALIDAS" / "paquete_jornada_J1.json").write_text(json.dumps(package), encoding="utf-8")
     monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(generator.settings, "SALIDAS_DIR", tmp_path / "SALIDAS")
     generator.generate_api_contract(1)
     result = json.loads((tmp_path / "SALIDAS" / "api_maestros_J1.json").read_text(encoding="utf-8"))
     assert result["partidos"][0]["origen_prediccion"] == "manual_revisado"

@@ -28,10 +28,19 @@ import settings
 # cambios no retrocompatibles; añadir campos nuevos es compatible.
 CONTRATO_VERSION = "1.0"
 
+ORIGENES_PREDICCION_VALIDOS = {"motor_v4", "manual_pendiente", "manual_revisado"}
+
+
+def prediction_origin(match: dict) -> str:
+    """Propaga el origen explícito del paquete, con fallback v1.0 seguro."""
+    origin = match.get("origen_prediccion", match.get("origen", "motor_v4"))
+    return origin if origin in ORIGENES_PREDICCION_VALIDOS else "motor_v4"
+
+
 # Campos obligatorios por objeto, usados por la validación.
 _REQUERIDOS_PRINCIPAL = ("jornada", "fecha_generacion", "modelo_version", "partidos", "pleno15")
-_REQUERIDOS_PARTIDO = ("numero", "local", "visitante", "probabilidades")
-_REQUERIDOS_PLENO = ("local", "visitante", "marcador", "pronostico_local", "pronostico_visitante")
+_REQUERIDOS_PARTIDO = ("numero", "local", "visitante", "probabilidades", "origen_prediccion")
+_REQUERIDOS_PLENO = ("local", "visitante", "marcador", "pronostico_local", "pronostico_visitante", "origen_prediccion")
 _SIGNOS = ("1", "X", "2")
 
 
@@ -68,6 +77,7 @@ def _procesar_partido(p: dict, num: int) -> dict:
         "apuesta": rm.get("apuesta_recomendada"),
         "tipo": rm.get("tipo_apuesta"),
         "confianza": _flotante_por_defecto(rm.get("confianza_modelo"), 0.0),
+        "origen_prediccion": prediction_origin(p),
     }
 
 
@@ -82,6 +92,7 @@ def _procesar_pleno(p: dict, paquete: dict) -> dict:
             "marcador": mm.get("marcador_predicho"),
             "pronostico_local": sel.get("local"),
             "pronostico_visitante": sel.get("visitante"),
+            "origen_prediccion": prediction_origin(p),
         }
     # Fallback al diagnóstico Q15 (marcadores) cuando el modelo no está.
     diag = (paquete.get("pleno15") or {}).get("diagnostico_q15") if isinstance(paquete.get("pleno15"), dict) else {}
@@ -94,6 +105,7 @@ def _procesar_pleno(p: dict, paquete: dict) -> dict:
         "marcador": top,
         "pronostico_local": "1",  # Fallback por defecto
         "pronostico_visitante": "1",
+        "origen_prediccion": prediction_origin(p),
     }
 
 

@@ -1,0 +1,8777 @@
+[
+  {
+    "id": "Q15_2025_2026_J001",
+    "jornada_q15": 1,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/1",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Girona",
+        "visitante": "Rayo",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Villarreal",
+        "visitante": "Real Oviedo",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Alavés",
+        "visitante": "Levante",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Mallorca",
+        "visitante": "Barcelona",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Valencia",
+        "visitante": "R. Sociedad",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Celta",
+        "visitante": "Getafe",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Athletic",
+        "visitante": "Sevilla",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Espanyol",
+        "visitante": "At. Madrid",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "R. Santander",
+        "visitante": "Castellón",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Málaga",
+        "visitante": "Eibar",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Granada",
+        "visitante": "Deportivo",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Cádiz",
+        "visitante": "Mirandés",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Huesca",
+        "visitante": "Leganés",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Las Palmas",
+        "visitante": "Andorra",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Elche",
+        "visitante": "Betis",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J002",
+    "jornada_q15": 2,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/2",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Mallorca",
+        "visitante": "Celta",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "At. Madrid",
+        "visitante": "Elche",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Levante",
+        "visitante": "Barcelona",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Osasuna",
+        "visitante": "Valencia",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "R. Sociedad",
+        "visitante": "Espanyol",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Villarreal",
+        "visitante": "Girona",
+        "resultado": "5-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Real Oviedo",
+        "visitante": "Real Madrid",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Athletic",
+        "visitante": "Rayo",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Mirandés",
+        "visitante": "Huesca",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Ceuta",
+        "visitante": "Sporting Gijón",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "R. Zaragoza",
+        "visitante": "Andorra",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Deportivo",
+        "visitante": "Burgos",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "C. Leonesa",
+        "visitante": "Almería",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Albacete",
+        "visitante": "R. Santander",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Sevilla",
+        "visitante": "Getafe",
+        "resultado": "1-2",
+        "signo": "1-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J003",
+    "jornada_q15": 3,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/3",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Alavés",
+        "visitante": "At. Madrid",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Real Oviedo",
+        "visitante": "R. Sociedad",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Girona",
+        "visitante": "Sevilla",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Real Madrid",
+        "visitante": "Mallorca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Celta",
+        "visitante": "Villarreal",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Betis",
+        "visitante": "Athletic",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Espanyol",
+        "visitante": "Osasuna",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "R. Santander",
+        "visitante": "Ceuta",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Valladolid",
+        "visitante": "Córdoba",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Castellón",
+        "visitante": "R. Zaragoza",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Andorra",
+        "visitante": "Burgos",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Cádiz",
+        "visitante": "Albacete",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Las Palmas",
+        "visitante": "Málaga",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Granada",
+        "visitante": "Mirandés",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Rayo",
+        "visitante": "Barcelona",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J004",
+    "jornada_q15": 4,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/4",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Deportivo",
+        "visitante": "Sporting Gijón",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "R. Zaragoza",
+        "visitante": "Valladolid",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Málaga",
+        "visitante": "Granada",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Ceuta",
+        "visitante": "Huesca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Burgos",
+        "visitante": "Las Palmas",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "R. Sociedad B",
+        "visitante": "Cádiz",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Almería",
+        "visitante": "R. Santander",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "C. Leonesa",
+        "visitante": "Leganés",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Eibar",
+        "visitante": "Andorra",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Letonia",
+        "visitante": "Serbia",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Eire",
+        "visitante": "Hungría",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Alemania",
+        "visitante": "Irlanda Norte",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Luxemburgo",
+        "visitante": "Eslovaquia",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Polonia",
+        "visitante": "Finlandia",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Turquía",
+        "visitante": "España",
+        "resultado": "0-6",
+        "signo": "0-6",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J005",
+    "jornada_q15": 5,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/5",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Getafe",
+        "visitante": "Real Oviedo",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Levante",
+        "visitante": "Betis",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "At. Madrid",
+        "visitante": "Villarreal",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Barcelona",
+        "visitante": "Valencia",
+        "resultado": "6-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Athletic",
+        "visitante": "Alavés",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "R. Sociedad",
+        "visitante": "Real Madrid",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Celta",
+        "visitante": "Girona",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Osasuna",
+        "visitante": "Rayo",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Cádiz",
+        "visitante": "Eibar",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Mirandés",
+        "visitante": "Deportivo",
+        "resultado": "1-5",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Huesca",
+        "visitante": "Málaga",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Valladolid",
+        "visitante": "Almería",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Sporting Gijón",
+        "visitante": "Burgos",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Granada",
+        "visitante": "Leganés",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Espanyol",
+        "visitante": "Mallorca",
+        "resultado": "3-2",
+        "signo": "3-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J006",
+    "jornada_q15": 6,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/6",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Athletic",
+        "visitante": "Arsenal",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "PSV",
+        "visitante": "Union St. Gilloise",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Benfica",
+        "visitante": "Qarabag",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Juventus",
+        "visitante": "B. Dortmund",
+        "resultado": "4-4",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Real Madrid",
+        "visitante": "Marseille",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Tottenham",
+        "visitante": "Villarreal",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Ajax",
+        "visitante": "Inter Milan",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "B. Munich",
+        "visitante": "Chelsea",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "PSG",
+        "visitante": "Atalanta",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Brujas",
+        "visitante": "Mónaco",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Copenhague",
+        "visitante": "Leverkusen",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Eintracht F.",
+        "visitante": "Galatasaray",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Man. City",
+        "visitante": "Nápoles",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Newcastle",
+        "visitante": "Barcelona",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Liverpool",
+        "visitante": "At. Madrid",
+        "resultado": "3-2",
+        "signo": "3-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J007",
+    "jornada_q15": 7,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/7",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Alavés",
+        "visitante": "Sevilla",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Barcelona",
+        "visitante": "Getafe",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Betis",
+        "visitante": "R. Sociedad",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Elche",
+        "visitante": "Real Oviedo",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Girona",
+        "visitante": "Levante",
+        "resultado": "0-4",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Mallorca",
+        "visitante": "At. Madrid",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Rayo",
+        "visitante": "Celta",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Real Madrid",
+        "visitante": "Espanyol",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Villarreal",
+        "visitante": "Osasuna",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Albacete",
+        "visitante": "Valladolid",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Córdoba",
+        "visitante": "R. Santander",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Deportivo",
+        "visitante": "Huesca",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Almería",
+        "visitante": "Sporting Gijón",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Málaga",
+        "visitante": "Cádiz",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Valencia",
+        "visitante": "Athletic",
+        "resultado": "2-0",
+        "signo": "2-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J008",
+    "jornada_q15": 8,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/8",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Athletic",
+        "visitante": "Girona",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Espanyol",
+        "visitante": "Valencia",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Levante",
+        "visitante": "Real Madrid",
+        "resultado": "1-4",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Sevilla",
+        "visitante": "Villarreal",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Getafe",
+        "visitante": "Alavés",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Real Oviedo",
+        "visitante": "Barcelona",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Osasuna",
+        "visitante": "Elche",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "R. Sociedad",
+        "visitante": "Mallorca",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Estrella Roja",
+        "visitante": "Celtic",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Betis",
+        "visitante": "Nottingham Forest",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Nice",
+        "visitante": "Roma",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Aston Villa FC",
+        "visitante": "Bolonia",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Salzburgo",
+        "visitante": "Oporto",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Stuttgart",
+        "visitante": "Celta",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "At. Madrid",
+        "visitante": "Rayo",
+        "resultado": "3-2",
+        "signo": "3-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J009",
+    "jornada_q15": 9,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/9",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Getafe",
+        "visitante": "Levante",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Mallorca",
+        "visitante": "Alavés",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Villarreal",
+        "visitante": "Athletic",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Rayo",
+        "visitante": "Sevilla",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Elche",
+        "visitante": "Celta",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Betis",
+        "visitante": "Osasuna",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Barcelona",
+        "visitante": "R. Sociedad",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Valencia",
+        "visitante": "Real Oviedo",
+        "resultado": "-**sorteado",
+        "signo": "1*\n* sorteado"
+      },
+      {
+        "num": 9,
+        "local": "Eibar",
+        "visitante": "Deportivo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "R. Santander",
+        "visitante": "Andorra",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Las Palmas",
+        "visitante": "Almería",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Burgos",
+        "visitante": "Málaga",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Cádiz",
+        "visitante": "Ceuta",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Sporting Gijón",
+        "visitante": "Albacete",
+        "resultado": "3-4",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "At. Madrid",
+        "visitante": "Real Madrid",
+        "resultado": "5-2",
+        "signo": "5-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J010",
+    "jornada_q15": 10,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/10",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "FC Kairat Almaty",
+        "visitante": "Real Madrid",
+        "resultado": "0-5",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "At. Madrid",
+        "visitante": "Eintracht F.",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Chelsea",
+        "visitante": "Benfica",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Galatasaray",
+        "visitante": "Liverpool",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Inter Milan",
+        "visitante": "Slavia Praga",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Marseille",
+        "visitante": "Ajax",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Arsenal",
+        "visitante": "Olympiacos",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Leverkusen",
+        "visitante": "PSV",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "B. Dortmund",
+        "visitante": "Athletic",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Mónaco",
+        "visitante": "Man. City",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Nápoles",
+        "visitante": "Sporting Lisboa",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Villarreal",
+        "visitante": "Juventus",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Ludogorets",
+        "visitante": "Betis",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Celta",
+        "visitante": "PAOK Salónica",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Barcelona",
+        "visitante": "PSG",
+        "resultado": "1-2",
+        "signo": "1-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J011",
+    "jornada_q15": 11,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/11",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Real Oviedo",
+        "visitante": "Levante",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Girona",
+        "visitante": "Valencia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Athletic",
+        "visitante": "Mallorca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Real Madrid",
+        "visitante": "Villarreal",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Sevilla",
+        "visitante": "Barcelona",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Alavés",
+        "visitante": "Elche",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Espanyol",
+        "visitante": "Betis",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "R. Sociedad",
+        "visitante": "Rayo",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Deportivo",
+        "visitante": "Almería",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Andorra",
+        "visitante": "Leganés",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Huesca",
+        "visitante": "Burgos",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "R. Zaragoza",
+        "visitante": "Córdoba",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "R. Santander",
+        "visitante": "Málaga",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Las Palmas",
+        "visitante": "Cádiz",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Celta",
+        "visitante": "At. Madrid",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J012",
+    "jornada_q15": 12,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/12",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Mirandés",
+        "visitante": "Leganés",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Almería",
+        "visitante": "R. Zaragoza",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "R. Sociedad B",
+        "visitante": "Andorra",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Albacete",
+        "visitante": "Ceuta",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Eibar",
+        "visitante": "Castellón",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Sporting Gijón",
+        "visitante": "R. Santander",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Burgos",
+        "visitante": "Valladolid",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Cádiz",
+        "visitante": "Huesca",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Málaga",
+        "visitante": "Deportivo",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Córdoba",
+        "visitante": "C. Leonesa",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Bulgaria",
+        "visitante": "Turquía",
+        "resultado": "1-6",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Dinamarca",
+        "visitante": "Grecia",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Rumanía",
+        "visitante": "Austria",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Irlanda Norte",
+        "visitante": "Alemania",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "España",
+        "visitante": "Georgia",
+        "resultado": "2-0",
+        "signo": "2-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J013",
+    "jornada_q15": 13,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/13",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Estonia",
+        "visitante": "Moldavia",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Turquía",
+        "visitante": "Georgia",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Portugal",
+        "visitante": "Hungría",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Eire",
+        "visitante": "Armenia",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Letonia",
+        "visitante": "Inglaterra",
+        "resultado": "0-5",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Andorra",
+        "visitante": "Serbia",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Qatar",
+        "visitante": "Emiratos",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Arabia Saudí",
+        "visitante": "Iraq",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Canadá",
+        "visitante": "Colombia",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "EE.UU.",
+        "visitante": "Australia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Curaçao",
+        "visitante": "Trinidad y Tobago",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Jamaica",
+        "visitante": "Bermudas",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Panamá",
+        "visitante": "Surinam",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "El Salvador",
+        "visitante": "Guatemala",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "España",
+        "visitante": "Bulgaria",
+        "resultado": "4-0",
+        "signo": "4-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J014",
+    "jornada_q15": 14,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/14",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Sevilla",
+        "visitante": "Mallorca",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Barcelona",
+        "visitante": "Girona",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Villarreal",
+        "visitante": "Betis",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "At. Madrid",
+        "visitante": "Osasuna",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Elche",
+        "visitante": "Athletic",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Celta",
+        "visitante": "R. Sociedad",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Levante",
+        "visitante": "Rayo",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Getafe",
+        "visitante": "Real Madrid",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "R. Zaragoza",
+        "visitante": "C. Leonesa",
+        "resultado": "0-5",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Leganés",
+        "visitante": "Málaga",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Castellón",
+        "visitante": "Albacete",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Valladolid",
+        "visitante": "Sporting Gijón",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "R. Santander",
+        "visitante": "Deportivo",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Córdoba",
+        "visitante": "Almería",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Alavés",
+        "visitante": "Valencia",
+        "resultado": "0-0",
+        "signo": "0-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J015",
+    "jornada_q15": 15,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/15",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Barcelona",
+        "visitante": "Olympiacos",
+        "resultado": "6-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Arsenal",
+        "visitante": "At. Madrid",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Leverkusen",
+        "visitante": "PSG",
+        "resultado": "2-7",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Copenhague",
+        "visitante": "B. Dortmund",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Newcastle",
+        "visitante": "Benfica",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "PSV",
+        "visitante": "Nápoles",
+        "resultado": "6-2",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Union St. Gilloise",
+        "visitante": "Inter Milan",
+        "resultado": "0-4",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Villarreal",
+        "visitante": "Man. City",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Athletic",
+        "visitante": "Qarabag",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Chelsea",
+        "visitante": "Ajax",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Eintracht F.",
+        "visitante": "Liverpool",
+        "resultado": "1-5",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "B. Munich",
+        "visitante": "Brujas",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Genk",
+        "visitante": "Betis",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Celta",
+        "visitante": "Nice",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Real Madrid",
+        "visitante": "Juventus",
+        "resultado": "1-0",
+        "signo": "1-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J016",
+    "jornada_q15": 16,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/16",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Girona",
+        "visitante": "Real Oviedo",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Espanyol",
+        "visitante": "Elche",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Athletic",
+        "visitante": "Getafe",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Valencia",
+        "visitante": "Villarreal",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Mallorca",
+        "visitante": "Levante",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Osasuna",
+        "visitante": "Celta",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Rayo",
+        "visitante": "Alavés",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Betis",
+        "visitante": "At. Madrid",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Granada",
+        "visitante": "Cádiz",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Mirandés",
+        "visitante": "R. Santander",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Málaga",
+        "visitante": "Andorra",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Sporting Gijón",
+        "visitante": "R. Zaragoza",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Almería",
+        "visitante": "Castellón",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Deportivo",
+        "visitante": "Valladolid",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Real Madrid",
+        "visitante": "Barcelona",
+        "resultado": "2-1",
+        "signo": "2-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J017",
+    "jornada_q15": 17,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/17",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Villarreal",
+        "visitante": "Rayo",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "At. Madrid",
+        "visitante": "Sevilla",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Real Madrid",
+        "visitante": "Valencia",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Levante",
+        "visitante": "Celta",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Alavés",
+        "visitante": "Espanyol",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Barcelona",
+        "visitante": "Elche",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Betis",
+        "visitante": "Mallorca",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Real Oviedo",
+        "visitante": "Osasuna",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Leganés",
+        "visitante": "Burgos",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Almería",
+        "visitante": "Eibar",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Andorra",
+        "visitante": "Cádiz",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Sporting Gijón",
+        "visitante": "Las Palmas",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Castellón",
+        "visitante": "Málaga",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "R. Zaragoza",
+        "visitante": "Deportivo",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "R. Sociedad",
+        "visitante": "Athletic",
+        "resultado": "3-2",
+        "signo": "3-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J018",
+    "jornada_q15": 18,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/18",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "At. Madrid",
+        "visitante": "Union St. Gilloise",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Bodo-Glimt",
+        "visitante": "Mónaco",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Juventus",
+        "visitante": "Sporting Lisboa",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Olympiacos",
+        "visitante": "PSV",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "PSG",
+        "visitante": "B. Munich",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Tottenham",
+        "visitante": "Copenhague",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Pafos",
+        "visitante": "Villarreal",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Qarabag",
+        "visitante": "Chelsea",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Ajax",
+        "visitante": "Galatasaray",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Benfica",
+        "visitante": "Leverkusen",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Brujas",
+        "visitante": "Barcelona",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Man. City",
+        "visitante": "B. Dortmund",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Marseille",
+        "visitante": "Atalanta",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Newcastle",
+        "visitante": "Athletic",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Liverpool",
+        "visitante": "Real Madrid",
+        "resultado": "1-0",
+        "signo": "1-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J019",
+    "jornada_q15": 19,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/19",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Girona",
+        "visitante": "Alavés",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Sevilla",
+        "visitante": "Osasuna",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "At. Madrid",
+        "visitante": "Levante",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Espanyol",
+        "visitante": "Villarreal",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Athletic",
+        "visitante": "Real Oviedo",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Valencia",
+        "visitante": "Betis",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Mallorca",
+        "visitante": "Getafe",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Celta",
+        "visitante": "Barcelona",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Huesca",
+        "visitante": "Andorra",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Málaga",
+        "visitante": "Córdoba",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Las Palmas",
+        "visitante": "R. Santander",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Ceuta",
+        "visitante": "Almería",
+        "resultado": "1-1**sorteado",
+        "signo": "X*\n* sorteado"
+      },
+      {
+        "num": 13,
+        "local": "Granada",
+        "visitante": "R. Zaragoza",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Cádiz",
+        "visitante": "Valladolid",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Rayo",
+        "visitante": "Real Madrid",
+        "resultado": "0-0",
+        "signo": "0-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J020",
+    "jornada_q15": 20,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/20",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Chipre",
+        "visitante": "Austria",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Liechtenstein",
+        "visitante": "Gales",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Turquía",
+        "visitante": "Bulgaria",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Bosnia",
+        "visitante": "Rumanía",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Dinamarca",
+        "visitante": "Bielorrusia",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Grecia",
+        "visitante": "Escocia",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Suiza",
+        "visitante": "Suecia",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Hungría",
+        "visitante": "Eire",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Portugal",
+        "visitante": "Armenia",
+        "resultado": "9-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Albania",
+        "visitante": "Inglaterra",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Azerbaiyán",
+        "visitante": "Francia",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Serbia",
+        "visitante": "Letonia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Ucrania",
+        "visitante": "Islandia",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Italia",
+        "visitante": "Noruega",
+        "resultado": "1-4",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Georgia",
+        "visitante": "España",
+        "resultado": "0-4",
+        "signo": "0-4",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J021",
+    "jornada_q15": 21,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/21",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Austria",
+        "visitante": "Bosnia",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Bélgica",
+        "visitante": "Liechtenstein",
+        "resultado": "7-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Bielorrusia",
+        "visitante": "Grecia",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Bulgaria",
+        "visitante": "Georgia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Escocia",
+        "visitante": "Dinamarca",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Gales",
+        "visitante": "Macedonia",
+        "resultado": "7-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Kosovo",
+        "visitante": "Suiza",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Rumanía",
+        "visitante": "San Marino",
+        "resultado": "7-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Suecia",
+        "visitante": "Eslovenia",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Costa Rica",
+        "visitante": "Honduras",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Guatemala",
+        "visitante": "Surinam",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Jamaica",
+        "visitante": "Curaçao",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Panamá",
+        "visitante": "El Salvador",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Trinidad y Tobago",
+        "visitante": "Bermudas",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "España",
+        "visitante": "Turquía",
+        "resultado": "2-2",
+        "signo": "2-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J022",
+    "jornada_q15": 22,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/22",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Alavés",
+        "visitante": "Celta",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Barcelona",
+        "visitante": "Athletic",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Osasuna",
+        "visitante": "R. Sociedad",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Villarreal",
+        "visitante": "Mallorca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Real Oviedo",
+        "visitante": "Rayo",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Betis",
+        "visitante": "Girona",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Getafe",
+        "visitante": "At. Madrid",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Elche",
+        "visitante": "Real Madrid",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Leganés",
+        "visitante": "Almería",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Granada",
+        "visitante": "Córdoba",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Deportivo",
+        "visitante": "Ceuta",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Huesca",
+        "visitante": "Sporting Gijón",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Burgos",
+        "visitante": "R. Santander",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Málaga",
+        "visitante": "Mirandés",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Espanyol",
+        "visitante": "Sevilla",
+        "resultado": "2-1",
+        "signo": "2-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J023",
+    "jornada_q15": 23,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/23",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Bodo-Glimt",
+        "visitante": "Juventus",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "B. Dortmund",
+        "visitante": "Villarreal",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Chelsea",
+        "visitante": "Barcelona",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Man. City",
+        "visitante": "Leverkusen",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Marseille",
+        "visitante": "Newcastle",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Slavia Praga",
+        "visitante": "Athletic",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Arsenal",
+        "visitante": "B. Munich",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Eintracht F.",
+        "visitante": "Atalanta",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Liverpool",
+        "visitante": "PSV",
+        "resultado": "1-4",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Olympiacos",
+        "visitante": "Real Madrid",
+        "resultado": "3-4",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "PSG",
+        "visitante": "Tottenham",
+        "resultado": "5-3",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Sporting Lisboa",
+        "visitante": "Brujas",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Ludogorets",
+        "visitante": "Celta",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Betis",
+        "visitante": "Utrecht",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "At. Madrid",
+        "visitante": "Inter Milan",
+        "resultado": "2-1",
+        "signo": "2-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J024",
+    "jornada_q15": 24,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/24",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Mallorca",
+        "visitante": "Osasuna",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Barcelona",
+        "visitante": "Alavés",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Levante",
+        "visitante": "Athletic",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "At. Madrid",
+        "visitante": "Real Oviedo",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "R. Sociedad",
+        "visitante": "Villarreal",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Sevilla",
+        "visitante": "Betis",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Celta",
+        "visitante": "Espanyol",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Girona",
+        "visitante": "Real Madrid",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Ceuta",
+        "visitante": "Burgos",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Albacete",
+        "visitante": "Deportivo",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Valladolid",
+        "visitante": "Málaga",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "R. Zaragoza",
+        "visitante": "Leganés",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Córdoba",
+        "visitante": "Cádiz",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Castellón",
+        "visitante": "Las Palmas",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Rayo",
+        "visitante": "Valencia",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J025",
+    "jornada_q15": 25,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/25",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Guadalajara",
+        "visitante": "Ceuta",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Navalcarnero",
+        "visitante": "Getafe",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "C. Leonesa",
+        "visitante": "Andorra",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Mirandés",
+        "visitante": "Sporting Gijón",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Murcia",
+        "visitante": "Cádiz",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Ourense CF",
+        "visitante": "Girona",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Pontevedra",
+        "visitante": "Eibar",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Leganés",
+        "visitante": "Albacete",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Real Ávila",
+        "visitante": "Rayo",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Extremadura",
+        "visitante": "Sevilla",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Cartagena",
+        "visitante": "Valencia",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "R. Zaragoza",
+        "visitante": "Burgos",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Sabadell",
+        "visitante": "Deportivo",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Athletic",
+        "visitante": "Real Madrid",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Barcelona",
+        "visitante": "At. Madrid",
+        "resultado": "3-1",
+        "signo": "3-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J026",
+    "jornada_q15": 26,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/26",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Villarreal",
+        "visitante": "Getafe",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Alavés",
+        "visitante": "R. Sociedad",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Betis",
+        "visitante": "Barcelona",
+        "resultado": "3-5",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Elche",
+        "visitante": "Girona",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Valencia",
+        "visitante": "Sevilla",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Espanyol",
+        "visitante": "Rayo",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Real Madrid",
+        "visitante": "Celta",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Osasuna",
+        "visitante": "Levante",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Andorra",
+        "visitante": "Almería",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Huesca",
+        "visitante": "Valladolid",
+        "resultado": "1-4",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Cádiz",
+        "visitante": "R. Santander",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Leganés",
+        "visitante": "Córdoba",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Deportivo",
+        "visitante": "Castellón",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Granada",
+        "visitante": "Ceuta",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Athletic",
+        "visitante": "At. Madrid",
+        "resultado": "1-0",
+        "signo": "1-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J027",
+    "jornada_q15": 27,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/27",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Atalanta",
+        "visitante": "Chelsea",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Barcelona",
+        "visitante": "Eintracht F.",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Inter Milan",
+        "visitante": "Liverpool",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Mónaco",
+        "visitante": "Galatasaray",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "PSV",
+        "visitante": "At. Madrid",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Qarabag",
+        "visitante": "Ajax",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Villarreal",
+        "visitante": "Copenhague",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Athletic",
+        "visitante": "PSG",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Leverkusen",
+        "visitante": "Newcastle",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Benfica",
+        "visitante": "Nápoles",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "B. Dortmund",
+        "visitante": "Bodo-Glimt",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Juventus",
+        "visitante": "Pafos",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Din. Zagreb",
+        "visitante": "Betis",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Celta",
+        "visitante": "Bolonia",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Real Madrid",
+        "visitante": "Man. City",
+        "resultado": "1-2",
+        "signo": "1-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J028",
+    "jornada_q15": 28,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/28",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "At. Madrid",
+        "visitante": "Valencia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Mallorca",
+        "visitante": "Elche",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Barcelona",
+        "visitante": "Osasuna",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Getafe",
+        "visitante": "Espanyol",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Sevilla",
+        "visitante": "Real Oviedo",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Celta",
+        "visitante": "Athletic",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Levante",
+        "visitante": "Villarreal",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Alavés",
+        "visitante": "Real Madrid",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Sporting Gijón",
+        "visitante": "Granada",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Valladolid",
+        "visitante": "Andorra",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "R. Santander",
+        "visitante": "Leganés",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "R. Zaragoza",
+        "visitante": "Cádiz",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Almería",
+        "visitante": "Burgos",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Ceuta",
+        "visitante": "Las Palmas",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Rayo",
+        "visitante": "Betis",
+        "resultado": "0-0",
+        "signo": "0-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J029",
+    "jornada_q15": 29,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/29",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "AZ Alkmaar",
+        "visitante": "Jagiellonia Bialystok",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Shakhtar Donetsk",
+        "visitante": "HNK Rijeka",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Slovan Bratislava",
+        "visitante": "Häcken",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Sigma Olomouc",
+        "visitante": "Lech Poznan",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Sparta Praga",
+        "visitante": "Aberdeen FC",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Dinamo Kiev",
+        "visitante": "Artsakh",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Crystal Palace",
+        "visitante": "KuPS Kuopio",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Shamrock Rovers",
+        "visitante": "Hamrun Spartans FC",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "FSV Mainz 05",
+        "visitante": "Samsunspor",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Estrasburgo",
+        "visitante": "Breidablik",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "NK Celje",
+        "visitante": "Shelbourne",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "NK Zrinjski",
+        "visitante": "Rapid Viena",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "AEK Atenas",
+        "visitante": "CSU Craiova",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Lausanne",
+        "visitante": "Fiorentina",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Rayo",
+        "visitante": "Drita",
+        "resultado": "3-0",
+        "signo": "3-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J030",
+    "jornada_q15": 30,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/30",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Real Oviedo",
+        "visitante": "Celta",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Levante",
+        "visitante": "R. Sociedad",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Osasuna",
+        "visitante": "Alavés",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Real Madrid",
+        "visitante": "Sevilla",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Girona",
+        "visitante": "At. Madrid",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Villarreal",
+        "visitante": "Barcelona",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Elche",
+        "visitante": "Rayo",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Betis",
+        "visitante": "Getafe",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Andorra",
+        "visitante": "Deportivo",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Huesca",
+        "visitante": "R. Santander",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Málaga",
+        "visitante": "Almería",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Burgos",
+        "visitante": "R. Zaragoza",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Granada",
+        "visitante": "Albacete",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Cádiz",
+        "visitante": "Castellón",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Athletic",
+        "visitante": "Espanyol",
+        "resultado": "1-2",
+        "signo": "1-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J031",
+    "jornada_q15": 31,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/31",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Nottingham Forest",
+        "visitante": "Man. City",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Arsenal",
+        "visitante": "Brighton",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Brentford",
+        "visitante": "Bournemouth",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Burnley",
+        "visitante": "Everton FC",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Liverpool",
+        "visitante": "Wolverhampton",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "West Ham",
+        "visitante": "Fulham",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Chelsea",
+        "visitante": "Aston Villa FC",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Sunderland AFC",
+        "visitante": "Leeds",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Crystal Palace",
+        "visitante": "Tottenham",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Udinese",
+        "visitante": "Lazio",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Pisa",
+        "visitante": "Juventus",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Milan",
+        "visitante": "Verona",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Cremonese",
+        "visitante": "Nápoles",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Bolonia",
+        "visitante": "Sassuolo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Atalanta",
+        "visitante": "Inter Milan",
+        "resultado": "0-1",
+        "signo": "0-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J032",
+    "jornada_q15": 32,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/32",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Celta",
+        "visitante": "Valencia",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Osasuna",
+        "visitante": "Athletic",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Elche",
+        "visitante": "Villarreal",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Espanyol",
+        "visitante": "Barcelona",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Sevilla",
+        "visitante": "Levante",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Real Madrid",
+        "visitante": "Betis",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Alavés",
+        "visitante": "Real Oviedo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Mallorca",
+        "visitante": "Girona",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Castellón",
+        "visitante": "Huesca",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Valladolid",
+        "visitante": "R. Santander",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Córdoba",
+        "visitante": "Burgos",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Sporting Gijón",
+        "visitante": "Málaga",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "R. Zaragoza",
+        "visitante": "Las Palmas",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Deportivo",
+        "visitante": "Cádiz",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "R. Sociedad",
+        "visitante": "At. Madrid",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J033",
+    "jornada_q15": 33,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/33",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Getafe",
+        "visitante": "R. Sociedad",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Girona",
+        "visitante": "Osasuna",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Villarreal",
+        "visitante": "Alavés",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Real Oviedo",
+        "visitante": "Betis",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Sevilla",
+        "visitante": "Celta",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Valencia",
+        "visitante": "Elche",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Levante",
+        "visitante": "Espanyol",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Cádiz",
+        "visitante": "Sporting Gijón",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Leganés",
+        "visitante": "Valladolid",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Granada",
+        "visitante": "Castellón",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Málaga",
+        "visitante": "Ceuta",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Huesca",
+        "visitante": "Córdoba",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Las Palmas",
+        "visitante": "Deportivo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Mirandés",
+        "visitante": "Almería",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Rayo",
+        "visitante": "Mallorca",
+        "resultado": "2-1",
+        "signo": "2-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J034",
+    "jornada_q15": 34,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/34",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "R. Santander",
+        "visitante": "Barcelona",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Albacete",
+        "visitante": "Real Madrid",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Betis",
+        "visitante": "Elche",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Alavés",
+        "visitante": "Rayo",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "C. Leonesa",
+        "visitante": "Athletic",
+        "resultado": "3-4",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Burgos",
+        "visitante": "Valencia",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "R. Sociedad",
+        "visitante": "Osasuna",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "B. Dortmund",
+        "visitante": "W. Bremen",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Hamburgo",
+        "visitante": "Leverkusen",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "VfL Wolfsburg",
+        "visitante": "FC St. Pauli",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Colonia",
+        "visitante": "B. Munich",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Hoffenheim",
+        "visitante": "B. Möncheng",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Leipzig",
+        "visitante": "Friburgo",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Augsburg",
+        "visitante": "Union Berlin",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Deportivo",
+        "visitante": "At. Madrid",
+        "resultado": "0-1",
+        "signo": "0-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J035",
+    "jornada_q15": 35,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/35",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Betis",
+        "visitante": "Villarreal",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Celta",
+        "visitante": "Rayo",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Elche",
+        "visitante": "Sevilla",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Getafe",
+        "visitante": "Valencia",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Osasuna",
+        "visitante": "Real Oviedo",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "At. Madrid",
+        "visitante": "Alavés",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Mallorca",
+        "visitante": "Athletic",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Real Madrid",
+        "visitante": "Levante",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Albacete",
+        "visitante": "Cádiz",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Burgos",
+        "visitante": "Huesca",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "C. Leonesa",
+        "visitante": "Sporting Gijón",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Almería",
+        "visitante": "Deportivo",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Granada",
+        "visitante": "Eibar",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "R. Santander",
+        "visitante": "Las Palmas",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "R. Sociedad",
+        "visitante": "Barcelona",
+        "resultado": "2-1",
+        "signo": "2-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J036",
+    "jornada_q15": 36,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/36",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Inter Milan",
+        "visitante": "Arsenal",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Villarreal",
+        "visitante": "Ajax",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Tottenham",
+        "visitante": "B. Dortmund",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Sporting Lisboa",
+        "visitante": "PSG",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Olympiacos",
+        "visitante": "Leverkusen",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Copenhague",
+        "visitante": "Nápoles",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Galatasaray",
+        "visitante": "At. Madrid",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Atalanta",
+        "visitante": "Athletic",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Juventus",
+        "visitante": "Benfica",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Slavia Praga",
+        "visitante": "Barcelona",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Marseille",
+        "visitante": "Liverpool",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Newcastle",
+        "visitante": "PSV",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "PAOK Salónica",
+        "visitante": "Betis",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Celta",
+        "visitante": "Lille",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Real Madrid",
+        "visitante": "Mónaco",
+        "resultado": "6-1",
+        "signo": "6-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J037",
+    "jornada_q15": 37,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/37",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Rayo",
+        "visitante": "Osasuna",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Valencia",
+        "visitante": "Espanyol",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Sevilla",
+        "visitante": "Athletic",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Villarreal",
+        "visitante": "Real Madrid",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "At. Madrid",
+        "visitante": "Mallorca",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Barcelona",
+        "visitante": "Real Oviedo",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "R. Sociedad",
+        "visitante": "Celta",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Alavés",
+        "visitante": "Betis",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Valladolid",
+        "visitante": "Albacete",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Las Palmas",
+        "visitante": "Córdoba",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Andorra",
+        "visitante": "Huesca",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Eibar",
+        "visitante": "Almería",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "R. Zaragoza",
+        "visitante": "Castellón",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Deportivo",
+        "visitante": "R. Santander",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Girona",
+        "visitante": "Getafe",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J038",
+    "jornada_q15": 38,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/38",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Ajax",
+        "visitante": "Olympiacos",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Athletic",
+        "visitante": "Sporting Lisboa",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "At. Madrid",
+        "visitante": "Bodo-Glimt",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Barcelona",
+        "visitante": "Copenhague",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Leverkusen",
+        "visitante": "Villarreal",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "B. Dortmund",
+        "visitante": "Inter Milan",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Liverpool",
+        "visitante": "Qarabag",
+        "resultado": "6-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Man. City",
+        "visitante": "Galatasaray",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Mónaco",
+        "visitante": "Juventus",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Nápoles",
+        "visitante": "Chelsea",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "PSV",
+        "visitante": "B. Munich",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "PSG",
+        "visitante": "Newcastle",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Estrella Roja",
+        "visitante": "Celta",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Betis",
+        "visitante": "Feyenoord",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Benfica",
+        "visitante": "Real Madrid",
+        "resultado": "4-2",
+        "signo": "4-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J039",
+    "jornada_q15": 39,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/39",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Real Oviedo",
+        "visitante": "Girona",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Osasuna",
+        "visitante": "Villarreal",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Levante",
+        "visitante": "At. Madrid",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Elche",
+        "visitante": "Barcelona",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Real Madrid",
+        "visitante": "Rayo",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Betis",
+        "visitante": "Valencia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Getafe",
+        "visitante": "Celta",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Mallorca",
+        "visitante": "Sevilla",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "C. Leonesa",
+        "visitante": "Deportivo",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Almería",
+        "visitante": "Ceuta",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Eibar",
+        "visitante": "Sporting Gijón",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Huesca",
+        "visitante": "Cádiz",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Granada",
+        "visitante": "R. Santander",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Mirandés",
+        "visitante": "Málaga",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Athletic",
+        "visitante": "R. Sociedad",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J040",
+    "jornada_q15": 40,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/40",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Rayo",
+        "visitante": "Real Oviedo",
+        "resultado": "1-0**sorteado",
+        "signo": "1*\n* sorteado"
+      },
+      {
+        "num": 2,
+        "local": "Barcelona",
+        "visitante": "Mallorca",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Sevilla",
+        "visitante": "Girona",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "R. Sociedad",
+        "visitante": "Elche",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Alavés",
+        "visitante": "Getafe",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Athletic",
+        "visitante": "Levante",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "At. Madrid",
+        "visitante": "Betis",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Villarreal",
+        "visitante": "Espanyol",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Cádiz",
+        "visitante": "Almería",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Valladolid",
+        "visitante": "Castellón",
+        "resultado": "0-4",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Ceuta",
+        "visitante": "Córdoba",
+        "resultado": "0-0**sorteado",
+        "signo": "X*\n* sorteado"
+      },
+      {
+        "num": 12,
+        "local": "Deportivo",
+        "visitante": "Albacete",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Sporting Gijón",
+        "visitante": "Huesca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Málaga",
+        "visitante": "C. Leonesa",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Valencia",
+        "visitante": "Real Madrid",
+        "resultado": "0-2",
+        "signo": "0-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J041",
+    "jornada_q15": 41,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/41",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Athletic",
+        "visitante": "R. Sociedad",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "At. Madrid",
+        "visitante": "Barcelona",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Chelsea",
+        "visitante": "Leeds",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Everton FC",
+        "visitante": "Bournemouth",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Tottenham",
+        "visitante": "Newcastle",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "West Ham",
+        "visitante": "Man. United",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Aston Villa FC",
+        "visitante": "Brighton",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Crystal Palace",
+        "visitante": "Burnley",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Man. City",
+        "visitante": "Fulham",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Nottingham Forest",
+        "visitante": "Wolverhampton",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Brentford",
+        "visitante": "Arsenal",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Celtic",
+        "visitante": "Livingston",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Dundee",
+        "visitante": "Aberdeen FC",
+        "resultado": "0-0**sorteado",
+        "signo": "X*\n* sorteado"
+      },
+      {
+        "num": 14,
+        "local": "Motherwell",
+        "visitante": "Glasgow Rangers",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Sunderland AFC",
+        "visitante": "Liverpool",
+        "resultado": "0-1",
+        "signo": "0-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J042",
+    "jornada_q15": 42,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/42",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Elche",
+        "visitante": "Osasuna",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Getafe",
+        "visitante": "Villarreal",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Levante",
+        "visitante": "Valencia",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Real Madrid",
+        "visitante": "R. Sociedad",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Sevilla",
+        "visitante": "Alavés",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Real Oviedo",
+        "visitante": "Athletic",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Girona",
+        "visitante": "Barcelona",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Mallorca",
+        "visitante": "Betis",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Espanyol",
+        "visitante": "Celta",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Albacete",
+        "visitante": "Sporting Gijón",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Burgos",
+        "visitante": "Cádiz",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Castellón",
+        "visitante": "Deportivo",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Eibar",
+        "visitante": "R. Santander",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Mirandés",
+        "visitante": "Las Palmas",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Rayo",
+        "visitante": "At. Madrid",
+        "resultado": "3-0",
+        "signo": "3-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J043",
+    "jornada_q15": 43,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/43",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "B. Dortmund",
+        "visitante": "Atalanta",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Mónaco",
+        "visitante": "PSG",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Qarabag",
+        "visitante": "Newcastle",
+        "resultado": "1-6",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Bodo-Glimt",
+        "visitante": "Inter Milan",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Brujas",
+        "visitante": "At. Madrid",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Olympiacos",
+        "visitante": "Leverkusen",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Brann",
+        "visitante": "Bolonia",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Din. Zagreb",
+        "visitante": "Genk",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Fenerbahçe SK",
+        "visitante": "Nottingham Forest",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "PAOK Salónica",
+        "visitante": "Celta",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Celtic",
+        "visitante": "Stuttgart",
+        "resultado": "1-4",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Lille",
+        "visitante": "Estrella Roja",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Ludogorets",
+        "visitante": "Ferencvárosi",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Panathinaikos FC",
+        "visitante": "Viktoria Plzen",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Benfica",
+        "visitante": "Real Madrid",
+        "resultado": "0-1",
+        "signo": "0-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J044",
+    "jornada_q15": 44,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/44",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "R. Sociedad",
+        "visitante": "Real Oviedo",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Betis",
+        "visitante": "Rayo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Osasuna",
+        "visitante": "Real Madrid",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "At. Madrid",
+        "visitante": "Espanyol",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Getafe",
+        "visitante": "Sevilla",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Barcelona",
+        "visitante": "Levante",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Celta",
+        "visitante": "Mallorca",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Villarreal",
+        "visitante": "Valencia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Almería",
+        "visitante": "Córdoba",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Las Palmas",
+        "visitante": "Castellón",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Sporting Gijón",
+        "visitante": "Valladolid",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Andorra",
+        "visitante": "R. Zaragoza",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "R. Santander",
+        "visitante": "Burgos",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Málaga",
+        "visitante": "Albacete",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Alavés",
+        "visitante": "Girona",
+        "resultado": "2-2",
+        "signo": "2-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J045",
+    "jornada_q15": 45,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/45",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Rayo",
+        "visitante": "Athletic",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Barcelona",
+        "visitante": "Villarreal",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Mallorca",
+        "visitante": "R. Sociedad",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Real Oviedo",
+        "visitante": "At. Madrid",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Elche",
+        "visitante": "Espanyol",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Valencia",
+        "visitante": "Osasuna",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Girona",
+        "visitante": "Celta",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Real Madrid",
+        "visitante": "Getafe",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "R. Zaragoza",
+        "visitante": "Burgos",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Granada",
+        "visitante": "Málaga",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Castellón",
+        "visitante": "R. Santander",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Sporting Gijón",
+        "visitante": "Leganés",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "C. Leonesa",
+        "visitante": "Las Palmas",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Eibar",
+        "visitante": "Cádiz",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Betis",
+        "visitante": "Sevilla",
+        "resultado": "2-2",
+        "signo": "2-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J046",
+    "jornada_q15": 46,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/46",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Getafe",
+        "visitante": "Betis",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Levante",
+        "visitante": "Girona",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "At. Madrid",
+        "visitante": "R. Sociedad",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Celta",
+        "visitante": "Real Madrid",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Villarreal",
+        "visitante": "Elche",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Sevilla",
+        "visitante": "Rayo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Valencia",
+        "visitante": "Alavés",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Espanyol",
+        "visitante": "Real Oviedo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Huesca",
+        "visitante": "Albacete",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Málaga",
+        "visitante": "Valladolid",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Andorra",
+        "visitante": "Sporting Gijón",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "R. Santander",
+        "visitante": "Córdoba",
+        "resultado": "4-3",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Leganés",
+        "visitante": "Eibar",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Deportivo",
+        "visitante": "Granada",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Athletic",
+        "visitante": "Barcelona",
+        "resultado": "0-1",
+        "signo": "0-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J047",
+    "jornada_q15": 47,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/47",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Atalanta",
+        "visitante": "B. Munich",
+        "resultado": "1-6",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "At. Madrid",
+        "visitante": "Tottenham",
+        "resultado": "5-2",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Newcastle",
+        "visitante": "Barcelona",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Leverkusen",
+        "visitante": "Arsenal",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Bodo-Glimt",
+        "visitante": "Sporting Lisboa",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "PSG",
+        "visitante": "Chelsea",
+        "resultado": "5-2",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Bolonia",
+        "visitante": "Roma",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Lille",
+        "visitante": "Aston Villa FC",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Panathinaikos FC",
+        "visitante": "Betis",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Stuttgart",
+        "visitante": "Oporto",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Celta",
+        "visitante": "Lyon",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Ferencvárosi",
+        "visitante": "Braga",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Genk",
+        "visitante": "Friburgo",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Samsunspor",
+        "visitante": "Rayo",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Real Madrid",
+        "visitante": "Man. City",
+        "resultado": "3-0",
+        "signo": "3-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J048",
+    "jornada_q15": 48,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/48",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Girona",
+        "visitante": "Athletic",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "At. Madrid",
+        "visitante": "Getafe",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Real Oviedo",
+        "visitante": "Valencia",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Real Madrid",
+        "visitante": "Elche",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Mallorca",
+        "visitante": "Espanyol",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Barcelona",
+        "visitante": "Sevilla",
+        "resultado": "5-2",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Betis",
+        "visitante": "Celta",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Rayo",
+        "visitante": "Levante",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Valladolid",
+        "visitante": "Leganés",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "R. Zaragoza",
+        "visitante": "Almería",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Ceuta",
+        "visitante": "Deportivo",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Eibar",
+        "visitante": "Burgos",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Sporting Gijón",
+        "visitante": "Castellón",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Albacete",
+        "visitante": "Las Palmas",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "R. Sociedad",
+        "visitante": "Osasuna",
+        "resultado": "3-1",
+        "signo": "3-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J049",
+    "jornada_q15": 49,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/49",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Arsenal",
+        "visitante": "Leverkusen",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Chelsea",
+        "visitante": "PSG",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Man. City",
+        "visitante": "Real Madrid",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Barcelona",
+        "visitante": "Newcastle",
+        "resultado": "7-2",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "B. Munich",
+        "visitante": "Atalanta",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Liverpool",
+        "visitante": "Galatasaray",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Braga",
+        "visitante": "Ferencvárosi",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Lyon",
+        "visitante": "Celta",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Friburgo",
+        "visitante": "Genk",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Aston Villa FC",
+        "visitante": "Lille",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Oporto",
+        "visitante": "Stuttgart",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Betis",
+        "visitante": "Panathinaikos FC",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Roma",
+        "visitante": "Bolonia",
+        "resultado": "3-4",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Rayo",
+        "visitante": "Samsunspor",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Tottenham",
+        "visitante": "At. Madrid",
+        "resultado": "3-2",
+        "signo": "3-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J050",
+    "jornada_q15": 50,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/50",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Elche",
+        "visitante": "Mallorca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Espanyol",
+        "visitante": "Getafe",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Levante",
+        "visitante": "Real Oviedo",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Osasuna",
+        "visitante": "Girona",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Sevilla",
+        "visitante": "Valencia",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Barcelona",
+        "visitante": "Rayo",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Celta",
+        "visitante": "Alavés",
+        "resultado": "3-4",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Athletic",
+        "visitante": "Betis",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Leganés",
+        "visitante": "Ceuta",
+        "resultado": "5-2",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Andorra",
+        "visitante": "Eibar",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Cádiz",
+        "visitante": "Málaga",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Burgos",
+        "visitante": "Córdoba",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Mirandés",
+        "visitante": "Valladolid",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Las Palmas",
+        "visitante": "Sporting Gijón",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Real Madrid",
+        "visitante": "At. Madrid",
+        "resultado": "3-2",
+        "signo": "3-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J051",
+    "jornada_q15": 51,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/51",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Ceuta",
+        "visitante": "Cádiz",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Granada",
+        "visitante": "Huesca",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Valladolid",
+        "visitante": "Burgos",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Málaga",
+        "visitante": "Leganés",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Albacete",
+        "visitante": "Castellón",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Sporting Gijón",
+        "visitante": "Deportivo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Eibar",
+        "visitante": "Las Palmas",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "C. Leonesa",
+        "visitante": "Andorra",
+        "resultado": "0-4",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "R. Zaragoza",
+        "visitante": "R. Santander",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Zamora",
+        "visitante": "Pontevedra",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Mérida AD",
+        "visitante": "R. Ferrol",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Ourense CF",
+        "visitante": "Ponferradina",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Ibiza",
+        "visitante": "Alcorcón",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Hércules",
+        "visitante": "Marbella",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Almería",
+        "visitante": "R. Sociedad B",
+        "resultado": "5-1",
+        "signo": "5-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J052",
+    "jornada_q15": 52,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/52",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Mirandés",
+        "visitante": "Albacete",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Deportivo",
+        "visitante": "Córdoba",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Valladolid",
+        "visitante": "Cádiz",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Andorra",
+        "visitante": "Málaga",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Burgos",
+        "visitante": "Ceuta",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Huesca",
+        "visitante": "C. Leonesa",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "R. Santander",
+        "visitante": "Sporting Gijón",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Las Palmas",
+        "visitante": "Granada",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "R. Sociedad B",
+        "visitante": "Eibar",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Castellón",
+        "visitante": "Almería",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Hungría",
+        "visitante": "Grecia",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Perú",
+        "visitante": "Honduras",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Inglaterra",
+        "visitante": "Japón",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Holanda",
+        "visitante": "Ecuador",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Leganés",
+        "visitante": "R. Zaragoza",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J053",
+    "jornada_q15": 53,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/53",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "R. Sociedad",
+        "visitante": "Levante",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Mallorca",
+        "visitante": "Real Madrid",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Alavés",
+        "visitante": "Osasuna",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Getafe",
+        "visitante": "Athletic",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Valencia",
+        "visitante": "Celta",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Real Oviedo",
+        "visitante": "Sevilla",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Betis",
+        "visitante": "Espanyol",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Girona",
+        "visitante": "Villarreal",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Cádiz",
+        "visitante": "Córdoba",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Albacete",
+        "visitante": "Burgos",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Deportivo",
+        "visitante": "Málaga",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Andorra",
+        "visitante": "R. Santander",
+        "resultado": "6-2",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Almería",
+        "visitante": "Leganés",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Las Palmas",
+        "visitante": "Huesca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "At. Madrid",
+        "visitante": "Barcelona",
+        "resultado": "1-2",
+        "signo": "1-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J054",
+    "jornada_q15": 54,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/54",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Real Madrid",
+        "visitante": "B. Munich",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Sporting Lisboa",
+        "visitante": "Arsenal",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "PSG",
+        "visitante": "Liverpool",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Braga",
+        "visitante": "Betis",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Bolonia",
+        "visitante": "Aston Villa FC",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Friburgo",
+        "visitante": "Celta",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Oporto",
+        "visitante": "Nottingham Forest",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Rayo",
+        "visitante": "AEK Atenas",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Crystal Palace",
+        "visitante": "Fiorentina",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "FSV Mainz 05",
+        "visitante": "Estrasburgo",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Shakhtar Donetsk",
+        "visitante": "AZ Alkmaar",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Aalesunds FK",
+        "visitante": "Fredrikstad",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "KFUM Oslo",
+        "visitante": "Sandefjord",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Wrexham",
+        "visitante": "Southampton",
+        "resultado": "1-5",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Barcelona",
+        "visitante": "At. Madrid",
+        "resultado": "0-2",
+        "signo": "0-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J055",
+    "jornada_q15": 55,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/55",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Real Madrid",
+        "visitante": "Girona",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "R. Sociedad",
+        "visitante": "Alavés",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Elche",
+        "visitante": "Valencia",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Barcelona",
+        "visitante": "Espanyol",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Sevilla",
+        "visitante": "At. Madrid",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Osasuna",
+        "visitante": "Betis",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Mallorca",
+        "visitante": "Rayo",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Celta",
+        "visitante": "Real Oviedo",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Athletic",
+        "visitante": "Villarreal",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Málaga",
+        "visitante": "Las Palmas",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Córdoba",
+        "visitante": "R. Zaragoza",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Huesca",
+        "visitante": "Deportivo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Mirandés",
+        "visitante": "Castellón",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "R. Santander",
+        "visitante": "Almería",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Levante",
+        "visitante": "Getafe",
+        "resultado": "1-0",
+        "signo": "1-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J056",
+    "jornada_q15": 56,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/56",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Liverpool",
+        "visitante": "PSG",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "At. Madrid",
+        "visitante": "Barcelona",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Arsenal",
+        "visitante": "Sporting Lisboa",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Celta",
+        "visitante": "Friburgo",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Betis",
+        "visitante": "Braga",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Nottingham Forest",
+        "visitante": "Oporto",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Aston Villa FC",
+        "visitante": "Bolonia",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "AZ Alkmaar",
+        "visitante": "Shakhtar Donetsk",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Fiorentina",
+        "visitante": "Crystal Palace",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "AEK Atenas",
+        "visitante": "Rayo",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Estrasburgo",
+        "visitante": "FSV Mainz 05",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Airdrieonians",
+        "visitante": "Dunfermline",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Queen's Park",
+        "visitante": "Raith Rovers",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Portsmouth FC",
+        "visitante": "Ipswich Town",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "B. Munich",
+        "visitante": "Real Madrid",
+        "resultado": "4-3",
+        "signo": "4-3",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J057",
+    "jornada_q15": 57,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/57",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "R. Zaragoza",
+        "visitante": "Ceuta",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Castellón",
+        "visitante": "Burgos",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "C. Leonesa",
+        "visitante": "Córdoba",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Andorra",
+        "visitante": "Valladolid",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Sporting Gijón",
+        "visitante": "Cádiz",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Albacete",
+        "visitante": "Granada",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Eibar",
+        "visitante": "Huesca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Almería",
+        "visitante": "Málaga",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Brentford",
+        "visitante": "Fulham",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Tottenham",
+        "visitante": "Brighton",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Chelsea",
+        "visitante": "Man. United",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Nottingham Forest",
+        "visitante": "Burnley",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Everton FC",
+        "visitante": "Liverpool",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Man. City",
+        "visitante": "Arsenal",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "At. Madrid",
+        "visitante": "R. Sociedad",
+        "resultado": "2-2",
+        "signo": "2-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J058",
+    "jornada_q15": 58,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/58",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Athletic",
+        "visitante": "Osasuna",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Barcelona",
+        "visitante": "Celta",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Levante",
+        "visitante": "Sevilla",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Mallorca",
+        "visitante": "Valencia",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Real Oviedo",
+        "visitante": "Villarreal",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Real Madrid",
+        "visitante": "Alavés",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Elche",
+        "visitante": "At. Madrid",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Rayo",
+        "visitante": "Espanyol",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "R. Sociedad",
+        "visitante": "Getafe",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Coventry",
+        "visitante": "Portsmouth FC",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Queen's Park",
+        "visitante": "Swansea",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Southampton",
+        "visitante": "Bristol",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Charlton",
+        "visitante": "Ipswich Town",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Leicester",
+        "visitante": "Hull City AFC",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Girona",
+        "visitante": "Betis",
+        "resultado": "2-3",
+        "signo": "2-3",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J059",
+    "jornada_q15": 59,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/59",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Betis",
+        "visitante": "Real Madrid",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Alavés",
+        "visitante": "Mallorca",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Getafe",
+        "visitante": "Barcelona",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Valencia",
+        "visitante": "Girona",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "At. Madrid",
+        "visitante": "Athletic",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Rayo",
+        "visitante": "R. Sociedad",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Real Oviedo",
+        "visitante": "Elche",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Osasuna",
+        "visitante": "Sevilla",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Villarreal",
+        "visitante": "Celta",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Burgos",
+        "visitante": "Deportivo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Málaga",
+        "visitante": "Castellón",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Granada",
+        "visitante": "Almería",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Huesca",
+        "visitante": "R. Zaragoza",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Ceuta",
+        "visitante": "R. Santander",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Espanyol",
+        "visitante": "Levante",
+        "resultado": "0-0",
+        "signo": "0-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J060",
+    "jornada_q15": 60,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/60",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Villarreal",
+        "visitante": "Levante",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Valencia",
+        "visitante": "At. Madrid",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Alavés",
+        "visitante": "Athletic",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Osasuna",
+        "visitante": "Barcelona",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Celta",
+        "visitante": "Elche",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Getafe",
+        "visitante": "Rayo",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Betis",
+        "visitante": "Real Oviedo",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Espanyol",
+        "visitante": "Real Madrid",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "C. Leonesa",
+        "visitante": "Cádiz",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Castellón",
+        "visitante": "Córdoba",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Eibar",
+        "visitante": "Málaga",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "R. Santander",
+        "visitante": "Huesca",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Sporting Gijón",
+        "visitante": "Ceuta",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Las Palmas",
+        "visitante": "Valladolid",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Sevilla",
+        "visitante": "R. Sociedad",
+        "resultado": "1-0",
+        "signo": "1-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J061",
+    "jornada_q15": 61,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/61",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Elche",
+        "visitante": "Alavés",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Sevilla",
+        "visitante": "Espanyol",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "At. Madrid",
+        "visitante": "Celta",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "R. Sociedad",
+        "visitante": "Betis",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Mallorca",
+        "visitante": "Villarreal",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 6,
+        "local": "Athletic",
+        "visitante": "Valencia",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Real Oviedo",
+        "visitante": "Getafe",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Rayo",
+        "visitante": "Girona",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Ceuta",
+        "visitante": "Castellón",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Burgos",
+        "visitante": "Almería",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Málaga",
+        "visitante": "Sporting Gijón",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Andorra",
+        "visitante": "Las Palmas",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Leganés",
+        "visitante": "R. Santander",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Córdoba",
+        "visitante": "Granada",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Barcelona",
+        "visitante": "Real Madrid",
+        "resultado": "2-0",
+        "signo": "2-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J062",
+    "jornada_q15": 62,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/62",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Celta",
+        "visitante": "Levante",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Betis",
+        "visitante": "Elche",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Osasuna",
+        "visitante": "At. Madrid",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Espanyol",
+        "visitante": "Athletic",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Villarreal",
+        "visitante": "Sevilla",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Alavés",
+        "visitante": "Barcelona",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Getafe",
+        "visitante": "Mallorca",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Valencia",
+        "visitante": "Rayo",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Girona",
+        "visitante": "R. Sociedad",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Kilmarnock FC",
+        "visitante": "Dundee",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Aberdeen FC",
+        "visitante": "Saint Mirren FC",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Heart of Midlothian FC",
+        "visitante": "Falkirk FC",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Motherwell",
+        "visitante": "Celtic",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Glasgow Rangers",
+        "visitante": "Hibernian",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Real Madrid",
+        "visitante": "Real Oviedo",
+        "resultado": "2-0",
+        "signo": "2-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J063",
+    "jornada_q15": 63,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/63",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Athletic",
+        "visitante": "Celta",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "At. Madrid",
+        "visitante": "Girona",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Barcelona",
+        "visitante": "Betis",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Elche",
+        "visitante": "Getafe",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Levante",
+        "visitante": "Mallorca",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Rayo",
+        "visitante": "Villarreal",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "R. Sociedad",
+        "visitante": "Valencia",
+        "resultado": "3-4",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Real Oviedo",
+        "visitante": "Alavés",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Osasuna",
+        "visitante": "Espanyol",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Ceuta",
+        "visitante": "Málaga",
+        "resultado": "1-4",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "R. Santander",
+        "visitante": "Valladolid",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Almería",
+        "visitante": "Las Palmas",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Castellón",
+        "visitante": "Cádiz",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Leganés",
+        "visitante": "Huesca",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Sevilla",
+        "visitante": "Real Madrid",
+        "resultado": "0-1",
+        "signo": "0-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J064",
+    "jornada_q15": 64,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/64",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Alavés",
+        "visitante": "Rayo",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Betis",
+        "visitante": "Levante",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Celta",
+        "visitante": "Sevilla",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Espanyol",
+        "visitante": "R. Sociedad",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Getafe",
+        "visitante": "Osasuna",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Mallorca",
+        "visitante": "Real Oviedo",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Villarreal",
+        "visitante": "At. Madrid",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Valencia",
+        "visitante": "Barcelona",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Girona",
+        "visitante": "Elche",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Málaga",
+        "visitante": "R. Santander",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Andorra",
+        "visitante": "Ceuta",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Huesca",
+        "visitante": "Castellón",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Eibar",
+        "visitante": "Córdoba",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Sporting Gijón",
+        "visitante": "Almería",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Real Madrid",
+        "visitante": "Athletic",
+        "resultado": "4-2",
+        "signo": "4-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J065",
+    "jornada_q15": 65,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/65",
+    "competicion_tipo": "europa",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Castellón",
+        "visitante": "Eibar",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Córdoba",
+        "visitante": "Huesca",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Deportivo",
+        "visitante": "Las Palmas",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 4,
+        "local": "Granada",
+        "visitante": "Sporting Gijón",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Leganés",
+        "visitante": "Mirandés",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Almería",
+        "visitante": "Valladolid",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Ceuta",
+        "visitante": "Albacete",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "R. Santander",
+        "visitante": "Cádiz",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "R. Sociedad B",
+        "visitante": "C. Leonesa",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "R. Zaragoza",
+        "visitante": "Málaga",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Burgos",
+        "visitante": "Andorra",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "México",
+        "visitante": "Australia",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Japón",
+        "visitante": "Islandia",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Alemania",
+        "visitante": "Finlandia",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "PSG",
+        "visitante": "Arsenal",
+        "resultado": "1-1",
+        "signo": "1-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J066",
+    "jornada_q15": 66,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/66",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Castellón",
+        "visitante": "Almería",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Las Palmas",
+        "visitante": "Málaga",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Bélgica",
+        "visitante": "Túnez",
+        "resultado": "5-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Lituania",
+        "visitante": "Letonia",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Estonia",
+        "visitante": "Islas Feroe",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Portugal",
+        "visitante": "Chile",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Rumanía",
+        "visitante": "Gales",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Inglaterra",
+        "visitante": "Nueva Zelanda",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Suiza",
+        "visitante": "Australia",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Bolivia",
+        "visitante": "Escocia",
+        "resultado": "0-4",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Liechtenstein",
+        "visitante": "Chipre",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Dinamarca",
+        "visitante": "Ucrania",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Croacia",
+        "visitante": "Eslovenia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Marruecos",
+        "visitante": "Noruega",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "Grecia",
+        "visitante": "Italia",
+        "resultado": "0-1",
+        "signo": "0-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J067",
+    "jornada_q15": 67,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/67",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "EE.UU.",
+        "visitante": "Paraguay",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Qatar",
+        "visitante": "Suiza",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 3,
+        "local": "Brasil",
+        "visitante": "Marruecos",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Haití",
+        "visitante": "Escocia",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Australia",
+        "visitante": "Turquía",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Alemania",
+        "visitante": "Curaçao",
+        "resultado": "7-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Holanda",
+        "visitante": "Japón",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Costa de Marfil",
+        "visitante": "Ecuador",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Suecia",
+        "visitante": "Túnez",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Bélgica",
+        "visitante": "Egipto",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Arabia Saudí",
+        "visitante": "Uruguay",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 12,
+        "local": "Irán",
+        "visitante": "Nueva Zelanda",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Francia",
+        "visitante": "Senegal",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Málaga",
+        "visitante": "Almería",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "España",
+        "visitante": "Cabo Verde",
+        "resultado": "0-0",
+        "signo": "0-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J068",
+    "jornada_q15": 68,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/68",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "EE.UU.",
+        "visitante": "Australia",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Escocia",
+        "visitante": "Marruecos",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Brasil",
+        "visitante": "Haití",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Turquía",
+        "visitante": "Paraguay",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "Holanda",
+        "visitante": "Suecia",
+        "resultado": "5-1",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Alemania",
+        "visitante": "Costa de Marfil",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Ecuador",
+        "visitante": "Curaçao",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Túnez",
+        "visitante": "Japón",
+        "resultado": "0-4",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Bélgica",
+        "visitante": "Irán",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Uruguay",
+        "visitante": "Cabo Verde",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Nueva Zelanda",
+        "visitante": "Egipto",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Argentina",
+        "visitante": "Austria",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Francia",
+        "visitante": "Iraq",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Almería",
+        "visitante": "Málaga",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "España",
+        "visitante": "Arabia Saudí",
+        "resultado": "4-0",
+        "signo": "4-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J069",
+    "jornada_q15": 69,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/69",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Noruega",
+        "visitante": "Senegal",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Jordania",
+        "visitante": "Argelia",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Portugal",
+        "visitante": "Uzbekistán",
+        "resultado": "5-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Inglaterra",
+        "visitante": "Ghana",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Panamá",
+        "visitante": "Croacia",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Colombia",
+        "visitante": "Congo DR",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Suiza",
+        "visitante": "Canadá",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Bosnia",
+        "visitante": "Qatar",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Escocia",
+        "visitante": "Brasil",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Marruecos",
+        "visitante": "Haití",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Sudáfrica",
+        "visitante": "Corea del Sur",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Curaçao",
+        "visitante": "Costa de Marfil",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "Ecuador",
+        "visitante": "Alemania",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "IFK Mariehamn",
+        "visitante": "HJK Helsinki",
+        "resultado": "0-4",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "R. Checa",
+        "visitante": "México",
+        "resultado": "0-3",
+        "signo": "0-3",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J070",
+    "jornada_q15": 70,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/70",
+    "competicion_tipo": "espana_liga",
+    "validable_historico": true,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Japón",
+        "visitante": "Suecia",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 2,
+        "local": "Túnez",
+        "visitante": "Holanda",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Turquía",
+        "visitante": "EE.UU.",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Paraguay",
+        "visitante": "Australia",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Noruega",
+        "visitante": "Francia",
+        "resultado": "1-4",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Senegal",
+        "visitante": "Iraq",
+        "resultado": "5-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Cabo Verde",
+        "visitante": "Arabia Saudí",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 8,
+        "local": "Egipto",
+        "visitante": "Irán",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "Nueva Zelanda",
+        "visitante": "Bélgica",
+        "resultado": "1-5",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Panamá",
+        "visitante": "Inglaterra",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Croacia",
+        "visitante": "Ghana",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Colombia",
+        "visitante": "Portugal",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "Argelia",
+        "visitante": "Austria",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Jordania",
+        "visitante": "Argentina",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Uruguay",
+        "visitante": "España",
+        "resultado": "0-1",
+        "signo": "0-1",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J071",
+    "jornada_q15": 71,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/71",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Portugal",
+        "visitante": "Croacia",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Suiza",
+        "visitante": "Argelia",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "Australia",
+        "visitante": "Egipto",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 4,
+        "local": "Argentina",
+        "visitante": "Cabo Verde",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "Colombia",
+        "visitante": "Ghana",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "FC Lahti",
+        "visitante": "IF Gnistan",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "SJK",
+        "visitante": "Turku PS",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "FF Jaro",
+        "visitante": "Ilves Tampere",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "vaasa PS",
+        "visitante": "IFK Mariehamn",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Sirius",
+        "visitante": "Mjällby",
+        "resultado": "4-4",
+        "signo": "X"
+      },
+      {
+        "num": 11,
+        "local": "Halmstad",
+        "visitante": "Vasteras SK FK",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Degerfors IF",
+        "visitante": "Malmoe",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 13,
+        "local": "IFK Göteborg",
+        "visitante": "AIK",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Kalmar FF",
+        "visitante": "Orgryte IS",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Elfsborg",
+        "visitante": "Hammarby",
+        "resultado": "1-2",
+        "signo": "1-2",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J072",
+    "jornada_q15": 72,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/72",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "España",
+        "visitante": "Bélgica",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Noruega",
+        "visitante": "Inglaterra",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Argentina",
+        "visitante": "Suiza",
+        "resultado": "3-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "vaasa PS",
+        "visitante": "SJK",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "FC Lahti",
+        "visitante": "HJK Helsinki",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 6,
+        "local": "Turku PS",
+        "visitante": "AC oulu",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "IF Gnistan",
+        "visitante": "IFK Mariehamn",
+        "resultado": "4-2",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Fredrikstad",
+        "visitante": "Lillestrøm SK",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 9,
+        "local": "Aalesunds FK",
+        "visitante": "Molde FK",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 10,
+        "local": "Tromsø IL",
+        "visitante": "Valerenga",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "KFUM Oslo",
+        "visitante": "Bodo-Glimt",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Rosenborg",
+        "visitante": "Kristiansund",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Sandefjord",
+        "visitante": "Ham-Kam",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Brann",
+        "visitante": "Start",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 15,
+        "local": "Sarpsborg",
+        "visitante": "Viking",
+        "resultado": "1-0",
+        "signo": "1-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J073",
+    "jornada_q15": 73,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/73",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Bodo-Glimt",
+        "visitante": "Fredrikstad",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 2,
+        "local": "Ham-Kam",
+        "visitante": "Tromsø IL",
+        "resultado": "1-4",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Lillestrøm SK",
+        "visitante": "KFUM Oslo",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Kristiansund",
+        "visitante": "Sarpsborg",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 5,
+        "local": "Start",
+        "visitante": "Rosenborg",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Molde FK",
+        "visitante": "Brann",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 7,
+        "local": "Viking",
+        "visitante": "Sandefjord",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Mjällby",
+        "visitante": "Vasteras SK FK",
+        "resultado": "0-0",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "AIK",
+        "visitante": "GAIS Göteborg",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "IFK Göteborg",
+        "visitante": "Brommapojkarna",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Elfsborg",
+        "visitante": "Sirius",
+        "resultado": "1-3",
+        "signo": "2"
+      },
+      {
+        "num": 12,
+        "local": "Hammarby",
+        "visitante": "Degerfors IF",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 13,
+        "local": "Halmstad",
+        "visitante": "Häcken",
+        "resultado": "0-2",
+        "signo": "2"
+      },
+      {
+        "num": 14,
+        "local": "Kalmar FF",
+        "visitante": "Malmoe",
+        "resultado": "2-2",
+        "signo": "X"
+      },
+      {
+        "num": 15,
+        "local": "España",
+        "visitante": "Argentina",
+        "resultado": "1-0",
+        "signo": "1-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J074",
+    "jornada_q15": 74,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/74",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Kristiansund",
+        "visitante": "Start",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Brann",
+        "visitante": "Valerenga",
+        "resultado": "2-3",
+        "signo": "2"
+      },
+      {
+        "num": 3,
+        "local": "Sarpsborg",
+        "visitante": "Ham-Kam",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "Sandefjord",
+        "visitante": "Bodo-Glimt",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 5,
+        "local": "KFUM Oslo",
+        "visitante": "Molde FK",
+        "resultado": "2-4",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Aalesunds FK",
+        "visitante": "Viking",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 7,
+        "local": "Rosenborg",
+        "visitante": "Fredrikstad",
+        "resultado": "4-0",
+        "signo": "1"
+      },
+      {
+        "num": 8,
+        "local": "Vasteras SK FK",
+        "visitante": "Orgryte IS",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 9,
+        "local": "Degerfors IF",
+        "visitante": "Djurgårdens",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 10,
+        "local": "Kalmar FF",
+        "visitante": "Mjällby",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 11,
+        "local": "Sirius",
+        "visitante": "IFK Göteborg",
+        "resultado": "4-1",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Brommapojkarna",
+        "visitante": "Hammarby",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "GAIS Göteborg",
+        "visitante": "Halmstad",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 14,
+        "local": "Malmoe",
+        "visitante": "Elfsborg",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "Häcken",
+        "visitante": "AIK",
+        "resultado": "0-0",
+        "signo": "0-0",
+        "tipo": "pleno15"
+      }
+    ]
+  },
+  {
+    "id": "Q15_2025_2026_J075",
+    "jornada_q15": 75,
+    "temporada": "2025-2026",
+    "fuente": "Quiniela15",
+    "source_url": "https://www.quiniela15.com/resultados-quiniela/75",
+    "competicion_tipo": "extranjera",
+    "validable_historico": false,
+    "partidos": [
+      {
+        "num": 1,
+        "local": "vaasa PS",
+        "visitante": "Inter Turku",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 2,
+        "local": "Turku PS",
+        "visitante": "IFK Mariehamn",
+        "resultado": "3-0",
+        "signo": "1"
+      },
+      {
+        "num": 3,
+        "local": "AC oulu",
+        "visitante": "Ilves Tampere",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 4,
+        "local": "FC Lahti",
+        "visitante": "FF Jaro",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 5,
+        "local": "IF Gnistan",
+        "visitante": "KuPS Kuopio",
+        "resultado": "0-1",
+        "signo": "2"
+      },
+      {
+        "num": 6,
+        "local": "Fredrikstad",
+        "visitante": "Sandefjord",
+        "resultado": "1-0",
+        "signo": "1"
+      },
+      {
+        "num": 7,
+        "local": "Start",
+        "visitante": "Viking",
+        "resultado": "0-3",
+        "signo": "2"
+      },
+      {
+        "num": 8,
+        "local": "Molde FK",
+        "visitante": "Sarpsborg",
+        "resultado": "3-3",
+        "signo": "X"
+      },
+      {
+        "num": 9,
+        "local": "KFUM Oslo",
+        "visitante": "Kristiansund",
+        "resultado": "2-1",
+        "signo": "1"
+      },
+      {
+        "num": 10,
+        "local": "Aalesunds FK",
+        "visitante": "Tromsø IL",
+        "resultado": "2-6",
+        "signo": "2"
+      },
+      {
+        "num": 11,
+        "local": "Brann",
+        "visitante": "Rosenborg",
+        "resultado": "3-2",
+        "signo": "1"
+      },
+      {
+        "num": 12,
+        "local": "Häcken",
+        "visitante": "Kalmar FF",
+        "resultado": "1-1",
+        "signo": "X"
+      },
+      {
+        "num": 13,
+        "local": "IFK Göteborg",
+        "visitante": "Degerfors IF",
+        "resultado": "2-0",
+        "signo": "1"
+      },
+      {
+        "num": 14,
+        "local": "Brommapojkarna",
+        "visitante": "Malmoe",
+        "resultado": "1-2",
+        "signo": "2"
+      },
+      {
+        "num": 15,
+        "local": "AIK",
+        "visitante": "Orgryte IS",
+        "resultado": "0-3",
+        "signo": "0-3",
+        "tipo": "pleno15"
+      }
+    ]
+  }
+]

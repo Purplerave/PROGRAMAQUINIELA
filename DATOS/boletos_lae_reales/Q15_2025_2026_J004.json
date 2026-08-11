@@ -1,0 +1,116 @@
+{
+  "id": "Q15_2025_2026_J004",
+  "jornada_q15": 4,
+  "temporada": "2025-2026",
+  "fuente": "Quiniela15/resultados-quiniela",
+  "source_url": "https://www.quiniela15.com/resultados-quiniela/4",
+  "nota": "Importado desde Quiniela15. Validar contra histórico antes de usar en métricas.",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Deportivo",
+      "visitante": "Sporting Gijón",
+      "resultado": "1-0",
+      "signo": "1"
+    },
+    {
+      "num": 2,
+      "local": "R. Zaragoza",
+      "visitante": "Valladolid",
+      "resultado": "1-1",
+      "signo": "X"
+    },
+    {
+      "num": 3,
+      "local": "Málaga",
+      "visitante": "Granada",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 4,
+      "local": "Ceuta",
+      "visitante": "Huesca",
+      "resultado": "2-1",
+      "signo": "1"
+    },
+    {
+      "num": 5,
+      "local": "Burgos",
+      "visitante": "Las Palmas",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 6,
+      "local": "R. Sociedad B",
+      "visitante": "Cádiz",
+      "resultado": "3-3",
+      "signo": "X"
+    },
+    {
+      "num": 7,
+      "local": "Almería",
+      "visitante": "R. Santander",
+      "resultado": "2-3",
+      "signo": "2"
+    },
+    {
+      "num": 8,
+      "local": "C. Leonesa",
+      "visitante": "Leganés",
+      "resultado": "0-0",
+      "signo": "X"
+    },
+    {
+      "num": 9,
+      "local": "Eibar",
+      "visitante": "Andorra",
+      "resultado": "2-0",
+      "signo": "1"
+    },
+    {
+      "num": 10,
+      "local": "Letonia",
+      "visitante": "Serbia",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 11,
+      "local": "Eire",
+      "visitante": "Hungría",
+      "resultado": "2-2",
+      "signo": "X"
+    },
+    {
+      "num": 12,
+      "local": "Alemania",
+      "visitante": "Irlanda Norte",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 13,
+      "local": "Luxemburgo",
+      "visitante": "Eslovaquia",
+      "resultado": "0-1",
+      "signo": "2"
+    },
+    {
+      "num": 14,
+      "local": "Polonia",
+      "visitante": "Finlandia",
+      "resultado": "3-1",
+      "signo": "1"
+    },
+    {
+      "num": 15,
+      "local": "Turquía",
+      "visitante": "España",
+      "resultado": "0-6",
+      "signo": "0-M",
+      "tipo": "pleno15"
+    }
+  ]
+}
