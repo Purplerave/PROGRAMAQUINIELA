@@ -1,0 +1,452 @@
+From c3511435a1c2fafbc91eb10daaffee92d084389f Mon Sep 17 00:00:00 2001
+From: Liga Maestros Bot <bot@ligamaestros.local>
+Date: Thu, 13 Aug 2026 08:45:43 +0000
+Subject: [PATCH] =?UTF-8?q?feat(J1):=20publicar=20boleto=20del=20Programa?=
+ =?UTF-8?q?=202026/27=20(3=20dobles)=20+=20datos=20de=20importaci=C3=B3n?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Añade pronóstico 'programa' al arena J1 (data/inbox/JORNADA_1_LM_ARENA.json)
+  con el boleto del motor (3 dobles: 1X,1X,1X en Oviedo-Granada, Alavés-Getafe
+  y Espanyol-Levante; single 2 en Racing-Villarreal; pleno 1-0) mapeado al
+  orden de partidos de la web, con razones de pretemporada 2026.
+- Incluye ficheros de importación en tools/PROGRAMA_QUINIELA/
+  (QUINIELA15_J1.json, PROBABILIDADES_J1.json, quiniela_programa_J1.json).
+- Actualiza tests de aceptación J1 para incluir 'programa' como maestro.
+- Suite de tests completa en verde.
+---
+ data/inbox/JORNADA_1_LM_ARENA.json            |  43 +++++-
+ tests/test_j1_boletos.py                      |   2 +-
+ .../DATOS/PROBABILIDADES_J1.json              | 114 +++++++++++++++
+ .../DATOS/QUINIELA15_J1.json                  | 132 ++++++++++++++++++
+ .../SALIDAS/quiniela_programa_J1.json         |  83 +++++++++++
+ 5 files changed, 372 insertions(+), 2 deletions(-)
+ create mode 100644 tools/PROGRAMA_QUINIELA/DATOS/PROBABILIDADES_J1.json
+ create mode 100644 tools/PROGRAMA_QUINIELA/DATOS/QUINIELA15_J1.json
+ create mode 100644 tools/PROGRAMA_QUINIELA/SALIDAS/quiniela_programa_J1.json
+
+diff --git a/data/inbox/JORNADA_1_LM_ARENA.json b/data/inbox/JORNADA_1_LM_ARENA.json
+index 417d4cb..a9533d2 100644
+--- a/data/inbox/JORNADA_1_LM_ARENA.json
++++ b/data/inbox/JORNADA_1_LM_ARENA.json
+@@ -115,6 +115,47 @@
+     }
+   ],
+   "pronosticos": [
++    {
++      "participante_id": "programa",
++      "nombre_publico": "Programa",
++      "ia_origen": "Motor estadístico propio de Liga de Maestros (PROGRAMAQUINIELA), ajustado con pretemporada 2026",
++      "grupo": "maestro",
++      "signos": [
++        "1X",
++        "1X",
++        "1",
++        "1",
++        "1",
++        "1",
++        "2",
++        "1",
++        "1",
++        "1X",
++        "1",
++        "1",
++        "1",
++        "1",
++        "1-0"
++      ],
++      "razones": [
++        "Oviedo recién descendido con 12 fichajes y varias bajas (Nacho Vidal, Aisar, Dani Calvo, Carlos Fernández) y Granada muy mermado (sin Boyé, Rebbach, Neva, Ruiz); partido más abierto, se cubre con 1X.",
++        "Alavés con refuerzos (Boyé duda, Aleñá, Denis Suárez) y Getafe pierde a Uche (lesión de rodilla, toda la temporada); X con peso, se cubre 1X.",
++        "Mallorca descendido con buen bloque de Primera y favorito claro en casa ante Valladolid rearmado; single 1.",
++        "Sporting en casa favorito claro (cuota 1.84) ante el recién ascendido Sabadell pese a la reconstrucción; single 1.",
++        "Sevilla estable sin sobresaltos; Rayo con pretemporada mala (3 derrotas de 4, 9 goles encajados) y sin laterales izquierdos; single 1.",
++        "Eibar moderado favorito en casa; Tenerife rearmado; sin señal fuerte de pretemporada, single 1.",
++        "Racing ascendido en construcción pese a Canales; Villarreal con plantilla completa y sin bajas (Mikautadze, Ayoze, Pépé); single 2.",
++        "Andorra favorito en casa pero con mucha renovación; Ceuta con plantilla corta y viaje largo; single 1.",
++        "Burgos vs Córdoba muy igualado (1 .43 / X .28 / 2 .28), sin señales fuertes; se cubre con single 1 del favorito.",
++        "Espanyol sin sus dos delanteros (Puado y Kike García lesionados) pierde gol; sube la X, se cubre 1X.",
++        "Cádiz claramente superior ante el filial del Celta (plantilla corta); single 1.",
++        "Girona favorito por cuota (1.65) pero con renovación masiva (salen Krejčí, Lemar, Blind, Witsel) y posibles salidas de Arnau y Álex Moreno; single 1 algo más frágil.",
++        "Celta más sólido; Osasuna vendió a su estrella Víctor Muñoz al Liverpool (40M€) y apenas fichó, Ramis estrena proyecto debilitado; single 1.",
++        "Las Palmas fuerte en casa (cuota 1.62) ante Albacete rearmado; single 1 de los más seguros.",
++        "Pleno al 15 Deportivo-Elche: marcador predicho 1-0 (lambdas local 1.485 / visitante 0.90, Dixon-Coles); buckets local 1 / visitante 0."
++      ],
++      "origen": "Generado por GENERAR_BOLETO_J1.py (motor + pretemporada), 13/08/2026"
++    },
+     {
+       "participante_id": "gemini",
+       "nombre_publico": "Gemini",
+@@ -843,4 +884,4 @@
+       "problema": "Participante humano (propietario); su quiniela la rellena él directamente en la web. No se sube boleto."
+     }
+   ]
+-}
++}
+\ No newline at end of file
+diff --git a/tests/test_j1_boletos.py b/tests/test_j1_boletos.py
+index f7192b2..dd1f9ab 100644
+--- a/tests/test_j1_boletos.py
++++ b/tests/test_j1_boletos.py
+@@ -32,7 +32,7 @@ PENA_12 = {
+     "luna",
+     "erniebot",
+ }
+-MAESTROS = {"gemini", "claude", "grok", "chatgpt", "copilot"}
++MAESTROS = {"gemini", "claude", "grok", "chatgpt", "copilot", "programa"}
+ 
+ 
+ def _test_app(tmp_path, monkeypatch):
+diff --git a/tools/PROGRAMA_QUINIELA/DATOS/PROBABILIDADES_J1.json b/tools/PROGRAMA_QUINIELA/DATOS/PROBABILIDADES_J1.json
+new file mode 100644
+index 0000000..a6f2796
+--- /dev/null
++++ b/tools/PROGRAMA_QUINIELA/DATOS/PROBABILIDADES_J1.json
+@@ -0,0 +1,114 @@
++{
++  "1": {
++    "num": 1,
++    "probabilidades": {
++      "1": 42.0,
++      "X": 33.0,
++      "2": 25.0
++    }
++  },
++  "2": {
++    "num": 2,
++    "probabilidades": {
++      "1": 48.0,
++      "X": 28.0,
++      "2": 24.0
++    }
++  },
++  "3": {
++    "num": 3,
++    "probabilidades": {
++      "1": 28.0,
++      "X": 28.0,
++      "2": 44.0
++    }
++  },
++  "4": {
++    "num": 4,
++    "probabilidades": {
++      "1": 45.0,
++      "X": 32.0,
++      "2": 23.0
++    }
++  },
++  "5": {
++    "num": 5,
++    "probabilidades": {
++      "1": 51.0,
++      "X": 27.0,
++      "2": 22.0
++    }
++  },
++  "6": {
++    "num": 6,
++    "probabilidades": {
++      "1": 46.0,
++      "X": 30.0,
++      "2": 24.0
++    }
++  },
++  "7": {
++    "num": 7,
++    "probabilidades": {
++      "1": 53.0,
++      "X": 26.0,
++      "2": 21.0
++    }
++  },
++  "8": {
++    "num": 8,
++    "probabilidades": {
++      "1": 37.0,
++      "X": 33.0,
++      "2": 30.0
++    }
++  },
++  "9": {
++    "num": 9,
++    "probabilidades": {
++      "1": 49.0,
++      "X": 29.0,
++      "2": 22.0
++    }
++  },
++  "10": {
++    "num": 10,
++    "probabilidades": {
++      "1": 46.0,
++      "X": 30.0,
++      "2": 24.0
++    }
++  },
++  "11": {
++    "num": 11,
++    "probabilidades": {
++      "1": 43.0,
++      "X": 30.0,
++      "2": 27.0
++    }
++  },
++  "12": {
++    "num": 12,
++    "probabilidades": {
++      "1": 54.0,
++      "X": 28.0,
++      "2": 18.0
++    }
++  },
++  "13": {
++    "num": 13,
++    "probabilidades": {
++      "1": 55.0,
++      "X": 26.0,
++      "2": 19.0
++    }
++  },
++  "14": {
++    "num": 14,
++    "probabilidades": {
++      "1": 52.0,
++      "X": 27.0,
++      "2": 21.0
++    }
++  }
++}
+\ No newline at end of file
+diff --git a/tools/PROGRAMA_QUINIELA/DATOS/QUINIELA15_J1.json b/tools/PROGRAMA_QUINIELA/DATOS/QUINIELA15_J1.json
+new file mode 100644
+index 0000000..9e8f9f5
+--- /dev/null
++++ b/tools/PROGRAMA_QUINIELA/DATOS/QUINIELA15_J1.json
+@@ -0,0 +1,132 @@
++{
++  "jornada": 1,
++  "source_url": "manus_ai_cuotas_2026-08-11",
++  "scraped_at": "2026-08-11T14:30:00",
++  "cierre": "sabado 15 de agosto a las 17:00",
++  "notas_cuotas": "Cuotas decimales de Bet365, Codere, William Hill, 1xBet, PokerStars, Pinnacle, Luckia.",
++  "partidos": [
++    {
++      "num": 1,
++      "local": "Alaves",
++      "visitante": "Getafe",
++      "odd_1": 2.41, "odd_x": 2.90, "odd_2": 3.75,
++      "q15": {"1": 35, "X": 40, "2": 25},
++      "lae": {"1": 41, "X": 35, "2": 24}
++    },
++    {
++      "num": 2,
++      "local": "Sevilla",
++      "visitante": "Rayo",
++      "odd_1": 2.30, "odd_x": 3.25, "odd_2": 3.60,
++      "q15": {"1": 54, "X": 27, "2": 19},
++      "lae": {"1": 56, "X": 25, "2": 19}
++    },
++    {
++      "num": 3,
++      "local": "R. Santander",
++      "visitante": "Villarreal",
++      "odd_1": 3.14, "odd_x": 3.50, "odd_2": 2.30,
++      "q15": {"1": 14, "X": 20, "2": 66},
++      "lae": {"1": 24, "X": 21, "2": 55}
++    },
++    {
++      "num": 4,
++      "local": "Espanyol",
++      "visitante": "Levante",
++      "odd_1": 2.08, "odd_x": 3.35, "odd_2": 4.20,
++      "q15": {"1": 56, "X": 28, "2": 17},
++      "lae": {"1": 58, "X": 25, "2": 17}
++    },
++    {
++      "num": 5,
++      "local": "Celta",
++      "visitante": "Osasuna",
++      "odd_1": 2.05, "odd_x": 3.55, "odd_2": 4.20,
++      "q15": {"1": 62, "X": 23, "2": 15},
++      "lae": {"1": 56, "X": 26, "2": 18}
++    },
++    {
++      "num": 6,
++      "local": "Andorra",
++      "visitante": "Ceuta",
++      "odd_1": 2.00, "odd_x": 3.20, "odd_2": 4.10,
++      "q15": {"1": 40, "X": 34, "2": 26},
++      "lae": {"1": 50, "X": 27, "2": 23}
++    },
++    {
++      "num": 7,
++      "local": "Cadiz",
++      "visitante": "Celta Fortuna",
++      "odd_1": 1.85, "odd_x": 3.40, "odd_2": 4.50,
++      "q15": {"1": 57, "X": 24, "2": 20},
++      "lae": {"1": 63, "X": 19, "2": 18}
++    },
++    {
++      "num": 8,
++      "local": "Real Oviedo",
++      "visitante": "Granada",
++      "odd_1": 2.50, "odd_x": 3.10, "odd_2": 3.00,
++      "q15": {"1": 54, "X": 25, "2": 21},
++      "lae": {"1": 47, "X": 30, "2": 23}
++    },
++    {
++      "num": 9,
++      "local": "Mallorca",
++      "visitante": "Valladolid",
++      "odd_1": 1.95, "odd_x": 3.30, "odd_2": 4.20,
++      "q15": {"1": 68, "X": 19, "2": 13},
++      "lae": {"1": 60, "X": 23, "2": 17}
++    },
++    {
++      "num": 10,
++      "local": "Eibar",
++      "visitante": "Tenerife",
++      "odd_1": 2.05, "odd_x": 3.20, "odd_2": 4.00,
++      "q15": {"1": 56, "X": 27, "2": 17},
++      "lae": {"1": 54, "X": 27, "2": 19}
++    },
++    {
++      "num": 11,
++      "local": "Burgos",
++      "visitante": "Cordoba",
++      "odd_1": 2.40, "odd_x": 3.10, "odd_2": 3.20,
++      "q15": {"1": 48, "X": 32, "2": 20},
++      "lae": {"1": 46, "X": 31, "2": 23}
++    },
++    {
++      "num": 12,
++      "local": "Girona",
++      "visitante": "Leganes",
++      "odd_1": 1.65, "odd_x": 3.86, "odd_2": 5.00,
++      "q15": {"1": 62, "X": 20, "2": 17},
++      "lae": {"1": 59, "X": 23, "2": 18}
++    },
++    {
++      "num": 13,
++      "local": "Las Palmas",
++      "visitante": "Albacete",
++      "odd_1": 1.62, "odd_x": 3.70, "odd_2": 4.75,
++      "q15": {"1": 66, "X": 21, "2": 13},
++      "lae": {"1": 60, "X": 23, "2": 17}
++    },
++    {
++      "num": 14,
++      "local": "Sporting Gijon",
++      "visitante": "Sabadell",
++      "odd_1": 1.84, "odd_x": 3.50, "odd_2": 4.60,
++      "q15": {"1": 63, "X": 20, "2": 17},
++      "lae": {"1": 63, "X": 21, "2": 16}
++    },
++    {
++      "num": 15,
++      "local": "Deportivo",
++      "visitante": "Elche",
++      "odd_1": 2.48, "odd_x": 3.10, "odd_2": 3.30,
++      "pleno15": {
++        "marcador_q15": {"2-1": 21, "1-1": 16, "2-0": 9},
++        "goles_local_lae": {"0": 9, "1": 42, "2": 39, "M": 10},
++        "goles_visitante_lae": {"0": 23, "1": 49, "2": 20, "M": 8}
++      }
++    }
++  ]
++}
+diff --git a/tools/PROGRAMA_QUINIELA/SALIDAS/quiniela_programa_J1.json b/tools/PROGRAMA_QUINIELA/SALIDAS/quiniela_programa_J1.json
+new file mode 100644
+index 0000000..f7d05c2
+--- /dev/null
++++ b/tools/PROGRAMA_QUINIELA/SALIDAS/quiniela_programa_J1.json
+@@ -0,0 +1,83 @@
++{
++  "jornada": 1,
++  "temporada": "2026-2027",
++  "generado_en": "2026-08-13T08:13:15",
++  "version_config": "motor_quinielistico_v4",
++  "nota": "Mejor boleto J1 2026/27 con 3 dobles (contrato P0: 8 columnas, 6,00 EUR) construido sobre las probabilidades del motor maestro y ajustado por pretemporada 2026 (lesiones, fichajes, amistosos). Ver GENERAR_BOLETO_J1.py para los ajustes y sus fuentes.",
++  "signos": [
++    "1X",
++    "1",
++    "2",
++    "1X",
++    "1",
++    "1",
++    "1",
++    "1X",
++    "1",
++    "1",
++    "1",
++    "1",
++    "1",
++    "1",
++    "1"
++  ],
++  "pleno15": {
++    "signo": "1",
++    "marcador_predicho": "1-0",
++    "top_marcadores": [
++      {
++        "score": "1-0",
++        "prob": 0.1296
++      },
++      {
++        "score": "1-1",
++        "prob": 0.1277
++      },
++      {
++        "score": "2-0",
++        "prob": 0.1017
++      }
++    ],
++    "goles_local": {
++      "0": 0.2285,
++      "1": 0.3339,
++      "2": 0.2501,
++      "M": 0.1875
++    },
++    "goles_visitante": {
++      "0": 0.4041,
++      "1": 0.3681,
++      "2": 0.1648,
++      "M": 0.0629
++    },
++    "seleccion": {
++      "local": "1",
++      "visitante": "0",
++      "alternativa_local": "2",
++      "alternativa_visitante": "1",
++      "confianza": 0.1349,
++      "nota": "Alternativa sugerida si el segundo bucket está a menos de 0.10 del primero."
++    },
++    "buckets": [
++      "0",
++      "1",
++      "2",
++      "M"
++    ]
++  },
++  "contrato": {
++    "contract_version": "2026-08-04",
++    "doubles": 3,
++    "columns_per_ticket": 8,
++    "price_per_column": 0.75,
++    "max_cost": 6.0
++  },
++  "aciertos_esperados": 7.630000000000001,
++  "probabilidades_exactas": {
++    "p_ge_10": 0.15151857629802395,
++    "p_ge_11": 0.05433168726284968,
++    "p_ge_12": 0.013701901540008901,
++    "p_ge_13": 0.002156553923118245,
++    "p_ge_14": 0.00015890222561519904
++  }
++}
+\ No newline at end of file
+-- 
+2.39.5
+
