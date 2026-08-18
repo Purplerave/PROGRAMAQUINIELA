@@ -43,9 +43,16 @@ def normalize_team_name(value: object) -> str:
 # Los alias se comparan siempre tras normalize_team_name.
 # ---------------------------------------------------------------------------
 HISTORY_NAME_ALIASES: dict[str, list[str]] = {
-    "Ath Bilbao": ["Athletic Club", "Athletic Bilbao", "Athletic de Bilbao"],
+    "Ath Bilbao": ["Athletic Club", "Athletic Bilbao", "Athletic de Bilbao", "Athletic"],
     "Ath Bilbao B": ["Bilbao Athletic", "Athletic Club B", "Athletic B"],
-    "Ath Madrid": ["Atletico de Madrid", "Atletico Madrid", "Atletico", "Ath Madrid"],
+    "Ath Madrid": [
+        "Atletico de Madrid",
+        "Atletico Madrid",
+        "Atletico",
+        "Ath Madrid",
+        "At. Madrid",
+        "At Madrid",
+    ],
     "Barcelona": ["FC Barcelona", "Barca", "F.C. Barcelona"],
     "Barcelona B": ["FC Barcelona B", "Barça B"],
     "Betis": ["Real Betis", "Real Betis Balompie", "Real Betis Balompié"],
@@ -107,7 +114,7 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Salamanca": ["UD Salamanca"],
     "Santander": ["Racing Santander", "Racing de Santander", "RC Racing",
                   "R. Racing Club", "RC Racing de Santander", "Real Racing Club",
-                  "Racing Club"],
+                  "Racing Club", "R. Santander", "Racing"],
     "Sevilla": ["Sevilla FC"],
     "Sevilla B": ["Sevilla Atletico", "Sevilla Atlético", "Sevilla At"],
     "Sociedad": ["Real Sociedad", "Real Sociedad de Futbol", "Real Sociedad de Fútbol"],

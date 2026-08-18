@@ -1,0 +1,456 @@
+{
+  "jornada": 2,
+  "source_url": "https://www.quiniela15.com/pronostico-quiniela",
+  "scraped_at": "2026-08-18T15:31:44",
+  "cierre": "sábado 22 de agosto a las 17:00",
+  "importado_de": "salida/quiniela15_J2_scrape.json",
+  "importador": "scripts/datos/IMPORTAR_JORNADA_WEB.py",
+  "fuentes": {
+    "partidos_horarios_q15": {
+      "repo": "Purplerave/liga-maestros-web",
+      "fichero": "data/quiniela15_J2_scrape.json",
+      "sitio": "https://www.quiniela15.com/pronostico-quiniela",
+      "scraped_at": "2026-08-18T15:31:44"
+    },
+    "division_2026_27": "DATOS/temporada_2026_27_equipos.json",
+    "mercado": {
+      "jornada": 2,
+      "temporada": "2026-27",
+      "consultado_en": "2026-08-18",
+      "descripcion": "Cuotas reales 1X2 y porcentajes LAE de la jornada 2. Datos que el scrape de liga-maestros-web no trae y que el motor si necesita (odd_* alimentan el componente de mercado, peso 0.951).",
+      "fuentes": {
+        "odd_1/odd_x/odd_2": {
+          "proveedor": "BetExplorer (media de casas)",
+          "urls": [
+            "https://www.betexplorer.com/football/spain/laliga/fixtures/",
+            "https://www.betexplorer.com/football/spain/laliga2/fixtures/"
+          ],
+          "snapshot": "2026-08-18",
+          "nota": "Cuota decimal media de las casas listadas por BetExplorer en el momento del snapshot. Cuotas de cierre pueden diferir."
+        },
+        "lae": {
+          "proveedor": "Quinielista / Eduardo Losilla (via Mundo Deportivo)",
+          "urls": [
+            "https://www.mundodeportivo.com/servicios/quiniela"
+          ],
+          "snapshot": "2026-08-18",
+          "nota": "Campo '% en lae': reparto real de apuestas de La Quiniela oficial. Es popularidad del publico, no probabilidad."
+        },
+        "pleno15_lae": {
+          "proveedor": "Quinielista / Eduardo Losilla (via Mundo Deportivo)",
+          "urls": [
+            "https://www.mundodeportivo.com/servicios/quiniela"
+          ],
+          "snapshot": "2026-08-18",
+          "nota": "Buckets 0/1/2/M del Pleno al 15 ('% en lae' de local y visitante)."
+        }
+      },
+      "control_cruzado": "La 'probabilidad real' publicada por Mundo Deportivo coincide con la normalizacion 1/cuota de estas cuotas (p.ej. partido 1: 55/26/19; partido 12: 62/23/15), lo que valida el snapshot."
+    }
+  },
+  "notas": [
+    "q15 = porcentajes de la comunidad de quiniela15.com (proxy de publico).",
+    "lae y odd_* proceden del overlay de mercado; nunca se derivan de q15.",
+    "division se toma de la composicion oficial 2026/27, no del historico."
+  ],
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Athletic",
+      "visitante": "Sevilla",
+      "division": "Primera",
+      "fecha": "2026-08-22",
+      "hora": "17:00",
+      "odd_1": 1.7,
+      "odd_x": 3.58,
+      "odd_2": 5.25,
+      "historico_equipo": {
+        "local": "Ath Bilbao",
+        "visitante": "Sevilla"
+      },
+      "q15": {
+        "1": 70,
+        "X": 19,
+        "2": 10
+      },
+      "lae": {
+        "1": 63,
+        "X": 22,
+        "2": 15
+      }
+    },
+    {
+      "num": 2,
+      "local": "Valencia",
+      "visitante": "Celta",
+      "division": "Primera",
+      "fecha": "2026-08-22",
+      "hora": "19:30",
+      "odd_1": 2.21,
+      "odd_x": 3.24,
+      "odd_2": 3.38,
+      "historico_equipo": {
+        "local": "Valencia",
+        "visitante": "Celta"
+      },
+      "q15": {
+        "1": 44,
+        "X": 31,
+        "2": 25
+      },
+      "lae": {
+        "1": 46,
+        "X": 30,
+        "2": 24
+      }
+    },
+    {
+      "num": 3,
+      "local": "Espanyol",
+      "visitante": "Real Madrid",
+      "division": "Primera",
+      "fecha": "2026-08-22",
+      "hora": "21:30",
+      "odd_1": 7.08,
+      "odd_x": 4.53,
+      "odd_2": 1.44,
+      "historico_equipo": {
+        "local": "Espanol",
+        "visitante": "Real Madrid"
+      },
+      "q15": {
+        "1": 8,
+        "X": 12,
+        "2": 81
+      },
+      "lae": {
+        "1": 19,
+        "X": 17,
+        "2": 64
+      }
+    },
+    {
+      "num": 4,
+      "local": "Getafe",
+      "visitante": "R. Santander",
+      "division": "Primera",
+      "fecha": "2026-08-23",
+      "hora": "19:30",
+      "odd_1": 2.12,
+      "odd_x": 2.96,
+      "odd_2": 4.05,
+      "historico_equipo": {
+        "local": "Getafe",
+        "visitante": "Santander"
+      },
+      "q15": {
+        "1": 51,
+        "X": 29,
+        "2": 20
+      },
+      "lae": {
+        "1": 50,
+        "X": 28,
+        "2": 22
+      }
+    },
+    {
+      "num": 5,
+      "local": "Elche",
+      "visitante": "Barcelona",
+      "division": "Primera",
+      "fecha": "2026-08-23",
+      "hora": "21:30",
+      "odd_1": 8.55,
+      "odd_x": 5.53,
+      "odd_2": 1.32,
+      "historico_equipo": {
+        "local": "Elche",
+        "visitante": "Barcelona"
+      },
+      "q15": {
+        "1": 8,
+        "X": 8,
+        "2": 84
+      },
+      "lae": {
+        "1": 18,
+        "X": 16,
+        "2": 66
+      }
+    },
+    {
+      "num": 6,
+      "local": "Osasuna",
+      "visitante": "Levante",
+      "division": "Primera",
+      "fecha": "2026-08-24",
+      "hora": "19:30",
+      "odd_1": 1.82,
+      "odd_x": 3.56,
+      "odd_2": 4.36,
+      "historico_equipo": {
+        "local": "Osasuna",
+        "visitante": "Levante"
+      },
+      "q15": {
+        "1": 71,
+        "X": 19,
+        "2": 11
+      },
+      "lae": {
+        "1": 60,
+        "X": 24,
+        "2": 16
+      }
+    },
+    {
+      "num": 7,
+      "local": "Málaga",
+      "visitante": "Deportivo",
+      "division": "Primera",
+      "fecha": "2026-08-24",
+      "hora": "21:30",
+      "odd_1": 2.58,
+      "odd_x": 3.1,
+      "odd_2": 2.88,
+      "historico_equipo": {
+        "local": "Malaga",
+        "visitante": "La Coruna"
+      },
+      "q15": {
+        "1": 33,
+        "X": 43,
+        "2": 25
+      },
+      "lae": {
+        "1": 42,
+        "X": 33,
+        "2": 25
+      }
+    },
+    {
+      "num": 8,
+      "local": "Real Oviedo",
+      "visitante": "Leganés",
+      "division": "Segunda",
+      "fecha": "2026-08-22",
+      "hora": "17:00",
+      "odd_1": 1.85,
+      "odd_x": 3.22,
+      "odd_2": 4.23,
+      "historico_equipo": {
+        "local": "Oviedo",
+        "visitante": "Leganes"
+      },
+      "q15": {
+        "1": 55,
+        "X": 27,
+        "2": 19
+      },
+      "lae": {
+        "1": 50,
+        "X": 29,
+        "2": 21
+      }
+    },
+    {
+      "num": 9,
+      "local": "Ceuta",
+      "visitante": "Las Palmas",
+      "division": "Segunda",
+      "fecha": "2026-08-22",
+      "hora": "19:00",
+      "odd_1": 3.15,
+      "odd_x": 3.17,
+      "odd_2": 2.22,
+      "historico_equipo": {
+        "local": "Ceuta",
+        "visitante": "Las Palmas"
+      },
+      "q15": {
+        "1": 20,
+        "X": 25,
+        "2": 55
+      },
+      "lae": {
+        "1": 28,
+        "X": 25,
+        "2": 47
+      }
+    },
+    {
+      "num": 10,
+      "local": "Eldense",
+      "visitante": "Cádiz",
+      "division": "Segunda",
+      "fecha": "2026-08-22",
+      "hora": "21:30",
+      "odd_1": 2.27,
+      "odd_x": 3.08,
+      "odd_2": 3.08,
+      "historico_equipo": {
+        "local": "Eldense",
+        "visitante": "Cadiz"
+      },
+      "q15": {
+        "1": 22,
+        "X": 35,
+        "2": 43
+      },
+      "lae": {
+        "1": 31,
+        "X": 31,
+        "2": 38
+      }
+    },
+    {
+      "num": 11,
+      "local": "Eibar",
+      "visitante": "Valladolid",
+      "division": "Segunda",
+      "fecha": "2026-08-23",
+      "hora": "17:00",
+      "odd_1": 2.19,
+      "odd_x": 3.03,
+      "odd_2": 3.4,
+      "historico_equipo": {
+        "local": "Eibar",
+        "visitante": "Valladolid"
+      },
+      "q15": {
+        "1": 53,
+        "X": 28,
+        "2": 19
+      },
+      "lae": {
+        "1": 48,
+        "X": 30,
+        "2": 22
+      }
+    },
+    {
+      "num": 12,
+      "local": "Castellón",
+      "visitante": "Sabadell",
+      "division": "Segunda",
+      "fecha": "2026-08-23",
+      "hora": "19:00",
+      "odd_1": 1.48,
+      "odd_x": 4.02,
+      "odd_2": 6.32,
+      "historico_equipo": {
+        "local": "Castellon",
+        "visitante": "Sabadell"
+      },
+      "q15": {
+        "1": 74,
+        "X": 15,
+        "2": 11
+      },
+      "lae": {
+        "1": 63,
+        "X": 22,
+        "2": 15
+      }
+    },
+    {
+      "num": 13,
+      "local": "Sporting Gijón",
+      "visitante": "Burgos",
+      "division": "Segunda",
+      "fecha": "2026-08-23",
+      "hora": "19:00",
+      "odd_1": 2.34,
+      "odd_x": 3.02,
+      "odd_2": 3.08,
+      "historico_equipo": {
+        "local": "Sp Gijon",
+        "visitante": "Burgos"
+      },
+      "q15": {
+        "1": 43,
+        "X": 32,
+        "2": 25
+      },
+      "lae": {
+        "1": 51,
+        "X": 29,
+        "2": 20
+      }
+    },
+    {
+      "num": 14,
+      "local": "Tenerife",
+      "visitante": "Almería",
+      "division": "Segunda",
+      "fecha": "2026-08-23",
+      "hora": "21:30",
+      "odd_1": 2.92,
+      "odd_x": 3.18,
+      "odd_2": 2.33,
+      "historico_equipo": {
+        "local": "Tenerife",
+        "visitante": "Almeria"
+      },
+      "q15": {
+        "1": 31,
+        "X": 30,
+        "2": 39
+      },
+      "lae": {
+        "1": 37,
+        "X": 29,
+        "2": 34
+      }
+    },
+    {
+      "num": 15,
+      "local": "At. Madrid",
+      "visitante": "Villarreal",
+      "division": "Primera",
+      "fecha": "2026-08-23",
+      "hora": "17:00",
+      "odd_1": 1.87,
+      "odd_x": 3.65,
+      "odd_2": 3.95,
+      "historico_equipo": {
+        "local": "Ath Madrid",
+        "visitante": "Villarreal"
+      },
+      "marcadores_q15": [
+        {
+          "score": "2-1",
+          "pct": 29
+        },
+        {
+          "score": "2-2",
+          "pct": 11
+        },
+        {
+          "score": "1-1",
+          "pct": 9
+        }
+      ],
+      "pleno15": {
+        "marcador_q15": {
+          "2-1": 29,
+          "2-2": 11,
+          "1-1": 9
+        },
+        "goles_local_lae": {
+          "0": 7,
+          "1": 31,
+          "2": 45,
+          "M": 17
+        },
+        "goles_visitante_lae": {
+          "0": 20,
+          "1": 49,
+          "2": 22,
+          "M": 9
+        }
+      }
+    }
+  ]
+}

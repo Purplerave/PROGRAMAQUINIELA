@@ -56,6 +56,26 @@ python MOTOR_DECISION_QUINIELISTICA.py --jornada 74
 python PREDECIR_JORNADA.py --jornada 74
 ```
 
+## Traer una jornada nueva desde `liga-maestros-web`
+
+La web [`Purplerave/liga-maestros-web`](https://github.com/Purplerave/liga-maestros-web)
+scrapea cada jornada a `data/quiniela15_J{N}_scrape.json`. El importador la
+convierte al esquema que consume el motor:
+
+```powershell
+gh api repos/Purplerave/liga-maestros-web/contents/data/quiniela15_J2_scrape.json `
+  --jq .content | base64 -d > salida/quiniela15_J2_scrape.json
+python scripts/datos/IMPORTAR_JORNADA_WEB.py --jornada 2 `
+  --scrape salida/quiniela15_J2_scrape.json `
+  --mercado DATOS/mercado_jornada/MERCADO_J2.json
+```
+
+El scrape **no trae cuotas ni porcentajes LAE**. Se aportan aparte en
+`DATOS/mercado_jornada/MERCADO_J{N}.json`, con su fuente y su fecha de
+snapshot. Sin ese overlay el importador deja `odd_*` a `null` y avisa: el
+componente de mercado del ensemble pesa 0,951 y sin cuotas se anula. Ver
+`REVISION_15_JORNADA_2_UNION_WEB.md`.
+
 Los resultados generados se escriben en `salida/` y `SALIDAS/` y no se suben
 al repositorio.
 

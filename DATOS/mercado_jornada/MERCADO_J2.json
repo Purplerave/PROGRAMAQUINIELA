@@ -1,0 +1,112 @@
+{
+  "jornada": 2,
+  "temporada": "2026-27",
+  "consultado_en": "2026-08-18",
+  "descripcion": "Cuotas reales 1X2 y porcentajes LAE de la jornada 2. Datos que el scrape de liga-maestros-web no trae y que el motor si necesita (odd_* alimentan el componente de mercado, peso 0.951).",
+  "fuentes": {
+    "odd_1/odd_x/odd_2": {
+      "proveedor": "BetExplorer (media de casas)",
+      "urls": [
+        "https://www.betexplorer.com/football/spain/laliga/fixtures/",
+        "https://www.betexplorer.com/football/spain/laliga2/fixtures/"
+      ],
+      "snapshot": "2026-08-18",
+      "nota": "Cuota decimal media de las casas listadas por BetExplorer en el momento del snapshot. Cuotas de cierre pueden diferir."
+    },
+    "lae": {
+      "proveedor": "Quinielista / Eduardo Losilla (via Mundo Deportivo)",
+      "urls": [
+        "https://www.mundodeportivo.com/servicios/quiniela"
+      ],
+      "snapshot": "2026-08-18",
+      "nota": "Campo '% en lae': reparto real de apuestas de La Quiniela oficial. Es popularidad del publico, no probabilidad."
+    },
+    "pleno15_lae": {
+      "proveedor": "Quinielista / Eduardo Losilla (via Mundo Deportivo)",
+      "urls": [
+        "https://www.mundodeportivo.com/servicios/quiniela"
+      ],
+      "snapshot": "2026-08-18",
+      "nota": "Buckets 0/1/2/M del Pleno al 15 ('% en lae' de local y visitante)."
+    }
+  },
+  "control_cruzado": "La 'probabilidad real' publicada por Mundo Deportivo coincide con la normalizacion 1/cuota de estas cuotas (p.ej. partido 1: 55/26/19; partido 12: 62/23/15), lo que valida el snapshot.",
+  "partidos": [
+    {
+      "num": 1, "local": "Athletic", "visitante": "Sevilla",
+      "odd_1": 1.70, "odd_x": 3.58, "odd_2": 5.25,
+      "lae": {"1": 63, "X": 22, "2": 15}
+    },
+    {
+      "num": 2, "local": "Valencia", "visitante": "Celta",
+      "odd_1": 2.21, "odd_x": 3.24, "odd_2": 3.38,
+      "lae": {"1": 46, "X": 30, "2": 24}
+    },
+    {
+      "num": 3, "local": "Espanyol", "visitante": "Real Madrid",
+      "odd_1": 7.08, "odd_x": 4.53, "odd_2": 1.44,
+      "lae": {"1": 19, "X": 17, "2": 64}
+    },
+    {
+      "num": 4, "local": "Getafe", "visitante": "R. Santander",
+      "odd_1": 2.12, "odd_x": 2.96, "odd_2": 4.05,
+      "lae": {"1": 50, "X": 28, "2": 22}
+    },
+    {
+      "num": 5, "local": "Elche", "visitante": "Barcelona",
+      "odd_1": 8.55, "odd_x": 5.53, "odd_2": 1.32,
+      "lae": {"1": 18, "X": 16, "2": 66}
+    },
+    {
+      "num": 6, "local": "Osasuna", "visitante": "Levante",
+      "odd_1": 1.82, "odd_x": 3.56, "odd_2": 4.36,
+      "lae": {"1": 60, "X": 24, "2": 16}
+    },
+    {
+      "num": 7, "local": "Málaga", "visitante": "Deportivo",
+      "odd_1": 2.58, "odd_x": 3.10, "odd_2": 2.88,
+      "lae": {"1": 42, "X": 33, "2": 25}
+    },
+    {
+      "num": 8, "local": "Real Oviedo", "visitante": "Leganés",
+      "odd_1": 1.85, "odd_x": 3.22, "odd_2": 4.23,
+      "lae": {"1": 50, "X": 29, "2": 21}
+    },
+    {
+      "num": 9, "local": "Ceuta", "visitante": "Las Palmas",
+      "odd_1": 3.15, "odd_x": 3.17, "odd_2": 2.22,
+      "lae": {"1": 28, "X": 25, "2": 47}
+    },
+    {
+      "num": 10, "local": "Eldense", "visitante": "Cádiz",
+      "odd_1": 2.27, "odd_x": 3.08, "odd_2": 3.08,
+      "lae": {"1": 31, "X": 31, "2": 38}
+    },
+    {
+      "num": 11, "local": "Eibar", "visitante": "Valladolid",
+      "odd_1": 2.19, "odd_x": 3.03, "odd_2": 3.40,
+      "lae": {"1": 48, "X": 30, "2": 22}
+    },
+    {
+      "num": 12, "local": "Castellón", "visitante": "Sabadell",
+      "odd_1": 1.48, "odd_x": 4.02, "odd_2": 6.32,
+      "lae": {"1": 63, "X": 22, "2": 15}
+    },
+    {
+      "num": 13, "local": "Sporting Gijón", "visitante": "Burgos",
+      "odd_1": 2.34, "odd_x": 3.02, "odd_2": 3.08,
+      "lae": {"1": 51, "X": 29, "2": 20}
+    },
+    {
+      "num": 14, "local": "Tenerife", "visitante": "Almería",
+      "odd_1": 2.92, "odd_x": 3.18, "odd_2": 2.33,
+      "lae": {"1": 37, "X": 29, "2": 34}
+    },
+    {
+      "num": 15, "local": "At. Madrid", "visitante": "Villarreal",
+      "odd_1": 1.87, "odd_x": 3.65, "odd_2": 3.95,
+      "goles_local_lae": {"0": 7, "1": 31, "2": 45, "M": 17},
+      "goles_visitante_lae": {"0": 20, "1": 49, "2": 22, "M": 9}
+    }
+  ]
+}
