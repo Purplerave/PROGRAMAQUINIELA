@@ -1,0 +1,508 @@
+From adb2e40b63474898db6723ccb8b2a1978a407c03 Mon Sep 17 00:00:00 2001
+From: Purplerave <87758549+Purplerave@users.noreply.github.com>
+Date: Tue, 18 Aug 2026 16:34:16 +0000
+Subject: [PATCH] feat(J2): boleto del PROGRAMA en la jornada 2
+
+- data/predicciones_J2.json: salida del motor de PROGRAMAQUINIELA para la J2
+  (3 dobles = 8 columnas = 6,00 EUR; Pleno 1-1), con probabilidades por partido
+  y trazabilidad de las fuentes (cuotas BetExplorer + LAE, snapshot 18/08).
+- migrations.py: _import_j1_programa_ticket se generaliza a
+  _import_programa_ticket(conn, jornada); ensure_jornada_2 lo llama. Idempotente,
+  asi que se puede corregir un doble hasta el cierre del sabado.
+- PREDICTION_REASONS.json: 15 motivos del Programa para la J2.
+- OPERACION_SEMANAL.md: documentado el flujo motor -> predicciones_JN.json.
+- tests/test_j2_programa.py: contrato del boleto, import idempotente y motivos.
+
+Co-authored-by: arena-agent <297053741+arena-agent@users.noreply.github.com>
+---
+ data/PREDICTION_REASONS.json         |  19 +++
+ data/predicciones_J2.json            | 232 +++++++++++++++++++++++++++
+ docs/operations/OPERACION_SEMANAL.md |  31 ++++
+ liga_maestros/db/migrations.py       |  37 +++--
+ tests/test_j2_programa.py            |  87 ++++++++++
+ 5 files changed, 395 insertions(+), 11 deletions(-)
+ create mode 100644 data/predicciones_J2.json
+ create mode 100644 tests/test_j2_programa.py
+
+diff --git a/data/PREDICTION_REASONS.json b/data/PREDICTION_REASONS.json
+index f432cb3..7c76774 100644
+--- a/data/PREDICTION_REASONS.json
++++ b/data/PREDICTION_REASONS.json
+@@ -410,5 +410,24 @@
+       "Sporting con pretemporada enfocada en titulares; Sabadell recién ascendido y con menos rodaje.",
+       "Duelo igualado en Riazor; ambos históricos con falta de acierto goleador. 1-1."
+     ]
++  },
++  "2": {
++    "programa": [
++      "Modelo y mercado coinciden: 56% al 1. Fijo logico de la jornada; LAE ya juega 63%.",
++      "Valencia 44% frente al 27% del Celta, con el empate al 29%. Favorito claro pero justo.",
++      "Real Madrid 67% en Cornella. Q15 lo infla al 81%: favorito sobreapostado, se juega igual.",
++      "Getafe 44/32/24 ante un Racing recien ascendido (1,52 PPG ajustado). Doble 1X.",
++      "Barcelona 71% y cuota 1,32. Sobreapostado en Q15 (84%), pero no hay alternativa razonable.",
++      "Osasuna 54% ante un Levante goleado en la J1. Mercado 1,82 y LAE al 60%.",
++      "Malaga y Deportivo empatados tras ascender los dos (34,5% vs 35,1%). Doble 12.",
++      "Oviedo 52% pese al descenso (0,86 PPG ajustado). Leganes no pasa del 20%.",
++      "Las Palmas 46% en Ceuta y cuota 2,22. Q15 ya carga el 2 al 55%.",
++      "Modelo y mercado dan favorito al Eldense (38-40%) y el publico juega el 2. Mayor desacuerdo.",
++      "Eibar 41/32/28 tras el 1-3 con el Tenerife. Doble 1X: el empate esta a 9 puntos.",
++      "Castellon 63%, el segundo favorito mas claro. Sabadell recien ascendido (1,25 PPG).",
++      "Sporting 39% con el 2 casi igualado (30,7%). LAE lo carga al 51%: valor negativo.",
++      "Almeria 40% en el Heliodoro frente al 31% del Tenerife. Triple candidato, se juega el 2.",
++      "Dixon-Coles: 1,42 goles locales y 1,74 visitantes. Buckets 1-1; alternativa 1-2."
++    ]
+   }
+ }
+diff --git a/data/predicciones_J2.json b/data/predicciones_J2.json
+new file mode 100644
+index 0000000..cea8279
+--- /dev/null
++++ b/data/predicciones_J2.json
+@@ -0,0 +1,232 @@
++{
++  "jornada": 2,
++  "temporada": "2026-2027",
++  "generado_en": "2026-08-18T16:08:29",
++  "nota": "Boleto del PROGRAMA para la J2, generado por el motor de Purplerave/PROGRAMAQUINIELA. Tres dobles: 8 columnas x 0,75 EUR = 6,00 EUR, Pleno al 15 aparte.",
++  "fuente": {
++    "repo": "Purplerave/PROGRAMAQUINIELA",
++    "comando": "python PREDECIR_JORNADA.py --jornada 2",
++    "salida": "SALIDAS/paquete_jornada_J2.json",
++    "datos_jornada": "DATOS/QUINIELA15_J2.json",
++    "config": "motor_quinielistico_v4",
++    "modelo": "motor_maestro_hibrido_v2_calibrado_vector_pleno_dc",
++    "mercado": "2026-08-18"
++  },
++  "programa": {
++    "signos": [
++      "1",
++      "1",
++      "2",
++      "1X",
++      "2",
++      "1",
++      "12",
++      "1",
++      "2",
++      "1",
++      "1X",
++      "1",
++      "1",
++      "2",
++      "1-1"
++    ],
++    "nombre": "PROGRAMA",
++    "puntos_jornada": 0
++  },
++  "detalle_programa": {
++    "dobles": [
++      4,
++      7,
++      11
++    ],
++    "columnas": 8,
++    "coste_euros": 6.0,
++    "aciertos_esperados": 7.884,
++    "probabilidades_acierto": {
++      "p_ge_10": 0.1839,
++      "p_ge_11": 0.0688,
++      "p_ge_12": 0.018,
++      "p_ge_13": 0.0029,
++      "p_ge_14": 0.0002
++    },
++    "partidos": [
++      {
++        "num": 1,
++        "local": "Athletic",
++        "visitante": "Sevilla",
++        "signo": "1",
++        "prob": {
++          "1": 0.562,
++          "X": 0.27,
++          "2": 0.168
++        }
++      },
++      {
++        "num": 2,
++        "local": "Valencia",
++        "visitante": "Celta",
++        "signo": "1",
++        "prob": {
++          "1": 0.438,
++          "X": 0.292,
++          "2": 0.269
++        }
++      },
++      {
++        "num": 3,
++        "local": "Espanyol",
++        "visitante": "Real Madrid",
++        "signo": "2",
++        "prob": {
++          "1": 0.128,
++          "X": 0.202,
++          "2": 0.67
++        }
++      },
++      {
++        "num": 4,
++        "local": "Getafe",
++        "visitante": "R. Santander",
++        "signo": "1X",
++        "prob": {
++          "1": 0.438,
++          "X": 0.318,
++          "2": 0.245
++        }
++      },
++      {
++        "num": 5,
++        "local": "Elche",
++        "visitante": "Barcelona",
++        "signo": "2",
++        "prob": {
++          "1": 0.111,
++          "X": 0.176,
++          "2": 0.712
++        }
++      },
++      {
++        "num": 6,
++        "local": "Osasuna",
++        "visitante": "Levante",
++        "signo": "1",
++        "prob": {
++          "1": 0.544,
++          "X": 0.257,
++          "2": 0.199
++        }
++      },
++      {
++        "num": 7,
++        "local": "Málaga",
++        "visitante": "Deportivo",
++        "signo": "12",
++        "prob": {
++          "1": 0.345,
++          "X": 0.304,
++          "2": 0.351
++        }
++      },
++      {
++        "num": 8,
++        "local": "Real Oviedo",
++        "visitante": "Leganés",
++        "signo": "1",
++        "prob": {
++          "1": 0.525,
++          "X": 0.278,
++          "2": 0.197
++        }
++      },
++      {
++        "num": 9,
++        "local": "Ceuta",
++        "visitante": "Las Palmas",
++        "signo": "2",
++        "prob": {
++          "1": 0.253,
++          "X": 0.287,
++          "2": 0.46
++        }
++      },
++      {
++        "num": 10,
++        "local": "Eldense",
++        "visitante": "Cádiz",
++        "signo": "1",
++        "prob": {
++          "1": 0.38,
++          "X": 0.314,
++          "2": 0.306
++        }
++      },
++      {
++        "num": 11,
++        "local": "Eibar",
++        "visitante": "Valladolid",
++        "signo": "1X",
++        "prob": {
++          "1": 0.406,
++          "X": 0.316,
++          "2": 0.278
++        }
++      },
++      {
++        "num": 12,
++        "local": "Castellón",
++        "visitante": "Sabadell",
++        "signo": "1",
++        "prob": {
++          "1": 0.625,
++          "X": 0.231,
++          "2": 0.143
++        }
++      },
++      {
++        "num": 13,
++        "local": "Sporting Gijón",
++        "visitante": "Burgos",
++        "signo": "1",
++        "prob": {
++          "1": 0.392,
++          "X": 0.301,
++          "2": 0.307
++        }
++      },
++      {
++        "num": 14,
++        "local": "Tenerife",
++        "visitante": "Almería",
++        "signo": "2",
++        "prob": {
++          "1": 0.311,
++          "X": 0.287,
++          "2": 0.402
++        }
++      }
++    ],
++    "pleno15": {
++      "num": 15,
++      "local": "At. Madrid",
++      "visitante": "Villarreal",
++      "signo": "1-1",
++      "modelo": "dixon_coles",
++      "lambdas": {
++        "local": 1.42,
++        "visitante": 1.735
++      },
++      "goles_local": {
++        "0": 0.2409,
++        "1": 0.344,
++        "2": 0.2438,
++        "M": 0.1713
++      },
++      "goles_visitante": {
++        "0": 0.1772,
++        "1": 0.3054,
++        "2": 0.2657,
++        "M": 0.2518
++      }
++    }
++  }
++}
+diff --git a/docs/operations/OPERACION_SEMANAL.md b/docs/operations/OPERACION_SEMANAL.md
+index 64694c6..01ced14 100644
+--- a/docs/operations/OPERACION_SEMANAL.md
++++ b/docs/operations/OPERACION_SEMANAL.md
+@@ -39,6 +39,37 @@ Capas separadas:
+ 
+ Regla: Programa y usuario deben tener 15/15 antes de dar la jornada por lista. Consejo IA es opcional.
+ 
++### 2.1 Boleto del Programa (motor propio)
++
++El boleto de `programa` sale del motor de
++[`Purplerave/PROGRAMAQUINIELA`](https://github.com/Purplerave/PROGRAMAQUINIELA):
++
++```powershell
++# En PROGRAMAQUINIELA. Toma la jornada de ESTA web y le anade cuotas + LAE.
++python scripts/datos/IMPORTAR_JORNADA_WEB.py --jornada N `
++  --scrape salida/quiniela15_JN_scrape.json `
++  --mercado DATOS/mercado_jornada/MERCADO_JN.json
++python PREDECIR_JORNADA.py --jornada N
++```
++
++De `SALIDAS/paquete_jornada_JN.json` se copia el `boleto_optimizado` a
++`data/predicciones_JN.json` con este formato minimo:
++
++```json
++{
++  "jornada": 2,
++  "programa": { "signos": ["1", "1", "2", "1X", "..."], "nombre": "PROGRAMA", "puntos_jornada": 0 }
++}
++```
++
++`_import_programa_ticket(conn, N)` (en `liga_maestros/db/migrations.py`) lo
++carga en la tabla `predicciones` como usuario `programa`. Es idempotente: se
++puede corregir un doble o el Pleno hasta el cierre y el cambio sobrevive al
++reinicio. Hay que llamarlo desde el `ensure_jornada_N()` correspondiente.
++
++Los motivos que se ven junto a cada signo van en `data/PREDICTION_REASONS.json`,
++bajo la clave de la jornada: `{"2": {"programa": [ ...15 textos... ]}}`.
++
+ ## 3. Generar y importar el Quiz (Reto 10 LaLiga)
+ 
+ Cada jornada se genera un banco de 10 preguntas de quiz. Flujo:
+diff --git a/liga_maestros/db/migrations.py b/liga_maestros/db/migrations.py
+index e299e48..0985f65 100644
+--- a/liga_maestros/db/migrations.py
++++ b/liga_maestros/db/migrations.py
+@@ -376,17 +376,22 @@ J1_OFFICIAL_ORDER_BY_OLD = {
+ }
+ 
+ 
+-def _import_j1_programa_ticket(conn):
+-    """Apply Programa's editorial J1 ticket without a hard-coded duplicate.
++def _import_programa_ticket(conn, jornada):
++    """Apply Programa's ticket for ``jornada`` without a hard-coded duplicate.
++
++    ``data/predicciones_J{N}.json`` is the compact file that the Programa
++    workflow produces (motor de Purplerave/PROGRAMAQUINIELA). The inbox
++    remains the source for the full roster (including La Peña), while this
++    explicit Programa entry is allowed to replace only that one ticket. This
++    makes a corrected double or Pleno survive every restart.
+ 
+-    ``data/predicciones_J1.json`` is the compact file used by the Programa
+-    workflow. The inbox remains the source for the full roster (including La
+-    Peña), while this explicit Programa entry is allowed to replace only that
+-    one ticket. This makes a corrected double or Pleno survive every restart.
++    Returns the number of signs written (0 if there is nothing usable).
+     """
++    jornada = int(jornada)
++    filename = f"predicciones_J{jornada}.json"
+     candidates = [
+-        os.path.join(config.SEED_DATA_DIR, "predicciones_J1.json"),
+-        os.path.join(config.DATA_DIR, "predicciones_J1.json"),
++        os.path.join(config.SEED_DATA_DIR, filename),
++        os.path.join(config.DATA_DIR, filename),
+     ]
+     for path in dict.fromkeys(candidates):
+         if not path or not os.path.exists(path):
+@@ -394,7 +399,7 @@ def _import_j1_programa_ticket(conn):
+         try:
+             with open(path, encoding="utf-8") as fh:
+                 payload = json.load(fh)
+-            if int(payload.get("jornada") or 0) != 1:
++            if int(payload.get("jornada") or 0) != jornada:
+                 continue
+             raw_signs = list((payload.get("programa") or {}).get("signos") or [])
+         except (OSError, ValueError, TypeError, AttributeError):
+@@ -413,13 +418,19 @@ def _import_j1_programa_ticket(conn):
+             continue
+ 
+         conn.executemany(
+-            "INSERT OR REPLACE INTO predicciones (user_id, jornada, partido_id, signo) VALUES ('programa', 1, ?, ?)",
+-            enumerate(signos, start=1),
++            "INSERT OR REPLACE INTO predicciones (user_id, jornada, partido_id, signo)"
++            " VALUES ('programa', ?, ?, ?)",
++            [(jornada, partido_id, sign) for partido_id, sign in enumerate(signos, start=1)],
+         )
+         return len(signos)
+     return 0
+ 
+ 
++def _import_j1_programa_ticket(conn):
++    """Compatibilidad: el boleto del Programa de la J1."""
++    return _import_programa_ticket(conn, 1)
++
++
+ def _rekey_j1_partido_ids(conn):
+     row = conn.execute("SELECT local, visitante FROM resultados WHERE jornada = 1 AND partido_id = 1").fetchone()
+     if row is None:
+@@ -479,6 +490,10 @@ def ensure_jornada_2(conn):
+     updated = ensure_jornada_completa(conn, 2)
+     if updated:
+         conn.commit()
++    # Boleto del Programa (motor propio). Se importa siempre: si se corrige un
++    # doble o el Pleno antes del cierre, el cambio sobrevive al reinicio.
++    if _import_programa_ticket(conn, 2):
++        conn.commit()
+     return updated
+ 
+ 
+diff --git a/tests/test_j2_programa.py b/tests/test_j2_programa.py
+new file mode 100644
+index 0000000..160f3e8
+--- /dev/null
++++ b/tests/test_j2_programa.py
+@@ -0,0 +1,87 @@
++"""Acceptance: boleto del PROGRAMA en la J2 (temporada 2026-2027).
++
++Contrato:
++- `data/predicciones_J2.json` es la salida del motor de PROGRAMAQUINIELA
++  (3 dobles = 8 columnas = 6,00 EUR, Pleno al 15 aparte).
++- `ensure_jornada_2()` carga esos 15 signos en `predicciones` como 'programa'.
++- Volver a ejecutar la migracion no duplica ni cambia nada (idempotente).
++- `/api/liga/data?j=2` devuelve el boleto y sus 15 motivos.
++"""
++
++import json
++import sqlite3
++
++import config
++from liga_maestros.db.migrations import (
++    _import_programa_ticket,
++    ensure_core_tables,
++    ensure_jornada_2,
++    ensure_predicciones_unique_index,
++)
++
++PROGRAMA_J2 = ["1", "1", "2", "1X", "2", "1", "12", "1", "2", "1", "1X", "1", "1", "2", "1-1"]
++
++
++def test_fichero_j2_trae_el_boleto_del_programa():
++    with open("data/predicciones_J2.json", encoding="utf-8") as fh:
++        payload = json.load(fh)
++    assert payload["jornada"] == 2
++    assert payload["programa"]["signos"] == PROGRAMA_J2
++    assert payload["programa"]["nombre"] == "PROGRAMA"
++    # Trazabilidad: de donde sale el boleto.
++    assert payload["fuente"]["repo"] == "Purplerave/PROGRAMAQUINIELA"
++
++    detalle = payload["detalle_programa"]
++    # Contrato P0: exactamente 3 dobles, 8 columnas, 6,00 EUR.
++    dobles = [i + 1 for i, s in enumerate(PROGRAMA_J2[:14]) if len(s) == 2]
++    assert dobles == detalle["dobles"] == [4, 7, 11]
++    assert detalle["columnas"] == 8
++    assert detalle["coste_euros"] == 6.0
++    assert len(detalle["partidos"]) == 14
++
++    # El signo publicado tiene que ser coherente con las probabilidades.
++    for partido in detalle["partidos"]:
++        probs = partido["prob"]
++        assert abs(sum(probs.values()) - 1.0) < 0.01
++        favorito = max(probs, key=probs.get)
++        assert favorito in partido["signo"]
++
++
++def test_ensure_jornada_2_importa_el_boleto_del_programa():
++    conn = sqlite3.connect(":memory:")
++    conn.row_factory = sqlite3.Row
++    ensure_core_tables(conn)
++    ensure_predicciones_unique_index(conn)
++
++    ensure_jornada_2(conn)
++    assert conn.execute("SELECT COUNT(*) FROM resultados WHERE jornada = 2").fetchone()[0] == 15
++
++    rows = conn.execute(
++        "SELECT signo FROM predicciones WHERE jornada = 2 AND user_id = 'programa' ORDER BY partido_id"
++    ).fetchall()
++    assert [row["signo"] for row in rows] == PROGRAMA_J2
++
++    # Idempotente: no duplica.
++    ensure_jornada_2(conn)
++    total = conn.execute("SELECT COUNT(*) FROM predicciones WHERE jornada = 2 AND user_id = 'programa'").fetchone()[0]
++    assert total == 15
++
++
++def test_importador_generico_no_escribe_si_no_hay_fichero():
++    conn = sqlite3.connect(":memory:")
++    conn.row_factory = sqlite3.Row
++    ensure_core_tables(conn)
++    ensure_predicciones_unique_index(conn)
++
++    # No existe data/predicciones_J999.json: no debe inventar nada.
++    assert _import_programa_ticket(conn, 999) == 0
++    assert conn.execute("SELECT COUNT(*) FROM predicciones WHERE jornada = 999").fetchone()[0] == 0
++
++
++def test_motivos_de_la_j2_tienen_15_entradas():
++    path = f"{config.DATA_DIR}/PREDICTION_REASONS.json"
++    with open(path, encoding="utf-8") as fh:
++        reasons = json.load(fh)
++    programa = reasons["2"]["programa"]
++    assert len(programa) == 15
++    assert all(isinstance(item, str) and item.strip() for item in programa)
+-- 
+2.39.5
+

@@ -1,0 +1,232 @@
+{
+  "jornada": 2,
+  "temporada": "2026-2027",
+  "generado_en": "2026-08-18T16:08:29",
+  "nota": "Boleto del PROGRAMA para la J2, generado por el motor de Purplerave/PROGRAMAQUINIELA. Tres dobles: 8 columnas x 0,75 EUR = 6,00 EUR, Pleno al 15 aparte.",
+  "fuente": {
+    "repo": "Purplerave/PROGRAMAQUINIELA",
+    "comando": "python PREDECIR_JORNADA.py --jornada 2",
+    "salida": "SALIDAS/paquete_jornada_J2.json",
+    "datos_jornada": "DATOS/QUINIELA15_J2.json",
+    "config": "motor_quinielistico_v4",
+    "modelo": "motor_maestro_hibrido_v2_calibrado_vector_pleno_dc",
+    "mercado": "2026-08-18"
+  },
+  "programa": {
+    "signos": [
+      "1",
+      "1",
+      "2",
+      "1X",
+      "2",
+      "1",
+      "12",
+      "1",
+      "2",
+      "1",
+      "1X",
+      "1",
+      "1",
+      "2",
+      "1-1"
+    ],
+    "nombre": "PROGRAMA",
+    "puntos_jornada": 0
+  },
+  "detalle_programa": {
+    "dobles": [
+      4,
+      7,
+      11
+    ],
+    "columnas": 8,
+    "coste_euros": 6.0,
+    "aciertos_esperados": 7.884,
+    "probabilidades_acierto": {
+      "p_ge_10": 0.1839,
+      "p_ge_11": 0.0688,
+      "p_ge_12": 0.018,
+      "p_ge_13": 0.0029,
+      "p_ge_14": 0.0002
+    },
+    "partidos": [
+      {
+        "num": 1,
+        "local": "Athletic",
+        "visitante": "Sevilla",
+        "signo": "1",
+        "prob": {
+          "1": 0.562,
+          "X": 0.27,
+          "2": 0.168
+        }
+      },
+      {
+        "num": 2,
+        "local": "Valencia",
+        "visitante": "Celta",
+        "signo": "1",
+        "prob": {
+          "1": 0.438,
+          "X": 0.292,
+          "2": 0.269
+        }
+      },
+      {
+        "num": 3,
+        "local": "Espanyol",
+        "visitante": "Real Madrid",
+        "signo": "2",
+        "prob": {
+          "1": 0.128,
+          "X": 0.202,
+          "2": 0.67
+        }
+      },
+      {
+        "num": 4,
+        "local": "Getafe",
+        "visitante": "R. Santander",
+        "signo": "1X",
+        "prob": {
+          "1": 0.438,
+          "X": 0.318,
+          "2": 0.245
+        }
+      },
+      {
+        "num": 5,
+        "local": "Elche",
+        "visitante": "Barcelona",
+        "signo": "2",
+        "prob": {
+          "1": 0.111,
+          "X": 0.176,
+          "2": 0.712
+        }
+      },
+      {
+        "num": 6,
+        "local": "Osasuna",
+        "visitante": "Levante",
+        "signo": "1",
+        "prob": {
+          "1": 0.544,
+          "X": 0.257,
+          "2": 0.199
+        }
+      },
+      {
+        "num": 7,
+        "local": "Málaga",
+        "visitante": "Deportivo",
+        "signo": "12",
+        "prob": {
+          "1": 0.345,
+          "X": 0.304,
+          "2": 0.351
+        }
+      },
+      {
+        "num": 8,
+        "local": "Real Oviedo",
+        "visitante": "Leganés",
+        "signo": "1",
+        "prob": {
+          "1": 0.525,
+          "X": 0.278,
+          "2": 0.197
+        }
+      },
+      {
+        "num": 9,
+        "local": "Ceuta",
+        "visitante": "Las Palmas",
+        "signo": "2",
+        "prob": {
+          "1": 0.253,
+          "X": 0.287,
+          "2": 0.46
+        }
+      },
+      {
+        "num": 10,
+        "local": "Eldense",
+        "visitante": "Cádiz",
+        "signo": "1",
+        "prob": {
+          "1": 0.38,
+          "X": 0.314,
+          "2": 0.306
+        }
+      },
+      {
+        "num": 11,
+        "local": "Eibar",
+        "visitante": "Valladolid",
+        "signo": "1X",
+        "prob": {
+          "1": 0.406,
+          "X": 0.316,
+          "2": 0.278
+        }
+      },
+      {
+        "num": 12,
+        "local": "Castellón",
+        "visitante": "Sabadell",
+        "signo": "1",
+        "prob": {
+          "1": 0.625,
+          "X": 0.231,
+          "2": 0.143
+        }
+      },
+      {
+        "num": 13,
+        "local": "Sporting Gijón",
+        "visitante": "Burgos",
+        "signo": "1",
+        "prob": {
+          "1": 0.392,
+          "X": 0.301,
+          "2": 0.307
+        }
+      },
+      {
+        "num": 14,
+        "local": "Tenerife",
+        "visitante": "Almería",
+        "signo": "2",
+        "prob": {
+          "1": 0.311,
+          "X": 0.287,
+          "2": 0.402
+        }
+      }
+    ],
+    "pleno15": {
+      "num": 15,
+      "local": "At. Madrid",
+      "visitante": "Villarreal",
+      "signo": "1-1",
+      "modelo": "dixon_coles",
+      "lambdas": {
+        "local": 1.42,
+        "visitante": 1.735
+      },
+      "goles_local": {
+        "0": 0.2409,
+        "1": 0.344,
+        "2": 0.2438,
+        "M": 0.1713
+      },
+      "goles_visitante": {
+        "0": 0.1772,
+        "1": 0.3054,
+        "2": 0.2657,
+        "M": 0.2518
+      }
+    }
+  }
+}
