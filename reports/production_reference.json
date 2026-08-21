@@ -4,10 +4,10 @@
   "generado_por": "scripts/reports/GENERAR_PRODUCTION_REFERENCE.py",
   "git": {
     "repositorio": "Purplerave/PROGRAMAQUINIELA",
-    "commit_sha": "459560ba1309afc1ecc545c8ec85812aae55340b",
-    "branch": "arena/019fce65-programaquiniela",
-    "arbol_limpio": false,
-    "cambios_sin_commit": 5
+    "commit_sha": "0b247fe71b6be8cb3bda169b73f53c0ceb9ee7b1",
+    "branch": "arena/01a0232c-programaquiniela",
+    "arbol_limpio": true,
+    "cambios_sin_commit": 0
   },
   "hashes": {
     "archivos": {
@@ -27,6 +27,7 @@
       "DATOS/historico_raw/PRIMERA/SP1_2324.csv": "c124815dae7337325a67623fa05493ef870f67f78828aa86b0f60d5bea20f0fc",
       "DATOS/historico_raw/PRIMERA/SP1_2425.csv": "bb544fa35b029896047a4bd7c12f3c8e50ff40451bb582c003549482fdeaa8a8",
       "DATOS/historico_raw/PRIMERA/SP1_2526.csv": "95596a8dbb8adb1bd7e9b86701c279569955477ae97c77bc1c146375da81b1c3",
+      "DATOS/historico_raw/PRIMERA/SP1_2627.csv": "902d3d57db5acd8e1322532cba0d40fc8977d7353ae40be71a1f3b231e022023",
       "DATOS/historico_raw/SEGUNDA/SP2_1011.csv": "720f71c0e64752316cabab2963acb20fcf1845c1bbdbda7151df8b9a8b6af097",
       "DATOS/historico_raw/SEGUNDA/SP2_1112.csv": "2ebae5fd4967ce19a1bed1e186ddc86e948ec542619b41efc9b8a41995a4859b",
       "DATOS/historico_raw/SEGUNDA/SP2_1213.csv": "54f672ee03ba51d84648e07fac1ba54598cc07c169b2248f7ca076b91a322a3b",
@@ -43,9 +44,12 @@
       "DATOS/historico_raw/SEGUNDA/SP2_2324.csv": "590dcbc359583621d18615dea0d7d85ecb55446611484d767b3fe600deed0e71",
       "DATOS/historico_raw/SEGUNDA/SP2_2425.csv": "b9f07dc4cb1b8824dabff663c2f2171b15ebb132d1b05622ac37a391e93a8351",
       "DATOS/historico_raw/SEGUNDA/SP2_2526.csv": "ed4d982d3dcbb16176386fe5370c85b9abac38996328eb2a577ca920c21139ba",
+      "DATOS/historico_raw/SEGUNDA/SP2_2627.csv": "526bd4bba67fd7c2e92ee0811aba4f1f8794f7067d22c08637ff4d0f6653eecc",
       "DATOS/highlightly_dataset/highlightly_partidos_2023_2026.csv": "cdc906e114ae75265f4cd8e049938f6c108481837ddf22349ac5f8693e60707a",
       "DATOS/temporada_2026_27_equipos.json": "ce612a923ec36585789937ec75ab12a1b9c24f710af5c0d5aa0cc327fde4b9ae",
       "DATOS/temporada_2026_27_estadisticas_base.json": "2bfbae26a2557fbb864617bbc8a0b58c1a274c9ea9ca6289529dbf805ed32d07",
+      "DATOS/QUINIELA15_J1.json": "034e8009fa738319e8c543d51d653b277c47e1f9ae73aced447a3cb3b9ccca30",
+      "DATOS/QUINIELA15_J2.json": "6ab6b77790df022d3f4897cdf47851068a3f82eeb9f731ed65ff9b8979ec1c4b",
       "DATOS/QUINIELA15_J66.json": "dfe09edb588a5cb485c89651b4c6d0fe74bb217c877e414f0ed5f4b05c1505a8",
       "DATOS/QUINIELA15_J67.json": "173794e0946caf990fe146f48554f491f3602a48c994f0720984f1bfe9e42f9b",
       "DATOS/QUINIELA15_J68.json": "d58e283f799863418a402814430b21ae83e577a7a8a91d1ad8af6a5b59e62914",
@@ -53,17 +57,17 @@
       "DATOS/QUINIELA15_J72.json": "fa7162a4a2a52904c49731f82b773e7142314a5cf556193b6896be06c9fe4b57",
       "DATOS/QUINIELA15_J73.json": "5b89a7ac6c4a0ed608d70271d0449137200ebeb6f3a5011b3e66a5481c0ea171",
       "DATOS/QUINIELA15_J74.json": "82b6525f0a776f7f263105df728c7ba70a2c46233b77dd7ffa4350fa72e473d1",
-      "CONFIG_MOTOR_V2.json": "768b39237566885f861bf03837eaeb0ddfa0552f70d97a9a4c19ae0a163f144d"
+      "CONFIG_MOTOR_V2.json": "38bb8d84c3cf921cc6a8f81f9179b4e1c63e836577603807dde787ac577c0b3a"
     },
     "resumen": {
       "algoritmo": "sha256",
-      "dataset_historico_combinado": "8de2041787cd9fba2616be1d13ebb7ec66fe81237e594008d22a18276f67c95f",
-      "configuracion": "768b39237566885f861bf03837eaeb0ddfa0552f70d97a9a4c19ae0a163f144d",
-      "n_archivos": 43
+      "dataset_historico_combinado": "26ed3ceaf4899c6138ae5c56efa353bd5b5c25cb07bb769dbf0db3c36a99e3a4",
+      "configuracion": "38bb8d84c3cf921cc6a8f81f9179b4e1c63e836577603807dde787ac577c0b3a",
+      "n_archivos": 47
     }
   },
   "entorno": {
-    "fecha_generacion": "2026-08-04T21:27:25+0000",
+    "fecha_generacion": "2026-08-21T07:58:14+0000",
     "plataforma": "Linux-6.1.158+-x86_64-with-glibc2.36",
     "python": "3.11.2",
     "numpy": "2.2.6",
@@ -98,7 +102,7 @@
       "date_to": "2020-08-07",
       "accuracy_simple": 0.4691211401425178,
       "accuracy_market_favorite": 0.45961995249406173,
-      "mean_hits_3_dobles": 8.035714285714286,
+      "mean_hits_3_dobles": 7.910714285714286,
       "best_jornada_3_dobles": 11,
       "divisiones": {
         "Primera": {
@@ -119,19 +123,19 @@
       "test_matches": 842,
       "date_from": "2020-09-12",
       "date_to": "2021-05-30",
-      "accuracy_simple": 0.5083135391923991,
+      "accuracy_simple": 0.5106888361045131,
       "accuracy_market_favorite": 0.502375296912114,
-      "mean_hits_3_dobles": 8.625,
+      "mean_hits_3_dobles": 8.517857142857142,
       "best_jornada_3_dobles": 13,
       "divisiones": {
         "Primera": {
           "matches": 380,
-          "accuracy_simple": 0.5447368421052632,
+          "accuracy_simple": 0.5473684210526316,
           "accuracy_market_favorite": 0.5447368421052632
         },
         "Segunda": {
           "matches": 462,
-          "accuracy_simple": 0.47835497835497837,
+          "accuracy_simple": 0.4805194805194805,
           "accuracy_market_favorite": 0.4675324675324675
         }
       }
@@ -142,19 +146,19 @@
       "test_matches": 842,
       "date_from": "2021-08-13",
       "date_to": "2022-05-29",
-      "accuracy_simple": 0.4845605700712589,
+      "accuracy_simple": 0.47980997624703087,
       "accuracy_market_favorite": 0.47980997624703087,
-      "mean_hits_3_dobles": 8.375,
+      "mean_hits_3_dobles": 8.232142857142858,
       "best_jornada_3_dobles": 12,
       "divisiones": {
         "Primera": {
           "matches": 380,
-          "accuracy_simple": 0.5263157894736842,
+          "accuracy_simple": 0.5210526315789473,
           "accuracy_market_favorite": 0.5184210526315789
         },
         "Segunda": {
           "matches": 462,
-          "accuracy_simple": 0.45021645021645024,
+          "accuracy_simple": 0.4458874458874459,
           "accuracy_market_favorite": 0.44805194805194803
         }
       }
@@ -165,9 +169,9 @@
       "test_matches": 842,
       "date_from": "2022-08-12",
       "date_to": "2023-06-04",
-      "accuracy_simple": 0.49643705463182897,
+      "accuracy_simple": 0.501187648456057,
       "accuracy_market_favorite": 0.501187648456057,
-      "mean_hits_3_dobles": 8.589285714285714,
+      "mean_hits_3_dobles": 8.571428571428571,
       "best_jornada_3_dobles": 13,
       "divisiones": {
         "Primera": {
@@ -177,7 +181,7 @@
         },
         "Segunda": {
           "matches": 462,
-          "accuracy_simple": 0.461038961038961,
+          "accuracy_simple": 0.4696969696969697,
           "accuracy_market_favorite": 0.4675324675324675
         }
       }
@@ -188,19 +192,19 @@
       "test_matches": 842,
       "date_from": "2023-08-11",
       "date_to": "2024-06-02",
-      "accuracy_simple": 0.5083135391923991,
+      "accuracy_simple": 0.5071258907363421,
       "accuracy_market_favorite": 0.505938242280285,
-      "mean_hits_3_dobles": 8.535714285714286,
-      "best_jornada_3_dobles": 14,
+      "mean_hits_3_dobles": 8.625,
+      "best_jornada_3_dobles": 13,
       "divisiones": {
         "Primera": {
           "matches": 380,
-          "accuracy_simple": 0.55,
+          "accuracy_simple": 0.5526315789473685,
           "accuracy_market_favorite": 0.5552631578947368
         },
         "Segunda": {
           "matches": 462,
-          "accuracy_simple": 0.474025974025974,
+          "accuracy_simple": 0.4696969696969697,
           "accuracy_market_favorite": 0.4653679653679654
         }
       }
@@ -211,19 +215,19 @@
       "test_matches": 842,
       "date_from": "2024-08-15",
       "date_to": "2025-06-01",
-      "accuracy_simple": 0.5213776722090261,
+      "accuracy_simple": 0.5249406175771971,
       "accuracy_market_favorite": 0.5237529691211401,
-      "mean_hits_3_dobles": 8.732142857142858,
+      "mean_hits_3_dobles": 8.714285714285714,
       "best_jornada_3_dobles": 12,
       "divisiones": {
         "Primera": {
           "matches": 380,
-          "accuracy_simple": 0.5526315789473685,
+          "accuracy_simple": 0.5552631578947368,
           "accuracy_market_favorite": 0.5552631578947368
         },
         "Segunda": {
           "matches": 462,
-          "accuracy_simple": 0.49567099567099565,
+          "accuracy_simple": 0.5,
           "accuracy_market_favorite": 0.49783549783549785
         }
       }
@@ -234,9 +238,9 @@
       "test_matches": 842,
       "date_from": "2025-08-15",
       "date_to": "2026-05-31",
-      "accuracy_simple": 0.5166270783847982,
+      "accuracy_simple": 0.5154394299287411,
       "accuracy_market_favorite": 0.5154394299287411,
-      "mean_hits_3_dobles": 8.482142857142858,
+      "mean_hits_3_dobles": 8.589285714285714,
       "best_jornada_3_dobles": 13,
       "divisiones": {
         "Primera": {
@@ -246,32 +250,55 @@
         },
         "Segunda": {
           "matches": 462,
-          "accuracy_simple": 0.4935064935064935,
+          "accuracy_simple": 0.49134199134199136,
           "accuracy_market_favorite": 0.49134199134199136
+        }
+      }
+    },
+    {
+      "season": "2026-2027",
+      "train_matches": 13446,
+      "test_matches": 16,
+      "date_from": "2026-08-14",
+      "date_to": "2026-08-17",
+      "accuracy_simple": 0.5625,
+      "accuracy_market_favorite": 0.5625,
+      "mean_hits_3_dobles": 10.0,
+      "best_jornada_3_dobles": 10,
+      "divisiones": {
+        "Primera": {
+          "matches": 5,
+          "accuracy_simple": 0.6,
+          "accuracy_market_favorite": 0.6
+        },
+        "Segunda": {
+          "matches": 11,
+          "accuracy_simple": 0.5454545454545454,
+          "accuracy_market_favorite": 0.5454545454545454
         }
       }
     }
   ],
   "metricas_agregadas": {
-    "temporadas": 7,
-    "media_accuracy_simple": 0.5006786562606039,
-    "media_accuracy_market": 0.49830335934849,
-    "media_3_dobles": 8.482142857142858,
+    "temporadas": 8,
+    "media_accuracy_simple": 0.5088516923990499,
+    "media_accuracy_market": 0.5063279394299287,
+    "media_3_dobles": 8.645089285714286,
     "mejor_temporada_simple": [
       {
-        "season": "2024-2025",
-        "train_matches": 11762,
-        "test_matches": 842,
-        "date_from": "2024-08-15",
-        "date_to": "2025-06-01",
-        "accuracy_simple": 0.5213776722090261,
-        "accuracy_market_favorite": 0.5237529691211401,
-        "mean_hits_3_dobles": 8.732142857142858,
-        "best_jornada_3_dobles": 12,
-        "primera_matches": 380,
-        "primera_accuracy": 0.5526315789473685,
-        "segunda_matches": 462,
-        "segunda_accuracy": 0.49567099567099565
+        "season": "2026-2027",
+        "train_matches": 13446,
+        "test_matches": 16,
+        "date_from": "2026-08-14",
+        "date_to": "2026-08-17",
+        "accuracy_simple": 0.5625,
+        "accuracy_market_favorite": 0.5625,
+        "mean_hits_3_dobles": 10.0,
+        "best_jornada_3_dobles": 10,
+        "primera_matches": 5,
+        "primera_accuracy": 0.6,
+        "segunda_matches": 11,
+        "segunda_accuracy": 0.5454545454545454
       }
     ],
     "peor_temporada_simple": [
@@ -283,7 +310,7 @@
         "date_to": "2020-08-07",
         "accuracy_simple": 0.4691211401425178,
         "accuracy_market_favorite": 0.45961995249406173,
-        "mean_hits_3_dobles": 8.035714285714286,
+        "mean_hits_3_dobles": 7.910714285714286,
         "best_jornada_3_dobles": 11,
         "primera_matches": 380,
         "primera_accuracy": 0.5210526315789473,
@@ -294,85 +321,24 @@
     "csv": "/home/user/PROGRAMAQUINIELA/salida/backtest_historico_temporadas.csv",
     "json": "/home/user/PROGRAMAQUINIELA/salida/backtest_historico_temporadas.json",
     "stability": {
-      "mean_accuracy": 0.5006786562606039,
-      "std_accuracy": 0.01720898857564434,
-      "cv_accuracy": 0.034371324522144274,
+      "mean_accuracy": 0.5088516923990499,
+      "std_accuracy": 0.02661630568183582,
+      "cv_accuracy": 0.052306607365988425,
       "min_accuracy": 0.4691211401425178,
-      "max_accuracy": 0.5213776722090261,
-      "trend": 0.006871394638615579,
-      "mean_market": 0.49830335934849,
-      "std_market": 0.02022350108686983,
-      "mean_gap_vs_market": 0.002375296912114022
+      "max_accuracy": 0.5625,
+      "trend": 0.009746847076122651,
+      "mean_market": 0.5063279394299287,
+      "std_market": 0.028436305053017384,
+      "mean_gap_vs_market": 0.0025237529691211485
     }
   },
-  "economia": {
-    "fuente": "salida/evaluacion_economica.json",
-    "premios_estimados": true,
-    "nota": "ROI EX-POST con premios estimados (manus.ai; variables por jornada). Orientativo, no garantía. Pleno al 15 excluido (se juega aparte). Ver 'sensibilidad_escenarios' para el rango fácil/normal/difícil.",
-    "escenario_por_defecto": "normal",
-    "jornadas_totales": 392,
-    "modelo": {
-      "coste_total_eur": 2352.0,
-      "premio_total_eur": 1169.25,
-      "roi": -0.5028698979591837,
-      "mean_hits": 8.002551020408163,
-      "p_ge_12": 0.03571428571428571,
-      "p_ge_13": 0.002551020408163265,
-      "p_ge_14": 0.0
-    },
-    "solo_favoritos_mercado": {
-      "premio_total_eur": 193.0,
-      "roi_1col": -0.3435374149659864,
-      "roi_6eur": -0.9179421768707483,
-      "mean_hits": 6.910714285714286,
-      "p_ge_12": 0.007653061224489796,
-      "p_ge_13": 0.0,
-      "p_ge_14": 0.0
-    },
-    "delta_roi_vs_market_6eur": 0.4150722789115646,
-    "sensibilidad_escenarios": {
-      "facil": {
-        "modelo": {
-          "premio_total_eur": 157.5,
-          "coste_total_eur": 2352.0,
-          "roi": -0.9330357142857143
-        },
-        "solo_favoritos_mercado_6eur": {
-          "premio_total_eur": 28.5,
-          "coste_total_eur": 2352.0,
-          "roi": -0.9878826530612245
-        }
-      },
-      "normal": {
-        "modelo": {
-          "premio_total_eur": 1169.25,
-          "coste_total_eur": 2352.0,
-          "roi": -0.5028698979591837
-        },
-        "solo_favoritos_mercado_6eur": {
-          "premio_total_eur": 193.0,
-          "coste_total_eur": 2352.0,
-          "roi": -0.9179421768707483
-        }
-      },
-      "dificil": {
-        "modelo": {
-          "premio_total_eur": 13925.0,
-          "coste_total_eur": 2352.0,
-          "roi": 4.920493197278912
-        },
-        "solo_favoritos_mercado_6eur": {
-          "premio_total_eur": 2035.0,
-          "coste_total_eur": 2352.0,
-          "roi": -0.13477891156462585
-        }
-      }
-    },
-    "reproducir": "python scripts/backtests/EVALUACION_ECONOMICA.py"
-  },
+  "economia": null,
   "resultado_tests": {
     "comando": "/home/user/PROGRAMAQUINIELA/.venv/bin/python -m pytest tests/ -q",
-    "omitido": true
+    "exit_code": 0,
+    "resumen": "270 passed, 15 warnings in 61.25s (0:01:01)",
+    "duracion_segundos": 61.8,
+    "salida_tail": "  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method\n    fixturefunc = resolve_fixture_function(fixturedef, request)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n270 passed, 15 warnings in 61.25s (0:01:01)"
   },
   "reproducir": {
     "backtest": "python scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py",
