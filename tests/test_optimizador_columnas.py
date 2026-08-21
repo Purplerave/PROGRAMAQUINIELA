@@ -235,3 +235,40 @@ def test_contrato_inconsistente_rechazado():
         columns_contract(
             {"columns": {"doubles": 3, "columns_per_ticket": 8, "price_per_column": 1.0, "max_cost": 6.0}}
         )
+
+
+def test_load_probs_override_acepta_formato_motor(tmp_path):
+    """El CLI acepta el JSON del motor maestro (predicciones con prob_1/x/2)."""
+    import json as _json
+
+    from OPTIMIZADOR_COLUMNAS import load_probs_override
+
+    payload = {
+        "jornada": 2,
+        "predicciones": [
+            {"numero": 1, "prob_1": 0.58, "prob_x": 0.26, "prob_2": 0.16},
+            {"numero": 2, "prob_1": 0.41, "prob_x": 0.30, "prob_2": 0.29},
+            {"numero": 15, "prob_1": 0.5, "prob_x": 0.3, "prob_2": 0.2},
+        ],
+        "pleno15": {},
+    }
+    path = tmp_path / "predicciones.json"
+    path.write_text(_json.dumps(payload), encoding="utf-8")
+    override = load_probs_override(path)
+    assert override == {
+        1: {"1": 0.58, "X": 0.26, "2": 0.16},
+        2: {"1": 0.41, "X": 0.30, "2": 0.29},
+    }
+
+
+def test_load_probs_override_acepta_lista_partidos(tmp_path):
+    import json as _json
+
+    from OPTIMIZADOR_COLUMNAS import load_probs_override
+
+    payload = [{"1": 0.5, "X": 0.3, "2": 0.2}, {"probabilidades": {"1": 0.4, "X": 0.3, "2": 0.3}}]
+    path = tmp_path / "lista.json"
+    path.write_text(_json.dumps(payload), encoding="utf-8")
+    override = load_probs_override(path)
+    assert override[1] == {"1": 0.5, "X": 0.3, "2": 0.2}
+    assert override[2] == {"1": 0.4, "X": 0.3, "2": 0.3}

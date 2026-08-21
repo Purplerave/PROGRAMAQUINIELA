@@ -92,6 +92,14 @@ logit 0.0, hgb 0.049, market 0.951, poisson 0.0). Ultima ejecucion validada
 - Temporada 2024-25: 52,61 % y 8,70/15 con tres dobles (mercado 52,38 %).
 - Temporada 2025-26 completa: 51,43 % y 8,48/15 con tres dobles (mercado 51,54 %).
 
+Con la temporada 2026-27 ya incluida (ejecución 21/08/2026, mismo entorno):
+
+- 13.462 partidos limpios (16 nuevos de 2026-27 con cuotas; 2 adicionales sin cuotas quedan fuera del entrenamiento).
+- 51,62 % de acierto simple en el test principal (favorito de mercado: 51,58 %).
+- 8,63 aciertos de media sobre 15 con tres dobles.
+- Primera: 54,91 % (mercado 54,91 %). Segunda: 48,84 % (mercado 48,77 %).
+- Última temporada disponible (2026-27, 16 partidos de test): 56,25 % (mercado 56,25 %).
+
 La métrica de tres dobles es un indicador agregado: el histórico se ordena y se
 parte en bloques mecánicos de 15 partidos para seleccionar tres dobles. **No
 reconstruye los boletos oficiales de La Quiniela ni estima ROI, premios o el
@@ -113,7 +121,30 @@ categoría; sin él el módulo devuelve aciertos y coste, pero no inventa retorn
 
 Las cifras se obtuvieron en modo producción con la configuración incluida en
 el repositorio; ese modo nunca reoptimiza los pesos durante la ejecución.
-Hash del dataset historico (PRIMERA + SEGUNDA): `51a9688ac065015da9335512af5a34a8`.
+Hash del dataset historico (PRIMERA + SEGUNDA): `26ed3ceaf4899c6138ae5c56efa353bd5b5c25cb07bb769dbf0db3c36a99e3a4`
+(34 CSVs, temporadas 2010-11 a 2026-27; el hash anterior, sobre los 32 CSVs
+hasta 2025-26, era `51a9688ac065015da9335512af5a34a8`).
+
+## Datos temporada 2026-27 (en curso)
+
+Desde el 21/08/2026 el histórico incluye la temporada en curso:
+
+- `DATOS/historico_raw/PRIMERA/SP1_2627.csv` y
+  `DATOS/historico_raw/SEGUNDA/SP2_2627.csv`: partidos jugados hasta el
+  20/08/2026, proyectados al esquema canónico desde el feed oficial de
+  football-data.co.uk (mmz4281/2627/SP1.csv y SP2.csv, captura 21/08/2026).
+  Dos partidos ya disputados que el feed aún no publicaba (Ath Madrid-Malaga
+  19/08 y Vallecano-Alaves 20/08) se completan solo con resultado, con
+  fuentes auditadas, y se marcan como candidatos administrativos en el
+  saneado. Proceso reproducible: `scripts/datos/GENERAR_HISTORICO_2026_27.py`.
+- `DATOS/QUINIELA15_J2.json`: jornada 2 de 2026-27 (cierre sábado 22/08 a las
+  17:00) con porcentajes Q15/LAE/APU de quiniela15.com y cuotas 1X2 medias de
+  mercado (OddsPortal, captura 21/08/2026).
+- El motor solo exige cuotas completas para el entrenamiento; para calcular
+  el estado point-in-time de una jornada (`require_odds=False`) incluye
+  también los partidos sin cuotas ya publicados.
+
+Detalle y trazabilidad completos: `REVISION_15_DATOS_2026_27.md`.
 
 Referencia de produccion reproducible (commit SHA, hashes SHA-256 de datasets
 y configuracion, entorno, protocolo de evaluacion, metricas por temporada y

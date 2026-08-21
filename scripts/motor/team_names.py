@@ -43,9 +43,11 @@ def normalize_team_name(value: object) -> str:
 # Los alias se comparan siempre tras normalize_team_name.
 # ---------------------------------------------------------------------------
 HISTORY_NAME_ALIASES: dict[str, list[str]] = {
-    "Ath Bilbao": ["Athletic Club", "Athletic Bilbao", "Athletic de Bilbao"],
+    "Ath Bilbao": ["Athletic Club", "Athletic Bilbao", "Athletic de Bilbao",
+                   "Athletic"],
     "Ath Bilbao B": ["Bilbao Athletic", "Athletic Club B", "Athletic B"],
-    "Ath Madrid": ["Atletico de Madrid", "Atletico Madrid", "Atletico", "Ath Madrid"],
+    "Ath Madrid": ["Atletico de Madrid", "Atletico Madrid", "Atletico", "Ath Madrid",
+                   "At. Madrid"],
     "Barcelona": ["FC Barcelona", "Barca", "F.C. Barcelona"],
     "Barcelona B": ["FC Barcelona B", "Barça B"],
     "Betis": ["Real Betis", "Real Betis Balompie", "Real Betis Balompié"],
@@ -61,6 +63,9 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Cartagena": ["FC Cartagena", "Cartagena FC"],
     "Castellon": ["CD Castellon", "CD Castellón"],
     "Celta": ["RC Celta", "Celta de Vigo", "Celta Vigo", "RC Celta de Vigo", "Real Club Celta"],
+    # Celta B / Celta Fortuna: sin historial en el dataset (primera aparición
+    # en SP2_2627.csv); alias propio para no fundirlo con el primer equipo.
+    "Celta B": ["Celta Fortuna", "RC Celta Fortuna", "Celta Vigo B"],
     "Ceuta": ["AD Ceuta FC", "AD Ceuta"],
     "Cordoba": ["Cordoba CF", "Córdoba", "Córdoba CF"],
     "Cultural Leonesa": ["Cultural y Deportiva Leonesa", "Leonesa"],
@@ -82,7 +87,9 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Jaen": ["Real Jaen", "Real Jaén", "Real Jaen CF"],
     "La Coruna": ["Deportivo La Coruna", "Deportivo La Coruña", "Deportivo de La Coruna",
                   "RC Deportivo", "RC Deportivo de La Coruna", "RC Deportivo La Coruna",
-                  "Deportivo", "Depor", "RC Deportivo de La Coruña"],
+                  "Deportivo", "Depor", "RC Deportivo de La Coruña",
+                  # Nombre exacto del feed Football-Data 2026-27.
+                  "Deportivo A Coruna", "Dep A Coruna"],
     "Las Palmas": ["UD Las Palmas"],
     "Leganes": ["CD Leganes", "Leganés", "CD Leganés"],
     "Levante": ["Levante UD"],
@@ -107,7 +114,7 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Salamanca": ["UD Salamanca"],
     "Santander": ["Racing Santander", "Racing de Santander", "RC Racing",
                   "R. Racing Club", "RC Racing de Santander", "Real Racing Club",
-                  "Racing Club"],
+                  "Racing Club", "R. Santander"],
     "Sevilla": ["Sevilla FC"],
     "Sevilla B": ["Sevilla Atletico", "Sevilla Atlético", "Sevilla At"],
     "Sociedad": ["Real Sociedad", "Real Sociedad de Futbol", "Real Sociedad de Fútbol"],

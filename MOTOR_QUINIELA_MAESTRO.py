@@ -63,8 +63,17 @@ def season_from_filename(path: Path) -> str:
 SANITIZED_HISTORY = settings.DATOS_DIR / ".." / "salida" / "datos_limpios" / "historico_saneado.csv"
 
 
-def load_raw_history(source: str = "original") -> pd.DataFrame:
-    """Carga el histórico seleccionado con el mismo esquema del motor."""
+def load_raw_history(source: str = "original", require_odds: bool = True) -> pd.DataFrame:
+    """Carga el histórico seleccionado con el mismo esquema del motor.
+
+    ``require_odds`` (por defecto ``True``) conserva el comportamiento
+    histórico: solo entran al dataset filas con cuotas 1X2 completas (es la
+    base de la evaluación de producción). Con ``require_odds=False`` se
+    conservan además las filas sin cuotas (p. ej. partidos ya disputados que
+    Football-Data aún no ha publicado con cuotas); su mercado queda NaN y su
+    uso previsto es exclusivamente el estado point-in-time de equipos
+    (forma/Elo/tabla) para predecir una jornada, nunca el entrenamiento.
+    """
     if source not in {"original", "saneado"}:
         raise ValueError(f"Fuente histórica no válida: {source}")
     if source == "saneado":
@@ -126,22 +135,9 @@ def load_raw_history(source: str = "original") -> pd.DataFrame:
         raise FileNotFoundError(f"No he encontrado CSVs en {RAW_BASE}")
 
     df = pd.concat(frames, ignore_index=True)
-    df = df.dropna(
-        subset=[
-            "date",
-            "home",
-            "away",
-            "FTHG",
-            "FTAG",
-            "odd_1",
-            "odd_x",
-            "odd_2",
-            "open_odd_1",
-            "open_odd_x",
-            "open_odd_2",
-            "result",
-        ]
-    )
+    base_subset = ["date", "home", "away", "FTHG", "FTAG", "result"]
+    odds_subset = ["odd_1", "odd_x", "odd_2", "open_odd_1", "open_odd_x", "open_odd_2"]
+    df = df.dropna(subset=base_subset + (odds_subset if require_odds else []))
     df["FTHG"] = df["FTHG"].astype(int)
     df["FTAG"] = df["FTAG"].astype(int)
     df = df[df["result"].isin(LABEL_MAP)].copy()

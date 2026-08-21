@@ -522,6 +522,46 @@ def optimize_jornada(
 
 # --- CLI ----------------------------------------------------------------------
 
+def load_probs_override(probs_file: Path) -> dict[int, dict[str, float]] | None:
+    """Carga un JSON de probabilidades y lo convierte a {numero: {"1":..,"X":..,"2":..}}.
+
+    Acepta tres formatos:
+    - Lista de partidos en orden 1..14 con claves 1/X/2 (o ``probabilidades``
+      anidadas).
+    - ``{"partidos": [...]}`` con el mismo esquema.
+    - El formato del motor maestro (``SALIDAS/predicciones_modelo_J*.json``):
+      ``{"predicciones": [{numero, prob_1, prob_x, prob_2}, ...]}``; el
+      partido 15 (Pleno) se ignora.
+    """
+    prob_data = json.loads(probs_file.read_text(encoding="utf-8"))
+    if isinstance(prob_data, list):
+        items = prob_data
+    else:
+        items = prob_data.get("partidos") or []
+    override: dict[int, dict[str, float]] = {}
+
+    if not items and isinstance(prob_data.get("predicciones"), list):
+        for pred in sorted(prob_data["predicciones"], key=lambda p: p.get("numero", 0)):
+            numero = pred.get("numero")
+            if numero is None or numero == 15:
+                continue
+            inner = pred.get("probabilidades", pred)
+            if all(key in inner for key in ("1", "X", "2")):
+                override[numero] = {"1": inner["1"], "X": inner["X"], "2": inner["2"]}
+            elif all(key in inner for key in ("prob_1", "prob_x", "prob_2")):
+                override[numero] = {
+                    "1": inner["prob_1"], "X": inner["prob_x"], "2": inner["prob_2"],
+                }
+        return override or None
+
+    for i, item in enumerate(items, start=1):
+        if isinstance(item, dict):
+            inner = item.get("probabilidades", item)
+            if isinstance(inner, dict):
+                override[i] = inner
+    return override or None
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Optimizador de boletos de La Quiniela (contrato: 3 dobles = 8 columnas = 6,00 EUR)"
@@ -540,15 +580,7 @@ def main() -> None:
         probs_file = Path(args.probabilidades)
         if not probs_file.exists():
             raise FileNotFoundError(f"No existe {probs_file}")
-        with open(probs_file, encoding="utf-8") as fh:
-            prob_data = json.load(fh)
-        items = prob_data if isinstance(prob_data, list) else prob_data.get("partidos", [])
-        override = {}
-        for i, item in enumerate(items, start=1):
-            if isinstance(item, dict):
-                inner = item.get("probabilidades", item)
-                if isinstance(inner, dict):
-                    override[i] = inner
+        override = load_probs_override(probs_file)
 
     payload = optimize_jornada(
         args.jornada, fuente_prob=args.fuente_prob, publico=args.publico,
@@ -581,7 +613,8 @@ def main() -> None:
     top = payload.get("columnas_top", [])
     if top:
         print(f"\nLas {len(top)} columnas del boleto por valor (anti-popularidad):")
-        p = fill_missing([_prob_for(m, payload["fuente_prob"], None) for m in main_matches])
+        # El ranking respeta el override (modelo) cuando se proporciona.
+        p = fill_missing([_prob_for(m, payload["fuente_prob"], override) for m in main_matches])
         q = fill_missing(publico_per_match(main_matches, payload["publico"]))
         for i, col in enumerate(top, 1):
             print(f"  {i:>2}. {''.join(col)}   valor={column_value(tuple(col), p, q, args.alpha):.3f}")

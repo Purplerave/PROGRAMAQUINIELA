@@ -15,7 +15,9 @@ def test_required_project_files_exist():
 
 def test_historical_csvs_are_packaged():
     csv_files = list(Path(settings.RAW_BASE).rglob("*.csv"))
-    assert len(csv_files) == 32
+    # 16 temporadas completas (2010-11..2025-26) x 2 divisiones + temporada
+    # 2026-27 en curso (SP1_2627 + SP2_2627) = 34 ficheros.
+    assert len(csv_files) == 34
 
 
 def test_loader_uses_original_by_default():

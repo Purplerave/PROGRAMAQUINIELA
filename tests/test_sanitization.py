@@ -549,14 +549,16 @@ def test_repository_integration_counts_match():
     """El pipeline debe producir resultados coherentes con los datos reales."""
     result = san.run_pipeline(confirm=False)
     stats = result["stats"]
-    assert stats["input_rows"] == 13475
-    assert stats["output_rows"] == 13446
-    assert stats["excluded_rows"] == 29
+    # Tras añadir SP1/SP2_2627 (16 partidos con cuotas + 2 disputados aún sin
+    # publicar por Football-Data, marcados como candidatos administrativos).
+    assert stats["input_rows"] == 13493
+    assert stats["output_rows"] == 13462
+    assert stats["excluded_rows"] == 31
     assert stats["exclusion_reasons"]["EMPTY_ROW"] == 3
-    assert stats["exclusion_reasons"]["ADMINISTRATIVE_CANDIDATE"] == 21
+    assert stats["exclusion_reasons"]["ADMINISTRATIVE_CANDIDATE"] == 23
     assert stats["exclusion_reasons"]["MISSING_REQUIRED_ODDS"] == 5
-    assert stats["has_real_close"] == 5894
-    assert stats["has_shots"] == 10216
+    assert stats["has_real_close"] == 5910
+    assert stats["has_shots"] == 10232
     assert stats["suspicious_odds"] == 4
 
 
@@ -677,6 +679,8 @@ def test_excluded_rows_have_correct_reasons():
             reasons[reason] = reasons.get(reason, 0) + 1
 
     assert reasons.get("EMPTY_ROW", 0) == 3
-    assert reasons.get("ADMINISTRATIVE_CANDIDATE", 0) == 21
+    # 21 históricos + 2 partidos 2026-27 disputados aún sin cuotas/stats en el
+    # feed de Football-Data (Ath Madrid-Malaga y Vallecano-Alaves).
+    assert reasons.get("ADMINISTRATIVE_CANDIDATE", 0) == 23
     assert reasons.get("MISSING_REQUIRED_ODDS", 0) == 5
-    assert sum(reasons.values()) == 29
+    assert sum(reasons.values()) == 31

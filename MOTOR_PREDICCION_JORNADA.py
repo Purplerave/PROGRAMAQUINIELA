@@ -529,14 +529,19 @@ def predict_jornada_from_model(
     history_df: pd.DataFrame,
     jornada: int,
     cutoff_date: str | datetime,
+    history_train: pd.DataFrame | None = None,
 ) -> dict[str, Any]:
     """Genera predicciones del modelo para una jornada completa.
 
     Args:
         partidos: Lista de partidos de la jornada (del JSON de jornada)
         history_df: DataFrame con el histórico para calcular features
+            (puede incluir filas sin cuotas; solo se usan para el estado
+            point-in-time de equipos)
         jornada: Número de jornada
         cutoff_date: Fecha de corte (partidos posteriores se ignoran)
+        history_train: DataFrame con el histórico de entrenamiento (solo
+            cuotas completas). Si es None se usa ``history_df`` (compat).
 
     Returns:
         Diccionario con predicciones por partido y metadatos
@@ -627,7 +632,7 @@ def predict_jornada_from_model(
     # Cargar o entrenar modelos (incluye calibrador vector scaling si está disponible)
     calibrator = None
     try:
-        loaded = load_or_train_models(history_df)
+        loaded = load_or_train_models(history_train if history_train is not None else history_df)
         if len(loaded) == 4:
             logit, hgb, master_config, calibrator = loaded
         else:
@@ -822,8 +827,11 @@ def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
     jornada_data = load_jornada_json(jornada)
     partidos = jornada_data.get("partidos", [])
 
-    # Cargar histórico para features
-    history_df = load_raw_history()
+    # Histórico para features (incluye partidos ya disputados sin cuotas, p. ej.
+    # recién publicados por Football-Data) y para entrenamiento (solo cuotas
+    # completas, igual que la evaluación de producción).
+    history_features = load_raw_history(require_odds=False)
+    history_train = load_raw_history(require_odds=True)
 
     # Determinar fecha de corte
     cutoff_date = get_cutoff_date(jornada_data)
@@ -831,7 +839,8 @@ def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
     # Generar predicciones del modelo
     predictions = predict_jornada_from_model(
         partidos=partidos,
-        history_df=history_df,
+        history_df=history_features,
+        history_train=history_train,
         jornada=jornada,
         cutoff_date=cutoff_date,
     )
