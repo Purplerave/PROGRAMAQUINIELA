@@ -1,0 +1,203 @@
+{
+  "version": "motor_quinielistico_v4",
+  "master_model": {
+    "weights": {
+      "logit": 0.0,
+      "hgb": 0.049,
+      "market": 0.951,
+      "poisson": 0.0
+    },
+    "weight_candidates": [
+      {
+        "logit": 0.0,
+        "hgb": 0.049,
+        "market": 0.951,
+        "poisson": 0.0
+      },
+      {
+        "logit": 0.0,
+        "hgb": 0.1,
+        "market": 0.9,
+        "poisson": 0.0
+      },
+      {
+        "logit": 0.0,
+        "hgb": 0.2,
+        "market": 0.8,
+        "poisson": 0.0
+      }
+    ],
+    "draw_boost": 0.0,
+    "segunda_draw_boost": 0.0,
+    "double_draw_weight": 0.7,
+    "double_disagreement_weight": 0.2,
+    "double_segunda_bonus": 0.05,
+    "double_draw_threshold": 0.3,
+    "x_disagreement_strategy": "none",
+    "double_avoid_overconfidence": true,
+    "double_avoid_overconfidence_threshold": 0.1,
+    "draw_boost_candidates": [
+      0.0
+    ],
+    "segunda_draw_boost_candidates": [
+      0.0
+    ],
+    "double_draw_weight_candidates": [
+      0.7,
+      0.85
+    ],
+    "double_disagreement_weight_candidates": [
+      0.2
+    ],
+    "double_segunda_bonus_candidates": [
+      0.0,
+      0.05
+    ],
+    "double_draw_threshold_candidates": [
+      0.3
+    ],
+    "x_disagreement_strategy_candidates": [
+      "none",
+      "market_pick_only"
+    ],
+    "elo_base": 1500,
+    "elo_k_factor": 24,
+    "elo_home_advantage": 55,
+    "goal_per_sot": 0.3,
+    "hgb_learning_rate": 0.06,
+    "hgb_max_depth": 6,
+    "hgb_max_iter": 300,
+    "hgb_min_samples_leaf": 30,
+    "dixon_coles": {
+      "enabled": true,
+      "rho": -0.036,
+      "max_goals": 7,
+      "use_for_ensemble": false,
+      "use_for_pleno": true,
+      "note": "rho medio walk-forward 5 temporadas (-0.036). Estimacion fuera de muestra por maxima verosimilitud. Mejora leve 1X2 y pleno exacto."
+    }
+  },
+  "decision": {
+    "weights": {
+      "market": 0.55,
+      "poisson": 0.25,
+      "elo": 0.2
+    },
+    "fallback_sources": {
+      "market_proxy_order": [
+        "apu",
+        "lae",
+        "q15"
+      ],
+      "public_proxy": "q15"
+    },
+    "thresholds": {
+      "logical_fixed_prob": 0.6,
+      "favorite_overbet_value": -0.15,
+      "trap_public_favorite": 0.65,
+      "trap_market_favorite_max": 0.5,
+      "hidden_draw_market": 0.28,
+      "hidden_draw_public_max": 0.22,
+      "visitor_value_market": 0.23,
+      "visitor_value_public_max": 0.14,
+      "triple_min": 0.25,
+      "triple_max": 0.4
+    },
+    "risk_gap_points": {
+      "low": 0.25,
+      "medium": 0.15,
+      "high": 0.07
+    },
+    "manual_context_flags": [
+      "final_temporada",
+      "rotaciones",
+      "ascenso_descenso",
+      "amistoso",
+      "selecciones",
+      "bajas_clave"
+    ]
+  },
+  "columns": {
+    "contract_version": "2026-08-04",
+    "doubles": 3,
+    "columns_per_ticket": 8,
+    "price_per_column": 0.75,
+    "max_cost": 6.0,
+    "pleno15_separado": true,
+    "nota": "Contrato P0 (auditoria externa 04/08/2026): 3 dobles sobre 14 partidos = 8 columnas a 0,75 EUR/columna; coste maximo 6,00 EUR. El Pleno al 15 se juega aparte."
+  },
+  "economia": {
+    "prizes_eur": {
+      "14": 40000.0,
+      "13": 500.0,
+      "12": 35.0,
+      "11": 5.5,
+      "10": 2.25
+    },
+    "escenario_por_defecto": "normal",
+    "escenarios_premios_eur": {
+      "facil": {
+        "14": 3250.0,
+        "13": 45.0,
+        "12": 6.0,
+        "11": 1.5,
+        "10": 0.0
+      },
+      "normal": {
+        "14": 40000.0,
+        "13": 500.0,
+        "12": 35.0,
+        "11": 5.5,
+        "10": 2.25
+      },
+      "dificil": {
+        "14": 150000.0,
+        "13": 6000.0,
+        "12": 500.0,
+        "11": 45.0,
+        "10": 10.0
+      }
+    },
+    "escenarios_rangos_eur": {
+      "nota_rangos": "Rangos (min-max) por escenario de la estimación manus.ai; los valores puntuales de arriba son los puntos medios.",
+      "facil": {"14": [1500, 5000], "13": [30, 60], "12": [4, 8], "11": [1, 2], "10": [0, 0]},
+      "normal": {"14": [20000, 60000], "13": [200, 800], "12": [20, 50], "11": [3, 8], "10": [1.5, 3]},
+      "dificil": {"14": [150000, 300000], "13": [2000, 10000], "12": [200, 800], "11": [20, 70], "10": [5, 15]}
+    },
+    "premios_estimados": true,
+    "nota": "P0.1 (roadmap auditoria 04/08/2026): premios por escenario segun estimacion manus.ai de La Quiniela espanola (facil=muchos acertantes, normal=media historica, dificil=sorpresas/botes). prizes_eur = puntos medios del escenario 'normal'. Los premios reales son VARIABLES por jornada; el EV/ROI derivado es una ESTIMACION, no una garantia. El minimo de 10 aciertos puede no cobrarse en jornadas faciles. Pleno al 15 excluido (se juega aparte)."
+  },
+  "nordic_football_data": {
+    "enabled": false,
+    "leagues": [
+      "Allsvenskan",
+      "Eliteserien"
+    ],
+    "refresh_days": 3,
+    "use": "historical_diagnostic_only",
+    "reason": "Walk-forward 2023-2026: market 53.02% accuracy and 8.43/14 with three doubles; historical models and calibrated blends did not improve it"
+  },
+  "transition_factors": {
+    "misma_categoria": 1.0,
+    "segunda_a_primera": 0.78,
+    "primera_a_segunda": 1.12,
+    "primera_rfef_a_segunda": 0.7,
+    "filial_primera_rfef_a_segunda": 0.66,
+    "sin_muestra": null
+  },
+  "pleno15": {
+    "column_sign": "1X2 separado de marcador",
+    "buckets": [
+      "0",
+      "1",
+      "2",
+      "M"
+    ]
+  },
+  "decision_thresholds": {
+    "calidad_min": 0.2,
+    "confianza_min": 0.7,
+    "gap_min": 0.25,
+    "double_sorted_prob_min": 0.25
+  }
+}
