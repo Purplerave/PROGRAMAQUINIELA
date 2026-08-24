@@ -63,7 +63,7 @@ Brier en 9/13 temporadas walk-forward (6/7 en era 2020+); acc simple neutra.
 
 ## 4. MISIONES PENDIENTES (por orden de prioridad)
 
-### MISIÓN A — Integrar el calibrador en PROGRAMAQUINIELA
+### MISIÓN A — Integrar el calibrador en PROGRAMAQUINIELA — HECHA (REVISION_16)
 1. Copiar `LMARENA/purplerave/calibrador_bandas.py` al repo (p. ej. `scripts/motor/`).
 2. Conectarlo DESPUÉS de la probabilidad de mercado y ANTES de
    `MOTOR_DECISION_QUINIELISTICA.py` / `OPTIMIZADOR_COLUMNAS.py` (spec exacta en
@@ -86,6 +86,7 @@ Brier en 9/13 temporadas walk-forward (6/7 en era 2020+); acc simple neutra.
      adicional del calibrador (con CAP).
    - Si ROI ≤ 0 → cerrar la señal definitivamente y anotarlo en una REVISION.
 
+### MISIÓN C light — HECHA (REVISION_17): cobertura 1X/X2 por banda en los 3 dobles.
 ### MISIÓN C — Reparto público (la palanca grande, más difícil)
 La quiniela es pari-mutual: el EV real depende de cuántos acertantes compartan
 el premio. El repo ya referencia proxies `apu/lae/q15` y `public_proxy: q15`

@@ -305,8 +305,18 @@ def build_recommendation_for_match(match: dict) -> dict:
         signos = signo_principal
     elif confianza >= 0.5 and sorted_probs[1][1] >= umbral_doble:
         tipo_apuesta = "doble"
-        segundo = sorted_probs[1][0]
-        signos = "".join(sorted([signo_principal, segundo], key=["1", "X", "2"].index))
+        from scripts.motor.cobertura_bandas import signo_doble_banda
+
+        forced = signo_doble_banda(
+            match.get("odd_1"),
+            match.get("odd_2"),
+            probs=(p1, px, p2),
+        )
+        if forced:
+            signos = forced
+        else:
+            segundo = sorted_probs[1][0]
+            signos = "".join(sorted([signo_principal, segundo], key=["1", "X", "2"].index))
     else:
         tipo_apuesta = "triple"
         signos = "1X2"
