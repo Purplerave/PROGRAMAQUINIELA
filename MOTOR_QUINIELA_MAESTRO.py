@@ -349,6 +349,53 @@ def predict_full_probs(model: Pipeline, frame: pd.DataFrame, columns: list[str])
     return probs
 
 
+def _attach_calibracion_bandas(config: dict, train: pd.DataFrame, target_season: str | None) -> dict:
+    """Inyecta factores estimados SOLO con train (temporadas previas)."""
+    from scripts.motor.calibrador_bandas import estimar_factores_desde_frame
+
+    out = deepcopy(config)
+    band = settings.CONFIG.get("calibracion_bandas") or {}
+    if not isinstance(band, dict):
+        return out
+    merged = deepcopy(band)
+    if not merged.get("enabled", False):
+        out["calibracion_bandas"] = merged
+        return out
+    ventana = int(merged.get("ventana_temporadas", 6))
+    cap = float(merged.get("cap_multiplicativo", 0.10))
+    factores = estimar_factores_desde_frame(
+        train, hasta_temporada=target_season, ventana=ventana, cap=cap
+    )
+    merged["factores"] = factores
+    if target_season:
+        frozen = dict(merged.get("factores_congelados") or {})
+        frozen[str(target_season)] = factores
+        merged["factores_congelados"] = frozen
+    out["calibracion_bandas"] = merged
+    return out
+
+
+def _apply_calibracion_bandas(frame: pd.DataFrame, prefix: str, config: dict) -> pd.DataFrame:
+    """REVISION_15: ajuste por bandas DESPUÉS del ensemble y ANTES de decisión/dobles."""
+    from scripts.motor.calibrador_bandas import aplicar_calibracion_bandas
+
+    band_cfg = {}
+    if isinstance(config, dict):
+        band_cfg = config.get("calibracion_bandas") or {}
+    if not band_cfg:
+        band_cfg = settings.CONFIG.get("calibracion_bandas") or {}
+    if not isinstance(band_cfg, dict) or not band_cfg.get("enabled", False):
+        return frame
+    factores = band_cfg.get("factores") or band_cfg.get("factores_produccion_2026_27")
+    return aplicar_calibracion_bandas(
+        frame,
+        prefix,
+        factores=factores,
+        factores_por_temporada=band_cfg.get("factores_congelados"),
+        enabled=True,
+    )
+
+
 def add_market_baseline(frame: pd.DataFrame) -> pd.DataFrame:
     out = frame.copy()
     market_cols = out[["market_1", "market_x", "market_2"]]
@@ -407,6 +454,7 @@ def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.Da
     out[f"{prefix}_prob_1"] = out[f"{prefix}_prob_1"] / total
     out[f"{prefix}_prob_x"] = out[f"{prefix}_prob_x"] / total
     out[f"{prefix}_prob_2"] = out[f"{prefix}_prob_2"] / total
+    out = _apply_calibracion_bandas(out, prefix, config)
     out[f"{prefix}_pred"] = out[[f"{prefix}_prob_1", f"{prefix}_prob_x", f"{prefix}_prob_2"]].idxmax(axis=1).map(
         {f"{prefix}_prob_1": "1", f"{prefix}_prob_x": "X", f"{prefix}_prob_2": "2"}
     )
@@ -512,6 +560,24 @@ def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.
     return pd.DataFrame(jornada_scores)
 
 
+def _brier_logloss(working: pd.DataFrame, pred_prefix: str) -> tuple[float | None, float | None]:
+    try:
+        from scripts.motor.calibration import brier_multiclass
+        from sklearn.metrics import log_loss
+
+        y = working["result"].map(LABEL_MAP).to_numpy()
+        probs = working[[f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]].to_numpy(dtype=float)
+        mask = np.isfinite(probs).all(axis=1) & np.isin(y, [0, 1, 2])
+        if not mask.sum():
+            return None, None
+        return (
+            float(brier_multiclass(y[mask].astype(int), probs[mask])),
+            float(log_loss(y[mask].astype(int), probs[mask], labels=[0, 1, 2])),
+        )
+    except Exception:
+        return None, None
+
+
 def evaluate_config(frame: pd.DataFrame, pred_prefix: str, config: dict) -> dict:
     working = apply_hybrid_config(frame, config, pred_prefix)
     doubles_df = simulate_doubles(working, pred_prefix, config)
@@ -528,6 +594,8 @@ def evaluate_config(frame: pd.DataFrame, pred_prefix: str, config: dict) -> dict
         "score": float(working[f"{pred_prefix}_hit"].mean()) + 0.017 * double_mean,
         "accuracy_simple": float(working[f"{pred_prefix}_hit"].mean()),
         "accuracy_market_favorite": float(working["favorite_market_hit"].mean()),
+        "brier": _brier_logloss(working, pred_prefix)[0],
+        "logloss": _brier_logloss(working, pred_prefix)[1],
         "mean_hits_3_dobles": double_mean if not doubles_df.empty else None,
         "best_jornada_3_dobles": int(doubles_df["hits_3_dobles"].max()) if not doubles_df.empty else None,
         "avg_confidence": float(working[[f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]].max(axis=1).mean()),
@@ -822,6 +890,8 @@ def summarize_results(frame: pd.DataFrame, pred_prefix: str, config: dict) -> di
     return {
         "accuracy_simple": eval_result["accuracy_simple"],
         "accuracy_market_favorite": eval_result["accuracy_market_favorite"],
+        "brier": eval_result.get("brier"),
+        "logloss": eval_result.get("logloss"),
         "avg_confidence": eval_result["avg_confidence"],
         "accuracy_by_pick": eval_result["accuracy_by_pick"],
         "mean_hits_3_dobles": eval_result["mean_hits_3_dobles"],
@@ -884,6 +954,7 @@ def run_season_backtest(
             rho_est = -0.036
 
     logit, hgb, best_config = fit_hybrid_models(train, selection_mode)
+    best_config = _attach_calibracion_bandas(best_config, train, target_season)
     test_eval = add_market_baseline(test)
     if logit is not None:
         logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])

@@ -194,6 +194,21 @@
       "M"
     ]
   },
+  "calibracion_bandas": {
+    "enabled": true,
+    "ventana_temporadas": 6,
+    "cap_multiplicativo": 0.10,
+    "banda_visita": [2.5, 4.0],
+    "banda_local": [1.4, 1.8],
+    "boost_favorito_entre_semana": 0.02,
+    "factores_produccion_2026_27": {
+      "visita_2.5_4.0": 0.9,
+      "local_1.4_1.8": 1.063,
+      "entre_semana_favorito_boost": 0.02,
+      "nota": "Estimados con ventana 6 sobre 2019-26; congelados para 2026-27. No reestimar en temporada."
+    },
+    "nota": "REVISION_15/16: factores re-estimados cada temporada solo con datos previos; CAP limita sobreajuste de régimen."
+  },
   "decision_thresholds": {
     "calidad_min": 0.2,
     "confianza_min": 0.7,

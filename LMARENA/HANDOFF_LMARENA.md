@@ -63,7 +63,7 @@ Brier en 9/13 temporadas walk-forward (6/7 en era 2020+); acc simple neutra.
 
 ## 4. MISIONES PENDIENTES (por orden de prioridad)
 
-### MISIÓN A — Integrar el calibrador en PROGRAMAQUINIELA
+### MISIÓN A — Integrar el calibrador en PROGRAMAQUINIELA — HECHA (REVISION_16)
 1. Copiar `LMARENA/purplerave/calibrador_bandas.py` al repo (p. ej. `scripts/motor/`).
 2. Conectarlo DESPUÉS de la probabilidad de mercado y ANTES de
    `MOTOR_DECISION_QUINIELISTICA.py` / `OPTIMIZADOR_COLUMNAS.py` (spec exacta en

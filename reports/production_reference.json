@@ -378,5 +378,18 @@
     "backtest": "python scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py",
     "tests": "python -m pytest tests/ -q",
     "referencia": "python scripts/reports/GENERAR_PRODUCTION_REFERENCE.py"
+  },
+  "calibracion_bandas": {
+    "revision": "REVISION_16",
+    "enabled": true,
+    "script_ab": "scripts/backtests/BACKTEST_CALIBRADOR_BANDAS.py",
+    "criterio_5_3_acepta": true,
+    "media_7_temp": {
+      "delta_brier": -0.000478,
+      "delta_logloss": -0.000742,
+      "delta_acc_pp": -0.068,
+      "delta_dobles": -0.015
+    },
+    "nota": "Capa post-ensemble. A/B sobre mercado 100% walk-forward 2019-26. No sustituye las métricas HGB históricas de este fichero."
   }
 }

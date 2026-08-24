@@ -68,6 +68,8 @@ al repositorio.
 - `CONFIG_MOTOR_V2.json`: parametros activos del motor.
 - `DATOS/historico_raw/`: CSV historicos necesarios para reproducir el backtest.
 - `scripts/backtests/`: evaluacion walk-forward por temporada.
+- `scripts/motor/calibrador_bandas.py`: calibración por bandas (REVISION_15/16).
+- `scripts/datos/PAPER_TRADING_2627.py`: paper-trading Primera 2026-27.
 - `scripts/motor/xg_understat.py`: carga y fusion del xG de Understat (Primera
   2014-2024). Añade columnas de xG al historico; aditivo y no afecta al modelo.
 - `scripts/backtests/EXPERIMENTO_XG.py`: A/B walk-forward Sin-xG vs Con-xG.
