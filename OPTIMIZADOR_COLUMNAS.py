@@ -157,20 +157,48 @@ def three_double_combinations(n_matches: int, n_doubles: int = 3) -> list[tuple[
     return list(itertools.combinations(range(n_matches), n_doubles))
 
 
-def build_double_development(
-    probs: list[np.ndarray], double_indices: tuple[int, ...]
-) -> list[tuple[str, tuple[str, ...]]]:
-    """Desarrollo para una combinación dada: dobles con los 2 signos más
-    probables y simples con el favorito en el resto de partidos.
+def _odds_for_match(match: dict | None, p: np.ndarray) -> tuple[float | None, float | None]:
+    if match:
+        for key_h, key_a in (("odd_1", "odd_2"), ("cuota_1", "cuota_2")):
+            try:
+                h = float(match.get(key_h)) if match.get(key_h) is not None else None
+                a = float(match.get(key_a)) if match.get(key_a) is not None else None
+            except (TypeError, ValueError):
+                h = a = None
+            if h and a and h > 1.01 and a > 1.01:
+                return h, a
+    from scripts.motor.cobertura_bandas import odds_from_probs
 
-    Devuelve una lista de (label, signos) alineada con `probs`.
+    o1, _, o2 = odds_from_probs(p)
+    return o1, o2
+
+
+def build_double_development(
+    probs: list[np.ndarray],
+    double_indices: tuple[int, ...],
+    matches: list[dict] | None = None,
+) -> list[tuple[str, tuple[str, ...]]]:
+    """Desarrollo: dobles con 2 signos (banda 1X si aplica) y simples al favorito.
+
+    REVISION_17: en visita 2.5-4.0 y local 1.4-1.8 el doble es 1X. Sigue habiendo
+    exactamente 3 dobles (contrato 6 EUR).
     """
+    from scripts.motor.cobertura_bandas import signo_doble_banda
+
     selected: list[tuple[str, tuple[str, ...]]] = []
     for i, p in enumerate(probs):
         if i in double_indices:
-            top2 = [int(j) for j in np.argsort(p)[-2:]]
-            signs = tuple(sorted((SIGNS[j] for j in top2), key=lambda s: SIGN_INDEX[s]))
-            label = "".join(signs)
+            forced = None
+            if matches and i < len(matches):
+                o1, o2 = _odds_for_match(matches[i], p)
+                forced = signo_doble_banda(o1, o2, probs=p)
+            if forced:
+                signs = tuple(forced)
+                label = forced
+            else:
+                top2 = [int(j) for j in np.argsort(p)[-2:]]
+                signs = tuple(sorted((SIGNS[j] for j in top2), key=lambda s: SIGN_INDEX[s]))
+                label = "".join(signs)
         else:
             best = SIGNS[int(np.argmax(p))]
             signs = (best,)
@@ -237,7 +265,7 @@ def evaluate_development(
 
 
 def evaluate_all_three_doubles(
-    probs: list[np.ndarray], n_doubles: int = 3
+    probs: list[np.ndarray], n_doubles: int = 3, matches: list[dict] | None = None
 ) -> dict:
     """Evalúa exhaustivamente las C(14, n_doubles) combinaciones de dobles.
 
@@ -410,9 +438,9 @@ def _optimize_partidos(
     probs = fill_missing([_prob_for(m, fuente_prob, probs_override) for m in main_matches])
     public = fill_missing(publico_per_match(main_matches, publico))
 
-    exhaustive = evaluate_all_three_doubles(probs, n_doubles=contract["doubles"])
+    exhaustive = evaluate_all_three_doubles(probs, n_doubles=contract["doubles"], matches=main_matches)
     best_combo = tuple(exhaustive["mejor_combinacion"]["dobles"])
-    selected = build_double_development(probs, best_combo)
+    selected = build_double_development(probs, best_combo, matches=main_matches)
     best_metrics = evaluate_development(probs, selected, best_combo)
     dist = coverage_distribution(probs, selected)
 

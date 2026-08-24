@@ -209,6 +209,13 @@
     },
     "nota": "REVISION_15/16: factores re-estimados cada temporada solo con datos previos; CAP limita sobreajuste de régimen."
   },
+  "cobertura_dobles_banda": {
+    "enabled": true,
+    "visita_2.5_4.0": "1X",
+    "local_1.4_1.8": "1X",
+    "visita_1.8_2.5": null,
+    "nota": "REVISION_17: solo el segundo signo del doble. 3 dobles fijos. Visita 1.8-2.5 no se fuerza (paper-trading)."
+  },
   "decision_thresholds": {
     "calidad_min": 0.2,
     "confianza_min": 0.7,

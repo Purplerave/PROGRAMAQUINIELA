@@ -479,7 +479,22 @@ def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.Da
     return out
 
 
-def build_double(prob1: float, probx: float, prob2: float, draw_threshold: float) -> str:
+def build_double(
+    prob1: float,
+    probx: float,
+    prob2: float,
+    draw_threshold: float,
+    odd_1: float | None = None,
+    odd_2: float | None = None,
+) -> str:
+    from scripts.motor.cobertura_bandas import signo_doble_banda
+    import settings as _settings
+
+    cov = (_settings.CONFIG.get("cobertura_dobles_banda") or {})
+    if cov.get("enabled", True):
+        forced = signo_doble_banda(odd_1, odd_2, probs=(prob1, probx, prob2))
+        if forced:
+            return forced
     probs = {"1": prob1, "X": probx, "2": prob2}
     sorted_probs = sorted(probs.items(), key=lambda item: item[1], reverse=True)
     top_sign = sorted_probs[0][0]
@@ -523,12 +538,16 @@ def double_avoid_overconfidence_mask(frame: pd.DataFrame, config: dict, pred_pre
 
 def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.DataFrame:
     ordered = frame.sort_values(["date", "division", "home", "away"]).reset_index(drop=True).copy()
+    o1 = ordered["odd_1"] if "odd_1" in ordered.columns else [None] * len(ordered)
+    o2 = ordered["odd_2"] if "odd_2" in ordered.columns else [None] * len(ordered)
     ordered["double"] = [
-        build_double(p1, px, p2, config["double_draw_threshold"])
-        for p1, px, p2 in zip(
+        build_double(p1, px, p2, config["double_draw_threshold"], odd_1=h, odd_2=a)
+        for p1, px, p2, h, a in zip(
             ordered[f"{pred_prefix}_prob_1"],
             ordered[f"{pred_prefix}_prob_x"],
             ordered[f"{pred_prefix}_prob_2"],
+            o1,
+            o2,
         )
     ]
     confidence = ordered[[f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]].max(axis=1)

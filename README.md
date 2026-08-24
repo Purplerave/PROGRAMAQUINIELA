@@ -69,6 +69,7 @@ al repositorio.
 - `DATOS/historico_raw/`: CSV historicos necesarios para reproducir el backtest.
 - `scripts/backtests/`: evaluacion walk-forward por temporada.
 - `scripts/motor/calibrador_bandas.py`: calibración por bandas (REVISION_15/16).
+- `scripts/motor/cobertura_bandas.py`: segundo signo del doble 1X en bandas robustas (REVISION_17). 3 dobles fijos.
 - `scripts/datos/PAPER_TRADING_2627.py`: paper-trading Primera 2026-27.
 - `scripts/motor/xg_understat.py`: carga y fusion del xG de Understat (Primera
   2014-2024). Añade columnas de xG al historico; aditivo y no afecta al modelo.
