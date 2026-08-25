@@ -42,12 +42,25 @@ def try_download(url: str, dest: Path) -> bool:
         print(f"  -> fallo: {e}")
         return False
 
+def verify_existing(dest: Path) -> None:
+    data = dest.read_bytes()
+    sha = hashlib.sha256(data).hexdigest()
+    text = data.decode("utf-8", errors="ignore")
+    lines = text.strip().splitlines()
+    header = lines[0] if lines else ""
+    has_open = "B365H" in header and "B365D" in header
+    has_close = "B365CH" in header or "B365C" in header or "B365CH" in header
+    n = max(0, len(lines)-1)
+    print(f"Verificando {dest.name}: {n} partidos sha256:{sha[:16]}... open:{has_open} close:{has_close}")
+    if not has_open or not has_close:
+        print(f"  -> AVISO: faltan tripletas apertura/cierre completas")
+
 def main() -> int:
     ok_any = False
     for dest, url in URLS_REAL.items():
         dest.parent.mkdir(parents=True, exist_ok=True)
         if dest.exists():
-            print(f"Ya existe {dest.name} ({dest.stat().st_size} bytes) - no sobrescribo.")
+            verify_existing(dest)
             ok_any = True
             continue
         if try_download(url, dest):
