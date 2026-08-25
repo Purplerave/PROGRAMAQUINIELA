@@ -27,6 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from motor.ligaf_model import ajustar as ajustar_f, cargar_dated, predecir as predecir_f  # noqa: E402
 from motor.ligam_model import ajustar as ajustar_m, canon_ligam, cargar_historico, predecir as predecir_m  # noqa: E402
+from motor.pleno_model import predecir_pleno  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SALIDAS = ROOT / "SALIDAS"
@@ -103,12 +104,24 @@ def main():
             pr = predecir_m(loc, vis, rat_m, mu_m, gam_m)
             pr["numero"] = num
             if c.get("pleno_descanso"):
-                pr["nota"] = "pleno al descanso tratado como 1X2 (D7)"
+                pleno = predecir_pleno(loc, vis, rat_m, mu_m, gam_m, canon_ligam)
+                pr["pleno"] = pleno
+                print(f"      PLENO 15 -> {pleno['signo']} "
+                      f"(p={pleno['p_signo']}) | top3: " +
+                      ", ".join(f"{t['signo']} {t['p']}" for t in pleno["top3"]),
+                      flush=True)
+                nota = "casilla 15: pleno exacto 16 signos (regla LAE)"
+            else:
+                nota = None
             ligam_out.append({
                 "numero": num, "local": loc, "visitante": vis,
                 "prob_1": pr["p1"], "prob_x": pr["px"], "prob_2": pr["p2"],
                 "signo_modelo": pr["signo"], "fuente": pr["fuente_ratings"],
                 "pleno_descanso": bool(c.get("pleno_descanso")),
+                **({"pleno": {"etiquetas": pleno["etiquetas"],
+                              "probs": pleno["probs"],
+                              "signo": pleno["signo"]}} if c.get("pleno_descanso") else {}),
+                **({"nota": nota} if nota else {}),
             })
         print(f"  {num:>2}. {loc} - {vis}: {pr['p1']}/{pr['px']}/{pr['p2']} "
               f"-> {pr['signo']}  [{pr['fuente_ratings']}]", flush=True)

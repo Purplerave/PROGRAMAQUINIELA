@@ -68,7 +68,7 @@ PROGRAMAQUINIELA/
 | D4 | Temporada Liga F actual datada cuando haya fuente (StatsBomb no la cubre aún) | Alto — ratings frescos | Vigilancia |
 | D5 | Optimizador de boleto global (`OPTIMIZADOR_BOLETO.py`: cobertura exacta best-first + EV parimutuel con modelo de público explícito) | Alto — convierte probs en dinero | ✅ HECHO 2026-08-25, validado sobre boleto unificado |
 | D6 | Automatizar descarga fixtures Liga F (scraping RFEF/LaLigaF) | Medio — elimina input manual | Pendiente |
-| D7 | Pleno al descanso de la casilla 15 (10 outcomes) en el optimizador | Medio — casilla 15 hoy tratada como 1X2 | Registrado |
+| D7 | Pleno al 15 OFICIAL (marcador exacto por equipos {0,1,2,M} -> 16 signos, verificado contra probabilidad LAE 1/76.527.504 = 3^14 x 16). `motor/pleno_model.py` + integrado en orquestador y optimizador con alfabetos variables | Medio-Alto — cierra el boleto al 100% real | ✅ HECHO 2026-08-25 |
 
 ## 5. Principios inquebrantables
 

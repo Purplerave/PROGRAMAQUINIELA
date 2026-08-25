@@ -58,10 +58,18 @@ def cargar_casillas(ruta_boleto: Path) -> tuple[list[dict], list[str]]:
         predicciones_lm = predicciones_lm[:len(predicciones_lm) - exceso]
     for p in predicciones_lm:
         num = int(p.get("numero") or len(casillas) + 1)
+        if p.get("pleno"):
+            probs_c = [float(x) for x in p["pleno"]["probs"]]
+            etiq = list(p["pleno"]["etiquetas"])
+            origen = "ligam_pleno"
+        else:
+            probs_c = [float(p["prob_1"]), float(p["prob_x"]), float(p["prob_2"])]
+            etiq = ["1", "X", "2"]
+            origen = "ligam"
         casillas[num] = {"numero": num,
                          "partido": f"{p['local']} - {p['visitante']}",
-                         "probs": [float(p["prob_1"]), float(p["prob_x"]), float(p["prob_2"])],
-                         "origen": "ligam"}
+                         "probs": probs_c, "etiquetas": etiq,
+                         "origen": origen}
         usadas.add(num)
     lf = (d.get("ligaf") or {}).get("pronosticos") or []
     nxt = 1
@@ -74,6 +82,7 @@ def cargar_casillas(ruta_boleto: Path) -> tuple[list[dict], list[str]]:
         casillas[nxt] = {"numero": nxt,
                          "partido": f"{p['local']} - {p['visitante']}",
                          "probs": [float(p["p1"]), float(p["px"]), float(p["p2"])],
+                         "etiquetas": ["1", "X", "2"],
                          "origen": "ligaf"}
         usadas.add(nxt)
     if len(casillas) < MAX_CASILLAS:
@@ -83,9 +92,10 @@ def cargar_casillas(ruta_boleto: Path) -> tuple[list[dict], list[str]]:
 
 
 def top_k_hojas(probs: list[list[float]], k: int) -> list[tuple[float, tuple[int, ...]]]:
-    """k-mejores hojas del arbol de productos (best-first, sin duplicados)."""
+    """k-mejores hojas del arbol de productos (best-first, sin duplicados).
+    Admite alfabetos distintos por casilla (1X2 y pleno de 16 signos)."""
     n = len(probs)
-    orden = [sorted(range(3), key=lambda s: -p[s]) for p in probs]
+    orden = [sorted(range(len(p)), key=lambda s: -p[s]) for p in probs]
     mejor = tuple(orden[i][0] for i in range(n))
     w0 = 1.0
     for i, s in enumerate(mejor):
@@ -106,7 +116,7 @@ def top_k_hojas(probs: list[list[float]], k: int) -> list[tuple[float, tuple[int
         resultados.append((-negw, t))
         for i in range(n - 1, -1, -1):
             pos_actual = orden[i].index(t[i])
-            if pos_actual + 1 >= 3:
+            if pos_actual + 1 >= len(orden[i]):
                 continue
             hijo = list(t)
             hijo[i] = orden[i][pos_actual + 1]
@@ -188,7 +198,7 @@ def main():
               f"P(acertar todo)={p_hit_ev:.5f}  EV={mejor_ev:+.2f} EUR")
 
     def firmas(t):
-        return "".join("1X2"[s] for s in t)
+        return " ".join(casillas[i]["etiquetas"][s] for i, s in enumerate(t))
 
     salida = {
         "entrada": ruta.name,
