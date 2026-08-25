@@ -174,9 +174,7 @@ def publicar_liga_maestros() -> dict:
     try:
         salidas_git = []
         for argv in (
-            ["git", "-C", str(WEB), "add",
-             f"data/inbox/JORNADA_{jornada}_LM_ARENA.json",
-             "tools/PROGRAMA_QUINIELA", "data/ESTADO_MAESTRO_ACTUAL.json"],
+            ["git", "-C", str(WEB), "add", "-A"],
             ["git", "-C", str(WEB), "commit", "-m",
              f"Publicar J{jornada} PROGRAMA desde panel"],
             ["git", "-C", str(WEB), "pull", "--rebase", "origin", "main"],
