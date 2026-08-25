@@ -4,7 +4,7 @@
   "generado_por": "scripts/reports/GENERAR_PRODUCTION_REFERENCE.py",
   "git": {
     "repositorio": "Purplerave/PROGRAMAQUINIELA",
-    "commit_sha": "e0238c5c38475151a12eda2b068815b668217f22",
+    "commit_sha": "a41bd8d0ecd6f5d90aab880282d6e8481406667d",
     "branch": "main",
     "arbol_limpio": true,
     "cambios_sin_commit": 0
@@ -64,7 +64,7 @@
     }
   },
   "entorno": {
-    "fecha_generacion": "2026-08-25T09:50:16+0200",
+    "fecha_generacion": "2026-08-25T09:58:50+0200",
     "plataforma": "Windows-10-10.0.26200-SP0",
     "python": "3.11.8",
     "numpy": "2.2.6",
@@ -403,9 +403,9 @@
   "resultado_tests": {
     "comando": "C:\\Users\\Mortadelo\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -m pytest tests/ -q",
     "exit_code": 0,
-    "resumen": "290 passed, 15 warnings in 97.78s (0:01:37)",
-    "duracion_segundos": 99.0,
-    "salida_tail": "  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method\n    fixturefunc = resolve_fixture_function(fixturedef, request)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n290 passed, 15 warnings in 97.78s (0:01:37)"
+    "resumen": "290 passed, 15 warnings in 62.62s (0:01:02)",
+    "duracion_segundos": 63.5,
+    "salida_tail": "  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method\n    fixturefunc = resolve_fixture_function(fixturedef, request)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n290 passed, 15 warnings in 62.62s (0:01:02)"
   },
   "reproducir": {
     "backtest": "python scripts\\backtests\\BACKTEST_HISTORICO_TEMPORADAS.py",
