@@ -126,8 +126,53 @@ def publicar_liga_maestros() -> dict:
     destino = INBOX / f"QUINIELA_J{jornada}_PROGRAMA.json"
     destino.write_text(json.dumps(paquete, ensure_ascii=False, indent=2) + "\n",
                        encoding="utf-8")
+
+    # ---- Puente con el importador OFICIAL de la web (columna PROGRAMA) ----
+    # Genera los 3 ficheros que IMPORTAR_PROGRAMA_JORNADA.py espera en
+    # <web>/PROGRAMA_QUINIELA/ y lo ejecuta -> escribe en la BD viva:
+    #   usuarios(programa) + resultados J{N} (NS) + predicciones del programa.
+    puente = WEB_ROOT / "PROGRAMA_QUINIELA"
+    (puente / "DATOS").mkdir(parents=True, exist_ok=True)
+    (puente / "SALIDAS").mkdir(parents=True, exist_ok=True)
+    q15 = {"jornada": jornada, "partidos": []}
+    for c in sorted(casillas, key=lambda x: x["numero"]):
+        loc, _, vis = c["partido"].partition(" - ")
+        q15["partidos"].append({"num": c["numero"], "local": loc, "visitante": vis})
+    (puente / "DATOS" / f"QUINIELA15_J{jornada}.json").write_text(
+        json.dumps(q15, ensure_ascii=False, indent=2), encoding="utf-8")
+    signos15 = [c["signo_programa"]
+                for c in sorted(casillas, key=lambda x: x["numero"])]
+    (puente / "SALIDAS" / f"quiniela_programa_J{jornada}.json").write_text(
+        json.dumps({"signos": signos15}, ensure_ascii=False, indent=2),
+        encoding="utf-8")
+    probs_doc = {}
+    for num in sorted(ligam):
+        p = ligam[num]
+        if p.get("pleno"):
+            continue
+        probs_doc[str(num)] = {"num": num, "probabilidades": {
+            "1": round(float(p.get("prob_1", p.get("p1", 0))), 4),
+            "X": round(float(p.get("prob_x", p.get("px", 0))), 4),
+            "2": round(float(p.get("prob_2", p.get("p2", 0))), 4)}}
+    (puente / "DATOS" / f"PROBABILIDADES_J{jornada}.json").write_text(
+        json.dumps(probs_doc, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    import os
+    importador = WEB_ROOT / "tools" / "importers" / "IMPORTAR_PROGRAMA_JORNADA.py"
+    importacion_web = {"ejecutado": False}
+    if importador.exists():
+        env = dict(os.environ, PYTHONPATH=str(WEB_ROOT))
+        imp = subprocess.run(
+            [sys.executable, str(importador), "--jornada", str(jornada)],
+            cwd=str(WEB_ROOT), capture_output=True, text=True,
+            encoding="utf-8", errors="replace", timeout=180, env=env)
+        importacion_web = {"ejecutado": True, "returncode": imp.returncode,
+                           "detalle": ((imp.stdout or "") + (imp.stderr or ""))[-600:]}
+
     return {"publicado_en": str(destino), "jornada": jornada,
-            "n_casillas": len(casillas)}
+            "n_casillas": len(casillas),
+            "signos": signos15,
+            "importacion_web": importacion_web}
 
 
 # ------------------------------------------------------------------ CLI --
@@ -270,18 +315,26 @@ function render(d){const B=d.boleto;if(!B){st('sin datos');return;}
       '</td><td>'+bar(b,mx)+' '+pc(b)+'</td><td class="signo">'+esc(s)+'</td></tr>';
   });
   let opt='';const O=d.optimizacion||{};
-  const qc=((O.politica_cobertura||{}).quiniela_clasica)||null;
-  if(qc){opt+='<div class="cols" style="background:#13291d;border:1px solid #2f7d4f">'+
-    '<b>&#127942; TU QUINIELA \u00b7 '+qc.n_columnas+' COLUMNAS \u00b7 '+
-    qc.coste_eur+' EUR</b>\nDOBLES ('+qc.dobles.length+'): '+
-    qc.dobles.map(dd=>dd.casilla+'\u00aa '+dd.signos.join('/')).join('   \u00b7   ')+
-    '\nFIJOS: '+qc.fijos.map(f=>f.casilla+'='+f.signo).join(' \u00b7 ')+'\n'+
-    qc.columnas.map(cc=>cc.signos).join('\n')+'</div>';}
+  const T=((O.politica_cobertura||{}).tres_dobles)||((O.politica_ev_parimutuel||{}).tres_dobles)||null;
+  if(T){const mapa={};(T.fijos||[]).forEach(f=>mapa[f.casilla]=f.signo);
+    (T.dobles||[]).forEach(dd=>{mapa[dd.casilla]=dd.signos.join('/');});
+    const linea=Object.keys(mapa).map(Number).sort((a,b)=>a-b)
+      .map(n=>{const v=mapa[n];return '['+n+']'+
+        (v.indexOf('/')>=0?'<span class="signo">'+v+'</span>':v);}).join(' ');
+    opt+='<div class="cols" style="background:#13291d;border:1px solid #2f7d4f;font-size:16px">'+
+      '<b>&#127942; TU COLUMNA \u2014 3 DOBLES</b>  ('+T.n_columnas+
+      ' combinaciones \u00b7 '+T.coste_eur+' EUR al jugarla \u00b7 P='+
+      (T.p_acierto*100).toFixed(3)+'%)\n\n'+linea+
+      '\n\n<b>LOS 3 DOBLES:</b>\n'+T.dobles.map(dd=>
+        'casilla '+dd.casilla+'\u00aa: <span class="signo">'+dd.signos.join('/')+
+        '</span> \u2014 '+esc(dd.partido)).join('\n')+'</div>';}
   ['politica_cobertura','politica_ev_parimutuel'].forEach(k=>{const o=O[k];if(!o)return;
-    opt+='<div class="cols"><b>'+k+'</b> · '+o.columnas.length+' columnas · '+
+    opt+='<details style="margin-top:10px"><summary style="cursor:pointer;color:#8ea0c9">'+
+      k+' \u2014 ver detalle</summary><div class="cols"><b>'+k+'</b> · '+
+      o.columnas.length+' columnas · '+
       o.coste_eur+' EUR · P='+o.p_acierto_total+
       (o.ev_eur!=null?(' · EV='+o.ev_eur+' EUR'):'')+'\n'+
-      o.columnas.map(c=>c.signos).join('\n')+'</div>';});
+      o.columnas.map(c=>c.signos).join('\n')+'</div></details>';});
   $('salida').innerHTML='<table><tr><th>CAS</th><th>PARTIDO</th><th>1</th><th>X</th>'+
     '<th>2</th><th>SIGNO</th></tr>'+rows+'</table>'+opt;
   $('log').textContent=d.cola_log||'';}

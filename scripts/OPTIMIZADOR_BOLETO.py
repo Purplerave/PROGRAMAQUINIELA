@@ -222,9 +222,57 @@ def main():
         "columnas": [{"signos": firmas(t), "peso": round(w, 6)} for w, t in topk],
     }
 
+    # ---- TRES DOBLES EXACTOS (formato clasico del quinielista) ----
+    # Elegimos las 3 casillas con mejor ratio p_segunda/p_favorito; el resto
+    # va fijo al favorito -> 2^3 = 8 columnas. Es la solucion OPTIMA dentro
+    # de la familia "exactamente 3 dobles".
+    import itertools
+    ratios = []
+    for i, c in enumerate(casillas):
+        ps = sorted(c["probs"], reverse=True)
+        if len(ps) >= 2 and ps[0] > 0:
+            ratios.append((ps[1] / ps[0], i))
+    ratios.sort(reverse=True)
+    idx_dobles = [i for _, i in ratios[:3]]
+    cols_3d, p_total_3d = [], 0.0
+    fijos_3d = []
+    for combo in itertools.product([0, 1], repeat=len(idx_dobles)):
+        peso, signs = 1.0, []
+        for i, c in enumerate(casillas):
+            et = c["etiquetas"]
+            orden_local = sorted(range(len(et)), key=lambda k: -c["probs"][k])
+            s = orden_local[combo[idx_dobles.index(i)]] if i in idx_dobles else orden_local[0]
+            signs.append(et[s])
+            peso *= c["probs"][s]
+        cols_3d.append({"signos": " ".join(signs), "peso": round(peso, 6)})
+        p_total_3d += peso
+    for i, c in enumerate(casillas):
+        if i in idx_dobles:
+            continue
+        orden_local = sorted(range(len(c["etiquetas"])), key=lambda k: -c["probs"][k])
+        fijos_3d.append({
+            "casilla": c["numero"], "partido": c["partido"],
+            "signo": c["etiquetas"][orden_local[0]],
+            "prob_pct": round(100 * c["probs"][orden_local[0]], 1),
+        })
+    tres_dobles = {
+        "n_columnas": len(cols_3d),
+        "coste_eur": round(len(cols_3d) * args.precio, 2),
+        "p_acierto": round(p_total_3d, 6),
+        "dobles": [{
+            "casilla": casillas[i]["numero"], "partido": casillas[i]["partido"],
+            "signos": [casillas[i]["etiquetas"][k] for k in
+                       sorted(range(len(casillas[i]["etiquetas"])),
+                              key=lambda k: -casillas[i]["probs"][k])[:2]],
+        } for i in idx_dobles],
+        "fijos": fijos_3d,
+        "columnas": cols_3d,
+    }
+
     salida = {
         "entrada": ruta.name,
         "avisos": avisos,
+        "tres_dobles": tres_dobles,
         "quiniela_clasica": bloque_clasica,
         "parametros": {"presupuesto": args.presupuesto, "bote": args.bote,
                         "precio": args.precio, "kappa": args.kappa,
