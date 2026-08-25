@@ -377,6 +377,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(raw)))
         self.send_header("Connection", "close")
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+        self.send_header("Pragma", "no-cache")
         self.end_headers()
         self.wfile.write(raw)
 
