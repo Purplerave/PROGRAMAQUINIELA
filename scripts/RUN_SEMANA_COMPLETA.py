@@ -63,7 +63,7 @@ BOLETO_J3_DEFAULT = {
 
 def cargar_boleto() -> dict:
     if BOLETO_FUENTE.exists():
-        return json.loads(BOOLETO_FUENTE.read_text(encoding="utf-8"))
+        return json.loads(BOLETO_FUENTE.read_text(encoding="utf-8"))
     return BOLETO_J3_DEFAULT
 
 
