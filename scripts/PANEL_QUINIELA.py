@@ -179,6 +179,7 @@ def publicar_liga_maestros() -> dict:
              "tools/PROGRAMA_QUINIELA", "data/ESTADO_MAESTRO_ACTUAL.json"],
             ["git", "-C", str(WEB), "commit", "-m",
              f"Publicar J{jornada} PROGRAMA desde panel"],
+            ["git", "-C", str(WEB), "pull", "--rebase", "origin", "main"],
             ["git", "-C", str(WEB), "push", "origin", "main"],
         ):
             g = subprocess.run(argv, capture_output=True, text=True,
