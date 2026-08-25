@@ -308,8 +308,8 @@ def build_recommendation_for_match(match: dict) -> dict:
         from scripts.motor.cobertura_bandas import signo_doble_banda
 
         forced = signo_doble_banda(
-            match.get("odd_1"),
-            match.get("odd_2"),
+            match.get("open_odd_1") or match.get("odd_1"),
+            match.get("open_odd_2") or match.get("odd_2"),
             probs=(p1, px, p2),
         )
         if forced:

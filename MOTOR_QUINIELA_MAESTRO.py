@@ -53,6 +53,33 @@ def choose_odds(row: pd.Series, candidates: list[str]) -> float | None:
     return None
 
 
+def _has_complete_odds(row: pd.Series, columns: tuple[str, str, str]) -> bool:
+    """Indica si una tripleta de cuotas existe completa y es utilizable."""
+    values = [row.get(column) for column in columns]
+    try:
+        return all(pd.notna(value) and float(value) > 1.01 for value in values)
+    except (TypeError, ValueError):
+        return False
+
+
+def market_source(row: pd.Series) -> str:
+    """Devuelve la procedencia efectiva de la tripleta de mercado.
+
+    Esta etiqueta es trazabilidad, no una feature activa: permite distinguir
+    cierre real de fallback a apertura sin cambiar el resultado del motor.
+    """
+    sources = (
+        ("close_avg", ("AvgCH", "AvgCD", "AvgCA")),
+        ("close_b365", ("B365CH", "B365CD", "B365CA")),
+        ("open_avg", ("AvgH", "AvgD", "AvgA")),
+        ("open_b365", ("B365H", "B365D", "B365A")),
+    )
+    for name, columns in sources:
+        if _has_complete_odds(row, columns):
+            return name
+    return "incomplete"
+
+
 def season_from_filename(path: Path) -> str:
     stem = path.stem.split("_")[-1]
     if len(stem) == 4 and stem.isdigit():
@@ -110,6 +137,12 @@ def load_raw_history(source: str = "original") -> pd.DataFrame:
                     "open_odd_1": raw.apply(lambda row: choose_odds(row, ["AvgH", "B365H"]), axis=1),
                     "open_odd_x": raw.apply(lambda row: choose_odds(row, ["AvgD", "B365D"]), axis=1),
                     "open_odd_2": raw.apply(lambda row: choose_odds(row, ["AvgA", "B365A"]), axis=1),
+                    "market_source": raw.apply(market_source, axis=1),
+                    "market_close_available": raw.apply(
+                        lambda row: _has_complete_odds(row, ("AvgCH", "AvgCD", "AvgCA"))
+                        or _has_complete_odds(row, ("B365CH", "B365CD", "B365CA")),
+                        axis=1,
+                    ),
                     "HS": pd.to_numeric(raw.get("HS"), errors="coerce"),
                     "AS": pd.to_numeric(raw.get("AS"), errors="coerce"),
                     "HST": pd.to_numeric(raw.get("HST"), errors="coerce"),
@@ -538,8 +571,9 @@ def double_avoid_overconfidence_mask(frame: pd.DataFrame, config: dict, pred_pre
 
 def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.DataFrame:
     ordered = frame.sort_values(["date", "division", "home", "away"]).reset_index(drop=True).copy()
-    o1 = ordered["odd_1"] if "odd_1" in ordered.columns else [None] * len(ordered)
-    o2 = ordered["odd_2"] if "odd_2" in ordered.columns else [None] * len(ordered)
+    # Las reglas de cobertura deben usar cuotas disponibles antes del corte.
+    o1 = ordered["open_odd_1"] if "open_odd_1" in ordered.columns else ordered.get("odd_1", [None] * len(ordered))
+    o2 = ordered["open_odd_2"] if "open_odd_2" in ordered.columns else ordered.get("odd_2", [None] * len(ordered))
     ordered["double"] = [
         build_double(p1, px, p2, config["double_draw_threshold"], odd_1=h, odd_2=a)
         for p1, px, p2, h, a in zip(
@@ -1022,8 +1056,11 @@ def run_backtest(
     usable = usable.sort_values(["date", "division", "home", "away"]).reset_index(drop=True)
 
     split_idx = int(len(usable) * 0.8)
-    train = usable.iloc[:split_idx].copy()
-    test = usable.iloc[split_idx:].copy()
+    # Corte por FECHA (Fase 6): evita repartir partidos del mismo dia entre
+    # train y test, como ocurria con el corte por filas (2023-04-16).
+    split_date = usable["date"].iloc[split_idx]
+    train = usable[usable["date"] < split_date].copy()
+    test = usable[usable["date"] >= split_date].copy()
 
     # T4: estimar rho con train
     rho_est = None
@@ -1119,7 +1156,8 @@ def main() -> None:
     print("=" * 68)
     print("MOTOR QUINIELA MAESTRO - VERSION OPTIMIZADA")
     print("=" * 68)
-    print(f"Base usada: {RAW_BASE}")
+    base_used = SANITIZED_HISTORY if args.historico == "saneado" else RAW_BASE
+    print(f"Base usada: {base_used}")
     print(f"Modo: {args.modo} ({'pesos congelados' if selection_mode == 'production' else 'búsqueda exploratoria'})")
     print(f"Partidos limpios: {metrics['dataset_matches']}")
     print(f"Train: {metrics['train_matches']}  |  Test: {metrics['test_matches']}")

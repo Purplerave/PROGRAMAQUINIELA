@@ -87,13 +87,23 @@ mejora una subida obtenida solo sobre los mismos datos usados para ajustar.
 
 Configuracion activa: `motor_quinielistico_v4` (weights mercado-dominantes:
 logit 0.0, hgb 0.049, market 0.951, poisson 0.0). Ultima ejecucion validada
-(04/08/2026, numpy 2.2.6 / pandas 2.3.3 / scipy 1.16.3 / scikit-learn 1.7.2):
+(24/08/2026, Python 3.12.13, numpy 2.2.6 / pandas 2.3.3 / scipy 1.16.3 /
+scikit-learn 1.7.2):
 
-- 13.446 partidos limpios.
-- 51,64 % de acierto simple en el test principal (favorito de mercado: 51,56 %).
-- 8,63 aciertos de media sobre 15 con tres dobles.
-- Temporada 2024-25: 52,61 % y 8,70/15 con tres dobles (mercado 52,38 %).
-- Temporada 2025-26 completa: 51,43 % y 8,48/15 con tres dobles (mercado 51,54 %).
+- Backtest walk-forward de 7 temporadas, con 842 partidos de test por temporada.
+- 50,27 % de acierto simple medio tras usar cuotas de apertura en bandas y
+  cobertura (favorito de mercado: 49,83 %).
+- 8,48 aciertos de media sobre 15 con tres dobles.
+- Temporada 2024-25: 52,38 % y 8,77/15 con tres dobles (mercado 52,38 %).
+- Temporada 2025-26 completa: 51,54 % y 8,41/15 con tres dobles (mercado 51,54 %).
+- Incertidumbre frente al mercado: diferencial +0,44 pp; McNemar pareado
+  p = 0,0436; IC95 bootstrap del diferencial [+0,02; +0,85] pp
+  (n = 5.894, semilla 20260824).
+
+La referencia JSON se regeneró con el commit actual y la suite completa:
+`reports/production_reference.json` registra 280 pruebas pasadas. Las cifras
+anteriores de 51,64 % pertenecían a un protocolo/test distinto y no deben
+compararse directamente con este walk-forward.
 
 La métrica de tres dobles es un indicador agregado: el histórico se ordena y se
 parte en bloques mecánicos de 15 partidos para seleccionar tres dobles. **No
@@ -116,7 +126,9 @@ categoría; sin él el módulo devuelve aciertos y coste, pero no inventa retorn
 
 Las cifras se obtuvieron en modo producción con la configuración incluida en
 el repositorio; ese modo nunca reoptimiza los pesos durante la ejecución.
-Hash del dataset historico (PRIMERA + SEGUNDA): `51a9688ac065015da9335512af5a34a8`.
+Hash del dataset historico (PRIMERA + SEGUNDA), SHA-256 del dataset combinado:
+ver `reports/production_reference.json` → `hashes.resumen.dataset_historico_combinado`
+(los hashes por archivo SHA-256 estan en ese mismo documento; no se usan otros algoritmos).
 
 Referencia de produccion reproducible (commit SHA, hashes SHA-256 de datasets
 y configuracion, entorno, protocolo de evaluacion, metricas por temporada y

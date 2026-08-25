@@ -811,6 +811,71 @@ def get_cutoff_date(jornada_data: dict[str, Any]) -> datetime:
     return pd.Timestamp.now() - pd.Timedelta(days=1)
 
 
+def attach_odds_traceability(
+    jornada_data: dict[str, Any], cutoff_date: object
+) -> dict[str, Any]:
+    """Construye el bloque `trazabilidad_cuotas` de una prediccion de jornada.
+
+    Politica (plan Fase 4): NO se inventan timestamps. Si la fuente no declara
+    `odds_observed_at`, el partido queda marcado como no auditado y se
+    documenta la limitacion. La invariante
+        odds_observed_at <= prediction_cutoff_at < kickoff_at
+    se valida con `validate_odds_timestamps` solo en partidos con los tres
+    campos declarados.
+    """
+    from scripts.motor.features import validate_odds_timestamps
+
+    cutoff_ts = pd.to_datetime(cutoff_date)
+    cutoff_iso = cutoff_ts.isoformat()
+    detalle: list[dict[str, Any]] = []
+    auditables: list[dict[str, Any]] = []
+    no_auditados = 0
+    for idx, p in enumerate(jornada_data.get("partidos", [])):
+        num = p.get("num", idx + 1)
+        observed = p.get("odds_observed_at")
+        kickoff = p.get("kickoff_at") or p.get("fecha_hora") or p.get("fecha")
+        entry: dict[str, Any] = {
+            "num": num,
+            "odds_observed_at": observed,
+            "prediction_cutoff_at": cutoff_iso,
+            "kickoff_at": kickoff,
+        }
+        if observed is None or kickoff is None:
+            entry["estado"] = "no_auditado"
+            entry["motivo"] = (
+                "odds_observed_at_ausente" if observed is None else "kickoff_at_ausente"
+            )
+            no_auditados += 1
+            detalle.append(entry)
+            continue
+        entry["estado"] = "auditable"
+        auditables.append(entry)
+        detalle.append(entry)
+
+    report = validate_odds_timestamps(auditables) if auditables else {
+        "ok": True, "partidos_validados": 0, "violaciones": []
+    }
+    violaciones = report.get("violaciones", [])
+    auditados_ok = report.get("partidos_validados", 0)
+
+    return {
+        "politica": (
+            "No se inventan timestamps: si la fuente no declara odds_observed_at, "
+            "el partido queda no_auditado y se documenta la limitacion."
+        ),
+        "invariante": "odds_observed_at <= prediction_cutoff_at < kickoff_at",
+        "prediction_cutoff_at": cutoff_iso,
+        "total_partidos": len(detalle),
+        "auditados": int(auditados_ok),
+        "no_auditados": int(no_auditados),
+        "violaciones_invariante": len(violaciones),
+        "violaciones": [
+            {"num": v.get("num"), "issues": v.get("issues")} for v in violaciones
+        ],
+        "detalle": detalle,
+    }
+
+
 def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
     """Genera predicciones completas para una jornada.
 
@@ -842,6 +907,11 @@ def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
         "partidos_totales": len(partidos),
         "tiene_pleno15": any(p.get("num") == 15 for p in partidos),
     }
+
+    # Trazabilidad temporal de cuotas (plan Fase 4)
+    predictions["trazabilidad_cuotas"] = attach_odds_traceability(
+        jornada_data, cutoff_date
+    )
 
     return predictions
 

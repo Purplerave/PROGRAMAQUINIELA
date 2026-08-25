@@ -5,6 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from scipy.stats import binomtest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -22,6 +23,57 @@ def season_key(season):
         return int(text.split("-")[0])
     except Exception:
         return 0
+
+
+def paired_market_statistics(predictions: pd.DataFrame) -> dict:
+    """Contrasta aciertos del motor y del favorito en los mismos partidos."""
+    required = {"latest_hit", "favorite_market_hit"}
+    if not required.issubset(predictions.columns):
+        return {"n": 0, "discordant_model_only": 0, "discordant_market_only": 0, "mcnemar_pvalue": None}
+
+    frame = predictions.dropna(subset=["latest_hit", "favorite_market_hit"]).copy()
+    if frame.empty:
+        return {"n": 0, "discordant_model_only": 0, "discordant_market_only": 0, "mcnemar_pvalue": None}
+
+    model_hit = frame["latest_hit"].astype(bool).to_numpy()
+    market_hit = frame["favorite_market_hit"].astype(bool).to_numpy()
+    model_only = int((model_hit & ~market_hit).sum())
+    market_only = int((~model_hit & market_hit).sum())
+    discordant = model_only + market_only
+    pvalue = float(binomtest(model_only, discordant, 0.5, alternative="two-sided").pvalue) if discordant else 1.0
+
+    # IC bootstrap pareado del diferencial de acierto, reproducible y por partido.
+    differences = model_hit.astype(float) - market_hit.astype(float)
+    rng = np.random.default_rng(20260824)
+    samples = rng.choice(differences, size=(5000, len(differences)), replace=True).mean(axis=1)
+    low, high = np.quantile(samples, [0.025, 0.975])
+    return {
+        "n": int(len(frame)),
+        "model_accuracy": float(model_hit.mean()),
+        "market_accuracy": float(market_hit.mean()),
+        "gap": float(differences.mean()),
+        "discordant_model_only": model_only,
+        "discordant_market_only": market_only,
+        "mcnemar_pvalue": pvalue,
+        "bootstrap_gap_ci95": [float(low), float(high)],
+    }
+
+
+def regime_statistics(predictions: pd.DataFrame) -> dict:
+    """Desglosa el backtest según exista cierre de mercado real."""
+    if "market_close_available" not in predictions.columns:
+        return {}
+    output = {}
+    labels = {True: "cierre_real", False: "apertura_fallback"}
+    for available, group in predictions.groupby("market_close_available", dropna=False):
+        key = labels.get(bool(available), "desconocido")
+        stats = paired_market_statistics(group)
+        stats["market_sources"] = {
+            str(source): int(count)
+            for source, count in group.get("market_source", pd.Series(dtype=object)).value_counts().items()
+        }
+        output[key] = stats
+    return output
 
 
 def main():
@@ -42,6 +94,7 @@ def main():
 
     rows = []
     details = {}
+    all_predictions = []
     for season in selected:
         try:
             predictions, metrics = motor.run_season_backtest(features, season)
@@ -67,6 +120,9 @@ def main():
             "segunda_matches": model["division_breakdown"].get("Segunda", {}).get("matches", 0),
             "segunda_accuracy": model["division_breakdown"].get("Segunda", {}).get("accuracy_simple", None),
         }
+        row["regime_breakdown"] = regime_statistics(predictions)
+        row["paired_statistics"] = paired_market_statistics(predictions)
+        all_predictions.append(predictions)
         rows.append(row)
         details[season] = metrics
         if args.save_predictions:
@@ -108,6 +164,11 @@ def main():
             "std_market": float(np.std(market)) if market else None,
             "mean_gap_vs_market": float(np.mean(gaps)) if gaps else None,
         }
+
+    if all_predictions:
+        combined_predictions = pd.concat(all_predictions, ignore_index=True)
+        summary["paired_statistics"] = paired_market_statistics(combined_predictions)
+        summary["regime_breakdown"] = regime_statistics(combined_predictions)
     (OUT_DIR / "backtest_historico_temporadas_resumen.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2),
         encoding="utf-8",

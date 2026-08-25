@@ -122,6 +122,66 @@
       },
       "razon": "Cloudflare bloquea la IP del usuario en understat.com; Kaggle ya tiene los datos descargados.",
       "referencia": "REVISION_14_HIGHLIGHTLY_API.md"
+    },
+    {
+      "id": 10,
+      "fecha": "2026-08-04",
+      "nombre": "P0.1: Metrica economica del boleto de 6 EUR",
+      "resultado": "IMPLEMENTADO",
+      "configuracion": "EV ex-ante por convolucion y ROI ex-post walk-forward 2019-2026 con boleto de 3 dobles",
+      "metricas": "392 jornadas; ROI normal modelo -50.29%; mercado -91.79%; premios estimados",
+      "razon": "La metrica economica queda implementada, pero los premios son estimados y no constituyen ROI oficial.",
+      "referencia": "EXPERIMENTOS_REGISTRO.md"
+    },
+    {
+      "id": 11,
+      "fecha": "2026-08-04",
+      "nombre": "P0.2: Ensembles con metrica economica",
+      "resultado": "IMPLEMENTADO; NO SUSTITUYE AL ACTIVO",
+      "configuracion": "Walk-forward 2019-2026; mercado, ensemble activo, calibrado y divergencia; regla robusta mean-0.5*std",
+      "metricas": "4 brazos; sustituye_al_activo=false",
+      "razon": "Ningun brazo supera el umbral de sustitucion; la aparente ventaja del calibrado quedo anulada por P1.0 sin fuga.",
+      "referencia": "EXPERIMENTOS_REGISTRO.md"
+    },
+    {
+      "id": 12,
+      "fecha": "2026-08-04",
+      "nombre": "P1.0: Consolidacion de calibracion sin fuga",
+      "resultado": "RECHAZADO",
+      "configuracion": "Calibracion ajustada solo con temporadas anteriores y receta 84/16 del train",
+      "metricas": "Gana P>=12 en 0/5; score calibrado 0.0116; activo 0.024",
+      "razon": "La calibracion es peor que el activo fuera de muestra; no entra en el camino critico del boleto.",
+      "referencia": "EXPERIMENTOS_REGISTRO.md"
+    },
+    {
+      "id": 13,
+      "fecha": "2026-08-05",
+      "nombre": "P1.2: Simplificacion del ensemble",
+      "resultado": "COMPLETADO",
+      "configuracion": "Eliminacion del camino critico de logit y Poisson con peso 0",
+      "metricas": "Iso-resultado: true",
+      "razon": "Se conserva el mismo resultado y se limpia el ensemble activo.",
+      "referencia": "EXPERIMENTOS_REGISTRO.md"
+    },
+    {
+      "id": 14,
+      "fecha": "2026-08-24",
+      "nombre": "REVISION_16: Calibrador de bandas y paper-trading 2026-27",
+      "resultado": "IMPLEMENTADO; ACEPTA",
+      "configuracion": "Capa post-ensemble; walk-forward; bandas visitante 2.5-4.0 y local 1.4-1.8; CAP +/-10%",
+      "metricas": "Delta Brier -0.00048; delta logloss -0.00074; delta accuracy -0.068 pp; delta dobles -0.015; paper-trading n=0",
+      "razon": "Acepta por mejora de Brier/logloss y degradacion dentro del umbral; paper-trading aun sin observaciones.",
+      "referencia": "REVISION_16_CALIBRADOR_BANDAS.md"
+    },
+    {
+      "id": 15,
+      "fecha": "2026-08-24",
+      "nombre": "REVISION_17: Cobertura del segundo signo del doble",
+      "resultado": "IMPLEMENTADO; ACEPTA",
+      "configuracion": "Segundo signo 1X para bandas robustas de visitante 2.5-4.0 y local 1.4-1.8",
+      "metricas": "Media 3 dobles sin 8.469; con 8.485; delta +0.015",
+      "razon": "La cobertura mejora la media de 3 dobles dentro del criterio pre-registrado; no anade cuarto doble ni triple.",
+      "referencia": "REVISION_17_COBERTURA_DOBLES.md"
     }
   ]
 }

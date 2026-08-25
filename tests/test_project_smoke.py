@@ -19,7 +19,17 @@ def test_historical_csvs_are_packaged():
 
 
 def test_loader_uses_original_by_default():
-    assert len(motor.load_raw_history()) > 0
+    loaded = motor.load_raw_history()
+    assert len(loaded) > 0
+    assert set(loaded["market_source"].dropna().unique()) <= {
+        "close_avg", "close_b365", "open_avg", "open_b365", "incomplete"
+    }
+    assert loaded["market_close_available"].dtype == bool
+    assert loaded["market_close_available"].any()
+    assert (~loaded["market_close_available"]).any()
+    featured = motor.rolling_team_features(loaded.head(50))
+    assert "market_source" in featured.columns
+    assert "market_close_available" in featured.columns
 
 
 def test_loader_uses_sanitized_source(monkeypatch, tmp_path):
@@ -36,6 +46,8 @@ def test_loader_uses_sanitized_source(monkeypatch, tmp_path):
     assert loaded.iloc[0]["division"] == "Primera"
     assert loaded.iloc[0]["season"] == "2025-2026"
     assert loaded.iloc[0]["source_file"] == original.name
+    assert "market_source" in loaded.columns
+    assert "market_close_available" in loaded.columns
 
 
 @pytest.mark.parametrize(("division", "expected_code"), [("Primera", 0), ("Segunda", 1)])

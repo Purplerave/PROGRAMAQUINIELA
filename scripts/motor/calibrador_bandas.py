@@ -34,6 +34,14 @@ def ff(v: Any) -> float | None:
     return x if x > 1.01 else None
 
 
+def _odds_from_open_first(row: Mapping[str, Any]) -> tuple[float | None, float | None, float | None]:
+    """Obtiene cuotas disponibles al corte: apertura primero, cierre como fallback."""
+    open_odds = tuple(ff(row.get(key)) for key in ("open_odd_1", "open_odd_x", "open_odd_2"))
+    if all(open_odds):
+        return open_odds
+    return tuple(ff(row.get(key)) for key in ("odd_1", "odd_x", "odd_2"))
+
+
 def season_code(season: object) -> str:
     """'2019-2020' / '1920' / '19-20' -> '1920'."""
     text = str(season).strip()
@@ -95,9 +103,11 @@ def _row_to_partido(row: Mapping[str, Any]) -> dict | None:
         ftr = "A"
     else:
         return None
-    o1 = ff(row.get("odd_1") or row.get("PSCH") or row.get("B365CH") or row.get("B365H"))
-    ox = ff(row.get("odd_x") or row.get("PSCD") or row.get("B365CD") or row.get("B365D"))
-    o2 = ff(row.get("odd_2") or row.get("PSCA") or row.get("B365CA") or row.get("B365A"))
+    o1, ox, o2 = _odds_from_open_first(row)
+    if not all((o1, ox, o2)):
+        o1 = ff(row.get("PSCH") or row.get("B365CH") or row.get("B365H"))
+        ox = ff(row.get("PSCD") or row.get("B365CD") or row.get("B365D"))
+        o2 = ff(row.get("PSCA") or row.get("B365CA") or row.get("B365A"))
     if not (o1 and ox and o2):
         return None
     season = row.get("season")
@@ -158,7 +168,7 @@ def aplicar_calibracion_bandas(
 
     adj1, adjx, adj2 = [], [], []
     for rec in out.to_dict("records"):
-        odds = (ff(rec.get("odd_1")), ff(rec.get("odd_x")), ff(rec.get("odd_2")))
+        odds = _odds_from_open_first(rec)
         probs = (rec.get(p1), rec.get(px), rec.get(p2))
         if not all(odds) or any(v is None for v in probs):
             adj1.append(rec.get(p1))

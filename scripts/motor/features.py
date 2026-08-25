@@ -122,6 +122,8 @@ def get_expected_columns() -> list[str]:
         "open_odd_1",
         "open_odd_x",
         "open_odd_2",
+        "market_source",
+        "market_close_available",
         "FTHG",
         "FTAG",
         "result",
@@ -251,7 +253,11 @@ def finalize_feature_dataframe(feat_df: pd.DataFrame) -> pd.DataFrame:
 class TeamStateTracker:
     """Motor de cálculo de estado de equipos (Elo, forma, goles, tiros, clasificación y descanso)."""
 
-    def __init__(self, config: dict[str, Any] | None = None) -> None:
+    def __init__(
+        self,
+        config: dict[str, Any] | None = None,
+        elo_season_reversion: float | None = None,
+    ) -> None:
         self.team_state: dict[str, dict[str, Any]] = {}
         self.standings_state: dict[
             tuple[str, str], dict[str, dict[str, float]]
@@ -264,6 +270,9 @@ class TeamStateTracker:
         self.k_factor = float(master_config.get("elo_k_factor", 24.0))
         self.home_advantage = float(master_config.get("elo_home_advantage", 55.0))
         self.goal_per_sot = float(master_config.get("goal_per_sot", 0.30))
+        # Fase 5 (plan): reversion parcial del Elo hacia base_elo al cruzar de
+        # temporada. None = comportamiento actual (sin reversion).
+        self.elo_season_reversion = elo_season_reversion
         # T4: Dixon-Coles config
         dc_cfg = master_config.get("dixon_coles", {}) if isinstance(master_config.get("dixon_coles"), dict) else {}
         self.dc_enabled = bool(dc_cfg.get("enabled", True))
@@ -289,6 +298,7 @@ class TeamStateTracker:
                 "xg_against": [],
                 "elo": self.base_elo,
                 "last_date": None,
+                "last_active_season": None,
             }
         return self.team_state[team]
 
@@ -364,6 +374,16 @@ class TeamStateTracker:
 
         home_hist = self.ensure_team(home)
         away_hist = self.ensure_team(away)
+        if self.elo_season_reversion is not None:
+            # Reversion parcial hacia base_elo al primer contacto con una
+            # temporada nueva (retornos largos incluidos: cruzan >=1 borde).
+            for hist in (home_hist, away_hist):
+                if hist.get("last_active_season") != season:
+                    prev = float(hist["elo"])
+                    hist["elo"] = float(self.base_elo) + float(
+                        self.elo_season_reversion
+                    ) * (prev - float(self.base_elo))
+                    hist["last_active_season"] = season
         home_elo = float(home_hist["elo"])
         away_elo = float(away_hist["elo"])
         home_table = self.ensure_standing(division, season, home)
@@ -453,6 +473,9 @@ class TeamStateTracker:
             "open_odd_1": row["open_odd_1"],
             "open_odd_x": row["open_odd_x"],
             "open_odd_2": row["open_odd_2"],
+            # Metadatos de auditoría: no forman parte de feature_columns().
+            "market_source": row.get("market_source", "incomplete"),
+            "market_close_available": bool(row.get("market_close_available", False)),
             "FTHG": row.get("FTHG", np.nan),
             "FTAG": row.get("FTAG", np.nan),
             "result": row.get("result", np.nan),
@@ -640,7 +663,10 @@ class TeamStateTracker:
         if cutoff_date is not None:
             cutoff_ts = pd.to_datetime(cutoff_date, errors="coerce")
             df = df[df["date"] < cutoff_ts]
-        df = df[df["result"].astype(str).isin({"1", "X", "2", "0", "1", "2"})].copy()
+        # Solo resultados 1X2 validos. Un "0" u otro valor se descarta:
+        # tratarlo como empate corromperia el estado (puntos a ambos con
+        # marcador no empatado). El flujo del motor ya normaliza antes.
+        df = df[df["result"].astype(str).isin({"1", "X", "2"})].copy()
         df = df.sort_values(["date", "division", "home", "away"]).reset_index(
             drop=True
         )
@@ -728,7 +754,9 @@ class TeamStateTracker:
         }
 
 
-def rolling_team_features(df: pd.DataFrame) -> pd.DataFrame:
+def rolling_team_features(
+    df: pd.DataFrame, elo_season_reversion: float | None = None
+) -> pd.DataFrame:
     """Calcula las features evolutivas sobre un dataset histórico completo.
 
     Sin fuga temporal entre partidos de la misma fecha: las features de todos
@@ -736,12 +764,15 @@ def rolling_team_features(df: pd.DataFrame) -> pd.DataFrame:
     solo después se aplican los resultados de esa fecha al estado. Así ningún
     partido utiliza información de otros partidos disputados el mismo día
     (resultados, Elo, forma, tabla o descanso).
+
+    `elo_season_reversion` (Fase 5, opcional): factor f tal que al cruzar de
+    temporada el Elo pasa a base + f*(elo-base). None = sin reversión.
     """
     df_sorted = df.copy()
     df_sorted = df_sorted.sort_values(
         ["date", "division", "home", "away"]
     ).reset_index(drop=True)
-    tracker = TeamStateTracker()
+    tracker = TeamStateTracker(elo_season_reversion=elo_season_reversion)
     rows = []
     for _, group in df_sorted.groupby("date", sort=False):
         # 1) Extraer features de TODOS los partidos de la fecha con el estado

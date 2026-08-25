@@ -251,8 +251,9 @@ def main() -> None:
             "Pleno al 15 separado (contrato P0 2026-08-04)"
         ),
         "seleccion_dobles": (
-            "evaluación exhaustiva de las C(14,3)=364 combinaciones y selección "
-            "por segunda probabilidad (maximiza aciertos esperados)"
+            "selección greedy de 3 partidos por double_value_score (nlargest), "
+            "sobre bloques mecánicos de 15 partidos; no es una evaluación "
+            "exhaustiva de las C(14,3)=364 combinaciones"
         ),
         "comparacion": "favorito de mercado (accuracy_market_favorite)",
         "metricas_reportadas": [
