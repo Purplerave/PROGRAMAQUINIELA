@@ -36,6 +36,7 @@ REGLAS_CANON = [
     ("badalona", "badalona"), ("levante las planas", "las_planas"),
     ("granadilla", "tenerife"), ("costa adeje", "tenerife"),
     ("barcelona", "barcelona"), ("atletico de madrid", "atletico"),
+    ("at. madrid", "atletico"), ("atletico madrid w", "atletico"),
     ("atletico", "atletico"),
     ("athletic", "athletic"), ("real madrid", "rmadrid"),
     ("betis", "betis"), ("real sociedad", "rso"),
