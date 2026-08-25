@@ -1,0 +1,29 @@
+{
+  "generado": "2026-08-25T21:16:48.553279",
+  "fuente": {
+    "proveedor": "StatsBomb Open Data",
+    "url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/182/281.json",
+    "licencia": "Open Data (non-commercial)",
+    "competencia": {
+      "id": 182,
+      "nombre": "Liga F",
+      "pais": "Spain",
+      "gender": "female"
+    },
+    "temporada": {
+      "id": 281,
+      "nombre": "2023/2024"
+    }
+  },
+  "n_partidos": 240,
+  "rango_fechas": [
+    "2023-09-15",
+    "2024-06-16"
+  ],
+  "archivos": {
+    "raw": "statsbomb_matches_182_281_raw.json",
+    "csv": "ligaf_resultados_2324_dated.csv",
+    "sha256_raw": "ea93b27a4d1101ba62792c88b5770bdacd904cefdf38671382698f5c2298628a",
+    "sha256_csv": "d6b64a21fb68a0543c2e74d7ad8b9c45806b311b9346989892957cd72a618577"
+  }
+}
