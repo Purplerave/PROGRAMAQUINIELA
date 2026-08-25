@@ -1,0 +1,875 @@
+{
+  "temporada": "2026-27",
+  "jornada": 2,
+  "fecha": "2026-08-23",
+  "source_url": "https://www.combinacionganadora.com/quiniela/ + https://www.loteriasyapuestas.es/es/resultados/quiniela",
+  "scraped_at": "2026-08-25T12:00:00+02:00",
+  "odds_observed_at": null,
+  "prediction_cutoff_at": "2026-08-22T00:00:00+02:00",
+  "kickoff_at": "2026-08-23T17:00:00+02:00",
+  "estado_resultado": "FT",
+  "predicciones": [
+    {
+      "jornada": 2,
+      "numero": 1,
+      "local": "Athletic Bilbao",
+      "visitante": "Sevilla",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "prob_1": 0.3607,
+      "prob_x": 0.3561,
+      "prob_2": 0.2832,
+      "signo_modelo": "1",
+      "confianza": 0.0053,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1643.7,
+        "away_elo": 1597.6,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 0.8,
+        "away_form_pts_5": 1.8,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 2,
+      "local": "Valencia",
+      "visitante": "Celta",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "prob_1": 0.464,
+      "prob_x": 0.2658,
+      "prob_2": 0.2702,
+      "signo_modelo": "1",
+      "confianza": 0.0333,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1670.8,
+        "away_elo": 1678.7,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 2.0,
+        "away_form_pts_5": 2.0,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 3,
+      "local": "Espanyol",
+      "visitante": "Real Madrid",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "prob_1": 0.3222,
+      "prob_x": 0.3088,
+      "prob_2": 0.369,
+      "signo_modelo": "2",
+      "confianza": 0.0027,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1599.3,
+        "away_elo": 1879.4,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 1.4,
+        "away_form_pts_5": 2.4,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 4,
+      "local": "Getafe",
+      "visitante": "Racing Santander",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.2874,
+      "prob_x": 0.292,
+      "prob_2": 0.4207,
+      "signo_modelo": "2",
+      "confianza": 0.0151,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1635.2,
+        "away_elo": 1595.2,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 1.4,
+        "away_form_pts_5": 2.6,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 5,
+      "local": "Elche",
+      "visitante": "Barcelona",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "prob_1": 0.3529,
+      "prob_x": 0.3162,
+      "prob_2": 0.3309,
+      "signo_modelo": "1",
+      "confianza": 0.0009,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1608.8,
+        "away_elo": 1919.6,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 1.0,
+        "away_form_pts_5": 1.8,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 6,
+      "local": "Osasuna",
+      "visitante": "Levante",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "prob_1": 0.4094,
+      "prob_x": 0.275,
+      "prob_2": 0.3157,
+      "signo_modelo": "1",
+      "confianza": 0.0127,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1604.5,
+        "away_elo": 1627.1,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 0.0,
+        "away_form_pts_5": 1.8,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 7,
+      "local": "Malaga",
+      "visitante": "Deportivo",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.3766,
+      "prob_x": 0.2536,
+      "prob_2": 0.3698,
+      "signo_modelo": "1",
+      "confianza": 0.0137,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1566.8,
+        "away_elo": 1569.9,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 2.6,
+        "away_form_pts_5": 2.4,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 8,
+      "local": "Oviedo",
+      "visitante": "Leganes",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.4323,
+      "prob_x": 0.3116,
+      "prob_2": 0.2561,
+      "signo_modelo": "1",
+      "confianza": 0.0217,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1540.9,
+        "away_elo": 1446.2,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 0.2,
+        "away_form_pts_5": 0.8,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 9,
+      "local": "Ceuta",
+      "visitante": "Las Palmas",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.2996,
+      "prob_x": 0.3097,
+      "prob_2": 0.3907,
+      "signo_modelo": "2",
+      "confianza": 0.0066,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1513.6,
+        "away_elo": 1570.3,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 2.0,
+        "away_form_pts_5": 2.0,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 10,
+      "local": "Eldense",
+      "visitante": "Cadiz",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.3248,
+      "prob_x": 0.3322,
+      "prob_2": 0.3429,
+      "signo_modelo": "2",
+      "confianza": 0.0002,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1423.2,
+        "away_elo": 1388.8,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 1.0,
+        "away_form_pts_5": 1.0,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 11,
+      "local": "Eibar",
+      "visitante": "Valladolid",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.3196,
+      "prob_x": 0.3531,
+      "prob_2": 0.3273,
+      "signo_modelo": "X",
+      "confianza": 0.0008,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1547.4,
+        "away_elo": 1403.5,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 1.2,
+        "away_form_pts_5": 0.6,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 12,
+      "local": "Castellon",
+      "visitante": "Sabadell",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.3323,
+      "prob_x": 0.3311,
+      "prob_2": 0.3367,
+      "signo_modelo": "2",
+      "confianza": 0.0,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1550.8,
+        "away_elo": 1431.2,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 1.6,
+        "away_form_pts_5": 1.2,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 13,
+      "local": "Sporting Gijon",
+      "visitante": "Burgos",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.385,
+      "prob_x": 0.2992,
+      "prob_2": 0.3158,
+      "signo_modelo": "1",
+      "confianza": 0.0055,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1489.4,
+        "away_elo": 1563.6,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 1.8,
+        "away_form_pts_5": 2.2,
+        "tiene_cuotas": false
+      }
+    },
+    {
+      "jornada": 2,
+      "numero": 14,
+      "local": "Tenerife",
+      "visitante": "Almeria",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "prob_1": 0.4574,
+      "prob_x": 0.2469,
+      "prob_2": 0.2958,
+      "signo_modelo": "1",
+      "confianza": 0.032,
+      "fuente_probabilidades": {
+        "modelo_primario": "motor_maestro_hibrido",
+        "componentes": {
+          "logit": 0.0,
+          "hgb": 0.2,
+          "market": 0.8,
+          "poisson": 0.0
+        },
+        "draw_boost_aplicado": 0.0,
+        "segunda_draw_boost_aplicado": 0.0,
+        "x_disagreement_strategy": "market_pick_only",
+        "calibracion": {
+          "aplicada": true,
+          "metodo": "vector_scaling",
+          "n_calibration": 2152,
+          "pre_ece": 0.02054925262201286,
+          "post_ece": 0.015989766988199077
+        }
+      },
+      "avisos": [
+        "sin_cuotas_mercado",
+        "sin_partidos_local",
+        "sin_partidos_visitante"
+      ],
+      "calidad_datos": 0.3,
+      "features_disponibles": {
+        "home_elo": 1407.7,
+        "away_elo": 1556.5,
+        "home_table_pj": 0,
+        "away_table_pj": 0,
+        "home_form_pts_5": 0.4,
+        "away_form_pts_5": 1.4,
+        "tiene_cuotas": false
+      }
+    }
+  ],
+  "pleno15": {
+    "jornada": 2,
+    "numero": 15,
+    "local": "Atletico Madrid",
+    "visitante": "Villarreal",
+    "fecha": "2026-08-23",
+    "disponible": true,
+    "modelo": "dixon_coles",
+    "rho": -0.036,
+    "lambdas": {
+      "local": 1.42,
+      "visitante": 1.735
+    },
+    "lambdas_fuente": "features_equipo",
+    "marcador_predicho": "1-1",
+    "marcador_confianza": 0.1089,
+    "top_marcadores": [
+      {
+        "score": "1-1",
+        "prob": 0.1089
+      },
+      {
+        "score": "1-2",
+        "prob": 0.0912
+      },
+      {
+        "score": "2-1",
+        "prob": 0.0746
+      }
+    ],
+    "goles_local": {
+      "0": 0.2409,
+      "1": 0.344,
+      "2": 0.2438,
+      "M": 0.1713
+    },
+    "goles_visitante": {
+      "0": 0.1772,
+      "1": 0.3054,
+      "2": 0.2657,
+      "M": 0.2518
+    },
+    "seleccion": {
+      "local": "1",
+      "visitante": "1",
+      "alternativa_local": null,
+      "alternativa_visitante": "2",
+      "confianza": 0.1051,
+      "nota": "Alternativa sugerida si el segundo bucket está a menos de 0.10 del primero."
+    },
+    "avisos": [
+      "sin_cuotas_mercado",
+      "sin_partidos_local",
+      "sin_partidos_visitante"
+    ],
+    "calidad_datos": 0.3,
+    "fuente_probabilidades": {
+      "modelo_primario": "motor_maestro_pleno15",
+      "detalle": "Lambdas point-in-time (forma gf/ga + tiros) con Dixon-Coles. marcadores_q15 solo se adjunta como referencia, no se usa."
+    },
+    "comparativa_marcadores_q15": []
+  },
+  "resultados_oficiales": [
+    {
+      "num": 1,
+      "local": "Athletic Bilbao",
+      "visitante": "Sevilla",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "resultado_real": "2"
+    },
+    {
+      "num": 2,
+      "local": "Valencia",
+      "visitante": "Celta",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "resultado_real": "X"
+    },
+    {
+      "num": 3,
+      "local": "Espanyol",
+      "visitante": "Real Madrid",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "resultado_real": "2"
+    },
+    {
+      "num": 4,
+      "local": "Getafe",
+      "visitante": "Racing Santander",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "1"
+    },
+    {
+      "num": 5,
+      "local": "Elche",
+      "visitante": "Barcelona",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "resultado_real": "2"
+    },
+    {
+      "num": 6,
+      "local": "Osasuna",
+      "visitante": "Levante",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "resultado_real": "X"
+    },
+    {
+      "num": 7,
+      "local": "Malaga",
+      "visitante": "Deportivo",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "X"
+    },
+    {
+      "num": 8,
+      "local": "Oviedo",
+      "visitante": "Leganes",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "2"
+    },
+    {
+      "num": 9,
+      "local": "Ceuta",
+      "visitante": "Las Palmas",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "2"
+    },
+    {
+      "num": 10,
+      "local": "Eldense",
+      "visitante": "Cadiz",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "X"
+    },
+    {
+      "num": 11,
+      "local": "Eibar",
+      "visitante": "Valladolid",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "1"
+    },
+    {
+      "num": 12,
+      "local": "Castellon",
+      "visitante": "Sabadell",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "X"
+    },
+    {
+      "num": 13,
+      "local": "Sporting Gijon",
+      "visitante": "Burgos",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "1"
+    },
+    {
+      "num": 14,
+      "local": "Tenerife",
+      "visitante": "Almeria",
+      "fecha": "2026-08-23",
+      "division": "Segunda",
+      "resultado_real": "1"
+    },
+    {
+      "num": 15,
+      "local": "Atletico Madrid",
+      "visitante": "Villarreal",
+      "fecha": "2026-08-23",
+      "division": "Primera",
+      "resultado_real": "X",
+      "is_pleno": true,
+      "pleno_marcador": "2-2"
+    }
+  ],
+  "hit_rate_motor": 0.2857142857142857,
+  "hits_motor": 4,
+  "nota": "Backtest sin fuga: historico < 2026-08-22. Mercado no evaluado por falta de tripletas oficiales auditadas. No se toca motor (14 evaluables <70).",
+  "componente_mercado": {
+    "peso_nominal_config": 0.8,
+    "contribucion_efectiva": 0.0,
+    "estado": "inactivo",
+    "fallback_aplicado": "ninguno",
+    "explicacion": "Sin cuotas, market_1/x/2 son NaN. apply_hybrid_config multiplica market_* por fillna(0): contribucion exactamente 0. Tras sumar componentes activos y draw_boost, las probs se renormalizan por su suma, redistribuyendo la masa sobre HGB. x_disagreement_strategy=market_pick_only solo actua si favorite_market notna: tambien inactivo. El HGB recibe market_* como NaN y su Pipeline los imputa con SimpleImputer(median) aprendido en entrenamiento; no se sustituyen por ceros ni valores inventados.",
+    "referencias_codigo": [
+      "MOTOR_QUINIELA_MAESTRO.py:470 (w_market * fillna(0))",
+      "MOTOR_QUINIELA_MAESTRO.py:486-489 (renormalizacion)",
+      "MOTOR_QUINIELA_MAESTRO.py:494-501 (guard market_pick_only)",
+      "MOTOR_QUINIELA_MAESTRO.py:363 (HGB SimpleImputer median)",
+      "MOTOR_PREDICCION_JORNADA.py:235-237 (aviso sin_cuotas_mercado)"
+    ]
+  },
+  "nota_comparabilidad": "Resultado 4/14 = paper-trading del motor SIN cuotas de mercado; NO comparable con el backtest oficial 50,27% vs 49,83% (cuotas auditadas football-data). Evidencia acumulada insuficiente; motor congelado."
+}

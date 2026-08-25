@@ -247,3 +247,54 @@ El motor está en estado estable para publicar localmente y comenzar el registro
 de 2026-27. Lo siguiente no es seguir cambiando el modelo a ciegas: es cerrar la
 trazabilidad de datos, iniciar paper-trading real y acumular jornadas suficientes
 para saber si la ventaja histórica se mantiene.
+
+---
+
+## 8. Registro paper-trading 2026-27 — J2 (añadido 2026-08-25)
+
+Primer registro real de la temporada, tras obtener el resultado oficial de la
+J2 (estado FT; fuente SELAE vía combinacionganadora.com + loteriasyapuestas.es,
+`scraped_at` registrado).
+
+### Resultado
+
+**J2: 4/14, sin cuotas auditadas, NO comparable con el baseline**
+walk-forward `50,27 % / 49,83 %`. Evidencia acumulada: insuficiente. Faltan 56
+partidos evaluables para la revisión intermedia (n≈70). No se concluye que el
+motor haya mejorado ni empeorado.
+
+- `n_cerrados_core = 0`: no hubo cuotas observadas (`odds_observed_at = null`
+  en las 14 filas); la regla de bandas sigue sin apuestas y su `hit_rate`
+  vuelve a `null`.
+- No se ha tocado pesos, Elo ni código del motor. No se regenera el backtest
+  histórico: J2 aún no pertenece al histórico de entrenamiento.
+
+### Aclaración del componente de mercado (`componentes.market = 0.8` con `tiene_cuotas = false`)
+
+El `0.8` es el **peso nominal** elegido por la optimización de candidatos sobre
+el split temporal interno; **no** es una contribución efectiva. Sin cuotas:
+
+1. `market_1/x/2` son NaN y `apply_hybrid_config` los multiplica por
+   `fillna(0)` → contribución exactamente **0**, **sin fallback** neutral.
+2. Las probabilidades se renormalizan por su suma, redistribuyendo la masa
+   sobre los componentes activos (HGB).
+3. `x_disagreement_strategy = market_pick_only` queda guardado por el filtro
+   `favorite_market.notna()`: también inactivo.
+4. El HGB recibe `market_*` como NaN y los imputa con `SimpleImputer(median)`
+   aprendido en entrenamiento; no se sustituyen por ceros ni valores inventados.
+
+Referencias: `MOTOR_QUINIELA_MAESTRO.py:470`, `:486-489`, `:494-501`, `:363`;
+`MOTOR_PREDICCION_JORNADA.py:235-237`.
+
+### Fuentes separadas
+
+`DATOS/paper_trading_2627.json` ahora distingue:
+
+- histórico/entrenamiento: football-data.co.uk (cuotas auditadas por SHA-256);
+- resultados de jornada: SELAE (combinacionganadora + loteriasyapuestas);
+- cuotas quiniela 2026-27: `no_auditado` (no se inventan).
+
+Detalle canónico con timestamps:
+`DATOS/paper_trading/J2_canonico_2026-08-23.json`
+(`prediction_cutoff_at 2026-08-22T00:00+02:00 < kickoff 2026-08-23T17:00+02:00`,
+invariante verificado).
