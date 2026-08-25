@@ -200,9 +200,32 @@ def main():
     def firmas(t):
         return " ".join(casillas[i]["etiquetas"][s] for i, s in enumerate(t))
 
+    # ---- QUINIELA CLASICA: fijos + dobles derivados de la cobertura ----
+    usados = [set() for _ in range(n)]
+    for _, t in topk:
+        for i, s in enumerate(t):
+            usados[i].add(s)
+    dobles, fijos = [], []
+    for i, c in enumerate(casillas):
+        signos = [c["etiquetas"][s] for s in sorted(usados[i])]
+        item = {"casilla": c["numero"], "partido": c["partido"], "signos": signos}
+        if len(signos) == 2:
+            dobles.append(item)
+        else:
+            fijos.append({**item, "signo": signos[0],
+                          "prob_pct": round(100 * max(c["probs"]), 1)})
+    bloque_clasica = {
+        "n_columnas": len(topk),
+        "coste_eur": round(len(topk) * args.precio, 2),
+        "dobles": dobles,
+        "fijos": fijos,
+        "columnas": [{"signos": firmas(t), "peso": round(w, 6)} for w, t in topk],
+    }
+
     salida = {
         "entrada": ruta.name,
         "avisos": avisos,
+        "quiniela_clasica": bloque_clasica,
         "parametros": {"presupuesto": args.presupuesto, "bote": args.bote,
                         "precio": args.precio, "kappa": args.kappa,
                         "temperatura_publico": args.temperatura},

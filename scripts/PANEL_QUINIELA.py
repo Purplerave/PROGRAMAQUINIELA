@@ -153,8 +153,12 @@ def pintar_cli(payload: dict) -> None:
                   f"{pleno.get('signo')} p={max(pleno.get('probs', [0])):.2f}")
             continue
         signo = p.get("signo") or p.get("signo_modelo") or "-"
-        fuente = str(p.get("fuente") or p.get("fuente_ratings") or "")[:30]
-        print(f"{num:>3}  {partido:<44}{signo:^7}{fuente}")
+        fuente = str(p.get("fuente") or p.get("fuente_ratings") or "")[:26]
+        a = p.get("prob_1", p.get("p1", 0))
+        x = p.get("prob_x", p.get("px", 0))
+        b = p.get("prob_2", p.get("p2", 0))
+        print(f"{num:>3}  {partido:<44}{signo:^7}"
+              f"{100*a:4.0f}/{100*x:3.0f}/{100*b:3.0f}%  {fuente}")
     opt = payload.get("optimizacion") or {}
     for pol in ("politica_cobertura", "politica_ev_parimutuel"):
         datos = opt.get(pol) or {}
@@ -165,6 +169,14 @@ def pintar_cli(payload: dict) -> None:
                   f"P={datos.get('p_acierto_total')}{extra}")
             for c in cols:
                 print("   ", c["signos"])
+    qc = ((opt.get("politica_cobertura") or {}).get("quiniela_clasica")) or None
+    if qc:
+        print(f"\n== TU QUINIELA · {qc['n_columnas']} columnas · "
+              f"{qc['coste_eur']} EUR ==")
+        for d in qc["dobles"]:
+            print(f"  DOBLE casilla {d['casilla']}: {'/'.join(d['signos'])}"
+                  f"   [{d['partido']}]")
+        print("  FIJOS:", " ".join(f"{f['casilla']}={f['signo']}" for f in qc["fijos"]))
     print("\n[PUBLICADO]", publicar_liga_maestros())
 
 
@@ -250,13 +262,21 @@ function render(d){const B=d.boleto;if(!B){st('sin datos');return;}
         '</td><td colspan="3"><b>PLENO 15:</b> '+esc(pl.signo)+
         ' ('+Math.max.apply(null,pl.probs).toFixed(3)+')</td></tr>';return;}
     const s=p.signo||p.signo_modelo||'-';
+    const pc=v=>Math.round(v*100)+'%';
     const a=p.prob_1!=null?p.prob_1:p.p1,x=p.prob_x!=null?p.prob_x:p.px,
           b=p.prob_2!=null?p.prob_2:p.p2,mx=Math.max(a,x,b);
     rows+='<tr class="'+cls.trim()+'"><td>'+n+'</td><td>'+esc(p.local+' - '+p.visitante)+
-      '</td><td>'+bar(a,mx)+' '+a.toFixed(2)+'</td><td>'+bar(x,mx)+' '+x.toFixed(2)+
-      '</td><td>'+bar(b,mx)+' '+b.toFixed(2)+'</td><td class="signo">'+esc(s)+'</td></tr>';
+      '</td><td>'+bar(a,mx)+' '+pc(a)+'</td><td>'+bar(x,mx)+' '+pc(x)+
+      '</td><td>'+bar(b,mx)+' '+pc(b)+'</td><td class="signo">'+esc(s)+'</td></tr>';
   });
   let opt='';const O=d.optimizacion||{};
+  const qc=((O.politica_cobertura||{}).quiniela_clasica)||null;
+  if(qc){opt+='<div class="cols" style="background:#13291d;border:1px solid #2f7d4f">'+
+    '<b>&#127942; TU QUINIELA \u00b7 '+qc.n_columnas+' COLUMNAS \u00b7 '+
+    qc.coste_eur+' EUR</b>\nDOBLES ('+qc.dobles.length+'): '+
+    qc.dobles.map(dd=>dd.casilla+'\u00aa '+dd.signos.join('/')).join('   \u00b7   ')+
+    '\nFIJOS: '+qc.fijos.map(f=>f.casilla+'='+f.signo).join(' \u00b7 ')+'\n'+
+    qc.columnas.map(cc=>cc.signos).join('\n')+'</div>';}
   ['politica_cobertura','politica_ev_parimutuel'].forEach(k=>{const o=O[k];if(!o)return;
     opt+='<div class="cols"><b>'+k+'</b> · '+o.columnas.length+' columnas · '+
       o.coste_eur+' EUR · P='+o.p_acierto_total+
