@@ -174,14 +174,14 @@ def publicar_liga_maestros() -> dict:
     try:
         pasos_git = []
         for argv in (
-            ["git", "-C", str(WEB), "add",
+            ["git", "-C", str(WEB_ROOT), "add",
              f"data/inbox/JORNADA_{jornada}_LM_ARENA.json",
              f"data/inbox/QUINIELA_J{jornada}_PROGRAMA.json",
              "tools/PROGRAMA_QUINIELA", "data/ESTADO_MAESTRO_ACTUAL.json"],
-            ["git", "-C", str(WEB), "commit", "-m",
+            ["git", "-C", str(WEB_ROOT), "commit", "-m",
              f"Publicar J{jornada} PROGRAMA desde panel"],
-            ["git", "-C", str(WEB), "pull", "--rebase", "origin", "main"],
-            ["git", "-C", str(WEB), "push", "origin", "main"],
+            ["git", "-C", str(WEB_ROOT), "pull", "--rebase", "origin", "main"],
+            ["git", "-C", str(WEB_ROOT), "push", "origin", "main"],
         ):
             g = subprocess.run(argv, capture_output=True, text=True,
                                encoding="utf-8", errors="replace", timeout=180)
