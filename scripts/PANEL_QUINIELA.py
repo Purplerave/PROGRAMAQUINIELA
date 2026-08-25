@@ -172,9 +172,12 @@ def publicar_liga_maestros() -> dict:
     # ---- push a GitHub (Render despliega al recibirlo) ----
     git_info = {"push_intentado": False}
     try:
-        salidas_git = []
+        pasos_git = []
         for argv in (
-            ["git", "-C", str(WEB), "add", "-A"],
+            ["git", "-C", str(WEB), "add",
+             f"data/inbox/JORNADA_{jornada}_LM_ARENA.json",
+             f"data/inbox/QUINIELA_J{jornada}_PROGRAMA.json",
+             "tools/PROGRAMA_QUINIELA", "data/ESTADO_MAESTRO_ACTUAL.json"],
             ["git", "-C", str(WEB), "commit", "-m",
              f"Publicar J{jornada} PROGRAMA desde panel"],
             ["git", "-C", str(WEB), "pull", "--rebase", "origin", "main"],
@@ -182,9 +185,11 @@ def publicar_liga_maestros() -> dict:
         ):
             g = subprocess.run(argv, capture_output=True, text=True,
                                encoding="utf-8", errors="replace", timeout=180)
-            salidas_git.append(((g.stdout or "") + (g.stderr or "")).strip()[-300:])
-        git_info = {"push_intentado": True,
-                    "detalle": "\n".join(s for s in salidas_git if s)[-800:]}
+            salida_paso = ((g.stdout or "") + (g.stderr or "")).strip()
+            pasos_git.append(f"$ {' '.join(argv[1:3])} (rc={g.returncode})\n"
+                             + (salida_paso[-250:] or "(sin salida)"))
+        git_info = {"push_intentado": True, "pasos": pasos_git,
+                    "detalle": "\n".join(pasos_git)[-1200:]}
     except Exception as exc:  # noqa: BLE001
         git_info = {"push_intentado": True, "error": repr(exc)}
 

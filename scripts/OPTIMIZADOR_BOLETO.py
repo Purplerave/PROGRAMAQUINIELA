@@ -261,9 +261,10 @@ def main():
         "p_acierto": round(p_total_3d, 6),
         "dobles": [{
             "casilla": casillas[i]["numero"], "partido": casillas[i]["partido"],
+            # par mostrado en orden natural de la papeleta (1, X, 2)
             "signos": [casillas[i]["etiquetas"][k] for k in
-                       sorted(range(len(casillas[i]["etiquetas"])),
-                              key=lambda k: -casillas[i]["probs"][k])[:2]],
+                       sorted(sorted(range(len(casillas[i]["etiquetas"])),
+                                     key=lambda k: -casillas[i]["probs"][k])[:2])],
         } for i in idx_dobles],
         "fijos": fijos_3d,
         "columnas": cols_3d,
