@@ -64,7 +64,7 @@ PROGRAMAQUINIELA/
 |---|---|---|---|
 | D1 | Priors de matrices Wikipedia 22/23+24/25+25/26 para Liga F (ascendidos con historial) | Medio — mejora equipos recién ascendidos | Pendiente re-adquisición |
 | D2 | Dixon-Coles tau (corrección marcadores bajos) con rho ajustado a Liga F | Medio — calibración empates | Diseñado |
-| D3 | Cuotas de cierre (OddsPortal/Bet365) para gate "bate al mercado" | Alto — valida edge económico | Pendiente fuente |
+| D3 | Cuotas de cierre para gate "bate al mercado" | Alto | **BLOQUEADO con evidencia** (2026-08-25): football-data no cubre Liga F; Wikipedia sin temporada actual; FBref 403 anti-bot; BetExplorer sirve listados pero sus cuotas viven en endpoint AJAX privado (verificado: detalle sin odds en HTML, 106 páginas inspeccionadas). **Plan B activo**: porcentajes LAE (quinielista XML) = dinero real del público por casilla desde J3 26-27 → validación modelo-vs-público en vivo. Cuotas reales requerirán fuente comercial (API tipo OddsAPI/TheOddsApi) o exportación manual periódica. |
 | D4 | Temporada Liga F actual datada cuando haya fuente (StatsBomb no la cubre aún) | Alto — ratings frescos | Vigilancia |
 | D5 | Optimizador de boleto global (`OPTIMIZADOR_BOLETO.py`: cobertura exacta best-first + EV parimutuel con modelo de público explícito) | Alto — convierte probs en dinero | ✅ HECHO 2026-08-25, validado sobre boleto unificado |
 | D6 | Automatizar descarga fixtures Liga F (scraping RFEF/LaLigaF) | Medio — elimina input manual | Pendiente |
