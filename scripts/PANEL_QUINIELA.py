@@ -169,10 +169,31 @@ def publicar_liga_maestros() -> dict:
         importacion_web = {"ejecutado": True, "returncode": imp.returncode,
                            "detalle": ((imp.stdout or "") + (imp.stderr or ""))[-600:]}
 
+    # ---- push a GitHub (Render despliega al recibirlo) ----
+    git_info = {"push_intentado": False}
+    try:
+        salidas_git = []
+        for argv in (
+            ["git", "-C", str(WEB), "add",
+             f"data/inbox/JORNADA_{jornada}_LM_ARENA.json",
+             "tools/PROGRAMA_QUINIELA", "data/ESTADO_MAESTRO_ACTUAL.json"],
+            ["git", "-C", str(WEB), "commit", "-m",
+             f"Publicar J{jornada} PROGRAMA desde panel"],
+            ["git", "-C", str(WEB), "push", "origin", "main"],
+        ):
+            g = subprocess.run(argv, capture_output=True, text=True,
+                               encoding="utf-8", errors="replace", timeout=180)
+            salidas_git.append(((g.stdout or "") + (g.stderr or "")).strip()[-300:])
+        git_info = {"push_intentado": True,
+                    "detalle": "\n".join(s for s in salidas_git if s)[-800:]}
+    except Exception as exc:  # noqa: BLE001
+        git_info = {"push_intentado": True, "error": repr(exc)}
+
     return {"publicado_en": str(destino), "jornada": jornada,
             "n_casillas": len(casillas),
             "signos": signos15,
-            "importacion_web": importacion_web}
+            "importacion_web": importacion_web,
+            "git": git_info}
 
 
 # ------------------------------------------------------------------ CLI --
@@ -315,7 +336,7 @@ function render(d){const B=d.boleto;if(!B){st('sin datos');return;}
       '</td><td>'+bar(b,mx)+' '+pc(b)+'</td><td class="signo">'+esc(s)+'</td></tr>';
   });
   let opt='';const O=d.optimizacion||{};
-  const T=((O.politica_cobertura||{}).tres_dobles)||((O.politica_ev_parimutuel||{}).tres_dobles)||null;
+  const T=O.tres_dobles||((O.politica_cobertura||{}).tres_dobles)||null;
   if(T){const mapa={};(T.fijos||[]).forEach(f=>mapa[f.casilla]=f.signo);
     (T.dobles||[]).forEach(dd=>{mapa[dd.casilla]=dd.signos.join('/');});
     const linea=Object.keys(mapa).map(Number).sort((a,b)=>a-b)
