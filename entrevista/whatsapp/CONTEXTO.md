@@ -197,3 +197,62 @@ Qué contesta ella cuando él lo dice (217 casos con respuesta):
 **Contrapeso obligatorio:** Sonia escribe **707** mensajes con corazones
 (❤💜💙💕💗😘😍🥰) y 24 con «love». No es frialdad: es otro registro. Y la
 llamada de todas las noches no deja rastro en el chat.
+
+### CORRECCIÓN IMPORTANTE (ronda 23)
+
+La tabla de arriba solo mira `chat sonia 1.txt` (2023-2026) y por eso es
+injusta. Sumando los **tres** chats de pareja desde 2016:
+
+| | 2016 | 2017 | 2023 | 2024 | 2025 | 2026 |
+|---|---:|---:|---:|---:|---:|---:|
+| Pablo | 1 | **200** | 80 | 112 | 128 | 32 |
+| Sonia | 0 | **25** | 0 | 1 | 0 | 1 |
+
+Sonia **sí** lo decía: «Yo no te quiero, te adoro» (6/7/17), «te quiero un
+montón churruscaito» (6/7/17), «te quiero muchisísimo peque» (8/7/17),
+«buenas noches mi vida». Dejó de hacerlo. **No es un rasgo de carácter:
+es un cambio.**
+
+## La cajita (2017)
+
+Un sitio imaginario donde guardaban lo que no querían perder.
+
+- **25/5/17** — Pablo: «me guardo en la cajita la invitación a bailar».
+  Sonia: «¿Cabrán tantas cosas en la cajita??»
+- **27/5/17** — Sonia: **«Otra cosa para la cajita: ver partidos juntos 😉😉»**
+- **31/5/17** — Sonia: «Meteremos esta mañana en la cajita como un recuerdo
+  especial» · Pablo: «está a salvo en nuestra cajita». Ella cierra con **🗝🗃**
+- **12/6/17** — Sonia: «ya tenemos varios bailes en la penumbra en la cajita»
+- **21/7/17** — Pablo: «Gracias por esta maravillosa cajita ❤»
+
+**El fútbol estaba en la cajita cuatro días antes del primer beso, y lo metió
+ella.** Corrige la lectura de la ronda 18: el fútbol de los viernes no es el
+residuo que queda cuando se apaga lo demás, es lo único de la cajita que
+sigue funcionando.
+
+## El primer beso — 31 de mayo de 2017, Santa Cruz
+
+- 30/5 22:05 — ella cuadra los buses; él: «te llevaré una cosilla, una tontería»
+- 31/5 **13:25** — «Aunque ahora mismo no me salen las palabras, solo quería
+  que supieras que **soy el hombre más feliz del mundo**»
+- 13:56 — ella: «💋💋💔💔» → él: «¿por qué me mandas siempre el corazón
+  partido?» → ella: **«Ya lo completaremos 💋💋»**
+- 23:37 — ella: «Meteremos esta mañana en la cajita»
+- 23:44 — ella: **«❤❤ Ves, te mando el corazón entero está vez 😘😘😘»**
+- 23:48 — él: «tienes unos labios dulces que me derriten… gracias por hacer
+  un agujerito en el dique»
+
+## El verano de 2017 (contexto de la primera vez)
+
+**8/7/17 22:22-22:52** — ella cierra el acuerdo de separación con su ex y se
+lo cuenta esa noche:
+
+- «Tengo unas ganas locas de firmar un papel que diga que **soy libre para
+  vivir mi propia vida como quiero vivirla y de querer a quien yo quiera**»
+- «me dijo que era la primera vez en meses que me veía sonreír y relajada
+  con él delante. **Lo cual es cierto**»
+- «Lo nuestro no es muy normal jaja» · «con nosotros se haría la peli
+  romántica más ñoña del mundo jaja»
+- Alex (su hijo): «mientras viviera conmigo y nos tuviera a los dos le
+  parecía bien»
+

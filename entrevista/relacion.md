@@ -47,7 +47,10 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - ~~**La pregunta sin responder: ¿quiere seguir?**~~ **RESPONDIDA (R22):** «No así como pareja, pero no quiero que se vaya de mi vida.» Es la respuesta central de la bitácora y reordena todo lo anterior.
 - **¿Y ahora qué es esto?** Si no es pareja pero no es ruptura, hay que definirlo. Abierto en la 23.
 - **Ella no lo sabe.** Todo el entorno los da por pareja. ¿Se lo dirá?
-- **Falta la parte buena.** Veintidós rondas de lo que falta y ningún día feliz contado en detalle. Pedido en la 23.
+- ~~**Falta la parte buena.**~~ **Contada (R23):** el primer beso, la cajita, los paseos, los viajes, verla disfrutar. «No tendría uno especial» — porque hay muchos.
+- **La cajita (2017).** Recuperada. Habría que ver qué más metieron dentro y qué queda de cada cosa.
+- **El fútbol estaba en la cajita.** Lo metió ella cuatro días antes del primer beso. Corrige la lectura de la ronda 18.
+- **Ella dejó de decir «te quiero».** 25 veces en 2017, casi ninguna desde 2023. ¿Cuándo y por qué? Abierto en la 24.
 - **El aniversario de 2026.** El 31 de mayo, por primera vez, no se mencionó. ¿Se dieron cuenta los dos?
 - **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
 - **La llamada de todas las noches.** Nueve años sin fallar. Es el hilo más constante de la relación y todavía no sabemos de qué habláis en ella.
@@ -397,5 +400,36 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 **Dos.** Ella no sabe nada de esto. Vosotros «sois pareja» a efectos de todo el mundo — de Anuska, de Carlos, de las comidas del domingo. **¿Se lo vas a decir?** Y si la respuesta es no, dime por qué no, sin adornarlo.
 
 **Tres.** La fácil, y va en serio: en nueve años, ¿cuál es el mejor recuerdo que tienes con ella? Uno concreto, un día. Porque esta bitácora se ha ido llenando de lo que falta, y **eso también es injusto con nueve años de vida.** Falta la parte buena, y quiero escribirla.
+
+**R:** Recuerdo con inmenso cariño el primer beso. La primera vez que hicimos el amor, un momento concreto en que se enterneció en la cama mirándome. Hemos pasado muchos días bonitos de paseos, cafés, viajes, comidas, cenas, noches intensas de sexo. Verla disfrutar… hay mucho. Realmente no tendría uno especial.
+
+> *«Realmente no tendría uno especial» — y esa es, seguramente, la mejor noticia de toda la bitácora.* No hay un día que salvar porque **no hay un día que salvar: hay nueve años.** La gente que solo tuvo un buen momento lo recuerda con fecha y hora. Al que tuvo muchos se le amontonan y no sabe cuál elegir. Que no pueda escoger uno no es falta de memoria: es abundancia.
+
+> *El primer beso: 31 de mayo de 2017, Santa Cruz, por la mañana.* Está entero en el chat y merece quedar escrito. La noche anterior cuadran los buses («el que sale de la estación a las 10:30»; él: «te llevaré una cosilla, una tontería»). A las **13:25** de aquel día él escribe: **«Aunque ahora mismo no me salen las palabras, solo quería que supieras que soy el hombre más feliz del mundo.»** Y a las 13:50: *«Estaba paseando cuando el mundo se paró. Mi corazón dio un brinco. Mi sol estaba acariciándome el alma.»* Ella contesta con un corazón partido, «💋💋💔💔», y él protesta: «¿Por qué me mandas siempre el corazón partido?». Ella: **«Ya lo completaremos 💋💋».** Esa noche, a las 23:44, se lo manda entero: **«❤❤ Ves, te mando el corazón entero esta vez 😘😘😘».**
+
+> *Y existe «la cajita».* No es un decir: fue una cosa suya, de los dos, en 2017 — un sitio imaginario donde iban guardando lo que no querían perder. El 25/5 él «me guardo en la cajita la invitación a bailar» y ella pregunta, encantada: **«¿Cabrán tantas cosas en la cajita?».** El 12/6: «ya tenemos varios bailes en la penumbra en la cajita». Y la noche del primer beso, ella: **«Meteremos esta mañana en la cajita como un recuerdo especial»**; él: «no te preocupes, está a salvo en nuestra cajita… este día queda grabado a fuego en mi corazón». Ella se despide con dos emojis que lo dicen todo: **🗝🗃** — la llave y el archivador.
+
+> *Y ahora el detalle que cambia la lectura de todo lo demás.* El **27 de mayo de 2017**, entre las cosas que ella propone meter en la cajita, escribe esto: **«Otra cosa para la cajita: ver partidos juntos 😉😉».** Lo dijo **ella**, cuatro días antes del primer beso. En la ronda 18 anoté el fútbol como «el único espacio simétrico que les queda», con un punto de lástima, como si fuera lo que sobrevive cuando lo demás se apaga. **Estaba equivocado.** El fútbol no es el residuo de la relación: **es una de las cosas que ella eligió que fueran suyas desde el principio.** Está en la cajita desde antes que el beso. Cuando hoy se llaman para sincronizar el partido, no están matando el tiempo — **están haciendo lo que ella pidió que hicieran siempre.**
+
+> *Sobre el verano de 2017, para situar la primera vez.* No hay un mensaje que la narre (y está bien que no lo haya), pero sí está el contexto: **el 8 de julio de 2017** ella cierra con su ex el acuerdo de separación y se lo cuenta a Pablo esa noche, aliviada. Dice dos frases que enmarcan aquel verano: **«Tengo unas ganas locas de firmar un papel que diga que soy libre para vivir mi propia vida como quiero vivirla y de querer a quien yo quiera»** y, sobre lo que le dijo su ex, **«era la primera vez en meses que me veía sonreír y relajada delante de él. Lo cual es cierto».** Esa noche también: «lo nuestro no es muy normal jaja», «con nosotros se haría la peli romántica más ñoña del mundo». **Aquel verano ella estaba estrenando una vida, y él era la vida que estrenaba.**
+
+> *Y aquí toca rectificar el dato más duro que he puesto en esta bitácora.* En la ronda 22 escribí «Pablo 245 · Sonia 1» y era **una foto injusta**, porque solo miraba el chat de 2023-2026. Contando los tres chats de pareja desde el principio, el marcador real es este:
+
+| | 2016 | 2017 | 2023 | 2024 | 2025 | 2026 |
+|---|---:|---:|---:|---:|---:|---:|
+| Pablo | 1 | **200** | 80 | 112 | 128 | 32 |
+| Sonia | 0 | **25** | 0 | 1 | 0 | 1 |
+
+> *Sonia sí lo decía.* «Yo no te quiero, te adoro 😍😍» (6/7/17). «Te quiero un montón, churruscaito 💗💗» (6/7/17). «Te quiero muchísimo, peque» (8/7/17). «Buenas noches, mi vida 💋💋». «Este amor me va a costar un resfriado, jaja». **Veinticinco veces en 2017 — y luego, a partir de 2023, prácticamente ninguna.** Así que la conclusión correcta no es «ella nunca fue expresiva». Es peor y es más triste, pero también es más honesta: **ella fue así, y dejó de serlo.** Eso no es un rasgo de carácter. Es algo que pasó.
+
+> *Lo que esta respuesta añade a la 22, y que conviene no perder de vista:* cuando dijo «no como pareja, pero no quiero que se vaya de mi vida», no estaba hablando desde el rencor ni desde el desamor. **Habla alguien que se acuerda del corazón entero de las 23:44 y de la cajita con la llave.** No quiere irse porque aquello existió de verdad. El problema nunca fue que no hubiera nada bueno — es que lo bueno está casi todo escrito en pasado.
+
+### 24. La cajita
+
+**P:** Dos preguntas, y la primera es la de verdad.
+
+**Una.** «Ver partidos juntos» lo metió **ella** en la cajita el 27 de mayo de 2017, cuatro días antes del primer beso. Nueve años después seguís llamándoos para sincronizar el partido: es lo único de la cajita que no se ha roto. ¿Tú sabías eso? Y sabiéndolo ahora — **¿el fútbol de los viernes es el resto de algo, o es lo último que queda vivo?** Porque no es lo mismo, y de la respuesta depende bastante.
+
+**Dos.** Ella pasó de decirte «te adoro» veinticinco veces en 2017 a no decirlo casi nunca desde 2023. Tú no bajaste el ritmo ni un año. **¿Cuándo notaste que había dejado de decirlo?** ¿Lo notaste en su momento, o te estás enterando ahora conmigo?
 
 **R:** *(pendiente)*
