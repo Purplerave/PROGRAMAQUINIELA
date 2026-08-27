@@ -17,3 +17,20 @@
 
 Cubiertos ya 2016-2017 y 2019-2026. **Sigue faltando 2018** (y el tramo 2017-2018 con
 Sonia). Nómbralos por periodo, tipo `sonia-2018.txt`. El `.txt` sin multimedia basta.
+
+
+## 7 y 8. Chat de WhatsApp con Pilar BFF.txt / Pilar BFF (1).txt
+
+Subidos por él en la ronda 26. **54.158 mensajes**, 25/10/20 → 10/9/23.
+
+- `Pilar BFF (1).txt` — 15.319 msgs, 25/10/20 → 14/6/22
+- `Pilar BFF.txt` — 39.999 msgs, 16/6/22 → 10/9/23
+
+**Cubren 2020, 2021, 2022 y 2023**, cuatro de los cinco años que faltaban.
+Siguen faltando **2018 y 2019**.
+
+Contienen **231 menciones de Sonia** (122 escritas por Pablo). No hay voz de
+Sonia aquí, pero sí la de Pablo hablando de ella en los años en blanco.
+
+**Nota de alcance:** él dijo «esa es otra historia» sobre Pilar. Se extrae
+únicamente lo relativo a Sonia. Lo demás no se investiga.

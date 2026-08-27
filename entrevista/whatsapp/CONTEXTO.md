@@ -305,3 +305,50 @@ mensajes):
 Esto refuta «todo va bajando con el tiempo en las relaciones» (frase que él
 atribuye a ella): si fuera eso, bajarían los dos. **No es enfriamiento mutuo,
 es asimetría creciente.**
+
+
+## Los años perdidos, vistos por el chat con Pilar (2020-2023)
+
+Esto **reordena la cronología**: el malestar no empieza en enero de 2026.
+
+### Junio de 2022 — el «speech»
+
+- **16/6 22:18** Pilar: «es que son muchas Soniadas… como para que te diga a
+  ti que si no estás a gusto que te lo pienses»
+- **17/6 9:39** Pablo: «**Speech grabado ayer… que pretendo decirle a Sonia**»
+  · 9:48: «¿qué te parece el speech?»
+- **17/6 9:51** Pilar: «el reclamo es veros un poco más y compartir más
+  momentos de pareja… pero para recordarle que es una pareja»
+- **17/6 19:54** Pilar: «habla tú, pero déjala a ella explicarse… y sobre
+  todo **mantén la calma**»
+- **18/6 9:48** Pablo: «iba a grabar un mensaje pero no puedo 💔😭 **ahora
+  mismo estoy hecho una mierda.** Pero como todo, con algo de tiempo pasará»
+- **18/6 10:31** Pilar: «estos nudos no se solucionan en una conversación»
+
+### Mayo de 2023 — el Titanic
+
+- **16/5 18:09** — Pilar bromea con «noches de pasión desenfrenada» → Pablo:
+  «eso me gustaría más sí, pero **está claro que con ella no lo voy a encontrar**»
+- **16/5 18:52** — «Creo que me dolería más perderte a ti que a **mi novia
+  titanic, que ya veo hundirse**»
+
+### Otras, de pasada (todas anteriores a 2024)
+
+| fecha | cita | hilo que fecha |
+|---|---|---|
+| 11/7/22 | «quedé con Sonia para acompañarla al médico… pero no me invitará a comer claro» | la rutina |
+| 1/11/22 | «me pongo en plan Sonia y amigos con derecho a roce y me acabo quedando chafado» | qué son |
+| 30/1/23 | «si le pago todos los cafés que tomamos siempre…» | el dinero |
+| 28/2/23 | «A Sonia le escribí muchas [canciones] (**ahora ya no**)» | las canciones |
+| 15/3/23 | «como yo no voy a vivir con la melona de mi novia» | la convivencia |
+| 8/5/23 | «de autogestión estoy servido… pero de pasión y de ver a mi novia que le apetece echarme un buen polvazo, casi no» | **la ronda 21, en 2023** |
+
+### Dónde escribía Pablo (mensajes suyos por año)
+
+| | 2020 | 2021 | 2022 | 2023 |
+|---|---:|---:|---:|---:|
+| a Pilar | 78 | 1.663 | **10.854** | 6.837 |
+| a Sonia | 1 | 0 | **0** | 3.434 |
+
+*(El archivo de Sonia 2020-2022 está vacío, así que la fila de abajo mide
+sobre todo el hueco del archivo. Aun así el volumen con Pilar es un hecho.)*

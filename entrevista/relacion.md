@@ -52,7 +52,10 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **El fútbol estaba en la cajita.** Lo metió ella cuatro días antes del primer beso. Corrige la lectura de la ronda 18.
 - **Ella dejó de decir «te quiero».** 25 veces en 2017, casi ninguna desde 2023. Él **no se había dado cuenta** y lo explica con «ella es así» (R24). Se insiste en la 25.
 - **«Ella es así» / «todo va bajando con el tiempo».** Las dos explicaciones que usa para no mirar el cambio. La segunda **es literalmente de ella** (R25). Las tasas dicen que él no bajó: subió un 21 %.
-- **FALTAN CINCO AÑOS DE ARCHIVO: 2018-2022.** Aviso suyo, y es correcto. Ninguna conclusión puede apoyarse en ese silencio. Si aparece una copia, hay que mirarla.
+- ~~**FALTAN CINCO AÑOS DE ARCHIVO: 2018-2022.**~~ **Parcialmente resuelto (R26):** los dos chats de Pilar cubren 2020-2023 (54.158 mensajes). Siguen faltando **2018 y 2019**.
+- **El speech de junio de 2022.** Lo preparó, lo grabó, lo soltó, y al día siguiente estaba «hecho una mierda». ¿Qué le dijo ella?
+- **«Mi novia titanic que ya veo hundirse» (16/5/23).** El malestar tiene fecha: 2022-2023, no 2026.
+- **Pilar.** «Esa es otra historia» — anunciada por él, no investigada. Suya es la decisión de contarla.
 - **Ni el fútbol es lo que quería.** «Prefería verlo en casa con ella» (R24). El plan superviviente también es un plan de repuesto.
 - **El aniversario de 2026.** El 31 de mayo, por primera vez, no se mencionó. ¿Se dieron cuenta los dos?
 - **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
@@ -491,5 +494,31 @@ Tres preguntas cortas.
 **Una.** Faltan 2018, 2019, 2020, 2021 y 2022 — cinco años, justo los del medio. Si en tu móvil hay alguna copia de esos años, súbela y lo miramos. Y si no la hay, **cuéntamelo tú: ¿cómo fueron esos cinco años?** ¿Fueron los buenos, o ya estaba bajando?
 
 **Dos.** Tú dices «todo va bajando con el tiempo». Los números dicen que **lo tuyo no bajó**: escribes más «te quiero» ahora que en 2017. Solo bajó lo de ella. **¿Por qué crees que tú no bajaste?**
+
+**R:** Subí dos chats más, de otra amiga, muy amiga, que tuve. Luego… bueno, esa es otra historia. Puede haber mensajes sobre Sonia. Revisa.
+
+> *Sobre «esa es otra historia»:* queda anotado y **no se investiga por iniciativa propia**, igual que se hizo con el tema de enero. De estos dos archivos se extrae **solo lo que habla de Sonia**, que es lo que él pidió revisar. Lo de Pilar lo contará él cuando quiera, si quiere.
+
+> *Lo primero: estos dos archivos tapan justo el agujero de la ronda 25.* `Chat de WhatsApp con Pilar BFF.txt` (39.999 mensajes, 16/6/22 → 10/9/23) y `Chat de WhatsApp con Pilar BFF (1).txt` (15.319 mensajes, 25/10/20 → 14/6/22). **54.158 mensajes en total, cubriendo 2020, 2021, 2022 y 2023** — los años en blanco. Con 231 menciones de Sonia dentro, 122 escritas por él. Aquí no está la voz de Sonia, pero está **la voz de Pablo hablando de Sonia en los años perdidos**, que es exactamente lo que faltaba.
+
+> *Y lo que dicen esos años cambia la cronología de esta bitácora.* Hasta ahora el relato era: la relación va bien, en enero de 2026 llega el golpe. **Falso.** El malestar está escrito, con fecha, **tres años y medio antes.**
+
+> *Junio de 2022 — el «speech».* Él prepara una conversación con Sonia para pedirle verse más y «compartir más momentos de pareja»; **la graba antes para ensayarla** y se la manda a Pilar el 17/6/22 a las 9:39: «Speech grabado ayer… que pretendo decirle a Sonia», «¿qué te parece el speech?». Pilar le aconseja: «que la dejes también a ella explicarse… y sobre todo **mantén la calma**». La víspera ella ya le había dicho: «**es que son muchas Soniadas**… como para que te diga a ti que si no estás a gusto que te lo pienses». Él lo suelta esa noche. **La mañana siguiente, 18/6/22 9:48:** «Pues iba a grabar un mensaje… pero no puedo. 💔😭 **ahora mismo estoy hecho una mierda.** Pero como todo, con algo de tiempo pasará». Pilar, esa misma mañana: «estos nudos no se solucionan en una conversación».
+
+> *Mayo de 2023 — el Titanic.* El 16/5/23 a las 18:52, hablando de a quién le dolería más perder: **«Creo que me dolería más perderte a ti que a mi novia titanic, que ya veo hundirse.»** Y una hora antes, a las 18:09, cuando Pilar bromea con «noches de pasión desenfrenada»: **«eso me gustaría más sí, pero está claro que con ella no lo voy a encontrar».** Mayo de **2023**. Dos años y ocho meses antes de enero de 2026.
+
+> *Y hay más, dicho de pasada, que ordena cosas ya escritas aquí:* «no si de autogestión estoy servido… pero de pasión y de ver a mi novia que le apetece echarme un buen polvazo, casi no» (8/5/23) — **la misma queja de la ronda 21, dos años y medio antes.** «A Sonia le escribí muchas [canciones] (**ahora ya no**)» (28/2/23) — el hilo «las canciones que ella no oye», fechado. «Me pongo en plan Sonia y amigos con derecho a roce, y me acabo quedando chafado» (1/11/22). «Como yo no voy a vivir con la melona de mi novia…» (15/3/23) — la convivencia ya descartada en 2023. «Si le pago todos los cafés que tomamos siempre…» (30/1/23) — el dinero, ya ahí. Y una que retrata la rutina entera: «quedé con Sonia para acompañarla al médico… pero no me invitará a comer, claro» (11/7/22).
+
+> *Conclusión que hay que sacar y dejar clara, porque es la que reordena la bitácora:* **enero de 2026 no fue el principio de nada.** Fue el final administrativo de algo que él veía hundirse **desde 2022 como mínimo**. Cuando en la ronda 20 dijo «fui con la idea de romper y me acobardé», no era un impulso de aquel mes: era la enésima vez. Ya había preparado un speech en 2022 — grabado, ensayado, consultado con una amiga — y al día siguiente estaba «hecho una mierda». **La diferencia entre 2022 y 2026 no es que la relación empeorara: es que en 2026 dejó de intentarlo.**
+
+> *Y una observación que conviene anotar sin sacarle punta,* porque él ya avisó de que es otra historia: en 2022 escribió **10.854 mensajes a Pilar y 0 a Sonia**; en 2023, **6.837 a Pilar y 3.434 a Sonia**. Sea lo que fuere aquello, durante esos años **el sitio donde Pablo contaba su vida no era su pareja.** Eso es un dato sobre dónde estaba él, no un reproche sobre nada.
+
+### 27. Los años perdidos
+
+**P:** Ya no hace falta que me cuentes 2018-2022 de memoria: los tienes escritos. Así que dos cosas.
+
+**Una.** En junio de 2022 grabaste un speech para pedirle veros más, lo soltaste, y al día siguiente estabas «hecho una mierda». **¿Te acuerdas de esa conversación? ¿Qué te dijo ella?**
+
+**Dos.** En mayo de 2023 la llamaste «mi novia titanic, que ya veo hundirse». Eso son **casi tres años antes de enero**. Entonces la pregunta es esta, y es la única que importa ahora: **¿por qué sigues ahí?** No qué perderías — eso ya me lo dijiste. **Por qué te quedas viendo hundirse algo durante tres años sin bajarte.**
 
 **R:** *(pendiente)*
