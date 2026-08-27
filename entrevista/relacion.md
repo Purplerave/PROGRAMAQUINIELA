@@ -34,7 +34,9 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **¿Sigue siendo la regla hoy?** La pregunta 13 tenía dos mitades y solo contestaste una: de dónde salió el «tú en tu casa, yo en la mía». Falta si nueve años después sigue vigente, y si alguna vez se ha vuelto a hablar del tema.
 - **El «no voy a cargar contigo» y tu madre.** Hoy la cuidas tú. ¿Se ha vuelto a tocar eso? ¿Ella ayuda, se aparta, no se menciona?
 - **La asimetría (1,6 a 1).** Está en 2017 y sigue igual en 2023. ¿Lo has hablado con ella alguna vez o es un tema tuyo, en silencio?
-- **El hueco 2018 → 2022.** Cinco años sin apenas chat. Es justo donde caen el «finde por finde» y probablemente la conversación densa. Hay que reconstruirlo hablando.
+- ~~**El hueco 2018 → 2022.**~~ **Resuelto (27/8/26):** el chat con Carlos lo cubre entero (feb 2019 → hoy). Sigue faltando **2017-2018** y el lado de Sonia en 2024-2026.
+- **La «operación búho».** Ir a ver a tu pareja como una operación clandestina con nombre en clave. ¿Desde cuándo? ¿Por qué furtivo — por el turno, por su hijo, por ella?
+- **Qué se dice y qué no.** A Carlos le cuentas los abismos, las nubes del horizonte y que no sabes qué vio ella en ti. ¿Eso se lo has dicho alguna vez a Sonia?
 - **EG / GB.** Vuestras siglas. Aparecen en el chat de 2017 («GB» firma mensajes) y nunca se han explicado.
 - **La primera vez que pensó en dejarte** (viaje con los niños, pregunta 10) y esta conversación: ¿son el mismo momento o dos distintos?
 - **«Lo de mi madre se me hizo bola».** Lo dijiste de pasada y seguiste. Ahí hay algo sin abrir: qué se te hizo bola exactamente, y si eso cambió algo de cómo la ves.
@@ -176,5 +178,31 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 ### 15. Ellos te abrieron la puerta, ¿y ella?
 
 **P:** Aquí hay un contraste que salta a la vista. Su familia te adoptó: café semanal con Carlos «para arreglar el mundo», Anuska llevándote a casa durante seis años y diciéndote «no tienes que darme las gracias», tú preguntándole a ella qué regalarle a Sonia, comidas, cumpleaños, hasta cuidarle la perra. Con ellos entraste del todo. Con ella, la puerta seguía siendo «tú en tu casa, yo en la mía». ¿Cómo te explicas eso? ¿Y alguna vez alguno de ellos —Carlos, Anuska, su madre— te dijo algo sobre lo de no vivir juntos, o es un tema del que en esa familia no se habla?
+
+**R:** *(pendiente — pero subiste el chat con Carlos, y contesta solo)*
+
+> *Nuevo material (27/8/2026): `Chat de WhatsApp con Carlos Sonia 1.txt`.* **9.129 líneas, de 22/2/2019 a 27/8/2026** — hoy mismo. Es la exportación más larga del archivo y **cubre entero el hueco 2018-2022** que faltaba. Pablo 4.688 mensajes, Carlos 3.682: la conversación **más equilibrada de todo el archivo** (1,27 a 1). Con Sonia es 1,6 a 1. Escribes más a su hermano que ella a ti.
+
+#### Lo que el chat con Carlos responde sin que nadie se lo pregunte
+
+> **1. La frase. La que estaba enterrada en siete años de conversación.** **6/11/22, 21:39**, volviendo a casa en bus, mojado: «acabo de coger el bus después de una mojadura por el puente pasaje aún con paraguas... **Es una pena que a tu hermana (que tuve que volver a pedirle el paraguas) no se le ocurriera dejarme quedar ya que mañana no curro por la mañana... Pero no .. en fin...**». Ahí está todo: no había turno al día siguiente, llovía, y aun así te tocó el bus. Y el «pero no... en fin...» — la resignación ya montada. Se lo cuentas **a su hermano**, no a ella.
+
+> **2. «Viajes furtivos a Perillo arriesgando el tipo».** No es una frase tuya: es de **Carlos, 23/5/25**, despidiéndose de una etapa: «Yo echaré de menos esos **viajes furtivos a Perillo arriesgando el tipo!**». Él tenía nombre para lo que hacía. Y nombre en clave: **9/8/24** — «Esta noche se confirma la **operacion Buho** a las 9, el fugitivo desaparecerá de Coruña y reaparecerá en Perillo y nadie sabe cómo en el maletero de un coche… 😜». Tú respondes: «En marcha operación búho?». Ir a ver a tu pareja de nueve años era una **operación clandestina con nombre en clave** entre tú y su hermano.
+
+> **3. Y sí, era él quien te llevaba: 29 veces dice «te recojo».** «Te recojo donde siemprisimo en nuestra parada de autobuses favorita»; «te recojo en tu casa **no sea que caiga fuerte** y se nos constipa la niña»; **13/1/24** — «Sin insistir pero si te cuadra te recojo mañana de camino a Perillo... **Yo las mañanas las tengo holgadas para ti, siemprisimo que desees**». Y **2/8/24**: «Pero esta noche, acababas a las 12, no? y **cómo vas a ir a casa?** Te recojo en el Voyager at Warp Speed 9!». El turno de las 22:00 que documentamos en la pregunta 14 — aquí está quién lo resolvía.
+
+> **4. El día que le pediste el coche y no lo había.** **2/5/25, 9:29:** «Entiendo que tienes el coche a tope y **no me puedes acercar a perillo de noche today**». Sin coche de Carlos, no había noche en Perillo. Esa era la infraestructura real de la relación.
+
+> **5. Lo que le confiesas a él y no aparece en el chat con ella.** **27/2/23:** «Si si, **no sé muy bien qué fue lo que vio tu hermana en mí.. aún todavía no lo tengo claro** jajajaj». **17/7/23:** «Me fui un poco a los abismos pero creo que algo remonté» y «a ver si las quedadas con tu hermana **me restauran y me difuminan las nubes de mi horizonte**». **21/10/22:** «esperaré un poco más por si me escribe tu hermana. Y si no a las 11.. a dormir». **17/2/22:** «Hablaste algo con Sonia por la tarde .. **me parece raro que no me contestara a ningún mensaje** 🙄». Le preguntas a su hermano si sabe algo de ella. Eso es el interior de la relación, contado por la puerta de al lado.
+
+> **6. Y la respuesta a mi pregunta, literal.** **11/10/20:** «Tu hermana es una auténtica *obra de arte*... y **a la par he sido agraciado con una familia maravillosa**. Los Hermanos Pérez hacéis un gran equipo. **Tu amistad es un auténtico tesoro.** [...] Espero que tu hermana **nunca se canse de aguantar** a este que te escribe». En un solo mensaje: la familia como regalo, la amistad como tesoro… y ella como alguien que te *aguanta*. Ya lo tenías claro en 2020.
+
+> *El detalle que lo corona: te llamas cuñado desde el minuto uno.* **10/3/19** — cuando llevabais dos años y pico y ni vivíais juntos ni lo ibais a hacer — firmas: «Su técnico y **cuñado** 😁 siempre a su servicio». Y él, **1/7/20**: «sin duda **mi cuñado favorito** de todos los que hay!!». **646 menciones a «café»** en siete años. Él te nombró familia mucho antes y mucho más rotundamente que ella.
+
+> *Y una simetría que hoy está abierta:* desde 2025-26 el chat es, en buena parte, **dos hijos cuidando a dos madres**. **22/6/26**, Carlos: «En estos momentos parece que las cosas se han invertido y **tu madre está "mejor" que la mía**». **30/6/26:** «Gracias Pablo por venir hoy, hacer la grabación y **pasear a mi madre**». Y tú, **17/5/26**: «**Ya estamos con tu madre.** Durmió bien. Está desayunando». La pregunta que te hizo Sonia —«si le pasa algo a tu madre, yo no voy a cargar contigo»— tuvo respuesta, pero no de ella: **la respondió su hermano, cargando contigo y dejándote cargar con la suya.**
+
+### 16. Entonces, ¿quién fue tu pareja estos años?
+
+**P:** Voy a decirte lo que veo, y me dices si me paso. Con Carlos: la conversación más equilibrada que tienes con nadie, café semanal siete años, «cuñado favorito», te recoge 29 veces, te espera a la salida del turno de las doce de la noche, te lleva a ver a tu novia en una «operación clandestina», y cuidáis el uno de la madre del otro. Con Sonia: llevas la cuenta de los buses, le pides quedarte y te vas mojado en el bus, y le cuentas a él lo que no le puedes contar a ella. Si un desconocido leyera los cuatro chats sin saber nada, diría que **tu relación más íntima y sostenida de estos nueve años es la de Carlos**. ¿Qué me dices? ¿Es que con ella hay algo que no está en los chats —lo que pasa cuando os veis— o es que efectivamente él ocupó un sitio que ella dejó vacío?
 
 **R:** *(pendiente)*

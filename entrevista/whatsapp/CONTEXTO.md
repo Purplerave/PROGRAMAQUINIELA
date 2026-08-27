@@ -8,9 +8,11 @@
 | `Chat de WhatsApp con Sonia Atento (1).txt` | Sonia | 3/12/2016 → 14/11/2023 | **La historia completa en dos tramos**: 12/16→26/7/17 y 11/2023→11/2023. El chat se partió en 2019 (cambio de número, probablemente). |
 | `Chat de WhatsApp con Amor De mi Vida (1).txt` | Sonia | 2/2019 → 14/11/2023 | Segunda parte del chat anterior, sola. (Contacto renombrado «Amor De mi Vida».) |
 | `Chat de WhatsApp con Anuska (Sonia)2.txt` | Anuska (cercana a Sonia, parece su hermana) | 20/8/2019 → 1/9/2025 | Canal lateral: trayectos, regalo para el cumple de Sonia, etc. |
+| `Chat de WhatsApp con Carlos Sonia 1.txt` | **Carlos**, hermano de Sonia (el «cuñado») | **22/2/2019 → 27/8/2026** | **La fuente más larga y continua del archivo (9.129 líneas).** Cubre el hueco 2018-2022. Pablo 4.688 · Carlos 3.682. |
 
-> Hueco: **2018 → principios de 2023** apenas tiene mensajes en el chat (el
-> teléfono no los conservaba). Lo que hay de esos años se cuenta en la entrevista.
+> ~~Hueco: 2018 → principios de 2023~~ — **resuelto (27/8/2026)**: el chat con
+> Carlos cubre 2019-2026 sin interrupción. Sigue faltando **2017-2018** y el
+> lado de Sonia en 2024-2026.
 
 ## Cronología clave (lo que el chat confirma)
 
@@ -31,7 +33,25 @@
   una canción casi cada día.
 - **2019–2023** — El chat se rehace (número nuevo, contacto «Amor De mi Vida»). Mensajes
   dispersos 2019/20/22 y un bloque denso en **2023** (2.654 líneas).
-- **14/11/2023** — Último mensaje de la exportación.
+- **14/11/2023** — Último mensaje de la exportación con Sonia.
+
+### Lo que aporta el chat con Carlos (2019 → 2026)
+
+- **10/3/2019** — Pablo ya firma «su técnico y **cuñado**». Dos años y pico de relación.
+- **11/10/2020** — «Tu hermana es una auténtica obra de arte… y **a la par he sido
+  agraciado con una familia maravillosa**. Tu amistad es un auténtico tesoro. Espero que
+  tu hermana nunca se canse de **aguantar** a este que te escribe».
+- **6/11/2022** — **La frase clave**: «Es una pena que a tu hermana **no se le ocurriera
+  dejarme quedar** ya que mañana no curro por la mañana... Pero no .. en fin...».
+- **27/2/2023** — «no sé muy bien qué fue lo que vio tu hermana en mí».
+- **17/7/2023** — «las quedadas con tu hermana a ver si me **difuminan las nubes de mi
+  horizonte**».
+- **9/8/2024** — «**Operación Búho**»: ir a Perillo de noche, en clave, «en el maletero».
+- **2/5/2025** — «no me puedes acercar a Perillo de noche today»: sin su coche, no hay noche.
+- **23/5/2025** — Carlos: «echaré de menos esos **viajes furtivos a Perillo arriesgando el tipo**».
+- **2025–2026** — Dos hijos cuidando a dos madres. 17/5/26 Pablo: «Ya estamos con tu
+  madre». 22/6/26 Carlos: «las cosas se han invertido y tu madre está "mejor" que la mía».
+- **27/8/2026** — Último mensaje (el día de la entrevista).
 
 ## Personajes
 
@@ -40,9 +60,20 @@
 - **Hermana «inspectora»** — la «super hermanísima» que aprueba promoción.
 - **Hijo de Pablo** — visitas al «peque»; el cambio de colegio a mitad de curso.
 
-## Cifras (export del primer año)
+## Cifras
 
-- Pablo 4.200 mensajes · Sonia 2.547 (dic-16 → jul-17).
+### Asimetría: quién escribe más
+
+| Chat | Periodo | Pablo | El otro | Ratio |
+|---|---|---:|---:|---:|
+| Sonia (1er año) | dic-16 → jul-17 | 4.200 | 2.547 | **1,65** |
+| Sonia («Amor de mi Vida») | 2023 | 1.650 | 1.007 | **1,64** |
+| **Carlos** | 2019 → 2026 | 4.688 | 3.682 | **1,27** |
+
+> Con Sonia el ratio es idéntico en 2017 y en 2023: seis años sin corregirse.
+> La conversación **más equilibrada** de todo el archivo es con **su hermano**.
+
+- Carlos dice «**te recojo**» **29 veces**. «Café» aparece **646 veces** en ese chat.
 - El spanglish («la madre de God») no aparece en 2016-17: viene de años posteriores.
 - EG / GB: siglas propias de los dos (preguntar en la entrevista).
 
