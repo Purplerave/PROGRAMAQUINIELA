@@ -534,3 +534,37 @@ temporada»**. Es el primer movimiento documentado de **ella hacia un terreno
 de él** — lo contrario de «ella no es de tomar iniciativa», y es de 2026.
 
 *(También corregido: **los viajes los organiza ella**, todos.)*
+
+
+## «Amigo con derecho a roce» — la frase, fechada
+
+No es de ahora. Lleva usándola desde 2022:
+
+| fecha | quién | cita |
+|---|---|---|
+| 27/3/22 | Pablo | «sigo pensando que tengo una amiga con derecho a roce» |
+| 1/10/22 | Pilar | «sois amigos con derecho a roce muy de vez en cuando… **eso no es ser una PAREJA**» |
+| 2/10/22 | Pablo | «novios con derecho a roce» |
+| 1/11/22 | Pablo | «me pongo en plan Sonia y amigos con derecho a roce y me acabo quedando chafado» |
+| 28/12/22 | Pilar | «tu… amigo con poco derecho a roce» |
+| 2026 (R32) | Pablo | «que no sea un amigo con derecho a roce» |
+
+**Cuatro años y medio** nombrando su relación con las mismas cinco palabras.
+
+## Lo que pide, dicho limpio (R32)
+
+> «Estar más tiempo, y que me desee. Que no sea solo compañía.»
+
+Es exactamente lo que pedía el speech de junio de 2022. **No ha cambiado en
+cuatro años.**
+
+## Correcciones acumuladas del usuario (para no repetirlas)
+
+- El que se portó peor en el primer viaje fue **el hijo de ella**.
+- **Nunca han vivido juntos.**
+- No se hundió ante un sí: **el 17/6/22 habían roto**.
+- La lista «Anuska, Carlos, las comidas, la familia» es de **2026**, no de 2022.
+- **Los viajes los organiza ella**, porque le gusta viajar; él va por acompañarla.
+- **La quiniela es un proyecto suyo**, no un recado. Va a medias.
+- «El sábado lo pone ella» — **nunca lo dijo**. Retirado.
+- **«A veces le das vueltas a algo que no tiene».**

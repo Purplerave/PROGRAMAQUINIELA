@@ -64,7 +64,10 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **El masaje de pies.** 21 menciones; «masaje» él 14 / ella 1. Nueve años ofreciéndolo él. Sigue haciéndolo (26/8/26).
 - **Lo de anteayer.** 26/8/26: ella en crisis laboral, él sosteniéndola una hora. Eso también es la relación.
 - **CORRECCIÓN (R31):** los **viajes los organiza ella** (todos). Y la quiniela **no es un recado**: es un proyecto suyo, ligado a la liga de los maestros. Se retira lo escrito en la ronda 30.
-- **Ella pidió poner los resultados de la nueva temporada (2026).** Primer movimiento documentado de ella hacia un terreno de él. Abierto en la 32.
+- **Ella pidió poner los resultados de la nueva temporada (2026).** Confirmado (R32): la quiniela va a medias, una columna del programa y otra suya. Sin más lectura.
+- **Lo que pide, en tres frases (R32):** «estar más tiempo, que me desee, que no sea solo compañía». Lo mismo que pedía en el speech de 2022.
+- **«Amigo con derecho a roce».** Lo usa desde el 27/3/22. Cuatro años y medio nombrando así su relación.
+- **NORMA DE TRABAJO (pedida por él en la R32):** «a veces le das vueltas a algo que no tiene». Menos interpretación, más registro.
 - **El futuro.** Último bloque de la guía, pendiente de abrir. Propuesto en la 30.
 - **«¿Pero tú hablaste con alguien?»** — lo que ella le preguntó al oírle el discurso preparado.
 - **«Era lo que había» (2022).** La aceptación, dicha por él cuatro años antes de la ronda 22.
@@ -689,5 +692,31 @@ Tres preguntas cortas.
 **Dos.** Ella te pidió meter los resultados de la nueva temporada. **¿Qué te pareció cuando te lo dijo?** ¿Te hizo ilusión, o lo viste como un trámite?
 
 **Tres.** En nueve años, es de las pocas veces que **ella pide entrar en algo tuyo**. La temporada empieza ya. **¿Vas a dejarla?** Y si sí — ¿se lo has dicho con ganas, o con un «vale»?
+
+**R:** No entiendo lo de «el sábado lo pone ella». Ella organiza su viaje porque le encanta viajar, y a mí no; voy por ir con ella, y ella lo sabe. ¿Que qué echo de menos con ella? **Estar más tiempo, y que me desee. Que no sea solo compañía. Que no sea un amigo con derecho a roce.** — 3. Claro, eso siempre va a medias; solo que hasta ahora las quinielas las hacía automáticas, ahora con la IA. Pero quiere participar: **hago una con los resultados del programa y otra con lo que quiere ella.** (Creo que a veces le das vueltas a algo que no tiene.)
+
+> *Aviso suyo, aceptado y anotado como norma:* **«a veces le das vueltas a algo que no tiene».** Tiene razón y conviene que quede escrito en la bitácora, no solo en la conversación: hay cosas que son lo que parecen. La quiniela a medias es una quiniela a medias. Dos columnas son dos columnas. **Desde aquí, menos interpretación y más registro.**
+
+> *Aclaración pedida:* lo de «el sábado lo pone ella» venía de la ronda 21 y estaba mal dicho por mi parte. Él nunca dijo eso. Se retira.
+
+> *Corrección 3 en dos rondas — el viaje.* Ella lo organiza **porque le gusta viajar**; él va por acompañarla, y ella lo sabe. Así que no es una cosa que ella ponga *para él*: es una cosa de ella a la que él se suma. Vale la pena dejarlo claro porque en la ronda 30 él lo puso en su lista de futuro («y un viaje en el año que no me gusta viajar»): **de las tres cosas que nombró, ninguna es realmente para él.**
+
+> *Y ahora lo que de verdad importa de esta respuesta, que es la respuesta más limpia de toda la entrevista.* Después de treinta y una rondas, tres frases:
+>
+> **«Estar más tiempo. Que me desee. Que no sea solo compañía.»**
+>
+> No hay ambigüedad, no hay «bueno», no hay coletilla. **Eso es lo que pide, y es lo mismo que pedía en el speech de junio de 2022.** Cuatro años y no ha cambiado una coma.
+
+> *Sobre «que no sea un amigo con derecho a roce»: esa frase tiene historia y hay que fecharla.* No es de hoy. **27/3/22:** «sigo pensando que tengo una amiga con derecho a roce». **2/10/22:** «novios con derecho a roce». **1/11/22:** «me pongo en plan Sonia y amigos con derecho a roce y me acabo quedando chafado». Y Pilar, el **1/10/22**: «sois amigos con derecho a roce muy de vez en cuando… **eso no es ser una PAREJA**». **Lleva cuatro años y medio nombrando su relación con esas cinco palabras.** Y en la ronda 22 dijo «no así como pareja, pero no quiero que se vaya de mi vida» — que es, casi literalmente, la definición de lo que teme ser. **Lo que le da miedo no es acabar así: es que ya lo sea.**
+
+### 33. Lo que pides
+
+**P:** Vale, sin vueltas. Tres cortas.
+
+**Una.** «Estar más tiempo y que me desee.» **¿Se lo has pedido así de claro alguna vez desde 2022?** Con esas palabras.
+
+**Dos.** Llamas a esto «amigo con derecho a roce» desde marzo de 2022. **Si es eso lo que es — ¿qué te falta para llamarlo por su nombre delante de ella?**
+
+**Tres.** Ella está bien, tú no, y las dos cosas conviven desde hace años. **¿Prefieres seguir así o prefieres una conversación incómoda?** No te pregunto qué harás. Qué prefieres.
 
 **R:** *(pendiente)*
