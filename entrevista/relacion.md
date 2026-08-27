@@ -66,3 +66,9 @@
 > *Corroborado con el chat:* el primer mensaje de la exportación es del 3/12/2016, 21:50, de Pablo a Sonia: «Hola mi querida amiga, te escribo para contarte que me separe de mi mujer, y llevo desde hace 3 días en casa de mi madre». Y el pack de colonia: 18/3/2017, «hoy voy de chico Golden Boy. Desodorante y colonia… Gracias de corazón».
 
 > *Contexto añadido:* se ha incorporado la exportación de WhatsApp del primer año de la relación (dic 2016 → jul 2017). Resumen en `whatsapp/CONTEXTO.md`. La entrevista puede apoyarse en ella.
+
+### 7. ¿Por qué fue Sonia la primera a la que le contaste la separación?
+
+**P:** Tres días después de separarte, lo primero que hiciste fue escribirle a Sonia. ¿Por qué ella? ¿Por qué fue la primera a la que se lo contaste?
+
+**R:** Porque ya estaba loco por ella. No fue solo un llamadito de amigo: ya la tenía en la cabeza, y la separación fue la que dio la oportunidad de acercarse de verdad.
