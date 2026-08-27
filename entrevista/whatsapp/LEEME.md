@@ -1,16 +1,14 @@
 # Carpeta de contexto: WhatsApp de la relación
 
-Aquí va el archivo de exportación de WhatsApp que el usuario quiere compartir para
-dar más contexto a la entrevista.
+## Contenido
 
-## Cómo subirlo
+- **`Chat de WhatsApp con Sonia Atento.txt`** — exportación de **dic 2016 → jul 2017**
+  (el primer año, 8.854 mensajes). Subida por el usuario vía GitHub (commit
+  "Add files via upload").
+- **`CONTEXTO.md`** — resumen de lo que se extrae de la exportación: cronología,
+  personajes, cifras. Lo usa la entrevista como contexto.
 
-WhatsApp exporta chats como:
-- **`Exportar chat`** (solo mensajes) → un archivo `.txt`
-- **`Exportar chat con multimedia`** → una carpeta con `.txt` + imágenes (`.zip`)
+## Si quieres añadir más
 
-Sube el `.txt` (o la carpeta `.zip`) a esta carpeta `entrevista/whatsapp/`.
-El archivo suele llamarse algo como `Chat con Sonia.txt` o `<número>.txt`.
-
-> Aviso: el `.txt` con 9 años de conversación puede ser muy pesado (varios MB).
-> Si es enorme, puedes subir solo el `.txt` sin multimedia, o un trozo representativo.
+Puedes subir exportaciones de otros periodos (p. ej. años intermedios o los últimos).
+Nómbralos por periodo, tipo `sonia-2018-2019.txt`. El `.txt` sin multimedia basta.

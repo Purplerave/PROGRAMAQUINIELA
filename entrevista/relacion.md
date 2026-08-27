@@ -62,3 +62,7 @@
 **P:** Volviendo al principio: en aquella época, ¿cómo era la vida de cada uno? ¿Dónde estabas tú, dónde ella? ¿Y cómo empezasteis de verdad —hubo una primera cita, o se fue dando?
 
 **R:** Nos veíamos los fines de semana en el curro. La primera vez, creo que ella necesitó algo, y yo le arreglé el portátil —o por lo menos lo intenté—; ahí creo que conseguí el teléfono, aunque no lo recuerdo del todo. Luego, por agradecimiento, me regaló una colonia, en un pack con desodorante y demás. Empezamos a quedarnos alguna vez para desayunar, en una cafetería fuera del trabajo. Pasado el tiempo, y como se torció un pie, me invitó a un café al lado de su casa, en Perillo (yo vivo en A Coruña). Y entonces empezamos a quedar los viernes, que ella tenía dentista, para tomar un café. En ese momento yo ya estaba separado.
+
+> *Corroborado con el chat:* el primer mensaje de la exportación es del 3/12/2016, 21:50, de Pablo a Sonia: «Hola mi querida amiga, te escribo para contarte que me separe de mi mujer, y llevo desde hace 3 días en casa de mi madre». Y el pack de colonia: 18/3/2017, «hoy voy de chico Golden Boy. Desodorante y colonia… Gracias de corazón».
+
+> *Contexto añadido:* se ha incorporado la exportación de WhatsApp del primer año de la relación (dic 2016 → jul 2017). Resumen en `whatsapp/CONTEXTO.md`. La entrevista puede apoyarse en ella.
