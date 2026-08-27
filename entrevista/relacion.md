@@ -24,4 +24,10 @@
 
 ## Transcripción de la entrevista
 
-(Se irá rellenando aquí, pregunta a pregunta.)
+### 1. ¿De qué relación hablamos?
+
+**P:** Para situarme: ¿de qué relación hablamos? ¿Quién es esa persona (y desde cuándo)? Y cuéntame, ¿cómo os conocisteis?
+
+**R:** De mi relación actual, con Sonia. Llevamos 9 años juntos — 9 años tiene la relación, no Sonia, que anda bastante por debajo de esa cifra (jajaja).
+
+*Pendiente: cómo os conocisteis.*
