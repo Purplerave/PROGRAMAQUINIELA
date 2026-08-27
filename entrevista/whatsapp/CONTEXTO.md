@@ -444,3 +444,27 @@ descanso de ella → la trasladan a ella más lejos → ahora los dos de mañana
 había»** (sobre 2022). Es la aceptación, cuatro años antes de «no así como
 pareja» (R22), y el equivalente masculino de «no vamos a encontrar a nadie
 que nos quiera tanto».
+
+
+## Las dos rupturas, comparadas (R29)
+
+| | junio 2022 | enero 2026 |
+|---|---|---|
+| quién lo plantea | él, con discurso ensayado | ella, como un hecho |
+| reacción de ella | no duerme, «estoy fatal», audio de 4 min | lo da por hecho, «sin drama» |
+| qué ofrece ella | tardes entre semana, «otros 5, 10, 15, 20 años» | nada |
+| cómo termina | vuelven en 12 horas | «aún no está dicha la última palabra» → fútbol a los 2 días |
+| duelo | lágrimas, no puede trabajar | ninguno visible |
+
+**Lectura:** entre 2022 y 2026 la que dejó de pelear fue ella. En 2022 él
+quiso irse y **ella lo retuvo**. Eso desmiente que nunca se implicara: hubo
+una época en que ella sostuvo esto.
+
+**La despedida de 2022 la organizó él:** «si lo dejamos, que sea por todo lo
+alto… nos desahogamos, hacemos el amor, terminamos a gusto y bien». Y en la
+misma frase: «porque estábamos… bueno, **yo no**». Montó un final agradable
+para los dos estando destrozado.
+
+*(Comprobación fallida, anotada por honestidad: se contaron peticiones de
+favores para medir la «independencia» de ella. 11 de él vs 7 de ella en
+2023-2026. Cifras demasiado pequeñas: no permite concluir nada.)*

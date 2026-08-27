@@ -58,7 +58,9 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **Cronología corregida:** ella formula el «no encontraremos a nadie que nos quiera tanto» en **2022**; él llega a su equivalente (Anuska, Carlos, las comidas, la familia) en **2026**. No son simultáneos: **ella llegó cuatro años antes.**
 - **«Hacemos que no ha pasado nada».** El método de la pareja, formulado por ella en 2022.
 - ~~**Se hundió con un sí.**~~ **CORREGIDO por él (R28):** el 17/6/22 **habían roto**. «Hecho una mierda» es por la ruptura, no por el audio. El audio los devolvió.
-- **La ruptura del 17-18 de junio de 2022.** Duró menos de un día. Hasta la ronda 28 esta bitácora daba por hecho que nunca habían roto.
+- **La ruptura del 17-18 de junio de 2022.** Duró menos de un día. La despedida («que sea por todo lo alto») **la organizó él**, estando hundido (R29).
+- **¿Cuándo dejó de pelear ella?** En 2022 lo retuvo; en enero de 2026 lo dio por hecho «sin drama». Abierto en la 30.
+- **El futuro.** Último bloque de la guía, pendiente de abrir. Propuesto en la 30.
 - **«¿Pero tú hablaste con alguien?»** — lo que ella le preguntó al oírle el discurso preparado.
 - **«Era lo que había» (2022).** La aceptación, dicha por él cuatro años antes de la ronda 22.
 - **El acuerdo de 2022 se cumplió** (entre semana pasa del 50 % al 70 %) y **se deshizo en 2026** (36 %).
@@ -600,5 +602,37 @@ Tres preguntas cortas.
 **Dos.** Dices que aún después hicisteis el amor «por última vez… bueno, de aquella». **¿Fue esa noche, después de decidir que lo dejabais?** Y si fue así — ¿qué crees que estabais haciendo los dos ahí?
 
 **Tres.** Volvisteis en menos de veinticuatro horas. Y dices: «pronto me di cuenta de que no me llenaba como yo quería, **pero era lo que había**». Esa frase es de 2022. **Han pasado cuatro años diciéndote lo mismo.** Entonces: ¿aquel día no rompisteis porque no queríais, o porque ninguno de los dos supo estar solo veinticuatro horas?
+
+**R:** No sé si salió la palabra «romper». Sí, dije yo: mira, **si lo dejamos, que sea por todo lo alto**, porque estábamos… más o menos… bueno, yo no. Pero era como: nos desahogamos, hacemos el amor, terminamos a gusto y bien, y ya mañana (bueno, es un decir). — Y sobre la tercera: ella es **totalmente independiente**. Pero en esa época tenía más ilusión. En enero ya lo dio por hecho, y dijo como que **no iba a haber drama** (no usó esas palabras, pero más o menos dijo eso).
+
+> *«Si lo dejamos, que sea por todo lo alto».* Eso no es una despedida improvisada: **es una despedida organizada por él**. Propuso el guion —desahogarse, hacer el amor, terminar a gusto y bien— y lo llevó a cabo la misma noche en que acordaban dejarlo. Y luego, en la misma frase, se le escapa el paréntesis que lo desmonta todo: «porque estábamos… más o menos… **bueno, yo no**». Es decir: **montó un final agradable para los dos estando él destrozado.** Es exactamente el mismo gesto que recorre estos nueve años —encargarse de que el otro esté cómodo, incluso cuando el que se está rompiendo es él—, solo que aquí aplicado a su propia ruptura. Se ocupó de que doliera menos… para ella.
+
+> *Y hay algo casi literario en el detalle, que conviene dejar escrito sin adornarlo:* la última vez que hicieron el amor «de aquella» **fue una despedida que él programó**. No fue un impulso ni un descuido: fue el cierre previsto de una ceremonia. Doce horas después estaban juntos otra vez, así que aquella «última vez» no lo fue. Pero en 2026, cuando llegue el final del sexo, no habrá ceremonia ninguna: habrá un «esto no va a poder ser» y un «unos mimos». **La diferencia entre las dos despedidas es toda la historia de estos cuatro años.**
+
+> *Lo tercero es lo que más peso tiene, y lo dice él sin darle importancia:* **«en esa época ella tenía más ilusión. En enero ya lo dio por hecho, y no iba a haber drama».** Puestas una al lado de otra, las dos rupturas se leen solas:
+
+| | **junio 2022** | **enero 2026** |
+|---|---|---|
+| quién lo plantea | él, con un discurso ensayado | ella, como un hecho |
+| reacción de ella | no duerme, «estoy fatal», graba un audio de cuatro minutos | lo da por hecho, «sin drama» |
+| lo que ella ofrece | tardes entre semana, «otros 5, 10, 15, 20 años» | nada; entiende que se acaba |
+| cómo termina | vuelven en 12 horas | «aún no está dicha la última palabra» y a los dos días, fútbol |
+| duración del duelo | lágrimas, no poder trabajar | ninguno visible |
+
+> *Y la conclusión que sale de ahí no es la que él suele sacar.* Durante 28 rondas la pregunta ha sido «¿por qué no se va Pablo?». Esta tabla plantea la contraria: **entre 2022 y 2026, la que dejó de pelear fue ella.** En 2022 él quiso irse y **ella lo retuvo** —sin dormir, con un audio, ofreciendo tiempo y futuro—. En 2026 fue ella quien lo dio por terminado y no hubo audio, ni oferta, ni drama. **No es que él aguantara nueve años a una mujer que nunca se implicó: es que hubo una época en que ella sostuvo esto, y esa época se acabó.** Que él lo describa como «ella es totalmente independiente» vuelve a ser lo mismo de siempre: **convertir un cambio en un carácter.**
+
+> *Sobre «totalmente independiente», honestamente:* quise comprobarlo contando quién pide favores a quién en el chat de 2023-2026, y **el dato no da para concluir nada** — 11 peticiones suyas frente a 7 de ella en cuatro años, cifras demasiado pequeñas. Lo que sí se ve, y ya estaba anotado, es que las de ella son casi siempre recados concretos («¿puedo abusar de ti otra vez? ¿me coges unas varillas en el Brico Depot?», «¿me traes lo de Temu?», «¿me miras el recibo de R?»). **Independiente para la vida, dependiente para los recados.** Pero de ahí no se puede sacar una tesis, y no se saca.
+
+> *Una cosa más, que él dijo entre paréntesis y merece quedar:* **«y ya mañana (bueno, es un decir)»**. No hubo mañana. El «mañana» duró hasta las nueve y algo de la mañana siguiente. Cuatro años después sigue siendo mañana.
+
+### 30. Las dos rupturas
+
+**P:** Dos preguntas, y luego una propuesta.
+
+**Una.** En 2022 quisiste irte tú y **ella te retuvo**: no durmió, grabó cuatro minutos, te ofreció tardes y veinte años. En 2026 lo dio por hecho ella y no hubo nada de eso. **¿Cuándo crees que ella dejó de pelear por esto?**
+
+**Dos.** Tú organizaste aquella despedida «por todo lo alto» estando hecho polvo, para que terminara bien. **¿Por qué te tocó a ti encargarte de que su ruptura fuera agradable?**
+
+**Y la propuesta.** Llevamos veintinueve preguntas y creo que ya está casi toda la historia: el inicio, el comienzo, el desarrollo, el día a día, la comunicación, los momentos. Falta el último bloque de la guía —**el futuro**— y creo que ya se puede entrar en él sin saltarse nada. Si te parece, la siguiente ronda va de ahí: **qué quieres que pase ahora.** Dime si lo ves o si prefieres que sigamos con 2022 un poco más.
 
 **R:** *(pendiente)*
