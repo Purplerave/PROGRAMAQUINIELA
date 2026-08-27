@@ -35,3 +35,9 @@
 **P:** ¿Hubo un momento concreto —una frase, una mirada, un plan— en el que te dijiste «esta mujer», o fue un deslizar sin fecha?
 
 **R:** Creo que no, no hubo un momento concreto. Simplemente supe que me encantaba.
+
+### 3. ¿Qué es lo que más te gusta de Sonia?
+
+**P:** ¿Qué es lo que ves en ella y te hace pensar «sí, es ella»? ¿Y es lo mismo hoy, después de 9 años, que al principio?
+
+**R:** Si me lo preguntas ahora, después de 9 años, diría lo mismo que al principio — pero con la carga de los años encima, y tal cual estoy ahora. Y aun así, sigue encantándome su sonrisa y su mirada.
