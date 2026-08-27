@@ -256,3 +256,20 @@ lo cuenta esa noche:
 - Alex (su hijo): «mientras viviera conmigo y nos tuviera a los dos le
   parecía bien»
 
+
+
+## «Te echo de menos / ganas de verte»
+
+| | 2016 | 2017 | 2023 | 2025 | 2026 |
+|---|---:|---:|---:|---:|---:|
+| Pablo | 1 | 5 | **18** | 5 | 1 |
+| Sonia | 0 | **5** | 0 | 0 | 0 |
+
+Ella, en 2017: «Jopelines ya te echo de menos!!!» (9/7), «Casi no tengo ganas
+de verte!!!» en broma (26/6). **Después, nunca más por escrito.**
+
+No baja poco a poco: **se para.**
+
+**Cautela obligatoria:** dejar de escribirlo no prueba dejar de sentirlo.
+Queda la llamada diaria (sin registro), los 707 corazones y lo presencial.
+Lo único demostrable es que **dejó de escribirlo y que él no lo notó.**

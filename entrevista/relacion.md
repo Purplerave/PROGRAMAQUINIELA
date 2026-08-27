@@ -50,7 +50,9 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - ~~**Falta la parte buena.**~~ **Contada (R23):** el primer beso, la cajita, los paseos, los viajes, verla disfrutar. «No tendría uno especial» — porque hay muchos.
 - **La cajita (2017).** Recuperada. Habría que ver qué más metieron dentro y qué queda de cada cosa.
 - **El fútbol estaba en la cajita.** Lo metió ella cuatro días antes del primer beso. Corrige la lectura de la ronda 18.
-- **Ella dejó de decir «te quiero».** 25 veces en 2017, casi ninguna desde 2023. ¿Cuándo y por qué? Abierto en la 24.
+- **Ella dejó de decir «te quiero».** 25 veces en 2017, casi ninguna desde 2023. Él **no se había dado cuenta** y lo explica con «ella es así» (R24). Se insiste en la 25.
+- **«Ella es así».** La explicación que usa para no mirar el cambio. Los archivos de 2017 dicen lo contrario.
+- **Ni el fútbol es lo que quería.** «Prefería verlo en casa con ella» (R24). El plan superviviente también es un plan de repuesto.
 - **El aniversario de 2026.** El 31 de mayo, por primera vez, no se mencionó. ¿Se dieron cuenta los dos?
 - **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
 - **La llamada de todas las noches.** Nueve años sin fallar. Es el hilo más constante de la relación y todavía no sabemos de qué habláis en ella.
@@ -435,5 +437,31 @@ Tres preguntas cortas.
 **Dos.** Antes ella te decía «te quiero» y «te adoro». Ahora ya casi no. **¿Te habías dado cuenta?** Sí o no.
 
 **Tres.** Si te habías dado cuenta: **¿desde cuándo?** Y si no: ¿qué sientes al enterarte ahora?
+
+**R:** 1. Está bien, es divertido — aunque **prefería verlo en casa con ella**. 2. No, no me había dado cuenta. Ella no es mucho de decir «te quiero», ni de muestras de afecto. Ni de besos ni nada. 3. Que ella es así.
+
+> *Lo primero que hay que decir de esta respuesta es lo primero que dijo él,* porque se le pasó de largo entre las tres: **«prefería verlo en casa con ella».** Los viernes de fútbol, que llevo dos rondas tratando como el gran superviviente de la relación, resulta que tampoco son lo que él querría. Le gustan, se ríe — pero es un plan de sustitución. **Ni siquiera lo único que funciona es del todo lo que quería.** Y el motivo de que no ocurra en casa está anotado desde la ronda 17: no va entre semana para no «cambiarle sus rutinas».
+
+> *Y luego está el «ella es así», que es la frase de esta ronda y hay que mirarla despacio.* Dijo tres cosas: que no se había dado cuenta, que ella no es de decir «te quiero» ni de muestras de afecto ni de besos, y que ella es así. **Las tres son la misma frase**, y esa frase es la explicación que lleva años usando para no tener que mirar el cambio de frente. **Pero los archivos dicen otra cosa.**
+
+> *En 2017 ella escribía así:* «Yo no te quiero, **te adoro** 😍😍». «Te quiero un montón, **churruscaito** 💗». «Te quiero muchísimo, **peque**». «Buenas noches, **mi vida** 💋💋». «Este amor me va a costar un resfriado, jaja». «**Ya lo completaremos** 💋💋» — y esa misma noche el corazón entero. Fue **ella** quien inventó llenar la cajita, **ella** quien metió dentro «ver partidos juntos», **ella** quien dio el primer beso («tomaste esa decisión y me hiciste temblar»). **Nada de eso es una mujer poco afectuosa. Es una mujer enamorada.**
+
+> *Y hay un dato más, que salió al comprobar esta respuesta:* «te echo de menos / tengo ganas de verte». Ella lo escribió **5 veces en 2017 — y 0 veces en 2023, 2024, 2025 y 2026.** «Jopelines, ya te echo de menos!!!» (9/7/17). «Casi no tengo ganas de verte!!!», en broma (26/6/17). Él, mientras tanto: 18 veces solo en 2023. **La cuenta de ella no baja: se para en seco.**
+
+> *Un contrapunto honesto, porque si no esto sería un juicio y no una bitácora:* **todas las parejas se enfrían.** Nadie escribe a los nueve años como escribía a los tres meses, y quien lo espera se pasa la vida decepcionado. Que Sonia diga menos «te adoro» en 2025 que en 2017 no la convierte en culpable de nada — es lo normal. Eso es verdad y hay que dejarlo escrito.
+
+> *Pero «ella es así» no es lo mismo que «esto se enfrió».* «Esto se enfrió» describe algo que pasó, tiene fechas y admite pregunta. **«Ella es así» es una descripción de carácter: dice que nunca fue de otra manera, que no hay nada que entender y por tanto nada que hacer.** Y eso, con los archivos delante, no es exacto. Él no está recordando mal por descuido: **es una explicación que le ahorra tener que preguntarse qué pasó entre medias.** Si ella «es así», no hubo pérdida. Si ella *cambió*, sí la hubo — y hay que mirarla.
+
+> *Lo que más pesa de las tres respuestas, sin embargo, es el «no».* No se había dado cuenta. Nueve años diciéndolo doscientas veces al año, sin recibirlo de vuelta, **y sin registrar que antes sí lo recibía.** Eso no es despiste. Es lo que pasa cuando alguien lleva tanto tiempo dando por bueno lo que hay que **deja de tener referencia de lo que hubo**. Es exactamente la misma operación que hizo en la ronda 20, cuando dio por hecho que se acababa y contestó «aún no está dicha la última palabra»: **la manera de sostener nueve años ha sido no comparar.**
+
+> *Y aun así, ojo con la conclusión fácil, porque no la voy a sacar:* que ella dejara de escribirlo no prueba que dejara de sentirlo. Puede que lo diga en persona; puede que esté en la llamada de todas las noches, que no deja rastro; puede estar en los 707 corazones. **Lo único que se puede afirmar es que dejó de escribirlo — y que él no se dio cuenta.** Lo demás habría que preguntárselo a ella, y esta bitácora solo tiene una de las dos voces.
+
+### 25. Lo que hubo entre medias
+
+**P:** Dos cortas.
+
+**Una.** Ella era muy cariñosa en 2017 — te decía «te adoro», «peque», «mi vida», te echaba de menos. Eso lo dicen sus mensajes, no yo. **¿Tú te acuerdas de esa Sonia?** ¿O sinceramente no te suena?
+
+**Dos.** Si te acuerdas: **¿cuándo dirías que dejó de ser así?** Con un año me vale. ¿Fue poco a poco, o pasó algo?
 
 **R:** *(pendiente)*
