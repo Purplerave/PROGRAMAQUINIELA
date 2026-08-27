@@ -29,3 +29,9 @@
 **P:** Para situarme: ¿de qué relación hablamos? ¿Quién es esa persona (y desde cuándo)? Y cuéntame, ¿cómo os conocisteis?
 
 **R:** De mi relación actual, con Sonia. Llevamos 9 años juntos — 9 años tiene la relación, no Sonia, que anda bastante por debajo de esa cifra (jajaja). Nos conocimos en el trabajo: yo estaba en Atento — ahora creo que se llama ABANI, y yo ya no trabajo allí — como soporte técnico, y ella era comercial (y lo sigue siendo). Empezamos a vernos en los descansos: ella jovial, sonriente, habladora (y lo sigue siendo), siempre muy guapa vestida, con una sonrisa preciosa y ojos brillantes, divertida. Empezamos a bromear — «oye, yo voy a tomar el descanso a las 11, espero que no estés tú ahí…» — y fuimos congeniando poco a poco.
+
+### 2. ¿Hubo un momento en el que pasó de "compañera de descansos" a "me gusta de verdad"?
+
+**P:** ¿Hubo un momento concreto —una frase, una mirada, un plan— en el que te dijiste «esta mujer», o fue un deslizar sin fecha?
+
+**R:** Creo que no, no hubo un momento concreto. Simplemente supe que me encantaba.
