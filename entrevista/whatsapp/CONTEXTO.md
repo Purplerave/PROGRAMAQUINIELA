@@ -109,6 +109,26 @@ Los diez días con más mensajes de 2026 son **todos** partidos del Deportivo:
   una pipa jaja», «Jo» — «Jo» — «Jaja».
 - **27/8/2026** (último mensaje del archivo): Sonia le manda **su quiniela**.
 
+### La curva del deseo (chat con Sonia)
+
+Expresiones de deseo/intimidad por año (*te deseo, hacerte el amor, mimos, caricias,
+besarte, 🤤*…):
+
+| 2023 | 2024 | 2025 | 2026 |
+|---:|---:|---:|---:|
+| 48 | **92** | 58 | **3** |
+
+2025 mes a mes: ene 13 · feb 11 · mar 4 · abr 5 · may 1 · jun 2 · jul 1 · ago 4 ·
+sep 4 · oct 1 · nov 3 · dic 3. **Enero de 2026: 0.**
+
+Contexto médico (contado en la entrevista y corroborado): infecciones de orina
+recurrentes tras las relaciones. **10/5/23** él busca causas; ella: «no es cistitis, es
+infección lo mío». **26/1/25**: «gracias por hacer el amor conmigo ayer **a pesar de las
+molestias**». **16/6/25**: «después de 2 tandas casi seguidas no me explico cómo cojo
+infección». **26/8/25**: «no estoy muy animosa precisamente con lo de la infección. **Es
+una mierda**». **30/11/25**: «si tienes infección a lo mejor te toca antibiótico».
+En enero de 2026 ella decide dejar el sexo.
+
 - Carlos dice «**te recojo**» **29 veces**. «Café» aparece **646 veces** en ese chat.
 - El spanglish («la madre de God») no aparece en 2016-17: viene de años posteriores.
 - EG / GB: siglas propias de los dos (preguntar en la entrevista).

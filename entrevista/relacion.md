@@ -39,7 +39,9 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **Qué se dice y qué no.** A Carlos le cuentas los abismos, las nubes del horizonte y que no sabes qué vio ella en ti. ¿Eso se lo has dicho alguna vez a Sonia?
 - **Las canciones que ella no oye.** Compones, y lo que sale «pa desahogarme» se lo mandas a Carlos, no a ella (29/11/24). Desde 2017 le mandabas una canción cada día. ¿Cuándo dejó de ser para ella?
 - **Lo bueno, en concreto.** Sigue pendiente: pedí una anécdota y llegó un horario. Falta el momento, la risa, la frase. La rutina está; el contenido de la rutina, no.
-- **«El tema de enero».** Lo abriste tú al hablar de los mimos del sábado: «ahí hay un tema, que pasó en enero; ya entraremos ahí». Enero de 2026. Esperando.
+- **«El tema de enero».** Abierto en la 19 y **cortado a media frase**: «y entonces, este 6 de enero…». Falta qué pasó ese día.
+- **La parte médica.** Infecciones recurrentes documentadas desde 2023 hasta finales de 2025. ¿Se llegó a ver a un especialista o se quedó en antibiótico y resignación?
+- **El sexo, después.** Si «mimos» es lo que queda, ¿qué es «mimos» hoy? ¿Y lo has hablado con ella alguna vez desde enero?
 - **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
 - **La llamada de todas las noches.** Nueve años sin fallar. Es el hilo más constante de la relación y todavía no sabemos de qué habláis en ella.
 - **EG / GB.** Vuestras siglas. Aparecen en el chat de 2017 («GB» firma mensajes) y nunca se han explicado.
@@ -300,5 +302,29 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 ### 18. El Depor es el sitio donde sí os encontráis
 
 **P:** Retiro parte de lo que dije: lo bueno existe y está fechado. Pero fíjate en la forma que tiene. Los diez días que más habláis en todo el año son partidos; te llamas «para sincronizar» las teles; y lo que sale ahí es lo que no sale en ningún otro sitio: bromas, tonterías, «jo» y «jaja» a la vez, sin horarios ni permisos. Noventa minutos, dos veces por semana, en los que estáis **juntos de verdad** — pero cada uno en su casa, que es la regla otra vez. Dos preguntas: ¿te habías dado cuenta de que el fútbol es vuestro mejor rato? ¿Y por qué crees que ahí sí fluye — porque hay un tercero (el partido) del que hablar y no hay que hablar de vosotros?
+
+**R:** Nos gusta el fútbol. Si coincide en finde intentamos verlo en su casa; si no, sincronizados, cada uno en su ordenador.
+
+### 19. El tema de enero
+
+**R (lo empieza él, sin que se lo pregunten):** Aunque parece que no hemos hablado en WhatsApp de eso: ella, frecuentemente, después de tener relaciones tenía infecciones de orina. Llegó un momento en que probamos con preservativo, pero a mí no me iba. Y en la enésima, decidió que sexo no. Y entonces, este 6 de enero… *(interrumpido: le llamó Carlos para un café)*.
+
+> *Antes de nada:* lo abriste tú, en la pregunta 17 («ahí hay un tema, que pasó en enero»), y no fui a buscarlo al chat. Lo cuentas cuando quieras y hasta donde quieras. Queda aquí tal como lo dijiste, sin adornos y sin conclusiones.
+
+> *«Parece que no hemos hablado en WhatsApp de eso» — sí lo habéis hecho, y llevaba años.* **10/5/23** eres tú quien busca soluciones: «Comentario sobre tu cistitis. Leí por ahí que a lo mejor al dejar *la zona* húmeda por las toallitas después del sexo…». Ella corrige: «No es cistitis, es infección lo mío». **16/6/25**, ella: «llevo una racha que **después de 2 tandas casi seguidas** no me explico cómo cojo infección. En 3ª tanda 🙄». **26/8/25**: «Lo siento, no estoy muy animosa ahora precisamente con lo de la infección. **Es una mierda**». **30/11/25**, tú: «Si tienes infección a lo mejor te toca antibiótico». No es un tema que no se hablara: es un problema médico real, documentado y recurrente durante **al menos dos años y medio**.
+
+> *Y hay un mensaje tuyo, del 26/1/25, que hoy se lee distinto:* «**gracias por hacer el amor conmigo ayer a pesar de las molestias, quizá debería haberte dejado descansar.** Sabes que te adoro, y que te deseo más que a nada en el mundo». Enero de 2025 — un año justo antes. Ya entonces el sexo venía con «molestias» y con una disculpa por delante.
+
+> *La curva, que es el dato más elocuente de todo el archivo.* Conté las expresiones de deseo (te deseo, hacerte el amor, mimos, caricias, besarte, 🤤…) por año en el chat con ella: **2023: 48 · 2024: 92 · 2025: 58 · 2026: 3.** Y mes a mes en 2025 se ve cómo se apaga: enero 13, febrero 11, marzo 4, mayo 1, julio 1, octubre 1. Luego **enero de 2026: cero. Y de febrero a agosto de 2026: tres en total, en siete meses.** El «decidió que sexo no» no es una impresión tuya: **tiene forma de curva y tiene fecha.**
+
+> *Lo que llama la atención de la decisión, dicho sin juzgar a nadie:* el problema era médico y de ella (las infecciones), la alternativa que probasteis no te funcionaba a ti (el preservativo), y **la salida elegida fue la retirada total** — no el urólogo, no otras opciones, no una conversación con un médico de por medio. Es, otra vez, el mismo patrón de la pregunta 13: aparece un problema y se resuelve **suprimiendo la parte compartida**, no negociándola. Y otra vez lo decide ella y lo acatas tú.
+
+> *Y el contraste que duele un poco:* en la rutina que contaste en la 17, el sábado por la noche todavía dices «luego tenemos un pequeño tiempo de mimos». Después de enero, «mimos» es lo que queda. La palabra sobrevivió; lo que nombraba, no del todo.
+
+> *Nota:* la frase quedó cortada en «y entonces, este 6 de enero…» porque te llamó Carlos para un café. Que es, exactamente, el resumen de toda esta bitácora: **estabas contando lo más difícil de tu relación y te interrumpió el hermano de ella para tomar un café.**
+
+### 20. ¿Qué pasó el 6 de enero?
+
+**P:** Sigue cuando puedas, que es tu historia y va a tu ritmo. Iba a preguntarte tres cosas, y me quedo con la primera y te dejo las otras dos para cuando quieras: **¿qué pasó ese 6 de enero?** Y luego, sin prisa: cuando ella dijo «sexo no», ¿fue una conversación o un anuncio — le dijiste lo que sentías, o lo tragaste como lo de «tú en tu casa, yo en la mía»? ¿Y llegasteis a mirar alguna vez la parte médica en serio (urólogo, ginecólogo), o se quedó en «pues ya está»?
 
 **R:** *(pendiente)*
