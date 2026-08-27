@@ -149,6 +149,28 @@ El mensaje queda enterrado entre logística doméstica:
 Semanas después él piensa en romper y no lo hace. Lo que enumera como pérdida:
 **«Anuska, Carlos, las comidas, la familia»** — Sonia no está en la lista.
 
+Después del 6/1 **sí hubo negociación**: acuerdan sustituir el sexo por «mimos».
+Es la única de las tres crisis grandes (convivencia, dinero, sexo) que se negocia
+en vez de suprimirse.
+
+### Quién toma la iniciativa
+
+Primer mensaje del día, 1.246 días de chat (2023 → ago 2026): **Pablo 944 · Sonia 302.**
+
+| 2023 | 2024 | 2025 | 2026 |
+|---:|---:|---:|---:|
+| 70 % | 82 % | 79 % | 70 % |
+
+*(porcentaje de días que abre Pablo)*
+
+### El aniversario (31 de mayo, primer beso en 2017)
+
+- **2023** — «Hoy es el día. Ese día en que tomaste esa decisión y me hiciste temblar…
+  Gracias por esos 6 años» → ella: «💜».
+- **2024** — «❤️ Feliz aniversario ❤️» + una canción → ella: «❤️».
+- **2025** — «Casi llegando. ¿Dónde estás?».
+- **2026** — *nada*. El primero después de enero. Ese día hablan del partido y de Wallapop.
+
 - Carlos dice «**te recojo**» **29 veces**. «Café» aparece **646 veces** en ese chat.
 - El spanglish («la madre de God») no aparece en 2016-17: viene de años posteriores.
 - EG / GB: siglas propias de los dos (preguntar en la entrevista).

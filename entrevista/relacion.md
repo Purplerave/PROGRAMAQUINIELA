@@ -43,7 +43,9 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **Los dos «lo siento» del 4 y 5 de enero.** Anteceden al 6 y no se sabe a qué responden.
 - **El café con Carlos del 5 de enero**, entre medias de todo. ¿Le contaste algo?
 - **La parte médica.** Infecciones recurrentes documentadas desde 2023 hasta finales de 2025. ¿Se llegó a ver a un especialista o se quedó en antibiótico y resignación?
-- **El sexo, después.** Si «mimos» es lo que queda, ¿qué es «mimos» hoy? ¿Y lo has hablado con ella alguna vez desde enero?
+- ~~**El sexo, después.**~~ **Contado (R21):** se negoció y hay un acuerdo. Queda lo de fondo: que a él no le basta que sea un favor.
+- **La pregunta sin responder: ¿quiere seguir?** Planteada en la 21 y esquivada. Repetida en la 22.
+- **El aniversario de 2026.** El 31 de mayo, por primera vez, no se mencionó. ¿Se dieron cuenta los dos?
 - **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
 - **La llamada de todas las noches.** Nueve años sin fallar. Es el hilo más constante de la relación y todavía no sabemos de qué habláis en ella.
 - **EG / GB.** Vuestras siglas. Aparecen en el chat de 2017 («GB» firma mensajes) y nunca se han explicado.
@@ -348,5 +350,25 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 ### 21. ¿Y desde entonces?
 
 **P:** Ocho meses desde aquel «aún no está dicha la última palabra». Tres cosas, y contesta las que quieras. **Una:** ¿se ha vuelto a hablar del tema alguna vez, o el 6 de enero fue la última conversación y desde entonces sois lo que sea que seáis, sin nombrarlo? **Dos:** cuando te digo que en tu lista de lo que perderías no aparecía ella — ¿te sorprende, o ya lo sabías? **Tres:** la pregunta que llevo veinte rondas sin hacerte de frente, y que ahora toca: **¿tú quieres seguir?** No «¿te compensa?», ni «¿qué perderías?». Si mañana Anuska, Carlos, las comidas y la familia siguieran ahí pasara lo que pasara — ¿elegirías a Sonia igual?
+
+**R:** Sí se habló: hablamos de cómo gestionar el sexo, y quedamos en que unos mimos. Donde ella hace algo que no es mucho lo suyo —ella no es de tomar iniciativa—, pero bueno, al final ella manualmente gestiona lo que sería mi final. Y me sienta un poco como que está haciendo algo para que yo me quede tranquilo. No digo que no me guste, pero es como que no me convence, porque ella no suele hacer eso. Hay caricias, besos y eso.
+
+> *Contestaste la primera y esquivaste las otras dos.* No es reproche —vas contando lo que puedes—, pero conviene que quede escrito: **la pregunta de si quieres seguir sigue sin respuesta.** Es la tercera vez que la parte más incómoda se queda fuera, y esta vez era la pregunta central de toda la bitácora.
+
+> *Y sí hubo negociación, que es más de lo que parecía.* Corrijo lo que dije en la 20: el 6 de enero no fue solo un anuncio y un emoji. Hubo después una conversación práctica y un acuerdo. Eso está bien y hay que decirlo: **de las tres crisis grandes de esta bitácora —vivir juntos, el dinero, el sexo— esta es la única en la que se negoció algo en vez de suprimirlo.**
+
+> *Pero fíjate en cómo describes el acuerdo.* «Ella **gestiona** lo que sería mi final». «Hablamos de cómo **gestionar** el sexo». Dos veces la palabra *gestionar* — que es vocabulario de logística, el mismo registro con el que contaste la rutina de los buses en la 17. El sexo entró en la misma categoría que los horarios: **algo que se administra**.
+
+> *Y lo que de verdad estás diciendo, por debajo:* que te lo hagan **por ti** no te vale. «Me sienta como que está haciendo algo para que yo me quede tranquilo… no digo que no me guste, pero no me convence, **porque ella no suele hacer eso**». Eso no va de sexo: **va de deseo**. Lo que echas en falta no es el acto, es que ella lo quiera. Un favor bien hecho no sustituye a que te deseen, y lo sabes tan bien que lo has dicho tú solo, con todas sus vueltas.
+
+> *«Ella no es de tomar iniciativa» — y eso también es medible.* Miré quién escribe **el primer mensaje del día** en los 1.246 días del chat (2023-2026). **Pablo 944 · Sonia 302.** Año a año: 2023 **70%** tú · 2024 **82%** · 2025 **79%** · 2026 **70%**. Siete de cada diez días de vuestra vida los empiezas tú. No es una impresión sobre la cama: **es su forma de estar en la relación entera**, y lleva así desde el primer chat de 2016 (donde ya escribías 4.200 mensajes por sus 2.547).
+
+> *Un contrapunto justo, para no cerrar en falso:* que alguien a quien «no le va» eso lo haga igual, sabiendo que a ti te importa, **también es una forma de querer**. No es la que tú quieres, pero no es indiferencia: es alguien haciendo algo que no le sale natural porque le importas. El problema no es que ella no haga nada. Es que **tú necesitas que salga de ella, y eso no se puede pactar en una conversación**.
+
+> *El dato que encontré buscando otra cosa, y que resume el año:* el **31 de mayo** es vuestro aniversario (el primer beso, Santa Cruz, 2017). **2023:** «Hoy es el día. Ese día en que tomaste esa decisión y me hiciste temblar… Gracias por esos 6 años 😘😘😘😘😘» → ella: «💜». **2024:** «❤️ Feliz aniversario ❤️» + una canción → ella: «❤️». **2025:** «Casi llegando. ¿Dónde estás?». **2026 —el primero después de enero—:** ni una palabra de aniversario. Ese día hablasteis del partido y de una cosa de Wallapop. Nueve años del beso que abrió todo esto, y ya no se menciona.
+
+### 22. La pregunta sigue en pie
+
+**P:** Te la vuelvo a hacer, sola, sin nada alrededor, porque es la única que importa y llevas dos rondas rodeándola. **¿Tú quieres seguir con Sonia?** No te pregunto si te compensa, ni qué perderías, ni si serías capaz de irte. Te pregunto qué quieres. Y si la respuesta honesta es «no lo sé» o «no, pero no puedo», también vale — se escribe igual. Lo único que no vale es contestar otra cosa.
 
 **R:** *(pendiente)*
