@@ -273,3 +273,35 @@ No baja poco a poco: **se para.**
 **Cautela obligatoria:** dejar de escribirlo no prueba dejar de sentirlo.
 Queda la llamada diaria (sin registro), los 707 corazones y lo presencial.
 Lo único demostrable es que **dejó de escribirlo y que él no lo notó.**
+
+
+## AVISO SOBRE LA COBERTURA DEL ARCHIVO
+
+El archivo **no está completo** y él lo advirtió (R25). Días con mensajes en
+los chats de pareja:
+
+| 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 19 | 178 | **0** | **1** | **1** | **0** | **1** | 313 | 352 | 356 | 224 |
+
+**Faltan 2018-2022 enteros, justo los del medio.** Ninguna afirmación sobre
+*cuándo* cambió la relación puede apoyarse en ese silencio.
+
+*(El export registra 32 mensajes eliminados: 32 de ella, 0 de él. Cifra
+pequeña, no altera nada, pero queda anotada.)*
+
+### La respuesta al problema: tasas, no totales
+
+Expresiones de afecto por cada 100 mensajes propios (inmune a que falten
+mensajes):
+
+| | 2017 | 2023 | 2024 | 2025 | 2026 |
+|---|---:|---:|---:|---:|---:|
+| Pablo | 5,16 | 3,23 | 5,87 | **6,23** | 2,50 |
+| Sonia | 1,44 | 0,00 | 0,08 | **0,00** | 0,09 |
+
+**2017 → 2025: Pablo +21 %. Sonia −100 %.**
+
+Esto refuta «todo va bajando con el tiempo en las relaciones» (frase que él
+atribuye a ella): si fuera eso, bajarían los dos. **No es enfriamiento mutuo,
+es asimetría creciente.**
