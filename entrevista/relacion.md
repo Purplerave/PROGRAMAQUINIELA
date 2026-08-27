@@ -426,10 +426,14 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 
 ### 24. La cajita
 
-**P:** Dos preguntas, y la primera es la de verdad.
+**P:** *(Primera versión demasiado enrevesada; él dijo que no la entendía. Se reformula en corto — nota metodológica: cuando la pregunta no se entiende, el problema es de quien pregunta.)*
 
-**Una.** «Ver partidos juntos» lo metió **ella** en la cajita el 27 de mayo de 2017, cuatro días antes del primer beso. Nueve años después seguís llamándoos para sincronizar el partido: es lo único de la cajita que no se ha roto. ¿Tú sabías eso? Y sabiéndolo ahora — **¿el fútbol de los viernes es el resto de algo, o es lo último que queda vivo?** Porque no es lo mismo, y de la respuesta depende bastante.
+Tres preguntas cortas.
 
-**Dos.** Ella pasó de decirte «te adoro» veinticinco veces en 2017 a no decirlo casi nunca desde 2023. Tú no bajaste el ritmo ni un año. **¿Cuándo notaste que había dejado de decirlo?** ¿Lo notaste en su momento, o te estás enterando ahora conmigo?
+**Una.** Cuando veis un partido cada uno en su casa, hablando por teléfono — **¿te lo pasas bien de verdad, o ya es solo costumbre?**
+
+**Dos.** Antes ella te decía «te quiero» y «te adoro». Ahora ya casi no. **¿Te habías dado cuenta?** Sí o no.
+
+**Tres.** Si te habías dado cuenta: **¿desde cuándo?** Y si no: ¿qué sientes al enterarte ahora?
 
 **R:** *(pendiente)*
