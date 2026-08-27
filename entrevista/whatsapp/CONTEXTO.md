@@ -588,3 +588,29 @@ Desde entonces, nada por escrito.
 
 Lo que quiere, fijado y sin cambios desde 2022: **verla más · el sexo de
 antes · no ser un amigo con derecho a dos besos.**
+
+
+## «Ya sé dónde está la puerta» — comprobación
+
+Es lo que le frena para pedir lo que quiere (R34): cree que **pedirlo es
+terminarlo**.
+
+Búsqueda en las **ocho fuentes** (nueve años) de «ya sabes dónde está la
+puerta», «ahí tienes la puerta», «si no te gusta, vete», «puedes irte»:
+
+**119 coincidencias con «puerta» → ninguna es eso.** Todas son puertas
+literales (centros comerciales, la perra, el inquilino de Pilar).
+**Sonia nunca ha dicho esa frase, ni nada parecido.**
+
+*Salvedad: el archivo solo recoge lo escrito. Pudo decirse en persona.*
+
+### El precedente dice lo contrario
+
+Junio de 2022, la única vez que lo pidió de verdad: ella **no** le enseñó la
+puerta. No durmió, grabó cuatro minutos, dijo «no tengo ganas de terminar
+nada», ofreció tardes y habló de «otros 5, 10, 15, 20 años».
+
+**Pidió, y lo que recibió fue que se quedara.**
+
+*Matiz: enero de 2026 fue distinto (lo dio ella por terminado) y han pasado
+cuatro años. El precedente no garantiza nada — pero es el único que hay.*

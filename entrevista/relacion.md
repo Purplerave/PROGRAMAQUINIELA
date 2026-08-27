@@ -69,6 +69,8 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **«Amigo con derecho a roce» (2022) → «amiga con derecho a dos besos» (2026).** La misma fórmula, con menos dentro.
 - **Nunca lo ha pedido por escrito.** Cero peticiones directas de verse más en el chat 2022-2026. La única vez fue el audio ensayado de junio de 2022.
 - **«Prefería», no «prefiero».** Su respuesta sobre lo que quiere está en pasado.
+- **POR QUÉ NO LO PIDE (R34):** «ya sé dónde está la puerta». Cree que pedirlo es terminarlo. Lo peor para él: «terminar ahí, directamente».
+- **Esa frase no existe en el archivo.** 119 hits de «puerta» en nueve años y ninguno es una amenaza de ella. Y en 2022, cuando lo pidió, ella se quedó.
 - **NORMA DE TRABAJO (pedida por él en la R32):** «a veces le das vueltas a algo que no tiene». Menos interpretación, más registro.
 - **El futuro.** Último bloque de la guía, pendiente de abrir. Propuesto en la 30.
 - **«¿Pero tú hablaste con alguien?»** — lo que ella le preguntó al oírle el discurso preparado.
@@ -738,5 +740,23 @@ Tres preguntas cortas.
 **Una.** Si mañana se lo dijeras tal cual —«quiero verte más, quiero el sexo que teníamos, no quiero ser un amigo con derecho a dos besos»—, **¿qué crees que te contestaría ella?** No lo que quieres oír: lo que crees de verdad.
 
 **Dos.** ¿Y qué es lo peor que podría pasar? Dime el escenario concreto que te frena.
+
+**R:** Que ya sé dónde está la puerta. — Y lo peor: **terminar ahí. Directamente.**
+
+> *Ahí está la respuesta a «¿por qué no lo pides?», y es sencilla:* **porque cree que pedirlo es terminarlo.** Para él, la petición y la ruptura son la misma frase. Eso explica los cuatro años de silencio mejor que cualquier otra cosa escrita en esta bitácora.
+
+> *Comprobación, porque esto sí es dato:* busqué en las ocho fuentes —nueve años, más de 100.000 mensajes— cualquier cosa parecida a «ya sabes dónde está la puerta», «ahí tienes la puerta», «si no te gusta, vete». **119 coincidencias con la palabra «puerta» y ninguna es eso.** Son puertas de centros comerciales, la perra rascando, el inquilino de Pilar. **Sonia no ha dicho esa frase nunca, ni nada que se le parezca.** *(Salvedad honesta: el archivo solo recoge lo escrito. Pudo decirlo en persona y no habría rastro.)*
+
+> *Y hay un precedente que apunta justo al revés.* La única vez que se lo pidió de verdad —junio de 2022— **ella no le enseñó la puerta**: no durmió, grabó cuatro minutos, dijo «no tengo ganas de terminar nada», ofreció tardes entre semana y habló de «otros 5, 10, 15, 20 años». Pidió, y lo que recibió fue que se quedara. **La predicción que le frena está contradicha por el único dato que existe.**
+
+> *Matiz obligatorio, para no vender optimismo:* enero de 2026 fue distinto —ahí lo dio ella por terminado— y han pasado cuatro años. Que en 2022 no le enseñara la puerta no garantiza nada hoy. **Pero «lo peor que puede pasar» es una hipótesis suya, no un hecho, y conviene que quede escrito como lo que es.**
+
+### 35. Lo que ya está pasando
+
+**P:** Dos, y las últimas del bloque.
+
+**Una.** Tienes miedo de que pedirlo termine la relación. Pero lo que hay hoy es: sin sexo, sin «te quiero», sin aniversario, y tú llamándolo «una amiga con derecho a dos besos». **¿Qué se rompería exactamente que no esté roto ya?**
+
+**Dos.** En junio de 2022 lo pediste y ella se quedó. **¿Por qué crees que esta vez sería distinto?**
 
 **R:** *(pendiente)*
