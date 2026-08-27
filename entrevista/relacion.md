@@ -56,3 +56,9 @@
 **R:** Tonterías en plan «la madre de God», o «a la good de God» en vez de «a la buena de Dios»… tonterías que nos hacen reír.
 
 > *Nota de la conversación:* la entrevista no debe saltar de tema en tema; lo mejor es contar la historia en orden — cómo llegamos hasta aquí —, no saltar directamente a cómo se manejan los roces.
+
+### 6. ¿Cómo empezasteis de verdad como pareja?
+
+**P:** Volviendo al principio: en aquella época, ¿cómo era la vida de cada uno? ¿Dónde estabas tú, dónde ella? ¿Y cómo empezasteis de verdad —hubo una primera cita, o se fue dando?
+
+**R:** Nos veíamos los fines de semana en el curro. La primera vez, creo que ella necesitó algo, y yo le arreglé el portátil —o por lo menos lo intenté—; ahí creo que conseguí el teléfono, aunque no lo recuerdo del todo. Luego, por agradecimiento, me regaló una colonia, en un pack con desodorante y demás. Empezamos a quedarnos alguna vez para desayunar, en una cafetería fuera del trabajo. Pasado el tiempo, y como se torció un pie, me invitó a un café al lado de su casa, en Perillo (yo vivo en A Coruña). Y entonces empezamos a quedar los viernes, que ella tenía dentista, para tomar un café. En ese momento yo ya estaba separado.
