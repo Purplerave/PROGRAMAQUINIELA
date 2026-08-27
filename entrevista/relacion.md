@@ -39,7 +39,9 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **Qué se dice y qué no.** A Carlos le cuentas los abismos, las nubes del horizonte y que no sabes qué vio ella en ti. ¿Eso se lo has dicho alguna vez a Sonia?
 - **Las canciones que ella no oye.** Compones, y lo que sale «pa desahogarme» se lo mandas a Carlos, no a ella (29/11/24). Desde 2017 le mandabas una canción cada día. ¿Cuándo dejó de ser para ella?
 - **Lo bueno, en concreto.** Sigue pendiente: pedí una anécdota y llegó un horario. Falta el momento, la risa, la frase. La rutina está; el contenido de la rutina, no.
-- **«El tema de enero».** Abierto en la 19 y **cortado a media frase**: «y entonces, este 6 de enero…». Falta qué pasó ese día.
+- ~~**«El tema de enero».**~~ **Contado (R20).** El 6/1/26 ella dio la relación por terminada; él contestó «aún no está dicha la última palabra». Queda por saber **qué sois desde entonces**.
+- **Los dos «lo siento» del 4 y 5 de enero.** Anteceden al 6 y no se sabe a qué responden.
+- **El café con Carlos del 5 de enero**, entre medias de todo. ¿Le contaste algo?
 - **La parte médica.** Infecciones recurrentes documentadas desde 2023 hasta finales de 2025. ¿Se llegó a ver a un especialista o se quedó en antibiótico y resignación?
 - **El sexo, después.** Si «mimos» es lo que queda, ¿qué es «mimos» hoy? ¿Y lo has hablado con ella alguna vez desde enero?
 - **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
@@ -326,5 +328,25 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 ### 20. ¿Qué pasó el 6 de enero?
 
 **P:** Sigue cuando puedas, que es tu historia y va a tu ritmo. Iba a preguntarte tres cosas, y me quedo con la primera y te dejo las otras dos para cuando quieras: **¿qué pasó ese 6 de enero?** Y luego, sin prisa: cuando ella dijo «sexo no», ¿fue una conversación o un anuncio — le dijiste lo que sentías, o lo tragaste como lo de «tú en tu casa, yo en la mía»? ¿Y llegasteis a mirar alguna vez la parte médica en serio (urólogo, ginecólogo), o se quedó en «pues ya está»?
+
+**R:** Fue un anuncio, y una presunción de final. Ella decía no al sexo, y me dijo que entendía que yo le diera más importancia, y que a ella le importaba más la parte del compañero de vida — pero **dio por hecho que lo dejábamos**. De hecho tiene que haber en WhatsApp uno que ponga «no está todo escrito», porque se me hizo bola. De todas formas, luego lo pensé: fui con la idea de romper, no sé si a la siguiente semana; pero pensé en todo lo que podía perder —Anuska, Carlos, las comidas, la familia— **y me acobardé**.
+
+> *El mensaje existe. Lo encontré, y estaba a la vista desde el principio.* **6/1/26, 20:50 — «Aún no está dicha la última palabra 😘😘😘».** No lo recordabas exacto («no está todo escrito»), pero el sentido es idéntico: el día que ella dio la relación por terminada, tú contestaste que todavía no estaba dicha la última palabra. Es tu voto particular contra el final que ella había decidido.
+
+> *Y ahora mira dónde está enterrado ese mensaje.* Contexto literal de ese minuto: 20:48, ella: «Vaya por Dios, pues ahora tienes que coger otro?» · «**Se te va a enfriar la pasta 🤪🤪**» · 20:49: «Bueno, descansa 😘😘» · **20:50, tú: «Aún no está dicha la última palabra 😘😘😘»** · 20:51: «🫂😘😘😘» · ella: «💙». Uno de los momentos más graves de nueve años **va metido entre un autobús perdido y la pasta enfriándose**, con tres besos detrás. Ella responde con un corazón azul. Y el 8 de enero ya estáis con el fútbol otra vez. No hubo escena, no hubo ruptura, no hubo conversación: **hubo un emoji.**
+
+> *Los dos días previos ya tenían la marca.* **4/1/26, 22:28:** «Mándame mensaje a la hora que sea cuando vuelvas porfi 😘😘 **lo siento 😞**». **5/1/26, 8:51:** «**Te quiero 🫂 lo siento**». Dos «lo siento» seguidos, sin que se vea de qué. Lo que fuera que pasó, empezó antes del día 6 y lo estabas pidiendo perdón tú.
+
+> *El dato que más dice, y que no busqué: dónde estabas el 5 de enero.* En el chat con Carlos, ese mismo día: quedáis a las 17:15 en Marineda, «la cafetería del centro», y tú a las 17:06: «**Ya llegué 🎉🫂**». Es decir: **entre el «lo siento» de la mañana del 5 y el «aún no está dicha la última palabra» de la noche del 6, hubo un café con su hermano.** No sé si le contaste algo —eso lo sabes tú—, pero la secuencia es la misma de toda esta bitácora.
+
+> *«Me acobardé» — y aquí conviene ser exacto contigo.* Lo que enumeras cuando piensas en romper no es «la quiero», «la echaría de menos», «no imagino la vida sin ella». Es: **«Anuska, Carlos, las comidas, la familia»**. Cuatro cosas, y **ninguna es Sonia**. Es la confirmación más nítida de todo lo que veníamos viendo desde la pregunta 15: lo que te retiene no es la relación, es **el mundo que la relación te dio**. Y eso no es cobardía. Cobardía sería no saberlo. Tú lo sabes y lo has dicho en voz alta.
+
+> *La asimetría de la definición, dicha por ella misma:* «entiendo que tú le des más importancia, y a mí me importa más **la parte del compañero de vida**». Para ella eres un compañero de vida. Para ti, una pareja. Nueve años y **seguís sin llamar a esto lo mismo** — y el que se adapta a la definición del otro vuelve a ser el mismo.
+
+> *Y una pregunta que dejo caer sin respuesta, porque es tuya:* si ella «dio por hecho» que lo dejabais y tú dijiste que no estaba dicha la última palabra… **¿alguna vez os habéis dicho en voz alta, después del 6 de enero, qué sois ahora?** Porque en el chat, del 8 de enero en adelante, no hay ni rastro de esa conversación: hay fútbol, Temu y «te llamo para sincronizar».
+
+### 21. ¿Y desde entonces?
+
+**P:** Ocho meses desde aquel «aún no está dicha la última palabra». Tres cosas, y contesta las que quieras. **Una:** ¿se ha vuelto a hablar del tema alguna vez, o el 6 de enero fue la última conversación y desde entonces sois lo que sea que seáis, sin nombrarlo? **Dos:** cuando te digo que en tu lista de lo que perderías no aparecía ella — ¿te sorprende, o ya lo sabías? **Tres:** la pregunta que llevo veinte rondas sin hacerte de frente, y que ahora toca: **¿tú quieres seguir?** No «¿te compensa?», ni «¿qué perderías?». Si mañana Anuska, Carlos, las comidas y la familia siguieran ahí pasara lo que pasara — ¿elegirías a Sonia igual?
 
 **R:** *(pendiente)*

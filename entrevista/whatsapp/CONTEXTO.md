@@ -129,6 +129,26 @@ infección». **26/8/25**: «no estoy muy animosa precisamente con lo de la infe
 una mierda**». **30/11/25**: «si tienes infección a lo mejor te toca antibiótico».
 En enero de 2026 ella decide dejar el sexo.
 
+### El 6 de enero de 2026
+
+Ella anuncia que no habrá sexo y **da por hecho que lo dejan** («entiendo que tú le des
+más importancia; a mí me importa más la parte del compañero de vida»). Él no lo acepta.
+El mensaje queda enterrado entre logística doméstica:
+
+```
+4/1/26, 22:28 - Pablo:  Mándame mensaje a la hora que sea cuando vuelvas porfi 😘😘 lo siento 😞
+5/1/26,  8:51 - Pablo:  Te quiero 🫂 lo siento
+5/1/26, 17:06 - Pablo:  [a Carlos] Ya llegué 🎉🫂     ← café con el hermano de ella
+6/1/26, 20:48 - Sonia:  Se te va a enfriar la pasta 🤪🤪
+6/1/26, 20:49 - Sonia:  Bueno, descansa 😘😘
+6/1/26, 20:50 - Pablo:  Aún no está dicha la última palabra 😘😘😘
+6/1/26, 20:51 - Sonia:  💙
+8/1/26          — vuelven al fútbol. No hay más conversación sobre el tema.
+```
+
+Semanas después él piensa en romper y no lo hace. Lo que enumera como pérdida:
+**«Anuska, Carlos, las comidas, la familia»** — Sonia no está en la lista.
+
 - Carlos dice «**te recojo**» **29 veces**. «Café» aparece **646 veces** en ese chat.
 - El spanglish («la madre de God») no aparece en 2016-17: viene de años posteriores.
 - EG / GB: siglas propias de los dos (preguntar en la entrevista).
