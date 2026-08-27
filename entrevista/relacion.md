@@ -17,13 +17,26 @@
 
 1. **El inicio.** Dónde estaba cada uno en aquella época, la vida de cada cual, cómo os conocisteis. *(hecho)*
 2. **El comienzo de la relación.** Cómo empezasteis de verdad: la primera cita, los primeros pasos. *(hecho)*
-3. **El desarrollo.** Cómo fuisteis avanzando durante estos 9 años: hitos, mudanzas, cambios de vida.
+3. **El desarrollo.** Cómo fuisteis avanzando durante estos 9 años: hitos, mudanzas, cambios de vida. *(en curso)*
 4. **El día a día.** Rutinas compartidas, las cosas que son «vuestras». *(parcial)*
-5. **La comunicación.** Cómo os habláis, cómo manejáis los roces.
+5. **La comunicación.** Cómo os habláis, cómo manejáis los roces. *(abierto: el «agobio» y la asimetría)*
 6. **Los momentos.** Los que marcan, los difíciles, lo que os hizo crecer.
 7. **El futuro.** Lo que deseas, lo que te da miedo, los planes (si los hay).
 
 > La guía es flexible: la historia decide por dónde se cuenta.
+
+---
+
+## Hilos abiertos
+
+Cosas nombradas que aún no se han contado del todo. No se pierden.
+
+- **¿Sigue siendo la regla hoy?** La pregunta 13 tenía dos mitades y solo contestaste una: de dónde salió el «tú en tu casa, yo en la mía». Falta si nueve años después sigue vigente, y si alguna vez se ha vuelto a hablar del tema.
+- **El «no voy a cargar contigo» y tu madre.** Hoy la cuidas tú. ¿Se ha vuelto a tocar eso? ¿Ella ayuda, se aparta, no se menciona?
+- **La asimetría (1,6 a 1).** Está en 2017 y sigue igual en 2023. ¿Lo has hablado con ella alguna vez o es un tema tuyo, en silencio?
+- **El hueco 2018 → 2022.** Cinco años sin apenas chat. Es justo donde caen el «finde por finde» y probablemente la conversación densa. Hay que reconstruirlo hablando.
+- **EG / GB.** Vuestras siglas. Aparecen en el chat de 2017 («GB» firma mensajes) y nunca se han explicado.
+- **La primera vez que pensó en dejarte** (viaje con los niños, pregunta 10) y esta conversación: ¿son el mismo momento o dos distintos?
 
 ---
 
@@ -112,3 +125,31 @@
 **P:** ¿Cuándo dijitisteis el paso a vivir juntos? ¿O estuvisteis un tiempo con casas separadas (y cómo era eso, con los peques de por medio)?
 
 **R:** ¿Quién dijo que vivimos juntos alguna vez? Nueve años y nunca. Las circunstancias realmente no se daban: yo vivo con mi madre y con mi hija (que hace años cambió el nombre a chica), y ella estuvo con su hijo hasta hace unos años. Pero en algún momento, en alguna conversación «densa», me dejó claro el principio: tú en tu casa, yo en la mía.
+
+### 13. ¿Y la «conversación densa» de dónde salió?
+
+**P:** Cuéntame esa conversación «densa»: ¿de qué iba, qué estaba pasando cuando ella soltó el «tú en tu casa, yo en la mía»? ¿Y sigue siendo esa la regla hoy?
+
+**R:** Probablemente salió porque —como siempre, que creo que ha sido mi caballo de batalla con ella— yo quería verla más tiempo, y ella se agobiaba: si le escribía mucho, se agobiaba. Y ahí me dejó claro que no iba a vivir conmigo, que cada uno en su casa. Otra «lindeza» que me dijo (no sé si en esa conversación o en otra) fue: «Si le pasa algo a tu madre, ¿qué vas a hacer?, porque yo no voy a cargar contigo». Y en aquellos días yo trabajaba solo finde por finde y cobraba 500 euros, que no eran muchos; ella me iba recordando que no tenía mucho dinero y que buscara algo.
+
+> *El «caballo de batalla», corroborado en las cifras:* la asimetría está desde el primer día y no se corrige nunca. Primer año (dic-16 → jul-17): **Pablo 4.200 mensajes, Sonia 2.547**. Seis años después, en 2023: **Pablo 1.650, Sonia 1.007**. Casi el mismo ratio (1,6 a 1) con seis años de diferencia. No es una impresión tuya: es el pulso de la relación.
+
+> *Y el «se agobiaba», también — con tus propias palabras adelantándote:* mucho antes de la conversación densa ya estabas pidiendo permiso para existir. **29/1/17:** «No t quiero agobiar ya quedaremos mas adelante cuando estés bien». **1/4/17:** «Bueno mi paciencia para verte no es tiene límite. Pero creo que deberías tener tu relax a solas». **13/5/17, 22:31:** «Tampoco quiero agobiarte» — ella: «No es que me agobies es que no se si merezco tanto». Y la más reveladora, **24/5/17, 23:03:** «Solo dime que no te molesto ..qu no te agobio» — y ella contesta: «**Algún dia.......por el momento tomaremos esos cafés tan fantásticos.** No me agobias peque». Ese «algún día» con siete puntos suspensivos es, cinco meses antes del primer beso, el mismo aplazamiento que años después se convirtió en «tú en tu casa, yo en la mía».
+
+> *La regla no era nueva: era su carácter desde el principio.* **21/3/17, 21:55**, ella, sin que nadie le pregunte: «Ahora estoy ya en mis horas privadas sola con mi libro, el móvil, la tele, y la cena todo junto!!!». Sus horas privadas. En marzo de 2017 ya estaban nombradas.
+
+> *De dónde puede venir el «no voy a cargar contigo».* Hay un mensaje de **26/1/17, 11:16** —cuando aún erais «amigos» y tú le contabas el lío de la separación— que es casi la misma doctrina dicha en amable: «me da la impresión de que tu ex quiere mantener toda su vida igual y obviamente no será posible y ella tendra que asumirlo y **buscarse la vida** también, **no va a ser todo responsabilidad tuya**. Yo tuve que hacerlo en su día **sin un céntimo y con una peque**. Me fui tambien a casa de mis padres a una ciudad que no conocia y donde no conocía a nadie y me busqué la vida. Tenia claro que tenia que solucionarlo yo. […] estaba dispuesta a trabajar en lo que fuera y el tiempo que fuera y eso es lo más importante». Es su biografía convertida en norma: cada uno se sostiene solo. Contigo la aplicó igual —«busca algo»—, solo que a ti te llegó como sentencia y no como consejo.
+
+> *El «finde por finde» y los 500 euros: fechado.* En el chat con Anuska, **12/9/19**, tú mismo: «Pues depende de cómo me amplíen a mi el horario» — «**Si vuelvo a trabajar fines de semana solo** tendré toda la semana». O sea, la etapa de la que hablas cae **hacia 2019**. Y la precariedad seguía cuatro años después: **9/6/23** — «Pregunte al coordinador. Que estaban contentos conmigo y que […] cuentan conmigo. Aunque **no pueden asegurar cuando pasaré a empresa**»; **5/9/23** «Aún no cobre 🙄»; **6/11/23** «No cobre todavía 😒».
+
+> *Y lo de tu madre no era una hipótesis: ya estaba pasando.* **2/2/23**, tu madre vuelve a casa en ambulancia; **4/2/23**, a Anuska: «Tengo la casa patas arriba y supongo que ya sabes que mi madre se volvió a caer»; **20/2/23**: «en cuanto acueste a mi madre..»; **14/3/23**: «mañana si te parece a las 5 así no llego luego muy tarde para ayudar a mi madre con la cena». La pregunta «¿y si le pasa algo a tu madre?» te la hicieron mientras ya la estabas cuidando.
+
+> *Dos contrapesos, para que el retrato sea justo.* **18/6/17, 12:46**, ella: «Es que el resto de la semana ya no puedo y **se me hace demasiado tiempo**» — «¿Qué día prefieres?». No siempre eras tú el que empujaba. Y en dirección contraria al dinero: **20/6/23**, tú a ella: «yo tengo un préstamo para pedir ya concedido de 13mil euros. **Si necesitas que compaginemos préstamos ya sabes que lo tienes a tu disposición.** Con reducción de cuota por ser mi novia 🤣». El que ofrecía cargar eras tú.
+
+> *Queda pendiente:* la segunda mitad de la pregunta —**¿sigue siendo esa la regla hoy?**— no la contestaste. Anotada en los hilos abiertos.
+
+### 14. Y tú, ¿qué le contestaste?
+
+**P:** Te cayeron tres frases muy duras casi seguidas —«cada uno en su casa», «si le pasa algo a tu madre no voy a cargar contigo» y «busca algo, que no tienes dinero»—. Quiero saber tu lado: ¿qué le contestaste en ese momento? ¿Discutiste, lo tragaste, te fuiste? ¿Y qué hiciste después: te la creíste y buscaste trabajo, o te quedaste con la espina y seguiste insistiendo en veros más?
+
+**R:** *(pendiente)*
