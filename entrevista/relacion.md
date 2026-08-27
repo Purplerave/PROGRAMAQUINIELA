@@ -9,6 +9,7 @@
 - **Estado:** En curso
 - **Protagonistas:** Pablo y Sonia
 - **Años juntos:** 9 (a fecha de la entrevista)
+- **Cohabitación:** no — casas separadas (nunca han vivido juntos)
 
 ---
 
@@ -97,6 +98,12 @@
 **P:** ¿Se habló en algún momento —tú, ella, el viaje, el bus— o se pasó página en silencio y ya? ¿Y cómo quedó, desde entonces, la relación entre Sonia y tu hija?
 
 **R:** No hubo relación de ningún tipo entre Sonia y mi hija: entre las dos, solo dos cenas de familia —una en la que invitaron a Nochebuena a mi madre y a mi hija, y otra en la que vino ella con mi hermano, y estaban el hijo de Sonia y el mío (que se portó peor, por cierto)— y nada más. Y el viaje: yo intenté saber qué había pasado, y ella no quiso decir nada; y ahí quedó. Cada uno por su lado; no se habló nunca.
+
+### 12. ¿Vivís juntos?
+
+**P:** ¿Cuándo dijitisteis el paso a vivir juntos? ¿O estuvisteis un tiempo con casas separadas (y cómo era eso, con los peques de por medio)?
+
+**R:** (Jajaja) ¿Quién dijo que vivimos juntos alguna vez? Nueve años y nunca hemos vivido juntos.
 
 ### 8. ¿En qué momento pasó de "amigos que se toman un café" a "estamos juntos"?
 
