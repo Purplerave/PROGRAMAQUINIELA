@@ -1,18 +1,21 @@
 # Entrevista personal — Mi relación
 
 > Bitácora de una entrevista guiada. Yo hago las preguntas, tú respondes, y cada
-> respuesta se guarda aquí tal y como se cuenta. El archivo se actualiza con cada ronda.
+> respuesta se guarda aquí resumida pero completa (sin omitir nada, bien explicada).
+> El archivo se actualiza con cada ronda.
 
 - **Inicio:** 27 de agosto de 2026
 - **Última actualización:** 27 de agosto de 2026
 - **Estado:** En curso
+- **Protagonistas:** Pablo y Sonia
+- **Años juntos:** 9 (a fecha de la entrevista)
 
 ---
 
 ## Guía — la historia, en orden
 
 1. **El inicio.** Dónde estaba cada uno en aquella época, la vida de cada cual, cómo os conocisteis. *(hecho)*
-2. **El comienzo de la relación.** Cómo empezasteis de verdad: la primera cita, los primeros pasos.
+2. **El comienzo de la relación.** Cómo empezasteis de verdad: la primera cita, los primeros pasos. *(hecho)*
 3. **El desarrollo.** Cómo fuisteis avanzando durante estos 9 años: hitos, mudanzas, cambios de vida.
 4. **El día a día.** Rutinas compartidas, las cosas que son «vuestras». *(parcial)*
 5. **La comunicación.** Cómo os habláis, cómo manejáis los roces.
@@ -72,3 +75,7 @@
 **P:** Tres días después de separarte, lo primero que hiciste fue escribirle a Sonia. ¿Por qué ella? ¿Por qué fue la primera a la que se lo contaste?
 
 **R:** Porque ya estaba loco por ella. No fue solo un llamadito de amigo: ya la tenía en la cabeza, y la separación fue la que dio la oportunidad de acercarse de verdad.
+
+### 8. ¿En qué momento pasó de "amigos que se toman un café" a "estamos juntos"?
+
+**P:** En el chat se ve el deslizar: de «mi querida amiga» a «mi amor», «corazon». ¿Hubo un momento en el que pensaste «vale, esto ya es en serio, estamos juntos», o fue más bien que un día te diste cuenta de que ya lo estabais?
