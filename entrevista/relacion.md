@@ -53,7 +53,11 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **Ella dejó de decir «te quiero».** 25 veces en 2017, casi ninguna desde 2023. Él **no se había dado cuenta** y lo explica con «ella es así» (R24). Se insiste en la 25.
 - **«Ella es así» / «todo va bajando con el tiempo».** Las dos explicaciones que usa para no mirar el cambio. La segunda **es literalmente de ella** (R25). Las tasas dicen que él no bajó: subió un 21 %.
 - ~~**FALTAN CINCO AÑOS DE ARCHIVO: 2018-2022.**~~ **Parcialmente resuelto (R26):** los dos chats de Pilar cubren 2020-2023 (54.158 mensajes). Siguen faltando **2018 y 2019**.
-- **El speech de junio de 2022.** Lo preparó, lo grabó, lo soltó, y al día siguiente estaba «hecho una mierda». ¿Qué le dijo ella?
+- ~~**El speech de junio de 2022.**~~ **Resuelto (R27):** aportó el audio transcrito, y no era su speech sino **la respuesta de ella**. Única vez en toda la bitácora que se oye a Sonia entera.
+- **«Otros 5, 10, 15, 20 años».** La única proyección de futuro del archivo, y la dijo ella. Corrige la ronda 18 («0 resultados» buscando futuro).
+- **«Hacemos que no ha pasado nada».** El método de la pareja, formulado por ella en 2022.
+- **Se hundió con un sí.** Ella concedió lo que pedía y él quedó «hecho una mierda». Abierto en la 28.
+- **El acuerdo de 2022 se cumplió** (entre semana pasa del 50 % al 70 %) y **se deshizo en 2026** (36 %).
 - **«Mi novia titanic que ya veo hundirse» (16/5/23).** El malestar tiene fecha: 2022-2023, no 2026.
 - **Pilar.** «Esa es otra historia» — anunciada por él, no investigada. Suya es la decisión de contarla.
 - **Ni el fútbol es lo que quería.** «Prefería verlo en casa con ella» (R24). El plan superviviente también es un plan de repuesto.
@@ -520,5 +524,45 @@ Tres preguntas cortas.
 **Una.** En junio de 2022 grabaste un speech para pedirle veros más, lo soltaste, y al día siguiente estabas «hecho una mierda». **¿Te acuerdas de esa conversación? ¿Qué te dijo ella?**
 
 **Dos.** En mayo de 2023 la llamaste «mi novia titanic, que ya veo hundirse». Eso son **casi tres años antes de enero**. Entonces la pregunta es esta, y es la única que importa ahora: **¿por qué sigues ahí?** No qué perderías — eso ya me lo dijiste. **Por qué te quedas viendo hundirse algo durante tres años sin bajarte.**
+
+**R:** *(Sube el audio de junio de 2022, transcrito entero. Y no es su speech: **es la respuesta de ella**, grabada en un paseo la mañana siguiente. Es la única vez en toda la bitácora que se oye la voz de Sonia sin intermediarios.)*
+
+> *Transcripción íntegra, tal como él la aportó:*
+>
+> «Ya empiezo otra vez, ¿vale? No sé cómo tú, que a veces las cosas las metabolizo más tarde. Y bueno, ahora ya veo, **estoy fatal**. Pero bueno, escucha una cosa. Hablamos, pero… ayer la verdad es que **no he podido dormir casi nada**, y estuve pensando un poquito en todo. Y sí que es cierto que aseguro que por mi parte **no supondría mayor problema que podamos organizar, como mínimo, que quedemos alguna tarde de la semana** y demás, y tú te puedes sentir mejor, y yo… en realidad, en el fondo, no me puedo imaginar mucho. Ahora sí, estoy después de tanto tiempo y **no tengo tampoco ganas de terminar nada**.
+>
+> Bueno, que… por lo que a mí respecta, **seguramente que puede haber otros 5, 10, 15, 20 años**. No sé cómo vamos a ir arreglando el tema del futuro, y con el tiempo yo también sé que las cosas se hacen, se calman más, y a lo mejor de hoy para mañana pueden cambiar muchas cosas. Pero bueno.
+>
+> En fin, que soy una pesada, y que… tú estabas diciendo que al momento yo tardo un poquito más, pero bueno, **si quieres tomamos un café por la tarde, lo volvemos a hablar**, y si quieres de otras cosas, y hacemos que no ha pasado nada, y yo miro de que en el fondo seguro que sí que **puedo dedicar un poquito más de tiempo sin sentirme infeliz**. No todos los días, obviamente, porque no es mi plan, ni mi vida me permite, pero seguro que podemos hacer algo. Bueno, yo lo dejo ahí, **lo siento**, y todos estos mensajes, y todo.
+>
+> Y eso, que hablamos más tarde, que ahora estoy intentando pasear esto un poquito antes de marchar, pero bueno, que aproveche que por aquí estoy por un paseo que no hay nadie. Bueno, que lo hablamos, y me dices, ¿vale? Que yo estoy segura que en el fondo **el problema es que ni uno ni otro vamos a encontrar a nadie que nos quiera tanto**, y bueno, que a lo mejor nos hemos desahogado un poquito a lo tonto en esto, y eso. Que hablamos, que ya lo dejo. Vale, venga, un besito, trabaja.»
+
+> *Antes de nada, lo que este documento es:* **la única vez en 27 rondas que se oye a Sonia entera**, sin resumen de él y sin filtrar por WhatsApp. Todo lo demás en esta bitácora son mensajes cortos suyos, o la versión de Pablo. Aquí hay cuatro minutos de ella pensando en voz alta, y **hay que leerlo con el mismo cuidado con el que se ha leído a él**.
+
+> *Y lo primero que hay que decir, porque contradice buena parte de lo escrito hasta aquí:* esta mujer **no** es la que «no es de tomar iniciativa», ni la que «es así», ni la que no siente nada. Es alguien que **no ha dormido**, que está «fatal», que se va a pasear sola para grabar esto donde no haya nadie, y que **concede lo que le piden**: quedar entre semana. Reconoce el problema, propone solución, pide otra conversación, se disculpa. **No es indiferencia. Es alguien intentándolo.**
+
+> *Segundo, y esto es enorme:* **«seguramente que puede haber otros 5, 10, 15, 20 años»**. En la ronda 18 se buscó lenguaje de futuro en los chats (`casar|futuro|vivir junt|mudar`) y salieron **cero resultados**. La conclusión escrita entonces fue que esta relación no habla del futuro. **Corrección: sí lo hizo, una vez, y lo hizo ella.** Es la única proyección a largo plazo que existe en todo el archivo — y está en un audio, no en el chat, que es justamente donde no se buscaba.
+
+> *Tercero, la frase que lo explica casi todo:* **«el problema es que ni uno ni otro vamos a encontrar a nadie que nos quiera tanto».** Léela dos veces. No dice «te quiero». Dice que **no encontrarán nada mejor**. Es una declaración de permanencia construida sobre la escasez, no sobre el deseo — y es, palabra por palabra, **la misma lógica que él usó en la ronda 20** cuando enumeró lo que perdería (Anuska, Carlos, las comidas, la familia) sin nombrarla a ella. **Los dos se quedan por lo mismo: por lo que perderían.** Y ella lo dijo en voz alta tres años y medio antes que él.
+
+> *Cuarto, y no es menor:* **«y hacemos que no ha pasado nada»**. Ahí está, formulado por ella y aceptado por él, el mecanismo que esta bitácora lleva 27 rondas describiendo. No es que se les olvide hablar de las cosas: **es un método**, y tiene autora y fecha. En 2022 se llama «hacemos que no ha pasado nada»; en enero de 2026 será dar por hecho que se acaba y volver al fútbol dos días después.
+
+> *Quinto — y aquí hay que ser justos con ella, porque cumplió.* Se puede medir. Contando las veces que él le cuenta a Pilar que ha quedado con Sonia, **antes del audio: 50 % entre semana, 50 % en fin de semana (n=12). Después del audio: 70 % entre semana, 30 % en fin de semana (n=43).** Ella dijo «podemos quedar alguna tarde de la semana» **y pasó a ocurrir**. Lo prometido se cumplió. *(Cautela: son menciones a una tercera persona, no un registro de encuentros; el volumen crece porque el chat con Pilar crece. Pero el vuelco de la proporción es claro.)*
+
+> *Sexto, lo que pasó con eso después.* Ese reparto se mantiene en 2023 (48 % entre semana), 2024 (49 %) y 2025 (54 %) — y **en 2026 se da la vuelta: 36 % entre semana, 64 % en fin de semana.** El acuerdo de 2022 duró tres años y medio y se deshizo justo después de enero de 2026. Coincide con lo escrito en la ronda 17: no ir entre semana para no «cambiarle sus rutinas».
+
+> *Y séptimo, lo que de verdad hay que mirar, que no es lo que dice ella sino lo que hizo él.* La mañana del 18/6/22, a las 9:48, Pablo le escribe a Pilar: «iba a grabar un mensaje pero no puedo 💔😭 **ahora mismo estoy hecho una mierda**». Es decir: **recibió este audio** —una mujer sin dormir, ofreciéndole verse más, hablando de veinte años, pidiendo un café para arreglarlo— **y se quedó hundido.** Y aquí está lo importante: **no está hundido porque ella le haya dicho que no. Está hundido porque le ha dicho que sí, y no era eso lo que necesitaba oír.** Ella le concedió horas. Él pedía otra cosa — y ni él sabía nombrarla entonces. Lo nombró cuatro años después, en la ronda 22: **«no así como pareja»**.
+
+> *Un contrapunto obligatorio antes de cerrar:* esto es una transcripción hecha por él de un audio de hace tres años, y en la propia transcripción hay frases que se rompen a la mitad («en realidad, en el fondo, no me puedo imaginar mucho»). **No conviene exprimir cada palabra.** El sentido general, en cambio, es inequívoco: ella no quería terminar, ofreció más tiempo, y pidió hablarlo con calma.
+
+### 28. Lo que ella dijo y tú no oíste
+
+**P:** Esto no era tu speech, Pablo. **Es la respuesta de ella** — y es lo único de estos nueve años donde se le oye entera. Tres preguntas.
+
+**Una.** Ella dice «puede haber otros 5, 10, 15, 20 años». Es **la única vez en todo el archivo que alguien nombra el futuro**, y lo hizo ella, en 2022. **¿Tú te acuerdas de haber oído eso?** ¿O te quedaste solo con lo de las tardes?
+
+**Dos.** Recibiste este audio y esa mañana escribiste «estoy hecho una mierda». Ella te estaba diciendo que sí a casi todo. **¿Por qué te dejó hundido un sí?**
+
+**Tres.** Ella dijo: «el problema es que ni uno ni otro vamos a encontrar a nadie que nos quiera tanto». Tú, en la ronda 20, dijiste que no te ibas por Anuska, Carlos, las comidas y la familia. **Son la misma frase.** ¿Te habías dado cuenta de que los dos os quedáis por lo mismo?
 
 **R:** *(pendiente)*

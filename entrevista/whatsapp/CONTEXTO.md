@@ -352,3 +352,57 @@ Esto **reordena la cronología**: el malestar no empieza en enero de 2026.
 
 *(El archivo de Sonia 2020-2022 está vacío, así que la fila de abajo mide
 sobre todo el hueco del archivo. Aun así el volumen con Pilar es un hecho.)*
+
+
+## EL AUDIO DE JUNIO DE 2022 — la voz de Sonia
+
+Aportado por él (ronda 27), transcrito. **No era el speech de Pablo: es la
+respuesta de ella**, grabada paseando la mañana siguiente. Es el único
+documento del archivo donde se oye a Sonia entera y sin intermediarios.
+
+Núcleos de lo que dice:
+
+- «estoy fatal» · «no he podido dormir casi nada»
+- «no supondría mayor problema que… **quedemos alguna tarde de la semana**»
+- «**no tengo tampoco ganas de terminar nada**»
+- «seguramente que puede haber **otros 5, 10, 15, 20 años**»
+- «si quieres tomamos un café por la tarde, lo volvemos a hablar… **y hacemos
+  que no ha pasado nada**»
+- «puedo dedicar un poquito más de tiempo **sin sentirme infeliz**»
+- «el problema es que **ni uno ni otro vamos a encontrar a nadie que nos
+  quiera tanto**»
+- «lo siento»
+
+### Por qué importa
+
+1. **Corrige** la conclusión de la ronda 18 (`casar|futuro|vivir junt|mudar`
+   → 0 hits): sí hay futuro nombrado en esta relación, una vez, y lo nombra
+   ella. Estaba en un audio, no en el chat.
+2. **Simetría con la ronda 20:** ella se queda porque «no encontraremos a
+   nadie que nos quiera tanto»; él se queda por Anuska, Carlos, las comidas y
+   la familia. **Los dos se quedan por lo que perderían.**
+3. **«Hacemos que no ha pasado nada»** es el método de la casa, con autora y
+   fecha.
+4. Él recibe este audio y esa misma mañana escribe a Pilar «estoy hecho una
+   mierda». **Se hunde ante un sí.**
+
+### ¿Cumplió ella lo prometido? Sí.
+
+Menciones de Pablo a Pilar sobre quedar con Sonia, por día de la semana:
+
+| | lun-jue | vie-dom | n |
+|---|---:|---:|---:|
+| antes del audio (10/20 → 17/6/22) | 50 % | 50 % | 12 |
+| después del audio (18/6/22 → 9/23) | **70 %** | 30 % | 43 |
+
+Y después, en el chat con Sonia (logística de quedadas):
+
+| 2023 | 2024 | 2025 | 2026 |
+|---:|---:|---:|---:|
+| 48 % | 49 % | 54 % | **36 %** |
+
+*(% entre semana)*. **El acuerdo duró tres años y medio y se deshizo tras
+enero de 2026.**
+
+*Cautela: son proxies (menciones a terceros y logística), no un registro de
+encuentros. El vuelco de proporción, aun así, es claro.*
