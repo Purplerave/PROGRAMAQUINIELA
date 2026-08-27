@@ -600,9 +600,13 @@ puerta», «ahí tienes la puerta», «si no te gusta, vete», «puedes irte»:
 
 **119 coincidencias con «puerta» → ninguna es eso.** Todas son puertas
 literales (centros comerciales, la perra, el inquilino de Pilar).
-**Sonia nunca ha dicho esa frase, ni nada parecido.**
 
-*Salvedad: el archivo solo recoge lo escrito. Pudo decirse en persona.*
+**CORRECCIÓN (R35): la comprobación no vale.** Él aclara que sí lo decían,
+**en persona y en broma, los dos**. La salvedad apuntada abajo era el caso.
+
+> **El archivo no prueba ausencias. Solo prueba lo que está escrito.**
+
+Lo que sí cambia: no era una amenaza de ella, era un chiste compartido.
 
 ### El precedente dice lo contrario
 
