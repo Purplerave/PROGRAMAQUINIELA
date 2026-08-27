@@ -38,7 +38,10 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **La «operación búho».** Ir a ver a tu pareja como una operación clandestina con nombre en clave. ¿Desde cuándo? ¿Por qué furtivo — por el turno, por su hijo, por ella?
 - **Qué se dice y qué no.** A Carlos le cuentas los abismos, las nubes del horizonte y que no sabes qué vio ella en ti. ¿Eso se lo has dicho alguna vez a Sonia?
 - **Las canciones que ella no oye.** Compones, y lo que sale «pa desahogarme» se lo mandas a Carlos, no a ella (29/11/24). Desde 2017 le mandabas una canción cada día. ¿Cuándo dejó de ser para ella?
-- **Lo bueno.** Pendiente de entrar en la bitácora: los ratos buenos, en concreto. Si existen (y algo los sostiene nueve años), tienen el mismo derecho a estar aquí que lo demás.
+- **Lo bueno, en concreto.** Sigue pendiente: pedí una anécdota y llegó un horario. Falta el momento, la risa, la frase. La rutina está; el contenido de la rutina, no.
+- **«El tema de enero».** Lo abriste tú al hablar de los mimos del sábado: «ahí hay un tema, que pasó en enero; ya entraremos ahí». Enero de 2026. Esperando.
+- **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
+- **La llamada de todas las noches.** Nueve años sin fallar. Es el hilo más constante de la relación y todavía no sabemos de qué habláis en ella.
 - **EG / GB.** Vuestras siglas. Aparecen en el chat de 2017 («GB» firma mensajes) y nunca se han explicado.
 - **La primera vez que pensó en dejarte** (viaje con los niños, pregunta 10) y esta conversación: ¿son el mismo momento o dos distintos?
 - **«Lo de mi madre se me hizo bola».** Lo dijiste de pasada y seguiste. Ahí hay algo sin abrir: qué se te hizo bola exactamente, y si eso cambió algo de cómo la ves.
@@ -223,4 +226,22 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 
 **P:** Llevamos dieciséis preguntas y de Sonia tengo sobre todo logística —buses, horarios, quién te acerca— y frases duras. Pero un domingo por la mañana en Perillo, cuando ya estás allí y no hay que coger ningún bus, ¿qué pasa? Cuéntame un rato bueno concreto de los últimos tiempos, uno que te hiciera pensar «por esto sigo aquí». Porque nueve años no se sostienen solo con un café de los viernes, y si lo bueno existe, tiene que entrar en la bitácora igual que ha entrado lo otro.
 
-**R:** *(pendiente)*
+**R:** Te cuento nuestra rutina, desde hace ya mucho tiempo.
+
+**Viernes.** Cojo el bus a Perillo sobre las 19:45, llego sobre las 20:10. Sonia me recoge con la perra; paseamos mientras ella termina la compra. Vamos a casa, cena, vemos un rato una serie, le doy un masaje de pies, y se duerme en el sofá (23:30-23:45).
+
+**Sábado.** Nos levantamos a las 8. Desayuno hasta las 9. Yo paseo a Vera hasta las 10:30. Si vamos a Feans, nos lleva Anuska: tomamos café, y sobre las 11 y algo ya me vuelvo. Vuelvo a Perillo ese mismo sábado sobre las 20 y pico. Mismo paseo, cena, serie, masaje de pies. Luego tenemos un pequeño tiempo de mimos *(ahí hay un tema, que pasó en enero; ya entraremos)*. Y a dormir.
+
+**Domingo.** 8, desayuno; 9, paseo; 10:30, recogida de Anuska; vuelta a las 11. Y fin —quiero decir, con Sonia. Probablemente me llamará de noche, como todos los días.
+
+> *Te pedí «un rato bueno concreto» y me diste un horario.* No es un reproche: es el dato. Te pedí una anécdota —un día, una risa, algo que te hiciera decir «por esto sigo aquí»— y lo que salió fue un cuadrante con horas de reloj: 19:45, 20:10, 23:30, 8:00, 9:00, 10:30, 11:00. Es exactamente la misma forma en que apareció el chat de 2023 («cojo el bus de 16.45», «salgo a las 18.05»). **La logística no era mi sesgo al leer los chats: es tu manera de contar la relación.** Y en toda la rutina no aparece ni una sola vez la palabra «reímos», «hablamos» o «me dijo».
+
+> *La rutina es real y está corroborada al detalle.* **Feans** (la cafetería de los sábados/domingos con las hermanas) sale una y otra vez desde 2024: «hoy estuvimos en Feans»; «que hayáis tenido un super café Muiñeiro dos Leóns de Feans **con las Reperez**» (14/9/25); y el día que no hubo, **25/10/25**: «recién llegado de Perillo tomando un desayuno **ya que las Pérez no van a Feans**». El **masaje de pies** es un ritual de vuestro propio idioma desde 2023 («masaje de pieses», «ya tenemos crema de pieses»; ella, 6/7/23: «Camino del podólogo. Yo prefería un masaje de pieses 🤣»). Y **Vera**, 97 menciones solo en el chat con Carlos.
+
+> *Y ahora el hallazgo, que es tuyo y es de agosto pasado.* **7/8/25**, Carlos te felicita porque «la jefa suprema ha otorgado privilegio real para teletrabajar». Y tú contestas: «**El viaje privilegiado a Perillo es mañana que es viernes, no vaya a ir un día de semana, y cambiarle sus rutinas** 😉🤪». Te habían dado teletrabajo —justo lo que llevabas nueve años necesitando para poder verla más— **y no lo usaste**. Por no cambiarle las rutinas a ella. Con un emoji de guiño, en broma, contándoselo a su hermano. Eso es la respuesta entera a «¿sigue siendo la regla hoy?»: ya no hace falta que ella la imponga, **la sostienes tú solo**.
+
+> *El otro dato duro:* **14/1/25** — «el viernes salgo a las 22 de currar. **Si mi mago favorito me acerca estaré en Perillo. Si no....**». Esos tres puntos son el fin de semana entero. No es que Carlos te ayude: es que **el fin de semana con tu pareja depende de que su hermano tenga el coche libre**.
+
+> *Y algo que sí es bueno, y hay que decirlo:* la llamada. «Probablemente me llamará de noche, **como todos los días**». Todos los días, nueve años. Eso es un hilo que no se ha roto nunca — el único de toda la bitácora del que dices «todos los días» sin condiciones, sin bus y sin coche de por medio.
+
+> *Anotado y esperando, porque lo has dejado tú:* **«ahí hay un tema, que pasó en enero. Ya entraremos ahí.»** Cuando quieras.

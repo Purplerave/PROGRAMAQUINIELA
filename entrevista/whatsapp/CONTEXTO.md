@@ -53,6 +53,26 @@
   madre». 22/6/26 Carlos: «las cosas se han invertido y tu madre está "mejor" que la mía».
 - **27/8/2026** — Último mensaje (el día de la entrevista).
 
+## La rutina actual (contada en la entrevista, 27/8/2026)
+
+| Día | Hora | Qué |
+|---|---|---|
+| **Viernes** | 19:45 → 20:10 | Bus a Perillo. Sonia lo recoge con Vera. |
+| | 20:10 → 23:45 | Paseo + compra · cena · serie · masaje de pies · ella se duerme en el sofá. |
+| **Sábado** | 8:00 – 9:00 | Desayuno. |
+| | 9:00 – 10:30 | Pablo pasea a Vera. |
+| | ~10:30 – 11:00 | Café en **Feans** (lleva Anuska) y **vuelta a A Coruña**. |
+| | 20:00 y pico | Vuelve a Perillo: paseo, cena, serie, masaje de pies, mimos. |
+| **Domingo** | 8:00 / 9:00 / 10:30 | Desayuno · paseo · recogida de Anuska. |
+| | 11:00 | Vuelta. Fin del fin de semana. |
+| **A diario** | noche | Llamada de Sonia — «como todos los días». |
+
+> Dos apoyos externos sostienen el fin de semana: **Anuska** (Feans, vuelta) y
+> **Carlos** (el coche cuando el turno acaba a las 22:00). Sin ellos, no hay finde.
+>
+> **7/8/25** — Le conceden teletrabajo y decide no usarlo para ir entre semana:
+> «no vaya a ir un día de semana, y cambiarle sus rutinas 😉».
+
 ## Personajes
 
 - **Alex** — hijo de Sonia (instituto, su «novia», el llavero, el digestivo).
