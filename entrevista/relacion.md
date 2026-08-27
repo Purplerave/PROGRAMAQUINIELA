@@ -44,7 +44,10 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **El café con Carlos del 5 de enero**, entre medias de todo. ¿Le contaste algo?
 - **La parte médica.** Infecciones recurrentes documentadas desde 2023 hasta finales de 2025. ¿Se llegó a ver a un especialista o se quedó en antibiótico y resignación?
 - ~~**El sexo, después.**~~ **Contado (R21):** se negoció y hay un acuerdo. Queda lo de fondo: que a él no le basta que sea un favor.
-- **La pregunta sin responder: ¿quiere seguir?** Planteada en la 21 y esquivada. Repetida en la 22.
+- ~~**La pregunta sin responder: ¿quiere seguir?**~~ **RESPONDIDA (R22):** «No así como pareja, pero no quiero que se vaya de mi vida.» Es la respuesta central de la bitácora y reordena todo lo anterior.
+- **¿Y ahora qué es esto?** Si no es pareja pero no es ruptura, hay que definirlo. Abierto en la 23.
+- **Ella no lo sabe.** Todo el entorno los da por pareja. ¿Se lo dirá?
+- **Falta la parte buena.** Veintidós rondas de lo que falta y ningún día feliz contado en detalle. Pedido en la 23.
 - **El aniversario de 2026.** El 31 de mayo, por primera vez, no se mencionó. ¿Se dieron cuenta los dos?
 - **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
 - **La llamada de todas las noches.** Nueve años sin fallar. Es el hilo más constante de la relación y todavía no sabemos de qué habláis en ella.
@@ -370,5 +373,29 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 ### 22. La pregunta sigue en pie
 
 **P:** Te la vuelvo a hacer, sola, sin nada alrededor, porque es la única que importa y llevas dos rondas rodeándola. **¿Tú quieres seguir con Sonia?** No te pregunto si te compensa, ni qué perderías, ni si serías capaz de irte. Te pregunto qué quieres. Y si la respuesta honesta es «no lo sé» o «no, pero no puedo», también vale — se escribe igual. Lo único que no vale es contestar otra cosa.
+
+**R:** Pues… no. Así como pareja, no. Pero no quiero que se vaya de mi vida.
+
+> *Esta es la respuesta más importante de toda la bitácora,* y conviene decir antes que nada que **costó veintidós preguntas** y que la dio entera, sin rodeos y sin pedir que se la sacaran a trozos. Todo lo anterior —los buses, el fútbol, las comidas, el dinero, enero— era la vuelta larga para llegar aquí.
+
+> *Lo que dijo, dicho de otra manera:* no quiere una pareja. Quiere **conservar a la gente**. Y eso explica, hacia atrás, la respuesta 20 mejor que ninguna otra cosa: cuando enumeró lo que perdería, dijo «Anuska, Carlos, las comidas, la familia» y no dijo «Sonia». Aquello no fue un olvido ni un lapsus revelador. **Era literalmente la respuesta correcta a la pregunta que se estaba haciendo por dentro.** Llevaba meses sabiéndolo; lo que no tenía era la frase.
+
+> *Y no es una respuesta cobarde. Es una respuesta difícil.* Lo cómodo habría sido «sí, la quiero, pero es complicado» — que no compromete a nada. Lo otro cómodo habría sido «no, esto se acabó» — que suena valiente y tampoco obliga a nada mientras no se haga. Lo que dijo es lo tercero, que es lo que casi nadie dice: **quiero que estés, pero no así.**
+
+> *La corroboración que da miedo mirar, y el contrapeso que la acompaña.* Busqué «te quiero / te amo / mi amor / te adoro» en los cuatro años del chat: **Pablo 245 veces · Sonia 1.** De las 217 veces que él lo escribe y ella contesta algo, **una sola vez responde lo mismo**; 50 veces responde solo con un emoji; 110 veces responde otra cosa («¿Qué tal tu hermano?», «venga la próxima de 14», «aún en la estación de bus»); 56 veces no responde. **El contrapeso, que es real y hay que ponerlo:** ella escribe **707 mensajes con corazones** y 24 con «love». Puede que lo diga en persona, o por teléfono en esa llamada de todas las noches, y ahí no hay registro. No es indiferencia. **Es otro idioma.** Pero el idioma que él pedía, escrito, no está.
+
+> *Lo que sí es cierto, y es lo que él ha estado diciendo todo el rato sin decirlo:* no le falta compañía, ni costumbre, ni familia, ni sitio donde comer los domingos. **Le falta que le elijan.** Y eso no se arregla con más viernes.
+
+> *Un apunte que no es psicología barata sino aritmética:* lleva nueve años siendo el que abre el 77 % de los días, el que escribe 1,44 mensajes por cada uno de ella, el que felicita el aniversario, el que hace los 45 minutos de bus. **Nada de eso es reprochable a nadie** — pero explica por qué la pregunta «¿quieres seguir?» le costaba tanto: responder que no como pareja significa admitir que nueve años de esfuerzo no compraron lo que querían comprar. Y aun así lo dijo.
+
+### 23. Entonces, ¿qué es esto ahora?
+
+**P:** Dejemos de mirar atrás; ya está contado. Lo que dijiste no es un final, es una definición nueva, y ahora toca ver si se sostiene. **Tres preguntas, y esta vez la tercera es la fácil.**
+
+**Una.** «No quiero que se vaya de mi vida» — ¿eso qué es, en concreto? ¿Amigos? ¿Familia? ¿Seguir exactamente igual pero sin llamarlo pareja? Descríbeme un viernes dentro de dos años, en la versión buena.
+
+**Dos.** Ella no sabe nada de esto. Vosotros «sois pareja» a efectos de todo el mundo — de Anuska, de Carlos, de las comidas del domingo. **¿Se lo vas a decir?** Y si la respuesta es no, dime por qué no, sin adornarlo.
+
+**Tres.** La fácil, y va en serio: en nueve años, ¿cuál es el mejor recuerdo que tienes con ella? Uno concreto, un día. Porque esta bitácora se ha ido llenando de lo que falta, y **eso también es injusto con nueve años de vida.** Falta la parte buena, y quiero escribirla.
 
 **R:** *(pendiente)*

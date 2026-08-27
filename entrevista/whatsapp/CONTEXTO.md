@@ -176,3 +176,24 @@ Primer mensaje del día, 1.246 días de chat (2023 → ago 2026): **Pablo 944 ·
 - EG / GB: siglas propias de los dos (preguntar en la entrevista).
 
 > Contenido privado: tratar con cuidado. No publicar.
+
+
+## «Te quiero», por escrito
+
+Ocurrencias de *te quiero / te amo / mi amor / te adoro* en `chat sonia 1.txt`:
+
+| | 2023 | 2024 | 2025 | 2026 | total |
+|---|---:|---:|---:|---:|---:|
+| Pablo | 36 | 87 | 97 | 25 | **245** |
+| Sonia | 0 | 1 | 0 | 0 | **1** |
+
+Qué contesta ella cuando él lo dice (217 casos con respuesta):
+
+- dice lo mismo: **1**
+- solo un emoji: **50**
+- otra cosa (logística, una pregunta sin relación): **110**
+- no contesta: **56**
+
+**Contrapeso obligatorio:** Sonia escribe **707** mensajes con corazones
+(❤💜💙💕💗😘😍🥰) y 24 con «love». No es frialdad: es otro registro. Y la
+llamada de todas las noches no deja rastro en el chat.
