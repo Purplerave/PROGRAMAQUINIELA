@@ -55,8 +55,12 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - ~~**FALTAN CINCO AÑOS DE ARCHIVO: 2018-2022.**~~ **Parcialmente resuelto (R26):** los dos chats de Pilar cubren 2020-2023 (54.158 mensajes). Siguen faltando **2018 y 2019**.
 - ~~**El speech de junio de 2022.**~~ **Resuelto (R27):** aportó el audio transcrito, y no era su speech sino **la respuesta de ella**. Única vez en toda la bitácora que se oye a Sonia entera.
 - **«Otros 5, 10, 15, 20 años».** La única proyección de futuro del archivo, y la dijo ella. Corrige la ronda 18 («0 resultados» buscando futuro).
+- **Cronología corregida:** ella formula el «no encontraremos a nadie que nos quiera tanto» en **2022**; él llega a su equivalente (Anuska, Carlos, las comidas, la familia) en **2026**. No son simultáneos: **ella llegó cuatro años antes.**
 - **«Hacemos que no ha pasado nada».** El método de la pareja, formulado por ella en 2022.
-- **Se hundió con un sí.** Ella concedió lo que pedía y él quedó «hecho una mierda». Abierto en la 28.
+- ~~**Se hundió con un sí.**~~ **CORREGIDO por él (R28):** el 17/6/22 **habían roto**. «Hecho una mierda» es por la ruptura, no por el audio. El audio los devolvió.
+- **La ruptura del 17-18 de junio de 2022.** Duró menos de un día. Hasta la ronda 28 esta bitácora daba por hecho que nunca habían roto.
+- **«¿Pero tú hablaste con alguien?»** — lo que ella le preguntó al oírle el discurso preparado.
+- **«Era lo que había» (2022).** La aceptación, dicha por él cuatro años antes de la ronda 22.
 - **El acuerdo de 2022 se cumplió** (entre semana pasa del 50 % al 70 %) y **se deshizo en 2026** (36 %).
 - **«Mi novia titanic que ya veo hundirse» (16/5/23).** El malestar tiene fecha: 2022-2023, no 2026.
 - **Pilar.** «Esa es otra historia» — anunciada por él, no investigada. Suya es la decisión de contarla.
@@ -564,5 +568,37 @@ Tres preguntas cortas.
 **Dos.** Recibiste este audio y esa mañana escribiste «estoy hecho una mierda». Ella te estaba diciendo que sí a casi todo. **¿Por qué te dejó hundido un sí?**
 
 **Tres.** Ella dijo: «el problema es que ni uno ni otro vamos a encontrar a nadie que nos quiera tanto». Tú, en la ronda 20, dijiste que no te ibas por Anuska, Carlos, las comidas y la familia. **Son la misma frase.** ¿Te habías dado cuenta de que los dos os quedáis por lo mismo?
+
+**R:** Sí, es el de ella. Yo le debí decir que quería algo más de tiempo, que así no podía. Y recuerdo que ella me dijo: **«¿pero tú hablaste con alguien?»**, porque lo debí decir como muy preparado. Pero luego quedamos en que nos queríamos mucho **pero que rompíamos. 18 de junio de 2022.** Y aun después hicimos el amor por última vez (bueno… de aquella). Yo dormí fatal y me fui entre lágrimas; recuerdo estar trabajando en casa, intentando responder a WhatsApps de clientes —no era capaz—, y **a las nueve y algo llegó el mensaje. Y volvimos.** E intentamos recuperar tardes, aunque una tarde para mí seguía siendo insuficiente. Luego llegó mi cambio de trabajo a las tardes y se volvió a fastidiar, aunque iba a tomar un café de 20 minutos a su descanso. Hasta que hace tiempo la cambiaron a ella también y me quedaba más lejos. Y ahora yo también de mañana… en fin.
+>
+> Por cierto: sí me acuerdo. Pero estamos hablando de 2022. **No me hundió para nada un sí.** Yo estaba roto porque no quería romper, y luego feliz de volver — aunque pronto me di cuenta de que no me llenaba como yo quería, pero era lo que había. Y lo de Anuska, Carlos, las comidas y la familia **lo digo ahora. Ahí pasaron cuatro años.**
+
+> *Dos correcciones suyas, y las dos son mías. Van primero, antes que nada.*
+
+> *Corrección 1 — «no me hundió un sí».* Tiene razón y mi lectura era falsa. Yo leí «estoy hecho una mierda» como la reacción **al audio**, y no lo era: **el 17 de junio de 2022 rompieron.** Dijeron que se querían mucho y que lo dejaban. Él durmió fatal, se fue llorando, y a la mañana siguiente estaba intentando trabajar sin poder. **Estaba roto por la ruptura, no por una concesión.** El audio de ella llegó *después*, «a las nueve y algo», y fue lo que los devolvió. No es un hombre que se hunde ante un sí: **es un hombre al que acababan de dejar.**
+
+> *Y el archivo lo fecha al minuto, de una manera que pone la piel de gallina.* El export `chat sonia 1.txt` **empieza el 18/6/22 a las 9:48** con un mensaje de ella —«Amor De mi Vida: `<Multimedia omitido>`»— y **el siguiente mensaje del archivo es del 11/1/23**, siete meses después. Ese primer `<Multimedia omitido>` de las **9:48** es este audio. Es literalmente el mensaje que abre el chat que ha sostenido esta bitácora. Y a esa **misma hora, 9:48**, él le escribía a Pilar «ahora mismo estoy hecho una mierda»: estaba escribiéndolo **mientras entraba el audio de ella**, antes de escucharlo. La secuencia correcta es: ruptura → noche sin dormir → 9:48 él hundido y ella grabando a la vez → él lo escucha → vuelven. *(A las 21:13 Pilar ya le escribe «me alegro!! Pásalo bien!!! 😘».)*
+
+> *Corrección 2 — la lista de la ronda 20 es de ahora, no de entonces.* También tiene razón, y es una precisión importante: yo puse en paralelo su «Anuska, Carlos, las comidas, la familia» (2026) con el «no vamos a encontrar a nadie que nos quiera tanto» de ella (2022) como si fueran simultáneos. **No lo son: hay cuatro años en medio.** Lo que sigue siendo cierto —y él no lo discute— es que **las dos frases tienen la misma forma**: las dos justifican quedarse por lo que se perdería. Pero el orden importa: **ella llegó a esa conclusión en 2022 y él en 2026.** Ella llegó cuatro años antes.
+
+> *Ahora, lo que él ha añadido de nuevo y no estaba en ninguna parte:* **hubo una ruptura formal**, con fecha, el 17-18 de junio de 2022. Duró menos de un día. Esta bitácora llevaba 27 rondas asumiendo que nunca habían roto.
+
+> *Y hay una frase de ella que él ha traído de memoria y que vale su peso:* **«¿pero tú hablaste con alguien?»**. Se lo preguntó porque le sonó **preparado** — y lo estaba: lo había grabado la víspera y se lo había consultado a Pilar, que le dijo «déjala explicarse a ella también, y mantén la calma». Lo que ella detectó no fue falsedad: fue **el esfuerzo**. Que él necesitara ensayar para poder decir en voz alta lo que quería dice más de la relación que el propio contenido del speech.
+
+> *Lo que se cumplió y lo que se deshizo, ahora con su relato encima de los datos.* Él confirma la medición de la ronda anterior —«intentamos recuperar tardes»— y añade lo que los números no dicen: **«una tarde para mí seguía siendo insuficiente».** Y luego enumera, sin dramatizarlo, cómo se fue deshaciendo: su cambio de turno a tardes, el café de **20 minutos** en el descanso de ella, el traslado de ella más lejos, y ahora los dos de mañana. **Cuatro años de logística laboral comiéndose lo poco que se había pactado.** Es el mismo mecanismo de siempre en esta relación: nadie decide nada, y los horarios deciden por los dos.
+
+> *Y una frase suya que conviene no dejar pasar, porque es la bisagra de todo:* **«pronto me di cuenta de que no me llenaba como yo quería, pero era lo que había».** Ahí está, dicho por él, el tránsito de 2022 a 2026. No hubo un desengaño: hubo una **aceptación**. «Era lo que había» es la versión resignada de «no vamos a encontrar a nadie que nos quiera tanto». **Acabó adoptando la frase de ella, cuatro años después, con otras palabras.** Igual que «ella es así» y que «todo va bajando con el tiempo».
+
+> *Nota metodológica, porque toca:* es la segunda vez en esta bitácora (la primera fue lo del hijo en el viaje) que él corrige una interpretación mía y **la corrección se sostiene documentalmente**. Queda como aviso: en este material es fácil confundir *lo que pasó* con *lo que parece que pasó al leer los mensajes de uno solo de los dos*.
+
+### 29. La ruptura de un día
+
+**P:** Tres, y la última es la importante.
+
+**Una.** El 17 de junio de 2022 rompisteis de verdad: «nos queríamos mucho pero rompíamos». **¿De quién salió la palabra romper — tuya o suya?**
+
+**Dos.** Dices que aún después hicisteis el amor «por última vez… bueno, de aquella». **¿Fue esa noche, después de decidir que lo dejabais?** Y si fue así — ¿qué crees que estabais haciendo los dos ahí?
+
+**Tres.** Volvisteis en menos de veinticuatro horas. Y dices: «pronto me di cuenta de que no me llenaba como yo quería, **pero era lo que había**». Esa frase es de 2022. **Han pasado cuatro años diciéndote lo mismo.** Entonces: ¿aquel día no rompisteis porque no queríais, o porque ninguno de los dos supo estar solo veinticuatro horas?
 
 **R:** *(pendiente)*

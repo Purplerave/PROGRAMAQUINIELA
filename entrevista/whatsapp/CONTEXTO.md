@@ -406,3 +406,41 @@ enero de 2026.**
 
 *Cautela: son proxies (menciones a terceros y logística), no un registro de
 encuentros. El vuelco de proporción, aun así, es claro.*
+
+
+## CORRECCIÓN (ronda 28): la ruptura del 17-18 de junio de 2022
+
+Aportada por él. **Sí hubo ruptura formal**, y esto reordena la lectura del
+audio:
+
+1. **17/6/22** — él suelta el speech. Ella le pregunta: **«¿pero tú hablaste
+   con alguien?»** (le sonó preparado; lo estaba). Acuerdan que se quieren
+   mucho **pero que rompen**.
+2. Esa misma noche **hacen el amor «por última vez, de aquella»**.
+3. Él duerme fatal y se va **entre lágrimas**. Por la mañana intenta trabajar
+   y no puede responder a los clientes.
+4. **18/6/22 9:48** — él escribe a Pilar «ahora mismo estoy hecho una
+   mierda»… y **a esa misma hora, 9:48**, entra el audio de ella. El export
+   `chat sonia 1.txt` **empieza justo ahí**: el `<Multimedia omitido>` de
+   «Amor De mi Vida» del 18/6/22 9:48 es este audio. El siguiente mensaje del
+   archivo es del **11/1/23**.
+5. **Vuelven ese mismo día.** A las 21:13 Pilar ya le dice «me alegro!!
+   Pásalo bien!!! 😘».
+
+**Por tanto: NO se hundió ante un sí.** Estaba roto por la ruptura. La
+lectura anterior era incorrecta.
+
+### Cómo se deshizo lo pactado (relato suyo)
+
+«Intentamos recuperar tardes» → **«una tarde para mí seguía siendo
+insuficiente»** → su cambio de turno a tardes → café de **20 minutos** en el
+descanso de ella → la trasladan a ella más lejos → ahora los dos de mañana.
+
+**Nadie decide nada: deciden los horarios.**
+
+### La frase bisagra
+
+**«Pronto me di cuenta de que no me llenaba como yo quería, pero era lo que
+había»** (sobre 2022). Es la aceptación, cuatro años antes de «no así como
+pareja» (R22), y el equivalente masculino de «no vamos a encontrar a nadie
+que nos quiera tanto».
