@@ -8,7 +8,8 @@
 | `Chat de WhatsApp con Sonia Atento (1).txt` | Sonia | 3/12/2016 → 14/11/2023 | **La historia completa en dos tramos**: 12/16→26/7/17 y 11/2023→11/2023. El chat se partió en 2019 (cambio de número, probablemente). |
 | `Chat de WhatsApp con Amor De mi Vida (1).txt` | Sonia | 2/2019 → 14/11/2023 | Segunda parte del chat anterior, sola. (Contacto renombrado «Amor De mi Vida».) |
 | `Chat de WhatsApp con Anuska (Sonia)2.txt` | Anuska (cercana a Sonia, parece su hermana) | 20/8/2019 → 1/9/2025 | Canal lateral: trayectos, regalo para el cumple de Sonia, etc. |
-| `Chat de WhatsApp con Carlos Sonia 1.txt` | **Carlos**, hermano de Sonia (el «cuñado») | **22/2/2019 → 27/8/2026** | **La fuente más larga y continua del archivo (9.129 líneas).** Cubre el hueco 2018-2022. Pablo 4.688 · Carlos 3.682. |
+| `Chat de WhatsApp con Carlos Sonia 1.txt` | **Carlos**, hermano de Sonia (el «cuñado») | **22/2/2019 → 27/8/2026** | Cubre el hueco 2018-2022. 9.129 líneas. Pablo 4.688 · Carlos 3.682. |
+| `chat sonia 1.txt` | **Sonia** | **2023 → 27/8/2026** | **La exportación más larga del archivo (16.251 líneas)** y la única que llega a hoy. Pablo 9.227 · Sonia 6.417. Aquí está el día a día actual. |
 
 > ~~Hueco: 2018 → principios de 2023~~ — **resuelto (27/8/2026)**: el chat con
 > Carlos cubre 2019-2026 sin interrupción. Sigue faltando **2017-2018** y el
@@ -88,10 +89,25 @@
 |---|---|---:|---:|---:|
 | Sonia (1er año) | dic-16 → jul-17 | 4.200 | 2.547 | **1,65** |
 | Sonia («Amor de mi Vida») | 2023 | 1.650 | 1.007 | **1,64** |
+| **Sonia (`chat sonia 1`)** | 2023 → 2026 | 9.227 | 6.417 | **1,44** |
 | **Carlos** | 2019 → 2026 | 4.688 | 3.682 | **1,27** |
 
-> Con Sonia el ratio es idéntico en 2017 y en 2023: seis años sin corregirse.
-> La conversación **más equilibrada** de todo el archivo es con **su hermano**.
+> Con Sonia el ratio mejora despacio (1,65 → 1,64 → **1,44**), pero la conversación
+> **más equilibrada** del archivo sigue siendo con **su hermano**.
+
+### El fútbol: donde sí se encuentran
+
+Los diez días con más mensajes de 2026 son **todos** partidos del Deportivo:
+
+`10/1 (198) · 28/1 (157) · 7/2 (224) · 12/2 (106) · 7/3 (180) · 18/3 (124) ·`
+`27/3 (142) · 31/3 (153) · 11/4 (166) · 12/4 (179)`
+
+- Ritual fijo: **«te llamo para sincronizar»** (2024, 2025 y 2026) — llaman para poner
+  las dos teles a la vez y comentan el partido jugada a jugada, cada uno en su casa.
+- Es el único contexto del archivo donde aparecen bromas rápidas y simétricas, sin
+  logística ni permisos: «Voy a preparar un feitizo», «Y voy y me lo pierdo que se cayó
+  una pipa jaja», «Jo» — «Jo» — «Jaja».
+- **27/8/2026** (último mensaje del archivo): Sonia le manda **su quiniela**.
 
 - Carlos dice «**te recojo**» **29 veces**. «Café» aparece **646 veces** en ese chat.
 - El spanglish («la madre de God») no aparece en 2016-17: viene de años posteriores.

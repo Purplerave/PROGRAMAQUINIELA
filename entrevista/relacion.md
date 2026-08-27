@@ -244,4 +244,61 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 
 > *Y algo que sí es bueno, y hay que decirlo:* la llamada. «Probablemente me llamará de noche, **como todos los días**». Todos los días, nueve años. Eso es un hilo que no se ha roto nunca — el único de toda la bitácora del que dices «todos los días» sin condiciones, sin bus y sin coche de por medio.
 
-> *Anotado y esperando, porque lo has dejado tú:* **«ahí hay un tema, que pasó en enero. Ya entraremos ahí.»** Cuando quieras.
+> *Anotado y esperando, porque lo has dejado tú:* **«ahí hay un tema, que pasó en enero. Ya entraremos ahí.»** Cuando quieras. (No lo he ido a buscar al chat: eso lo cuentas tú.)
+
+> ---
+>
+> ### Y entonces apareció lo bueno. Estaba en el chat todo el rato.
+>
+> *Nuevo material (27/8/2026): `chat sonia 1.txt`.* **16.251 líneas, 2023 → 27/8/2026.**
+> Es la exportación más larga de todo el archivo y la primera que llega hasta hoy.
+> Pablo 9.227 · Sonia 6.417 (ratio **1,44** — el más equilibrado que habéis tenido:
+> era 1,65 en 2017 y 1,64 en 2023).
+>
+> **Te pedí un rato bueno y me diste un horario. Pero el rato bueno existe, pasa cada
+> semana, y tiene nombre: el Deportivo.**
+>
+> Miré qué días de 2026 tenéis más mensajes. Los diez picos del año son **todos**
+> partidos: **10/1 (198 mensajes)**, 28/1 (157), 7/2 (224), 12/2 (106), 7/3 (180),
+> 18/3 (124), 27/3 (142), 31/3 (153), 11/4 (166), 12/4 (179). No es la logística:
+> **es un partido viendo la tele cada uno en su casa, comentándolo jugada a jugada.**
+>
+> Y el ritual tiene hasta protocolo. **10/1/26, 18:36:** «Te llamo **para sincronizar**
+> cuando menos». Lo repites desde 2024 («siempre sincronizados»), en 2025 («llámame y
+> sincronizamos») y en 2026. Os llamáis para que las teles vayan a la vez.
+>
+> Y así suena por dentro (10/1/26): «Nosotros parece que siempre salimos al ralentí» ·
+> «Ese córner era evitable» · «Estamos espesos atrás» · «Uyyyyyy» · «Cachis por
+> poquito» · «Goooool» — «🥳🥳🥳» — «**Que bueno Villares y tan bonito. Y voy y me lo
+> pierdo que se cayó una pipa jaja**» · «Yo no tengo pipa». Y el **13/1/26**: «Voy a
+> preparar un **feitizo**» · «Y aparte me hago pipi» · «Jo» — «Jo» — «Jaja».
+>
+> Eso es **conversación**. Rápida, tonta, cómplice, sin logística y sin nadie pidiendo
+> permiso. Es lo que llevaba diecisiete preguntas buscando, y estaba en los días que
+> juega el Depor.
+>
+> *Y hay más, del mismo enero.* **28/1/26**: ella tiene médico a las 12:30 y te avisa
+> «por si puedes ir» — «Puedo ❤️» —; luego juegan a la lotería y les tocan 2 euros
+> («Ahora no nos volvamos locos, ya hice las cuentas y **no nos da para jubilarnos** 😞»),
+> y tú le sueltas: «Pero mis ojos creo que solo funcionaron una vez y fue **cuando me
+> quedé embelesado mirándote a ti**. Ah, ¿que todavía me quedo embelesado cuando te
+> miro?.... Es verdad ❤️». Ella: «❤️». **26/1/26**, volviendo en el bus: «**Gracias por
+> una tarde tan dulce ❤️**».
+>
+> *Y el detalle que cierra el círculo de todo este repositorio:* el **último mensaje de
+> la exportación**, hoy **27/8/26, 17:01**, es de ella: «X 2 x x x 1 2 x x 1 x 1 1 2
+> pleno 3 1». **Sonia te manda su quiniela.** Tú, dos horas antes: «tengo que hacer dos
+> para tu quiniela». El proyecto en el que vive esta entrevista —PROGRAMAQUINIELA— es
+> también, resulta, una cosa vuestra.
+>
+> *La corrección honesta a lo que yo venía diciendo:* dije que de Sonia solo había
+> logística. **Me faltaba este archivo.** La relación diaria existe, es viva y es
+> divertida — solo que ocurre **por teléfono, en paralelo, cada uno en su casa**. Que
+> es exactamente la forma de la regla: *tú en tu casa, yo en la mía*. Incluso lo bueno
+> tiene esa forma.
+
+### 18. El Depor es el sitio donde sí os encontráis
+
+**P:** Retiro parte de lo que dije: lo bueno existe y está fechado. Pero fíjate en la forma que tiene. Los diez días que más habláis en todo el año son partidos; te llamas «para sincronizar» las teles; y lo que sale ahí es lo que no sale en ningún otro sitio: bromas, tonterías, «jo» y «jaja» a la vez, sin horarios ni permisos. Noventa minutos, dos veces por semana, en los que estáis **juntos de verdad** — pero cada uno en su casa, que es la regla otra vez. Dos preguntas: ¿te habías dado cuenta de que el fútbol es vuestro mejor rato? ¿Y por qué crees que ahí sí fluye — porque hay un tercero (el partido) del que hablar y no hay que hablar de vosotros?
+
+**R:** *(pendiente)*
