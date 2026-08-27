@@ -83,7 +83,12 @@
 **R:** Fui conociendo a su familia poco a poco: primero su hermano, por temas de ordenador (le arreglé el curro, como con el de Sonia); luego su hermana —ya no recuerdo cuando—; su madre… No tengo claro el orden. Su hijo, en cambio, ya lo conocía de antes: el primer viaje que hicimos juntos lo hicimos con su hijo y con el mío.
 
 > *El momento «¿y ahora qué decimos?» (25/2/2017):* Sonia: «Tuve un poco de lío el otro día porque en el cine me vio una compañera de Atento. Coruña es un pañuelo y su marido trabaja con Nano y le dijo que me había visto con un chico. Te tuve que rebautizar como el hermano de Emelina que también vino pero estaba un poco mosca. Vamos a tener que limitarnos a los cafés de vez en cuando, no quiero lios». O sea: en febrero de 2017 aún no eran públicos.
-> *El primer viaje con sus dos hijos* no se puede corroborar en las exportaciones (el hueco 2018–2022 no tiene mensajes).
+
+### 10. ¿Y el primer viaje, con Alex y con tu hijo?
+
+**P:** El primer viaje que hicisteis juntos lo hicisteis con su hijo y con el tuyo. ¿A dónde fuisteis? ¿Y cómo fue aquella primera convivencia de los dos peques (y de vosotros, de paso)?
+
+**R:** Fue un desastre. Mi hijo de entonces —hoy, su hija— era muy especial, y dio el viaje: según Sonia, hubo varios momentos de los que yo ni me enteré (uno dice que le empujó en el bus). El de ella tampoco se portó demasiado bien, pero era aún más joven. Sonia se agobió, «cruzificó» a mi hijo y un tiempo no quiso ni verlo. De ahí no guardo un buen recuerdo del viaje. Y lo más importante que hay ahí dentro: Sonia me ha dicho que en ese momento pensó en dejarme —y luego no lo hizo.
 
 ### 8. ¿En qué momento pasó de "amigos que se toman un café" a "estamos juntos"?
 
