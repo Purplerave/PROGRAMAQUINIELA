@@ -41,3 +41,9 @@
 **P:** ¿Qué es lo que ves en ella y te hace pensar «sí, es ella»? ¿Y es lo mismo hoy, después de 9 años, que al principio?
 
 **R:** Si me lo preguntas ahora, después de 9 años, diría lo mismo que al principio — pero con la carga de los años encima, y tal cual estoy ahora. Y aun así, sigue encantándome su sonrisa y su mirada.
+
+### 4. ¿Cómo es un día normal de los dos?
+
+**P:** Nueve años son muchos días compartidos. ¿Cómo es un día normal de los dos? ¿Hay pequeños rituales, bromas o manías que solo existan entre vosotros —de esos que hacen «esto es nuestro»?
+
+**R:** Pues no tanto como se podría pensar. Nada elaborado: bromas hablando medio en spanglish, pequeñas tonterías…
