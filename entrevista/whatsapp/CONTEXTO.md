@@ -18,6 +18,10 @@ Periodo: **3 de diciembre de 2016 → 26 de julio de 2017**.
 - **Feb 2017** — Sonia se rompe el pie (yeso, muletas, «baja, pie en alto»).
 - **18/3/2017** — «Hoy voy de chico Golden Boy: desodorante y colonia». El pack que ella le
   regaló por agradecimiento (coincide con la Q6 de la entrevista).
+- **31/5/2017** — **El primer beso, en Santa Cruz.** A las 13:25 Pablo escribe: «Aunque ahora
+  mismo no me salen las palabras solo quería que supieras que soy el hombre más feliz del
+  mundo» 🌈. Por la noche le manda dos canciones de Juan Luis Guerra: *La Llave de Mi
+  Corazón* y *Mi Bendición*.
 - **May–Jul 2017** — El volumen de mensajes se dispara (358 líneas en dic → 2.213 en jul).
 - **26/7/2017** — Último mensaje de la exportación: buenas noches dulces —
   «siempre tu EG… y yo siempre tu GB», «hasta mañana mi cielo».
