@@ -63,6 +63,8 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **«No sé si hay un futuro».** Su respuesta al último bloque de la guía. Registrada tal cual.
 - **El masaje de pies.** 21 menciones; «masaje» él 14 / ella 1. Nueve años ofreciéndolo él. Sigue haciéndolo (26/8/26).
 - **Lo de anteayer.** 26/8/26: ella en crisis laboral, él sosteniéndola una hora. Eso también es la relación.
+- **CORRECCIÓN (R31):** los **viajes los organiza ella** (todos). Y la quiniela **no es un recado**: es un proyecto suyo, ligado a la liga de los maestros. Se retira lo escrito en la ronda 30.
+- **Ella pidió poner los resultados de la nueva temporada (2026).** Primer movimiento documentado de ella hacia un terreno de él. Abierto en la 32.
 - **El futuro.** Último bloque de la guía, pendiente de abrir. Propuesto en la 30.
 - **«¿Pero tú hablaste con alguien?»** — lo que ella le preguntó al oírle el discurso preparado.
 - **«Era lo que había» (2022).** La aceptación, dicha por él cuatro años antes de la ronda 22.
@@ -661,5 +663,31 @@ Tres preguntas cortas.
 **Dos.** Ella está bien así. Tú no. **¿Ella sabe que tú no estás bien así?**
 
 **Tres.** Dentro de cinco años, si nada cambia: mismos viernes, mismos sábados. **¿Te ves ahí?** Sí o no.
+
+**R:** No: **el viaje lo organiza ella** (todos los organiza ella). Y no, lo de la quiniela es un proyecto mío, que va unido a la liga de los maestros. Siempre hacíamos un rasca de la ONCE; como no tocaba nada 😉 hicimos la loto, pero menos. Y con la IA (gracias a vosotras) empecé a ver que podía crear, e hice un programa para hacer los resultados con estadísticas. Bueno, eso… **y me dijo que quería poner ella los resultados de la nueva temporada.**
+
+> *Corrección 1, aceptada: los viajes los organiza ella.* Yo puse el viaje en la columna de «cosas que hace él» y estaba mal. **Todos los viajes de esta relación los organiza Sonia.** Y eso reordena la lista del futuro que él describió en la ronda anterior: el masaje es suyo, lo del sábado es de ella (ronda 21), **y el viaje también es de ella**. De las tres cosas con que describió su futuro, **dos las pone ella**. Lo cual, dicho sin rodeos, mejora bastante el reparto que yo había pintado — y hace más raro, no menos, que la palabra que use para describirlo sea «no sé si hay un futuro».
+
+> *Corrección 2, aceptada y más importante: la quiniela no es un recado.* Yo cerré la ronda anterior sugiriendo que este repositorio existía para hacerle la quiniela a ella, y **es falso**. Es al revés: **es un proyecto suyo**, ligado a la liga de los maestros, nacido de una costumbre compartida (el rasca de la ONCE, luego la loto) y convertido en **algo que él construyó**: un programa que calcula resultados con estadísticas. No es un servicio prestado. **Es lo único en toda esta bitácora que él ha hecho para sí mismo.** Retiro la frase anterior.
+
+> *Y dentro de esa corrección hay un dato que él ha soltado al final, casi de pasada, y que es el más esperanzador de las treinta y una rondas:* **«me dijo que quería poner ella los resultados de la nueva temporada».** Léelo despacio. Esta bitácora ha documentado durante treinta rondas una relación en la que **él propone y ella acepta**: él escribe primero el 77 % de los días, él da los masajes, él dice «te quiero» 245 veces por 1 de ella, él preparó el speech, él organizó incluso su propia ruptura. Y aquí, en agosto de 2026, **ella pide entrar en algo que es de él.** No un recado, no una gestión: **participar**. Es exactamente lo contrario de «ella no es de tomar iniciativa».
+
+> *Y el chat lo confirma, y además tiene fecha de inicio.* En nueve años de mensajes, el juego compartido (rascas, quinielas, loto) aparece **34 veces escrito por él y 4 por ella**. Pero mira **cuáles son las cuatro de ella**: 24/9/23 «acabo de revisar la bonoloto del otro día»; 11/1/24 «que sepas que cogí otro rasca con el reintegro y no sacamos nada»; 22/7/25 «no te lo creerás, pero el rasca nuevo, nada»; y **12/8/26: «Quiniela: X 2 2 1 1 X 1 1 X 1 2 1 1 1, para el pleno 2-1»** — su propia columna, entera. Las tres primeras son comentarios sobre lo que él hizo. **La cuarta es ella jugando.** Y es de hace dos semanas.
+
+> *El 27 de agosto —el día antes de empezar esta entrevista— vuelve a mandarle su columna y él escribe «tengo que hacer dos para tu quiniela».* Yo leí eso como servidumbre. **Era lo contrario: son dos columnas porque ahora juegan dos.** Es el último mensaje del archivo y resulta que no era el final de nada, sino algo que acaba de empezar.
+
+> *Una observación que hay que hacer con cuidado, sin convertirla en consuelo barato:* esto no arregla lo de fondo. Sigue sin haber deseo, sigue sin haber «te quiero», sigue en pie el «no así como pareja» de la ronda 22. Pero contradice **una** de las conclusiones de esta bitácora —la de que ella nunca entra en el terreno de él— y lo hace en **2026**, no en 2017. **Es el primer movimiento de ella hacia él que aparece fechado en el último año.** Merece quedar escrito con la misma tinta que se han escrito los datos malos.
+
+> *Y una nota sobre el método, ya que él la ha nombrado:* el programa de la quiniela lo hizo con ayuda de IA («gracias a vosotras»), igual que esta bitácora se está construyendo con ayuda de IA. **Las dos cosas nacieron del mismo impulso: ordenar algo que le importa y verlo por escrito.** No es casualidad que la entrevista de su vida amorosa haya acabado viviendo dentro del repositorio de la quiniela.
+
+### 32. Lo que ella pidió
+
+**P:** Se me cayeron dos suposiciones de golpe, así que reformulo. Tres cortas.
+
+**Una.** Si los viajes los organiza ella y el sábado lo pone ella, **¿qué es exactamente lo que echas de menos?** Porque no es que no haga nada — ya vimos que hace. ¿Es que no lo pida ella, o es otra cosa?
+
+**Dos.** Ella te pidió meter los resultados de la nueva temporada. **¿Qué te pareció cuando te lo dijo?** ¿Te hizo ilusión, o lo viste como un trámite?
+
+**Tres.** En nueve años, es de las pocas veces que **ella pide entrar en algo tuyo**. La temporada empieza ya. **¿Vas a dejarla?** Y si sí — ¿se lo has dicho con ganas, o con un «vale»?
 
 **R:** *(pendiente)*

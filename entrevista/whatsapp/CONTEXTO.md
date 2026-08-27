@@ -508,4 +508,29 @@ Ella le manda su columna: «1 x 2 x 1 x 1 x 1 1 1 2 2 2 pleno 3 1».
 Él: «¿pongo las dos columnas iguales? **Tengo que hacer dos para tu
 quiniela**».
 
-*El repositorio donde vive esta bitácora se llama **PROGRAMAQUINIELA**.*
+**CORRECCIÓN (R31).** Se había leído esto como servidumbre y es al revés.
+La quiniela es **un proyecto de él**, ligado a la liga de los maestros:
+viene del rasca de la ONCE y la loto, y acabó siendo un programa propio que
+calcula resultados con estadísticas. Son **dos columnas porque ahora juegan
+dos**.
+
+### El juego compartido, y quién lo menciona
+
+Sin falsos positivos de «churrascaito»: **Pablo 34 · Sonia 4.**
+
+Las cuatro de ella:
+
+| fecha | mensaje |
+|---|---|
+| 24/9/23 | «Acabo de revisar la bonoloto del otro día» |
+| 11/1/24 | «cogí otro rasca con el reintegro y no sacamos nada» |
+| 22/7/25 | «no te lo creerás pero el rasca nuevo, nada» |
+| **12/8/26** | **«Quiniela: X 2 2 1 1 X 1 1 X 1 2 1 1 1, para el pleno 2-1»** |
+
+Las tres primeras comentan lo que hizo él. **La cuarta es ella jugando.**
+
+Y él añade (R31): **«me dijo que quería poner ella los resultados de la nueva
+temporada»**. Es el primer movimiento documentado de **ella hacia un terreno
+de él** — lo contrario de «ella no es de tomar iniciativa», y es de 2026.
+
+*(También corregido: **los viajes los organiza ella**, todos.)*
