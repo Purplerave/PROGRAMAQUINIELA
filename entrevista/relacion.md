@@ -9,16 +9,17 @@
 
 ---
 
-## Guía — temas por donde iremos
+## Guía — la historia, en orden
 
-1. **El inicio.** Quién es esa persona, cómo os conocisteis, los primeros tiempos.
-2. **Lo que os une.** Qué hace que la relación funcione, lo que valoras de esa persona.
-3. **El día a día.** Rutinas compartidas, espacios propios, cómo se reparte la vida.
-4. **La comunicación.** Cómo os habláis, cómo vais por las discusiones, qué os cuesta.
-5. **Los momentos.** Recuerdos que marcan, lo difícil, lo que os ha hecho crecer.
-6. **El futuro.** Lo que deseas, lo que te da miedo, los planes (si los hay).
+1. **El inicio.** Dónde estaba cada uno en aquella época, la vida de cada cual, cómo os conocisteis. *(hecho)*
+2. **El comienzo de la relación.** Cómo empezasteis de verdad: la primera cita, los primeros pasos.
+3. **El desarrollo.** Cómo fuisteis avanzando durante estos 9 años: hitos, mudanzas, cambios de vida.
+4. **El día a día.** Rutinas compartidas, las cosas que son «vuestras». *(parcial)*
+5. **La comunicación.** Cómo os habláis, cómo manejáis los roces.
+6. **Los momentos.** Los que marcan, los difíciles, lo que os hizo crecer.
+7. **El futuro.** Lo que deseas, lo que te da miedo, los planes (si los hay).
 
-> La guía es orientativa: la conversación decide hacia dónde vamos.
+> La guía es flexible: la historia decide por dónde se cuenta.
 
 ---
 
@@ -53,3 +54,5 @@
 **P:** ¿Me sueltas alguna de esas bromas en spanglish? ¿Qué os decís, cómo suena?
 
 **R:** Tonterías en plan «la madre de God», o «a la good de God» en vez de «a la buena de Dios»… tonterías que nos hacen reír.
+
+> *Nota de la conversación:* la entrevista no debe saltar de tema en tema; lo mejor es contar la historia en orden — cómo llegamos hasta aquí —, no saltar directamente a cómo se manejan los roces.
