@@ -568,3 +568,23 @@ cuatro años.**
 - **La quiniela es un proyecto suyo**, no un recado. Va a medias.
 - «El sábado lo pone ella» — **nunca lo dijo**. Retirado.
 - **«A veces le das vueltas a algo que no tiene».**
+
+
+## Lo que nunca se pidió por escrito
+
+Búsqueda en `chat sonia 1.txt` (2022-2026) de peticiones directas de verse
+más — «vernos más», «quedar más», «estar más tiempo contigo», «necesito
+más»: **0 resultados.** (El único hit es un piropo del 31/3/25, «no puedo
+verte más que elegante y guapísima», que no cuenta.)
+
+**Lo pidió una sola vez: el audio grabado y ensayado de junio de 2022.**
+Desde entonces, nada por escrito.
+
+## La fórmula, con cuatro años de diferencia
+
+| 2022 | 2026 |
+|---|---|
+| «amigo con derecho a **roce**» | «amiga con derecho a **dos besos**» |
+
+Lo que quiere, fijado y sin cambios desde 2022: **verla más · el sexo de
+antes · no ser un amigo con derecho a dos besos.**

@@ -66,7 +66,9 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **CORRECCIÓN (R31):** los **viajes los organiza ella** (todos). Y la quiniela **no es un recado**: es un proyecto suyo, ligado a la liga de los maestros. Se retira lo escrito en la ronda 30.
 - **Ella pidió poner los resultados de la nueva temporada (2026).** Confirmado (R32): la quiniela va a medias, una columna del programa y otra suya. Sin más lectura.
 - **Lo que pide, en tres frases (R32):** «estar más tiempo, que me desee, que no sea solo compañía». Lo mismo que pedía en el speech de 2022.
-- **«Amigo con derecho a roce».** Lo usa desde el 27/3/22. Cuatro años y medio nombrando así su relación.
+- **«Amigo con derecho a roce» (2022) → «amiga con derecho a dos besos» (2026).** La misma fórmula, con menos dentro.
+- **Nunca lo ha pedido por escrito.** Cero peticiones directas de verse más en el chat 2022-2026. La única vez fue el audio ensayado de junio de 2022.
+- **«Prefería», no «prefiero».** Su respuesta sobre lo que quiere está en pasado.
 - **NORMA DE TRABAJO (pedida por él en la R32):** «a veces le das vueltas a algo que no tiene». Menos interpretación, más registro.
 - **El futuro.** Último bloque de la guía, pendiente de abrir. Propuesto en la 30.
 - **«¿Pero tú hablaste con alguien?»** — lo que ella le preguntó al oírle el discurso preparado.
@@ -718,5 +720,23 @@ Tres preguntas cortas.
 **Dos.** Llamas a esto «amigo con derecho a roce» desde marzo de 2022. **Si es eso lo que es — ¿qué te falta para llamarlo por su nombre delante de ella?**
 
 **Tres.** Ella está bien, tú no, y las dos cosas conviven desde hace años. **¿Prefieres seguir así o prefieres una conversación incómoda?** No te pregunto qué harás. Qué prefieres.
+
+**R:** Sí, ya me dejó claro que no hay sexo «convencional» y llegamos a este modo de mimos… con apaño. ¿Que qué prefiero?… **Prefería verla más, tener sexo del que teníamos antes… no pensar que tengo una amiga con derecho a dos besos.**
+
+> *La frase nueva, y no hace falta comentarla mucho:* **«una amiga con derecho a dos besos».** En 2022 era «amigo con derecho a roce». En 2026 el roce ya no está: quedan dos besos. **La misma fórmula, con menos dentro.**
+
+> *Sobre la primera pregunta, la respuesta es que no.* Preguntado si se lo ha pedido con esas palabras desde 2022, contesta con lo que **ella** dejó claro, no con lo que él pidió. Y el archivo va en la misma dirección: buscando peticiones directas de verse más en el chat con Sonia de 2022 a 2026 —«vernos más», «quedar más», «estar más tiempo contigo»— hay **cero**. El único resultado es un piropo del 31/3/25 («no puedo verte más que elegante y guapísima»), que no cuenta. **Lo pidió una vez, en junio de 2022, en un audio grabado y ensayado. Desde entonces, por escrito, nunca más.**
+
+> *Y su respuesta a «¿qué prefieres?» está en pretérito imperfecto:* **«prefería»**. No «prefiero». Es el tiempo verbal de lo que ya se dio por perdido. Se registra tal cual, sin más lectura.
+
+> *Las tres cosas que quiere, ya fijadas y sin cambios desde 2022:* ver**la** más, el sexo que tenían antes, y no ser un amigo con derecho a dos besos. **Ninguna de las tres se ha pedido en voz alta en cuatro años.**
+
+### 34. La conversación que no se ha tenido
+
+**P:** No te pregunto por qué no la has tenido. Te pregunto otra cosa, y es la última del bloque del futuro.
+
+**Una.** Si mañana se lo dijeras tal cual —«quiero verte más, quiero el sexo que teníamos, no quiero ser un amigo con derecho a dos besos»—, **¿qué crees que te contestaría ella?** No lo que quieres oír: lo que crees de verdad.
+
+**Dos.** ¿Y qué es lo peor que podría pasar? Dime el escenario concreto que te frena.
 
 **R:** *(pendiente)*
