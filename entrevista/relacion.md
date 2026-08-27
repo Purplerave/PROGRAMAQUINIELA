@@ -37,6 +37,9 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **El hueco 2018 → 2022.** Cinco años sin apenas chat. Es justo donde caen el «finde por finde» y probablemente la conversación densa. Hay que reconstruirlo hablando.
 - **EG / GB.** Vuestras siglas. Aparecen en el chat de 2017 («GB» firma mensajes) y nunca se han explicado.
 - **La primera vez que pensó en dejarte** (viaje con los niños, pregunta 10) y esta conversación: ¿son el mismo momento o dos distintos?
+- **«Lo de mi madre se me hizo bola».** Lo dijiste de pasada y seguiste. Ahí hay algo sin abrir: qué se te hizo bola exactamente, y si eso cambió algo de cómo la ves.
+- **Carlos y Anuska.** Su familia te adoptó más de lo que ella te abrió la puerta. Merece su propio capítulo.
+- **La cronología laboral completa.** Atento (soporte) → el finde-por-finde de 500 € (~2019) → R (turnos rotativos, contrata). Faltan fechas exactas de entrada y salida.
 
 ---
 
@@ -151,5 +154,27 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 ### 14. Y tú, ¿qué le contestaste?
 
 **P:** Te cayeron tres frases muy duras casi seguidas —«cada uno en su casa», «si le pasa algo a tu madre no voy a cargar contigo» y «busca algo, que no tienes dinero»—. Quiero saber tu lado: ¿qué le contestaste en ese momento? ¿Discutiste, lo tragaste, te fuiste? ¿Y qué hiciste después: te la creíste y buscaste trabajo, o te quedaste con la espina y seguiste insistiendo en veros más?
+
+**R:** Me agobié. Lo de mi madre se me hizo bola, pero lo del trabajo… sí tenía razón, y luego de hecho empecé a trabajar en R, con jornadas de tarde, de mañana; luego me pusieron de tarde, por lo que se me complicaban las noches de Perillo. Pero mi cuñado me llevaba muchas noches en coche, me venía a buscar a la Grela. Es otro tío estupendo.
+
+> *La palabra viaja.* Ella se agobiaba contigo; tú, cuando te puso el límite, **te agobiaste**. Es la misma palabra devuelta. Y fíjate en el reparto que haces de los tres golpes: el de tu madre lo **rechazas** («se me hizo bola»), el de vivir juntos ni lo discutes —no aparece en tu respuesta—, y el del dinero lo **validas** («sí tenía razón»). De tres reproches, le concedes uno entero y sobre el más duro pasas de largo.
+
+> *Y le hiciste caso: R está fechado y documentado.* La precariedad, en tus propias palabras — **9/6/23:** «Pregunte al coordinador. Que estaban contentos conmigo y que […] cuentan conmigo. Aunque **no pueden asegurar cuando pasaré a empresa**». Es decir: entraste por contrata, esperando que te absorbiera la empresa. Y el dinero seguía justo: **24/5/23** «Acabo de cobrar los 200€❣️»; **5/9/23** «Aún no cobre 🙄»; **6/11/23** «No cobre todavía 😒».
+
+> *Los turnos que describes están uno por uno en el chat de 2023.* Mañana: **19/1** «Mañana si que entro a las 10!! Puedo desayunar contigo 👏»; **21/8** «el sábado entro a las 9». Tarde: **15/2** «el domingo entro de tarde»; **8/4** y **18/4** «salgo a las 16»; **4/7** «salgo a las 18.05»; **29/9** «salgo a las 19.20». Y el turno que se comía la noche entera: **27/3/23** «**No te preocupes que salgo a las 22 y ya es tarde. Tu relájate** y disfruta de la tarde ❤️». Más los findes: **2/10/23** «libro el miercoles y el jueves, y **trabajo el finde**».
+
+> *«Se me complicaban las noches de Perillo» — el chat de 2023 es, literalmente, un parte de transporte.* «De camino en el bus de Oleiros», «Cojo el bus de 16.45», «Salgo en el bus de las 8. Supongo que tardaré sobre 25 mln. **Paro en Santa?**», «Sobre 6.10/15 llega el bus». Y el día que el turno ganó: **19/3/23** «De noche si no te importa comentamos el partido pero **no me acerco** y luego ya voy directo para la cama». Nueve años de relación cronometrados en horarios de autobús.
+
+> *La ironía que deja el conjunto:* la queja original era **querer verla más**. Le hiciste caso en lo del trabajo, conseguiste el empleo… y el empleo te quitó las noches. Arreglaste el reproche del dinero pagándolo con el tiempo, que era justo lo que pedías. Y ahí es donde entra el coche de tu cuñado.
+
+> *El cuñado es Carlos, el hermano de Sonia — el primero de la familia al que conociste* (pregunta 9: «primero su hermano, por temas de ordenador»). No hay exportación de vuestro chat, así que sus viajes en coche no se ven directamente, pero sí el rastro: **9/2/23** «luego **me recoge Carlos** para ir a comer (que ya se ofreció)»; **28/5/23** «Luego **me recoge Carlos** a las 14.50 😍»; **25/9/23** «Aún acompañe a Carlos casi casi hasta casa». Y el vínculo, contado a Anuska (**26/7/22**): «A tu hermano Carlos lo veré mañana que **quedo con el todas las semanas** para tomar un café, y **arreglar el mundo** 🤣, así se despeja un poco».
+
+> *«Es OTRO tío estupendo» — y el «otro» tiene nombre: Anuska.* Su chat es, en buena medida, un registro de llevarte a casa durante **seis años**: 20/8/19 «Gracias por traerme»; 5/1/20 «Mil gracias por acercarme a casa hoy»; 11/3/20 «Gracias por traerme a casa, y por la cervecita»; 29/6/21 «Gracias por acercarme» — «Faltaría más, Pablo»; 10/8/21; 11/9/21 «Mil gracias por traerme!!!»; 6/7/22 «Mil gracias por recogerme»; 19/8/23; 17/3/24; **16/2/25** «Gracias por acercarme casa Anuska». Cuando le das las gracias de más, ella te corta: «**No tienes que darme las gracias**».
+
+> *El detalle redondo:* en julio de 2017, «R» aparecía en vuestro chat solo como la compañía del router. Ella, **17/7/17:** «acabo de llamar a R a ver si agilizo algo y que me cambien el router». Tú, **19/7/17:** «espero que el de R dejara todo bien». Años después, R era donde trabajabas.
+
+### 15. Ellos te abrieron la puerta, ¿y ella?
+
+**P:** Aquí hay un contraste que salta a la vista. Su familia te adoptó: café semanal con Carlos «para arreglar el mundo», Anuska llevándote a casa durante seis años y diciéndote «no tienes que darme las gracias», tú preguntándole a ella qué regalarle a Sonia, comidas, cumpleaños, hasta cuidarle la perra. Con ellos entraste del todo. Con ella, la puerta seguía siendo «tú en tu casa, yo en la mía». ¿Cómo te explicas eso? ¿Y alguna vez alguno de ellos —Carlos, Anuska, su madre— te dijo algo sobre lo de no vivir juntos, o es un tema del que en esa familia no se habla?
 
 **R:** *(pendiente)*
