@@ -37,6 +37,8 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - ~~**El hueco 2018 → 2022.**~~ **Resuelto (27/8/26):** el chat con Carlos lo cubre entero (feb 2019 → hoy). Sigue faltando **2017-2018** y el lado de Sonia en 2024-2026.
 - **La «operación búho».** Ir a ver a tu pareja como una operación clandestina con nombre en clave. ¿Desde cuándo? ¿Por qué furtivo — por el turno, por su hijo, por ella?
 - **Qué se dice y qué no.** A Carlos le cuentas los abismos, las nubes del horizonte y que no sabes qué vio ella en ti. ¿Eso se lo has dicho alguna vez a Sonia?
+- **Las canciones que ella no oye.** Compones, y lo que sale «pa desahogarme» se lo mandas a Carlos, no a ella (29/11/24). Desde 2017 le mandabas una canción cada día. ¿Cuándo dejó de ser para ella?
+- **Lo bueno.** Pendiente de entrar en la bitácora: los ratos buenos, en concreto. Si existen (y algo los sostiene nueve años), tienen el mismo derecho a estar aquí que lo demás.
 - **EG / GB.** Vuestras siglas. Aparecen en el chat de 2017 («GB» firma mensajes) y nunca se han explicado.
 - **La primera vez que pensó en dejarte** (viaje con los niños, pregunta 10) y esta conversación: ¿son el mismo momento o dos distintos?
 - **«Lo de mi madre se me hizo bola».** Lo dijiste de pasada y seguiste. Ahí hay algo sin abrir: qué se te hizo bola exactamente, y si eso cambió algo de cómo la ves.
@@ -204,5 +206,21 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 ### 16. Entonces, ¿quién fue tu pareja estos años?
 
 **P:** Voy a decirte lo que veo, y me dices si me paso. Con Carlos: la conversación más equilibrada que tienes con nadie, café semanal siete años, «cuñado favorito», te recoge 29 veces, te espera a la salida del turno de las doce de la noche, te lleva a ver a tu novia en una «operación clandestina», y cuidáis el uno de la madre del otro. Con Sonia: llevas la cuenta de los buses, le pides quedarte y te vas mojado en el bus, y le cuentas a él lo que no le puedes contar a ella. Si un desconocido leyera los cuatro chats sin saber nada, diría que **tu relación más íntima y sostenida de estos nueve años es la de Carlos**. ¿Qué me dices? ¿Es que con ella hay algo que no está en los chats —lo que pasa cuando os veis— o es que efectivamente él ocupó un sitio que ella dejó vacío?
+
+**R:** Él está ahí y se volvió un confidente, aparte de un amigo. Yo le invité a todos los cafés que pude, porque se los merece.
+
+> *No corriges el retrato: lo confirmas y lo reordenas.* No dices «te pasas». Dices **«está ahí»** —en presente, sin fecha— y usas la palabra exacta: **confidente**. Es la primera vez en toda la entrevista que le pones a alguien un nombre de función emocional. A Sonia la has descrito por lo que hace («se agobiaba», «me dejó claro») y por lo que te gusta de ella (la sonrisa, la mirada); a Carlos lo defines por lo que **es para ti**.
+
+> *Y «confidente» no es una palabra generosa: es literal, y el chat la prueba dos veces.* **11/3/23** — hay un asunto delicado de familia, y tú: «**Contigo tengo confianza ciega. Obviamente Sonia no sabe nada.**» Él lo llama «este tema bastante privado» y se disculpa por si estuvo a punto de irse de la lengua en la mesa. En una sola línea está dicho todo el reparto: confianza ciega con él, silencio con ella. **29/11/24** — le mandas una canción tuya y él pregunta: «¿Se lo mandaste a Sonia?». Tú: «No no no... **Este no es la Sonia. Es pa desahogarme** 🤣🤣»; y luego: «queda para mis barruntamientos y **para que me aguantes**». Él lo remata mejor que nadie: «**en ese contexto es terapéutico**». Escribes canciones que ella no puede oír y se las mandas a su hermano.
+
+> *«Le invité a todos los cafés que pude, porque se los merece».* Esa frase tiene una raíz muy antigua en tu forma de estar en esa familia: es la misma contabilidad del agradecimiento que Anuska te tenía que frenar («**no tienes que darme las gracias**»). Con Carlos, en cambio, la contabilidad **funciona en los dos sentidos**, y por eso es la relación sana del archivo: «me toca invitar porque es mi turno, porque gané la timba y porque es tu cumple» (15/3/22); «ahora me toca el honor de invitar a cafeses e historias hasta fin de año» (7/8/22); «te invito a café de ikea, **que me toca el turno**» (2/12/24); «**Gané! 🏆 me toca invitarte!**» (11/1/26). Con él no estás saldando una deuda: estáis turnándoos. **646 menciones a «café»** en siete años, y el turno siempre vuelve.
+
+> *El contrapunto, para no idealizarlo.* **22/4/25**, Carlos: «hoy estuve en plan peleón, crítico e intolerante, **muchas veces tú pagas el pato** y cuando ya he descargado un poco... quedo con el mal sabor de haber soltado lastre sobre ti». También ahí eres el que sostiene. La diferencia con el otro lado es que **él lo nombra, se disculpa y lo repara al día siguiente**.
+
+> *Lo que no contestaste (otra vez, y no pasa nada):* la segunda mitad de la pregunta —**si con ella hay algo que no está en los chats**, lo que pasa cuando os veis—. Es la tercera vez que la parte incómoda se queda fuera. Anotada.
+
+### 17. ¿Y cuándo estáis juntos, qué pasa?
+
+**P:** Llevamos dieciséis preguntas y de Sonia tengo sobre todo logística —buses, horarios, quién te acerca— y frases duras. Pero un domingo por la mañana en Perillo, cuando ya estás allí y no hay que coger ningún bus, ¿qué pasa? Cuéntame un rato bueno concreto de los últimos tiempos, uno que te hiciera pensar «por esto sigo aquí». Porque nueve años no se sostienen solo con un café de los viernes, y si lo bueno existe, tiene que entrar en la bitácora igual que ha entrado lo otro.
 
 **R:** *(pendiente)*
