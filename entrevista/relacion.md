@@ -47,3 +47,9 @@
 **P:** Nueve años son muchos días compartidos. ¿Cómo es un día normal de los dos? ¿Hay pequeños rituales, bromas o manías que solo existan entre vosotros —de esos que hacen «esto es nuestro»?
 
 **R:** Pues no tanto como se podría pensar. Nada elaborado: bromas hablando medio en spanglish, pequeñas tonterías…
+
+### 5. ¿Alguna broma concreta en spanglish?
+
+**P:** ¿Me sueltas alguna de esas bromas en spanglish? ¿Qué os decís, cómo suena?
+
+**R:** Tonterías en plan «la madre de God», o «a la good de God» en vez de «a la buena de Dios»… tonterías que nos hacen reír.
