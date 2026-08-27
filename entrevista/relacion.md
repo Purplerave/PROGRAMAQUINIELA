@@ -76,6 +76,15 @@
 
 **R:** Porque ya estaba loco por ella. No fue solo un llamadito de amigo: ya la tenía en la cabeza, y la separación fue la que dio la oportunidad de acercarse de verdad.
 
+### 9. ¿Cómo se hizo pública la relación?
+
+**P:** ¿Cómo se hizo pública la cosa —cuándo se enteró la familia, cuándo los compañeros—? ¿Hubo un momento incómodo de «¿y ahora qué decimos?» o fue todo demasiado natural para que importase?
+
+**R:** Fui conociendo a su familia poco a poco: primero su hermano, por temas de ordenador (le arreglé el curro, como con el de Sonia); luego su hermana —ya no recuerdo cuando—; su madre… No tengo claro el orden. Su hijo, en cambio, ya lo conocía de antes: el primer viaje que hicimos juntos lo hicimos con su hijo y con el mío.
+
+> *El momento «¿y ahora qué decimos?» (25/2/2017):* Sonia: «Tuve un poco de lío el otro día porque en el cine me vio una compañera de Atento. Coruña es un pañuelo y su marido trabaja con Nano y le dijo que me había visto con un chico. Te tuve que rebautizar como el hermano de Emelina que también vino pero estaba un poco mosca. Vamos a tener que limitarnos a los cafés de vez en cuando, no quiero lios». O sea: en febrero de 2017 aún no eran públicos.
+> *El primer viaje con sus dos hijos* no se puede corroborar en las exportaciones (el hueco 2018–2022 no tiene mensajes).
+
 ### 8. ¿En qué momento pasó de "amigos que se toman un café" a "estamos juntos"?
 
 **P:** En el chat se ve el deslizar: de «mi querida amiga» a «mi amor», «corazon». ¿Hubo un momento en el que pensaste «vale, esto ya es en serio, estamos juntos», o fue más bien que un día te diste cuenta de que ya lo estabais?

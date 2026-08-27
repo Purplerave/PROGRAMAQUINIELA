@@ -18,6 +18,9 @@
   lleva 3 días en casa de su madre. Ya eran amigos y compañeros (Atento).
 - **Dic 2016** — Primeros cafés y desayunos en terrazas; nacen los viernes (ella, dentista).
 - **Ene 2017** — El tono sube: primeros «mi amor» y «corazon».
+- **25/2/2017** — El momento de no ser aún públicos: en el cine la ve una compañera de
+  Atento; Pablo tiene que ser «el hermano de Emelina». «Vamos a tener que limitarnos a los
+  cafés de vez en cuando, no quiero lios».
 - **Feb 2017** — Sonia se rompe el pie (yeso, muletas).
 - **18/3/2017** — «Hoy voy de chico Golden Boy: desodorante y colonia» (el pack de regalo).
 - **31/5/2017** — **El primer beso, en Santa Cruz.** 13:25: «Aunque ahora mismo no me salen
