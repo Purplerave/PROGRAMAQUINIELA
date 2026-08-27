@@ -77,6 +77,14 @@
 
 **R:** Porque ya estaba loco por ella. No fue solo un llamadito de amigo: ya la tenía en la cabeza, y la separación fue la que dio la oportunidad de acercarse de verdad.
 
+### 8. ¿En qué momento pasó de "amigos que se toman un café" a "estamos juntos"?
+
+**P:** En el chat se ve el deslizar: de «mi querida amiga» a «mi amor», «corazon». ¿Hubo un momento en el que pensaste «vale, esto ya es en serio, estamos juntos», o fue más bien que un día te diste cuenta de que ya lo estabais?
+
+**R:** El 31 de mayo de 2017, en Santa Cruz: ahí me besó por primera vez.
+
+> *Corroborado con el chat (31/5/2017):* por la mañana, el plan gira en torno a un bus «Sta Cruz–Sada». A las 13:25, Pablo escribe: «Aunque ahora mismo no me salen las palabras solo quería que supieras que soy el hombre más feliz del mundo» 🌈. Después, ella le manda 💔💔 y él se ríe: «Porque me mandas siempre el corazón partido» — «Ya lo completaremos 💋💋». Y por la noche le manda dos canciones de Juan Luis Guerra: *La Llave de Mi Corazón* («el estribillo tiene gracia para nosotros») y *Mi Bendición* («la canción que creo que resume muy bien el estribillo de nuestra mañana. Por lo menos para mí»).
+
 ### 9. ¿Cómo se hizo pública la relación?
 
 **P:** ¿Cómo se hizo pública la cosa —cuándo se enteró la familia, cuándo los compañeros—? ¿Hubo un momento incómodo de «¿y ahora qué decimos?» o fue todo demasiado natural para que importase?
@@ -103,12 +111,4 @@
 
 **P:** ¿Cuándo dijitisteis el paso a vivir juntos? ¿O estuvisteis un tiempo con casas separadas (y cómo era eso, con los peques de por medio)?
 
-**R:** (Jajaja) ¿Quién dijo que vivimos juntos alguna vez? Nueve años y nunca hemos vivido juntos.
-
-### 8. ¿En qué momento pasó de "amigos que se toman un café" a "estamos juntos"?
-
-**P:** En el chat se ve el deslizar: de «mi querida amiga» a «mi amor», «corazon». ¿Hubo un momento en el que pensaste «vale, esto ya es en serio, estamos juntos», o fue más bien que un día te diste cuenta de que ya lo estabais?
-
-**R:** El 31 de mayo de 2017, en Santa Cruz: ahí me besó por primera vez.
-
-> *Corroborado con el chat (31/5/2017):* por la mañana, el plan gira en torno a un bus «Sta Cruz–Sada». A las 13:25, Pablo escribe: «Aunque ahora mismo no me salen las palabras solo quería que supieras que soy el hombre más feliz del mundo» 🌈. Después, ella le manda 💔💔 y él se ríe: «Porque me mandas siempre el corazón partido» — «Ya lo completaremos 💋💋». Y por la noche le manda dos canciones de Juan Luis Guerra: *La Llave de Mi Corazón* («el estribillo tiene gracia para nosotros») y *Mi Bendición* («la canción que creo que resume muy bien el estribillo de nuestra mañana. Por lo menos para mí»).
+**R:** ¿Quién dijo que vivimos juntos alguna vez? Nueve años y nunca. Las circunstancias realmente no se daban: yo vivo con mi madre y con mi hija (que hace años cambió el nombre a chica), y ella estuvo con su hijo hasta hace unos años. Pero en algún momento, en alguna conversación «densa», me dejó claro el principio: tú en tu casa, yo en la mía.
