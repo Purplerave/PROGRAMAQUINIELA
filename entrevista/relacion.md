@@ -59,7 +59,10 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **«Hacemos que no ha pasado nada».** El método de la pareja, formulado por ella en 2022.
 - ~~**Se hundió con un sí.**~~ **CORREGIDO por él (R28):** el 17/6/22 **habían roto**. «Hecho una mierda» es por la ruptura, no por el audio. El audio los devolvió.
 - **La ruptura del 17-18 de junio de 2022.** Duró menos de un día. La despedida («que sea por todo lo alto») **la organizó él**, estando hundido (R29).
-- **¿Cuándo dejó de pelear ella?** En 2022 lo retuvo; en enero de 2026 lo dio por hecho «sin drama». Abierto en la 30.
+- ~~**¿Cuándo dejó de pelear ella?**~~ **RESPONDIDO (R30):** no dejó de pelear por desgaste. **Está bien como están ahora**, se lo dijo textualmente. El acuerdo actual le vale a uno de los dos.
+- **«No sé si hay un futuro».** Su respuesta al último bloque de la guía. Registrada tal cual.
+- **El masaje de pies.** 21 menciones; «masaje» él 14 / ella 1. Nueve años ofreciéndolo él. Sigue haciéndolo (26/8/26).
+- **Lo de anteayer.** 26/8/26: ella en crisis laboral, él sosteniéndola una hora. Eso también es la relación.
 - **El futuro.** Último bloque de la guía, pendiente de abrir. Propuesto en la 30.
 - **«¿Pero tú hablaste con alguien?»** — lo que ella le preguntó al oírle el discurso preparado.
 - **«Era lo que había» (2022).** La aceptación, dicha por él cuatro años antes de la ronda 22.
@@ -634,5 +637,29 @@ Tres preguntas cortas.
 **Dos.** Tú organizaste aquella despedida «por todo lo alto» estando hecho polvo, para que terminara bien. **¿Por qué te tocó a ti encargarte de que su ruptura fuera agradable?**
 
 **Y la propuesta.** Llevamos veintinueve preguntas y creo que ya está casi toda la historia: el inicio, el comienzo, el desarrollo, el día a día, la comunicación, los momentos. Falta el último bloque de la guía —**el futuro**— y creo que ya se puede entrar en él sin saltarse nada. Si te parece, la siguiente ronda va de ahí: **qué quieres que pase ahora.** Dime si lo ves o si prefieres que sigamos con 2022 un poco más.
+
+**R:** No. Ella ahora está bien, me lo dijo textualmente: **como estamos ahora**. Yo creo que ya cogimos la rutina de los fines… y ahí quedamos. — ¿Futuro?… ¿Qué futuro? Viernes, dormir a las 23:30 después de un masaje de pies. Sábado… un momento de, en fin, de eso… **con cuatro besos**. Y un viaje al año, que no me gusta viajar. **No sé si hay un futuro.**
+
+> *Lo primero, porque es la respuesta a la pregunta 30 y él la ha dado sin darse cuenta:* **«ella ahora está bien, me lo dijo textualmente: como estamos ahora».** Ahí está cerrada la asimetría que esta bitácora lleva treinta rondas describiendo. **El acuerdo actual le vale a uno de los dos.** Ella no dejó de pelear por desgaste ni por desamor: **dejó de pelear porque llegó a un sitio donde está bien.** Y él se quedó en un sitio donde no lo está. Eso no es una relación rota — es una relación **que funciona para una sola persona**, y eso es más difícil de nombrar y bastante más difícil de romper.
+
+> *Sobre la lista con la que describe el futuro,* que es lo más triste que ha escrito en toda la bitácora y a la vez lo más revelador: viernes con masaje de pies, sábado «un momento de eso» con cuatro besos, un viaje al año. **Léela otra vez y fíjate en quién hace cada cosa.** El masaje lo da él. El viaje lo organiza él (y dice que no le gusta viajar). Lo del sábado ya quedó descrito en la ronda 21: algo que ella gestiona «para que él se quede tranquilo». **Su futuro, tal como lo imagina, es una lista de cosas que él hace por ella.** No aparece ni una sola cosa que él vaya a recibir.
+
+> *Y el masaje de pies tiene su propio expediente, que conviene dejar escrito.* Aparece **21 veces** en el chat. Contando solo la palabra «masaje»: **él 14, ella 1.** Es él quien lo ofrece, quien lo anuncia, quien se disculpa cuando no puede darlo —«siento dejarte hoy sin masaje de pieses» (3/2/23), «siento que te quedes sin masaje» (10/11/23), «¿y sin masaje de pieses?» (19/12/25)— y quien lo usa como moneda de cariño hasta el 26 de agosto de 2026, hace dos días: «ya tenemos cremita, imagina un masajito de pieses… relajante». **Nueve años y el gesto sigue siendo suyo, y sigue ofreciéndolo.** Que ese gesto aparezca ahora en su descripción del futuro como algo gris dice menos del gesto que del cansancio de quien lleva una década siendo el único que lo hace.
+
+> *Ahora el contrapunto, y esta vez no es de cortesía: está en los últimos siete días del archivo.* El **26 de agosto de 2026**, ella está en crisis en el trabajo: «socorro, ya no me entero de nada», «son muchos más cambios de los que esperaba», «me siento entre desfasada, mayor y analógica», «y si no doy, pues ya podrían despedirme». Y él, durante una hora larga: «eres la mejor, es solo cogerle el tranquillo», «es el vértigo de los cambios, pero tú puedes, yo lo sé, **confío en ti**», «si llevas 20 años eres lo mejorcito que tienen ahí» — ella corrige: «llevo 30» — «más a mi favor. Eres superlista, aguda, inteligente». Y por la noche: «solo quise sacarte una sonrisa y darte un beso de ánimo 🫂😘⭐». Ella: **«💙💙💙».** **Eso también es la relación, y es de anteayer.** Con 55 años y treinta de empresa, cuando a ella le tiembla el suelo, **el que la sostiene es él**. Puede que eso no sea el futuro que quiere. Pero llamarlo «nada» sería mentir.
+
+> *Y hay un detalle final que resume nueve años mejor que cualquier análisis.* Los **últimos mensajes del archivo**, del 27 de agosto de 2026 —el día antes de empezar esta entrevista—, son ella mandándole su columna de la quiniela («1 x 2 x 1 x 1 x 1 1 1 2 2 2 pleno 3 1») y él preguntando: «¿pongo las dos columnas iguales? **Tengo que hacer dos para tu quiniela**». Este repositorio se llama **PROGRAMAQUINIELA**. Es decir: el proyecto en el que vive esta bitácora, el sitio donde él ha volcado nueve años de su vida amorosa, **está construido alrededor de un programa para hacerle a ella la quiniela.** No hace falta añadir nada.
+
+> *Sobre «no sé si hay un futuro»:* eso **es** una respuesta, y una bastante clara. Después de treinta rondas y de un «no así como pareja», lo honesto es registrarlo tal cual: **él no ve futuro en esto y ella está bien como está.** Las dos cosas a la vez. La pregunta del último bloque de la guía, por tanto, ya no puede ser «¿cómo os veis dentro de cinco años?» — sería una pregunta falsa. Tiene que ser otra.
+
+### 31. El futuro (último bloque)
+
+**P:** Abrimos el último bloque, y te hago las preguntas cortas, como quedamos.
+
+**Una.** Describiste el futuro como una lista de cosas que **haces tú**: el masaje, el viaje, lo del sábado. **¿Qué te gustaría recibir?** Una cosa concreta, aunque parezca pequeña.
+
+**Dos.** Ella está bien así. Tú no. **¿Ella sabe que tú no estás bien así?**
+
+**Tres.** Dentro de cinco años, si nada cambia: mismos viernes, mismos sábados. **¿Te ves ahí?** Sí o no.
 
 **R:** *(pendiente)*

@@ -468,3 +468,44 @@ para los dos estando destrozado.
 *(Comprobación fallida, anotada por honestidad: se contaron peticiones de
 favores para medir la «independencia» de ella. 11 de él vs 7 de ella en
 2023-2026. Cifras demasiado pequeñas: no permite concluir nada.)*
+
+
+## El presente (agosto de 2026)
+
+**Ella está bien.** Se lo dijo textualmente: «como estamos ahora». La
+asimetría, por fin nombrada: **el acuerdo actual le vale a uno de los dos.**
+
+### El masaje de pies
+
+21 menciones en el chat. Contando la palabra «masaje»: **Pablo 14 · Sonia 1.**
+Lo ofrece él, lo anuncia él y se disculpa él cuando no puede darlo:
+
+- 3/2/23 «Siento dejarte hoy sin masaje de pieses»
+- 10/11/23 «Siento que te quedes sin masaje de pieses»
+- 19/12/25 «¿Y sin masaje de pieses?»
+- **26/8/26** «ya tenemos cremita, imagina un masajito de pieses… relajante»
+
+Nueve años y sigue siendo un gesto de una sola dirección.
+
+### 26/8/26 — el contrapunto (dos días antes de la entrevista)
+
+Ella, en crisis por cambios en el trabajo: «socorro ya no me entero de nada»,
+«me siento entre desfasada, mayor y analógica», «y si no doy pues ya podrían
+despedirme».
+
+Él, durante más de una hora: «eres la mejor», «es el vértigo de los cambios,
+pero tú puedes, yo lo sé, **confío en ti**», «si llevas 20 años eres lo
+mejorcito que tienen ahí» → ella: «**llevo 30**» → «más a mi favor. Eres
+superlista, aguda, inteligente». Por la noche: «solo quise sacarte una
+sonrisa y darte un beso de ánimo 🫂😘⭐» → ella: «💙💙💙».
+
+**Cuando a ella le tiembla el suelo, el que la sostiene es él. Eso también
+es la relación.**
+
+### El último mensaje del archivo (27/8/26)
+
+Ella le manda su columna: «1 x 2 x 1 x 1 x 1 1 1 2 2 2 pleno 3 1».
+Él: «¿pongo las dos columnas iguales? **Tengo que hacer dos para tu
+quiniela**».
+
+*El repositorio donde vive esta bitácora se llama **PROGRAMAQUINIELA**.*
