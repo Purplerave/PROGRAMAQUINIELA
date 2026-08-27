@@ -90,6 +90,14 @@
 
 **R:** Fue un desastre. Mi hijo de entonces —hoy, su hija— era muy especial, y dio el viaje: según Sonia, hubo varios momentos de los que yo ni me enteré (uno dice que le empujó en el bus). El de ella tampoco se portó demasiado bien, pero era aún más joven. Sonia se agobió, «cruzificó» a mi hijo y un tiempo no quiso ni verlo. De ahí no guardo un buen recuerdo del viaje. Y lo más importante que hay ahí dentro: Sonia me ha dicho que en ese momento pensó en dejarme —y luego no lo hizo.
 
+*(Matización que aportó después: en realidad se portó peor el hijo de ella.)*
+
+### 11. ¿Cómo superasteis aquello?
+
+**P:** ¿Se habló en algún momento —tú, ella, el viaje, el bus— o se pasó página en silencio y ya? ¿Y cómo quedó, desde entonces, la relación entre Sonia y tu hija?
+
+**R:** No hubo relación de ningún tipo entre Sonia y mi hija: entre las dos, solo dos cenas de familia —una en la que invitaron a Nochebuena a mi madre y a mi hija, y otra en la que vino ella con mi hermano, y estaban el hijo de Sonia y el mío (que se portó peor, por cierto)— y nada más. Y el viaje: yo intenté saber qué había pasado, y ella no quiso decir nada; y ahí quedó. Cada uno por su lado; no se habló nunca.
+
 ### 8. ¿En qué momento pasó de "amigos que se toman un café" a "estamos juntos"?
 
 **P:** En el chat se ve el deslizar: de «mi querida amiga» a «mi amor», «corazon». ¿Hubo un momento en el que pensaste «vale, esto ya es en serio, estamos juntos», o fue más bien que un día te diste cuenta de que ya lo estabais?
