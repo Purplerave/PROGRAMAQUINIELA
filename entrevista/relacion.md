@@ -27,6 +27,11 @@
 
 ---
 
+>  **Nota:** las valoraciones y comentarios del entrevistador (la IA) están
+>  aparte, en [`NOTAS-DEL-ENTREVISTADOR.md`](NOTAS-DEL-ENTREVISTADOR.md).
+>  Este documento es la historia de Pablo; aquel es lo que opina quien
+>  preguntaba. Se separaron a petición suya al cerrar la ronda 40.
+
 ## Hilos abiertos
 
 Cosas nombradas que aún no se han contado del todo. No se pierden.
