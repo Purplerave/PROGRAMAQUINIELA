@@ -776,4 +776,14 @@ Tres preguntas cortas.
 2. **Que escriba el cierre**: un capítulo final que resuma los nueve años tal como han quedado contados —sin preguntas, sin conclusiones que no sean suyas—, para que se pueda leer de principio a fin como lo que es, la historia de una relación.
 3. **Seguir otro día.** Esto se puede retomar cuando quieras: los hilos abiertos están anotados al principio del documento (Pilar, Anuska y Carlos, la parte médica, lo de su madre, 2018 y 2019 —que siguen faltando—).
 
+**R:** *(Elige la 3: «mañana seguimos». Al día siguiente retoma él: «bueno, qué más querías saber».)*
+
+### 37. Anuska
+
+**P:** *(Contesta lo que te dé tiempo; son 25 minutos.)* En la ronda 20, cuando dijiste lo que perderías si rompías, nombraste cuatro cosas: **Anuska, Carlos, las comidas, la familia.** Anuska fue la primera.
+
+**Una.** **¿Quién es Anuska para ti?** En una línea.
+
+**Dos.** Vuestro chat tiene 1.459 mensajes entre 2019 y 2025 — y **se paró el 1 de septiembre de 2025**, hace casi un año. Los últimos mensajes son tuyos: «perdona si soy un poco pesado 😙», y ella: «para nada 😙😉». **¿Pasó algo, o simplemente se apagó?**
+
 **R:** *(pendiente)*
