@@ -659,3 +659,20 @@ Nada más. Se registra sin interpretar.
 
 *Contexto de la R37 (dicho por él): «me gusta mucho, físicamente… y ahora con
 este bajón que tengo, pienso en ella en algún sentido más intenso».*
+
+
+### Comprobación del chat con Anuska (R38)
+
+Buscado registro afectivo o ambiguo en los 2.171 mensajes: **49 de él, 20 de
+ella.** Leídos uno a uno: **ninguno es equívoco**, por ninguna de las dos
+partes.
+
+- Los de ella: «un abrazo, Pablo 😗», «un beso», y falsos positivos de «solo».
+- Los de él: «solo faltaba», «un abrazo de ánimo», «dale un besiño de mi
+  parte» (tras la consulta del cardiólogo).
+
+**Lo que él siente no está en la conversación.** Ella firma «somos familia,
+no lo olvides». Ni él ha hecho nada, ni ella ha dado pie a nada.
+
+*Contexto: los cuatro elementos de la lista de la ronda 20 —Anuska, Carlos,
+las comidas, la familia— son en realidad el mismo elemento.*

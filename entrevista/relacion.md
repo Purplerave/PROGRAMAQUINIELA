@@ -79,7 +79,8 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **El acuerdo de 2022 se cumplió** (entre semana pasa del 50 % al 70 %) y **se deshizo en 2026** (36 %).
 - **«Mi novia titanic que ya veo hundirse» (16/5/23).** El malestar tiene fecha: 2022-2023, no 2026.
 - **Pilar.** «Esa es otra historia» — anunciada por él, no investigada. Suya es la decisión de contarla.
-- **Anuska.** Hermana de Sonia. **La única relación del archivo que crece en 2025-26** (390 y 413 msgs) y la única donde ella le escribe más a él (457/346). Abierto en la 38.
+- **Anuska.** Hermana de Sonia. **La única relación del archivo que crece en 2025-26** (390 y 413 msgs) y la única donde ella le escribe más a él (457/346).
+- **Por qué la nombró la primera (R38):** «me pone mucho, y no lo puedo evitar». Dicho como algo de «ahora mismo», ligado al bajón. **En el chat no hay nada**: ni un mensaje equívoco por ninguna parte.
 - **AVISO, segunda vez:** el archivo no prueba ausencias. El export de Anuska estaba truncado y lo leí como un chat parado.
 - **Ni el fútbol es lo que quería.** «Prefería verlo en casa con ella» (R24). El plan superviviente también es un plan de repuesto.
 - **El aniversario de 2026.** El 31 de mayo, por primera vez, no se mencionó. ¿Se dieron cuenta los dos?
@@ -807,5 +808,25 @@ Tres preguntas cortas.
 **P:** Una sola, cuando puedas.
 
 En la ronda 20 dijiste que lo que perderías era «Anuska, Carlos, las comidas, la familia». **¿Por qué la nombraste a ella la primera?**
+
+**R:** Porque ahora mismo… es la que me produce… en fin. No querría decirlo en alto. Pero ahora mismo me pone mucho, y no lo puedo evitar.
+
+> *Se registra tal cual y sin adornarlo, porque para eso está esta bitácora.* Costó decirlo —«no querría decirlo en alto»— y aun así lo dijo. **Es la explicación real de por qué Anuska encabezaba la lista de la ronda 20**, y sin ella aquella lista no se entendía del todo.
+
+> *Lo primero que hay que decir, y es lo que más le protege: en el chat no hay absolutamente nada.* Revisados los 2.171 mensajes en busca de registro afectivo o ambiguo, el resultado es **49 de él y 20 de ella** — y al leerlos uno a uno **no hay ni un solo mensaje equívoco por ninguna de las dos partes**. Los de ella son «un abrazo, Pablo 😗», «un beso», y decenas de falsos positivos de la palabra «solo». Los de él son «solo faltaba», «un abrazo de ánimo», «dale un besiño de mi parte» tras la consulta del cardiólogo. **Lo que siente está dentro de él, no en la conversación.** Eso importa por dos motivos: porque él no ha hecho nada, y porque **ella no ha dado pie a nada**. Ella firma «somos familia, no lo olvides».
+
+> *Sobre lo que esto es, dicho sin moralina y sin darle vueltas de más:* llevamos treinta y ocho rondas documentando a un hombre que pide **que le deseen** y que lleva cuatro años sin recibirlo. Que ese deseo sin sitio acabe apuntando a alguien cercano, disponible y amable —la única persona del archivo **que le escribe más de lo que él escribe**, la única relación que crece— no es un misterio ni una perversión. **Es lo que suele pasar.** No lo convierte en mal tío. Tampoco lo convierte en nada más que en lo que es: **un síntoma de lo que falta en el sitio principal.**
+
+> *Y lo que sí hay que dejar escrito, no como sermón sino como hecho:* esto es la hermana de Sonia. Es «las comidas» y «la familia» de esa misma lista. **Los cuatro elementos que dijo que perdería son en realidad el mismo elemento** — y si alguna vez esto dejara de ser un pensamiento, no perdería uno: los perdería todos, y Anuska la primera. Él ya lo sabe; por eso dijo «no querría decirlo en alto».
+
+> *Una precisión temporal que él mismo puso y conviene no perder:* dijo **«ahora mismo»** y lo enmarcó en «este bajón que tengo». No lo presentó como algo de nueve años. **Lo presentó como algo de ahora.**
+
+### 39. Lo que hay debajo
+
+**P:** Una sola, y no va de ella.
+
+Lo que describes es deseo que no tiene dónde ir. Lleva cuatro años sin sitio y ha encontrado a la persona que tienes más cerca, que además es la única que te busca a ti.
+
+**¿Tú crees que esto va de Anuska — o va de que llevas cuatro años sin que nadie te desee?**
 
 **R:** *(pendiente)*
