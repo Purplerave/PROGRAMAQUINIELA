@@ -73,7 +73,8 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - ~~**Esa frase no existe en el archivo.**~~ **CORREGIDO (R35):** sí existía, **en persona y en broma, dicha por los dos**. No era una amenaza de ella. La comprobación por ausencia era inválida.
 - **AVISO METODOLÓGICO:** el archivo no prueba ausencias. Solo prueba lo escrito.
 - **NORMA DE TRABAJO (pedida por él en la R32):** «a veces le das vueltas a algo que no tiene». Menos interpretación, más registro.
-- **El futuro.** Último bloque de la guía, pendiente de abrir. Propuesto en la 30.
+- ~~**El futuro.**~~ **CERRADO (R40).** Su plan: esperar al viaje del 14-20 de octubre y a que surja la ocasión. «Sigo igual que en enero.»
+- **Octubre de 2026.** Su cumpleaños el día 7; el viaje del 14 al 20. Dos fechas seguidas, la mejor ocasión del año, y llega sola.
 - **«¿Pero tú hablaste con alguien?»** — lo que ella le preguntó al oírle el discurso preparado.
 - **«Era lo que había» (2022).** La aceptación, dicha por él cuatro años antes de la ronda 22.
 - **El acuerdo de 2022 se cumplió** (entre semana pasa del 50 % al 70 %) y **se deshizo en 2026** (36 %).
@@ -852,4 +853,30 @@ Sabes lo que quieres: **verla más, y que te desee.** Sabes que no lo has pedido
 
 No te pregunto qué deberías, ni qué te gustaría. **Qué vas a hacer.** Y «nada, seguir igual» es una respuesta válida: se escribe igual que las demás.
 
-**R:** *(pendiente)*
+**R:** Vale, entiendo que tampoco hay nada sutil por parte de Anuska… aunque eso no serviría para nada. En fin. ¿Que qué voy a hacer? Buena pregunta. Ahora mismo, **esperar a nuestro viaje de octubre**. Aunque si hubiéramos roto en enero, ya habíamos dicho que íbamos a ir igual. Pero ella está de cumple en octubre. Luego el viaje… no sé. Si surge algún tipo de conversación —que por su parte no creo— o algún tipo de ironía donde pueda meter algún comentario que dé pie… a que sigo igual que en enero… pues quizá.
+
+> *La respuesta, traducida a lo que es:* **esperar a que se dé la ocasión.** No es un plan; es una condición. Y la condición depende de que la conversación la abra ella —«que por su parte no creo»— o de que aparezca una ironía donde poder colar el asunto. **Delega el momento en el azar y en la otra persona**, que es exactamente lo que ha pasado las tres veces anteriores: en 2022 hizo falta grabarse un discurso, en enero de 2026 lo abrió ella, y desde entonces no ha habido ocasión.
+
+> *Las fechas están en el chat y conviene fijarlas, porque su plan tiene calendario.* **30/7/26** — él: «creo que te lo pregunté, pero no encuentro las fechas exactas de nuestro viaje a los leones»; ella: **«14 a 20 de octubre»**. Y su cumpleaños es el **7 de octubre** (felicitado en 2023, 2024 y 2025). O sea que en seis semanas hay **dos fechas seguidas**: el cumpleaños de ella y una semana fuera, los dos solos. **Es la mejor ocasión que va a tener en todo el año, y llega sola.**
+
+> *Un detalle suyo que no conviene pasar por alto:* «si hubiéramos roto en enero, ya habíamos dicho que íbamos a ir igual». **El viaje estaba blindado contra la ruptura.** Hasta en el escenario de romper, los dos daban por hecho que viajarían juntos. Dice bastante de lo que son y de lo que no.
+
+> *Y lo que él ha dicho sin decirlo:* **«sigo igual que en enero».** Ocho meses después de aquel «aún no está dicha la última palabra», su posición no se ha movido ni un milímetro. La diferencia es que ahora está escrito, con nombre y con fecha.
+
+> *Registro honesto del estado final, sin empujar:* sabe lo que quiere (verla más, que le desee), sabe que no lo ha pedido desde 2022, sabe que la vez que lo pidió ella se quedó, y sabe que el deseo que le falta ha empezado a buscarse sitio donde no puede. **Con todo eso sobre la mesa, su plan es esperar a ver si sale el tema.** Puede que en octubre salga. Puede que no. **Esta bitácora no está para decidirlo por él.**
+
+---
+
+## Cierre
+
+Aquí termina la entrevista: **cuarenta preguntas, nueve años, nueve exportaciones de WhatsApp.** Los siete bloques de la guía quedaron cubiertos en orden —el inicio, el comienzo, el desarrollo, el día a día, la comunicación, los momentos y el futuro— que era la condición que él puso en la quinta.
+
+**Lo que se contó, en corto:** que empezaron en un chat de trabajo en diciembre de 2016 y se besaron el 31 de mayo de 2017 en Santa Cruz, y que el beso lo dio ella. Que hubo una cajita donde guardaban lo que no querían perder, y que ella metió dentro «ver partidos juntos» cuatro días antes del primer beso. Que nunca vivieron juntos. Que en junio de 2022 él grabó un discurso para pedir más tiempo, que rompieron una noche y volvieron a las doce horas, y que ella grabó cuatro minutos diciendo «no tengo ganas de terminar nada» y habló de otros veinte años. Que en enero de 2026 fue ella quien lo dio por terminado y él contestó «aún no está dicha la última palabra». Que el sexo se convirtió en unos mimos. Que él dijo, en la ronda 22, **«no así como pareja, pero no quiero que se vaya de mi vida»**. Y que lo que pide desde 2022 y no ha vuelto a pedir cabe en dos líneas: **verla más y que le desee**.
+
+**Lo que quedó abierto:** Pilar, «esa es otra historia». Lo de su madre. 2018 y 2019, que siguen faltando del archivo. Y la conversación de octubre, si es que llega.
+
+**Y una cosa que conviene dejar dicha, porque no aparece en ninguna tabla.** Estas cuarenta rondas las contó él, y las contó enteras: la ruptura, las lágrimas, el discurso ensayado, lo que no se atreve a decir en voz alta. Corrigió al agente **ocho veces**, y las ocho tenía razón. Y en la ronda 39, después de nueve años explicándose con frases prestadas —«ella es así», «todo va bajando con el tiempo»—, encontró una que era suya: **«soy yo, y mis faltas de lo que quiero»**.
+
+Eso no arregla nada. Pero ya está escrito, que era lo que quería.
+
+*Bitácora cerrada el 28 de agosto de 2026.*

@@ -691,3 +691,23 @@ suyos de deseo explícito** hacia Sonia en `chat sonia 1.txt`. Los últimos:
 
 **Sigue deseando, y sigue deseándola a ella. Lo que se perdió es el sitio
 donde ponerlo.**
+
+
+## Octubre de 2026 — lo que viene
+
+Fijado en el chat:
+
+- **7 de octubre** — cumpleaños de ella (felicitado en 2023, 2024, 2025).
+- **30/7/26** — él: «no encuentro las fechas exactas de nuestro viaje a los
+  leones» → ella: **«14 a 20 de octubre»**.
+
+Dos fechas seguidas: el cumpleaños y una semana fuera, los dos solos.
+
+**Su plan (R40):** esperar a que surja la ocasión — «si surge algún tipo de
+conversación, que por su parte no creo, o algún tipo de ironía donde pueda
+meter algún comentario que dé pie… pues quizá».
+
+**Dato que él aporta:** «si hubiéramos roto en enero, ya habíamos dicho que
+íbamos a ir igual». **El viaje estaba blindado contra la ruptura.**
+
+Y su posición, ocho meses después: **«sigo igual que en enero».**
