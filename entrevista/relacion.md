@@ -80,7 +80,8 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **«Mi novia titanic que ya veo hundirse» (16/5/23).** El malestar tiene fecha: 2022-2023, no 2026.
 - **Pilar.** «Esa es otra historia» — anunciada por él, no investigada. Suya es la decisión de contarla.
 - **Anuska.** Hermana de Sonia. **La única relación del archivo que crece en 2025-26** (390 y 413 msgs) y la única donde ella le escribe más a él (457/346).
-- **Por qué la nombró la primera (R38):** «me pone mucho, y no lo puedo evitar». Dicho como algo de «ahora mismo», ligado al bajón. **En el chat no hay nada**: ni un mensaje equívoco por ninguna parte.
+- ~~**Por qué la nombró la primera (R38).**~~ **CERRADO (R39) por él mismo:** «quizá quise ver algo sutil, pero no hay caso. Soy yo, y mis faltas de lo que quiero». No hace falta volver aquí.
+- **«Mi deseo perdido» — matiz documentado:** el deseo no está perdido. 119 mensajes suyos de deseo explícito a Sonia, el último en junio de 2026. **Lo que falta es el sitio, no el deseo.**
 - **AVISO, segunda vez:** el archivo no prueba ausencias. El export de Anuska estaba truncado y lo leí como un chat parado.
 - **Ni el fútbol es lo que quería.** «Prefería verlo en casa con ella» (R24). El plan superviviente también es un plan de repuesto.
 - **El aniversario de 2026.** El 31 de mayo, por primera vez, no se mencionó. ¿Se dieron cuenta los dos?
@@ -828,5 +829,27 @@ En la ronda 20 dijiste que lo que perderías era «Anuska, Carlos, las comidas, 
 Lo que describes es deseo que no tiene dónde ir. Lleva cuatro años sin sitio y ha encontrado a la persona que tienes más cerca, que además es la única que te busca a ti.
 
 **¿Tú crees que esto va de Anuska — o va de que llevas cuatro años sin que nadie te desee?**
+
+**R:** Probablemente va de mi deseo perdido. Y quizá quise ver en algún mensaje de Anuska algo sutil… pero no hay caso. Soy yo, y mis faltas de lo que quiero. Supongo.
+
+> *Es la respuesta más lúcida de las treinta y nueve rondas,* y conviene decir por qué: **no culpa a nadie**. No dice que Sonia le haya fallado, ni que Anuska le insinuara nada. Dice que quiso ver algo que no estaba, y lo sitúa en su sitio: **«soy yo, y mis faltas de lo que quiero»**. Después de nueve años explicándose con frases de otros —«ella es así», «todo va bajando con el tiempo», «no encontraremos a nadie que nos quiera tanto»—, ésta es **la primera explicación que es suya**.
+
+> *Y hay una corrección que se hace él solo, que es la que importa:* «quizá quise ver en algún mensaje de Anuska algo sutil, pero no hay caso». Coincide exactamente con lo que arrojó el archivo en la ronda anterior —ni un mensaje equívoco por ninguna parte—, **pero él llegó ahí sin necesidad del archivo.**
+
+> *Sobre «mi deseo perdido», y esto es lo único que añado, porque es un dato:* el deseo **no está perdido**. En el chat con Sonia hay **119 mensajes suyos** de deseo explícito, y los últimos son recientes: 8/12/25 «me encanta hacer el amor contigo y te deseo con toda el alma»; 28/1/26 «me quedé embelesado mirándote a ti»; 1/3/26 «me gustas desde el primer segundo que te despiertas… te he deseado siempre»; 6/6/26 «te adoro». **Sigue deseando, y sigue deseándola a ella.** Lo que se ha perdido no es su deseo: **es el sitio donde ponerlo.** No es un hombre que ya no siente; es un hombre que siente y no tiene dónde.
+
+> *Cierre del hilo de Anuska.* Queda anotado lo que es y no más: un pensamiento suyo, no correspondido, no expresado, en una relación donde ella firma «somos familia». **Él mismo lo ha desactivado en dos rondas.** No hace falta volver aquí salvo que él quiera.
+
+### 40. La única que falta
+
+**P:** Con esa respuesta, el bloque del futuro queda cerrado de verdad, y creo que la entrevista también.
+
+Solo queda una pregunta, y es la que llevo treinta y nueve rondas sin hacerte porque no tocaba todavía.
+
+Sabes lo que quieres: **verla más, y que te desee.** Sabes que no lo has pedido desde 2022. Sabes que cuando lo pediste, ella se quedó. Y ahora sabes también que el deseo que te falta ha empezado a buscarse sitio en otra parte — y que ese sitio no puede ser.
+
+**¿Qué vas a hacer?**
+
+No te pregunto qué deberías, ni qué te gustaría. **Qué vas a hacer.** Y «nada, seguir igual» es una respuesta válida: se escribe igual que las demás.
 
 **R:** *(pendiente)*

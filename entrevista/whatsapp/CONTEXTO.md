@@ -676,3 +676,18 @@ no lo olvides». Ni él ha hecho nada, ni ella ha dado pie a nada.
 
 *Contexto: los cuatro elementos de la lista de la ronda 20 —Anuska, Carlos,
 las comidas, la familia— son en realidad el mismo elemento.*
+
+
+### El deseo no está perdido (R39)
+
+Él lo llama «mi deseo perdido». El archivo dice otra cosa: **119 mensajes
+suyos de deseo explícito** hacia Sonia en `chat sonia 1.txt`. Los últimos:
+
+- **8/12/25** «me encanta hacer el amor contigo y te deseo con toda el alma»
+- **28/1/26** «me quedé embelesado mirándote a ti»
+- **1/3/26** «me gustas desde el primer segundo que te despiertas… te he
+  deseado siempre»
+- **6/6/26** «te adoro»
+
+**Sigue deseando, y sigue deseándola a ella. Lo que se perdió es el sitio
+donde ponerlo.**
