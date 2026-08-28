@@ -79,6 +79,8 @@ Cosas nombradas que aún no se han contado del todo. No se pierden.
 - **El acuerdo de 2022 se cumplió** (entre semana pasa del 50 % al 70 %) y **se deshizo en 2026** (36 %).
 - **«Mi novia titanic que ya veo hundirse» (16/5/23).** El malestar tiene fecha: 2022-2023, no 2026.
 - **Pilar.** «Esa es otra historia» — anunciada por él, no investigada. Suya es la decisión de contarla.
+- **Anuska.** Hermana de Sonia. **La única relación del archivo que crece en 2025-26** (390 y 413 msgs) y la única donde ella le escribe más a él (457/346). Abierto en la 38.
+- **AVISO, segunda vez:** el archivo no prueba ausencias. El export de Anuska estaba truncado y lo leí como un chat parado.
 - **Ni el fútbol es lo que quería.** «Prefería verlo en casa con ella» (R24). El plan superviviente también es un plan de repuesto.
 - **El aniversario de 2026.** El 31 de mayo, por primera vez, no se mencionó. ¿Se dieron cuenta los dos?
 - **El teletrabajo que no usaste** (7/8/25). Te dieron el privilegio y decidiste no cambiarle las rutinas a ella. Hay que volver ahí.
@@ -785,5 +787,25 @@ Tres preguntas cortas.
 **Una.** **¿Quién es Anuska para ti?** En una línea.
 
 **Dos.** Vuestro chat tiene 1.459 mensajes entre 2019 y 2025 — y **se paró el 1 de septiembre de 2025**, hace casi un año. Los últimos mensajes son tuyos: «perdona si soy un poco pesado 😙», y ella: «para nada 😙😉». **¿Pasó algo, o simplemente se apagó?**
+
+**R:** *(Sube el export completo de Anuska. La pregunta 2 quedaba anulada: el chat **no se había parado**, el fichero anterior estaba cortado.)*
+
+> *Corrección, y es mía: 2.171 mensajes hasta el 26/8/26.* El export viejo (`Anuska (Sonia)2.txt`) terminaba el 1/9/25 **porque ahí acababa el fichero**, no la relación. Confirmado el aviso de la ronda 35: **el archivo no prueba ausencias.** Segunda vez que caigo en lo mismo.
+
+> *Anuska es la hermana de Sonia* — él mismo se lo escribe el 26/8/26: «está **tu hermana** un poco estresadita con el curso».
+
+> *Y ahora el dato, que es serio.* Mensajes por año con Anuska: 2019 **104** · 2020 **309** · 2021 **267** · 2022 **239** · 2023 **161** · 2024 **288** · 2025 **390** · 2026 **413** (y aún faltan cuatro meses). **Es la única relación del archivo que crece en 2025-2026.** Todo lo de Sonia baja —el deseo, los «te quiero», el aniversario, las tardes— y esto sube.
+
+> *Y hay una cifra que no tiene precedente en toda la bitácora.* En 2025-2026, **Anuska le escribe más que él: 457 mensajes frente a 346.** Es **la única persona de las ocho fuentes** con la que Pablo no lleva la iniciativa. Con Sonia escribe 1,44 mensajes por cada uno de ella; con Carlos, 1,27; con Pilar, más. **Con Anuska, la que escribe más es ella.**
+
+> *Lo que dicen los últimos mensajes, sin interpretar de más.* **15/8/26:** «perdona si soy un poco pesado con mensajes 😙» — la misma disculpa que en septiembre de 2025. **23/8/26**, él le da las gracias por acercarle en coche: «Pero Pablo, ya sabes que no me cuesta nada, no tienes que dar las gracias 😙😙» / «lo sé, pero es que me sale así» / «Aynssss» / **«Somos familia. No lo olvides»** / «lo sé, pero no hay que marear a la familia 😂». **26/8/26:** le escribe para organizar algo porque *«está tu hermana un poco estresadita con el curso»* — **el mismo día en que estaba consolando a Sonia por lo del trabajo.** Cierra: «nos vemos el finde 😙😙».
+
+> *Y lo que él dijo en la ronda 37, junto a esto:* «me gusta mucho, físicamente… y ahora con este bajón que tengo, pienso en ella en algún sentido más intenso». **Registrado sin sacar conclusiones**, porque no las hay: son mensajes de logística familiar, cafés y desayunos, y ella firma «somos familia». Lo único que se puede afirmar es lo que se cuenta solo: **la lista de la ronda 20 empezaba por Anuska, y Anuska es lo único que ha crecido en el último año.**
+
+### 38. La primera de la lista
+
+**P:** Una sola, cuando puedas.
+
+En la ronda 20 dijiste que lo que perderías era «Anuska, Carlos, las comidas, la familia». **¿Por qué la nombraste a ella la primera?**
 
 **R:** *(pendiente)*

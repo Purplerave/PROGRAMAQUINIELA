@@ -34,3 +34,12 @@ Sonia aquí, pero sí la de Pablo hablando de ella en los años en blanco.
 
 **Nota de alcance:** él dijo «esa es otra historia» sobre Pilar. Se extrae
 únicamente lo relativo a Sonia. Lo demás no se investiga.
+
+
+## 9. Chat de WhatsApp con Anuska (Sonia).txt
+
+Subido en la ronda 38. **2.171 mensajes**, 20/8/19 → 26/8/26.
+
+**Sustituye a `Anuska (Sonia)2.txt`** (1.459 msgs, cortado el 1/9/25). El
+anterior estaba truncado, no era que el chat se hubiera parado. Se conservan
+los dos por trazabilidad, pero **el bueno es este**.

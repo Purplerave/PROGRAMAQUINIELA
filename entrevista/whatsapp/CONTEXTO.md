@@ -618,3 +618,44 @@ nada», ofreció tardes y habló de «otros 5, 10, 15, 20 años».
 
 *Matiz: enero de 2026 fue distinto (lo dio ella por terminado) y han pasado
 cuatro años. El precedente no garantiza nada — pero es el único que hay.*
+
+
+## Anuska (hermana de Sonia) — export completo
+
+`Chat de WhatsApp con Anuska (Sonia).txt` — 2.171 msgs, 20/8/19 → 26/8/26.
+El export anterior estaba **cortado** el 1/9/25; el chat nunca se paró.
+
+### La única relación que crece
+
+| 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026* |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 104 | 309 | 267 | 239 | 161 | 288 | **390** | **413** |
+
+*(2026 hasta agosto, faltan cuatro meses.)*
+
+Mientras todo lo de Sonia baja (deseo, «te quiero», aniversario, tardes),
+esto sube.
+
+### La única persona que le escribe más a él que él a ella
+
+2025-2026: **Anuska 457 · Pablo 346.**
+
+Comparar con: Sonia 1,44 mensajes de él por cada uno de ella · Carlos 1,27.
+**Es la única de las nueve fuentes donde él no lleva la iniciativa.**
+
+### Últimos mensajes (agosto 2026)
+
+- **15/8** él: «perdona si soy un poco pesado con mensajes 😙»
+- **23/8** él da las gracias por acercarle en coche → ella: «Pero Pablo, ya
+  sabes que no me cuesta nada, no tienes que dar las gracias 😙😙» · «Aynssss»
+  · **«Somos familia. No lo olvides»** → él: «lo sé, pero no hay que marear a
+  la familia 😂»
+- **26/8** él escribe para organizar algo porque «está **tu hermana** un poco
+  estresadita con el curso» — *el mismo día que consolaba a Sonia por el
+  trabajo*. Cierra ella: «nos vemos el finde 😙😙»
+
+**Contenido: logística familiar, cafés, desayunos, pedidos de Amazon.**
+Nada más. Se registra sin interpretar.
+
+*Contexto de la R37 (dicho por él): «me gusta mucho, físicamente… y ahora con
+este bajón que tengo, pienso en ella en algún sentido más intenso».*
