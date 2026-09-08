@@ -1,0 +1,9500 @@
+{
+ "temporada": "2025-2026",
+ "n_jornadas": 76,
+ "jornadas": [
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Girona",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 2,
+     "local": "Villarreal",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 3,
+     "local": "Alavés",
+     "visitante": "Levante"
+    },
+    {
+     "num": 4,
+     "local": "Mallorca",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 5,
+     "local": "Valencia",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 6,
+     "local": "Celta",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 7,
+     "local": "Athletic de Bilbao",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 8,
+     "local": "Espanyol",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Racing de Santander",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 10,
+     "local": "Málaga",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 11,
+     "local": "Granada",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 12,
+     "local": "Cádiz",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 13,
+     "local": "Huesca",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 14,
+     "local": "Las Palmas",
+     "visitante": "Andorra"
+    }
+   ],
+   "pleno15": {
+    "local": "Elche",
+    "visitante": "Betis"
+   },
+   "fecha": "2025-08-17",
+   "recaudacion_euros": 232349100,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 22,
+     "premio_euros": 7920
+    },
+    "12": {
+     "acertantes": 367,
+     "premio_euros": 474
+    },
+    "11": {
+     "acertantes": 3603,
+     "premio_euros": 48
+    },
+    "10": {
+     "acertantes": 24450,
+     "premio_euros": 8
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 1,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "2",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "X",
+    "X",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/1.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Mallorca",
+     "visitante": "Celta"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Elche"
+    },
+    {
+     "num": 3,
+     "local": "Levante",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "Osasuna",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 5,
+     "local": "Real Sociedad",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 6,
+     "local": "Villarreal",
+     "visitante": "Girona"
+    },
+    {
+     "num": 7,
+     "local": "Oviedo",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Athletic de Bilbao",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 9,
+     "local": "Mirandés",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 10,
+     "local": "Ceuta",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 11,
+     "local": "Zaragoza",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 12,
+     "local": "Deportivo",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 13,
+     "local": "Cultural Leonesa",
+     "visitante": "Almería"
+    },
+    {
+     "num": 14,
+     "local": "Albacete",
+     "visitante": "Racing de Santander"
+    }
+   ],
+   "pleno15": {
+    "local": "Sevilla",
+    "visitante": "Getafe"
+   },
+   "fecha": "2025-08-24",
+   "recaudacion_euros": 325006350,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 3,
+     "premio_euros": 173336
+    },
+    "13": {
+     "acertantes": 91,
+     "premio_euros": 2678
+    },
+    "12": {
+     "acertantes": 1722,
+     "premio_euros": 141
+    },
+    "11": {
+     "acertantes": 16900,
+     "premio_euros": 14
+    },
+    "10": {
+     "acertantes": 94065,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 2,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "2",
+    "X",
+    "2",
+    "2",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/2.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alavés",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 2,
+     "local": "Oviedo",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 3,
+     "local": "Girona",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 4,
+     "local": "Real Madrid",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 5,
+     "local": "Celta",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 6,
+     "local": "Betis",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 7,
+     "local": "Espanyol",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 8,
+     "local": "Racing de Santander",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 9,
+     "local": "Valladolid",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 10,
+     "local": "Castellón",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 11,
+     "local": "Andorra",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 12,
+     "local": "Cádiz",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 13,
+     "local": "Las Palmas",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 14,
+     "local": "Granada",
+     "visitante": "Mirandés"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2025-08-31",
+   "recaudacion_euros": 368911125,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 295128
+    },
+    "13": {
+     "acertantes": 17,
+     "premio_euros": 16275
+    },
+    "12": {
+     "acertantes": 282,
+     "premio_euros": 981
+    },
+    "11": {
+     "acertantes": 2912,
+     "premio_euros": 95
+    },
+    "10": {
+     "acertantes": 19189,
+     "premio_euros": 17
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 3,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "2",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/3.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Deportivo",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 2,
+     "local": "Zaragoza",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 3,
+     "local": "Málaga",
+     "visitante": "Granada"
+    },
+    {
+     "num": 4,
+     "local": "Ceuta",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 5,
+     "local": "Burgos",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 6,
+     "local": "Real Sociedad B",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 7,
+     "local": "Almería",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 8,
+     "local": "Cultural Leonesa",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 9,
+     "local": "Eibar",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 10,
+     "local": "Letonia",
+     "visitante": "Serbia"
+    },
+    {
+     "num": 11,
+     "local": "República de Irlanda",
+     "visitante": "Hungría"
+    },
+    {
+     "num": 12,
+     "local": "Alemania",
+     "visitante": "Irlanda del Norte"
+    },
+    {
+     "num": 13,
+     "local": "Luxemburgo",
+     "visitante": "Eslovaquia"
+    },
+    {
+     "num": 14,
+     "local": "Polonia",
+     "visitante": "Finlandia"
+    }
+   ],
+   "pleno15": {
+    "local": "Turquía",
+    "visitante": "España"
+   },
+   "fecha": "2025-09-07",
+   "recaudacion_euros": 164909475,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 6,
+     "premio_euros": 43975
+    },
+    "13": {
+     "acertantes": 152,
+     "premio_euros": 813
+    },
+    "12": {
+     "acertantes": 1542,
+     "premio_euros": 80
+    },
+    "11": {
+     "acertantes": 10494,
+     "premio_euros": 11
+    },
+    "10": {
+     "acertantes": 45931,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 4,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "X",
+    "1",
+    "X",
+    "X",
+    "2",
+    "X",
+    "1",
+    "2",
+    "X",
+    "1",
+    "2",
+    "1",
+    "0M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/4.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Getafe",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 2,
+     "local": "Levante",
+     "visitante": "Betis"
+    },
+    {
+     "num": 3,
+     "local": "Atlético de Madrid",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 4,
+     "local": "Barcelona",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 5,
+     "local": "Athletic de Bilbao",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 6,
+     "local": "Real Sociedad",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 7,
+     "local": "Celta",
+     "visitante": "Girona"
+    },
+    {
+     "num": 8,
+     "local": "Osasuna",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 9,
+     "local": "Cádiz",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 10,
+     "local": "Mirandés",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 11,
+     "local": "Huesca",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 12,
+     "local": "Valladolid",
+     "visitante": "Almería"
+    },
+    {
+     "num": 13,
+     "local": "Sporting de Gijón",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 14,
+     "local": "Granada",
+     "visitante": "Leganés"
+    }
+   ],
+   "pleno15": {
+    "local": "Espanyol",
+    "visitante": "Mallorca"
+   },
+   "fecha": "2025-09-14",
+   "recaudacion_euros": 394307625,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 36,
+     "premio_euros": 8214
+    },
+    "12": {
+     "acertantes": 741,
+     "premio_euros": 399
+    },
+    "11": {
+     "acertantes": 8273,
+     "premio_euros": 35
+    },
+    "10": {
+     "acertantes": 54275,
+     "premio_euros": 6
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 5,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "1",
+    "1",
+    "2",
+    "2",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "2",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/5.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Athletic de Bilbao",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 2,
+     "local": "PSV Eindhoven",
+     "visitante": "Union Saint-Gilloise"
+    },
+    {
+     "num": 3,
+     "local": "Benfica",
+     "visitante": "Qarabag FK"
+    },
+    {
+     "num": 4,
+     "local": "Juventus",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 5,
+     "local": "Real Madrid",
+     "visitante": "Olympique Marsella"
+    },
+    {
+     "num": 6,
+     "local": "Tottenham Hotspur",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 7,
+     "local": "Ajax Amsterdam",
+     "visitante": "Inter de Milán"
+    },
+    {
+     "num": 8,
+     "local": "Bayern de Múnich",
+     "visitante": "Chelsea"
+    },
+    {
+     "num": 9,
+     "local": "Paris Saint-Germain",
+     "visitante": "Atalanta"
+    },
+    {
+     "num": 10,
+     "local": "Brujas",
+     "visitante": "Mónaco"
+    },
+    {
+     "num": 11,
+     "local": "Copenhague",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 12,
+     "local": "Eintracht Frankfurt",
+     "visitante": "Galatasaray"
+    },
+    {
+     "num": 13,
+     "local": "Manchester City",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 14,
+     "local": "Newcastle",
+     "visitante": "Barcelona"
+    }
+   ],
+   "pleno15": {
+    "local": "Liverpool",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2025-09-17",
+   "recaudacion_euros": 112485375,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 39,
+     "premio_euros": 2163
+    },
+    "12": {
+     "acertantes": 1496,
+     "premio_euros": 56
+    },
+    "11": {
+     "acertantes": 15451,
+     "premio_euros": 5
+    },
+    "10": {
+     "acertantes": 76281,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 6,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "2",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "2",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/6.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alavés",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Betis",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 4,
+     "local": "Elche",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 5,
+     "local": "Girona",
+     "visitante": "Levante"
+    },
+    {
+     "num": 6,
+     "local": "Mallorca",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 7,
+     "local": "Rayo Vallecano",
+     "visitante": "Celta"
+    },
+    {
+     "num": 8,
+     "local": "Real Madrid",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 9,
+     "local": "Villarreal",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 10,
+     "local": "Albacete",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 11,
+     "local": "Córdoba",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 12,
+     "local": "Deportivo",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 13,
+     "local": "Almería",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 14,
+     "local": "Málaga",
+     "visitante": "Cádiz"
+    }
+   ],
+   "pleno15": {
+    "local": "Valencia",
+    "visitante": "Athletic de Bilbao"
+   },
+   "fecha": "2025-09-21",
+   "recaudacion_euros": 338525100,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 2617850
+    },
+    "14": {
+     "acertantes": 10,
+     "premio_euros": 54164
+    },
+    "13": {
+     "acertantes": 309,
+     "premio_euros": 821
+    },
+    "12": {
+     "acertantes": 3665,
+     "premio_euros": 69
+    },
+    "11": {
+     "acertantes": 25337,
+     "premio_euros": 10
+    },
+    "10": {
+     "acertantes": 115110,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 7,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "2",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/7.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Athletic de Bilbao",
+     "visitante": "Girona"
+    },
+    {
+     "num": 2,
+     "local": "Espanyol",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 3,
+     "local": "Levante",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Sevilla",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 5,
+     "local": "Getafe",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 6,
+     "local": "Oviedo",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 7,
+     "local": "Osasuna",
+     "visitante": "Elche"
+    },
+    {
+     "num": 8,
+     "local": "Real Sociedad",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 9,
+     "local": "Estrella Roja de Belgrado",
+     "visitante": "Celtic de Glasgow"
+    },
+    {
+     "num": 10,
+     "local": "Betis",
+     "visitante": "Nottingham Forest"
+    },
+    {
+     "num": 11,
+     "local": "Niza",
+     "visitante": "Roma"
+    },
+    {
+     "num": 12,
+     "local": "Aston Villa",
+     "visitante": "Bolonia"
+    },
+    {
+     "num": 13,
+     "local": "Red Bull Salzburgo",
+     "visitante": "Oporto"
+    },
+    {
+     "num": 14,
+     "local": "Stuttgart",
+     "visitante": "Celta"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Rayo Vallecano"
+   },
+   "fecha": "2025-09-24",
+   "recaudacion_euros": 159707550,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 8,
+     "premio_euros": 31941
+    },
+    "13": {
+     "acertantes": 296,
+     "premio_euros": 404
+    },
+    "12": {
+     "acertantes": 3470,
+     "premio_euros": 34
+    },
+    "11": {
+     "acertantes": 22312,
+     "premio_euros": 5
+    },
+    "10": {
+     "acertantes": 89467,
+     "premio_euros": 1
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 8,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "2",
+    "2",
+    "X",
+    "2",
+    "X",
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "2",
+    "1",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/8.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Getafe",
+     "visitante": "Levante"
+    },
+    {
+     "num": 2,
+     "local": "Mallorca",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 3,
+     "local": "Villarreal",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 4,
+     "local": "Rayo Vallecano",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 5,
+     "local": "Elche",
+     "visitante": "Celta"
+    },
+    {
+     "num": 6,
+     "local": "Betis",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 7,
+     "local": "Barcelona",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 8,
+     "local": "Valencia",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 9,
+     "local": "Eibar",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 10,
+     "local": "Racing de Santander",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 11,
+     "local": "Las Palmas",
+     "visitante": "Almería"
+    },
+    {
+     "num": 12,
+     "local": "Burgos",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 13,
+     "local": "Cádiz",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 14,
+     "local": "Sporting de Gijón",
+     "visitante": "Albacete"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2025-09-28",
+   "recaudacion_euros": 346232175,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 553971
+    },
+    "13": {
+     "acertantes": 39,
+     "premio_euros": 6658
+    },
+    "12": {
+     "acertantes": 563,
+     "premio_euros": 461
+    },
+    "11": {
+     "acertantes": 4820,
+     "premio_euros": 53
+    },
+    "10": {
+     "acertantes": 29693,
+     "premio_euros": 10
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 9,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "X",
+    "2",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/9.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Kairat Almaty",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Eintracht Frankfurt"
+    },
+    {
+     "num": 3,
+     "local": "Chelsea",
+     "visitante": "Benfica"
+    },
+    {
+     "num": 4,
+     "local": "Galatasaray",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 5,
+     "local": "Inter de Milán",
+     "visitante": "Slavia Praga"
+    },
+    {
+     "num": 6,
+     "local": "Olympique Marsella",
+     "visitante": "Ajax Amsterdam"
+    },
+    {
+     "num": 7,
+     "local": "Arsenal",
+     "visitante": "Olympiacos"
+    },
+    {
+     "num": 8,
+     "local": "Bayer Leverkusen",
+     "visitante": "PSV Eindhoven"
+    },
+    {
+     "num": 9,
+     "local": "Borussia Dortmund",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 10,
+     "local": "Mónaco",
+     "visitante": "Manchester City"
+    },
+    {
+     "num": 11,
+     "local": "Nápoles",
+     "visitante": "Sporting Portugal"
+    },
+    {
+     "num": 12,
+     "local": "Villarreal",
+     "visitante": "Juventus"
+    },
+    {
+     "num": 13,
+     "local": "Ludogorets",
+     "visitante": "Betis"
+    },
+    {
+     "num": 14,
+     "local": "Celta",
+     "visitante": "PAOK de Salónica"
+    }
+   ],
+   "pleno15": {
+    "local": "Barcelona",
+    "visitante": "Paris Saint-Germain"
+   },
+   "fecha": "2025-10-01",
+   "recaudacion_euros": 121349175,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 26,
+     "premio_euros": 7467
+    },
+    "13": {
+     "acertantes": 1174,
+     "premio_euros": 77
+    },
+    "12": {
+     "acertantes": 16723,
+     "premio_euros": 5
+    },
+    "11": {
+     "acertantes": 88918,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 236216,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 10,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "X",
+    "1",
+    "X",
+    "2",
+    "1",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/10.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Oviedo",
+     "visitante": "Levante"
+    },
+    {
+     "num": 2,
+     "local": "Girona",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 3,
+     "local": "Athletic de Bilbao",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 4,
+     "local": "Real Madrid",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 5,
+     "local": "Sevilla",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 6,
+     "local": "Alavés",
+     "visitante": "Elche"
+    },
+    {
+     "num": 7,
+     "local": "Espanyol",
+     "visitante": "Betis"
+    },
+    {
+     "num": 8,
+     "local": "Real Sociedad",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 9,
+     "local": "Deportivo",
+     "visitante": "Almería"
+    },
+    {
+     "num": 10,
+     "local": "Andorra",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 11,
+     "local": "Huesca",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 12,
+     "local": "Zaragoza",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 13,
+     "local": "Racing de Santander",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 14,
+     "local": "Las Palmas",
+     "visitante": "Cádiz"
+    }
+   ],
+   "pleno15": {
+    "local": "Celta",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2025-10-05",
+   "recaudacion_euros": 374870250,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 2161292
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 299896
+    },
+    "13": {
+     "acertantes": 80,
+     "premio_euros": 3514
+    },
+    "12": {
+     "acertantes": 1087,
+     "premio_euros": 258
+    },
+    "11": {
+     "acertantes": 7523,
+     "premio_euros": 37
+    },
+    "10": {
+     "acertantes": 34389,
+     "premio_euros": 9
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 11,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "X",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/11.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Mirandés",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 2,
+     "local": "Almería",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 3,
+     "local": "Real Sociedad B",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 4,
+     "local": "Albacete",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 5,
+     "local": "Eibar",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 6,
+     "local": "Sporting de Gijón",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 7,
+     "local": "Burgos",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 8,
+     "local": "Cádiz",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 9,
+     "local": "Málaga",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 10,
+     "local": "Córdoba",
+     "visitante": "Cultural Leonesa"
+    },
+    {
+     "num": 11,
+     "local": "Bulgaria",
+     "visitante": "Turquía"
+    },
+    {
+     "num": 12,
+     "local": "Dinamarca",
+     "visitante": "Grecia"
+    },
+    {
+     "num": 13,
+     "local": "Rumanía",
+     "visitante": "Austria"
+    },
+    {
+     "num": 14,
+     "local": "Irlanda del Norte",
+     "visitante": "Alemania"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Georgia"
+   },
+   "fecha": "2025-10-12",
+   "recaudacion_euros": 178746150,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 6,
+     "premio_euros": 47665
+    },
+    "13": {
+     "acertantes": 187,
+     "premio_euros": 716
+    },
+    "12": {
+     "acertantes": 2208,
+     "premio_euros": 60
+    },
+    "11": {
+     "acertantes": 15055,
+     "premio_euros": 8
+    },
+    "10": {
+     "acertantes": 66205,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 12,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/12.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Estonia",
+     "visitante": "Moldavia"
+    },
+    {
+     "num": 2,
+     "local": "Turquía",
+     "visitante": "Georgia"
+    },
+    {
+     "num": 3,
+     "local": "Portugal",
+     "visitante": "Hungría"
+    },
+    {
+     "num": 4,
+     "local": "República de Irlanda",
+     "visitante": "Armenia"
+    },
+    {
+     "num": 5,
+     "local": "Letonia",
+     "visitante": "Inglaterra"
+    },
+    {
+     "num": 6,
+     "local": "Andorra",
+     "visitante": "Serbia"
+    },
+    {
+     "num": 7,
+     "local": "Qatar",
+     "visitante": "Emiratos Árabes Unidos"
+    },
+    {
+     "num": 8,
+     "local": "Arabia Saudí",
+     "visitante": "Irak"
+    },
+    {
+     "num": 9,
+     "local": "Canadá",
+     "visitante": "Colombia"
+    },
+    {
+     "num": 10,
+     "local": "Estados Unidos",
+     "visitante": "Australia"
+    },
+    {
+     "num": 11,
+     "local": "Curazao",
+     "visitante": "Trinidad y Tobago"
+    },
+    {
+     "num": 12,
+     "local": "Jamaica",
+     "visitante": "Islas Bermudas"
+    },
+    {
+     "num": 13,
+     "local": "Panamá",
+     "visitante": "Surinam"
+    },
+    {
+     "num": 14,
+     "local": "El Salvador",
+     "visitante": "Guatemala"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Bulgaria"
+   },
+   "fecha": "2025-10-14",
+   "recaudacion_euros": 68387250,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 51290
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 109419
+    },
+    "13": {
+     "acertantes": 29,
+     "premio_euros": 1768
+    },
+    "12": {
+     "acertantes": 486,
+     "premio_euros": 105
+    },
+    "11": {
+     "acertantes": 4113,
+     "premio_euros": 12
+    },
+    "10": {
+     "acertantes": 20402,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 13,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "1",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "X",
+    "2",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/13.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Sevilla",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Girona"
+    },
+    {
+     "num": 3,
+     "local": "Villarreal",
+     "visitante": "Betis"
+    },
+    {
+     "num": 4,
+     "local": "Atlético de Madrid",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 5,
+     "local": "Elche",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 6,
+     "local": "Celta",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 7,
+     "local": "Levante",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 8,
+     "local": "Getafe",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Zaragoza",
+     "visitante": "Cultural Leonesa"
+    },
+    {
+     "num": 10,
+     "local": "Leganés",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 11,
+     "local": "Castellón",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 12,
+     "local": "Valladolid",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 13,
+     "local": "Racing de Santander",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 14,
+     "local": "Córdoba",
+     "visitante": "Almería"
+    }
+   ],
+   "pleno15": {
+    "local": "Alavés",
+    "visitante": "Valencia"
+   },
+   "fecha": "2025-10-19",
+   "recaudacion_euros": 339910200,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 27,
+     "premio_euros": 9441
+    },
+    "12": {
+     "acertantes": 406,
+     "premio_euros": 627
+    },
+    "11": {
+     "acertantes": 3959,
+     "premio_euros": 64
+    },
+    "10": {
+     "acertantes": 26213,
+     "premio_euros": 11
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 14,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "X",
+    "2",
+    "2",
+    "2",
+    "1",
+    "2",
+    "2",
+    "1",
+    "X",
+    "00"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/14.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Barcelona",
+     "visitante": "Olympiacos"
+    },
+    {
+     "num": 2,
+     "local": "Arsenal",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Bayer Leverkusen",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 4,
+     "local": "Copenhague",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 5,
+     "local": "Newcastle",
+     "visitante": "Benfica"
+    },
+    {
+     "num": 6,
+     "local": "PSV Eindhoven",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 7,
+     "local": "Union Saint-Gilloise",
+     "visitante": "Inter de Milán"
+    },
+    {
+     "num": 8,
+     "local": "Villarreal",
+     "visitante": "Manchester City"
+    },
+    {
+     "num": 9,
+     "local": "Athletic de Bilbao",
+     "visitante": "Qarabag FK"
+    },
+    {
+     "num": 10,
+     "local": "Chelsea",
+     "visitante": "Ajax Amsterdam"
+    },
+    {
+     "num": 11,
+     "local": "Eintracht Frankfurt",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 12,
+     "local": "Bayern de Múnich",
+     "visitante": "Brujas"
+    },
+    {
+     "num": 13,
+     "local": "Racing Genk",
+     "visitante": "Betis"
+    },
+    {
+     "num": 14,
+     "local": "Celta",
+     "visitante": "Niza"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Juventus"
+   },
+   "fecha": "2025-10-22",
+   "recaudacion_euros": 115324125,
+   "premios": {
+    "pleno15": {
+     "acertantes": 67,
+     "premio_euros": 1290
+    },
+    "14": {
+     "acertantes": 2317,
+     "premio_euros": 79
+    },
+    "13": {
+     "acertantes": 28865,
+     "premio_euros": 3
+    },
+    "12": {
+     "acertantes": 121145,
+     "premio_euros": 1
+    },
+    "11": {
+     "acertantes": 243286,
+     "premio_euros": null
+    },
+    "10": {
+     "acertantes": 321916,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 15,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/15.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Girona",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 2,
+     "local": "Espanyol",
+     "visitante": "Elche"
+    },
+    {
+     "num": 3,
+     "local": "Athletic de Bilbao",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 4,
+     "local": "Valencia",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 5,
+     "local": "Mallorca",
+     "visitante": "Levante"
+    },
+    {
+     "num": 6,
+     "local": "Osasuna",
+     "visitante": "Celta"
+    },
+    {
+     "num": 7,
+     "local": "Rayo Vallecano",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 8,
+     "local": "Betis",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Granada",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 10,
+     "local": "Mirandés",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 11,
+     "local": "Málaga",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 12,
+     "local": "Sporting de Gijón",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 13,
+     "local": "Almería",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 14,
+     "local": "Deportivo",
+     "visitante": "Valladolid"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2025-10-26",
+   "recaudacion_euros": 344534625,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 275627
+    },
+    "13": {
+     "acertantes": 92,
+     "premio_euros": 2808
+    },
+    "12": {
+     "acertantes": 1814,
+     "premio_euros": 142
+    },
+    "11": {
+     "acertantes": 14822,
+     "premio_euros": 17
+    },
+    "10": {
+     "acertantes": 77944,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 16,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "2",
+    "X",
+    "2",
+    "1",
+    "2",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/16.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Villarreal",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 3,
+     "local": "Real Madrid",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 4,
+     "local": "Levante",
+     "visitante": "Celta"
+    },
+    {
+     "num": 5,
+     "local": "Alavés",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 6,
+     "local": "Barcelona",
+     "visitante": "Elche"
+    },
+    {
+     "num": 7,
+     "local": "Betis",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 8,
+     "local": "Oviedo",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 9,
+     "local": "Leganés",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 10,
+     "local": "Almería",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 11,
+     "local": "Andorra",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 12,
+     "local": "Sporting de Gijón",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 13,
+     "local": "Castellón",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 14,
+     "local": "Zaragoza",
+     "visitante": "Deportivo"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Sociedad",
+    "visitante": "Athletic de Bilbao"
+   },
+   "fecha": "2025-11-02",
+   "recaudacion_euros": 419951850,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 190,
+     "premio_euros": 3536
+    },
+    "13": {
+     "acertantes": 3610,
+     "premio_euros": 87
+    },
+    "12": {
+     "acertantes": 32423,
+     "premio_euros": 9
+    },
+    "11": {
+     "acertantes": 161770,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 489647,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 17,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "X",
+    "X",
+    "1",
+    "2",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/17.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Atlético de Madrid",
+     "visitante": "Union Saint-Gilloise"
+    },
+    {
+     "num": 2,
+     "local": "Bodo-Glimt",
+     "visitante": "Mónaco"
+    },
+    {
+     "num": 3,
+     "local": "Juventus",
+     "visitante": "Sporting Portugal"
+    },
+    {
+     "num": 4,
+     "local": "Olympiacos",
+     "visitante": "PSV Eindhoven"
+    },
+    {
+     "num": 5,
+     "local": "Paris Saint-Germain",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 6,
+     "local": "Tottenham Hotspur",
+     "visitante": "Copenhague"
+    },
+    {
+     "num": 7,
+     "local": "Pafos",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 8,
+     "local": "Qarabag FK",
+     "visitante": "Chelsea"
+    },
+    {
+     "num": 9,
+     "local": "Ajax Amsterdam",
+     "visitante": "Galatasaray"
+    },
+    {
+     "num": 10,
+     "local": "Benfica",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 11,
+     "local": "Brujas",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 12,
+     "local": "Manchester City",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 13,
+     "local": "Olympique Marsella",
+     "visitante": "Atalanta"
+    },
+    {
+     "num": 14,
+     "local": "Newcastle",
+     "visitante": "Athletic de Bilbao"
+    }
+   ],
+   "pleno15": {
+    "local": "Liverpool",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2025-11-05",
+   "recaudacion_euros": 123395325,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "12": {
+     "acertantes": 33,
+     "premio_euros": 5608
+    },
+    "11": {
+     "acertantes": 522,
+     "premio_euros": 177
+    },
+    "10": {
+     "acertantes": 4535,
+     "premio_euros": 24
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 18,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "X",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "X",
+    "1",
+    "2",
+    "1",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/18.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Girona",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 2,
+     "local": "Sevilla",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 3,
+     "local": "Atlético de Madrid",
+     "visitante": "Levante"
+    },
+    {
+     "num": 4,
+     "local": "Espanyol",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 5,
+     "local": "Athletic de Bilbao",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 6,
+     "local": "Valencia",
+     "visitante": "Betis"
+    },
+    {
+     "num": 7,
+     "local": "Mallorca",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 8,
+     "local": "Celta",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 9,
+     "local": "Huesca",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 10,
+     "local": "Málaga",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 11,
+     "local": "Las Palmas",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 12,
+     "local": "Ceuta",
+     "visitante": "Almería"
+    },
+    {
+     "num": 13,
+     "local": "Granada",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 14,
+     "local": "Cádiz",
+     "visitante": "Valladolid"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2025-11-09",
+   "recaudacion_euros": 400170600,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 114,
+     "premio_euros": 5616
+    },
+    "13": {
+     "acertantes": 2201,
+     "premio_euros": 136
+    },
+    "12": {
+     "acertantes": 17550,
+     "premio_euros": 17
+    },
+    "11": {
+     "acertantes": 84854,
+     "premio_euros": 3
+    },
+    "10": {
+     "acertantes": 274311,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 19,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "X",
+    "00"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/19.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Chipre",
+     "visitante": "Austria"
+    },
+    {
+     "num": 2,
+     "local": "Liechtenstein",
+     "visitante": "Gales"
+    },
+    {
+     "num": 3,
+     "local": "Turquía",
+     "visitante": "Bulgaria"
+    },
+    {
+     "num": 4,
+     "local": "Bosnia-Herzegovina",
+     "visitante": "Rumanía"
+    },
+    {
+     "num": 5,
+     "local": "Dinamarca",
+     "visitante": "Bielorrusia"
+    },
+    {
+     "num": 6,
+     "local": "Grecia",
+     "visitante": "Escocia"
+    },
+    {
+     "num": 7,
+     "local": "Suiza",
+     "visitante": "Suecia"
+    },
+    {
+     "num": 8,
+     "local": "Hungría",
+     "visitante": "República de Irlanda"
+    },
+    {
+     "num": 9,
+     "local": "Portugal",
+     "visitante": "Armenia"
+    },
+    {
+     "num": 10,
+     "local": "Albania",
+     "visitante": "Inglaterra"
+    },
+    {
+     "num": 11,
+     "local": "Azerbaiyán",
+     "visitante": "Francia"
+    },
+    {
+     "num": 12,
+     "local": "Serbia",
+     "visitante": "Letonia"
+    },
+    {
+     "num": 13,
+     "local": "Ucrania",
+     "visitante": "Islandia"
+    },
+    {
+     "num": 14,
+     "local": "Italia",
+     "visitante": "Noruega"
+    }
+   ],
+   "pleno15": {
+    "local": "Georgia",
+    "visitante": "España"
+   },
+   "fecha": "2025-11-16",
+   "recaudacion_euros": 159199200,
+   "premios": {
+    "pleno15": {
+     "acertantes": 6,
+     "premio_euros": 19899
+    },
+    "14": {
+     "acertantes": 12,
+     "premio_euros": 21226
+    },
+    "13": {
+     "acertantes": 1334,
+     "premio_euros": 89
+    },
+    "12": {
+     "acertantes": 19158,
+     "premio_euros": 6
+    },
+    "11": {
+     "acertantes": 117594,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 334509,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 20,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "2",
+    "0M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/20.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Austria",
+     "visitante": "Bosnia-Herzegovina"
+    },
+    {
+     "num": 2,
+     "local": "Bélgica",
+     "visitante": "Liechtenstein"
+    },
+    {
+     "num": 3,
+     "local": "Bielorrusia",
+     "visitante": "Grecia"
+    },
+    {
+     "num": 4,
+     "local": "Bulgaria",
+     "visitante": "Georgia"
+    },
+    {
+     "num": 5,
+     "local": "Escocia",
+     "visitante": "Dinamarca"
+    },
+    {
+     "num": 6,
+     "local": "Gales",
+     "visitante": "Macedonia"
+    },
+    {
+     "num": 7,
+     "local": "Kosovo",
+     "visitante": "Suiza"
+    },
+    {
+     "num": 8,
+     "local": "Rumanía",
+     "visitante": "San Marino"
+    },
+    {
+     "num": 9,
+     "local": "Suecia",
+     "visitante": "Eslovenia"
+    },
+    {
+     "num": 10,
+     "local": "Costa Rica",
+     "visitante": "Honduras"
+    },
+    {
+     "num": 11,
+     "local": "Guatemala",
+     "visitante": "Surinam"
+    },
+    {
+     "num": 12,
+     "local": "Jamaica",
+     "visitante": "Curazao"
+    },
+    {
+     "num": 13,
+     "local": "Panamá",
+     "visitante": "El Salvador"
+    },
+    {
+     "num": 14,
+     "local": "Trinidad y Tobago",
+     "visitante": "Islas Bermudas"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Turquía"
+   },
+   "fecha": "2025-11-19",
+   "recaudacion_euros": 80627400,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 6,
+     "premio_euros": 10078
+    },
+    "12": {
+     "acertantes": 189,
+     "premio_euros": 319
+    },
+    "11": {
+     "acertantes": 1600,
+     "premio_euros": 37
+    },
+    "10": {
+     "acertantes": 8293,
+     "premio_euros": 8
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 21,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "X",
+    "22"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/21.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alavés",
+     "visitante": "Celta"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 3,
+     "local": "Osasuna",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 4,
+     "local": "Villarreal",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 5,
+     "local": "Oviedo",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 6,
+     "local": "Betis",
+     "visitante": "Girona"
+    },
+    {
+     "num": 7,
+     "local": "Getafe",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Elche",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Leganés",
+     "visitante": "Almería"
+    },
+    {
+     "num": 10,
+     "local": "Granada",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 11,
+     "local": "Deportivo",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 12,
+     "local": "Huesca",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 13,
+     "local": "Burgos",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 14,
+     "local": "Málaga",
+     "visitante": "Mirandés"
+    }
+   ],
+   "pleno15": {
+    "local": "Espanyol",
+    "visitante": "Sevilla"
+   },
+   "fecha": "2025-11-23",
+   "recaudacion_euros": 397307700,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 4,
+     "premio_euros": 158923
+    },
+    "13": {
+     "acertantes": 97,
+     "premio_euros": 3071
+    },
+    "12": {
+     "acertantes": 1560,
+     "premio_euros": 191
+    },
+    "11": {
+     "acertantes": 15592,
+     "premio_euros": 19
+    },
+    "10": {
+     "acertantes": 90252,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 22,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "2",
+    "1",
+    "X",
+    "X",
+    "2",
+    "X",
+    "2",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/22.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Bodo-Glimt",
+     "visitante": "Juventus"
+    },
+    {
+     "num": 2,
+     "local": "Borussia Dortmund",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 3,
+     "local": "Chelsea",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "Manchester City",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 5,
+     "local": "Olympique Marsella",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 6,
+     "local": "Slavia Praga",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 7,
+     "local": "Arsenal",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 8,
+     "local": "Eintracht Frankfurt",
+     "visitante": "Atalanta"
+    },
+    {
+     "num": 9,
+     "local": "Liverpool",
+     "visitante": "PSV Eindhoven"
+    },
+    {
+     "num": 10,
+     "local": "Olympiacos",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 11,
+     "local": "Paris Saint-Germain",
+     "visitante": "Tottenham Hotspur"
+    },
+    {
+     "num": 12,
+     "local": "Sporting Portugal",
+     "visitante": "Brujas"
+    },
+    {
+     "num": 13,
+     "local": "Ludogorets",
+     "visitante": "Celta"
+    },
+    {
+     "num": 14,
+     "local": "Betis",
+     "visitante": "Utrecht"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Inter de Milán"
+   },
+   "fecha": "2025-11-26",
+   "recaudacion_euros": 111490950,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 14,
+     "premio_euros": 5972
+    },
+    "12": {
+     "acertantes": 243,
+     "premio_euros": 344
+    },
+    "11": {
+     "acertantes": 3095,
+     "premio_euros": 27
+    },
+    "10": {
+     "acertantes": 22130,
+     "premio_euros": 4
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 23,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/23.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Mallorca",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 3,
+     "local": "Levante",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 4,
+     "local": "Atlético de Madrid",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 5,
+     "local": "Real Sociedad",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 6,
+     "local": "Sevilla",
+     "visitante": "Betis"
+    },
+    {
+     "num": 7,
+     "local": "Celta",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 8,
+     "local": "Girona",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Ceuta",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 10,
+     "local": "Albacete",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 11,
+     "local": "Valladolid",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 12,
+     "local": "Zaragoza",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 13,
+     "local": "Córdoba",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 14,
+     "local": "Castellón",
+     "visitante": "Las Palmas"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Valencia"
+   },
+   "fecha": "2025-11-30",
+   "recaudacion_euros": 431319450,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 690111
+    },
+    "13": {
+     "acertantes": 52,
+     "premio_euros": 6220
+    },
+    "12": {
+     "acertantes": 946,
+     "premio_euros": 341
+    },
+    "11": {
+     "acertantes": 8445,
+     "premio_euros": 38
+    },
+    "10": {
+     "acertantes": 47903,
+     "premio_euros": 8
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 24,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "2",
+    "X",
+    "1",
+    "2",
+    "X",
+    "1",
+    "2",
+    "1",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/24.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Deportivo Guadalajara",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 2,
+     "local": "Navalcarnero",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Cultural Leonesa",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 4,
+     "local": "Mirandés",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 5,
+     "local": "Real Murcia",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 6,
+     "local": "UD Ourense",
+     "visitante": "Girona"
+    },
+    {
+     "num": 7,
+     "local": "Pontevedra",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 8,
+     "local": "Leganés",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 9,
+     "local": "Real Ávila",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 10,
+     "local": "Extremadura",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 11,
+     "local": "Cartagena",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 12,
+     "local": "Zaragoza",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 13,
+     "local": "Sabadell",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 14,
+     "local": "Athletic de Bilbao",
+     "visitante": "Real Madrid"
+    }
+   ],
+   "pleno15": {
+    "local": "Barcelona",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2025-12-03",
+   "recaudacion_euros": 81564750,
+   "premios": {
+    "pleno15": {
+     "acertantes": 4,
+     "premio_euros": 15293
+    },
+    "14": {
+     "acertantes": 16,
+     "premio_euros": 8156
+    },
+    "13": {
+     "acertantes": 315,
+     "premio_euros": 194
+    },
+    "12": {
+     "acertantes": 3041,
+     "premio_euros": 20
+    },
+    "11": {
+     "acertantes": 18450,
+     "premio_euros": 3
+    },
+    "10": {
+     "acertantes": 68966,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 25,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/25.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Villarreal",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 2,
+     "local": "Alavés",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 3,
+     "local": "Betis",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "Elche",
+     "visitante": "Girona"
+    },
+    {
+     "num": 5,
+     "local": "Valencia",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 6,
+     "local": "Espanyol",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 7,
+     "local": "Real Madrid",
+     "visitante": "Celta"
+    },
+    {
+     "num": 8,
+     "local": "Osasuna",
+     "visitante": "Levante"
+    },
+    {
+     "num": 9,
+     "local": "Andorra",
+     "visitante": "Almería"
+    },
+    {
+     "num": 10,
+     "local": "Huesca",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 11,
+     "local": "Cádiz",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 12,
+     "local": "Leganés",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 13,
+     "local": "Deportivo",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 14,
+     "local": "Granada",
+     "visitante": "Ceuta"
+    }
+   ],
+   "pleno15": {
+    "local": "Athletic de Bilbao",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2025-12-07",
+   "recaudacion_euros": 403481325,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 20,
+     "premio_euros": 15130
+    },
+    "12": {
+     "acertantes": 723,
+     "premio_euros": 418
+    },
+    "11": {
+     "acertantes": 8730,
+     "premio_euros": 34
+    },
+    "10": {
+     "acertantes": 57685,
+     "premio_euros": 6
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 26,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "2",
+    "X",
+    "2",
+    "X",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/26.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Atalanta",
+     "visitante": "Chelsea"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Eintracht Frankfurt"
+    },
+    {
+     "num": 3,
+     "local": "Inter de Milán",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 4,
+     "local": "Mónaco",
+     "visitante": "Galatasaray"
+    },
+    {
+     "num": 5,
+     "local": "PSV Eindhoven",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 6,
+     "local": "Qarabag FK",
+     "visitante": "Ajax Amsterdam"
+    },
+    {
+     "num": 7,
+     "local": "Villarreal",
+     "visitante": "Copenhague"
+    },
+    {
+     "num": 8,
+     "local": "Athletic de Bilbao",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 9,
+     "local": "Bayer Leverkusen",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 10,
+     "local": "Benfica",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 11,
+     "local": "Borussia Dortmund",
+     "visitante": "Bodo-Glimt"
+    },
+    {
+     "num": 12,
+     "local": "Juventus",
+     "visitante": "Pafos"
+    },
+    {
+     "num": 13,
+     "local": "Dinamo Zagreb",
+     "visitante": "Betis"
+    },
+    {
+     "num": 14,
+     "local": "Celta",
+     "visitante": "Bolonia"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Manchester City"
+   },
+   "fecha": "2025-12-10",
+   "recaudacion_euros": 106198725,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 1,
+     "premio_euros": 79649
+    },
+    "12": {
+     "acertantes": 29,
+     "premio_euros": 2746
+    },
+    "11": {
+     "acertantes": 308,
+     "premio_euros": 258
+    },
+    "10": {
+     "acertantes": 2470,
+     "premio_euros": 38
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 27,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "2",
+    "X",
+    "X",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/27.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Atlético de Madrid",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 2,
+     "local": "Mallorca",
+     "visitante": "Elche"
+    },
+    {
+     "num": 3,
+     "local": "Barcelona",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 4,
+     "local": "Getafe",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 5,
+     "local": "Sevilla",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 6,
+     "local": "Celta",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 7,
+     "local": "Levante",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 8,
+     "local": "Alavés",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Sporting de Gijón",
+     "visitante": "Granada"
+    },
+    {
+     "num": 10,
+     "local": "Valladolid",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 11,
+     "local": "Racing de Santander",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 12,
+     "local": "Zaragoza",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 13,
+     "local": "Almería",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 14,
+     "local": "Ceuta",
+     "visitante": "Las Palmas"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Betis"
+   },
+   "fecha": "2025-12-14",
+   "recaudacion_euros": 471381600,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 754210
+    },
+    "13": {
+     "acertantes": 26,
+     "premio_euros": 13597
+    },
+    "12": {
+     "acertantes": 443,
+     "premio_euros": 798
+    },
+    "11": {
+     "acertantes": 5165,
+     "premio_euros": 68
+    },
+    "10": {
+     "acertantes": 38352,
+     "premio_euros": 11
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 28,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "X",
+    "2",
+    "2",
+    "X",
+    "00"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/28.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "AZ Alkmaar",
+     "visitante": "Jagiellonia Białystok"
+    },
+    {
+     "num": 2,
+     "local": "Shakhtar Donetsk",
+     "visitante": "Rijeka"
+    },
+    {
+     "num": 3,
+     "local": "Slovan Bratislava",
+     "visitante": "BK Häcken"
+    },
+    {
+     "num": 4,
+     "local": "Sigma Olomouc",
+     "visitante": "Lech Poznan"
+    },
+    {
+     "num": 5,
+     "local": "Sparta Praga",
+     "visitante": "Aberdeen"
+    },
+    {
+     "num": 6,
+     "local": "Dinamo de Kiev",
+     "visitante": "FC Noah"
+    },
+    {
+     "num": 7,
+     "local": "Crystal Palace",
+     "visitante": "KuPS Kuopio"
+    },
+    {
+     "num": 8,
+     "local": "Shamrock Rovers",
+     "visitante": "Hamrun Spartans"
+    },
+    {
+     "num": 9,
+     "local": "Mainz 05",
+     "visitante": "Samsunspor"
+    },
+    {
+     "num": 10,
+     "local": "Racing Club de Estrasburgo",
+     "visitante": "Breidablik"
+    },
+    {
+     "num": 11,
+     "local": "Celje",
+     "visitante": "Shelbourne"
+    },
+    {
+     "num": 12,
+     "local": "Zrinjski Mostar",
+     "visitante": "Rapid Viena"
+    },
+    {
+     "num": 13,
+     "local": "AEK Atenas",
+     "visitante": "Universitatea Craiova"
+    },
+    {
+     "num": 14,
+     "local": "Lausanne-Sport",
+     "visitante": "Fiorentina"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Drita"
+   },
+   "fecha": "2025-12-18",
+   "recaudacion_euros": 82065150,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 10,
+     "premio_euros": 6154
+    },
+    "12": {
+     "acertantes": 113,
+     "premio_euros": 544
+    },
+    "11": {
+     "acertantes": 1087,
+     "premio_euros": 56
+    },
+    "10": {
+     "acertantes": 6553,
+     "premio_euros": 11
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 29,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/29.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Oviedo",
+     "visitante": "Celta"
+    },
+    {
+     "num": 2,
+     "local": "Levante",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 3,
+     "local": "Osasuna",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 4,
+     "local": "Real Madrid",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 5,
+     "local": "Girona",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 6,
+     "local": "Villarreal",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 7,
+     "local": "Elche",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 8,
+     "local": "Betis",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 9,
+     "local": "Andorra",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 10,
+     "local": "Huesca",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 11,
+     "local": "Málaga",
+     "visitante": "Almería"
+    },
+    {
+     "num": 12,
+     "local": "Burgos",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 13,
+     "local": "Granada",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 14,
+     "local": "Cádiz",
+     "visitante": "Castellón"
+    }
+   ],
+   "pleno15": {
+    "local": "Athletic de Bilbao",
+    "visitante": "Espanyol"
+   },
+   "fecha": "2025-12-21",
+   "recaudacion_euros": 415615500,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 16,
+     "premio_euros": 41561
+    },
+    "13": {
+     "acertantes": 355,
+     "premio_euros": 878
+    },
+    "12": {
+     "acertantes": 3815,
+     "premio_euros": 81
+    },
+    "11": {
+     "acertantes": 25465,
+     "premio_euros": 12
+    },
+    "10": {
+     "acertantes": 111882,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 30,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "X",
+    "X",
+    "1",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/30.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Nottingham Forest",
+     "visitante": "Manchester City"
+    },
+    {
+     "num": 2,
+     "local": "Arsenal",
+     "visitante": "Brighton & Hove Albion"
+    },
+    {
+     "num": 3,
+     "local": "Brentford",
+     "visitante": "Bournemouth"
+    },
+    {
+     "num": 4,
+     "local": "Burnley",
+     "visitante": "Everton"
+    },
+    {
+     "num": 5,
+     "local": "Liverpool",
+     "visitante": "Wolverhampton Wanderers"
+    },
+    {
+     "num": 6,
+     "local": "West Ham",
+     "visitante": "Fulham"
+    },
+    {
+     "num": 7,
+     "local": "Chelsea",
+     "visitante": "Aston Villa"
+    },
+    {
+     "num": 8,
+     "local": "Sunderland",
+     "visitante": "Leeds United"
+    },
+    {
+     "num": 9,
+     "local": "Crystal Palace",
+     "visitante": "Tottenham Hotspur"
+    },
+    {
+     "num": 10,
+     "local": "Udinese",
+     "visitante": "Lazio"
+    },
+    {
+     "num": 11,
+     "local": "Pisa",
+     "visitante": "Juventus"
+    },
+    {
+     "num": 12,
+     "local": "AC Milan",
+     "visitante": "Hellas Verona"
+    },
+    {
+     "num": 13,
+     "local": "Cremonese",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 14,
+     "local": "Bolonia",
+     "visitante": "Sassuolo"
+    }
+   ],
+   "pleno15": {
+    "local": "Atalanta",
+    "visitante": "Inter de Milán"
+   },
+   "fecha": "2025-12-28",
+   "recaudacion_euros": 122954175,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 29,
+     "premio_euros": 6783
+    },
+    "13": {
+     "acertantes": 879,
+     "premio_euros": 104
+    },
+    "12": {
+     "acertantes": 7432,
+     "premio_euros": 12
+    },
+    "11": {
+     "acertantes": 37564,
+     "premio_euros": 2
+    },
+    "10": {
+     "acertantes": 124839,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 31,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "X",
+    "2",
+    "X",
+    "2",
+    "1",
+    "2",
+    "X",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/31.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Celta",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 2,
+     "local": "Osasuna",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 3,
+     "local": "Elche",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 4,
+     "local": "Espanyol",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 5,
+     "local": "Sevilla",
+     "visitante": "Levante"
+    },
+    {
+     "num": 6,
+     "local": "Real Madrid",
+     "visitante": "Betis"
+    },
+    {
+     "num": 7,
+     "local": "Alavés",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 8,
+     "local": "Mallorca",
+     "visitante": "Girona"
+    },
+    {
+     "num": 9,
+     "local": "Castellón",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 10,
+     "local": "Valladolid",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 11,
+     "local": "Córdoba",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 12,
+     "local": "Sporting de Gijón",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 13,
+     "local": "Zaragoza",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 14,
+     "local": "Deportivo",
+     "visitante": "Cádiz"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Sociedad",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2026-01-04",
+   "recaudacion_euros": 495897975,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 793436
+    },
+    "13": {
+     "acertantes": 77,
+     "premio_euros": 4830
+    },
+    "12": {
+     "acertantes": 1128,
+     "premio_euros": 329
+    },
+    "11": {
+     "acertantes": 10505,
+     "premio_euros": 35
+    },
+    "10": {
+     "acertantes": 62357,
+     "premio_euros": 7
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 32,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "2",
+    "2",
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "X",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/32.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Getafe",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 2,
+     "local": "Girona",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 3,
+     "local": "Villarreal",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 4,
+     "local": "Oviedo",
+     "visitante": "Betis"
+    },
+    {
+     "num": 5,
+     "local": "Sevilla",
+     "visitante": "Celta"
+    },
+    {
+     "num": 6,
+     "local": "Valencia",
+     "visitante": "Elche"
+    },
+    {
+     "num": 7,
+     "local": "Levante",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 8,
+     "local": "Cádiz",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 9,
+     "local": "Leganés",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 10,
+     "local": "Granada",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 11,
+     "local": "Málaga",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 12,
+     "local": "Huesca",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 13,
+     "local": "Las Palmas",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 14,
+     "local": "Mirandés",
+     "visitante": "Almería"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Mallorca"
+   },
+   "fecha": "2026-01-11",
+   "recaudacion_euros": 425851200,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 3,
+     "premio_euros": 227120
+    },
+    "13": {
+     "acertantes": 88,
+     "premio_euros": 3629
+    },
+    "12": {
+     "acertantes": 1184,
+     "premio_euros": 269
+    },
+    "11": {
+     "acertantes": 8889,
+     "premio_euros": 35
+    },
+    "10": {
+     "acertantes": 45459,
+     "premio_euros": 8
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 33,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "X",
+    "X",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "X",
+    "X",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/33.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Racing de Santander",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 2,
+     "local": "Albacete",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Betis",
+     "visitante": "Elche"
+    },
+    {
+     "num": 4,
+     "local": "Alavés",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 5,
+     "local": "Cultural Leonesa",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 6,
+     "local": "Burgos",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 7,
+     "local": "Real Sociedad",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 8,
+     "local": "Borussia Dortmund",
+     "visitante": "Werder Bremen"
+    },
+    {
+     "num": 9,
+     "local": "Hamburgo",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 10,
+     "local": "Wolfsburgo",
+     "visitante": "FC St. Pauli"
+    },
+    {
+     "num": 11,
+     "local": "Colonia",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 12,
+     "local": "Hoffenheim",
+     "visitante": "Borussia Mönchengladbach"
+    },
+    {
+     "num": 13,
+     "local": "RB Leipzig",
+     "visitante": "Friburgo"
+    },
+    {
+     "num": 14,
+     "local": "Augsburgo",
+     "visitante": "Union Berlin"
+    }
+   ],
+   "pleno15": {
+    "local": "Deportivo",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2026-01-14",
+   "recaudacion_euros": 92334225,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 3,
+     "premio_euros": 49244
+    },
+    "13": {
+     "acertantes": 1110,
+     "premio_euros": 62
+    },
+    "12": {
+     "acertantes": 15388,
+     "premio_euros": 9
+    },
+    "11": {
+     "acertantes": 73720,
+     "premio_euros": null
+    },
+    "10": {
+     "acertantes": 169512,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 34,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "X",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/34.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Betis",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 2,
+     "local": "Celta",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 3,
+     "local": "Elche",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 4,
+     "local": "Getafe",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 5,
+     "local": "Osasuna",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 6,
+     "local": "Atlético de Madrid",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 7,
+     "local": "Mallorca",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 8,
+     "local": "Real Madrid",
+     "visitante": "Levante"
+    },
+    {
+     "num": 9,
+     "local": "Albacete",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 10,
+     "local": "Burgos",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 11,
+     "local": "Cultural Leonesa",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 12,
+     "local": "Almería",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 13,
+     "local": "Granada",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 14,
+     "local": "Racing de Santander",
+     "visitante": "Las Palmas"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Sociedad",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2026-01-18",
+   "recaudacion_euros": 490350600,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 21,
+     "premio_euros": 37360
+    },
+    "13": {
+     "acertantes": 419,
+     "premio_euros": 877
+    },
+    "12": {
+     "acertantes": 5184,
+     "premio_euros": 70
+    },
+    "11": {
+     "acertantes": 36768,
+     "premio_euros": 10
+    },
+    "10": {
+     "acertantes": 166699,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 35,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "X",
+    "1",
+    "21"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/35.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Inter de Milán",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 2,
+     "local": "Villarreal",
+     "visitante": "Ajax Amsterdam"
+    },
+    {
+     "num": 3,
+     "local": "Tottenham Hotspur",
+     "visitante": "Borussia Dortmund"
+    },
+    {
+     "num": 4,
+     "local": "Sporting Portugal",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 5,
+     "local": "Olympiacos",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 6,
+     "local": "Copenhague",
+     "visitante": "Nápoles"
+    },
+    {
+     "num": 7,
+     "local": "Galatasaray",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Atalanta",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 9,
+     "local": "Juventus",
+     "visitante": "Benfica"
+    },
+    {
+     "num": 10,
+     "local": "Slavia Praga",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 11,
+     "local": "Olympique Marsella",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 12,
+     "local": "Newcastle",
+     "visitante": "PSV Eindhoven"
+    },
+    {
+     "num": 13,
+     "local": "PAOK de Salónica",
+     "visitante": "Betis"
+    },
+    {
+     "num": 14,
+     "local": "Celta",
+     "visitante": "Losc Lille"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Mónaco"
+   },
+   "fecha": "2026-01-21",
+   "recaudacion_euros": 106096050,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 4,
+     "premio_euros": 19893
+    },
+    "12": {
+     "acertantes": 56,
+     "premio_euros": 1420
+    },
+    "11": {
+     "acertantes": 713,
+     "premio_euros": 111
+    },
+    "10": {
+     "acertantes": 5061,
+     "premio_euros": 18
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 36,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/36.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Rayo Vallecano",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 2,
+     "local": "Valencia",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 3,
+     "local": "Sevilla",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 4,
+     "local": "Villarreal",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Atlético de Madrid",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 6,
+     "local": "Barcelona",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 7,
+     "local": "Real Sociedad",
+     "visitante": "Celta"
+    },
+    {
+     "num": 8,
+     "local": "Alavés",
+     "visitante": "Betis"
+    },
+    {
+     "num": 9,
+     "local": "Valladolid",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 10,
+     "local": "Las Palmas",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 11,
+     "local": "Andorra",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 12,
+     "local": "Eibar",
+     "visitante": "Almería"
+    },
+    {
+     "num": 13,
+     "local": "Zaragoza",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 14,
+     "local": "Deportivo",
+     "visitante": "Racing de Santander"
+    }
+   ],
+   "pleno15": {
+    "local": "Girona",
+    "visitante": "Getafe"
+   },
+   "fecha": "2026-01-25",
+   "recaudacion_euros": 505643475,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 809029
+    },
+    "13": {
+     "acertantes": 93,
+     "premio_euros": 4077
+    },
+    "12": {
+     "acertantes": 1391,
+     "premio_euros": 272
+    },
+    "11": {
+     "acertantes": 10392,
+     "premio_euros": 36
+    },
+    "10": {
+     "acertantes": 52037,
+     "premio_euros": 8
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 37,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "X",
+    "1",
+    "X",
+    "2",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/37.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Ajax Amsterdam",
+     "visitante": "Olympiacos"
+    },
+    {
+     "num": 2,
+     "local": "Athletic de Bilbao",
+     "visitante": "Sporting Portugal"
+    },
+    {
+     "num": 3,
+     "local": "Atlético de Madrid",
+     "visitante": "Bodo-Glimt"
+    },
+    {
+     "num": 4,
+     "local": "Barcelona",
+     "visitante": "Copenhague"
+    },
+    {
+     "num": 5,
+     "local": "Bayer Leverkusen",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 6,
+     "local": "Borussia Dortmund",
+     "visitante": "Inter de Milán"
+    },
+    {
+     "num": 7,
+     "local": "Liverpool",
+     "visitante": "Qarabag FK"
+    },
+    {
+     "num": 8,
+     "local": "Manchester City",
+     "visitante": "Galatasaray"
+    },
+    {
+     "num": 9,
+     "local": "Mónaco",
+     "visitante": "Juventus"
+    },
+    {
+     "num": 10,
+     "local": "Nápoles",
+     "visitante": "Chelsea"
+    },
+    {
+     "num": 11,
+     "local": "PSV Eindhoven",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 12,
+     "local": "Paris Saint-Germain",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 13,
+     "local": "Estrella Roja de Belgrado",
+     "visitante": "Celta"
+    },
+    {
+     "num": 14,
+     "local": "Betis",
+     "visitante": "Feyenoord Rotterdam"
+    }
+   ],
+   "pleno15": {
+    "local": "Benfica",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2026-01-28",
+   "recaudacion_euros": 152222475,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 243555
+    },
+    "13": {
+     "acertantes": 160,
+     "premio_euros": 713
+    },
+    "12": {
+     "acertantes": 3036,
+     "premio_euros": 37
+    },
+    "11": {
+     "acertantes": 23980,
+     "premio_euros": 4
+    },
+    "10": {
+     "acertantes": 103630,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 38,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "X",
+    "X",
+    "1",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/38.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Oviedo",
+     "visitante": "Girona"
+    },
+    {
+     "num": 2,
+     "local": "Osasuna",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 3,
+     "local": "Levante",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Elche",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 5,
+     "local": "Real Madrid",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 6,
+     "local": "Betis",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 7,
+     "local": "Getafe",
+     "visitante": "Celta"
+    },
+    {
+     "num": 8,
+     "local": "Mallorca",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 9,
+     "local": "Cultural Leonesa",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 10,
+     "local": "Almería",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 11,
+     "local": "Eibar",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 12,
+     "local": "Huesca",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 13,
+     "local": "Granada",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 14,
+     "local": "Mirandés",
+     "visitante": "Málaga"
+    }
+   ],
+   "pleno15": {
+    "local": "Athletic de Bilbao",
+    "visitante": "Real Sociedad"
+   },
+   "fecha": "2026-02-01",
+   "recaudacion_euros": 515648325,
+   "premios": {
+    "pleno15": {
+     "acertantes": 10,
+     "premio_euros": 680462
+    },
+    "14": {
+     "acertantes": 39,
+     "premio_euros": 21154
+    },
+    "13": {
+     "acertantes": 793,
+     "premio_euros": 487
+    },
+    "12": {
+     "acertantes": 7708,
+     "premio_euros": 50
+    },
+    "11": {
+     "acertantes": 47363,
+     "premio_euros": 8
+    },
+    "10": {
+     "acertantes": 185605,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 39,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/39.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Rayo Vallecano",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 3,
+     "local": "Sevilla",
+     "visitante": "Girona"
+    },
+    {
+     "num": 4,
+     "local": "Real Sociedad",
+     "visitante": "Elche"
+    },
+    {
+     "num": 5,
+     "local": "Alavés",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 6,
+     "local": "Athletic de Bilbao",
+     "visitante": "Levante"
+    },
+    {
+     "num": 7,
+     "local": "Atlético de Madrid",
+     "visitante": "Betis"
+    },
+    {
+     "num": 8,
+     "local": "Villarreal",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 9,
+     "local": "Cádiz",
+     "visitante": "Almería"
+    },
+    {
+     "num": 10,
+     "local": "Valladolid",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 11,
+     "local": "Ceuta",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 12,
+     "local": "Deportivo",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 13,
+     "local": "Sporting de Gijón",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 14,
+     "local": "Málaga",
+     "visitante": "Cultural Leonesa"
+    }
+   ],
+   "pleno15": {
+    "local": "Valencia",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2026-02-08",
+   "recaudacion_euros": null,
+   "premios": {
+    "pleno15": {
+     "acertantes": 18,
+     "premio_euros": 149895
+    },
+    "14": {
+     "acertantes": 129,
+     "premio_euros": 5590
+    },
+    "13": {
+     "acertantes": 3856,
+     "premio_euros": 87
+    },
+    "12": {
+     "acertantes": 44025,
+     "premio_euros": 7
+    },
+    "11": {
+     "acertantes": 213327,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 588633,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 40,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "X",
+    "1",
+    "1",
+    "1",
+    "02"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/40.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Athletic de Bilbao",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 3,
+     "local": "Chelsea",
+     "visitante": "Leeds United"
+    },
+    {
+     "num": 4,
+     "local": "Everton",
+     "visitante": "Bournemouth"
+    },
+    {
+     "num": 5,
+     "local": "Tottenham Hotspur",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 6,
+     "local": "West Ham",
+     "visitante": "Manchester United"
+    },
+    {
+     "num": 7,
+     "local": "Aston Villa",
+     "visitante": "Brighton & Hove Albion"
+    },
+    {
+     "num": 8,
+     "local": "Crystal Palace",
+     "visitante": "Burnley"
+    },
+    {
+     "num": 9,
+     "local": "Manchester City",
+     "visitante": "Fulham"
+    },
+    {
+     "num": 10,
+     "local": "Nottingham Forest",
+     "visitante": "Wolverhampton Wanderers"
+    },
+    {
+     "num": 11,
+     "local": "Brentford",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 12,
+     "local": "Celtic de Glasgow",
+     "visitante": "Livingston"
+    },
+    {
+     "num": 13,
+     "local": "Dundee United",
+     "visitante": "Aberdeen"
+    },
+    {
+     "num": 14,
+     "local": "Motherwell",
+     "visitante": "Glasgow Rangers"
+    }
+   ],
+   "pleno15": {
+    "local": "Sunderland",
+    "visitante": "Liverpool"
+   },
+   "fecha": "2026-02-11",
+   "recaudacion_euros": 81767100,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 2,
+     "premio_euros": 30662
+    },
+    "12": {
+     "acertantes": 20,
+     "premio_euros": 3066
+    },
+    "11": {
+     "acertantes": 183,
+     "premio_euros": 335
+    },
+    "10": {
+     "acertantes": 1339,
+     "premio_euros": 54
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 41,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "X",
+    "2",
+    "2",
+    "X",
+    "1",
+    "2",
+    "1",
+    "X",
+    "X",
+    "1",
+    "X",
+    "X",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/41.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Elche",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 2,
+     "local": "Getafe",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 3,
+     "local": "Levante",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 4,
+     "local": "Real Madrid",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 5,
+     "local": "Sevilla",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 6,
+     "local": "Oviedo",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 7,
+     "local": "Girona",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 8,
+     "local": "Mallorca",
+     "visitante": "Betis"
+    },
+    {
+     "num": 9,
+     "local": "Espanyol",
+     "visitante": "Celta"
+    },
+    {
+     "num": 10,
+     "local": "Albacete",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 11,
+     "local": "Burgos",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 12,
+     "local": "Castellón",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 13,
+     "local": "Eibar",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 14,
+     "local": "Mirandés",
+     "visitante": "Las Palmas"
+    }
+   ],
+   "pleno15": {
+    "local": "Rayo Vallecano",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2026-02-15",
+   "recaudacion_euros": 308969475,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 494351
+    },
+    "13": {
+     "acertantes": 6,
+     "premio_euros": 38621
+    },
+    "12": {
+     "acertantes": 95,
+     "premio_euros": 2439
+    },
+    "11": {
+     "acertantes": 1151,
+     "premio_euros": 201
+    },
+    "10": {
+     "acertantes": 8283,
+     "premio_euros": 33
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 42,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "2",
+    "X",
+    "X",
+    "X",
+    "1",
+    "1",
+    "X",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/42.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Borussia Dortmund",
+     "visitante": "Atalanta"
+    },
+    {
+     "num": 2,
+     "local": "Mónaco",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 3,
+     "local": "Qarabag FK",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 4,
+     "local": "Bodo-Glimt",
+     "visitante": "Inter de Milán"
+    },
+    {
+     "num": 5,
+     "local": "Brujas",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 6,
+     "local": "Olympiacos",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 7,
+     "local": "Brann Bergen",
+     "visitante": "Bolonia"
+    },
+    {
+     "num": 8,
+     "local": "Dinamo Zagreb",
+     "visitante": "Racing Genk"
+    },
+    {
+     "num": 9,
+     "local": "Fenerbahçe",
+     "visitante": "Nottingham Forest"
+    },
+    {
+     "num": 10,
+     "local": "PAOK de Salónica",
+     "visitante": "Celta"
+    },
+    {
+     "num": 11,
+     "local": "Celtic de Glasgow",
+     "visitante": "Stuttgart"
+    },
+    {
+     "num": 12,
+     "local": "Losc Lille",
+     "visitante": "Estrella Roja de Belgrado"
+    },
+    {
+     "num": 13,
+     "local": "Ludogorets",
+     "visitante": "Ferencváros"
+    },
+    {
+     "num": 14,
+     "local": "Panathinaikos",
+     "visitante": "Viktoria Pilsen"
+    }
+   ],
+   "pleno15": {
+    "local": "Benfica",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2026-02-18",
+   "recaudacion_euros": 91868550,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 146989
+    },
+    "13": {
+     "acertantes": 19,
+     "premio_euros": 3626
+    },
+    "12": {
+     "acertantes": 168,
+     "premio_euros": 410
+    },
+    "11": {
+     "acertantes": 1342,
+     "premio_euros": 51
+    },
+    "10": {
+     "acertantes": 8275,
+     "premio_euros": 9
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 43,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "2",
+    "1",
+    "X",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "1",
+    "X",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/43.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Sociedad",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 2,
+     "local": "Betis",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 3,
+     "local": "Osasuna",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Atlético de Madrid",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 5,
+     "local": "Getafe",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 6,
+     "local": "Barcelona",
+     "visitante": "Levante"
+    },
+    {
+     "num": 7,
+     "local": "Celta",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 8,
+     "local": "Villarreal",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 9,
+     "local": "Almería",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 10,
+     "local": "Las Palmas",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 11,
+     "local": "Sporting de Gijón",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 12,
+     "local": "Andorra",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 13,
+     "local": "Racing de Santander",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 14,
+     "local": "Málaga",
+     "visitante": "Albacete"
+    }
+   ],
+   "pleno15": {
+    "local": "Alavés",
+    "visitante": "Girona"
+   },
+   "fecha": "2026-02-22",
+   "recaudacion_euros": 382206900,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 7,
+     "premio_euros": 87361
+    },
+    "13": {
+     "acertantes": 168,
+     "premio_euros": 1706
+    },
+    "12": {
+     "acertantes": 2138,
+     "premio_euros": 134
+    },
+    "11": {
+     "acertantes": 16119,
+     "premio_euros": 17
+    },
+    "10": {
+     "acertantes": 87535,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 44,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "22"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/44.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Rayo Vallecano",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 3,
+     "local": "Mallorca",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 4,
+     "local": "Oviedo",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Elche",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 6,
+     "local": "Valencia",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 7,
+     "local": "Girona",
+     "visitante": "Celta"
+    },
+    {
+     "num": 8,
+     "local": "Real Madrid",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 9,
+     "local": "Zaragoza",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 10,
+     "local": "Granada",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 11,
+     "local": "Castellón",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 12,
+     "local": "Sporting de Gijón",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 13,
+     "local": "Cultural Leonesa",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 14,
+     "local": "Eibar",
+     "visitante": "Cádiz"
+    }
+   ],
+   "pleno15": {
+    "local": "Betis",
+    "visitante": "Sevilla"
+   },
+   "fecha": "2026-03-01",
+   "recaudacion_euros": 412939725,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 35,
+     "premio_euros": 8848
+    },
+    "12": {
+     "acertantes": 650,
+     "premio_euros": 476
+    },
+    "11": {
+     "acertantes": 7176,
+     "premio_euros": 43
+    },
+    "10": {
+     "acertantes": 44376,
+     "premio_euros": 8
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 45,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "2",
+    "X",
+    "1",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "X",
+    "2",
+    "1",
+    "22"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/45.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Getafe",
+     "visitante": "Betis"
+    },
+    {
+     "num": 2,
+     "local": "Levante",
+     "visitante": "Girona"
+    },
+    {
+     "num": 3,
+     "local": "Atlético de Madrid",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 4,
+     "local": "Celta",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 5,
+     "local": "Villarreal",
+     "visitante": "Elche"
+    },
+    {
+     "num": 6,
+     "local": "Sevilla",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 7,
+     "local": "Valencia",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 8,
+     "local": "Espanyol",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 9,
+     "local": "Huesca",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 10,
+     "local": "Málaga",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 11,
+     "local": "Andorra",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 12,
+     "local": "Racing de Santander",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 13,
+     "local": "Leganés",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 14,
+     "local": "Deportivo",
+     "visitante": "Granada"
+    }
+   ],
+   "pleno15": {
+    "local": "Athletic de Bilbao",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2026-03-08",
+   "recaudacion_euros": 381436050,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 3,
+     "premio_euros": 203432
+    },
+    "13": {
+     "acertantes": 46,
+     "premio_euros": 6219
+    },
+    "12": {
+     "acertantes": 754,
+     "premio_euros": 379
+    },
+    "11": {
+     "acertantes": 6456,
+     "premio_euros": 44
+    },
+    "10": {
+     "acertantes": 39923,
+     "premio_euros": 8
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 46,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "X",
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "2",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/46.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Atalanta",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Tottenham Hotspur"
+    },
+    {
+     "num": 3,
+     "local": "Newcastle",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "Bayer Leverkusen",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 5,
+     "local": "Bodo-Glimt",
+     "visitante": "Sporting Portugal"
+    },
+    {
+     "num": 6,
+     "local": "Paris Saint-Germain",
+     "visitante": "Chelsea"
+    },
+    {
+     "num": 7,
+     "local": "Bolonia",
+     "visitante": "Roma"
+    },
+    {
+     "num": 8,
+     "local": "Losc Lille",
+     "visitante": "Aston Villa"
+    },
+    {
+     "num": 9,
+     "local": "Panathinaikos",
+     "visitante": "Betis"
+    },
+    {
+     "num": 10,
+     "local": "Stuttgart",
+     "visitante": "Oporto"
+    },
+    {
+     "num": 11,
+     "local": "Celta",
+     "visitante": "Olympique de Lyon"
+    },
+    {
+     "num": 12,
+     "local": "Ferencváros",
+     "visitante": "Sporting Braga"
+    },
+    {
+     "num": 13,
+     "local": "Racing Genk",
+     "visitante": "Friburgo"
+    },
+    {
+     "num": 14,
+     "local": "Samsunspor",
+     "visitante": "Rayo Vallecano"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Manchester City"
+   },
+   "fecha": "2026-03-11",
+   "recaudacion_euros": 91093800,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 145750
+    },
+    "13": {
+     "acertantes": 22,
+     "premio_euros": 3105
+    },
+    "12": {
+     "acertantes": 307,
+     "premio_euros": 222
+    },
+    "11": {
+     "acertantes": 2527,
+     "premio_euros": 27
+    },
+    "10": {
+     "acertantes": 13835,
+     "premio_euros": 5
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 47,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "2",
+    "X",
+    "1",
+    "1",
+    "2",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/47.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Girona",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Oviedo",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 4,
+     "local": "Real Madrid",
+     "visitante": "Elche"
+    },
+    {
+     "num": 5,
+     "local": "Mallorca",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 6,
+     "local": "Barcelona",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 7,
+     "local": "Betis",
+     "visitante": "Celta"
+    },
+    {
+     "num": 8,
+     "local": "Rayo Vallecano",
+     "visitante": "Levante"
+    },
+    {
+     "num": 9,
+     "local": "Valladolid",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 10,
+     "local": "Zaragoza",
+     "visitante": "Almería"
+    },
+    {
+     "num": 11,
+     "local": "Ceuta",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 12,
+     "local": "Eibar",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 13,
+     "local": "Sporting de Gijón",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 14,
+     "local": "Albacete",
+     "visitante": "Las Palmas"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Sociedad",
+    "visitante": "Osasuna"
+   },
+   "fecha": "2026-03-15",
+   "recaudacion_euros": 383362125,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 12,
+     "premio_euros": 51114
+    },
+    "13": {
+     "acertantes": 331,
+     "premio_euros": 868
+    },
+    "12": {
+     "acertantes": 3506,
+     "premio_euros": 82
+    },
+    "11": {
+     "acertantes": 22960,
+     "premio_euros": 12
+    },
+    "10": {
+     "acertantes": 101903,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 48,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "1",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/48.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Arsenal",
+     "visitante": "Bayer Leverkusen"
+    },
+    {
+     "num": 2,
+     "local": "Chelsea",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 3,
+     "local": "Manchester City",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Barcelona",
+     "visitante": "Newcastle"
+    },
+    {
+     "num": 5,
+     "local": "Bayern de Múnich",
+     "visitante": "Atalanta"
+    },
+    {
+     "num": 6,
+     "local": "Liverpool",
+     "visitante": "Galatasaray"
+    },
+    {
+     "num": 7,
+     "local": "Sporting Braga",
+     "visitante": "Ferencváros"
+    },
+    {
+     "num": 8,
+     "local": "Olympique de Lyon",
+     "visitante": "Celta"
+    },
+    {
+     "num": 9,
+     "local": "Friburgo",
+     "visitante": "Racing Genk"
+    },
+    {
+     "num": 10,
+     "local": "Aston Villa",
+     "visitante": "Losc Lille"
+    },
+    {
+     "num": 11,
+     "local": "Oporto",
+     "visitante": "Stuttgart"
+    },
+    {
+     "num": 12,
+     "local": "Betis",
+     "visitante": "Panathinaikos"
+    },
+    {
+     "num": 13,
+     "local": "Roma",
+     "visitante": "Bolonia"
+    },
+    {
+     "num": 14,
+     "local": "Rayo Vallecano",
+     "visitante": "Samsunspor"
+    }
+   ],
+   "pleno15": {
+    "local": "Tottenham Hotspur",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2026-03-18",
+   "recaudacion_euros": 100413300,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 11,
+     "premio_euros": 14605
+    },
+    "13": {
+     "acertantes": 297,
+     "premio_euros": 253
+    },
+    "12": {
+     "acertantes": 4827,
+     "premio_euros": 15
+    },
+    "11": {
+     "acertantes": 30385,
+     "premio_euros": 2
+    },
+    "10": {
+     "acertantes": 109453,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 49,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/49.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Elche",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 2,
+     "local": "Espanyol",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 3,
+     "local": "Levante",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 4,
+     "local": "Osasuna",
+     "visitante": "Girona"
+    },
+    {
+     "num": 5,
+     "local": "Sevilla",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 6,
+     "local": "Barcelona",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 7,
+     "local": "Celta",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 8,
+     "local": "Athletic de Bilbao",
+     "visitante": "Betis"
+    },
+    {
+     "num": 9,
+     "local": "Leganés",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 10,
+     "local": "Andorra",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 11,
+     "local": "Cádiz",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 12,
+     "local": "Burgos",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 13,
+     "local": "Mirandés",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 14,
+     "local": "Las Palmas",
+     "visitante": "Sporting de Gijón"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2026-03-22",
+   "recaudacion_euros": 368904150,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 9,
+     "premio_euros": 65582
+    },
+    "13": {
+     "acertantes": 257,
+     "premio_euros": 1076
+    },
+    "12": {
+     "acertantes": 2965,
+     "premio_euros": 93
+    },
+    "11": {
+     "acertantes": 20069,
+     "premio_euros": 13
+    },
+    "10": {
+     "acertantes": 95245,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 50,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/50.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Ceuta",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 2,
+     "local": "Granada",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 3,
+     "local": "Valladolid",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 4,
+     "local": "Málaga",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 5,
+     "local": "Albacete",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 6,
+     "local": "Sporting de Gijón",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 7,
+     "local": "Eibar",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 8,
+     "local": "Cultural Leonesa",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 9,
+     "local": "Zaragoza",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 10,
+     "local": "Zamora",
+     "visitante": "Pontevedra"
+    },
+    {
+     "num": 11,
+     "local": "Mérida",
+     "visitante": "Racing de Ferrol"
+    },
+    {
+     "num": 12,
+     "local": "UD Ourense",
+     "visitante": "Ponferradina"
+    },
+    {
+     "num": 13,
+     "local": "UD Ibiza",
+     "visitante": "Alcorcón"
+    },
+    {
+     "num": 14,
+     "local": "Hércules",
+     "visitante": "Marbella"
+    }
+   ],
+   "pleno15": {
+    "local": "Almería",
+    "visitante": "Real Sociedad B"
+   },
+   "fecha": "2026-03-29",
+   "recaudacion_euros": 160363500,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 18,
+     "premio_euros": 6681
+    },
+    "12": {
+     "acertantes": 265,
+     "premio_euros": 453
+    },
+    "11": {
+     "acertantes": 2497,
+     "premio_euros": 48
+    },
+    "10": {
+     "acertantes": 14959,
+     "premio_euros": 9
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 51,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "2",
+    "X",
+    "X",
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "M1"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/51.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Mirandés",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 2,
+     "local": "Deportivo",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 3,
+     "local": "Valladolid",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 4,
+     "local": "Andorra",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 5,
+     "local": "Burgos",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 6,
+     "local": "Huesca",
+     "visitante": "Cultural Leonesa"
+    },
+    {
+     "num": 7,
+     "local": "Racing de Santander",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 8,
+     "local": "Las Palmas",
+     "visitante": "Granada"
+    },
+    {
+     "num": 9,
+     "local": "Real Sociedad B",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 10,
+     "local": "Castellón",
+     "visitante": "Almería"
+    },
+    {
+     "num": 11,
+     "local": "Hungría",
+     "visitante": "Grecia"
+    },
+    {
+     "num": 12,
+     "local": "Perú",
+     "visitante": "Honduras"
+    },
+    {
+     "num": 13,
+     "local": "Inglaterra",
+     "visitante": "Japón"
+    },
+    {
+     "num": 14,
+     "local": "Holanda",
+     "visitante": "Ecuador"
+    }
+   ],
+   "pleno15": {
+    "local": "Leganés",
+    "visitante": "Zaragoza"
+   },
+   "fecha": "2026-04-01",
+   "recaudacion_euros": 81925800,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "12": {
+     "acertantes": 35,
+     "premio_euros": 3511
+    },
+    "11": {
+     "acertantes": 438,
+     "premio_euros": 140
+    },
+    "10": {
+     "acertantes": 3112,
+     "premio_euros": 23
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 52,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "1",
+    "X",
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "X",
+    "X",
+    "2",
+    "X",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/52.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Sociedad",
+     "visitante": "Levante"
+    },
+    {
+     "num": 2,
+     "local": "Mallorca",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Alavés",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 4,
+     "local": "Getafe",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 5,
+     "local": "Valencia",
+     "visitante": "Celta"
+    },
+    {
+     "num": 6,
+     "local": "Oviedo",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 7,
+     "local": "Betis",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 8,
+     "local": "Girona",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 9,
+     "local": "Cádiz",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 10,
+     "local": "Albacete",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 11,
+     "local": "Deportivo",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 12,
+     "local": "Andorra",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 13,
+     "local": "Almería",
+     "visitante": "Leganés"
+    },
+    {
+     "num": 14,
+     "local": "Las Palmas",
+     "visitante": "Huesca"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Barcelona"
+   },
+   "fecha": "2026-04-05",
+   "recaudacion_euros": 353602650,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 50,
+     "premio_euros": 5304
+    },
+    "12": {
+     "acertantes": 316,
+     "premio_euros": 839
+    },
+    "11": {
+     "acertantes": 2885,
+     "premio_euros": 91
+    },
+    "10": {
+     "acertantes": 16974,
+     "premio_euros": 18
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 53,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "X",
+    "1",
+    "1",
+    "1",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/53.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Madrid",
+     "visitante": "Bayern de Múnich"
+    },
+    {
+     "num": 2,
+     "local": "Sporting Portugal",
+     "visitante": "Arsenal"
+    },
+    {
+     "num": 3,
+     "local": "Paris Saint-Germain",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 4,
+     "local": "Sporting Braga",
+     "visitante": "Betis"
+    },
+    {
+     "num": 5,
+     "local": "Bolonia",
+     "visitante": "Aston Villa"
+    },
+    {
+     "num": 6,
+     "local": "Friburgo",
+     "visitante": "Celta"
+    },
+    {
+     "num": 7,
+     "local": "Oporto",
+     "visitante": "Nottingham Forest"
+    },
+    {
+     "num": 8,
+     "local": "Rayo Vallecano",
+     "visitante": "AEK Atenas"
+    },
+    {
+     "num": 9,
+     "local": "Crystal Palace",
+     "visitante": "Fiorentina"
+    },
+    {
+     "num": 10,
+     "local": "Mainz 05",
+     "visitante": "Racing Club de Estrasburgo"
+    },
+    {
+     "num": 11,
+     "local": "Shakhtar Donetsk",
+     "visitante": "AZ Alkmaar"
+    },
+    {
+     "num": 12,
+     "local": "Aalesunds",
+     "visitante": "Fredrikstad"
+    },
+    {
+     "num": 13,
+     "local": "KFUM Oslo",
+     "visitante": "Sandefjord"
+    },
+    {
+     "num": 14,
+     "local": "Wrexham",
+     "visitante": "Southampton"
+    }
+   ],
+   "pleno15": {
+    "local": "Barcelona",
+    "visitante": "Atlético de Madrid"
+   },
+   "fecha": "2026-04-08",
+   "recaudacion_euros": 75890250,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 3,
+     "premio_euros": 40474
+    },
+    "13": {
+     "acertantes": 146,
+     "premio_euros": 389
+    },
+    "12": {
+     "acertantes": 1739,
+     "premio_euros": 32
+    },
+    "11": {
+     "acertantes": 10963,
+     "premio_euros": 5
+    },
+    "10": {
+     "acertantes": 38551,
+     "premio_euros": 1
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 54,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "2",
+    "02"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/54.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Real Madrid",
+     "visitante": "Girona"
+    },
+    {
+     "num": 2,
+     "local": "Real Sociedad",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 3,
+     "local": "Elche",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 4,
+     "local": "Barcelona",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 5,
+     "local": "Sevilla",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 6,
+     "local": "Osasuna",
+     "visitante": "Betis"
+    },
+    {
+     "num": 7,
+     "local": "Mallorca",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 8,
+     "local": "Celta",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 9,
+     "local": "Athletic de Bilbao",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 10,
+     "local": "Málaga",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 11,
+     "local": "Córdoba",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 12,
+     "local": "Huesca",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 13,
+     "local": "Mirandés",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 14,
+     "local": "Racing de Santander",
+     "visitante": "Almería"
+    }
+   ],
+   "pleno15": {
+    "local": "Levante",
+    "visitante": "Getafe"
+   },
+   "fecha": "2026-04-12",
+   "recaudacion_euros": 385986900,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 617579
+    },
+    "13": {
+     "acertantes": 11,
+     "premio_euros": 26317
+    },
+    "12": {
+     "acertantes": 181,
+     "premio_euros": 1599
+    },
+    "11": {
+     "acertantes": 1883,
+     "premio_euros": 153
+    },
+    "10": {
+     "acertantes": 13358,
+     "premio_euros": 26
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 55,
+   "combinacion_ganadora": [
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/55.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Liverpool",
+     "visitante": "Paris Saint-Germain"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 3,
+     "local": "Arsenal",
+     "visitante": "Sporting Portugal"
+    },
+    {
+     "num": 4,
+     "local": "Celta",
+     "visitante": "Friburgo"
+    },
+    {
+     "num": 5,
+     "local": "Betis",
+     "visitante": "Sporting Braga"
+    },
+    {
+     "num": 6,
+     "local": "Nottingham Forest",
+     "visitante": "Oporto"
+    },
+    {
+     "num": 7,
+     "local": "Aston Villa",
+     "visitante": "Bolonia"
+    },
+    {
+     "num": 8,
+     "local": "AZ Alkmaar",
+     "visitante": "Shakhtar Donetsk"
+    },
+    {
+     "num": 9,
+     "local": "Fiorentina",
+     "visitante": "Crystal Palace"
+    },
+    {
+     "num": 10,
+     "local": "AEK Atenas",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 11,
+     "local": "Racing Club de Estrasburgo",
+     "visitante": "Mainz 05"
+    },
+    {
+     "num": 12,
+     "local": "Airdrieonians",
+     "visitante": "Dunfermline"
+    },
+    {
+     "num": 13,
+     "local": "Queens Park Rangers",
+     "visitante": "Raith Rovers"
+    },
+    {
+     "num": 14,
+     "local": "Portsmouth",
+     "visitante": "Ipswich Town"
+    }
+   ],
+   "pleno15": {
+    "local": "Bayern de Múnich",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2026-04-15",
+   "recaudacion_euros": 86356050,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 5,
+     "premio_euros": 12953
+    },
+    "12": {
+     "acertantes": 59,
+     "premio_euros": 1097
+    },
+    "11": {
+     "acertantes": 532,
+     "premio_euros": 121
+    },
+    "10": {
+     "acertantes": 3357,
+     "premio_euros": 23
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 56,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "MM"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/56.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Zaragoza",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 2,
+     "local": "Castellón",
+     "visitante": "Burgos"
+    },
+    {
+     "num": 3,
+     "local": "Cultural Leonesa",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 4,
+     "local": "Andorra",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 5,
+     "local": "Sporting de Gijón",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 6,
+     "local": "Albacete",
+     "visitante": "Granada"
+    },
+    {
+     "num": 7,
+     "local": "Eibar",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 8,
+     "local": "Almería",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 9,
+     "local": "Brentford",
+     "visitante": "Fulham"
+    },
+    {
+     "num": 10,
+     "local": "Tottenham Hotspur",
+     "visitante": "Brighton & Hove Albion"
+    },
+    {
+     "num": 11,
+     "local": "Chelsea",
+     "visitante": "Manchester United"
+    },
+    {
+     "num": 12,
+     "local": "Nottingham Forest",
+     "visitante": "Burnley"
+    },
+    {
+     "num": 13,
+     "local": "Everton",
+     "visitante": "Liverpool"
+    },
+    {
+     "num": 14,
+     "local": "Manchester City",
+     "visitante": "Arsenal"
+    }
+   ],
+   "pleno15": {
+    "local": "Atlético de Madrid",
+    "visitante": "Real Sociedad"
+   },
+   "fecha": "2026-04-19",
+   "recaudacion_euros": 130989675,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 24,
+     "premio_euros": 8732
+    },
+    "13": {
+     "acertantes": 609,
+     "premio_euros": 161
+    },
+    "12": {
+     "acertantes": 5933,
+     "premio_euros": 16
+    },
+    "11": {
+     "acertantes": 31050,
+     "premio_euros": 3
+    },
+    "10": {
+     "acertantes": 97785,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 57,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "2",
+    "1",
+    "22"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/57.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Athletic de Bilbao",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 2,
+     "local": "Barcelona",
+     "visitante": "Celta"
+    },
+    {
+     "num": 3,
+     "local": "Levante",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 4,
+     "local": "Mallorca",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 5,
+     "local": "Oviedo",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 6,
+     "local": "Real Madrid",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 7,
+     "local": "Elche",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Rayo Vallecano",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 9,
+     "local": "Real Sociedad",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 10,
+     "local": "Coventry City",
+     "visitante": "Portsmouth"
+    },
+    {
+     "num": 11,
+     "local": "Queens Park Rangers",
+     "visitante": "Swansea"
+    },
+    {
+     "num": 12,
+     "local": "Southampton",
+     "visitante": "Bristol City"
+    },
+    {
+     "num": 13,
+     "local": "Charlton Athletic",
+     "visitante": "Ipswich Town"
+    },
+    {
+     "num": 14,
+     "local": "Leicester City",
+     "visitante": "Hull City"
+    }
+   ],
+   "pleno15": {
+    "local": "Girona",
+    "visitante": "Betis"
+   },
+   "fecha": "2026-04-22",
+   "recaudacion_euros": 126951900,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 101561
+    },
+    "13": {
+     "acertantes": 27,
+     "premio_euros": 3526
+    },
+    "12": {
+     "acertantes": 461,
+     "premio_euros": 206
+    },
+    "11": {
+     "acertantes": 4030,
+     "premio_euros": 23
+    },
+    "10": {
+     "acertantes": 21734,
+     "premio_euros": 5
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 58,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "X",
+    "2",
+    "X",
+    "2M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/58.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Betis",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 2,
+     "local": "Alavés",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 3,
+     "local": "Getafe",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 4,
+     "local": "Valencia",
+     "visitante": "Girona"
+    },
+    {
+     "num": 5,
+     "local": "Atlético de Madrid",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 6,
+     "local": "Rayo Vallecano",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 7,
+     "local": "Oviedo",
+     "visitante": "Elche"
+    },
+    {
+     "num": 8,
+     "local": "Osasuna",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 9,
+     "local": "Villarreal",
+     "visitante": "Celta"
+    },
+    {
+     "num": 10,
+     "local": "Burgos",
+     "visitante": "Deportivo"
+    },
+    {
+     "num": 11,
+     "local": "Málaga",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 12,
+     "local": "Granada",
+     "visitante": "Almería"
+    },
+    {
+     "num": 13,
+     "local": "Huesca",
+     "visitante": "Zaragoza"
+    },
+    {
+     "num": 14,
+     "local": "Ceuta",
+     "visitante": "Racing de Santander"
+    }
+   ],
+   "pleno15": {
+    "local": "Espanyol",
+    "visitante": "Levante"
+   },
+   "fecha": "2026-04-26",
+   "recaudacion_euros": 326163750,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 4370845
+    },
+    "14": {
+     "acertantes": 7,
+     "premio_euros": 74551
+    },
+    "13": {
+     "acertantes": 167,
+     "premio_euros": 1464
+    },
+    "12": {
+     "acertantes": 2194,
+     "premio_euros": 111
+    },
+    "11": {
+     "acertantes": 16580,
+     "premio_euros": 14
+    },
+    "10": {
+     "acertantes": 79854,
+     "premio_euros": 3
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 59,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "X",
+    "00"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/59.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Villarreal",
+     "visitante": "Levante"
+    },
+    {
+     "num": 2,
+     "local": "Valencia",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 3,
+     "local": "Alavés",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 4,
+     "local": "Osasuna",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 5,
+     "local": "Celta",
+     "visitante": "Elche"
+    },
+    {
+     "num": 6,
+     "local": "Getafe",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 7,
+     "local": "Betis",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 8,
+     "local": "Espanyol",
+     "visitante": "Real Madrid"
+    },
+    {
+     "num": 9,
+     "local": "Cultural Leonesa",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 10,
+     "local": "Castellón",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 11,
+     "local": "Eibar",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 12,
+     "local": "Racing de Santander",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 13,
+     "local": "Sporting de Gijón",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 14,
+     "local": "Las Palmas",
+     "visitante": "Valladolid"
+    }
+   ],
+   "pleno15": {
+    "local": "Sevilla",
+    "visitante": "Real Sociedad"
+   },
+   "fecha": "2026-05-03",
+   "recaudacion_euros": 362794350,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 13,
+     "premio_euros": 44651
+    },
+    "13": {
+     "acertantes": 513,
+     "premio_euros": 530
+    },
+    "12": {
+     "acertantes": 5748,
+     "premio_euros": 47
+    },
+    "11": {
+     "acertantes": 36575,
+     "premio_euros": 7
+    },
+    "10": {
+     "acertantes": 154884,
+     "premio_euros": 2
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 60,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "2",
+    "2",
+    "1",
+    "2",
+    "1",
+    "2",
+    "X",
+    "2",
+    "2",
+    "1",
+    "2",
+    "1",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/60.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Elche",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 2,
+     "local": "Sevilla",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 3,
+     "local": "Atlético de Madrid",
+     "visitante": "Celta"
+    },
+    {
+     "num": 4,
+     "local": "Real Sociedad",
+     "visitante": "Betis"
+    },
+    {
+     "num": 5,
+     "local": "Mallorca",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 6,
+     "local": "Athletic de Bilbao",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 7,
+     "local": "Oviedo",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 8,
+     "local": "Rayo Vallecano",
+     "visitante": "Girona"
+    },
+    {
+     "num": 9,
+     "local": "Ceuta",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 10,
+     "local": "Burgos",
+     "visitante": "Almería"
+    },
+    {
+     "num": 11,
+     "local": "Málaga",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 12,
+     "local": "Andorra",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 13,
+     "local": "Leganés",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 14,
+     "local": "Córdoba",
+     "visitante": "Granada"
+    }
+   ],
+   "pleno15": {
+    "local": "Barcelona",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2026-05-10",
+   "recaudacion_euros": 368295375,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 13,
+     "premio_euros": 21247
+    },
+    "12": {
+     "acertantes": 222,
+     "premio_euros": 1244
+    },
+    "11": {
+     "acertantes": 2559,
+     "premio_euros": 107
+    },
+    "10": {
+     "acertantes": 17325,
+     "premio_euros": 19
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 61,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "2",
+    "X",
+    "X",
+    "2",
+    "X",
+    "X",
+    "X",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/61.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Celta",
+     "visitante": "Levante"
+    },
+    {
+     "num": 2,
+     "local": "Betis",
+     "visitante": "Elche"
+    },
+    {
+     "num": 3,
+     "local": "Osasuna",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 4,
+     "local": "Espanyol",
+     "visitante": "Athletic de Bilbao"
+    },
+    {
+     "num": 5,
+     "local": "Villarreal",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 6,
+     "local": "Alavés",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 7,
+     "local": "Getafe",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 8,
+     "local": "Valencia",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 9,
+     "local": "Girona",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 10,
+     "local": "Kilmarnock",
+     "visitante": "Dundee"
+    },
+    {
+     "num": 11,
+     "local": "Aberdeen",
+     "visitante": "St. Mirren"
+    },
+    {
+     "num": 12,
+     "local": "Heart of Midlothian",
+     "visitante": "Falkirk"
+    },
+    {
+     "num": 13,
+     "local": "Motherwell",
+     "visitante": "Celtic de Glasgow"
+    },
+    {
+     "num": 14,
+     "local": "Glasgow Rangers",
+     "visitante": "Hibernian"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Oviedo"
+   },
+   "fecha": "2026-05-13",
+   "recaudacion_euros": 110820225,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 3,
+     "premio_euros": 27705
+    },
+    "12": {
+     "acertantes": 57,
+     "premio_euros": 1458
+    },
+    "11": {
+     "acertantes": 703,
+     "premio_euros": 118
+    },
+    "10": {
+     "acertantes": 4840,
+     "premio_euros": 20
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 62,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "X",
+    "1",
+    "2",
+    "1",
+    "2",
+    "2",
+    "20"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/62.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Athletic de Bilbao",
+     "visitante": "Celta"
+    },
+    {
+     "num": 2,
+     "local": "Atlético de Madrid",
+     "visitante": "Girona"
+    },
+    {
+     "num": 3,
+     "local": "Barcelona",
+     "visitante": "Betis"
+    },
+    {
+     "num": 4,
+     "local": "Elche",
+     "visitante": "Getafe"
+    },
+    {
+     "num": 5,
+     "local": "Levante",
+     "visitante": "Mallorca"
+    },
+    {
+     "num": 6,
+     "local": "Rayo Vallecano",
+     "visitante": "Villarreal"
+    },
+    {
+     "num": 7,
+     "local": "Real Sociedad",
+     "visitante": "Valencia"
+    },
+    {
+     "num": 8,
+     "local": "Oviedo",
+     "visitante": "Alavés"
+    },
+    {
+     "num": 9,
+     "local": "Osasuna",
+     "visitante": "Espanyol"
+    },
+    {
+     "num": 10,
+     "local": "Ceuta",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 11,
+     "local": "Racing de Santander",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 12,
+     "local": "Almería",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 13,
+     "local": "Castellón",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 14,
+     "local": "Leganés",
+     "visitante": "Huesca"
+    }
+   ],
+   "pleno15": {
+    "local": "Sevilla",
+    "visitante": "Real Madrid"
+   },
+   "fecha": "2026-05-17",
+   "recaudacion_euros": 286178250,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 2,
+     "premio_euros": 228942
+    },
+    "13": {
+     "acertantes": 81,
+     "premio_euros": 2649
+    },
+    "12": {
+     "acertantes": 1099,
+     "premio_euros": 195
+    },
+    "11": {
+     "acertantes": 8606,
+     "premio_euros": 24
+    },
+    "10": {
+     "acertantes": 45066,
+     "premio_euros": 5
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 63,
+   "combinacion_ganadora": [
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2",
+    "2",
+    "2",
+    "1",
+    "2",
+    "X",
+    "X",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/63.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Alavés",
+     "visitante": "Rayo Vallecano"
+    },
+    {
+     "num": 2,
+     "local": "Betis",
+     "visitante": "Levante"
+    },
+    {
+     "num": 3,
+     "local": "Celta",
+     "visitante": "Sevilla"
+    },
+    {
+     "num": 4,
+     "local": "Espanyol",
+     "visitante": "Real Sociedad"
+    },
+    {
+     "num": 5,
+     "local": "Getafe",
+     "visitante": "Osasuna"
+    },
+    {
+     "num": 6,
+     "local": "Mallorca",
+     "visitante": "Oviedo"
+    },
+    {
+     "num": 7,
+     "local": "Villarreal",
+     "visitante": "Atlético de Madrid"
+    },
+    {
+     "num": 8,
+     "local": "Valencia",
+     "visitante": "Barcelona"
+    },
+    {
+     "num": 9,
+     "local": "Girona",
+     "visitante": "Elche"
+    },
+    {
+     "num": 10,
+     "local": "Málaga",
+     "visitante": "Racing de Santander"
+    },
+    {
+     "num": 11,
+     "local": "Andorra",
+     "visitante": "Ceuta"
+    },
+    {
+     "num": 12,
+     "local": "Huesca",
+     "visitante": "Castellón"
+    },
+    {
+     "num": 13,
+     "local": "Eibar",
+     "visitante": "Córdoba"
+    },
+    {
+     "num": 14,
+     "local": "Sporting de Gijón",
+     "visitante": "Almería"
+    }
+   ],
+   "pleno15": {
+    "local": "Real Madrid",
+    "visitante": "Athletic de Bilbao"
+   },
+   "fecha": "2026-05-24",
+   "recaudacion_euros": 398000550,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 29,
+     "premio_euros": 10293
+    },
+    "12": {
+     "acertantes": 421,
+     "premio_euros": 709
+    },
+    "11": {
+     "acertantes": 4560,
+     "premio_euros": 65
+    },
+    "10": {
+     "acertantes": 30540,
+     "premio_euros": 11
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 64,
+   "combinacion_ganadora": [
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "M2"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/64.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Castellón",
+     "visitante": "Eibar"
+    },
+    {
+     "num": 2,
+     "local": "Córdoba",
+     "visitante": "Huesca"
+    },
+    {
+     "num": 3,
+     "local": "Deportivo",
+     "visitante": "Las Palmas"
+    },
+    {
+     "num": 4,
+     "local": "Granada",
+     "visitante": "Sporting de Gijón"
+    },
+    {
+     "num": 5,
+     "local": "Leganés",
+     "visitante": "Mirandés"
+    },
+    {
+     "num": 6,
+     "local": "Almería",
+     "visitante": "Valladolid"
+    },
+    {
+     "num": 7,
+     "local": "Ceuta",
+     "visitante": "Albacete"
+    },
+    {
+     "num": 8,
+     "local": "Racing de Santander",
+     "visitante": "Cádiz"
+    },
+    {
+     "num": 9,
+     "local": "Real Sociedad B",
+     "visitante": "Cultural Leonesa"
+    },
+    {
+     "num": 10,
+     "local": "Zaragoza",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 11,
+     "local": "Burgos",
+     "visitante": "Andorra"
+    },
+    {
+     "num": 12,
+     "local": "México",
+     "visitante": "Australia"
+    },
+    {
+     "num": 13,
+     "local": "Japón",
+     "visitante": "Islandia"
+    },
+    {
+     "num": 14,
+     "local": "Alemania",
+     "visitante": "Finlandia"
+    }
+   ],
+   "pleno15": {
+    "local": "Paris Saint-Germain",
+    "visitante": "Arsenal"
+   },
+   "fecha": "2026-05-31",
+   "recaudacion_euros": 212601975,
+   "premios": {
+    "pleno15": {
+     "acertantes": 14,
+     "premio_euros": 46705
+    },
+    "14": {
+     "acertantes": 207,
+     "premio_euros": 1643
+    },
+    "13": {
+     "acertantes": 3531,
+     "premio_euros": 45
+    },
+    "12": {
+     "acertantes": 27520,
+     "premio_euros": 5
+    },
+    "11": {
+     "acertantes": 124339,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 335467,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 65,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "11"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/65.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Castellón",
+     "visitante": "Almería"
+    },
+    {
+     "num": 2,
+     "local": "Las Palmas",
+     "visitante": "Málaga"
+    },
+    {
+     "num": 3,
+     "local": "Bélgica",
+     "visitante": "Túnez"
+    },
+    {
+     "num": 4,
+     "local": "Lituania",
+     "visitante": "Letonia"
+    },
+    {
+     "num": 5,
+     "local": "Estonia",
+     "visitante": "Islas Feroe"
+    },
+    {
+     "num": 6,
+     "local": "Portugal",
+     "visitante": "Chile"
+    },
+    {
+     "num": 7,
+     "local": "Rumanía",
+     "visitante": "Gales"
+    },
+    {
+     "num": 8,
+     "local": "Inglaterra",
+     "visitante": "Nueva Zelanda"
+    },
+    {
+     "num": 9,
+     "local": "Suiza",
+     "visitante": "Australia"
+    },
+    {
+     "num": 10,
+     "local": "Bolivia",
+     "visitante": "Escocia"
+    },
+    {
+     "num": 11,
+     "local": "Liechtenstein",
+     "visitante": "Chipre"
+    },
+    {
+     "num": 12,
+     "local": "Dinamarca",
+     "visitante": "Ucrania"
+    },
+    {
+     "num": 13,
+     "local": "Croacia",
+     "visitante": "Eslovenia"
+    },
+    {
+     "num": 14,
+     "local": "Marruecos",
+     "visitante": "Noruega"
+    }
+   ],
+   "pleno15": {
+    "local": "Grecia",
+    "visitante": "Italia"
+   },
+   "fecha": "2026-06-07",
+   "recaudacion_euros": 107935875,
+   "premios": {
+    "pleno15": {
+     "acertantes": 6,
+     "premio_euros": 13491
+    },
+    "14": {
+     "acertantes": 62,
+     "premio_euros": 2785
+    },
+    "13": {
+     "acertantes": 1229,
+     "premio_euros": 65
+    },
+    "12": {
+     "acertantes": 10577,
+     "premio_euros": 7
+    },
+    "11": {
+     "acertantes": 49422,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 143387,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 66,
+   "combinacion_ganadora": [
+    "X",
+    "2",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "1",
+    "X",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/66.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Estados Unidos",
+     "visitante": "Paraguay"
+    },
+    {
+     "num": 2,
+     "local": "Qatar",
+     "visitante": "Suiza"
+    },
+    {
+     "num": 3,
+     "local": "Brasil",
+     "visitante": "Marruecos"
+    },
+    {
+     "num": 4,
+     "local": "Haití",
+     "visitante": "Escocia"
+    },
+    {
+     "num": 5,
+     "local": "Australia",
+     "visitante": "Turquía"
+    },
+    {
+     "num": 6,
+     "local": "Alemania",
+     "visitante": "Curazao"
+    },
+    {
+     "num": 7,
+     "local": "Holanda",
+     "visitante": "Japón"
+    },
+    {
+     "num": 8,
+     "local": "Costa de Marfil",
+     "visitante": "Ecuador"
+    },
+    {
+     "num": 9,
+     "local": "Suecia",
+     "visitante": "Túnez"
+    },
+    {
+     "num": 10,
+     "local": "Bélgica",
+     "visitante": "Egipto"
+    },
+    {
+     "num": 11,
+     "local": "Arabia Saudí",
+     "visitante": "Uruguay"
+    },
+    {
+     "num": 12,
+     "local": "Irán",
+     "visitante": "Nueva Zelanda"
+    },
+    {
+     "num": 13,
+     "local": "Francia",
+     "visitante": "Senegal"
+    },
+    {
+     "num": 14,
+     "local": "Málaga",
+     "visitante": "Almería"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Cabo Verde"
+   },
+   "fecha": "2026-06-14",
+   "recaudacion_euros": 126387450,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "13": {
+     "acertantes": 23,
+     "premio_euros": 4121
+    },
+    "12": {
+     "acertantes": 334,
+     "premio_euros": 283
+    },
+    "11": {
+     "acertantes": 2681,
+     "premio_euros": 35
+    },
+    "10": {
+     "acertantes": 15139,
+     "premio_euros": 7
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 67,
+   "combinacion_ganadora": [
+    "1",
+    "X",
+    "X",
+    "2",
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "X",
+    "X",
+    "X",
+    "1",
+    "X",
+    "00"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/67.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Estados Unidos",
+     "visitante": "Australia"
+    },
+    {
+     "num": 2,
+     "local": "Escocia",
+     "visitante": "Marruecos"
+    },
+    {
+     "num": 3,
+     "local": "Brasil",
+     "visitante": "Haití"
+    },
+    {
+     "num": 4,
+     "local": "Turquía",
+     "visitante": "Paraguay"
+    },
+    {
+     "num": 5,
+     "local": "Holanda",
+     "visitante": "Suecia"
+    },
+    {
+     "num": 6,
+     "local": "Alemania",
+     "visitante": "Costa de Marfil"
+    },
+    {
+     "num": 7,
+     "local": "Ecuador",
+     "visitante": "Curazao"
+    },
+    {
+     "num": 8,
+     "local": "Túnez",
+     "visitante": "Japón"
+    },
+    {
+     "num": 9,
+     "local": "Bélgica",
+     "visitante": "Irán"
+    },
+    {
+     "num": 10,
+     "local": "Uruguay",
+     "visitante": "Cabo Verde"
+    },
+    {
+     "num": 11,
+     "local": "Nueva Zelanda",
+     "visitante": "Egipto"
+    },
+    {
+     "num": 12,
+     "local": "Argentina",
+     "visitante": "Austria"
+    },
+    {
+     "num": 13,
+     "local": "Francia",
+     "visitante": "Irak"
+    },
+    {
+     "num": 14,
+     "local": "Almería",
+     "visitante": "Málaga"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Arabia Saudí"
+   },
+   "fecha": "2026-06-21",
+   "recaudacion_euros": 139859850,
+   "premios": {
+    "pleno15": {
+     "acertantes": 4,
+     "premio_euros": 26223
+    },
+    "14": {
+     "acertantes": 15,
+     "premio_euros": 14918
+    },
+    "13": {
+     "acertantes": 345,
+     "premio_euros": 304
+    },
+    "12": {
+     "acertantes": 4238,
+     "premio_euros": 24
+    },
+    "11": {
+     "acertantes": 30138,
+     "premio_euros": 3
+    },
+    "10": {
+     "acertantes": 127875,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 68,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "2",
+    "X",
+    "X",
+    "2",
+    "1",
+    "1",
+    "2",
+    "M0"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/68.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Noruega",
+     "visitante": "Senegal"
+    },
+    {
+     "num": 2,
+     "local": "Jordania",
+     "visitante": "Argelia"
+    },
+    {
+     "num": 3,
+     "local": "Portugal",
+     "visitante": "Uzbekistán"
+    },
+    {
+     "num": 4,
+     "local": "Inglaterra",
+     "visitante": "Ghana"
+    },
+    {
+     "num": 5,
+     "local": "Panamá",
+     "visitante": "Croacia"
+    },
+    {
+     "num": 6,
+     "local": "Colombia",
+     "visitante": "RD Congo"
+    },
+    {
+     "num": 7,
+     "local": "Suiza",
+     "visitante": "Canadá"
+    },
+    {
+     "num": 8,
+     "local": "Bosnia-Herzegovina",
+     "visitante": "Qatar"
+    },
+    {
+     "num": 9,
+     "local": "Escocia",
+     "visitante": "Brasil"
+    },
+    {
+     "num": 10,
+     "local": "Marruecos",
+     "visitante": "Haití"
+    },
+    {
+     "num": 11,
+     "local": "Sudáfrica",
+     "visitante": "Corea del Sur"
+    },
+    {
+     "num": 12,
+     "local": "Curazao",
+     "visitante": "Costa de Marfil"
+    },
+    {
+     "num": 13,
+     "local": "Ecuador",
+     "visitante": "Alemania"
+    },
+    {
+     "num": 14,
+     "local": "IFK Mariehamn",
+     "visitante": "HJK Helsinki"
+    }
+   ],
+   "pleno15": {
+    "local": "República Checa",
+    "visitante": "México"
+   },
+   "fecha": "2026-06-24",
+   "recaudacion_euros": 48064950,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 19,
+     "premio_euros": 4047
+    },
+    "13": {
+     "acertantes": 521,
+     "premio_euros": 69
+    },
+    "12": {
+     "acertantes": 5683,
+     "premio_euros": 6
+    },
+    "11": {
+     "acertantes": 33981,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 90612,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 69,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "0M"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/69.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Japón",
+     "visitante": "Suecia"
+    },
+    {
+     "num": 2,
+     "local": "Túnez",
+     "visitante": "Holanda"
+    },
+    {
+     "num": 3,
+     "local": "Turquía",
+     "visitante": "Estados Unidos"
+    },
+    {
+     "num": 4,
+     "local": "Paraguay",
+     "visitante": "Australia"
+    },
+    {
+     "num": 5,
+     "local": "Noruega",
+     "visitante": "Francia"
+    },
+    {
+     "num": 6,
+     "local": "Senegal",
+     "visitante": "Irak"
+    },
+    {
+     "num": 7,
+     "local": "Cabo Verde",
+     "visitante": "Arabia Saudí"
+    },
+    {
+     "num": 8,
+     "local": "Egipto",
+     "visitante": "Irán"
+    },
+    {
+     "num": 9,
+     "local": "Nueva Zelanda",
+     "visitante": "Bélgica"
+    },
+    {
+     "num": 10,
+     "local": "Panamá",
+     "visitante": "Inglaterra"
+    },
+    {
+     "num": 11,
+     "local": "Croacia",
+     "visitante": "Ghana"
+    },
+    {
+     "num": 12,
+     "local": "Colombia",
+     "visitante": "Portugal"
+    },
+    {
+     "num": 13,
+     "local": "Argelia",
+     "visitante": "Austria"
+    },
+    {
+     "num": 14,
+     "local": "Jordania",
+     "visitante": "Argentina"
+    }
+   ],
+   "pleno15": {
+    "local": "Uruguay",
+    "visitante": "España"
+   },
+   "fecha": "2026-06-28",
+   "recaudacion_euros": 91304325,
+   "premios": {
+    "pleno15": {
+     "acertantes": 4,
+     "premio_euros": 17119
+    },
+    "14": {
+     "acertantes": 48,
+     "premio_euros": 3043
+    },
+    "13": {
+     "acertantes": 1084,
+     "premio_euros": 63
+    },
+    "12": {
+     "acertantes": 7805,
+     "premio_euros": 8
+    },
+    "11": {
+     "acertantes": 33788,
+     "premio_euros": 2
+    },
+    "10": {
+     "acertantes": 99928,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 70,
+   "combinacion_ganadora": [
+    "X",
+    "2",
+    "1",
+    "X",
+    "2",
+    "1",
+    "X",
+    "X",
+    "2",
+    "2",
+    "1",
+    "X",
+    "X",
+    "2",
+    "01"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/70.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Portugal",
+     "visitante": "Croacia"
+    },
+    {
+     "num": 2,
+     "local": "Suiza",
+     "visitante": "Argelia"
+    },
+    {
+     "num": 3,
+     "local": "Australia",
+     "visitante": "Egipto"
+    },
+    {
+     "num": 4,
+     "local": "Argentina",
+     "visitante": "Cabo Verde"
+    },
+    {
+     "num": 5,
+     "local": "Colombia",
+     "visitante": "Ghana"
+    },
+    {
+     "num": 6,
+     "local": "FC Lahti",
+     "visitante": "IF Gnistan"
+    },
+    {
+     "num": 7,
+     "local": "SJK Akatemia",
+     "visitante": "TPS Salibandy"
+    },
+    {
+     "num": 8,
+     "local": "FF Jaro",
+     "visitante": "Ilves"
+    },
+    {
+     "num": 9,
+     "local": "Vaasan Palloseura",
+     "visitante": "IFK Mariehamn"
+    },
+    {
+     "num": 10,
+     "local": "Sirius",
+     "visitante": "Mjällby AIF"
+    },
+    {
+     "num": 11,
+     "local": "Halmstads",
+     "visitante": "Västerås SK"
+    },
+    {
+     "num": 12,
+     "local": "Degerfors",
+     "visitante": "Malmoe"
+    },
+    {
+     "num": 13,
+     "local": "Göteborg",
+     "visitante": "AIK Solna"
+    },
+    {
+     "num": 14,
+     "local": "Kalmar",
+     "visitante": "Örgryte IS"
+    }
+   ],
+   "pleno15": {
+    "local": "Elfsborg",
+    "visitante": "Hammarby"
+   },
+   "fecha": "2026-07-05",
+   "recaudacion_euros": 66073350,
+   "premios": {
+    "pleno15": {
+     "acertantes": 2,
+     "premio_euros": 24777
+    },
+    "14": {
+     "acertantes": 13,
+     "premio_euros": 8132
+    },
+    "13": {
+     "acertantes": 313,
+     "premio_euros": 158
+    },
+    "12": {
+     "acertantes": 2899,
+     "premio_euros": 17
+    },
+    "11": {
+     "acertantes": 16107,
+     "premio_euros": 3
+    },
+    "10": {
+     "acertantes": 55814,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 71,
+   "combinacion_ganadora": [
+    "1",
+    "1",
+    "X",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "X",
+    "2",
+    "2",
+    "2",
+    "1",
+    "12"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/71.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "España",
+     "visitante": "Bélgica"
+    },
+    {
+     "num": 2,
+     "local": "Noruega",
+     "visitante": "Inglaterra"
+    },
+    {
+     "num": 3,
+     "local": "Argentina",
+     "visitante": "Suiza"
+    },
+    {
+     "num": 4,
+     "local": "Vaasan Palloseura",
+     "visitante": "SJK Akatemia"
+    },
+    {
+     "num": 5,
+     "local": "FC Lahti",
+     "visitante": "HJK Helsinki"
+    },
+    {
+     "num": 6,
+     "local": "TPS Salibandy",
+     "visitante": "AC Oulu"
+    },
+    {
+     "num": 7,
+     "local": "IF Gnistan",
+     "visitante": "IFK Mariehamn"
+    },
+    {
+     "num": 8,
+     "local": "Fredrikstad",
+     "visitante": "Lillestrøm"
+    },
+    {
+     "num": 9,
+     "local": "Aalesunds",
+     "visitante": "Molde"
+    },
+    {
+     "num": 10,
+     "local": "Tromsø IL",
+     "visitante": "Valerenga IF Oslo"
+    },
+    {
+     "num": 11,
+     "local": "KFUM Oslo",
+     "visitante": "Bodo-Glimt"
+    },
+    {
+     "num": 12,
+     "local": "Rosenborg",
+     "visitante": "Kristiansund"
+    },
+    {
+     "num": 13,
+     "local": "Sandefjord",
+     "visitante": "Hamarkameratene"
+    },
+    {
+     "num": 14,
+     "local": "Brann Bergen",
+     "visitante": "Start"
+    }
+   ],
+   "pleno15": {
+    "local": "Sarpsborg 08",
+    "visitante": "Viking Stavanger"
+   },
+   "fecha": "2026-07-12",
+   "recaudacion_euros": 63109050,
+   "premios": {
+    "pleno15": {
+     "acertantes": 1,
+     "premio_euros": 47331
+    },
+    "14": {
+     "acertantes": 77,
+     "premio_euros": 1311
+    },
+    "13": {
+     "acertantes": 1490,
+     "premio_euros": 31
+    },
+    "12": {
+     "acertantes": 11172,
+     "premio_euros": 4
+    },
+    "11": {
+     "acertantes": 44979,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 105056,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 72,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "2",
+    "X",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/72.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Bodo-Glimt",
+     "visitante": "Fredrikstad"
+    },
+    {
+     "num": 2,
+     "local": "Hamarkameratene",
+     "visitante": "Tromsø IL"
+    },
+    {
+     "num": 3,
+     "local": "Lillestrøm",
+     "visitante": "KFUM Oslo"
+    },
+    {
+     "num": 4,
+     "local": "Kristiansund",
+     "visitante": "Sarpsborg 08"
+    },
+    {
+     "num": 5,
+     "local": "Start",
+     "visitante": "Rosenborg"
+    },
+    {
+     "num": 6,
+     "local": "Molde",
+     "visitante": "Brann Bergen"
+    },
+    {
+     "num": 7,
+     "local": "Viking Stavanger",
+     "visitante": "Sandefjord"
+    },
+    {
+     "num": 8,
+     "local": "Mjällby AIF",
+     "visitante": "Västerås SK"
+    },
+    {
+     "num": 9,
+     "local": "AIK Solna",
+     "visitante": "GAIS Gotemburgo"
+    },
+    {
+     "num": 10,
+     "local": "Göteborg",
+     "visitante": "Brommapojkarna"
+    },
+    {
+     "num": 11,
+     "local": "Elfsborg",
+     "visitante": "Sirius"
+    },
+    {
+     "num": 12,
+     "local": "Hammarby",
+     "visitante": "Degerfors"
+    },
+    {
+     "num": 13,
+     "local": "Halmstads",
+     "visitante": "BK Häcken"
+    },
+    {
+     "num": 14,
+     "local": "Kalmar",
+     "visitante": "Malmoe"
+    }
+   ],
+   "pleno15": {
+    "local": "España",
+    "visitante": "Argentina"
+   },
+   "fecha": "2026-07-19",
+   "recaudacion_euros": 58077450,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 12,
+     "premio_euros": 7743
+    },
+    "13": {
+     "acertantes": 521,
+     "premio_euros": 83
+    },
+    "12": {
+     "acertantes": 4836,
+     "premio_euros": 9
+    },
+    "11": {
+     "acertantes": 25871,
+     "premio_euros": 1
+    },
+    "10": {
+     "acertantes": 74563,
+     "premio_euros": null
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 73,
+   "combinacion_ganadora": [
+    "1",
+    "2",
+    "1",
+    "X",
+    "2",
+    "2",
+    "1",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "X",
+    "10"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/73.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Kristiansund",
+     "visitante": "Start"
+    },
+    {
+     "num": 2,
+     "local": "Brann Bergen",
+     "visitante": "Valerenga IF Oslo"
+    },
+    {
+     "num": 3,
+     "local": "Sarpsborg 08",
+     "visitante": "Hamarkameratene"
+    },
+    {
+     "num": 4,
+     "local": "Sandefjord",
+     "visitante": "Bodo-Glimt"
+    },
+    {
+     "num": 5,
+     "local": "KFUM Oslo",
+     "visitante": "Molde"
+    },
+    {
+     "num": 6,
+     "local": "Aalesunds",
+     "visitante": "Viking Stavanger"
+    },
+    {
+     "num": 7,
+     "local": "Rosenborg",
+     "visitante": "Fredrikstad"
+    },
+    {
+     "num": 8,
+     "local": "Västerås SK",
+     "visitante": "Örgryte IS"
+    },
+    {
+     "num": 9,
+     "local": "Degerfors",
+     "visitante": "Djurgårdens"
+    },
+    {
+     "num": 10,
+     "local": "Kalmar",
+     "visitante": "Mjällby AIF"
+    },
+    {
+     "num": 11,
+     "local": "Sirius",
+     "visitante": "Göteborg"
+    },
+    {
+     "num": 12,
+     "local": "Brommapojkarna",
+     "visitante": "Hammarby"
+    },
+    {
+     "num": 13,
+     "local": "GAIS Gotemburgo",
+     "visitante": "Halmstads"
+    },
+    {
+     "num": 14,
+     "local": "Malmoe",
+     "visitante": "Elfsborg"
+    }
+   ],
+   "pleno15": {
+    "local": "BK Häcken",
+    "visitante": "AIK Solna"
+   },
+   "fecha": "2026-07-26",
+   "recaudacion_euros": 49980375,
+   "premios": {
+    "pleno15": {
+     "acertantes": 0,
+     "premio_euros": null
+    },
+    "14": {
+     "acertantes": 1,
+     "premio_euros": 79968
+    },
+    "13": {
+     "acertantes": 6,
+     "premio_euros": 6247
+    },
+    "12": {
+     "acertantes": 61,
+     "premio_euros": 614
+    },
+    "11": {
+     "acertantes": 600,
+     "premio_euros": 62
+    },
+    "10": {
+     "acertantes": 4072,
+     "premio_euros": 11
+    }
+   },
+   "temporada": "2025-2026",
+   "jornada": 74,
+   "combinacion_ganadora": [
+    "2",
+    "2",
+    "1",
+    "2",
+    "2",
+    "X",
+    "1",
+    "1",
+    "2",
+    "1",
+    "1",
+    "X",
+    "X",
+    "2",
+    "00"
+   ],
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/74.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Vaasan Palloseura",
+     "visitante": "Inter Turku"
+    },
+    {
+     "num": 2,
+     "local": "TPS Salibandy",
+     "visitante": "IFK Mariehamn"
+    },
+    {
+     "num": 3,
+     "local": "AC Oulu",
+     "visitante": "Ilves"
+    },
+    {
+     "num": 4,
+     "local": "FC Lahti",
+     "visitante": "FF Jaro"
+    },
+    {
+     "num": 5,
+     "local": "IF Gnistan",
+     "visitante": "KuPS Kuopio"
+    },
+    {
+     "num": 6,
+     "local": "Fredrikstad",
+     "visitante": "Sandefjord"
+    },
+    {
+     "num": 7,
+     "local": "Start",
+     "visitante": "Viking Stavanger"
+    },
+    {
+     "num": 8,
+     "local": "Molde",
+     "visitante": "Sarpsborg 08"
+    },
+    {
+     "num": 9,
+     "local": "KFUM Oslo",
+     "visitante": "Kristiansund"
+    },
+    {
+     "num": 10,
+     "local": "Aalesunds",
+     "visitante": "Tromsø IL"
+    },
+    {
+     "num": 11,
+     "local": "Brann Bergen",
+     "visitante": "Rosenborg"
+    },
+    {
+     "num": 12,
+     "local": "BK Häcken",
+     "visitante": "Kalmar"
+    },
+    {
+     "num": 13,
+     "local": "Göteborg",
+     "visitante": "Degerfors"
+    },
+    {
+     "num": 14,
+     "local": "Brommapojkarna",
+     "visitante": "Malmoe"
+    }
+   ],
+   "pleno15": {
+    "local": "AIK Solna",
+    "visitante": "Örgryte IS"
+   },
+   "fecha": "2026-08-02",
+   "recaudacion_euros": null,
+   "premios": null,
+   "temporada": "2025-2026",
+   "jornada": 75,
+   "combinacion_ganadora": null,
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/75.html"
+  },
+  {
+   "partidos": [
+    {
+     "num": 1,
+     "local": "Sandefjord",
+     "visitante": "KFUM Oslo"
+    },
+    {
+     "num": 2,
+     "local": "Valerenga IF Oslo",
+     "visitante": "Bodo-Glimt"
+    },
+    {
+     "num": 3,
+     "local": "Viking Stavanger",
+     "visitante": "Sarpsborg 08"
+    },
+    {
+     "num": 4,
+     "local": "Start",
+     "visitante": "Fredrikstad"
+    },
+    {
+     "num": 5,
+     "local": "Lillestrøm",
+     "visitante": "Rosenborg"
+    },
+    {
+     "num": 6,
+     "local": "Hamarkameratene",
+     "visitante": "Aalesunds"
+    },
+    {
+     "num": 7,
+     "local": "Kristiansund",
+     "visitante": "Molde"
+    },
+    {
+     "num": 8,
+     "local": "Örgryte IS",
+     "visitante": "AIK Solna"
+    },
+    {
+     "num": 9,
+     "local": "Mjällby AIF",
+     "visitante": "Elfsborg"
+    },
+    {
+     "num": 10,
+     "local": "Hammarby",
+     "visitante": "BK Häcken"
+    },
+    {
+     "num": 11,
+     "local": "Malmoe",
+     "visitante": "Degerfors"
+    },
+    {
+     "num": 12,
+     "local": "Halmstads",
+     "visitante": "GAIS Gotemburgo"
+    },
+    {
+     "num": 13,
+     "local": "Göteborg",
+     "visitante": "Kalmar"
+    },
+    {
+     "num": 14,
+     "local": "Sirius",
+     "visitante": "Brommapojkarna"
+    }
+   ],
+   "pleno15": {
+    "local": "Västerås SK",
+    "visitante": "Djurgårdens"
+   },
+   "fecha": "2026-08-09",
+   "recaudacion_euros": null,
+   "premios": null,
+   "temporada": "2025-2026",
+   "jornada": 76,
+   "combinacion_ganadora": null,
+   "fuente": "https://www.libertaddigital.com/deportes/liga/2025-2026/quiniela/76.html"
+  }
+ ]
+}

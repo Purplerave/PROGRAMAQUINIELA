@@ -7,6 +7,10 @@
 - `temporada_2026_27_equipos.json`: equipos y transiciones de categoria.
 - `temporada_2026_27_estadisticas_base.json`: priors ya preparados.
 - `QUINIELA15_J*.json`: jornadas conservadas como ejemplos ejecutables.
+- `jornadas_lae/jornadas_lae_*.json`: combinaciones oficiales LAE 2023-2026
+  (224 jornadas), reparadas desde HTML cacheado (no versionado).
+  Procedencia y estado: ROADMAP 02/08/2026. Base de
+  `scripts/backtests/AUDITAR_LAE_VS_HISTORICO.py`.
 - `paper_trading_2627.json`: tracker de paper-trading 2026-27 (visitante
   cuota [1.8, 2.5)). Actualizar con `python scripts/datos/PAPER_TRADING_2627.py`.
 
