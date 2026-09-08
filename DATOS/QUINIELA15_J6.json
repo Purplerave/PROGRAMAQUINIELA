@@ -1,1 +1,448 @@
-{"cierre": "2026-09-11T21:00:00", "jornada": 6, "notas_origen": "Boleto construido a mano desde quiniela15.com/pronostico-quiniela (08/09/2026) para la jornada de Liga del finde 12-13/09/2026. lae=null: % LAE no publicados en origen (rellenar si se obtienen). comunidad: favorita Q15 (columna comunidad no visible en origen). Cuotas de mercado (odd_*/open_odd_*): pendientes de rellenar antes del cierre (ver MOTOR_PREDICCION_JORNADA). Partidos 11-14 femeninos: fuera del dominio del motor.", "partidos": [{"apu": {"1": 62, "2": 16, "X": 22}, "comunidad": "1", "detalle": " sábado 12 sep 18:30h Estado de Forma (Últimos 6) Athletic Clasificación: #5 V E E E V Elche Clasificación: #8 V E E E V Análisis Athletic - Elche", "fecha": "2026-09-12", "fuerza_local": 1677.6, "fuerza_visitante": 1639.0, "historico": {"1": "21", "2": "3", "X": "7", "total": "31"}, "hora": "18:30", "lae": null, "local": "Athletic", "marcadores_q15": [], "num": 1, "q15": {"1": 84, "2": 7, "X": 10}, "sistema": "1", "visitante": "Elche"}, {"apu": {"1": 7, "2": 79, "X": 14}, "comunidad": "2", "detalle": " domingo 13 sep 16:15h Estado de Forma (Últimos 6) Levante Clasificación: #19 E D D D V Barcelona Clasificación: #2 V V V V V Análisis Levante - Barcelona", "fecha": "2026-09-13", "fuerza_local": 1668.5, "fuerza_visitante": 1953.1, "historico": {"1": "5", "2": "9", "X": "5", "total": "19"}, "hora": "16:15", "lae": null, "local": "Levante", "marcadores_q15": [], "num": 2, "q15": {"1": 8, "2": 84, "X": 8}, "sistema": "2", "visitante": "Barcelona"}, {"apu": {"1": 49, "2": 23, "X": 28}, "comunidad": "1", "detalle": " sábado 12 sep 16:15h Estado de Forma (Últimos 6) Osasuna Clasificación: #7 E V E V V Espanyol Clasificación: #4 V V V D D Análisis Osasuna - Espanyol", "fecha": "2026-09-12", "fuerza_local": 1665.5, "fuerza_visitante": 1634.6, "historico": {"1": "22", "2": "10", "X": "8", "total": "40"}, "hora": "16:15", "lae": null, "local": "Osasuna", "marcadores_q15": [], "num": 3, "q15": {"1": 53, "2": 16, "X": 31}, "sistema": "1", "visitante": "Espanyol"}, {"apu": {"1": 41, "2": 33, "X": 27}, "comunidad": "1", "detalle": " sábado 12 sep 14:00h Estado de Forma (Últimos 6) R. Santander Clasificación: #- V V V E E Alavés Clasificación: #- E E V D E Análisis R. Santander - Alavés", "fecha": "2026-09-12", "fuerza_local": 1657.9, "fuerza_visitante": 1697.6, "historico": {"1": "2", "2": "2", "X": "4", "total": "8"}, "hora": "14:00", "lae": null, "local": "R. Santander", "marcadores_q15": [], "num": 4, "q15": {"1": 39, "2": 28, "X": 33}, "sistema": "X", "visitante": "Alavés"}, {"apu": {"1": 83, "2": 5, "X": 12}, "comunidad": "1", "detalle": " sábado 12 sep 21:00h Estado de Forma (Últimos 6) Real Madrid Clasificación: #1 V V V V V Rayo Clasificación: #- E D V E E Análisis Real Madrid - Rayo", "fecha": "2026-09-12", "fuerza_local": 1901.8, "fuerza_visitante": 1685.6, "historico": {"1": "19", "2": "1", "X": "3", "total": "23"}, "hora": "21:00", "lae": null, "local": "Real Madrid", "marcadores_q15": [], "num": 5, "q15": {"1": 88, "2": 3, "X": 9}, "sistema": "1", "visitante": "Rayo"}, {"apu": {"1": 42, "2": 28, "X": 30}, "comunidad": "1", "detalle": " viernes 11 sep 21:00h Estado de Forma (Últimos 6) Sevilla Clasificación: #14 D D E V E Valencia Clasificación: #- E V E E E Análisis Sevilla - Valencia", "fecha": "2026-09-11", "fuerza_local": 1657.5, "fuerza_visitante": 1658.5, "historico": {"1": "46", "2": "18", "X": "18", "total": "82"}, "hora": "21:00", "lae": null, "local": "Sevilla", "marcadores_q15": [], "num": 6, "q15": {"1": 69, "2": 12, "X": 19}, "sistema": "1", "visitante": "Valencia"}, {"apu": {"1": 49, "2": 26, "X": 25}, "comunidad": "1", "detalle": " lunes 14 sep 21:00h Estado de Forma (Últimos 6) Villarreal Clasificación: #- D V V E V Betis Clasificación: #- V E V E V Análisis Villarreal - Betis", "fecha": "2026-09-14", "fuerza_local": 1727.3, "fuerza_visitante": 1781.2, "historico": {"1": "10", "2": "9", "X": "6", "total": "25"}, "hora": "21:00", "lae": null, "local": "Villarreal", "marcadores_q15": [], "num": 7, "q15": {"1": 41, "2": 27, "X": 33}, "sistema": "X", "visitante": "Betis"}, {"apu": {"1": 37, "2": 35, "X": 28}, "comunidad": "X", "detalle": " sábado 12 sep 16:15h Estado de Forma (Últimos 6) Cádiz Clasificación: #- D D D D E Las Palmas Clasificación: #- V E E V V Análisis Cádiz - Las Palmas", "fecha": "2026-09-12", "fuerza_local": 1499.4, "fuerza_visitante": 1639.6, "historico": {"1": "8", "2": "7", "X": "5", "total": "20"}, "hora": "16:15", "lae": null, "local": "Cádiz", "marcadores_q15": [], "num": 8, "q15": {"1": 20, "2": 37, "X": 43}, "sistema": "2", "visitante": "Las Palmas"}, {"apu": {"1": 42, "2": 27, "X": 31}, "comunidad": "1", "detalle": " domingo 13 sep 21:00h Estado de Forma (Últimos 6) Tenerife Clasificación: #- E V D D D Leganés Clasificación: #- V E D V D Análisis Tenerife - Leganés", "fecha": "2026-09-13", "fuerza_local": 1618.6, "fuerza_visitante": 1583.0, "historico": {"1": "3", "2": "0", "X": "7", "total": "10"}, "hora": "21:00", "lae": null, "local": "Tenerife", "marcadores_q15": [], "num": 9, "q15": {"1": 47, "2": 22, "X": 32}, "sistema": "1", "visitante": "Leganés"}, {"apu": {"1": 40, "2": 29, "X": 31}, "comunidad": "1", "detalle": " domingo 13 sep 16:15h Estado de Forma (Últimos 6) Valladolid Clasificación: #- D D D V D Real Oviedo Clasificación: #- D D D D V Análisis Valladolid - Real Oviedo", "fecha": "2026-09-13", "fuerza_local": 1527.0, "fuerza_visitante": 1602.8, "historico": {"1": "21", "2": "3", "X": "8", "total": "32"}, "hora": "16:15", "lae": null, "local": "Valladolid", "marcadores_q15": [], "num": 10, "q15": {"1": 39, "2": 25, "X": 35}, "sistema": "X", "visitante": "Real Oviedo"}, {"apu": null, "comunidad": "1", "detalle": " domingo 13 sep 12:00h Estado de Forma (Últimos 6) Alavés F Clasificación: #- E E V E E Granada F Clasificación: #- D D D D D Análisis Alavés F - Granada F", "fecha": "2026-09-13", "fuerza_local": 1501.3, "fuerza_visitante": 1544.1, "historico": {"1": "0", "2": "0", "X": "0", "total": "0"}, "hora": "12:00", "lae": null, "local": "Alavés F", "marcadores_q15": [], "num": 11, "q15": {"1": 67, "2": 10, "X": 23}, "sistema": "X", "visitante": "Granada F"}, {"apu": null, "comunidad": "1", "detalle": " domingo 13 sep 17:00h Estado de Forma (Últimos 6) Logroño Clasificación: #- E E E V D Valencia F Clasificación: #- D D D D D Análisis Logroño - Valencia F", "fecha": "2026-09-13", "fuerza_local": 1412.7, "fuerza_visitante": 1411.9, "historico": {"1": "1", "2": "0", "X": "2", "total": "3"}, "hora": "17:00", "lae": null, "local": "Logroño", "marcadores_q15": [], "num": 12, "q15": {"1": 63, "2": 14, "X": 23}, "sistema": "1", "visitante": "Valencia F"}, {"apu": null, "comunidad": "1", "detalle": " domingo 13 sep 19:30h Estado de Forma (Últimos 6) Eibar F Clasificación: #- V V V V V Las Planas F Clasificación: #- V D D D V Análisis Eibar F - Las Planas F", "fecha": "2026-09-13", "fuerza_local": 1467.3, "fuerza_visitante": 1489.6, "historico": {"1": "1", "2": "1", "X": "1", "total": "3"}, "hora": "19:30", "lae": null, "local": "Eibar F", "marcadores_q15": [], "num": 13, "q15": {"1": 77, "2": 9, "X": 14}, "sistema": "1", "visitante": "Las Planas F"}, {"apu": null, "comunidad": "1", "detalle": " sábado 12 sep 16:30h Estado de Forma (Últimos 6) Madrid CFF Clasificación: #- D D D D D Sevilla F Clasificación: #- V V D D D Análisis Madrid CFF - Sevilla F", "fecha": "2026-09-12", "fuerza_local": 1515.2, "fuerza_visitante": 1517.8, "historico": {"1": "3", "2": "3", "X": "3", "total": "9"}, "hora": "16:30", "lae": null, "local": "Madrid CFF", "marcadores_q15": [], "num": 14, "q15": {"1": 80, "2": 11, "X": 9}, "sistema": "1", "visitante": "Sevilla F"}, {"apu": null, "comunidad": "1-1", "detalle": " domingo 13 sep 21:00h Estado de Forma (Últimos 6) R. Sociedad Clasificación: #17 D D E E D At. Madrid Clasificación: #11 V D E V E Análisis R. Sociedad - At. Madrid", "fecha": "2026-09-13", "fuerza_local": 1687.1, "fuerza_visitante": 1799.9, "historico": null, "lae": null, "local": "R. Sociedad", "marcadores_q15": [{"pct": 26, "score": "1-2"}, {"pct": 15, "score": "1-1"}, {"pct": 12, "score": "2-2"}], "num": 15, "q15": null, "sistema": "1-1", "visitante": "At. Madrid"}], "scraped_at": "2026-09-08", "source_url": "https://quiniela15.com/pronostico-quiniela"}
+{
+ "jornada": 6,
+ "source_url": "https://www.quiniela15.com/pronostico-quiniela",
+ "scraped_at": "2026-09-08T21:47:26",
+ "cierre": "viernes 11 de septiembre a las 21:00",
+ "partidos": [
+  {
+   "num": 1,
+   "local": "Athletic",
+   "visitante": "Elche",
+   "fuerza_local": 1677.6,
+   "fuerza_visitante": 1639.0,
+   "historico": {
+    "total": "31",
+    "1": "21",
+    "X": "7",
+    "2": "3"
+   },
+   "sistema": "1",
+   "comunidad": "1",
+   "q15": {
+    "1": 84,
+    "X": 10,
+    "2": 7
+   },
+   "lae": null,
+   "apu": {
+    "1": 62,
+    "X": 22,
+    "2": 16
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-12",
+   "hora": "18:30",
+   "detalle": " sábado 12 sept 18:30h Estado de Forma (Últimos 6) Athletic Clasificación: #10 D D D D V V Elche Clasificación: #19 E E E D D D Análisis Athletic - Elche"
+  },
+  {
+   "num": 2,
+   "local": "Levante",
+   "visitante": "Barcelona",
+   "fuerza_local": 1668.5,
+   "fuerza_visitante": 1953.1,
+   "historico": {
+    "total": "19",
+    "1": "5",
+    "X": "5",
+    "2": "9"
+   },
+   "sistema": "2",
+   "comunidad": "2",
+   "q15": {
+    "1": 8,
+    "X": 8,
+    "2": 85
+   },
+   "lae": null,
+   "apu": {
+    "1": 7,
+    "X": 14,
+    "2": 79
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-13",
+   "hora": "16:15",
+   "detalle": " domingo 13 sept 16:15h Estado de Forma (Últimos 6) Levante Clasificación: #11 D V D E V E Barcelona Clasificación: #1 V V V V V V Análisis Levante - Barcelona"
+  },
+  {
+   "num": 3,
+   "local": "Osasuna",
+   "visitante": "Espanyol",
+   "fuerza_local": 1665.5,
+   "fuerza_visitante": 1634.6,
+   "historico": {
+    "total": "40",
+    "1": "22",
+    "X": "8",
+    "2": "10"
+   },
+   "sistema": "1",
+   "comunidad": "1",
+   "q15": {
+    "1": 52,
+    "X": 31,
+    "2": 16
+   },
+   "lae": null,
+   "apu": {
+    "1": 49,
+    "X": 28,
+    "2": 23
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-12",
+   "hora": "16:15",
+   "detalle": " sábado 12 sept 16:15h Estado de Forma (Últimos 6) Osasuna Clasificación: #8 D D E V V D Espanyol Clasificación: #12 E D V D D E Análisis Osasuna - Espanyol"
+  },
+  {
+   "num": 4,
+   "local": "R. Santander",
+   "visitante": "Alavés",
+   "fuerza_local": 1657.9,
+   "fuerza_visitante": 1697.6,
+   "historico": {
+    "total": "8",
+    "1": "2",
+    "X": "4",
+    "2": "2"
+   },
+   "sistema": "X",
+   "comunidad": "1",
+   "q15": {
+    "1": 39,
+    "X": 33,
+    "2": 27
+   },
+   "lae": null,
+   "apu": {
+    "1": 41,
+    "X": 27,
+    "2": 33
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-12",
+   "hora": "14:00",
+   "detalle": " sábado 12 sept 14:00h Estado de Forma (Últimos 6) R. Santander Clasificación: #13 V E E D V D Alavés Clasificación: #2 V E V E V V Análisis R. Santander - Alavés"
+  },
+  {
+   "num": 5,
+   "local": "Real Madrid",
+   "visitante": "Rayo",
+   "fuerza_local": 1901.8,
+   "fuerza_visitante": 1685.6,
+   "historico": {
+    "total": "23",
+    "1": "19",
+    "X": "3",
+    "2": "1"
+   },
+   "sistema": "1",
+   "comunidad": "1",
+   "q15": {
+    "1": 88,
+    "X": 9,
+    "2": 3
+   },
+   "lae": null,
+   "apu": {
+    "1": 83,
+    "X": 12,
+    "2": 5
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-12",
+   "hora": "21:00",
+   "detalle": " sábado 12 sept 21:00h Estado de Forma (Últimos 6) Real Madrid Clasificación: #3 V V V V V D Rayo Clasificación: #14 V D D E D V Análisis Real Madrid - Rayo"
+  },
+  {
+   "num": 6,
+   "local": "Sevilla",
+   "visitante": "Valencia",
+   "fuerza_local": 1657.5,
+   "fuerza_visitante": 1658.5,
+   "historico": {
+    "total": "82",
+    "1": "46",
+    "X": "18",
+    "2": "18"
+   },
+   "sistema": "1",
+   "comunidad": "1",
+   "q15": {
+    "1": 69,
+    "X": 20,
+    "2": 11
+   },
+   "lae": null,
+   "apu": {
+    "1": 42,
+    "X": 30,
+    "2": 28
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-11",
+   "hora": "21:00",
+   "detalle": " viernes 11 sept 21:00h Estado de Forma (Últimos 6) Sevilla Clasificación: #6 V D V V D E Valencia Clasificación: #20 D D E D D D Análisis Sevilla - Valencia"
+  },
+  {
+   "num": 7,
+   "local": "Villarreal",
+   "visitante": "Betis",
+   "fuerza_local": 1727.3,
+   "fuerza_visitante": 1781.2,
+   "historico": {
+    "total": "25",
+    "1": "10",
+    "X": "6",
+    "2": "9"
+   },
+   "sistema": "X",
+   "comunidad": "1",
+   "q15": {
+    "1": 40,
+    "X": 33,
+    "2": 27
+   },
+   "lae": null,
+   "apu": {
+    "1": 49,
+    "X": 25,
+    "2": 26
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-14",
+   "hora": "21:00",
+   "detalle": " lunes 14 sept 21:00h Estado de Forma (Últimos 6) Villarreal Clasificación: #17 V V E E D D Betis Clasificación: #4 E D V V D V Análisis Villarreal - Betis"
+  },
+  {
+   "num": 8,
+   "local": "Cádiz",
+   "visitante": "Las Palmas",
+   "fuerza_local": 1499.4,
+   "fuerza_visitante": 1639.6,
+   "historico": {
+    "total": "20",
+    "1": "8",
+    "X": "5",
+    "2": "7"
+   },
+   "sistema": "2",
+   "comunidad": "X",
+   "q15": {
+    "1": 20,
+    "X": 42,
+    "2": 38
+   },
+   "lae": null,
+   "apu": {
+    "1": 37,
+    "X": 28,
+    "2": 35
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-12",
+   "hora": "16:15",
+   "detalle": " sábado 12 sept 16:15h Estado de Forma (Últimos 6) Cádiz Clasificación: #18 V D E E E D Las Palmas Clasificación: #10 V V V V D E Análisis Cádiz - Las Palmas"
+  },
+  {
+   "num": 9,
+   "local": "Tenerife",
+   "visitante": "Leganés",
+   "fuerza_local": 1618.6,
+   "fuerza_visitante": 1583.0,
+   "historico": {
+    "total": "10",
+    "1": "3",
+    "X": "7",
+    "2": "0"
+   },
+   "sistema": "1",
+   "comunidad": "1",
+   "q15": {
+    "1": 47,
+    "X": 32,
+    "2": 21
+   },
+   "lae": null,
+   "apu": {
+    "1": 42,
+    "X": 31,
+    "2": 27
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-13",
+   "hora": "21:00",
+   "detalle": " domingo 13 sept 21:00h Estado de Forma (Últimos 6) Tenerife Clasificación: #8 V E V V D E Leganés Clasificación: #4 V E E V V E Análisis Tenerife - Leganés"
+  },
+  {
+   "num": 10,
+   "local": "Valladolid",
+   "visitante": "Real Oviedo",
+   "fuerza_local": 1527.0,
+   "fuerza_visitante": 1602.8,
+   "historico": {
+    "total": "32",
+    "1": "21",
+    "X": "8",
+    "2": "3"
+   },
+   "sistema": "X",
+   "comunidad": "1",
+   "q15": {
+    "1": 40,
+    "X": 35,
+    "2": 25
+   },
+   "lae": null,
+   "apu": {
+    "1": 40,
+    "X": 31,
+    "2": 29
+   },
+   "marcadores_q15": [],
+   "fecha": "2026-09-13",
+   "hora": "16:15",
+   "detalle": " domingo 13 sept 16:15h Estado de Forma (Últimos 6) Valladolid Clasificación: #16 V V D D E V Real Oviedo Clasificación: #15 D V E D V E Análisis Valladolid - Real Oviedo"
+  },
+  {
+   "num": 11,
+   "local": "Alavés Femenino",
+   "visitante": "Granada (F)",
+   "fuerza_local": 1501.3,
+   "fuerza_visitante": 1544.1,
+   "historico": {
+    "total": "0",
+    "1": "0",
+    "X": "0",
+    "2": "0"
+   },
+   "sistema": "X",
+   "comunidad": "1",
+   "q15": {
+    "1": 67,
+    "X": 23,
+    "2": 10
+   },
+   "lae": null,
+   "apu": null,
+   "marcadores_q15": [],
+   "fecha": "2026-09-13",
+   "hora": "12:00",
+   "detalle": " domingo 13 sept 12:00h Estado de Forma (Últimos 6) Alavés Femenino Clasificación: #7 V D Granada (F) Clasificación: #9 E D D D D V Análisis Alavés Femenino - Granada (F)"
+  },
+  {
+   "num": 12,
+   "local": "Edf Logroño",
+   "visitante": "Valencia (F)",
+   "fuerza_local": 1412.7,
+   "fuerza_visitante": 1411.9,
+   "historico": {
+    "total": "3",
+    "1": "1",
+    "X": "2",
+    "2": "0"
+   },
+   "sistema": "1",
+   "comunidad": "1",
+   "q15": {
+    "1": 63,
+    "X": 23,
+    "2": 15
+   },
+   "lae": null,
+   "apu": null,
+   "marcadores_q15": [],
+   "fecha": "2026-09-13",
+   "hora": "17:00",
+   "detalle": " domingo 13 sept 17:00h Estado de Forma (Últimos 6) Edf Logroño Clasificación: #6 V V D D V D Valencia (F) Clasificación: #16 V V E E D D Análisis Edf Logroño - Valencia (F)"
+  },
+  {
+   "num": 13,
+   "local": "Eibar (F)",
+   "visitante": "Las Planas (F)",
+   "fuerza_local": 1467.3,
+   "fuerza_visitante": 1489.6,
+   "historico": {
+    "total": "3",
+    "1": "1",
+    "X": "1",
+    "2": "1"
+   },
+   "sistema": "1",
+   "comunidad": "1",
+   "q15": {
+    "1": 77,
+    "X": 14,
+    "2": 9
+   },
+   "lae": null,
+   "apu": null,
+   "marcadores_q15": [],
+   "fecha": "2026-09-13",
+   "hora": "19:30",
+   "detalle": " domingo 13 sept 19:30h Estado de Forma (Últimos 6) Eibar (F) Clasificación: #5 D V E V V E Las Planas (F) Clasificación: #10 D E D V D V Análisis Eibar (F) - Las Planas (F)"
+  },
+  {
+   "num": 14,
+   "local": "Madrid CFF",
+   "visitante": "Sevilla (F)",
+   "fuerza_local": 1515.2,
+   "fuerza_visitante": 1517.8,
+   "historico": {
+    "total": "9",
+    "1": "3",
+    "X": "3",
+    "2": "3"
+   },
+   "sistema": "1",
+   "comunidad": "1",
+   "q15": {
+    "1": 80,
+    "X": 9,
+    "2": 11
+   },
+   "lae": null,
+   "apu": null,
+   "marcadores_q15": [],
+   "fecha": "2026-09-12",
+   "hora": "16:30",
+   "detalle": " sábado 12 sept 16:30h Estado de Forma (Últimos 6) Madrid CFF Clasificación: #2 D V V D V V Sevilla (F) Clasificación: #11 D D E E V D Análisis Madrid CFF - Sevilla (F)"
+  },
+  {
+   "num": 15,
+   "local": "R. Sociedad",
+   "visitante": "At. Madrid",
+   "fuerza_local": 1687.1,
+   "fuerza_visitante": 1799.9,
+   "historico": {
+    "total": "75",
+    "1": "36",
+    "X": "17",
+    "2": "22"
+   },
+   "sistema": "1-1",
+   "comunidad": "1-2",
+   "q15": null,
+   "lae": null,
+   "apu": null,
+   "marcadores_q15": [
+    {
+     "score": "1-2",
+     "pct": 26
+    },
+    {
+     "score": "1-1",
+     "pct": 14
+    },
+    {
+     "score": "2-2",
+     "pct": 12
+    }
+   ],
+   "fecha": "2026-09-13",
+   "hora": "21:00",
+   "detalle": " domingo 13 sept 21:00h Estado de Forma (Últimos 6) R. Sociedad Clasificación: #9 D D D V E V At. Madrid Clasificación: #7 D V V E V D Análisis R. Sociedad - At. Madrid"
+  }
+ ],
+ "notas_origen": "Boleto generado por SCRAPE_QUINIELA15_PROXIMA.py (liga-maestros-web) el 08/09/2026 21:47 desde quiniela15.com/pronostico-quiniela. Reemplaza version manual previa (diff: % Q15 frescos, M15 con hora/historico/comunidad real). Pendiente: cuotas live (odd_*) y % LAE. Partidos 11-14 femeninos fuera del dominio del motor."
+}
