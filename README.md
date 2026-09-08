@@ -36,17 +36,17 @@ pip install -r requirements-dev.txt
 
 ## Uso
 
-Evaluación de producción (usa el histórico saneado por defecto y los pesos
+Evaluación de producción (fuente oficial: histórico saneado —ver «Dataset oficial»— y pesos
 congelados en `CONFIG_MOTOR_V2.json`):
 
 Bash (Linux / macOS):
 ```bash
-python MOTOR_QUINIELA_MAESTRO.py --historico saneado --modo produccion
+python3 MOTOR_QUINIELA_MAESTRO.py --historico saneado --modo produccion
 ```
 
 PowerShell (Windows):
 ```powershell
-python MOTOR_QUINIELA_MAESTRO.py --historico original --modo produccion
+python MOTOR_QUINIELA_MAESTRO.py --historico saneado --modo produccion
 ```
 
 Para explorar de nuevo los candidatos de hiperparámetros, use explícitamente
