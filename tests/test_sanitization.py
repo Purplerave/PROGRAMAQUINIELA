@@ -549,14 +549,16 @@ def test_repository_integration_counts_match():
     """El pipeline debe producir resultados coherentes con los datos reales."""
     result = san.run_pipeline(confirm=False)
     stats = result["stats"]
-    assert stats["input_rows"] == 13475
-    assert stats["output_rows"] == 13446
+    # Conteos actualizados 08/09/2026: +85 filas SP1/SP2_2627 (Highlightly, 41+44).
+    # Cero exclusiones nuevas, cero cierres nuevos (prematch sin close), +85 con tiros.
+    assert stats["input_rows"] == 13560
+    assert stats["output_rows"] == 13531
     assert stats["excluded_rows"] == 29
     assert stats["exclusion_reasons"]["EMPTY_ROW"] == 3
     assert stats["exclusion_reasons"]["ADMINISTRATIVE_CANDIDATE"] == 21
     assert stats["exclusion_reasons"]["MISSING_REQUIRED_ODDS"] == 5
     assert stats["has_real_close"] == 5894
-    assert stats["has_shots"] == 10216
+    assert stats["has_shots"] == 10301  # +85 (SP1/SP2_2627 con HS/HST)
     assert stats["suspicious_odds"] == 4
 
 

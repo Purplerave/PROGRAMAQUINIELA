@@ -32,7 +32,13 @@
    "marcadores_q15": [],
    "fecha": "2026-09-12",
    "hora": "18:30",
-   "detalle": " sábado 12 sept 18:30h Estado de Forma (Últimos 6) Athletic Clasificación: #10 D D D D V V Elche Clasificación: #19 E E E D D D Análisis Athletic - Elche"
+   "detalle": " sábado 12 sept 18:30h Estado de Forma (Últimos 6) Athletic Clasificación: #10 D D D D V V Elche Clasificación: #19 E E E D D D Análisis Athletic - Elche",
+   "odd_1": 1.48,
+   "odd_x": 4.4,
+   "odd_2": 6.23,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 49,
+   "division": "Primera"
   },
   {
    "num": 2,
@@ -62,7 +68,13 @@
    "marcadores_q15": [],
    "fecha": "2026-09-13",
    "hora": "16:15",
-   "detalle": " domingo 13 sept 16:15h Estado de Forma (Últimos 6) Levante Clasificación: #11 D V D E V E Barcelona Clasificación: #1 V V V V V V Análisis Levante - Barcelona"
+   "detalle": " domingo 13 sept 16:15h Estado de Forma (Últimos 6) Levante Clasificación: #11 D V D E V E Barcelona Clasificación: #1 V V V V V V Análisis Levante - Barcelona",
+   "odd_1": 9.03,
+   "odd_x": 6.35,
+   "odd_2": 1.26,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 49,
+   "division": "Primera"
   },
   {
    "num": 3,
@@ -92,7 +104,13 @@
    "marcadores_q15": [],
    "fecha": "2026-09-12",
    "hora": "16:15",
-   "detalle": " sábado 12 sept 16:15h Estado de Forma (Últimos 6) Osasuna Clasificación: #8 D D E V V D Espanyol Clasificación: #12 E D V D D E Análisis Osasuna - Espanyol"
+   "detalle": " sábado 12 sept 16:15h Estado de Forma (Últimos 6) Osasuna Clasificación: #8 D D E V V D Espanyol Clasificación: #12 E D V D D E Análisis Osasuna - Espanyol",
+   "odd_1": 1.98,
+   "odd_x": 3.35,
+   "odd_2": 3.81,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 49,
+   "division": "Primera"
   },
   {
    "num": 4,
@@ -122,7 +140,13 @@
    "marcadores_q15": [],
    "fecha": "2026-09-12",
    "hora": "14:00",
-   "detalle": " sábado 12 sept 14:00h Estado de Forma (Últimos 6) R. Santander Clasificación: #13 V E E D V D Alavés Clasificación: #2 V E V E V V Análisis R. Santander - Alavés"
+   "detalle": " sábado 12 sept 14:00h Estado de Forma (Últimos 6) R. Santander Clasificación: #13 V E E D V D Alavés Clasificación: #2 V E V E V V Análisis R. Santander - Alavés",
+   "odd_1": 2.39,
+   "odd_x": 3.47,
+   "odd_2": 2.79,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 49,
+   "division": "Primera"
   },
   {
    "num": 5,
@@ -152,7 +176,13 @@
    "marcadores_q15": [],
    "fecha": "2026-09-12",
    "hora": "21:00",
-   "detalle": " sábado 12 sept 21:00h Estado de Forma (Últimos 6) Real Madrid Clasificación: #3 V V V V V D Rayo Clasificación: #14 V D D E D V Análisis Real Madrid - Rayo"
+   "detalle": " sábado 12 sept 21:00h Estado de Forma (Últimos 6) Real Madrid Clasificación: #3 V V V V V D Rayo Clasificación: #14 V D D E D V Análisis Real Madrid - Rayo",
+   "odd_1": 1.14,
+   "odd_x": 8.3,
+   "odd_2": 17.0,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 47,
+   "division": "Primera"
   },
   {
    "num": 6,
@@ -182,7 +212,13 @@
    "marcadores_q15": [],
    "fecha": "2026-09-11",
    "hora": "21:00",
-   "detalle": " viernes 11 sept 21:00h Estado de Forma (Últimos 6) Sevilla Clasificación: #6 V D V V D E Valencia Clasificación: #20 D D E D D D Análisis Sevilla - Valencia"
+   "detalle": " viernes 11 sept 21:00h Estado de Forma (Últimos 6) Sevilla Clasificación: #6 V D V V D E Valencia Clasificación: #20 D D E D D D Análisis Sevilla - Valencia",
+   "odd_1": 2.24,
+   "odd_x": 3.13,
+   "odd_2": 3.39,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 48,
+   "division": "Primera"
   },
   {
    "num": 7,
@@ -212,7 +248,8 @@
    "marcadores_q15": [],
    "fecha": "2026-09-14",
    "hora": "21:00",
-   "detalle": " lunes 14 sept 21:00h Estado de Forma (Últimos 6) Villarreal Clasificación: #17 V V E E D D Betis Clasificación: #4 E D V V D V Análisis Villarreal - Betis"
+   "detalle": " lunes 14 sept 21:00h Estado de Forma (Últimos 6) Villarreal Clasificación: #17 V V E E D D Betis Clasificación: #4 E D V V D V Análisis Villarreal - Betis",
+   "division": "Primera"
   },
   {
    "num": 8,
@@ -242,7 +279,13 @@
    "marcadores_q15": [],
    "fecha": "2026-09-12",
    "hora": "16:15",
-   "detalle": " sábado 12 sept 16:15h Estado de Forma (Últimos 6) Cádiz Clasificación: #18 V D E E E D Las Palmas Clasificación: #10 V V V V D E Análisis Cádiz - Las Palmas"
+   "detalle": " sábado 12 sept 16:15h Estado de Forma (Últimos 6) Cádiz Clasificación: #18 V D E E E D Las Palmas Clasificación: #10 V V V V D E Análisis Cádiz - Las Palmas",
+   "odd_1": 2.48,
+   "odd_x": 3.22,
+   "odd_2": 2.68,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 39,
+   "division": "Segunda"
   },
   {
    "num": 9,
@@ -272,7 +315,8 @@
    "marcadores_q15": [],
    "fecha": "2026-09-13",
    "hora": "21:00",
-   "detalle": " domingo 13 sept 21:00h Estado de Forma (Últimos 6) Tenerife Clasificación: #8 V E V V D E Leganés Clasificación: #4 V E E V V E Análisis Tenerife - Leganés"
+   "detalle": " domingo 13 sept 21:00h Estado de Forma (Últimos 6) Tenerife Clasificación: #8 V E V V D E Leganés Clasificación: #4 V E E V V E Análisis Tenerife - Leganés",
+   "division": "Segunda"
   },
   {
    "num": 10,
@@ -302,7 +346,13 @@
    "marcadores_q15": [],
    "fecha": "2026-09-13",
    "hora": "16:15",
-   "detalle": " domingo 13 sept 16:15h Estado de Forma (Últimos 6) Valladolid Clasificación: #16 V V D D E V Real Oviedo Clasificación: #15 D V E D V E Análisis Valladolid - Real Oviedo"
+   "detalle": " domingo 13 sept 16:15h Estado de Forma (Últimos 6) Valladolid Clasificación: #16 V V D D E V Real Oviedo Clasificación: #15 D V E D V E Análisis Valladolid - Real Oviedo",
+   "odd_1": 2.48,
+   "odd_x": 3.01,
+   "odd_2": 2.89,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 16,
+   "division": "Segunda"
   },
   {
    "num": 11,
@@ -441,8 +491,14 @@
    ],
    "fecha": "2026-09-13",
    "hora": "21:00",
-   "detalle": " domingo 13 sept 21:00h Estado de Forma (Últimos 6) R. Sociedad Clasificación: #9 D D D V E V At. Madrid Clasificación: #7 D V V E V D Análisis R. Sociedad - At. Madrid"
+   "detalle": " domingo 13 sept 21:00h Estado de Forma (Últimos 6) R. Sociedad Clasificación: #9 D D D V E V At. Madrid Clasificación: #7 D V V E V D Análisis R. Sociedad - At. Madrid",
+   "odd_1": 2.96,
+   "odd_x": 3.56,
+   "odd_2": 2.23,
+   "odds_observed_at": "2026-09-08T23:57:53",
+   "odds_n_bookies": 48,
+   "division": "Primera"
   }
  ],
- "notas_origen": "Boleto generado por SCRAPE_QUINIELA15_PROXIMA.py (liga-maestros-web) el 08/09/2026 21:47 desde quiniela15.com/pronostico-quiniela. Reemplaza version manual previa (diff: % Q15 frescos, M15 con hora/historico/comunidad real). Pendiente: cuotas live (odd_*) y % LAE. Partidos 11-14 femeninos fuera del dominio del motor."
+ "notas_origen": "Boleto generado por SCRAPE_QUINIELA15_PROXIMA.py (liga-maestros-web) el 08/09/2026 21:47 desde quiniela15.com/pronostico-quiniela. Reemplaza version manual previa (diff: % Q15 frescos, M15 con hora/historico/comunidad real). Pendiente: cuotas live (odd_*) y % LAE. Partidos 11-14 femeninos fuera del dominio del motor. Cuotas prematch Highlightly (media ~48 books) observadas 2026-09-08T23:57:53+02:00 en 9/11 partidos; sin mercado: Villarreal-Betis y Tenerife-Leganes (reintentar jue/vie). Timestamps naive (hora Madrid) por bug tz-aware/tz-naive en validate_odds_timestamps (issue pendiente para Jules)."
 }
