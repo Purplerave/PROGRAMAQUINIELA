@@ -36,12 +36,12 @@ pip install -r requirements-dev.txt
 
 ## Uso
 
-Evaluación de producción (usa el histórico original por defecto y los pesos
+Evaluación de producción (usa el histórico saneado por defecto y los pesos
 congelados en `CONFIG_MOTOR_V2.json`):
 
 Bash (Linux / macOS):
 ```bash
-python3 MOTOR_QUINIELA_MAESTRO.py --historico original --modo produccion
+python MOTOR_QUINIELA_MAESTRO.py --historico saneado --modo produccion
 ```
 
 PowerShell (Windows):
@@ -228,3 +228,19 @@ mostró que **no mejora el modelo fuera de muestra** (−0,29 pp de acierto y
 activa** en `feature_columns()` ni en la configuracion. La infraestructura queda
 aditiva y disponible por si en el futuro se justifica (p. ej. xG posicional o
 cobertura de Segunda).
+
+## Dataset oficial
+
+Fuente oficial: **histórico saneado** (`salida/datos_limpios/historico_saneado.csv`).
+
+Justificación (REVISION_05): empate estadístico completo entre original y saneado
+en los tres backtests (principal, 2025-26, 2024-25). McNemar no significativo
+(p=0,0931 principal; IC95 incluye 0 en todos). El saneado añade trazabilidad,
+exclusiones documentadas y corrige la entidad Cultural Leonesa. Por tanto, es la
+fuente preferente sin coste predictivo.
+
+El **histórico original** (`DATOS/historico_raw/`) queda como **dataset de
+diagnóstico**, no como camino paralelo. No hay rama alternativa ni pipeline
+duplicada: el saneado se genera desde el original con un solo comando
+(`python scripts/datos/SANEAR_DATOS.py --confirm`) y se valida con
+`pytest tests/test_sanitization.py`.
