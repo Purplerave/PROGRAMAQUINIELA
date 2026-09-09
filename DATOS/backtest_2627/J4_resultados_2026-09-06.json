@@ -1,0 +1,128 @@
+{
+ "fecha": "2026-09-06",
+ "fuente": "https://www.combinacionganadora.com/quiniela/resultados/2026-09-06/ (consultado 09/09/2026). Bote 1.500.000 EUR. Premios: P15 1x1.126.075,47 / 14: 2x242.091 / 13: 57x3.981,76 / 12: 1310x173,25 / 11: 13396x16,94 / 10: 80069x3,40.",
+ "jornada": 4,
+ "resultados": [
+  {
+   "goles_local": 3,
+   "goles_visitante": 0,
+   "local": "Athletic de Bilbao",
+   "num": 1,
+   "signo": "1",
+   "visitante": "Atlético de Madrid"
+  },
+  {
+   "goles_local": 3,
+   "goles_visitante": 2,
+   "local": "Rayo Vallecano",
+   "num": 2,
+   "signo": "1",
+   "visitante": "Racing De Santander"
+  },
+  {
+   "goles_local": 2,
+   "goles_visitante": 3,
+   "local": "Villarreal",
+   "num": 3,
+   "signo": "2",
+   "visitante": "Deportivo"
+  },
+  {
+   "goles_local": 0,
+   "goles_visitante": 5,
+   "local": "Valencia",
+   "num": 4,
+   "signo": "2",
+   "visitante": "Barcelona"
+  },
+  {
+   "goles_local": 5,
+   "goles_visitante": 2,
+   "local": "Alavés",
+   "num": 5,
+   "signo": "1",
+   "visitante": "Osasuna"
+  },
+  {
+   "goles_local": 0,
+   "goles_visitante": 0,
+   "local": "Málaga",
+   "num": 6,
+   "signo": "X",
+   "visitante": "Levante"
+  },
+  {
+   "goles_local": 1,
+   "goles_visitante": 1,
+   "local": "Espanyol",
+   "num": 7,
+   "signo": "X",
+   "visitante": "Sevilla"
+  },
+  {
+   "goles_local": 1,
+   "goles_visitante": 1,
+   "local": "R. Sociedad B",
+   "num": 8,
+   "signo": "X",
+   "visitante": "Tenerife"
+  },
+  {
+   "goles_local": 0,
+   "goles_visitante": 2,
+   "local": "Sporting de Gijón",
+   "num": 9,
+   "signo": "2",
+   "visitante": "Girona"
+  },
+  {
+   "goles_local": 3,
+   "goles_visitante": 2,
+   "local": "Almería",
+   "num": 10,
+   "signo": "1",
+   "visitante": "Cádiz"
+  },
+  {
+   "goles_local": 0,
+   "goles_visitante": 4,
+   "local": "Sevilla Femenino",
+   "num": 11,
+   "signo": "2",
+   "visitante": "Barcelona Femenino"
+  },
+  {
+   "goles_local": 0,
+   "goles_visitante": 1,
+   "local": "Logroño Femenino",
+   "num": 12,
+   "signo": "2",
+   "visitante": "Athletic de Bilbao Femenino"
+  },
+  {
+   "goles_local": 1,
+   "goles_visitante": 0,
+   "local": "Atlético Madrid Femenino",
+   "num": 13,
+   "signo": "1",
+   "visitante": "Alavés Femenino"
+  },
+  {
+   "goles_local": 0,
+   "goles_visitante": 0,
+   "local": "Real Madrid CF Femenino",
+   "num": 14,
+   "signo": "X",
+   "visitante": "Eibar Femenino"
+  }
+ ],
+ "temporada": "2026-2027",
+ "pleno15": {
+  "local": "Getafe",
+  "visitante": "Celta",
+  "goles_local": 1,
+  "goles_visitante": 1,
+  "score": "1-1",
+  "bucket": "1-1"
+ }
+}

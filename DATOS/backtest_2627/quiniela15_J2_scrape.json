@@ -1,0 +1,614 @@
+{
+  "jornada": 2,
+  "source_url": "https://www.quiniela15.com/pronostico-quiniela",
+  "scraped_at": "2026-08-18T15:31:44",
+  "cierre": "sábado 22 de agosto a las 17:00",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Athletic",
+      "visitante": "Sevilla",
+      "fuerza_local": 1668.2,
+      "fuerza_visitante": 1654.7,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 70,
+        "X": 19,
+        "2": 10
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-22",
+      "hora": "17:00",
+      "detalle": "sábado 22 ago17:00h Estado de Forma (Últimos 6) Athletic Clasificación: #15 VEVVDD Sevilla Clasificación: #3 EVVVDV"
+    },
+    {
+      "num": 2,
+      "local": "Valencia",
+      "visitante": "Celta",
+      "fuerza_local": 1673.9,
+      "fuerza_visitante": 1714.9,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "X",
+      "comunidad": "X",
+      "q15": {
+        "1": 44,
+        "X": 31,
+        "2": 25
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-22",
+      "hora": "19:30",
+      "detalle": "sábado 22 ago19:30h Estado de Forma (Últimos 6) Valencia Clasificación: #13 DVDVED Celta Clasificación: #12 VEVEVE"
+    },
+    {
+      "num": 3,
+      "local": "Espanyol",
+      "visitante": "Real Madrid",
+      "fuerza_local": 1644.4,
+      "fuerza_visitante": 1897.6,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 8,
+        "X": 12,
+        "2": 81
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-22",
+      "hora": "21:30",
+      "detalle": "sábado 22 ago21:30h Estado de Forma (Últimos 6) Espanyol Clasificación: #1 VEEEDV Real Madrid Clasificación: #9 VVEVVV"
+    },
+    {
+      "num": 4,
+      "local": "Getafe",
+      "visitante": "R. Santander",
+      "fuerza_local": 1638.7,
+      "fuerza_visitante": 1666.2,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 51,
+        "X": 29,
+        "2": 20
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-23",
+      "hora": "19:30",
+      "detalle": "domingo 23 ago19:30h Estado de Forma (Últimos 6) Getafe Clasificación: #20 VEDDED R. Santander Clasificación: #4 DDDVEE"
+    },
+    {
+      "num": 5,
+      "local": "Elche",
+      "visitante": "Barcelona",
+      "fuerza_local": 1656.7,
+      "fuerza_visitante": 1940.1,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 8,
+        "X": 8,
+        "2": 84
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-23",
+      "hora": "21:30",
+      "detalle": "domingo 23 ago21:30h Estado de Forma (Últimos 6) Elche Clasificación: #6 EVEEEE Barcelona Clasificación: #8 DVEVDV"
+    },
+    {
+      "num": 6,
+      "local": "Osasuna",
+      "visitante": "Levante",
+      "fuerza_local": 1656.2,
+      "fuerza_visitante": 1658.6,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 71,
+        "X": 19,
+        "2": 11
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-24",
+      "hora": "19:30",
+      "detalle": "lunes 24 ago19:30h Estado de Forma (Últimos 6) Osasuna Clasificación: #16 DVVVDD Levante Clasificación: #19 DVVDVD"
+    },
+    {
+      "num": 7,
+      "local": "Málaga",
+      "visitante": "Deportivo",
+      "fuerza_local": 1652.6,
+      "fuerza_visitante": 1675.8,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "X",
+      "comunidad": "X",
+      "q15": {
+        "1": 33,
+        "X": 43,
+        "2": 25
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-24",
+      "hora": "21:30",
+      "detalle": "lunes 24 ago21:30h Estado de Forma (Últimos 6) Málaga Clasificación: #17 VEEVDE Deportivo Clasificación: #7 VEEVDE"
+    },
+    {
+      "num": 8,
+      "local": "Real Oviedo",
+      "visitante": "Leganés",
+      "fuerza_local": 1602.6,
+      "fuerza_visitante": 1564.9,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 55,
+        "X": 27,
+        "2": 19
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-22",
+      "hora": "17:00",
+      "detalle": " 2026-08-22 17:00h"
+    },
+    {
+      "num": 9,
+      "local": "Ceuta",
+      "visitante": "Las Palmas",
+      "fuerza_local": 1617.4,
+      "fuerza_visitante": 1642.1,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 20,
+        "X": 25,
+        "2": 55
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-22",
+      "hora": "19:00",
+      "detalle": " 2026-08-22 19:00h"
+    },
+    {
+      "num": 10,
+      "local": "Eldense",
+      "visitante": "Cádiz",
+      "fuerza_local": 1571.2,
+      "fuerza_visitante": 1502.7,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 22,
+        "X": 35,
+        "2": 43
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-22",
+      "hora": "21:30",
+      "detalle": " 2026-08-22 21:30h"
+    },
+    {
+      "num": 11,
+      "local": "Eibar",
+      "visitante": "Valladolid",
+      "fuerza_local": 1632.7,
+      "fuerza_visitante": 1524.3,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 53,
+        "X": 28,
+        "2": 19
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-23",
+      "hora": "17:00",
+      "detalle": " 2026-08-23 17:00h"
+    },
+    {
+      "num": 12,
+      "local": "Castellón",
+      "visitante": "Sabadell",
+      "fuerza_local": 1646.6,
+      "fuerza_visitante": 1620.7,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 74,
+        "X": 15,
+        "2": 11
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-23",
+      "hora": "19:00",
+      "detalle": " 2026-08-23 19:00h"
+    },
+    {
+      "num": 13,
+      "local": "Sporting Gijón",
+      "visitante": "Burgos",
+      "fuerza_local": 1554.1,
+      "fuerza_visitante": 1659.2,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "1",
+      "comunidad": "1",
+      "q15": {
+        "1": 43,
+        "X": 32,
+        "2": 25
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-23",
+      "hora": "19:00",
+      "detalle": " 2026-08-23 19:00h"
+    },
+    {
+      "num": 14,
+      "local": "Tenerife",
+      "visitante": "Almería",
+      "fuerza_local": 1620.8,
+      "fuerza_visitante": 1649.4,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "2",
+      "comunidad": "2",
+      "q15": {
+        "1": 31,
+        "X": 30,
+        "2": 39
+      },
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [],
+      "fecha": "2026-08-23",
+      "hora": "21:30",
+      "detalle": " 2026-08-23 21:30h"
+    },
+    {
+      "num": 15,
+      "local": "At. Madrid",
+      "visitante": "Villarreal",
+      "fuerza_local": 1802.7,
+      "fuerza_visitante": 1751.7,
+      "historico": {
+        "total": "",
+        "1": "",
+        "X": "",
+        "2": ""
+      },
+      "sistema": "2-0",
+      "comunidad": "2-0",
+      "q15": null,
+      "lae": null,
+      "apu": null,
+      "marcadores_q15": [
+        {
+          "score": "2-1",
+          "pct": 29
+        },
+        {
+          "score": "2-2",
+          "pct": 11
+        },
+        {
+          "score": "1-1",
+          "pct": 9
+        }
+      ],
+      "fecha": "2026-08-23",
+      "hora": "17:00",
+      "detalle": " 2026-08-23 17:00h"
+    }
+  ],
+  "horarios": {
+    "1": {
+      "fecha": "2026-08-22",
+      "hora": "17:00"
+    },
+    "2": {
+      "fecha": "2026-08-22",
+      "hora": "19:30"
+    },
+    "3": {
+      "fecha": "2026-08-22",
+      "hora": "21:30"
+    },
+    "4": {
+      "fecha": "2026-08-23",
+      "hora": "19:30"
+    },
+    "5": {
+      "fecha": "2026-08-23",
+      "hora": "21:30"
+    },
+    "6": {
+      "fecha": "2026-08-24",
+      "hora": "19:30"
+    },
+    "7": {
+      "fecha": "2026-08-24",
+      "hora": "21:30"
+    },
+    "8": {
+      "fecha": "2026-08-22",
+      "hora": "17:00"
+    },
+    "9": {
+      "fecha": "2026-08-22",
+      "hora": "19:00"
+    },
+    "10": {
+      "fecha": "2026-08-22",
+      "hora": "21:30"
+    },
+    "11": {
+      "fecha": "2026-08-23",
+      "hora": "17:00"
+    },
+    "12": {
+      "fecha": "2026-08-23",
+      "hora": "19:00"
+    },
+    "13": {
+      "fecha": "2026-08-23",
+      "hora": "19:00"
+    },
+    "14": {
+      "fecha": "2026-08-23",
+      "hora": "21:30"
+    },
+    "15": {
+      "fecha": "2026-08-23",
+      "hora": "17:00"
+    }
+  },
+  "probabilidades": {
+    "1": {
+      "num": 1,
+      "probabilidades": {
+        "1": 70,
+        "X": 19,
+        "2": 10
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "2": {
+      "num": 2,
+      "probabilidades": {
+        "1": 44,
+        "X": 31,
+        "2": 25
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "3": {
+      "num": 3,
+      "probabilidades": {
+        "1": 8,
+        "X": 12,
+        "2": 81
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "4": {
+      "num": 4,
+      "probabilidades": {
+        "1": 51,
+        "X": 29,
+        "2": 20
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "5": {
+      "num": 5,
+      "probabilidades": {
+        "1": 8,
+        "X": 8,
+        "2": 84
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "6": {
+      "num": 6,
+      "probabilidades": {
+        "1": 71,
+        "X": 19,
+        "2": 11
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "7": {
+      "num": 7,
+      "probabilidades": {
+        "1": 33,
+        "X": 43,
+        "2": 25
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "8": {
+      "num": 8,
+      "probabilidades": {
+        "1": 55,
+        "X": 27,
+        "2": 19
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "9": {
+      "num": 9,
+      "probabilidades": {
+        "1": 20,
+        "X": 25,
+        "2": 55
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "10": {
+      "num": 10,
+      "probabilidades": {
+        "1": 22,
+        "X": 35,
+        "2": 43
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "11": {
+      "num": 11,
+      "probabilidades": {
+        "1": 53,
+        "X": 28,
+        "2": 19
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "12": {
+      "num": 12,
+      "probabilidades": {
+        "1": 74,
+        "X": 15,
+        "2": 11
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "13": {
+      "num": 13,
+      "probabilidades": {
+        "1": 43,
+        "X": 32,
+        "2": 25
+      },
+      "fuente": "quiniela15_q15"
+    },
+    "14": {
+      "num": 14,
+      "probabilidades": {
+        "1": 31,
+        "X": 30,
+        "2": 39
+      },
+      "fuente": "quiniela15_q15"
+    }
+  },
+  "q15_base_signs": [
+    "1",
+    "1",
+    "2",
+    "1",
+    "2",
+    "1",
+    "X",
+    "1",
+    "2",
+    "2",
+    "1",
+    "1",
+    "1",
+    "2",
+    "2-0"
+  ]
+}

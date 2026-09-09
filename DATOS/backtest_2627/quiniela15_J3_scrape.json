@@ -1,0 +1,146 @@
+{
+  "jornada": 3,
+  "temporada": "2026-2027",
+  "scraped_at": "2026-08-26T00:00:00",
+  "source_url": "https://www.laliga.com/liga-f",
+  "source": "Fixture J3 corregido - incluye Liga F con marcadores (F) y horarios verificados",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Levante",
+      "visitante": "Betis"
+    },
+    {
+      "num": 2,
+      "local": "R. Sociedad",
+      "visitante": "Espanyol"
+    },
+    {
+      "num": 3,
+      "local": "Sevilla",
+      "visitante": "At. Madrid"
+    },
+    {
+      "num": 4,
+      "local": "Real Madrid",
+      "visitante": "Málaga"
+    },
+    {
+      "num": 5,
+      "local": "Deportivo",
+      "visitante": "Valencia"
+    },
+    {
+      "num": 6,
+      "local": "Celta",
+      "visitante": "Athletic"
+    },
+    {
+      "num": 7,
+      "local": "Osasuna",
+      "visitante": "Getafe"
+    },
+    {
+      "num": 8,
+      "local": "Albacete",
+      "visitante": "Real Oviedo"
+    },
+    {
+      "num": 9,
+      "local": "Cádiz",
+      "visitante": "Valladolid"
+    },
+    {
+      "num": 10,
+      "local": "Córdoba",
+      "visitante": "Granada"
+    },
+    {
+      "num": 11,
+      "local": "Athletic Club (F)",
+      "visitante": "Las Planas (F)"
+    },
+    {
+      "num": 12,
+      "local": "Eibar (F)",
+      "visitante": "Espanyol (F)"
+    },
+    {
+      "num": 13,
+      "local": "Alavés (F)",
+      "visitante": "Valencia (F)"
+    },
+    {
+      "num": 14,
+      "local": "Real Madrid (F)",
+      "visitante": "At. Madrid (F)"
+    },
+    {
+      "num": 15,
+      "local": "Barcelona",
+      "visitante": "Rayo"
+    }
+  ],
+  "horarios": {
+    "1": {
+      "fecha": "2026-08-29",
+      "hora": "17:00"
+    },
+    "2": {
+      "fecha": "2026-08-29",
+      "hora": "19:00"
+    },
+    "3": {
+      "fecha": "2026-08-29",
+      "hora": "21:30"
+    },
+    "4": {
+      "fecha": "2026-08-30",
+      "hora": "17:00"
+    },
+    "5": {
+      "fecha": "2026-08-30",
+      "hora": "19:30"
+    },
+    "6": {
+      "fecha": "2026-08-30",
+      "hora": "21:30"
+    },
+    "7": {
+      "fecha": "2026-08-31",
+      "hora": "19:30"
+    },
+    "8": {
+      "fecha": "2026-08-29",
+      "hora": "19:00"
+    },
+    "9": {
+      "fecha": "2026-08-30",
+      "hora": "19:00"
+    },
+    "10": {
+      "fecha": "2026-08-30",
+      "hora": "21:30"
+    },
+    "11": {
+      "fecha": "2026-08-30",
+      "hora": "12:00"
+    },
+    "12": {
+      "fecha": "2026-08-29",
+      "hora": "17:00"
+    },
+    "13": {
+      "fecha": "2026-08-30",
+      "hora": "17:00"
+    },
+    "14": {
+      "fecha": "2026-08-30",
+      "hora": "21:00"
+    },
+    "15": {
+      "fecha": "2026-08-31",
+      "hora": "21:30"
+    }
+  }
+}
