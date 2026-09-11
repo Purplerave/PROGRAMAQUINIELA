@@ -100,6 +100,31 @@ def prior_warnings_for_matches(partidos):
     return warnings
 
 
+def attach_raw_reference_percentages(partidos: list[dict], jornada: int) -> list[dict]:
+    """Añade APU/LAE/Q15 crudos del JSON de jornada a cada partido.
+
+    El diagnóstico quinielístico consume apu/lae/q15 como proxy de mercado y no
+    los conserva en su salida. Sin este paso, ``probabilidades.comparativa`` del
+    paquete quedaría vacía al integrar el modelo y el fallback declarado
+    (APU/LAE/Q15 como referencia) no tendría datos. No altera el modelo: solo
+    conserva los porcentajes de referencia del boleto.
+    """
+    try:
+        raw = load_jornada_json(jornada)
+    except Exception:
+        return partidos
+    raw_by_num = {p.get("num"): p for p in raw.get("partidos", [])}
+    for match in partidos:
+        raw_match = raw_by_num.get(match.get("num"))
+        if not raw_match:
+            continue
+        for key in ("apu", "lae", "q15"):
+            value = raw_match.get(key)
+            if value is not None:
+                match[key] = value
+    return partidos
+
+
 def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) -> list[dict]:
     """Integra las predicciones del modelo con los partidos.
 
@@ -217,7 +242,7 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
                         "q15": match.pop("q15", None),
                     },
                     "fuente_principal": "fallback_apu_lae_q15",
-                    "nota": "ATENCIÓN: Predicción del modelo con baja fiabilidad. Se usan APU/LAE como fallback.",
+                    "nota": "ATENCIÓN: Predicción del modelo con baja fiabilidad. Se usan APU/LAE/Q15 como fallback.",
                     "aviso": f"Calidad de datos insuficiente ({calidad}). Revisar avisos.",
                 }
         else:
@@ -234,7 +259,7 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
                     "q15": match.pop("q15", None),
                 },
                 "fuente_principal": "fallback_apu_lae_q15",
-                "nota": "ATENCIÓN: No se pudieron obtener probabilidades del modelo. Se usan APU/LAE como fallback.",
+                "nota": "ATENCIÓN: No se pudieron obtener probabilidades del modelo. Se usan APU/LAE/Q15 como fallback.",
                 "aviso": "Las probabilidades pueden no ser óptimas. Revisar calidad de datos.",
             }
 
@@ -255,23 +280,29 @@ def build_recommendation_for_match(match: dict) -> dict:
     fuente = "motor_maestro"
 
     if not probs_modelo:
-        # Fallback: usar probabilidades comparativas (APU)
+        # Fallback: usar probabilidades comparativas siguiendo el mismo orden
+        # de proxy que el diagnóstico (config fallback_sources.market_proxy_order):
+        # apu > lae > q15.
         comparativa = match.get("probabilidades", {}).get("comparativa", {})
-        apu = comparativa.get("apu") or {}
-        if apu:
-            total = sum(apu.values())
-            probs = {
-                "1": apu.get("1", 0) / total if total > 0 else 0.333,
-                "X": apu.get("X", 0) / total if total > 0 else 0.333,
-                "2": apu.get("2", 0) / total if total > 0 else 0.333,
-            }
-            fuente = "apu_fallback"
-        else:
+        fuente = None
+        probs = None
+        for proxy_key in ("apu", "lae", "q15"):
+            raw = comparativa.get(proxy_key) or {}
+            total = sum(float(v) for v in raw.values()) if raw else 0
+            if total > 0:
+                probs = {
+                    "1": raw.get("1", 0) / total,
+                    "X": raw.get("X", 0) / total,
+                    "2": raw.get("2", 0) / total,
+                }
+                fuente = f"{proxy_key}_fallback"
+                break
+        if probs is None:
             # Punto 2 Codex (Rev 3): Si no hay fuente fiable, marcar recomendación no disponible
             return {
                 "disponible": False,
                 "razon": "sin_fuente_de_probabilidades_fiable",
-                "nota": "No se pudo generar recomendación (sin modelo ni APU)",
+                "nota": "No se pudo generar recomendación (sin modelo ni APU/LAE/Q15)",
             }
     else:
         probs = probs_modelo
@@ -365,6 +396,9 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
 
     # 4. Combinar datos
     partidos = diagnostic.get("partidos", [])
+
+    # Conservar APU/LAE/Q15 crudos del boleto como referencia comparativa
+    partidos = attach_raw_reference_percentages(partidos, jornada)
 
     # Enriquecer con priors
     partidos = enrich_with_priors(partidos, priors)

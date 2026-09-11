@@ -339,6 +339,68 @@ class TestIntegration:
         assert match["probabilidades"]["modelo"] is None
         assert match["probabilidades"]["fuente_principal"] == "fallback_apu_lae_q15"
 
+    def test_attach_raw_reference_percentages(self, monkeypatch):
+        """Los APU/LAE/Q15 crudos del boleto se conservan como comparativa."""
+        import PREDECIR_JORNADA as pj
+
+        raw = {
+            "partidos": [
+                {"num": 1, "apu": {"1": 45, "X": 25, "2": 30}, "lae": {"1": 40, "X": 30, "2": 30}, "q15": {"1": 50, "X": 30, "2": 20}},
+                {"num": 2, "apu": None, "lae": {"1": 10, "X": 20, "2": 70}, "q15": None},
+                {"num": 15, "lae": None},
+            ]
+        }
+        monkeypatch.setattr(pj, "load_jornada_json", lambda jornada: raw)
+
+        partidos = [
+            {"num": 1, "local": "A", "visitante": "B"},
+            {"num": 2, "local": "C", "visitante": "D"},
+            {"num": 15, "local": "E", "visitante": "F"},
+        ]
+        out = pj.attach_raw_reference_percentages(partidos, 6)
+
+        assert out[0]["apu"] == {"1": 45, "X": 25, "2": 30}
+        assert out[0]["lae"] == {"1": 40, "X": 30, "2": 30}
+        assert out[0]["q15"] == {"1": 50, "X": 30, "2": 20}
+        assert "apu" not in out[1]  # None no se adjunta
+        assert out[1]["lae"] == {"1": 10, "X": 20, "2": 70}
+        assert "q15" not in out[1]
+        assert "apu" not in out[2] and "lae" not in out[2]  # Pleno 15 sin datos
+
+    def test_fallback_order_apu_lae_q15(self):
+        """Sin modelo, la recomendación usa el mismo orden de proxy que el diagnóstico."""
+        from PREDECIR_JORNADA import build_recommendation_for_match
+
+        # Solo APU
+        rec_apu = build_recommendation_for_match({
+            "num": 1,
+            "modelo_maestro": {"disponible": False, "confianza": 0.3},
+            "probabilidades": {"modelo": None, "comparativa": {"apu": {"1": 45, "X": 25, "2": 30}}},
+        })
+        assert rec_apu["disponible"] is True
+        assert rec_apu["fuente_utilizada"] == "apu_fallback"
+        assert rec_apu["signo_principal"] == "1"
+
+        # APU ausente -> LAE
+        rec_lae = build_recommendation_for_match({
+            "num": 2,
+            "modelo_maestro": {"disponible": False, "confianza": 0.3},
+            "probabilidades": {"modelo": None, "comparativa": {"apu": None, "lae": {"1": 10, "X": 20, "2": 70}}},
+        })
+        assert rec_lae["disponible"] is True
+        assert rec_lae["fuente_utilizada"] == "lae_fallback"
+        assert rec_lae["signo_principal"] == "2"
+
+        # APU y LAE ausentes -> Q15
+        rec_q15 = build_recommendation_for_match({
+            "num": 3,
+            "modelo_maestro": {"disponible": False, "confianza": 0.3},
+            "probabilidades": {"modelo": None, "comparativa": {"apu": None, "lae": None, "q15": {"1": 50, "X": 30, "2": 20}}},
+        })
+        assert rec_q15["disponible"] is True
+        assert rec_q15["fuente_utilizada"] == "q15_fallback"
+        assert rec_q15["signo_principal"] == "1"
+
     def test_pleno_15_exclusion(self):
         """Punto 3 Codex (Rev 2): el partido 15 nunca recibe 1X2 del modelo.
 
