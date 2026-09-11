@@ -23,6 +23,7 @@ backtest:
 predict:
 	$(PYTHON) MOTOR_DECISION_QUINIELISTICA.py --jornada $(JORNADA)
 	$(PYTHON) PREDECIR_JORNADA.py --jornada $(JORNADA)
+	$(PYTHON) scripts/datos/PRONOSTICO_FEMENINO_JORNADA.py --jornada $(JORNADA)
 
 reference:
 	$(PYTHON) scripts/reports/GENERAR_PRODUCTION_REFERENCE.py

@@ -130,6 +130,10 @@ al repositorio.
 - `MOTOR_DECISION_QUINIELISTICA.py`: seleccion de signos y dobles.
 - `PREDECIR_JORNADA.py`: paquete final de prediccion.
 - `PREPARAR_ESTADISTICAS_TEMPORADA_2026_27.py`: actualiza los priors de equipos.
+- `scripts/datos/PRONOSTICO_FEMENINO_JORNADA.py`: pronóstico de los partidos
+  femeninos de la jornada (Liga F, fuera del dominio del motor), combinando
+  cuotas de mercado, modelo estadístico (Forebet) y comunidad Q15/LAE con
+  procedencia documentada. Se ejecuta dentro de `make predict`.
 - `CONFIG_MOTOR_V2.json`: parametros activos del motor.
 - `DATOS/historico_raw/`: CSV historicos necesarios para reproducir el backtest.
 - `scripts/backtests/`: evaluacion walk-forward por temporada.
