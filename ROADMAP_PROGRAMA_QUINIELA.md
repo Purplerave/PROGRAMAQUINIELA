@@ -3,7 +3,12 @@
 Estado consolidado el 29/07/2026. Actualizado el 04/08/2026 (recomendaciones P0 de la auditoría externa del 04/08/2026 cerradas).
 Este documento debe mantenerse breve y actualizarse al cerrar cada tarea.
 
-## Último avance (04/08/2026 — P0.1 roadmap auditoría: métrica económica del boleto de 6 €)
+## Último avance (08/09/2026 — rescate PR #21: backtest boletos reales LAE)
+
+- Auditores incorporados (trabajo del 02/08, rama limpia): `AUDITAR_LAE_VS_HISTORICO.py` (cruza LAE contra histórico), `ANALIZAR_BACKTEST_BOLETOS_REALES.py` (resume JSON + CSV incidencias), `REPARAR_BACKTEST_BOLETOS_REALES_DESDE_LAE.py` (refresca validación). Datos: `DATOS/jornadas_lae/*.json` (224 jornadas 2023-2026). Caché HTML y salidas generadas excluidos (AGENTS.md #6).
+- Resultado auditado: 97 boletos en dominio, 8,247 aciertos con 3 dobles, 50,39 % vs mercado 49,98 %; 1 desajuste documentado (2025-26 J9 Valencia-Oviedo, aplazado post-sorteo — no tocar motor por este caso).
+
+## Avance anterior (04/08/2026 — P0.1 roadmap auditoría: métrica económica del boleto de 6 €)
 
 - **Métrica económica implementada** (`ROADMAP_MEJORA_AUDITORIA_GROK.md`, P0.1):
   - `evaluation/economics.py`: EV ex-ante del boleto por convolución exacta

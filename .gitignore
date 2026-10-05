@@ -1,24 +1,51 @@
+# Byte-compiled / Python / Cache
 __pycache__/
 *.py[cod]
+*$py.class
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
 .venv/
 venv/
+ENV/
+env/
+
+# Credentials & environment secrets
 .env
 .env.*
-.mimocode/
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+tokens.json
 
-salida/*
+# Output directories and generated outputs
+salida/
+SALIDAS/
 !salida/.gitkeep
-SALIDAS/*
 !SALIDAS/.gitkeep
 
+# Models, binaries, caches & logs
 *.joblib
 *.pkl
 *.log
 202526.json
 
-# Datos brutos descargados (procedencia externa, no se versionan)
-DATOS/xg_understat/
-DATOS/*.csv
+# IDEs, System & Editor files
 .idea/
 .vscode/
+.DS_Store
+Thumbs.db
+.mimocode/
+
+# External downloaded data & temporary downloads
+DATOS/xg_understat/
+DATOS/*.csv
+*.tmp
+*.temp
+*.download

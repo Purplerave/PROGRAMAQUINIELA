@@ -1,5 +1,12 @@
 {
   "version": "motor_quinielistico_v4",
+  "historico": {
+    "fuente_oficial": "saneado",
+    "ruta_saneada": "salida/datos_limpios/historico_saneado.csv",
+    "diagnostico": "original",
+    "justificacion": "REVISION_05: empate estadístico completo (McNemar p=0,0931 principal; IC95 incluye 0 en todos los backtests). Saneado mejora gobernanza (trazabilidad, alias, exclusiones documentadas) y corrige entidad Leonesa→Cultural Leonesa. Original se mantiene como diagnóstico, no como camino paralelo.",
+    "comparacion_referencia": "REVISION_05_COMPARACION_ORIGINAL_SANEADO.md"
+  },
   "master_model": {
     "weights": {
       "logit": 0.0,

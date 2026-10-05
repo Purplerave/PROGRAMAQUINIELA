@@ -4,7 +4,29 @@ Proyecto autonomo para entrenar, evaluar y ejecutar el motor de pronosticos de
 La Quiniela. Incluye los historicos de Primera y Segunda desde 2010-11, el
 backtest temporal y los datos base preparados para la temporada 2026-27.
 
+## Entrada rápida / Quickstart (Makefile)
+
+Si dispone de `make` (Linux / macOS / WSL / Git Bash):
+
+```bash
+make help               # Muestra los comandos principales
+make test               # Ejecuta la suite de pruebas
+make backtest           # Ejecuta el backtest walk-forward por temporadas
+make predict JORNADA=74 # Genera el paquete de predicción para la jornada
+make reference          # Regenera el informe de referencia de producción
+```
+
 ## Instalacion
+
+### Linux / macOS (bash)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+```
+
+### Windows (PowerShell)
 
 ```powershell
 python -m venv .venv
@@ -14,11 +36,17 @@ pip install -r requirements-dev.txt
 
 ## Uso
 
-Evaluación de producción (usa el histórico original por defecto y los pesos
+Evaluación de producción (fuente oficial: histórico saneado —ver «Dataset oficial»— y pesos
 congelados en `CONFIG_MOTOR_V2.json`):
 
+Bash (Linux / macOS):
+```bash
+python3 MOTOR_QUINIELA_MAESTRO.py --historico saneado --modo produccion
+```
+
+PowerShell (Windows):
 ```powershell
-python MOTOR_QUINIELA_MAESTRO.py --historico original --modo produccion
+python MOTOR_QUINIELA_MAESTRO.py --historico saneado --modo produccion
 ```
 
 Para explorar de nuevo los candidatos de hiperparámetros, use explícitamente
@@ -27,30 +55,67 @@ es la fuente de la cifra de referencia.
 
 Para seleccionar el histórico saneado (debe existir previamente):
 
+Bash:
+```bash
+python3 MOTOR_QUINIELA_MAESTRO.py --historico saneado
+```
+
+PowerShell:
 ```powershell
 python MOTOR_QUINIELA_MAESTRO.py --historico saneado
 ```
 
 El archivo saneado se genera explícitamente con:
 
+Bash:
+```bash
+python3 scripts/datos/SANEAR_DATOS.py --confirm
+# O mediante make:
+make sanitize
+```
+
+PowerShell:
 ```powershell
 python scripts/datos/SANEAR_DATOS.py --confirm
 ```
 
 Backtest walk-forward por temporadas:
 
+Bash:
+```bash
+python3 scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py
+# O mediante make:
+make backtest
+```
+
+PowerShell:
 ```powershell
 python scripts\backtests\BACKTEST_HISTORICO_TEMPORADAS.py
 ```
 
 Preparar las estadisticas base de 2026-27:
 
+Bash:
+```bash
+python3 PREPARAR_ESTADISTICAS_TEMPORADA_2026_27.py
+```
+
+PowerShell:
 ```powershell
 python PREPARAR_ESTADISTICAS_TEMPORADA_2026_27.py
 ```
 
 Generar el diagnostico y el paquete de una jornada disponible en `DATOS`:
 
+Bash:
+```bash
+python3 MOTOR_DECISION_QUINIELISTICA.py --jornada 74
+python3 PREDECIR_JORNADA.py --jornada 74
+# O mediante make:
+make predict JORNADA=74
+```
+
+PowerShell:
 ```powershell
 python MOTOR_DECISION_QUINIELISTICA.py --jornada 74
 python PREDECIR_JORNADA.py --jornada 74
@@ -116,6 +181,14 @@ El soporte de backtest real está en `scripts/backtests/QUINIELA_REAL.py`. Solo
 acepta jornadas que declaren los 14 partidos oficiales, sus fechas, el Pleno al
 15 y su fuente trazable; nunca infiere un boleto desde filas consecutivas.
 
+Bash:
+```bash
+python3 scripts/backtests/QUINIELA_REAL.py
+# O mediante make:
+make real-quiniela
+```
+
+PowerShell:
 ```powershell
 python scripts/backtests/QUINIELA_REAL.py
 ```
@@ -133,7 +206,7 @@ ver `reports/production_reference.json` → `hashes.resumen.dataset_historico_co
 Referencia de produccion reproducible (commit SHA, hashes SHA-256 de datasets
 y configuracion, entorno, protocolo de evaluacion, metricas por temporada y
 division, y resultado de tests): `reports/production_reference.json`, generada
-con `python scripts/reports/GENERAR_PRODUCTION_REFERENCE.py`.
+con `python scripts/reports/GENERAR_PRODUCTION_REFERENCE.py` (o `make reference`).
 
 Contrato de columnas (auditoria externa 04/08/2026, P0): 3 dobles sobre los 14
 partidos = 8 columnas a 0,75 EUR = 6,00 EUR maximo; Pleno al 15 separado. El
@@ -149,9 +222,25 @@ Se integro el xG de disparo de Understat (Primera, 2014-2024; validado en
 `REVISION_12_XG_UNDERSTAT.md`) como feature rodante point-in-time en
 `scripts/motor/features.py`. El experimento A/B walk-forward en 10 temporadas
 (`REVISION_13_XG_INTEGRACION.md`, reproducido con
-`python scripts/backtests/EXPERIMENTO_XG.py --solo-primera --max-seasons 10`)
+`python3 scripts/backtests/EXPERIMENTO_XG.py --solo-primera --max-seasons 10`)
 mostró que **no mejora el modelo fuera de muestra** (−0,29 pp de acierto y
 −0,071 en la media de tres dobles vs el conjunto activo). Por ello **no se
 activa** en `feature_columns()` ni en la configuracion. La infraestructura queda
 aditiva y disponible por si en el futuro se justifica (p. ej. xG posicional o
 cobertura de Segunda).
+
+## Dataset oficial
+
+Fuente oficial: **histórico saneado** (`salida/datos_limpios/historico_saneado.csv`).
+
+Justificación (REVISION_05): empate estadístico completo entre original y saneado
+en los tres backtests (principal, 2025-26, 2024-25). McNemar no significativo
+(p=0,0931 principal; IC95 incluye 0 en todos). El saneado añade trazabilidad,
+exclusiones documentadas y corrige la entidad Cultural Leonesa. Por tanto, es la
+fuente preferente sin coste predictivo.
+
+El **histórico original** (`DATOS/historico_raw/`) queda como **dataset de
+diagnóstico**, no como camino paralelo. No hay rama alternativa ni pipeline
+duplicada: el saneado se genera desde el original con un solo comando
+(`python scripts/datos/SANEAR_DATOS.py --confirm`) y se valida con
+`pytest tests/test_sanitization.py`.

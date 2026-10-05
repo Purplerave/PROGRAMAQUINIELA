@@ -1,0 +1,130 @@
+{
+  "jornada": 1,
+  "source_url": "manual",
+  "scraped_at": "2026-08-06T10:00:00",
+  "cierre": "sábado 15 de agosto a las 19:30",
+  "temporada": "2026-2027",
+  "partidos": [
+    {
+      "num": 1,
+      "local": "Alavés",
+      "visitante": "Getafe",
+      "fecha": "2026-08-15",
+      "hora": "19:30",
+      "division": "primera"
+    },
+    {
+      "num": 2,
+      "local": "Sevilla",
+      "visitante": "Rayo Vallecano",
+      "fecha": "2026-08-15",
+      "hora": "21:30",
+      "division": "primera"
+    },
+    {
+      "num": 3,
+      "local": "R. Santander",
+      "visitante": "Villarreal",
+      "fecha": "2026-08-16",
+      "hora": "17:00",
+      "division": "primera"
+    },
+    {
+      "num": 4,
+      "local": "Espanyol",
+      "visitante": "Levante",
+      "fecha": "2026-08-16",
+      "hora": "19:00",
+      "division": "primera"
+    },
+    {
+      "num": 5,
+      "local": "Celta",
+      "visitante": "Osasuna",
+      "fecha": "2026-08-16",
+      "hora": "21:30",
+      "division": "primera"
+    },
+    {
+      "num": 6,
+      "local": "Andorra",
+      "visitante": "Ceuta",
+      "fecha": "2026-08-16",
+      "hora": "17:00",
+      "division": "segunda"
+    },
+    {
+      "num": 7,
+      "local": "Cádiz",
+      "visitante": "Celta Fortuna",
+      "fecha": "2026-08-16",
+      "hora": "19:00",
+      "division": "segunda"
+    },
+    {
+      "num": 8,
+      "local": "Real Oviedo",
+      "visitante": "Granada",
+      "fecha": "2026-08-15",
+      "hora": "17:00",
+      "division": "segunda"
+    },
+    {
+      "num": 9,
+      "local": "Mallorca",
+      "visitante": "Valladolid",
+      "fecha": "2026-08-15",
+      "hora": "19:30",
+      "division": "primera"
+    },
+    {
+      "num": 10,
+      "local": "Eibar",
+      "visitante": "Tenerife",
+      "fecha": "2026-08-15",
+      "hora": "21:30",
+      "division": "segunda"
+    },
+    {
+      "num": 11,
+      "local": "Burgos",
+      "visitante": "Córdoba",
+      "fecha": "2026-08-16",
+      "hora": "17:00",
+      "division": "segunda"
+    },
+    {
+      "num": 12,
+      "local": "Girona",
+      "visitante": "Leganés",
+      "fecha": "2026-08-16",
+      "hora": "19:00",
+      "division": "segunda"
+    },
+    {
+      "num": 13,
+      "local": "Las Palmas",
+      "visitante": "Albacete",
+      "fecha": "2026-08-16",
+      "hora": "21:00",
+      "division": "segunda"
+    },
+    {
+      "num": 14,
+      "local": "Sporting Gijón",
+      "visitante": "Sabadell",
+      "fecha": "2026-08-17",
+      "hora": "19:00",
+      "division": "segunda"
+    },
+    {
+      "num": 15,
+      "local": "Deportivo",
+      "visitante": "Elche",
+      "fecha": "2026-08-16",
+      "hora": "21:00",
+      "division": "segunda",
+      "pleno_al_15": true
+    }
+  ]
+}

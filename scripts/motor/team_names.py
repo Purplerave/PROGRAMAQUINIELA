@@ -43,9 +43,9 @@ def normalize_team_name(value: object) -> str:
 # Los alias se comparan siempre tras normalize_team_name.
 # ---------------------------------------------------------------------------
 HISTORY_NAME_ALIASES: dict[str, list[str]] = {
-    "Ath Bilbao": ["Athletic Club", "Athletic Bilbao", "Athletic de Bilbao"],
+    "Ath Bilbao": ["Athletic Club", "Athletic Bilbao", "Athletic de Bilbao", "Athletic"],
     "Ath Bilbao B": ["Bilbao Athletic", "Athletic Club B", "Athletic B"],
-    "Ath Madrid": ["Atletico de Madrid", "Atletico Madrid", "Atletico", "Ath Madrid"],
+    "Ath Madrid": ["Atletico de Madrid", "Atletico Madrid", "Atletico", "Ath Madrid", "At. Madrid"],
     "Barcelona": ["FC Barcelona", "Barca", "F.C. Barcelona"],
     "Barcelona B": ["FC Barcelona B", "Barça B"],
     "Betis": ["Real Betis", "Real Betis Balompie", "Real Betis Balompié"],
@@ -61,6 +61,7 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Cartagena": ["FC Cartagena", "Cartagena FC"],
     "Castellon": ["CD Castellon", "CD Castellón"],
     "Celta": ["RC Celta", "Celta de Vigo", "Celta Vigo", "RC Celta de Vigo", "Real Club Celta"],
+    "Celta B": ["Celta Fortuna", "RC Celta Fortuna", "Celta de Vigo II"],
     "Ceuta": ["AD Ceuta FC", "AD Ceuta"],
     "Cordoba": ["Cordoba CF", "Córdoba", "Córdoba CF"],
     "Cultural Leonesa": ["Cultural y Deportiva Leonesa", "Leonesa"],
@@ -107,10 +108,11 @@ HISTORY_NAME_ALIASES: dict[str, list[str]] = {
     "Salamanca": ["UD Salamanca"],
     "Santander": ["Racing Santander", "Racing de Santander", "RC Racing",
                   "R. Racing Club", "RC Racing de Santander", "Real Racing Club",
-                  "Racing Club"],
+                  "Racing Club", "R. Santander"],
     "Sevilla": ["Sevilla FC"],
     "Sevilla B": ["Sevilla Atletico", "Sevilla Atlético", "Sevilla At"],
-    "Sociedad": ["Real Sociedad", "Real Sociedad de Futbol", "Real Sociedad de Fútbol"],
+    "Sociedad": ["Real Sociedad", "Real Sociedad de Futbol", "Real Sociedad de Fútbol",
+                 "R. Sociedad"],
     "Sociedad B": ["Real Sociedad B", "R. Sociedad B", "Sanse"],
     "Sp Gijon": ["Sporting Gijon", "Sporting Gijón", "Sporting de Gijon", "Sporting de Gijón",
                  "Real Sporting", "Real Sporting de Gijon", "Real Sporting de Gijón",

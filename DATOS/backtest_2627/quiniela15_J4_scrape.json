@@ -1,0 +1,41 @@
+{
+  "jornada": 4,
+  "temporada": "2026-2027",
+  "scraped_at": null,
+  "source_url": null,
+  "source": "Boleto J4 aportado manualmente por el usuario (2026-08-31). Horarios verificados y corregidos el 06/09/2026 contra quiniela15.com y LaLiga (el boleto traia horas desfasadas e incluso el Espanyol-Sevilla en dia equivocado)",
+  "partidos": [
+    {"num": 1, "local": "Athletic Club", "visitante": "At. Madrid"},
+    {"num": 2, "local": "Rayo Vallecano", "visitante": "Racing Santander"},
+    {"num": 3, "local": "Villarreal", "visitante": "Deportivo"},
+    {"num": 4, "local": "Valencia", "visitante": "Barcelona"},
+    {"num": 5, "local": "Alavés", "visitante": "Osasuna"},
+    {"num": 6, "local": "Málaga", "visitante": "Levante"},
+    {"num": 7, "local": "Espanyol", "visitante": "Sevilla"},
+    {"num": 8, "local": "Real Sociedad B", "visitante": "Tenerife"},
+    {"num": 9, "local": "Sporting", "visitante": "Girona"},
+    {"num": 10, "local": "Almería", "visitante": "Cádiz"},
+    {"num": 11, "local": "Sevilla (F)", "visitante": "Barcelona (F)"},
+    {"num": 12, "local": "Logroño (F)", "visitante": "Athletic Club (F)"},
+    {"num": 13, "local": "At. Madrid (F)", "visitante": "Alavés (F)"},
+    {"num": 14, "local": "Real Madrid (F)", "visitante": "Eibar (F)"},
+    {"num": 15, "local": "Getafe", "visitante": "Celta"}
+  ],
+  "horarios": {
+    "1": {"fecha": "2026-09-05", "hora": "16:15"},
+    "2": {"fecha": "2026-09-05", "hora": "18:30"},
+    "3": {"fecha": "2026-09-05", "hora": "21:00"},
+    "4": {"fecha": "2026-09-06", "hora": "16:15"},
+    "5": {"fecha": "2026-09-06", "hora": "18:30"},
+    "6": {"fecha": "2026-09-06", "hora": "18:30"},
+    "7": {"fecha": "2026-09-06", "hora": "21:00"},
+    "8": {"fecha": "2026-09-05", "hora": "19:00"},
+    "9": {"fecha": "2026-09-06", "hora": "16:30"},
+    "10": {"fecha": "2026-09-06", "hora": "21:00"},
+    "11": {"fecha": "2026-09-06", "hora": "12:00"},
+    "12": {"fecha": "2026-09-06", "hora": "18:30"},
+    "13": {"fecha": "2026-09-06", "hora": "17:00"},
+    "14": {"fecha": "2026-09-06", "hora": "20:30"},
+    "15": {"fecha": "2026-09-07", "hora": "19:00"}
+  }
+}

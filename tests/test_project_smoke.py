@@ -15,7 +15,7 @@ def test_required_project_files_exist():
 
 def test_historical_csvs_are_packaged():
     csv_files = list(Path(settings.RAW_BASE).rglob("*.csv"))
-    assert len(csv_files) == 32
+    assert len(csv_files) == 34  # 16 temporadas football-data + SP1/SP2_2627 (Highlightly, 08/09/2026)
 
 
 def test_loader_uses_original_by_default():

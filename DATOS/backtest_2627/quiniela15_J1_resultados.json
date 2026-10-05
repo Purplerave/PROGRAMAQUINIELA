@@ -1,0 +1,120 @@
+{
+ "jornada": 1,
+ "fuente": "Aportados por el usuario (19/08/2026), verificados contra data/jornada 1.txt",
+ "verificado_en": "2026-08-19T20:30:00+02:00",
+ "nota": "Resultados oficiales completos de la J1 por partido_id (1-15, salvo el aplazado Celta-Osasuna). Incluye los partidos 11-15 y el pleno al 15 (Deportivo-Elche 1-1).",
+ "resultados": [
+  {
+   "id": 1,
+   "goles_local": 3,
+   "goles_visitante": 0,
+   "signo": "1",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 2,
+   "goles_local": 2,
+   "goles_visitante": 1,
+   "signo": "1",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 3,
+   "goles_local": 2,
+   "goles_visitante": 2,
+   "signo": "X",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 4,
+   "goles_local": 3,
+   "goles_visitante": 0,
+   "signo": "1",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 6,
+   "goles_local": 5,
+   "goles_visitante": 1,
+   "signo": "1",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 7,
+   "goles_local": 0,
+   "goles_visitante": 0,
+   "signo": "X",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 8,
+   "goles_local": 0,
+   "goles_visitante": 0,
+   "signo": "X",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 9,
+   "goles_local": 2,
+   "goles_visitante": 0,
+   "signo": "1",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 10,
+   "goles_local": 1,
+   "goles_visitante": 3,
+   "signo": "2",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 11,
+   "goles_local": 3,
+   "goles_visitante": 2,
+   "signo": "1",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 12,
+   "goles_local": 1,
+   "goles_visitante": 1,
+   "signo": "X",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 13,
+   "goles_local": 2,
+   "goles_visitante": 1,
+   "signo": "1",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 14,
+   "goles_local": 0,
+   "goles_visitante": 0,
+   "signo": "X",
+   "status": "FT",
+   "minuto": "Finalizado"
+  },
+  {
+   "id": 15,
+   "goles_local": 1,
+   "goles_visitante": 1,
+   "signo": "1-1",
+   "status": "FT",
+   "minuto": "Finalizado"
+  }
+ ]
+}
