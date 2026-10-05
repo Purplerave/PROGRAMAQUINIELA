@@ -42,6 +42,58 @@ def quitar_tags(fragmento: str) -> str:
     return "\n".join(lineas)
 
 
+HORA_RE = re.compile(r"^[DLVMSJX]\s+\d{1,2}:\d{2}$")
+
+
+def parsear_filas(html: str) -> list[dict]:
+    """Parseo por filas de la tabla (Local, Visitante, Sis., Usu., Hora).
+
+    El parseo anterior por marcas `>N<` fallaba porque Sis./Usu. tambien
+    contienen celdas numericas 1..15: cada casilla heredaba la hora de la
+    fila anterior (y la 1 quedaba vacia). Aqui se consume la tabla en
+    orden: numero esperado 1..15, local, visitante y la primera celda
+    con patron dia+hora posterior.
+    """
+    m_hora = re.search(r"Hora", html)
+    if not m_hora:
+        return []
+    fin_opcs = [html.find("Resultados en directo", m_hora.end()),
+                html.find("Haz tu pronóstico", m_hora.end())]
+    fin = min([x for x in fin_opcs if x > 0], default=len(html))
+    frag = html[m_hora.end():fin]
+    toks = [l for l in quitar_tags(frag).splitlines()
+            if l and not l.startswith("Escudo") and "src=" not in l
+            and not l.startswith("<img")]
+    filas: list[dict] = []
+    esperado, k = 1, 0
+    while k < len(toks) and esperado <= 15:
+        if toks[k] != str(esperado):
+            k += 1
+            continue
+        if k + 2 >= len(toks):
+            break
+        local, visitante = toks[k + 1], toks[k + 2]
+        if (not re.fullmatch(r"[A-Za-zÁÉÍÓÚáéíóúÑñ.'()\-/ ]{3,34}", local)
+                or not re.fullmatch(r"[A-Za-zÁÉÍÓÚáéíóúÑñ.'()\-/ ]{3,34}", visitante)):
+            k += 1
+            continue
+        j = k + 3
+        while j < len(toks) and not HORA_RE.match(toks[j]):
+            j += 1
+        if j >= len(toks) or j - (k + 3) > 6:
+            k += 1
+            continue
+        inter = toks[k + 3:j]
+        filas.append({"numero": esperado, "local": local,
+                      "visitante": visitante,
+                      "sistema": inter[0] if len(inter) > 0 else "",
+                      "comunidad": inter[-1] if len(inter) > 1 else "",
+                      "dia_hora": toks[j]})
+        esperado += 1
+        k = j + 1
+    return filas
+
+
 def parsear(html: str) -> dict:
     # Bloque entre el titulo del pronostico y el texto del cierre/bote
     m_jor = re.search(r"jornada\s+(\d{1,2})", html, re.I)
@@ -52,38 +104,43 @@ def parsear(html: str) -> dict:
     bloque = html[inicio:fin] if 0 < inicio < fin else html
 
     # posiciones de numeros de casilla (celda suelta 1..15)
-    marcas = [(mm.start(), int(mm.group(1)))
-              for mm in re.finditer(r">(\d{1,2})<", bloque)
-              if 1 <= int(mm.group(1)) <= 15]
-    # dedup consecutivos manteniendo orden ascendente estricto
-    limpios, esperado = [], 1
-    for pos, num in marcas:
-        if num == esperado:
-            limpios.append((pos, num))
-            esperado += 1
-        elif limpios and num == limpios[-1][1]:
-            continue
+    filas = parsear_filas(html)
     casillas = []
-    for i, (pos, num) in enumerate(limpios):
-        hasta = limpios[i + 1][0] if i + 1 < len(limpios) else len(bloque)
-        frag = quitar_tags(bloque[pos:hasta])
-        lineas = frag.splitlines()
-        equipos = [l for l in lineas
-                   if re.fullmatch(r"[A-Za-zÁÉÍÓÚáéíóúÑñ.'()\-/ ]{3,34}", l)
-                   and not re.match(r"^[DLVMS]\s\d", l)]
-        m_hora = re.search(r"\b([DLVMS])\s+(\d{1,2}:\d{2})\b", frag)
-        local = visitante = ""
-        for j, l in enumerate(equipos):
-            if re.match(r"^\d+$", l):
+    if len(filas) == 15 and all(f["local"] and f["visitante"] for f in filas):
+        casillas = filas
+    else:
+        marcas = [(mm.start(), int(mm.group(1)))
+                  for mm in re.finditer(r">(\d{1,2})<", bloque)
+                  if 1 <= int(mm.group(1)) <= 15]
+        # dedup consecutivos manteniendo orden ascendente estricto
+        limpios, esperado = [], 1
+        for pos, num in marcas:
+            if num == esperado:
+                limpios.append((pos, num))
+                esperado += 1
+            elif limpios and num == limpios[-1][1]:
                 continue
-            if not local:
-                local = l
-            elif not visitante:
-                visitante = l
-                break
-        casillas.append({"numero": num, "local": local,
-                         "visitante": visitante,
-                         "dia_hora": (m_hora.group(0) if m_hora else "")})
+        casillas = []
+        for i, (pos, num) in enumerate(limpios):
+            hasta = limpios[i + 1][0] if i + 1 < len(limpios) else len(bloque)
+            frag = quitar_tags(bloque[pos:hasta])
+            lineas = frag.splitlines()
+            equipos = [l for l in lineas
+                       if re.fullmatch(r"[A-Za-zÁÉÍÓÚáéíóúÑñ.'()\-/ ]{3,34}", l)
+                       and not re.match(r"^[DLVMS]\s\d", l)]
+            m_hora = re.search(r"\b([DLVMS])\s+(\d{1,2}:\d{2})\b", frag)
+            local = visitante = ""
+            for j, l in enumerate(equipos):
+                if re.match(r"^\d+$", l):
+                    continue
+                if not local:
+                    local = l
+                elif not visitante:
+                    visitante = l
+                    break
+            casillas.append({"numero": num, "local": local,
+                             "visitante": visitante,
+                             "dia_hora": (m_hora.group(0) if m_hora else "")})
     doc = {
         "fuente": "quiniela15.com",
         "capturado": datetime.now().isoformat(timespec="seconds"),
