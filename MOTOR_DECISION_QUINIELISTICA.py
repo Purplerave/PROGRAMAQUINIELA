@@ -171,6 +171,9 @@ def diagnose_jornada(jornada):
             "visitante": repair_text(match.get("visitante")),
             "fecha": match.get("fecha"),
             "hora": match.get("hora"),
+            # Señal externa Highlightly (comparativa; nunca mercado)
+            "hl": match.get("hl"),
+            "hl_generated_at": match.get("hl_generated_at"),
             "contexto_manual": [],
             "maestra": master_notes.get(num),
         }

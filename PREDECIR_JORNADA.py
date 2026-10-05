@@ -198,10 +198,12 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
                         "2": pred.get("prob_2"),
                     },
                     "comparativa": {
-                        # Mantener APU/LAE/Q15 solo como información comparativa
+                        # Mantener APU/LAE/Q15/HL solo como información comparativa
                         "apu": match.pop("apu", None),
                         "lae": match.pop("lae", None),
                         "q15": match.pop("q15", None),
+                        "hl": match.pop("hl", None),
+                        "hl_generated_at": match.pop("hl_generated_at", None),
                     },
                     "fuente_principal": "motor_maestro_hibrido",
                     "nota": "probabilidades.modelo contiene las predicciones del modelo. probabilidades.comparativa contiene APU/LAE/Q15 solo como referencia.",
