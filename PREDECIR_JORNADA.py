@@ -300,7 +300,19 @@ def build_recommendation_for_match(match: dict) -> dict:
         umbral_doble = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("double_sorted_prob_min", 0.25)
     except Exception:
         umbral_conf, umbral_gap, umbral_doble = 0.7, 0.25, 0.25
-    if confianza >= umbral_conf and gap_primero_segundo >= umbral_gap:
+    p_top = sorted_probs[0][1]
+    # Issue #36: un favorito 1@0.891 (gap 0.82, conf 0.62 por entropía)
+    # caía a "triple" porque la confianza de entropía nunca llega a 0.7
+    # y la 2ª prob (<0.25) bloqueaba el doble. Un triple en un 89% es
+    # absurdo: si el gap es amplio y p_top >= 0.60 con confianza mínima
+    # de doble (>=0.5), es fijo. Se exige confianza >=0.5 para no regalar
+    # simples cuando el propio modelo duda (conf baja => triple/doble).
+    es_fijo_por_cuota = (
+        p_top >= 0.60
+        and gap_primero_segundo >= umbral_gap
+        and confianza >= 0.5
+    )
+    if (confianza >= umbral_conf and gap_primero_segundo >= umbral_gap) or es_fijo_por_cuota:
         tipo_apuesta = "simple"
         signos = signo_principal
     elif confianza >= 0.5 and sorted_probs[1][1] >= umbral_doble:

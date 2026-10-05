@@ -99,6 +99,30 @@ def test_constante_de_campos_por_defecto():
     assert ODDS_TIMESTAMP_FIELDS == ("odds_observed_at", "prediction_cutoff_at", "kickoff_at")
 
 
+def test_issue34_tz_aware_vs_naive_no_lanza():
+    """Issue #34: offset +02:00 vs naive no debe tumbar la validación."""
+    m = _match(
+        6,
+        "2026-09-11T19:00:00+02:00",
+        "2026-09-11T19:30:00",
+        "2026-09-12T18:00:00",
+    )
+    report = validate_odds_timestamps([m])
+    assert report["ok"] is True
+    assert report["partidos_validados"] == 1
+
+
+def test_issue34_mismo_instante_distinto_offset_es_valido():
+    """19:00+02:00 == 17:00Z: la comparación debe ser en UTC, no por string."""
+    m = _match(
+        7,
+        "2026-09-11T19:00:00+02:00",
+        "2026-09-11T17:00:00Z",
+        "2026-09-12T18:00:00",
+    )
+    assert validate_odds_timestamps([m])["ok"] is True
+
+
 # --- Integración con compute_features_for_upcoming (opt-in) -------------------
 
 @pytest.fixture(scope="module")

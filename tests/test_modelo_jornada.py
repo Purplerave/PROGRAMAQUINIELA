@@ -493,6 +493,22 @@ class TestIntegration:
         assert rec_3["tipo_apuesta"] == "doble"
         assert "1X" in rec_3["apuesta_recomendada"]
 
+    def test_issue36_favorito_89_no_es_triple(self):
+        """Issue #36: Real Madrid 1@0.891 (gap 0.82, conf 0.62) debe ser simple."""
+        from PREDECIR_JORNADA import build_recommendation_for_match
+
+        match = {
+            "num": 1,
+            "modelo_maestro": {"confianza": 0.62},
+            "probabilidades": {
+                "modelo": {"1": 0.891, "X": 0.06, "2": 0.049}
+            },
+        }
+        rec = build_recommendation_for_match(match)
+        assert rec["signo_principal"] == "1"
+        assert rec["tipo_apuesta"] == "simple"
+        assert rec["apuesta_recomendada"] == "1"
+
     def test_save_predictions(self, tmp_path, monkeypatch):
         monkeypatch.setattr(settings, "SALIDAS_DIR", tmp_path)
 

@@ -143,3 +143,22 @@ def test_empty_upcoming_matches_list_returns_empty_dataframe(sample_history: pd.
     assert len(df_empty) == 0
     for col in get_expected_columns():
         assert col in df_empty.columns
+
+
+def test_issue35_sin_division_infiere_segunda_por_historico(sample_history: pd.DataFrame):
+    """Issue #35: sin clave `division`, un Segunda no debe caer a Primera con pj=0."""
+    from scripts.motor.features import TeamStateTracker
+
+    tracker = TeamStateTracker()
+    tracker.process_history(sample_history, cutoff_date="2025-01-01")
+    # Buscar un equipo cuya última división conocida sea Segunda
+    candidatos = [t for t, d in tracker.team_divisions.items() if d == "Segunda"]
+    assert candidatos, "el histórico de muestra debe incluir equipos de Segunda"
+    equipo = sorted(candidatos)[0]
+    rival = "Real Madrid"
+    match = {"home": equipo, "away": rival, "date": "2025-01-10"}
+    df_up = compute_features_for_upcoming([match], sample_history, cutoff_date="2025-01-01")
+    assert len(df_up) == 1
+    assert df_up.loc[0, "division"] == "Segunda"
+    # Al inferir bien la tabla, al menos un lado debe tener partidos
+    assert (df_up.loc[0, "home_table_pj"] > 0) or (df_up.loc[0, "away_table_pj"] > 0)

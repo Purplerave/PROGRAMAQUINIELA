@@ -561,7 +561,11 @@ def predict_jornada_from_model(
             "home": p.get("local"),
             "away": p.get("visitante"),
             "date": fecha_partido,
-            "division": p.get("division", "Primera"),
+            # Issue #35: no forzar "Primera" aquí. Si el boleto no trae
+            # división, se propaga None y `normalize_upcoming_match` la
+            # infiere por equipo desde el histórico (team_divisions).
+            # Forzar Primera dejaba a Segunda con pj=0 silencioso.
+            "division": (p.get("division") or None),
             "season": season,
             # Cuotas reales si vienen en el JSON de jornada (entrada estable);
             # APU/LAE/Q15 NO se pasan: nunca se interpretan como cuotas.

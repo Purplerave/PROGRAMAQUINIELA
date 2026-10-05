@@ -690,6 +690,8 @@ class TeamStateTracker:
         if pd.isna(dt):
             dt = pd.to_datetime(cutoff_date, errors="coerce")
         division = match.get("division")
+        if isinstance(division, str):
+            division = division.strip()
         if not division:
             division = (
                 self.team_divisions.get(home)
@@ -697,6 +699,8 @@ class TeamStateTracker:
                 or "Primera"
             )
         division = str(division).strip()
+        if not division:
+            division = "Primera"
         season = match.get("season")
         if not season:
             season = infer_season(dt)
@@ -790,6 +794,23 @@ def rolling_team_features(
 ODDS_TIMESTAMP_FIELDS = ("odds_observed_at", "prediction_cutoff_at", "kickoff_at")
 
 
+def _normalize_odds_timestamp(value: object) -> pd.Timestamp:
+    """Parsea un timestamp de cuotas y lo normaliza a naive UTC.
+
+    Issue #34: `odds_observed_at` puede traer offset (ej. +02:00) mientras
+    `kickoff_at` es naive. Comparar tz-aware vs naive lanza
+    `Cannot compare tz-naive and tz-aware timestamps` y tumbaba el modelo
+    J6. Normalizamos todo a naive UTC para comparar sin excepciones.
+    """
+    ts = pd.to_datetime(value, errors="coerce", utc=True)
+    if pd.isna(ts):
+        return ts
+    try:
+        return ts.tz_convert("UTC").tz_localize(None)
+    except Exception:
+        return ts
+
+
 def validate_odds_timestamps(
     partidos: list[dict[str, Any]],
     *,
@@ -830,7 +851,7 @@ def validate_odds_timestamps(
             if value is None or (isinstance(value, str) and not value.strip()):
                 issues.append(f"{field}_ausente")
                 continue
-            ts = pd.to_datetime(value, errors="coerce")
+            ts = _normalize_odds_timestamp(value)
             if pd.isna(ts):
                 issues.append(f"{field}_invalido")
                 continue
