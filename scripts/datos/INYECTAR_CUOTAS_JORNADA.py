@@ -71,7 +71,12 @@ def leer_csv(ruta: Path) -> dict[int, dict]:
             filas[num] = fila
     faltan = [n for n in range(1, 15) if n not in filas]
     if faltan:
-        raise ValueError(f"faltan cuotas de las casillas: {faltan}")
+        # Hueco documentado (p. ej. casilla 1 J12 sin cuotas publicadas aun):
+        # se inyecta el resto y el motor usa HGB+Poisson con aviso en el
+        # faltante. Falla solo si no hay NINGUNA cuota valida.
+        if len(filas) == 0:
+            raise ValueError("CSV sin cuotas validas")
+        print(f"  aviso: sin cuotas en casillas {faltan} (fallback HGB+Poisson con aviso)")
     return filas
 
 

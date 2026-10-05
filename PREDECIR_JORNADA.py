@@ -204,6 +204,7 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
                         "q15": match.pop("q15", None),
                         "hl": match.pop("hl", None),
                         "hl_generated_at": match.pop("hl_generated_at", None),
+                        "pizarra": match.pop("pizarra", None),
                     },
                     "fuente_principal": "motor_maestro_hibrido",
                     "nota": "probabilidades.modelo contiene las predicciones del modelo. probabilidades.comparativa contiene APU/LAE/Q15 solo como referencia.",

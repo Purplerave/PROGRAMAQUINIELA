@@ -51,9 +51,16 @@ def test_exige_timestamp(tmp_path):
         leer_csv(ruta)
 
 
-def test_exige_las_14_casillas(tmp_path):
-    ruta = _csv(tmp_path, [_fila(n) for n in range(1, 10)])
-    with pytest.raises(ValueError, match="faltan cuotas"):
+def test_faltan_casillas_avisa_pero_inyecta_resto(tmp_path):
+    ruta = _csv(tmp_path, [_fila(n) for n in range(2, 15)])
+    cuotas = leer_csv(ruta)
+    assert len(cuotas) == 13
+    assert 1 not in cuotas
+
+
+def test_sin_ninguna_cuota_falla(tmp_path):
+    ruta = _csv(tmp_path, [])
+    with pytest.raises(ValueError, match="sin cuotas validas"):
         leer_csv(ruta)
 
 

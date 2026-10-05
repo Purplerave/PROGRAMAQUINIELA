@@ -174,6 +174,8 @@ def diagnose_jornada(jornada):
             # Señal externa Highlightly (comparativa; nunca mercado)
             "hl": match.get("hl"),
             "hl_generated_at": match.get("hl_generated_at"),
+            # Modelo propio pizarra15 (comparativa; nunca mercado)
+            "pizarra": match.get("pizarra"),
             "contexto_manual": [],
             "maestra": master_notes.get(num),
         }
