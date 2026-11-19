@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -35,7 +37,8 @@ jobs:
       - name: Comprobar sintaxis, nombres y diff
         run: |
           make lint
-          git show --format= --check HEAD
+          base=$(git merge-base origin/main HEAD)
+          git diff --check "$base" HEAD
 
       - name: Suite de tests
         run: python -m pytest tests/ -q
