@@ -1,6 +1,6 @@
 """GENERAR_PRODUCTION_REFERENCE.py — Referencia de producción reproducible.
 
-Genera `reports/production_reference.json` con:
+Genera `salida/referencia_produccion.json` con:
 
 - commit SHA del repositorio en el momento de la generación;
 - hashes SHA-256 de los datasets (histórico raw, highlightly, temporada 2026-27,
@@ -26,7 +26,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import platform
 import subprocess
 import sys
@@ -37,12 +36,19 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 import settings
+from scripts.backtests.BACKTEST_HISTORICO_TEMPORADAS import evaluation_protocol
+from scripts.json_output import write_json
 
 BACKTEST_SCRIPT = PROJECT_ROOT / "scripts" / "backtests" / "BACKTEST_HISTORICO_TEMPORADAS.py"
 BACKTEST_JSON = settings.SALIDA_DIR / "backtest_historico_temporadas.json"
-BACKTEST_RESUMEN_JSON = settings.SALIDA_DIR / "backtest_historico_temporadas_resumen.json"
-ECONOMIA_JSON = settings.SALIDA_DIR / "evaluacion_economica.json"
-DEFAULT_OUT = PROJECT_ROOT / "reports" / "production_reference.json"
+DEFAULT_OUT = settings.SALIDA_DIR / "referencia_produccion.json"
+FIRST_SEASON = "2019-2020"
+LAST_SEASON = "2025-2026"
+CLOSED_DIVISION_COUNTS = {"Primera": 380, "Segunda": 462}
+
+
+def backtest_args() -> list[str]:
+    return ["--historico", settings.official_history_source(), "--from-season", FIRST_SEASON, "--to-season", LAST_SEASON]
 
 
 def sha256_file(path: Path) -> str:
@@ -119,21 +125,19 @@ def environment_info() -> dict:
     }
 
 
-def run_backtest() -> dict:
+def run_backtest(backtest_file: Path) -> dict:
     """Lanza el backtest walk-forward por temporadas y devuelve los JSON."""
     result = subprocess.run(
-        [sys.executable, str(BACKTEST_SCRIPT)],
+        [sys.executable, str(BACKTEST_SCRIPT), *backtest_args(), "--out-dir", str(backtest_file.parent)],
         cwd=PROJECT_ROOT,
         capture_output=True,
         text=True,
     )
     if result.returncode != 0:
         raise RuntimeError(
-            f"El backtest falló (código {result.returncode}):\n{result.stderr[-2000:]}"
+            f"El backtest falló (código {result.returncode}):\n{(result.stderr or result.stdout)[-2000:]}"
         )
-    if not BACKTEST_JSON.is_file():
-        raise FileNotFoundError(f"No se generó {BACKTEST_JSON}")
-    return json.loads(BACKTEST_JSON.read_text(encoding="utf-8"))
+    return json.loads(backtest_file.read_text(encoding="utf-8"))
 
 
 def run_tests() -> dict:
@@ -175,6 +179,7 @@ def metrics_from_backtest(backtest: dict) -> tuple[list[dict], dict]:
             "accuracy_simple": row.get("accuracy_simple"),
             "accuracy_market_favorite": row.get("accuracy_market_favorite"),
             "mean_hits_3_dobles": row.get("mean_hits_3_dobles"),
+            "probabilistic_scores": row.get("probabilistic_scores"),
             "best_jornada_3_dobles": row.get("best_jornada_3_dobles"),
             "divisiones": {
                 div: {
@@ -189,13 +194,31 @@ def metrics_from_backtest(backtest: dict) -> tuple[list[dict], dict]:
             entry["error"] = row["error"]
         por_temporada.append(entry)
 
-    resumen_path = BACKTEST_RESUMEN_JSON
-    resumen = (
-        json.loads(resumen_path.read_text(encoding="utf-8"))
-        if resumen_path.is_file()
-        else {}
-    )
-    return por_temporada, resumen
+    return por_temporada, backtest["resumen"]
+
+
+def validate_backtest_reference(backtest: dict, expected_protocol: dict) -> None:
+    """Impide certificar resultados parciales o generados bajo otro protocolo."""
+    summary = backtest.get("resumen", {})
+    if backtest.get("protocolo") != expected_protocol or summary.get("protocolo") != expected_protocol:
+        raise ValueError("El backtest no coincide con el protocolo, código, entorno o hashes actuales; regénéralo.")
+    first = int(expected_protocol["desde_temporada"][:4])
+    last = int(expected_protocol["hasta_temporada"][:4])
+    expected_seasons = [f"{year}-{year + 1}" for year in range(first, last + 1)]
+    rows = backtest.get("rows", [])
+    details = backtest.get("details", {})
+    if (
+        [row.get("season") for row in rows] != expected_seasons
+        or any(row.get("error") or not row.get("test_matches") for row in rows)
+        or set(details) != set(expected_seasons)
+        or summary.get("temporadas") != len(expected_seasons)
+        or summary.get("temporadas_con_error") != 0
+    ):
+        raise ValueError("El backtest de referencia no cubre todas las temporadas sin errores.")
+    for row in rows:
+        season = row["season"]
+        if row["test_matches"] != sum(CLOSED_DIVISION_COUNTS.values()) or details[season].get("divisions_test") != CLOSED_DIVISION_COUNTS:
+            raise ValueError(f"Temporada incompleta {season}: se requieren 380 partidos de Primera y 462 de Segunda")
 
 
 def main() -> None:
@@ -204,28 +227,27 @@ def main() -> None:
     parser.add_argument(
         "--reuse-backtest",
         action="store_true",
-        help="reutiliza salida/backtest_historico_temporadas.json si existe",
+        help="reutiliza un backtest existente con el mismo protocolo y hashes",
     )
+    parser.add_argument("--backtest-json", type=Path, default=BACKTEST_JSON, help="ruta del backtest para --reuse-backtest")
     parser.add_argument("--skip-tests", action="store_true", help="no ejecutar pytest")
     args = parser.parse_args()
 
-    if args.reuse_backtest and not BACKTEST_JSON.is_file():
-        parser.error(f"--reuse-backtest requiere que exista {BACKTEST_JSON}")
+    if args.reuse_backtest and not args.backtest_json.is_file():
+        parser.error(f"--reuse-backtest requiere que exista {args.backtest_json}")
+    if not args.reuse_backtest and args.backtest_json != BACKTEST_JSON:
+        parser.error("--backtest-json solo se usa con --reuse-backtest")
+    if args.out.resolve() == args.backtest_json.resolve():
+        parser.error("--out debe ser distinto del JSON de backtest")
 
     # 1) Git
     commit_sha = git(["rev-parse", "HEAD"])
     branch = git(["branch", "--show-current"])
-    porcelain = git(["status", "--porcelain"])
-    # El propio fichero de referencia (o su versión anterior) no cuenta como
-    # cambio sin commit: es el artefacto que este script regenera. git colapsa
-    # los ficheros no rastreados al directorio (`?? reports/`), por lo que se
-    # excluyen tanto la ruta del fichero como el prefijo de su directorio.
-    out_rel = str(args.out.relative_to(PROJECT_ROOT))
-    out_dir_rel = str(args.out.parent.relative_to(PROJECT_ROOT)) + "/"
-    dirty = [
-        line for line in porcelain.splitlines()
-        if out_rel not in line and out_dir_rel not in line
-    ]
+    out_path = args.out.resolve()
+    status_args = ["status", "--porcelain", "--untracked-files=all"]
+    if out_path.is_relative_to(PROJECT_ROOT):
+        status_args += ["--", ".", f":(exclude,literal){out_path.relative_to(PROJECT_ROOT).as_posix()}"]
+    dirty = git(status_args).splitlines()
     git_info = {
         "repositorio": "Purplerave/PROGRAMAQUINIELA",
         "commit_sha": commit_sha,
@@ -243,9 +265,9 @@ def main() -> None:
     # 4) Protocolo de evaluación
     protocolo = {
         "tipo": "backtest walk-forward por temporada",
-        "train": "todas las temporadas anteriores a la temporada objetivo",
-        "test": "la temporada objetivo completa (842 partidos)",
-        "horizonte": "2019-2020 .. 2025-2026 (7 temporadas)",
+        "train": "temporadas previas; solo fechas anteriores al primer partido de test",
+        "test": "partidos utilizables de cada temporada objetivo",
+        "horizonte": f"{FIRST_SEASON} .. {LAST_SEASON}",
         "contrato_columnas": (
             "3 dobles sobre 14 partidos = 8 columnas a 0,75 EUR = 6,00 EUR max.; "
             "Pleno al 15 separado (contrato P0 2026-08-04)"
@@ -266,30 +288,17 @@ def main() -> None:
         "script": "scripts/backtests/BACKTEST_HISTORICO_TEMPORADAS.py",
     }
 
-    # 5) Backtest
-    backtest = None
-    if args.reuse_backtest:
-        backtest = json.loads(BACKTEST_JSON.read_text(encoding="utf-8"))
-    else:
-        backtest = run_backtest()
+    # 5) Backtest: el JSON contiene métricas y resumen con la misma procedencia.
+    try:
+        expected = evaluation_protocol(settings.official_history_source(), FIRST_SEASON, LAST_SEASON)
+        backtest = (json.loads(args.backtest_json.read_text(encoding="utf-8")) if args.reuse_backtest
+                    else run_backtest(BACKTEST_JSON))
+        validate_backtest_reference(backtest, expected)
+    except (OSError, ValueError, RuntimeError) as exc:
+        parser.error(str(exc))
+    protocolo["ejecucion"] = expected
+    resumen_hashes["historico_evaluado"] = expected["historico_sha256"]
     por_temporada, resumen_bt = metrics_from_backtest(backtest)
-
-    # 5b) Métrica económica (P0.1). Resumen compacto si existe la evaluación.
-    economia = None
-    if ECONOMIA_JSON.is_file():
-        econ_full = json.loads(ECONOMIA_JSON.read_text(encoding="utf-8"))
-        economia = {
-            "fuente": str(ECONOMIA_JSON.relative_to(PROJECT_ROOT)),
-            "premios_estimados": econ_full.get("premios_estimados", True),
-            "nota": econ_full.get("nota"),
-            "escenario_por_defecto": econ_full.get("escenario_por_defecto"),
-            "jornadas_totales": econ_full.get("jornadas_totales"),
-            "modelo": econ_full.get("modelo"),
-            "solo_favoritos_mercado": econ_full.get("solo_favoritos_mercado"),
-            "delta_roi_vs_market_6eur": econ_full.get("delta_roi_vs_market_6eur"),
-            "sensibilidad_escenarios": econ_full.get("sensibilidad_escenarios"),
-            "reproducir": "python scripts/backtests/EVALUACION_ECONOMICA.py",
-        }
 
     # 6) Tests
     tests = None
@@ -297,10 +306,12 @@ def main() -> None:
         tests = {"comando": f"{sys.executable} -m pytest tests/ -q", "omitido": True}
     else:
         tests = run_tests()
+        if tests["exit_code"] != 0:
+            parser.error(f"La suite de pruebas falló; no se escribe la referencia:\n{tests['salida_tail']}")
 
     payload = {
         "documento": "Referencia de producción — motor quinielístico",
-        "version": "1.0",
+        "version": "1.1",
         "generado_por": "scripts/reports/GENERAR_PRODUCTION_REFERENCE.py",
         "git": git_info,
         "hashes": {"archivos": archivos, "resumen": resumen_hashes},
@@ -308,20 +319,19 @@ def main() -> None:
         "protocolo_evaluacion": protocolo,
         "metricas_por_temporada": por_temporada,
         "metricas_agregadas": resumen_bt,
-        "economia": economia,
+        "economia": None,  # No anexar métricas económicas sin procedencia coincidente.
         "resultado_tests": tests,
         "reproducir": {
-            "backtest": f"python {BACKTEST_SCRIPT.relative_to(PROJECT_ROOT)}",
+            "backtest": f"python {BACKTEST_SCRIPT.relative_to(PROJECT_ROOT)} {' '.join(backtest_args())}",
             "tests": "python -m pytest tests/ -q",
             "referencia": "python scripts/reports/GENERAR_PRODUCTION_REFERENCE.py",
         },
     }
 
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Referencia de producción escrita en {args.out}")
+    write_json(out_path, payload)
+    print(f"Referencia de producción escrita en {out_path}")
     print(f"  commit: {commit_sha} | branch: {branch} | árbol limpio: {not dirty}")
-    print(f"  temporadas: {len(por_temporada)} | tests: {tests.get('resumen') or tests.get('omitido')}")
+    print(f"  temporadas: {len(por_temporada)} | tests: {tests.get('resumen', 'omitidos explícitamente')}")
 
 
 if __name__ == "__main__":

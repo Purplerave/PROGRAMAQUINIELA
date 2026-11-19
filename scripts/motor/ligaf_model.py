@@ -21,6 +21,7 @@ import csv
 import math
 import unicodedata
 from datetime import datetime
+from itertools import groupby
 from pathlib import Path
 
 import numpy as np
@@ -95,7 +96,10 @@ def ajustar(partidos: list[dict]):
     x0 = np.zeros(2 + 2 * nt)
     x0[0] = math.log(max(0.5, sum(p["gh"] + p["ga"] for p in partidos) / max(1, len(partidos)) / 2))
     x0[1] = 0.25
-    params = minimize(nll, x0, method="L-BFGS-B").x
+    result = minimize(nll, x0, method="L-BFGS-B")
+    if not result.success or not np.isfinite(result.x).all():
+        raise RuntimeError(f"No convergió el ajuste {__name__}: {result.message}")
+    params = result.x
     inv = {v: k for k, v in idx.items()}
     ratings = {inv[i]: {"att": float(params[2 + i]), "def": float(params[2 + nt + i])}
                for i in range(nt)}
@@ -138,29 +142,45 @@ def predecir(local: str, visitante: str, ratings: dict, mu: float, gamma: float)
 
 
 def walkforward(partidos: list[dict]) -> dict:
-    aciertos, homes, lldc, llbase = [], [], [], []
+    """Predice el día completo antes de incorporar cualquiera de sus resultados."""
+    aciertos, homes, losses, baseline_losses = [], [], [], []
+    previous: list[dict] = []
     params = None
-    for n in range(WARMUP, len(partidos)):
-        if params is None or (n - WARMUP) % REFIT_CADA == 0:
-            params = ajustar(partidos[:n])
-        ratings, mu, gamma = params
-        p = partidos[n]
-        pr = predecir(p["local"], p["visitante"], ratings, mu, gamma)
-        real = "1" if p["gh"] > p["ga"] else ("X" if p["gh"] == p["ga"] else "2")
-        ir = {"1": 0, "X": 1, "2": 2}[real]
-        probs = [pr["p1"], pr["px"], pr["p2"]]
-        aciertos.append(["1", "X", "2"][int(np.argmax(probs))] == real)
-        homes.append(real == "1")
-        lldc.append(-math.log(max(probs[ir], 1e-12)))
-        tr = partidos[:n]
-        f1 = sum(1 for t in tr if t["gh"] > t["ga"]) / len(tr)
-        fx = sum(1 for t in tr if t["gh"] == t["ga"]) / len(tr)
-        base3 = [f1, fx, 1 - f1 - fx]
-        llbase.append(-math.log(max(base3[ir], 1e-12)))
+    last_fit = 0
+    ordered = sorted(partidos, key=lambda p: p["fecha"])
+    classes = ("1", "X", "2")
+    frequencies = [0, 0, 0]
+
+    def observed_index(p: dict) -> int:
+        return 0 if p["gh"] > p["ga"] else 1 if p["gh"] == p["ga"] else 2
+
+    for _, group in groupby(ordered, key=lambda p: p["fecha"].date()):
+        matches = list(group)
+        if len(previous) >= WARMUP:
+            if params is None or len(previous) - last_fit >= REFIT_CADA:
+                params = ajustar(previous)
+                last_fit = len(previous)
+            base = [n / len(previous) for n in frequencies]
+            for match in matches:
+                pred = predecir(match["local"], match["visitante"], *params)
+                outcome = observed_index(match)
+                probs = [pred["p1"], pred["px"], pred["p2"]]
+                aciertos.append(pred["signo"] == classes[outcome])
+                homes.append(outcome == 0)
+                losses.append(-math.log(max(probs[outcome], 1e-12)))
+                baseline_losses.append(-math.log(max(base[outcome], 1e-12)))
+        for match in matches:
+            frequencies[observed_index(match)] += 1
+        previous.extend(matches)
+
+    n = len(aciertos)
+    if not n:
+        raise ValueError("Histórico insuficiente para el walk-forward diario de Liga F")
     return {
-        "n_evaluados": len(aciertos),
-        "DC_acierto": round(sum(aciertos) / len(aciertos), 4),
-        "siempre_1_acierto": round(sum(homes) / len(homes), 4),
-        "DC_logloss": round(sum(lldc) / len(lldc), 4),
-        "baseline_frecuencias_logloss": round(sum(llbase) / len(llbase), 4),
+        "protocolo": "walk_forward_dias_sin_resultados_del_mismo_dia",
+        "n_evaluados": n,
+        "DC_acierto": round(sum(aciertos) / n, 4),
+        "siempre_1_acierto": round(sum(homes) / n, 4),
+        "DC_logloss": round(sum(losses) / n, 4),
+        "baseline_frecuencias_logloss": round(sum(baseline_losses) / n, 4),
     }

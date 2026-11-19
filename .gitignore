@@ -46,6 +46,7 @@ Thumbs.db
 # External downloaded data & temporary downloads
 DATOS/xg_understat/
 DATOS/*.csv
+DATOS/BOLETO_SEMANAL.json
 *.tmp
 *.temp
 *.download

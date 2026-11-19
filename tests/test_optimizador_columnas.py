@@ -221,7 +221,7 @@ def test_jornada_real_pleno15_separado():
     payload = optimize_jornada(74, fuente_prob="q15", publico="lae", n_sims=2000)
     assert payload["pleno15"] is not None
     assert payload["pleno15"]["num"] == 15
-    assert payload["pleno15"]["signo"] in SIGNS
+    assert payload["pleno15"]["signo"] is None  # J74 no declara una tripleta 1X2 para el Pleno.
     # El partido 15 no participa en el desarrollo ni en las columnas.
     assert all(d["num"] != 15 for d in payload["desarrollo"])
     assert len(payload["columnas_top"]) == 8

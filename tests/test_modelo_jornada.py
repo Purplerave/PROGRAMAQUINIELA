@@ -10,7 +10,6 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -35,29 +34,16 @@ from MOTOR_PREDICCION_JORNADA import (
 
 @pytest.fixture(scope="module")
 def small_history():
-    """Histórico pequeño para pruebas rápidas (solo 2 temporadas)."""
-    from scripts.motor.features import rolling_team_features
+    """Histórico crudo de dos temporadas, no estadísticas ya calculadas."""
     from MOTOR_QUINIELA_MAESTRO import load_raw_history
 
-    print("Loading full history...")
-    full_df = load_raw_history()
-    full_df["date"] = pd.to_datetime(full_df["date"])
+    full = load_raw_history()
+    return full[full["season"].isin(["2024-2025", "2025-2026"])].copy()
 
-    # Filtrar solo las últimas temporadas disponibles
-    seasons = sorted(full_df["season"].unique())
-    if len(seasons) >= 2:
-        recent_seasons = seasons[-2:]
-    else:
-        recent_seasons = seasons
 
-    print(f"Seasons: {recent_seasons}")
-    df = full_df[full_df["season"].isin(recent_seasons)].copy()
-    print(f"Rows after filter: {len(df)}")
-
-    print("Computing features...")
-    features = rolling_team_features(df)
-    print(f"Features computed: {len(features)}")
-    return features
+@pytest.fixture(scope="module")
+def small_predictions(small_history, sample_jornada_data):
+    return predict_jornada_from_model(sample_jornada_data["partidos"], small_history, 99, "2025-01-01")
 
 
 @pytest.fixture(scope="module")
@@ -170,17 +156,16 @@ class TestGetCutoffDate:
             "partidos": [
                 {"fecha": "2025-01-15"},
                 {"fecha": "2025-01-16"},
-                {"fecha": None},
             ]
         }
         cutoff = get_cutoff_date(jornada)
-        expected = pd.Timestamp("2025-01-14")
+        expected = pd.Timestamp("2025-01-13T23:00Z")  # medianoche en Madrid
         assert cutoff == expected
 
-    def test_fallback_to_yesterday(self):
-        cutoff = get_cutoff_date({"partidos": []})
-        expected = pd.Timestamp.now() - pd.Timedelta(days=1)
-        assert cutoff.date() == expected.date()
+    def test_corte_explicito_sin_fechas(self):
+        with pytest.raises(ValueError, match="--corte"):
+            get_cutoff_date({"partidos": []})
+        assert get_cutoff_date({"partidos": [], "prediction_cutoff_at": "2026-08-11T14:30:00+02:00"}) == pd.Timestamp("2026-08-11T12:30:00Z")
 
 
 # ============================================================================
@@ -189,25 +174,15 @@ class TestGetCutoffDate:
 
 class TestPredictJornadaFromModel:
     @pytest.mark.slow
-    def test_generates_predictions(self, small_history, sample_jornada_data):
-        predictions = predict_jornada_from_model(
-            partidos=sample_jornada_data["partidos"],
-            history_df=small_history,
-            jornada=99,
-            cutoff_date="2025-01-01",
-        )
+    def test_generates_predictions(self, small_predictions):
+        predictions = small_predictions
         assert predictions["jornada"] == 99
         assert predictions["estado"] in ("completado", "sin_datos")
         assert "predicciones" in predictions
 
     @pytest.mark.slow
-    def test_prediction_structure(self, small_history, sample_jornada_data):
-        predictions = predict_jornada_from_model(
-            partidos=sample_jornada_data["partidos"],
-            history_df=small_history,
-            jornada=99,
-            cutoff_date="2025-01-01",
-        )
+    def test_prediction_structure(self, small_predictions):
+        predictions = small_predictions
 
         for pred in predictions.get("predicciones", []):
             required = ["jornada", "numero", "local", "visitante",
@@ -221,25 +196,15 @@ class TestPredictJornadaFromModel:
             assert 0 <= pred["prob_2"] <= 1
 
     @pytest.mark.slow
-    def test_signo_is_valid(self, small_history, sample_jornada_data):
-        predictions = predict_jornada_from_model(
-            partidos=sample_jornada_data["partidos"],
-            history_df=small_history,
-            jornada=99,
-            cutoff_date="2025-01-01",
-        )
+    def test_signo_is_valid(self, small_predictions):
+        predictions = small_predictions
 
         for pred in predictions.get("predicciones", []):
             assert pred["signo_modelo"] in {"1", "X", "2"}
 
     @pytest.mark.slow
-    def test_confianza_range(self, small_history, sample_jornada_data):
-        predictions = predict_jornada_from_model(
-            partidos=sample_jornada_data["partidos"],
-            history_df=small_history,
-            jornada=99,
-            cutoff_date="2025-01-01",
-        )
+    def test_confianza_range(self, small_predictions):
+        predictions = small_predictions
 
         for pred in predictions.get("predicciones", []):
             assert 0 <= pred["confianza"] <= 1
@@ -296,22 +261,24 @@ class TestNoTemporalLeakage:
 
 class TestIntegration:
     @pytest.mark.slow
-    def test_generate_jornada_prediction(self):
-        """Test básico de generate_jornada_prediction.
+    def test_generate_jornada_prediction(self, tmp_path, monkeypatch):
+        """Ejecuta el camino real por defecto con un saneado generado en la prueba."""
+        import MOTOR_QUINIELA_MAESTRO as motor
+        from sanitization import run_pipeline, writer
 
-        Este test entrena modelos y puede tardar.
-        """
+        monkeypatch.setattr(writer, "DEFAULT_OUTPUT_DIR", tmp_path)
+        run_pipeline(output_dir=tmp_path, confirm=True)
+        monkeypatch.setattr(motor, "SANITIZED_HISTORY", tmp_path / "historico_saneado.csv")
         predictions = generate_jornada_prediction(74)
-        assert "jornada" in predictions
-        # La prueba debe verificar que la estructura existe
-        assert "predicciones" in predictions
-        
-        # J74 es una jornada de verano con equipos noruegos/suecos mayoritariamente ausentes del histórico
-        # pero para que el test sea robusto, validamos que si hay predicciones, sean coherentes.
+        assert predictions["jornada"] == 74
+        assert len(predictions["predicciones"]) == 14
+        info = predictions["modelo_info"]
+        assert info["historico"] == "saneado"
+        assert info["ultimo_dia_entrenamiento"] < "2026-07-24"
+        assert info["calibracion"]["aplicada"] is False
         for pred in predictions["predicciones"]:
-            if "prob_1" in pred:
-                total = pred["prob_1"] + pred["prob_x"] + pred["prob_2"]
-                assert 0.99 <= total <= 1.01
+            assert pred["dominio_validado"] is False  # jornada nórdica
+            assert pred["prob_1"] + pred["prob_x"] + pred["prob_2"] == pytest.approx(1.0, abs=0.0002)
 
     def test_low_quality_data_marking(self):
         """Punto 2 Codex (Rev 2): Confirmar que un partido sin datos queda marcado como no fiable."""
@@ -526,26 +493,16 @@ class TestIntegration:
 
 class TestJsonContract:
     @pytest.mark.slow
-    def test_probabilities_are_normalized(self, small_history, sample_jornada_data):
-        predictions = predict_jornada_from_model(
-            partidos=sample_jornada_data["partidos"],
-            history_df=small_history,
-            jornada=99,
-            cutoff_date="2025-01-01",
-        )
+    def test_probabilities_are_normalized(self, small_predictions):
+        predictions = small_predictions
 
         for pred in predictions.get("predicciones", []):
             total = pred["prob_1"] + pred["prob_x"] + pred["prob_2"]
             assert 0.99 <= total <= 1.01
 
     @pytest.mark.slow
-    def test_fuente_probabilidades_structure(self, small_history, sample_jornada_data):
-        predictions = predict_jornada_from_model(
-            partidos=sample_jornada_data["partidos"],
-            history_df=small_history,
-            jornada=99,
-            cutoff_date="2025-01-01",
-        )
+    def test_fuente_probabilidades_structure(self, small_predictions):
+        predictions = small_predictions
 
         for pred in predictions.get("predicciones", []):
             fuente = pred["fuente_probabilidades"]
@@ -571,9 +528,9 @@ class TestEdgeCases:
     @pytest.mark.slow
     def test_handles_unknown_team(self, small_history):
         match = {
-            "home": "Equipo Fantastico FC",
-            "away": "Club Inexistente SA",
-            "date": "2025-01-10",
+            "local": "Equipo Fantastico FC",
+            "visitante": "Club Inexistente SA",
+            "fecha": "2025-01-10",
             "division": "Primera",
         }
         predictions = predict_jornada_from_model(
@@ -582,6 +539,6 @@ class TestEdgeCases:
             jornada=99,
             cutoff_date="2025-01-01",
         )
-        if predictions.get("predicciones"):
-            pred = predictions["predicciones"][0]
-            assert "avisos" in pred
+        pred = predictions["predicciones"][0]
+        assert "fuera_del_dominio_validado" in pred["avisos"]
+        assert pred["dominio_validado"] is False

@@ -1,35 +1,19 @@
-"""Métrica económica del boleto de La Quiniela (P0.1).
+"""Escenarios económicos 1X2, sin Pleno, con premios supuestos.
 
-Objetivo (auditoría externa 04/08/2026): dejar de medir solo "aciertos" y medir
-DINERO. Este módulo calcula, para un desarrollo de boleto (dobles/triples +
-simples) y un vector de probabilidades por partido:
+La convolución del desarrollo da los aciertos de su mejor columna. Sirve para
+P(al menos una columna alcanza k), no para calcular el pago total. El valor
+esperado suma las categorías exactas de **cada** columna; la linealidad de la
+esperanza permite sumarlas aunque las columnas compartan selecciones.
 
-  - Coste fijo del boleto (contrato P0: 3 dobles = 8 columnas × 0,75 € = 6,00 €).
-  - Distribución EXACTA del nº de aciertos de la mejor columna (convolución de
-    Bernoulli independientes), reutilizando la misma maquinaria que
-    ``OPTIMIZADOR_COLUMNAS`` para que exista una única fuente de verdad.
-  - Probabilidad de premio por categoría P(exactamente k) y P(≥k).
-  - Valor esperado (EV) del boleto usando premios medios históricos por categoría.
-  - ROI esperado = (EV − coste) / coste.
-  - Comparación directa contra el boleto de referencia "solo favoritos de
-    mercado" con el MISMO presupuesto.
-
-⚠️  ADVERTENCIA DE HONESTIDAD (imprescindible, la audita el ROADMAP):
-    Los importes de premio de La Quiniela son VARIABLES (dependen del bote y del
-    número de acertantes de la jornada). El EV que produce este módulo es una
-    ESTIMACIÓN con premios medios históricos, NO una garantía. Se etiqueta
-    siempre como estimado y los premios usados quedan registrados en la salida.
-
-La probabilidad de acertar una categoría con un boleto de N columnas se calcula
-sobre la MEJOR columna (la de mayor cobertura), que es la política real de cobro:
-en La Quiniela se cobra por la columna que más aciertos consigue. Con dobles al
-favorito + segundo signo, la cobertura por partido es la suma de probabilidades
-de los signos jugados, exactamente como en ``coverage_distribution``.
+Se presupone independencia entre partidos y un importe fijo por categoría.
+Los importes por defecto son escenarios orientativos, no escrutinios oficiales
+ni medias contrastadas. Se informa del coste de las columnas efectivas.
 """
 
 from __future__ import annotations
 
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -47,7 +31,7 @@ import OPTIMIZADOR_COLUMNAS as opt  # noqa: E402  (reutiliza convolución exacta
 PRIZE_CATEGORIES = (14, 13, 12, 11, 10)
 
 # Premios ORIENTATIVOS por categoría, en euros. Puntos medios del escenario
-# "normal" (media histórica) de la estimación manus.ai de La Quiniela española.
+# "normal" del escenario orientativo de La Quiniela española.
 # Son variables por jornada; se pueden sobreescribir vía
 # CONFIG_MOTOR_V2.json → "economia".prizes_eur o un fichero externo.
 DEFAULT_PRIZES_EUR = {
@@ -126,12 +110,10 @@ def _as_prob_vectors(probs) -> list[np.ndarray]:
         arr = np.asarray(p, dtype=float)
         if arr.shape != (3,):
             raise ValueError(f"Cada partido necesita 3 probabilidades (1,X,2); recibido {arr}")
-        s = arr.sum()
-        if s <= 0:
-            arr = np.full(3, 1 / 3)
-        else:
-            arr = arr / s
-        out.append(arr)
+        total = arr.sum()
+        if not np.isfinite(arr).all() or (arr < 0).any() or not math.isfinite(total) or total <= 0:
+            raise ValueError("Cada vector 1X2 debe tener masa finita, no negativa y suma positiva")
+        out.append(arr / total)
     return out
 
 
@@ -159,7 +141,7 @@ def _favorite_development(probs) -> list[tuple]:
 
 
 def prize_probabilities(dist: np.ndarray) -> dict:
-    """P(exactamente k) y P(≥k) por categoría de premio a partir de la dist."""
+    """Categoría exacta de la mejor columna y probabilidad de que alcance al menos k."""
     total = len(dist) - 1
     exact = {}
     at_least = {}
@@ -172,18 +154,21 @@ def prize_probabilities(dist: np.ndarray) -> dict:
 
 
 def expected_prize(dist: np.ndarray, prizes: dict[int, float] | None = None) -> float:
-    """EV bruto de premios = Σ_k P(exactamente k aciertos) × premio(k).
+    """Multiplica los recuentos esperados de cada categoría exacta por su premio.
 
-    La Quiniela paga por la categoría exacta alcanzada (10, 11, 12, 13 o 14),
-    no acumulativamente. Por eso se usa P(exactamente k), no P(≥k).
+    Una distribución normalizada representa una columna. Para un boleto,
+    ``dist`` es la suma de las distribuciones de todas las columnas.
     """
-    prizes = prizes or DEFAULT_PRIZES_EUR
+    prizes = DEFAULT_PRIZES_EUR if prizes is None else prizes
     total = len(dist) - 1
     ev = 0.0
     for k in PRIZE_CATEGORIES:
         if k > total:
             continue
-        ev += float(dist[k]) * float(prizes.get(k, 0.0))
+        amount = float(prizes.get(k, 0.0))
+        if not math.isfinite(amount) or amount < 0:
+            raise ValueError(f"Premio supuesto inválido para {k} aciertos")
+        ev += float(dist[k]) * amount
     return ev
 
 
@@ -222,7 +207,7 @@ def evaluate_ticket_economics(
     prizes: dict[int, float] | None = None,
     label: str = "modelo",
 ) -> dict:
-    """Evaluación económica completa de un desarrollo de boleto.
+    """Simulación económica de un desarrollo de boleto.
 
     Parameters
     ----------
@@ -230,7 +215,7 @@ def evaluate_ticket_economics(
     selected : desarrollo (lista de (label, signos)). Si es None, se construye
         el desarrollo óptimo de 3 dobles del contrato P0 (o solo-favoritos si
         el contrato no permite dobles).
-    prizes : premios por categoría; por defecto los históricos medios.
+    prizes : hipótesis de premios por categoría, no importes observados.
     """
     probs = _as_prob_vectors(probs)
     contract = opt.columns_contract(config)
@@ -245,9 +230,21 @@ def evaluate_ticket_economics(
         else:
             selected = _favorite_development(probs)
 
-    dist = ticket_hit_distribution(probs, selected)
-    ev_gross = expected_prize(dist, prizes)
-    cost = float(contract["max_cost"])
+    if not 1 <= len(probs) <= 14 or len(selected) != len(probs):
+        raise ValueError("El desarrollo debe tener entre 1 y 14 posiciones, una por vector 1X2")
+    if any(not signs or len(set(signs)) != len(signs) or not set(signs) <= set(opt.SIGNS)
+           for _, signs in selected):
+        raise ValueError("El desarrollo necesita signos 1X2 únicos en cada posición")
+    n_columns = math.prod(len(signs) for _, signs in selected)
+    if not 1 <= n_columns <= contract["columns_per_ticket"]:
+        raise ValueError("El desarrollo supera el contrato de columnas")
+    dist = opt.coverage_distribution(probs, selected)
+    expected_counts = sum(
+        (opt.coverage_distribution(probs, [(s, (s,)) for s in col]) for col in opt.enumerate_columns(selected)),
+        start=np.zeros(len(probs) + 1),
+    )
+    ev_gross = expected_prize(expected_counts, prizes)
+    cost = contract["price_per_column"] * n_columns
     ev_net = ev_gross - cost
     roi = ev_net / cost if cost > 0 else float("nan")
 
@@ -255,20 +252,23 @@ def evaluate_ticket_economics(
         "label": label,
         "contrato": contract,
         "coste_eur": cost,
+        "n_columnas": n_columns,
+        "retorno_realizado": False,
         "premios_usados_eur": {str(k): float(v) for k, v in prizes.items()},
         "premios_estimados": True,
         "nota_premios": (
-            "EV ESTIMADO con premios medios históricos (variables por jornada). "
-            "No es una garantía."
+            "EV ESTIMADO de todas las columnas con premios supuestos. "
+            "No es un ROI realizado ni una garantía."
         ),
         "distribucion_aciertos": {str(k): float(dist[k]) for k in range(len(dist))},
         "esperanza_aciertos": float(sum(k * dist[k] for k in range(len(dist)))),
         "probabilidades_premio": prize_probabilities(dist),
         "ev_premios_eur": float(ev_gross),
         "ev_neto_eur": float(ev_net),
+        "columnas_esperadas_por_aciertos": {str(k): float(expected_counts[k]) for k in range(len(expected_counts))},
         "roi": float(roi),
         "escenario_por_defecto": default_scenario_name(config),
-        "ev_por_escenario": ev_by_scenario(dist, config=config, cost=cost),
+        "ev_por_escenario": ev_by_scenario(expected_counts, config=config, cost=cost),
     }
 
 
@@ -279,28 +279,24 @@ def compare_model_vs_market(
     config: dict | None = None,
     prizes: dict[int, float] | None = None,
 ) -> dict:
-    """Compara el boleto del modelo (3 dobles óptimos) contra dos referencias:
+    """Contrasta dos desarrollos bajo los mismos supuestos probabilísticos.
 
-      - "mercado_dobles": mismo desarrollo de 3 dobles pero con probabilidades
-        de mercado (¿el modelo elige mejores dobles que el mercado?).
-      - "solo_favoritos_mercado": 14 simples al favorito de mercado (una única
-        columna). Es el boleto trivial de mínimo coste conceptual; se escala su
-        coste al del contrato para comparar EV por euro de forma justa.
-
-    Todas las evaluaciones usan como VERDAD la distribución de aciertos inducida
-    por las probabilidades reales de cada partido; para una evaluación honesta,
-    ``model_probs`` y ``market_probs`` deben ser probabilidades bien calibradas.
+    Los favoritos se seleccionan con mercado y se evalúan, como el resto, bajo
+    ``model_probs``. Se comparan sus costes efectivos (8 vs 1 por defecto),
+    no dos estrategias al mismo presupuesto ni rendimientos observados.
     """
     prizes = prizes if prizes is not None else load_prizes(config)
 
+    model_probs = _as_prob_vectors(model_probs)
+    if len(model_probs) != len(market_probs := _as_prob_vectors(market_probs)):
+        raise ValueError("Modelo y mercado deben cubrir la misma cantidad de partidos")
     modelo = evaluate_ticket_economics(
         model_probs, config=config, prizes=prizes, label="modelo_3_dobles"
     )
 
-    market_probs_v = _as_prob_vectors(market_probs)
-    fav_selected = _favorite_development(market_probs_v)
+    fav_selected = _favorite_development(market_probs)
     solo_fav = evaluate_ticket_economics(
-        market_probs_v,
+        model_probs,
         selected=fav_selected,
         config=config,
         prizes=prizes,
@@ -310,6 +306,8 @@ def compare_model_vs_market(
     return {
         "modelo": modelo,
         "solo_favoritos_mercado": solo_fav,
+        "evaluado_bajo": "probabilidades_modelo_no_validadas_como_verdad",
+        "presupuestos_equivalentes": modelo["n_columnas"] == solo_fav["n_columnas"],
         "delta_ev_neto_eur": modelo["ev_neto_eur"] - solo_fav["ev_neto_eur"],
         "delta_roi": modelo["roi"] - solo_fav["roi"],
         "delta_p_ge_12": (

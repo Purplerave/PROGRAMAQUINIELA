@@ -8,11 +8,15 @@
 
 | KPI | Objetivo | Estado |
 |---|---|---|
-| Liga M: acierto OOS walk-forward | > baseline siempre-1 de forma estable | ✅ 50.27% vs 49.83% (histórico motor) |
-| Liga F: acierto OOS walk-forward | > baseline, log-loss < 1.0 | ✅ 58.89%, log-loss 0.857 (180 partidos reales) |
-| Boleto completo unificado | 14+1 casillas con probs 1X2 | ✅ `SALIDAS/boleto_completo_J*.json` |
-| Trazabilidad total | SHA-256 + manifiesto por dataset | ✅ DATOS/ligaf/MANIFIESTO_FUENTES.json |
+| Liga M: acierto OOS walk-forward | > favorito de mercado de forma estable | Pendiente: 50,15 % vs 49,83 %; p = 0,1454 |
+| Liga F: acierto OOS walk-forward | > baseline, log-loss < 1.0 | 58,89 %, log-loss 0,8571 vs frecuencias 1,0703 (180 partidos reales; sin mercado) |
+| Boleto completo unificado | 14 casillas 1X2 y un Pleno de 16 signos | ✅ `SALIDAS/boleto_completo_J*.json` |
+| Trazabilidad total | SHA-256 + manifiesto por dataset e instante de disponibilidad | Parcial: manifiesto Liga F y referencia masculina; faltan capturas al corte y corpus oficial. |
 | Honestidad estadística | sin cambios de parámetros sin n suficiente | ✅ freeze Liga M hasta ≥70/120 evaluables |
+
+Para los cambios de integridad y la arquitectura objetivo vigente, ver la
+[auditoría del 18/11/2026](reports/AUDITORIA_TECNICA_2026-11-18.md). Las
+secciones siguientes conservan el contexto del plan original.
 
 ## 2. Arquitectura v1 (integrada)
 
@@ -34,7 +38,7 @@ PROGRAMAQUINIELA/
 │   │   └── BACKTEST_LIGAF_2324.py             # ★ NUEVO: verificación Liga F real
 │   └── PREDICCION_BOLETO_COMPLETO.py          # ★ NUEVO: orquestador boleto 14+1
 ├── DATOS/
-│   ├── historico_raw/{PRIMERA,SEGUNDA}/       # CSVs football-data 2021-2026
+│   ├── historico_raw/{PRIMERA,SEGUNDA}/       # CSVs desde 2010-11, con 2026-27 parcial
 │   ├── highlightly_dataset/                   # xG 2023-2026
 │   ├── ligaf/
 │   │   ├── statsbomb_matches_182_281_raw.json # crudo auditable
@@ -51,12 +55,14 @@ PROGRAMAQUINIELA/
 
 ## 3. Flujo semanal operativo
 
-1. **Liga M**: ejecutar pipeline existente → `predicciones_modelo_J{n}.json`
-2. **Liga F**: descargar resultados nuevos (re-ejecutar `DESCARGAR_LIGAF_STATSBOMB.py`
-   cuando StatsBomb libere temporada actual) + rellenar `proxima_jornada_ligaf.csv`
-3. **Unificar**: `python scripts/PREDICCION_BOLETO_COMPLETO.py --jornada N`
-   → boleto completo con las 15 casillas
-4. **Registrar** apuestas y cerrar con resultados oficiales (paper trading)
+1. Preparar un boleto fechado `DATOS/BOLETO_SEMANAL.json` con posiciones 1–15
+   explícitas, su fuente y la identificación de Liga F.
+2. `python scripts/RUN_SEMANA_COMPLETA.py --boleto ruta/mi_boleto.json` encamina
+   las dos competiciones, predice el Pleno y verifica la optimización conjunta.
+   `PREDICCION_BOLETO_COMPLETO.py` es un alias de ese flujo; no mezcla CSV y
+   salidas anteriores por proximidad.
+3. Revisar; si procede, exportar localmente para entrega manual. No se publica
+   desde el panel ni desde la CLI. Registrar los resultados por separado.
 
 ## 4. Deuda técnica priorizada (roadmap excelencia)
 
@@ -66,7 +72,7 @@ PROGRAMAQUINIELA/
 | D2 | Dixon-Coles tau (corrección marcadores bajos) con rho ajustado a Liga F | Medio — calibración empates | Diseñado |
 | D3 | Cuotas de cierre para gate "bate al mercado" | Alto | **BLOQUEADO con evidencia** (2026-08-25): football-data no cubre Liga F; Wikipedia sin temporada actual; FBref 403 anti-bot; BetExplorer sirve listados pero sus cuotas viven en endpoint AJAX privado (verificado: detalle sin odds en HTML, 106 páginas inspeccionadas). **Plan B activo**: porcentajes LAE (quinielista XML) = dinero real del público por casilla desde J3 26-27 → validación modelo-vs-público en vivo. Cuotas reales requerirán fuente comercial (API tipo OddsAPI/TheOddsApi) o exportación manual periódica. |
 | D4 | Temporada Liga F actual datada cuando haya fuente (StatsBomb no la cubre aún) | Alto — ratings frescos | Vigilancia |
-| D5 | Optimizador de boleto global (`OPTIMIZADOR_BOLETO.py`: cobertura exacta best-first + EV parimutuel con modelo de público explícito) | Alto — convierte probs en dinero | ✅ HECHO 2026-08-25, validado sobre boleto unificado |
+| D5 | Optimizador de boleto global (`OPTIMIZADOR_BOLETO.py`: cobertura exacta best-first + EV parimutuel con modelo de público explícito) | Alto — compara coberturas y escenarios estimados | Demostrado localmente; pendiente ROI oficial |
 | D6 | Automatizar descarga fixtures Liga F (scraping RFEF/LaLigaF) | Medio — elimina input manual | Pendiente |
 | D7 | Pleno al 15 OFICIAL (marcador exacto por equipos {0,1,2,M} -> 16 signos, verificado contra probabilidad LAE 1/76.527.504 = 3^14 x 16). `motor/pleno_model.py` + integrado en orquestador y optimizador con alfabetos variables | Medio-Alto — cierra el boleto al 100% real | ✅ HECHO 2026-08-25 |
 
@@ -79,4 +85,4 @@ PROGRAMAQUINIELA/
 5. **Documentar primero, codificar después**, borrar jamás sin backup verificado.
 
 ---
-*Documento vivo. Última revisión: 2026-08-25.*
+*Documento vivo. Última revisión: 2026-11-18.*

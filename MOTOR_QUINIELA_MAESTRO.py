@@ -45,39 +45,26 @@ def normalize_result(value: object) -> str | None:
     return None
 
 
-def choose_odds(row: pd.Series, candidates: list[str]) -> float | None:
-    for column in candidates:
-        value = row.get(column)
-        if pd.notna(value) and float(value) > 1.01:
-            return float(value)
-    return None
+CLOSE_ODDS = (
+    ("close_avg", ("AvgCH", "AvgCD", "AvgCA")),
+    ("close_b365", ("B365CH", "B365CD", "B365CA")),
+)
+OPEN_ODDS = (
+    ("open_avg", ("AvgH", "AvgD", "AvgA")),
+    ("open_b365", ("B365H", "B365D", "B365A")),
+)
 
 
-def _has_complete_odds(row: pd.Series, columns: tuple[str, str, str]) -> bool:
-    """Indica si una tripleta de cuotas existe completa y es utilizable."""
-    values = [row.get(column) for column in columns]
-    try:
-        return all(pd.notna(value) and float(value) > 1.01 for value in values)
-    except (TypeError, ValueError):
-        return False
-
-
-def market_source(row: pd.Series) -> str:
-    """Devuelve la procedencia efectiva de la tripleta de mercado.
-
-    Esta etiqueta es trazabilidad, no una feature activa: permite distinguir
-    cierre real de fallback a apertura sin cambiar el resultado del motor.
-    """
-    sources = (
-        ("close_avg", ("AvgCH", "AvgCD", "AvgCA")),
-        ("close_b365", ("B365CH", "B365CD", "B365CA")),
-        ("open_avg", ("AvgH", "AvgD", "AvgA")),
-        ("open_b365", ("B365H", "B365D", "B365A")),
-    )
+def _select_market_triplet(raw: pd.DataFrame, sources: tuple) -> tuple[np.ndarray, pd.Series]:
+    """Selecciona una tripleta completa de una sola fuente, sin mezclar signos."""
+    odds = np.full((len(raw), 3), np.nan)
+    selected = pd.Series("incomplete", index=raw.index, dtype=object)
     for name, columns in sources:
-        if _has_complete_odds(row, columns):
-            return name
-    return "incomplete"
+        offered = raw.reindex(columns=list(columns)).apply(pd.to_numeric, errors="coerce").to_numpy(dtype=float)
+        usable = (np.isfinite(offered) & (offered > 1.01)).all(axis=1) & selected.eq("incomplete").to_numpy()
+        odds[usable] = offered[usable]
+        selected.loc[usable] = name
+    return odds, selected
 
 
 def season_from_filename(path: Path) -> str:
@@ -87,7 +74,9 @@ def season_from_filename(path: Path) -> str:
     return stem
 
 
-SANITIZED_HISTORY = settings.DATOS_DIR / ".." / "salida" / "datos_limpios" / "historico_saneado.csv"
+SANITIZED_HISTORY = settings.PROJECT_DIR / settings.config_section("historico").get(
+    "ruta_saneada", "salida/datos_limpios/historico_saneado.csv"
+)
 
 
 def load_raw_history(source: str = "original") -> pd.DataFrame:
@@ -110,7 +99,7 @@ def load_raw_history(source: str = "original") -> pd.DataFrame:
 
     frames = []
     for csv_path, known_division in files:
-        raw = pd.read_csv(csv_path)
+        raw = pd.read_csv(csv_path, low_memory=False)
         division_name = known_division or raw.get("division", pd.Series("Desconocida", index=raw.index))
         if isinstance(division_name, pd.Series):
             division_name = division_name.astype(str).str.strip()
@@ -123,36 +112,34 @@ def load_raw_history(source: str = "original") -> pd.DataFrame:
             )
         if raw.empty:
             continue
+        market_odds, sources = _select_market_triplet(raw, CLOSE_ODDS + OPEN_ODDS)
+        open_odds, _ = _select_market_triplet(raw, OPEN_ODDS)
         frame = pd.DataFrame(
-                {
-                    "date": pd.to_datetime(raw["Date"], dayfirst=True, format="mixed", errors="coerce"),
-                    "home": raw["HomeTeam"].astype(str).str.strip(),
-                    "away": raw["AwayTeam"].astype(str).str.strip(),
-                    "FTHG": pd.to_numeric(raw["FTHG"], errors="coerce"),
-                    "FTAG": pd.to_numeric(raw["FTAG"], errors="coerce"),
-                    "result": raw["FTR"].map(normalize_result),
-                    "odd_1": raw.apply(lambda row: choose_odds(row, ["AvgCH", "AvgH", "B365CH", "B365H"]), axis=1),
-                    "odd_x": raw.apply(lambda row: choose_odds(row, ["AvgCD", "AvgD", "B365CD", "B365D"]), axis=1),
-                    "odd_2": raw.apply(lambda row: choose_odds(row, ["AvgCA", "AvgA", "B365CA", "B365A"]), axis=1),
-                    "open_odd_1": raw.apply(lambda row: choose_odds(row, ["AvgH", "B365H"]), axis=1),
-                    "open_odd_x": raw.apply(lambda row: choose_odds(row, ["AvgD", "B365D"]), axis=1),
-                    "open_odd_2": raw.apply(lambda row: choose_odds(row, ["AvgA", "B365A"]), axis=1),
-                    "market_source": raw.apply(market_source, axis=1),
-                    "market_close_available": raw.apply(
-                        lambda row: _has_complete_odds(row, ("AvgCH", "AvgCD", "AvgCA"))
-                        or _has_complete_odds(row, ("B365CH", "B365CD", "B365CA")),
-                        axis=1,
-                    ),
-                    "HS": pd.to_numeric(raw.get("HS"), errors="coerce"),
-                    "AS": pd.to_numeric(raw.get("AS"), errors="coerce"),
-                    "HST": pd.to_numeric(raw.get("HST"), errors="coerce"),
-                    "AST": pd.to_numeric(raw.get("AST"), errors="coerce"),
-                    "division": division_name,
-                    "division_code": division_name.map({"Primera": 0, "Segunda": 1}).fillna(-1),
-                    "season": raw.get("season", pd.Series(season_from_filename(csv_path), index=raw.index)),
-                    "source_file": raw.get("source_file", pd.Series(csv_path.name, index=raw.index)),
-                }
-            )
+            {
+                "date": pd.to_datetime(raw["Date"], dayfirst=True, format="mixed", errors="coerce"),
+                "home": raw["HomeTeam"].astype("string").str.strip().replace("", pd.NA),
+                "away": raw["AwayTeam"].astype("string").str.strip().replace("", pd.NA),
+                "FTHG": pd.to_numeric(raw["FTHG"], errors="coerce"),
+                "FTAG": pd.to_numeric(raw["FTAG"], errors="coerce"),
+                "result": raw["FTR"].map(normalize_result),
+                "odd_1": market_odds[:, 0],
+                "odd_x": market_odds[:, 1],
+                "odd_2": market_odds[:, 2],
+                "open_odd_1": open_odds[:, 0],
+                "open_odd_x": open_odds[:, 1],
+                "open_odd_2": open_odds[:, 2],
+                "market_source": sources,
+                "market_close_available": sources.str.startswith("close_"),
+                "HS": pd.to_numeric(raw.get("HS"), errors="coerce"),
+                "AS": pd.to_numeric(raw.get("AS"), errors="coerce"),
+                "HST": pd.to_numeric(raw.get("HST"), errors="coerce"),
+                "AST": pd.to_numeric(raw.get("AST"), errors="coerce"),
+                "division": division_name,
+                "division_code": division_name.map({"Primera": 0, "Segunda": 1}).fillna(-1),
+                "season": raw.get("season", pd.Series(season_from_filename(csv_path), index=raw.index)),
+                "source_file": raw.get("source_file", pd.Series(csv_path.name, index=raw.index)),
+            }
+        )
         frames.append(frame)
 
     if not frames:
@@ -175,6 +162,7 @@ def load_raw_history(source: str = "original") -> pd.DataFrame:
             "result",
         ]
     )
+    df[["home", "away"]] = df[["home", "away"]].astype(str)
     df["FTHG"] = df["FTHG"].astype(int)
     df["FTAG"] = df["FTAG"].astype(int)
     df = df[df["result"].isin(LABEL_MAP)].copy()
@@ -509,6 +497,16 @@ def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.Da
         ) / 3.0
     else:
         out["model_disagreement"] = 0.0
+    return out
+
+
+def hybrid_inputs(frame: pd.DataFrame, logit: Pipeline | None, hgb: Pipeline) -> pd.DataFrame:
+    """Añade componentes 1X2 para la inferencia y la evaluación, sin I/O."""
+    columns = feature_columns()
+    out = add_market_baseline(frame)
+    if logit is not None:
+        out[["logit_prob_1", "logit_prob_x", "logit_prob_2"]] = predict_full_probs(logit, frame, columns + ["division"])
+    out[["hgb_prob_1", "hgb_prob_x", "hgb_prob_2"]] = predict_full_probs(hgb, frame, columns)
     return out
 
 
@@ -975,8 +973,9 @@ def run_season_backtest(
     if not train_seasons:
         raise ValueError(f"No hay temporadas anteriores para entrenar antes de {target_season}.")
 
-    train = usable[usable["season"].isin(train_seasons)].copy()
     test = usable[usable["season"] == target_season].copy()
+    # Una temporada anterior puede tener aplazados: la etiqueta sola no basta.
+    train = usable[usable["season"].isin(train_seasons) & (usable["date"] < test["date"].min())].copy()
     if train.empty or test.empty:
         raise ValueError(f"No se puede hacer backtest de {target_season}: train={len(train)} test={len(test)}")
 
@@ -1008,16 +1007,7 @@ def run_season_backtest(
 
     logit, hgb, best_config = fit_hybrid_models(train, selection_mode)
     best_config = _attach_calibracion_bandas(best_config, train, target_season)
-    test_eval = add_market_baseline(test)
-    if logit is not None:
-        logit_probs = predict_full_probs(logit, test, feature_columns() + ["division"])
-        test_eval["logit_prob_1"] = logit_probs[:, 0]
-        test_eval["logit_prob_x"] = logit_probs[:, 1]
-        test_eval["logit_prob_2"] = logit_probs[:, 2]
-    hgb_probs = predict_full_probs(hgb, test, feature_columns())
-    test_eval["hgb_prob_1"] = hgb_probs[:, 0]
-    test_eval["hgb_prob_x"] = hgb_probs[:, 1]
-    test_eval["hgb_prob_2"] = hgb_probs[:, 2]
+    test_eval = hybrid_inputs(test, logit, hgb)
 
     predictions = apply_hybrid_config(test_eval, best_config, "latest")
     predictions = add_pleno_al_15(predictions, rho=rho_est)
@@ -1118,8 +1108,8 @@ def main() -> None:
     parser.add_argument(
         "--historico",
         choices=("original", "saneado"),
-        default="original",
-        help="fuente histórica (por defecto: original)",
+        default=settings.official_history_source(),
+        help="fuente histórica (por defecto: la fuente oficial de la configuración)",
     )
     parser.add_argument(
         "--modo",

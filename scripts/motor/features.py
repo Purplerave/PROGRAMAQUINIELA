@@ -22,6 +22,7 @@ from scipy.stats import poisson
 import settings
 from scripts.motor.dixon_coles import dc_1x2 as dixon_coles_1x2
 from scripts.motor.team_names import resolve_history_name
+from scripts.motor.temporal import utc_timestamp
 
 LABEL_MAP = {"1": 0, "X": 1, "2": 2}
 
@@ -86,8 +87,9 @@ def implied_probabilities(
         out[f"{prefix}_x"] = pd.Series(dtype=float)
         out[f"{prefix}_2"] = pd.Series(dtype=float)
         return out
-    odds = df[cols].replace(0, np.nan)
-    inv = 1 / odds
+    odds = df[cols]
+    usable = (np.isfinite(odds) & odds.gt(1.01)).all(axis=1)
+    inv = 1 / odds.where(usable, np.nan)
     margin = inv.sum(axis=1)
     df[f"{prefix}_1"] = inv[cols[0]] / margin
     df[f"{prefix}_x"] = inv[cols[1]] / margin
@@ -794,23 +796,6 @@ def rolling_team_features(
 ODDS_TIMESTAMP_FIELDS = ("odds_observed_at", "prediction_cutoff_at", "kickoff_at")
 
 
-def _normalize_odds_timestamp(value: object) -> pd.Timestamp:
-    """Parsea un timestamp de cuotas y lo normaliza a naive UTC.
-
-    Issue #34: `odds_observed_at` puede traer offset (ej. +02:00) mientras
-    `kickoff_at` es naive. Comparar tz-aware vs naive lanza
-    `Cannot compare tz-naive and tz-aware timestamps` y tumbaba el modelo
-    J6. Normalizamos todo a naive UTC para comparar sin excepciones.
-    """
-    ts = pd.to_datetime(value, errors="coerce", utc=True)
-    if pd.isna(ts):
-        return ts
-    try:
-        return ts.tz_convert("UTC").tz_localize(None)
-    except Exception:
-        return ts
-
-
 def validate_odds_timestamps(
     partidos: list[dict[str, Any]],
     *,
@@ -851,8 +836,9 @@ def validate_odds_timestamps(
             if value is None or (isinstance(value, str) and not value.strip()):
                 issues.append(f"{field}_ausente")
                 continue
-            ts = _normalize_odds_timestamp(value)
-            if pd.isna(ts):
+            try:
+                ts = utc_timestamp(value)
+            except ValueError:
                 issues.append(f"{field}_invalido")
                 continue
             parsed[field] = ts

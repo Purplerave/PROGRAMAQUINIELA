@@ -122,7 +122,10 @@ def ajustar(partidos: list[dict]):
     x0 = np.zeros(2 + 2 * nt)
     x0[0] = math.log(max(0.5, sum(p["gh"] + p["ga"] for p in partidos) / max(1, len(partidos)) / 2))
     x0[1] = 0.20
-    params = minimize(nll, x0, method="L-BFGS-B").x
+    result = minimize(nll, x0, method="L-BFGS-B")
+    if not result.success or not np.isfinite(result.x).all():
+        raise RuntimeError(f"No convergió el ajuste {__name__}: {result.message}")
+    params = result.x
     inv = {v: k for k, v in idx.items()}
     ratings = {inv[i]: {"att": float(params[2 + i]), "def": float(params[2 + nt + i])}
                for i in range(nt)}

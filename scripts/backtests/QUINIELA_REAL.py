@@ -34,8 +34,10 @@ no se infieren ni se inventan si no llegan del escrutinio oficial.
 from __future__ import annotations
 
 import json
+import math
 import re
 import unicodedata
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 
@@ -58,9 +60,33 @@ def canonical_team(value: object) -> str:
 
 def _iso_date(value: object, field: str) -> str:
     try:
-        return pd.Timestamp(value).strftime("%Y-%m-%d")
-    except (TypeError, ValueError):
-        raise ValueError(f"{field} debe ser una fecha ISO válida: {value!r}") from None
+        if isinstance(value, str):
+            value = datetime.fromisoformat(value)
+        if isinstance(value, (datetime, date)) and not pd.isna(value):
+            return value.strftime("%Y-%m-%d")
+    except ValueError:
+        pass
+    raise ValueError(f"{field} debe ser una fecha ISO válida: {value!r}")
+
+
+PAID_CATEGORIES = {str(n) for n in range(10, 15)}
+
+
+def _validated_payouts(payouts: dict) -> dict[str, float]:
+    if not isinstance(payouts, dict):
+        raise ValueError("payouts debe ser un objeto")
+    clean = {}
+    for category, amount in payouts.items():
+        if str(category) not in PAID_CATEGORIES | {"15"} or isinstance(amount, bool):
+            raise ValueError(f"payout inválido para {category!r}")
+        try:
+            euro = float(amount)
+        except (TypeError, ValueError, OverflowError) as exc:
+            raise ValueError(f"payout inválido para {category!r}") from exc
+        if not math.isfinite(euro) or euro < 0:
+            raise ValueError(f"payout inválido para {category!r}")
+        clean[str(category)] = euro
+    return clean
 
 
 def validate_ticket(ticket: dict[str, Any]) -> None:
@@ -69,14 +95,14 @@ def validate_ticket(ticket: dict[str, Any]) -> None:
     missing = [field for field in required if not ticket.get(field)]
     if missing:
         raise ValueError(f"Boleto sin campos obligatorios: {', '.join(missing)}")
-    if not isinstance(ticket["jornada"], int) or ticket["jornada"] < 1:
+    if type(ticket["jornada"]) is not int or ticket["jornada"] < 1:
         raise ValueError(f"jornada inválida en {ticket['ticket_id']!r}")
     _iso_date(ticket["draw_date"], "draw_date")
     matches = ticket["matches"]
     if not isinstance(matches, list) or len(matches) != 14:
         raise ValueError(f"{ticket['ticket_id']}: se requieren exactamente 14 partidos")
-    numbers = [match.get("number") for match in matches]
-    if sorted(numbers) != list(range(1, 15)):
+    numbers = [m.get("number") if isinstance(m, dict) else None for m in matches]
+    if any(type(n) is not int for n in numbers) or sorted(numbers) != list(range(1, 15)):
         raise ValueError(f"{ticket['ticket_id']}: los números deben ser exactamente 1..14")
     for match in matches:
         missing_match = [field for field in ("number", "date", "home", "away", "result") if not match.get(field)]
@@ -90,11 +116,7 @@ def validate_ticket(ticket: dict[str, Any]) -> None:
         raise ValueError(f"{ticket['ticket_id']}: pleno15 incompleto")
     _iso_date(pleno["date"], "pleno15.date")
     if "payouts" in ticket:
-        if not isinstance(ticket["payouts"], dict):
-            raise ValueError(f"{ticket['ticket_id']}: payouts debe ser un objeto")
-        for category, amount in ticket["payouts"].items():
-            if not str(category).isdigit() or float(amount) < 0:
-                raise ValueError(f"{ticket['ticket_id']}: payout inválido para {category!r}")
+        _validated_payouts(ticket["payouts"])
 
 
 def load_official_tickets(directory: Path = DEFAULT_TICKETS_DIR) -> list[dict[str, Any]]:
@@ -139,7 +161,7 @@ def attach_ticket_positions(
         return canonical_team(aliases.get(raw, raw))
 
     indexed: dict[tuple[str, str, str], list[int]] = {}
-    for index, row in predictions.iterrows():
+    for index, (_, row) in enumerate(predictions.iterrows()):
         key = (_iso_date(row["date"], "prediction.date"), name(row["home"]), name(row["away"]))
         indexed.setdefault(key, []).append(index)
 
@@ -154,7 +176,7 @@ def attach_ticket_positions(
             if len(candidates) != 1:
                 ambiguous += int(len(candidates) > 1)
                 continue
-            row = predictions.loc[[candidates[0]]].copy()
+            row = predictions.iloc[[candidates[0]]].copy()
             row["official_ticket_id"] = ticket["ticket_id"]
             row["official_ticket_number"] = match["number"]
             row["official_ticket_result"] = match["result"]
@@ -255,17 +277,19 @@ def evaluate_realized_roi(
     """
     if len(winning_signs) != 14 or any(sign not in SIGNS for sign in winning_signs):
         raise ValueError("winning_signs debe contener exactamente 14 signos 1/X/2")
-    if price_per_column < 0:
-        raise ValueError("price_per_column no puede ser negativo")
+    if not math.isfinite(price_per_column) or price_per_column <= 0:
+        raise ValueError("price_per_column debe ser finito y positivo")
     normalized_columns = [tuple(column) for column in columns]
     if any(len(column) != 14 or any(sign not in SIGNS for sign in column) for column in normalized_columns):
         raise ValueError("cada columna debe contener 14 signos 1/X/2")
     cost = len(normalized_columns) * price_per_column
     hit_counts = [sum(sign == winner for sign, winner in zip(column, winning_signs)) for column in normalized_columns]
     categories = {str(hits): hit_counts.count(hits) for hits in set(hit_counts)}
-    if payouts is None:
-        return {"cost": cost, "return": None, "profit": None, "roi": None, "categories": categories, "status": "missing_official_payouts"}
-    clean_payouts = {str(category): float(amount) for category, amount in payouts.items()}
+    clean_payouts = _validated_payouts(payouts) if payouts is not None else {}
+    missing = PAID_CATEGORIES.intersection(categories).difference(clean_payouts)
+    if not clean_payouts or missing:
+        return {"cost": cost, "return": None, "profit": None, "roi": None, "categories": categories,
+                "missing_payout_categories": sorted(missing), "status": "missing_official_payouts"}
     gross_return = sum(clean_payouts.get(str(hits), 0.0) for hits in hit_counts)
     return {
         "cost": cost,

@@ -1,26 +1,10 @@
-"""Evaluación económica walk-forward del boleto de 6 € (P0.1).
+"""Experimento legado sobre bloques sintéticos, con premios hipotéticos.
 
-Traduce el backtest de acierto a métricas de DINERO por jornada y temporada:
-
-  - Coste fijo del boleto (contrato P0: 3 dobles = 8 columnas = 6,00 €).
-  - Distribución empírica de aciertos de la mejor columna por jornada.
-  - Frecuencia de premio por categoría (10..14) sobre las jornadas jugadas.
-  - Ganancia bruta REALIZADA (premio medio histórico por categoría alcanzada).
-  - ROI realizado del boleto del modelo vs el boleto "solo favoritos de mercado".
-
-A diferencia de ``evaluation.economics`` (que calcula el EV EX-ANTE por
-convolución de probabilidades), este script mide el resultado EX-POST: coge las
-predicciones reales del walk-forward, arma el boleto y lo comprueba contra los
-resultados reales. Las dos vistas son complementarias:
-
-  * EX-ANTE  → ¿qué EV promete el boleto según las probabilidades? (calibración)
-  * EX-POST  → ¿cuánto habría rendido de verdad en el histórico? (realidad)
-
-⚠️  Los premios son ESTIMADOS con medias históricas (ver evaluation/economics.py).
-    El ROI resultante es orientativo, no una garantía.
-
-Uso:
-    python scripts/backtests/EVALUACION_ECONOMICA.py [--from-season 2019-2020]
+Evalúa los aciertos observados de la mejor columna y le asigna un premio
+supuesto. No hay boletos ni escrutinios oficiales, no se suman las columnas
+premiadas y el control de una columna escalado a 6 EUR no es una estrategia
+comparable. Para costes efectivos y EV de todas las columnas, ver
+``evaluation/economics.py``. Este script no calcula ROI realizado.
 """
 
 from __future__ import annotations
@@ -118,6 +102,7 @@ def main() -> None:
     parser.add_argument("--from-season", default="2019-2020")
     parser.add_argument("--to-season", default="")
     args = parser.parse_args()
+    print("EXPERIMENTO: bloques sintéticos y premios supuestos (mejor columna); no es ROI realizado.")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     prizes = econ.load_prizes()
@@ -195,8 +180,8 @@ def main() -> None:
 
         print(
             f"{season}: {n} jornadas | modelo {row['model_mean_hits']:.2f} ac "
-            f"ROI {row['model_roi']:+.1%} | mercado {row['market_mean_hits']:.2f} ac "
-            f"ROI(6€) {row['market_roi_full']:+.1%}"
+            f"retorno supuesto {row['model_roi']:+.1%} | mercado {row['market_mean_hits']:.2f} ac "
+            f"retorno normalizado no comparable (1 col./6 €) {row['market_roi_full']:+.1%}"
         )
 
     if total_jornadas == 0:
@@ -232,10 +217,13 @@ def main() -> None:
         "contrato": contract,
         "premios_usados_eur": {str(k): float(v) for k, v in prizes.items()},
         "premios_estimados": True,
+        "retorno_realizado": False,
+        "protocolo": "bloques_sinteticos_mejor_columna_premios_supuestos",
         "escenario_por_defecto": econ.default_scenario_name(),
         "nota": (
-            "ROI EX-POST con premios estimados (manus.ai; variables por jornada). "
-            "Orientativo, no garantía. Pleno al 15 excluido (se juega aparte). "
+            "Solo la mejor columna en bloques sintéticos, con premios supuestos. "
+            "El mercado a 6 EUR es una normalización de coste de una sola columna, no es comparable. "
+            "No es ROI realizado y se excluye el Pleno al 15. "
             "Ver 'sensibilidad_escenarios' para el rango fácil/normal/difícil."
         ),
         "sensibilidad_escenarios": sensibilidad,

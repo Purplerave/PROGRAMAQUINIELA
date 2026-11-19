@@ -123,3 +123,28 @@ class TestGenerateApiContract:
         monkeypatch.setattr(settings, "SALIDAS_DIR", out)
         assert gen.generate_api_contract(999) is None
         assert "No se encuentra el paquete" in capsys.readouterr().out
+
+
+
+def test_contract_cannot_present_a_proxy_as_the_model():
+    package = _paquete_fixture()
+    match = package["partidos"][0]
+    match["modelo_maestro"]["disponible"] = False
+    match["probabilidades"]["comparativa"] = {"apu": {"1": 0.45, "X": 0.28, "2": 0.27}}
+    match["origen_prediccion"] = "motor_v4"
+    contract = gen.build_api_contract(package)
+    assert contract["partidos"][0]["origen_prediccion"] == "manual_pendiente"
+    assert gen.validar_contrato(contract) == []
+    contract["partidos"][0]["origen_prediccion"] = "motor_v4"
+    assert any("origen_prediccion incompatible" in err for err in gen.validar_contrato(contract))
+
+
+def test_contract_validates_joint_pleno_selection():
+    contract = gen.build_api_contract(_paquete_fixture())
+    pleno = contract["pleno15"]
+    pleno["goles_conjuntos"] = {label: float(label == "M-0") for label in gen.JOINT_SIGNS}
+    assert any("moda conjunta" in err for err in gen.validar_contrato(contract))
+    pleno.update(pronostico_local="M", pronostico_visitante="0")
+    assert gen.validar_contrato(contract) == []  # El marcador exacto puede ser distinto.
+    pleno["goles_conjuntos"]["1-0"] = float("nan")
+    assert any("conjunta inválida" in err for err in gen.validar_contrato(contract))

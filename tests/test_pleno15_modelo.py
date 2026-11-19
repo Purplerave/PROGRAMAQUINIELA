@@ -18,7 +18,7 @@ import settings
 from MOTOR_PREDICCION_JORNADA import (
     _apply_transition_priors,
     _pleno_bucket_probs,
-    _pleno_select,
+    _pleno_alternative,
     predict_pleno15_from_model,
 )
 
@@ -47,26 +47,20 @@ class TestPlenoBucketHelpers:
         probs[1, 1] = 0.12
         probs[0, 0] = 0.10
         probs[3, 2] = 0.08
-        probs[7, 7] = 0.80
-        home, away = _pleno_bucket_probs(probs)
-        assert abs(sum(home.values()) - 1.0) < 1e-6
-        assert abs(sum(away.values()) - 1.0) < 1e-6
-        # 3 y 7 goles caen en el bucket M
-        assert home["M"] > 0.0
-        assert sorted(home.keys()) == ["0", "1", "2", "M"]
+        probs[7, 7] = 0.70
+        joint = _pleno_bucket_probs(probs)
+        assert sum(joint.values()) == pytest.approx(1.0)
+        assert len(joint) == 16
+        assert joint["M-2"] == pytest.approx(0.08)
+        assert joint["M-M"] == pytest.approx(0.70)
 
     def test_pleno_select_alternativa_cercana(self):
         buckets = {"0": 0.30, "1": 0.25, "2": 0.25, "M": 0.20}
-        principal, alternativa = _pleno_select(buckets, gap=0.10)
-        assert principal == "0"
-        # El segundo está a 0.05 (< gap) -> se sugiere alternativa
-        assert alternativa in {"1", "2"}
+        assert _pleno_alternative(buckets, "0") in {"1", "2"}
 
     def test_pleno_select_sin_alternativa_clara(self):
         buckets = {"0": 0.10, "1": 0.80, "2": 0.05, "M": 0.05}
-        principal, alternativa = _pleno_select(buckets, gap=0.10)
-        assert principal == "1"
-        assert alternativa is None
+        assert _pleno_alternative(buckets, "1") is None
 
 
 # ============================================================================
@@ -251,7 +245,7 @@ class TestEquiposAscendidos:
         assert priors["Malaga CF"]["context"]["transition"] == "segunda_a_primera"
 
         df = self._features_sinteticas()
-        out = _apply_transition_priors(df)
+        out = _apply_transition_priors(df.assign(season="2026-2027"), "2026-08-14")
         esperado = (2.0 / 3.0) * 1.0 + (1.0 / 3.0) * adj_ppg
         assert out.loc[0, "home_table_ppg"] == pytest.approx(esperado, abs=1e-9)
         # El contrario sin prior (control) no se toca
@@ -270,7 +264,7 @@ class TestEquiposAscendidos:
         adj_dep = priors["RC Deportivo"]["context"]["adjusted_ppg"]
 
         df = self._features_sinteticas()
-        out = _apply_transition_priors(df)
+        out = _apply_transition_priors(df.assign(season="2026-2027"), "2026-08-14")
         assert out.loc[1, "home_table_ppg"] == pytest.approx(adj_dep, abs=1e-9)
 
     def test_equipo_con_muestra_estable_no_recibe_prior(self):
@@ -280,7 +274,7 @@ class TestEquiposAscendidos:
              "home_table_pj": 5.0, "home_table_ppg": 1.8,
              "away_table_pj": 4.0, "away_table_ppg": 0.9},
         ])
-        out = _apply_transition_priors(df)
+        out = _apply_transition_priors(df.assign(season="2026-2027"), "2026-08-14")
         assert out.loc[0, "home_table_ppg"] == 1.8
         assert out.loc[0, "away_table_ppg"] == 0.9
 
@@ -291,6 +285,6 @@ class TestEquiposAscendidos:
              "home_table_pj": 0.0, "home_table_ppg": np.nan,
              "away_table_pj": 1.0, "away_table_ppg": 1.2},
         ])
-        out = _apply_transition_priors(df)
+        out = _apply_transition_priors(df.assign(season="2026-2027"), "2026-08-14")
         assert pd.isna(out.loc[0, "home_table_ppg"])
         assert out.loc[0, "away_table_ppg"] == 1.2

@@ -173,3 +173,22 @@ def test_load_prizes_defaults_and_override():
     assert overridden[14] == pytest.approx(123456.0)
     # el resto de categorías se mantienen por defecto
     assert overridden[10] == econ.DEFAULT_PRIZES_EUR[10]
+
+
+
+def test_estimated_return_counts_each_prize_and_each_column():
+    signs = [("1X", ("1", "X"))] + [("1", ("1",))] * 13
+    result = econ.evaluate_ticket_economics([[1, 0, 0]] * 14, selected=signs, prizes={14: 11.0, 13: 7.0})
+    assert result["distribucion_aciertos"]["14"] == 1
+    assert result["columnas_esperadas_por_aciertos"]["13"] == 1
+    assert sum(result["columnas_esperadas_por_aciertos"].values()) == 2
+    assert result["ev_premios_eur"] == 18.0
+    assert result["n_columnas"] == 2
+    assert result["coste_eur"] == 1.50
+    assert result["retorno_realizado"] is False
+
+
+@pytest.mark.parametrize("bad", [[0, 0, 0], [float("nan"), 0.3, 0.3], [-0.1, 0.3, 0.8]])
+def test_estimated_return_rejects_invalid_distributions(bad):
+    with pytest.raises(ValueError, match="vector 1X2"):
+        econ.evaluate_ticket_economics([bad] * 14)

@@ -1,231 +1,218 @@
 #!/usr/bin/env python3
-"""Genera el contrato JSON/API estable para "Liga de Maestros".
-
-Lee el paquete consolidado de una jornada (`SALIDAS/paquete_jornada_J{jornada}.json`)
-y emite un contrato estable (`SALIDAS/api_maestros_J{jornada}.json`) que la
-plataforma Liga de Maestros puede consumir sin depender de la estructura
-interna del paquete.
-
-ROADMAP #5: "Contrato JSON o API estable para entregar el pronóstico a Liga de
-Maestros".
-
-Propiedades del contrato estable:
-- ``contrato_version``: versión del esquema (semver). Solo se cambia con
-  cambios no retrocompatibles; los campos se añaden de forma aditiva.
-- ``build_api_contract``: función pura (sin I/O) y por tanto testeable.
-- ``validar_contrato``: comprobación del esquema antes de escribir la salida.
-"""
-
+"""Valida y exporta el contrato JSON v1.1 para Liga de Maestros."""
 from __future__ import annotations
 
 import argparse
 import json
-from typing import Optional
+import re
+import sys
+from datetime import datetime
+from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 import settings
-
-# Versión del esquema del contrato (semver). Incrementar el major solo ante
-# cambios no retrocompatibles; añadir campos nuevos es compatible.
-CONTRATO_VERSION = "1.0"
-
-ORIGENES_PREDICCION_VALIDOS = {"motor_v4", "manual_pendiente", "manual_revisado"}
+from scripts.json_output import write_json
+from scripts.motor.boletos import BUCKETS, SIGNOS, require_positions, select_probabilities
 
 
-def prediction_origin(match: dict) -> str:
-    """Propaga el origen explícito del paquete, con fallback v1.0 seguro."""
-    origin = match.get("origen_prediccion", match.get("origen", "motor_v4"))
-    return origin if origin in ORIGENES_PREDICCION_VALIDOS else "motor_v4"
+CONTRATO_VERSION = "1.1"
+ORIGENES_PREDICCION_VALIDOS = ("motor_v4", "manual_pendiente", "manual_revisado")
+SOURCES_1X2 = ("motor_maestro", "apu_fallback", "lae_fallback", "q15_fallback")
+SOURCES_PLENO = ("motor_maestro", "q15_fallback")
+JOINT_SIGNS = {f"{h}-{a}" for h in BUCKETS for a in BUCKETS}
+_SCORE = re.compile(r"(?:[0-9]+|M)-(?:[0-9]+|M)")
 
 
-# Campos obligatorios por objeto, usados por la validación.
-_REQUERIDOS_PRINCIPAL = ("jornada", "fecha_generacion", "modelo_version", "partidos", "pleno15")
-_REQUERIDOS_PARTIDO = ("numero", "local", "visitante", "probabilidades", "origen_prediccion")
-_REQUERIDOS_PLENO = ("local", "visitante", "marcador", "pronostico_local", "pronostico_visitante", "origen_prediccion")
-_SIGNOS = ("1", "X", "2")
+def prediction_origin(match: dict, default: str = "motor_v4") -> str:
+    origin = match.get("origen_prediccion", match.get("origen", default))
+    if origin not in ORIGENES_PREDICCION_VALIDOS or (origin == "motor_v4" and default == "manual_pendiente"):
+        return default
+    return origin
 
 
-def _flotante_por_defecto(valor, por_defecto: float) -> float:
-    """Devuelve ``valor`` si es un número finito; si no, ``por_defecto``."""
-    if isinstance(valor, (int, float)) and valor == valor and abs(valor) != float("inf"):
-        return float(valor)
-    return por_defecto
-
-
-def _procesar_partido(p: dict, num: int) -> dict:
-    """Construye el objeto de partido (1-14) del contrato."""
-    rm = p.get("recomendacion_modelo", {}) if isinstance(p.get("recomendacion_modelo"), dict) else {}
-    pm = (p.get("probabilidades") or {}).get("modelo") if isinstance(p.get("probabilidades"), dict) else {}
-    if not isinstance(pm, dict):
-        pm = {}
-
-    probs = {
-        "1": _flotante_por_defecto(pm.get("1"), 1 / 3),
-        "X": _flotante_por_defecto(pm.get("X"), 1 / 3),
-        "2": _flotante_por_defecto(pm.get("2"), 1 / 3),
-    }
-    # Normaliza para que sumen 1 (robusto ante valores ausentes).
-    total = sum(probs.values())
-    if total and total != 1.0:
-        probs = {k: v / total for k, v in probs.items()}
-
+def _procesar_partido(match: dict) -> dict:
+    probs, source = select_probabilities(match)
+    rec = match.get("recomendacion_modelo")
+    rec = rec if isinstance(rec, dict) else {}
     return {
-        "numero": num,
-        "local": p.get("local"),
-        "visitante": p.get("visitante"),
+        "numero": match["num"],
+        "local": match.get("local"),
+        "visitante": match.get("visitante"),
         "probabilidades": probs,
-        "signo_maestro": rm.get("signo_principal"),
-        "apuesta": rm.get("apuesta_recomendada"),
-        "tipo": rm.get("tipo_apuesta"),
-        "confianza": _flotante_por_defecto(rm.get("confianza_modelo"), 0.0),
-        "origen_prediccion": prediction_origin(p),
+        "signo_maestro": rec.get("signo_principal"),
+        "apuesta": rec.get("apuesta_recomendada"),
+        "tipo": rec.get("tipo_apuesta"),
+        "confianza": rec.get("confianza_modelo", 0.0),
+        "fuente_probabilidades": source,
+        "origen_prediccion": prediction_origin(match, "motor_v4" if source == "motor_maestro" else "manual_pendiente"),
     }
 
 
-def _procesar_pleno(p: dict, paquete: dict) -> dict:
-    """Construye el objeto Pleno 15 del contrato."""
-    mm = p.get("modelo_maestro", {}) if isinstance(p.get("modelo_maestro"), dict) else {}
-    if mm.get("disponible"):
-        sel = mm.get("seleccion") or {}
-        result = {
-            "local": p.get("local"),
-            "visitante": p.get("visitante"),
-            "marcador": mm.get("marcador_predicho"),
-            "pronostico_local": sel.get("local"),
-            "pronostico_visitante": sel.get("visitante"),
-            "origen_prediccion": prediction_origin(p),
-        }
-        # Añadir distribución de goles si el modelo Dixon-Coles los proporciona
-        if mm.get("goles_local"):
-            result["goles_local"] = mm["goles_local"]
-        if mm.get("goles_visitante"):
-            result["goles_visitante"] = mm["goles_visitante"]
-        if mm.get("top_marcadores"):
-            result["top_marcadores"] = mm["top_marcadores"]
-        if mm.get("lambdas"):
-            result["lambdas"] = mm["lambdas"]
-        return result
-    # Fallback al diagnóstico Q15 (marcadores) cuando el modelo no está.
-    diag = (paquete.get("pleno15") or {}).get("diagnostico_q15") if isinstance(paquete.get("pleno15"), dict) else {}
-    if not isinstance(diag, dict):
-        diag = {}
-    top = (diag.get("top_marcadores") or [{}])[0].get("score") if diag.get("top_marcadores") else None
+def _bucket(value: object) -> str | None:
+    text = str(value).upper()
+    if text in BUCKETS:
+        return text
+    if re.fullmatch(r"[0-9]+", text):
+        return "M" if int(text) >= 3 else str(int(text))
+    return None
+
+
+def _procesar_pleno(match: dict, package: dict) -> dict:
+    model = match.get("modelo_maestro") or {}
+    available = model.get("disponible") is True
+    if available:
+        selection = model.get("seleccion") or {}
+        score = model.get("marcador_predicho")
+        home, away = _bucket(selection.get("local")), _bucket(selection.get("visitante"))
+    else:
+        # El proxy es un marcador publicado, nunca un 1-1 inventado.
+        diagnostic = (package.get("pleno15") or {}).get("diagnostico_q15") or match.get("pleno15") or {}
+        score = next((str(m.get("score", "")).upper() for m in diagnostic.get("top_marcadores", [])
+                      if isinstance(m, dict) and _SCORE.fullmatch(str(m.get("score", "")).upper())), None)
+        home, away = map(_bucket, score.split("-")) if score else (None, None)
+
     return {
-        "local": p.get("local"),
-        "visitante": p.get("visitante"),
-        "marcador": top,
-        "pronostico_local": "1",  # Fallback por defecto
-        "pronostico_visitante": "1",
-        "origen_prediccion": prediction_origin(p),
+        "local": match.get("local"),
+        "visitante": match.get("visitante"),
+        "marcador": score,
+        "pronostico_local": home,
+        "pronostico_visitante": away,
+        "fuente_probabilidades": "motor_maestro" if available else "q15_fallback" if score else "sin_fuente",
+        "origen_prediccion": prediction_origin(match, "motor_v4" if available else "manual_pendiente"),
+        **{key: model[key] for key in ("goles_local", "goles_visitante", "goles_conjuntos", "top_marcadores", "lambdas")
+           if available and model.get(key)},
     }
 
 
 def build_api_contract(paquete: dict) -> dict:
-    """Transforma un paquete de jornada en el contrato estable (función pura).
-
-    No lee ni escribe archivos: solo transforma ``paquete``. Emite el dict del
-    contrato, que luego puede escribirse o validarse.
-    """
-    partidos_in = paquete.get("partidos", []) or []
-    partidos_out = []
-    pleno15 = None
-
-    for p in partidos_in:
-        num = p.get("num")
-        if num == 15:
-            pleno15 = _procesar_pleno(p, paquete)
-            continue
-        if num is not None:
-            partidos_out.append(_procesar_partido(p, num))
-
-    partidos_out.sort(key=lambda x: x["numero"])
-
+    """Transforma el paquete explícito 14+1 sin inventar resultados ni posiciones."""
+    partidos = sorted(require_positions(paquete.get("partidos")), key=lambda p: p["num"])
     return {
         "contrato_version": CONTRATO_VERSION,
         "jornada": paquete.get("jornada"),
         "fecha_generacion": paquete.get("fecha_generacion"),
-        "modelo_version": (paquete.get("modelo_info") or {}).get("version", "unknown")
-        if isinstance(paquete.get("modelo_info"), dict)
-        else "unknown",
-        "partidos": partidos_out,
-        "pleno15": pleno15,
+        "modelo_version": (paquete.get("modelo_info") or {}).get("version", "unknown"),
+        "partidos": [_procesar_partido(p) for p in partidos[:-1]],
+        "pleno15": _procesar_pleno(partidos[-1], paquete),
     }
 
 
-def validar_contrato(contrato: dict) -> list[str]:
-    """Valida el esquema del contrato. Devuelve una lista de errores (vacía si ok)."""
-    errores: list[str] = []
-    for campo in _REQUERIDOS_PRINCIPAL:
-        if campo not in contrato:
-            errores.append(f"falta campo principal: {campo}")
+def _probability(value: object) -> bool:
+    # El rango rechaza también NaN e infinitos, sin conversiones implícitas.
+    return type(value) in (int, float) and 0 <= value <= 1
 
-    partidos = contrato.get("partidos") or []
-    if not isinstance(partidos, list):
-        errores.append("partidos debe ser una lista")
-    else:
-        if len(partidos) != 14:
-            errores.append(f"se esperaban 14 partidos, hay {len(partidos)}")
-        for m in partidos:
-            for campo in _REQUERIDOS_PARTIDO:
-                if campo not in m:
-                    errores.append(f"falta campo en partido {m.get('numero')}: {campo}")
-            probs = m.get("probabilidades")
-            if isinstance(probs, dict):
-                for s in _SIGNOS:
-                    if s not in probs:
-                        errores.append(f"probabilidades sin signo {s} en partido {m.get('numero')}")
-                total = sum(probs.get(s, 0) for s in _SIGNOS)
-                if total and abs(total - 1.0) > 1e-6:
-                    errores.append(f"probabilidades no suman 1 en partido {m.get('numero')}")
-            else:
-                errores.append(f"probabilidades ausentes en partido {m.get('numero')}")
+
+def _name(value: object) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def validar_contrato(contrato: dict) -> list[str]:
+    """Devuelve errores de tipos, identidad, dominios y normalización."""
+    if not isinstance(contrato, dict):
+        return ["El contrato debe ser un objeto"]
+    errors = []
+    if contrato.get("contrato_version") != CONTRATO_VERSION:
+        errors.append("contrato_version no soportada")
+    jornada = contrato.get("jornada")
+    if type(jornada) is not int or jornada < 1:
+        errors.append("jornada debe ser un entero positivo")
+    try:
+        datetime.fromisoformat(contrato.get("fecha_generacion"))
+    except (TypeError, ValueError):
+        errors.append("fecha_generacion debe ser ISO 8601")
+    if not _name(contrato.get("modelo_version")):
+        errors.append("modelo_version debe ser texto no vacío")
+
+    partidos = contrato.get("partidos")
+    try:
+        require_positions(partidos, key="numero", count=14)
+    except ValueError as exc:
+        errors.append(f"Se requieren 14 partidos: {exc}")
+    for p in partidos if isinstance(partidos, list) else []:
+        if not isinstance(p, dict):
+            continue  # Ya informado por require_positions.
+        num = p.get("numero")
+        if not all(_name(p.get(key)) for key in ("local", "visitante")):
+            errors.append(f"Equipos ausentes en partido {num}")
+        probs = p.get("probabilidades")
+        if not isinstance(probs, dict) or set(probs) != set(SIGNOS) or not all(_probability(v) for v in probs.values()):
+            errors.append(f"Probabilidades 1X2 inválidas en partido {num}")
+        elif abs(sum(probs.values()) - 1.0) > 1e-6:
+            errors.append(f"Probabilidades no suman 1 en partido {num}")
+        source, origin = p.get("fuente_probabilidades"), p.get("origen_prediccion")
+        if source not in SOURCES_1X2:
+            errors.append(f"fuente_probabilidades inválida en partido {num}")
+        if origin not in ORIGENES_PREDICCION_VALIDOS or (origin == "motor_v4" and source != "motor_maestro"):
+            errors.append(f"origen_prediccion incompatible en partido {num}")
+        if not _probability(p.get("confianza")):
+            errors.append(f"Confianza inválida en partido {num}")
+        sign, bet, kind = p.get("signo_maestro"), p.get("apuesta"), p.get("tipo")
+        if any(v is not None for v in (sign, bet, kind)):
+            sizes = {"simple": 1, "doble": 2, "triple": 3}
+            if (sign not in SIGNOS or not isinstance(bet, str) or not isinstance(kind, str)
+                    or kind not in sizes or len(bet) != sizes[kind] or len(set(bet)) != len(bet)
+                    or not set(bet) <= set(SIGNOS) or sign not in bet):
+                errors.append(f"Recomendación incoherente en partido {num}")
 
     pleno = contrato.get("pleno15")
-    if pleno is None:
-        errores.append("falta pleno15")
-    elif not isinstance(pleno, dict):
-        errores.append("pleno15 debe ser un objeto")
+    if not isinstance(pleno, dict):
+        errors.append("pleno15 ausente o inválido")
     else:
-        for campo in _REQUERIDOS_PLENO:
-            if campo not in pleno:
-                errores.append(f"falta campo en pleno15: {campo}")
-    return errores
+        if not all(_name(pleno.get(key)) for key in ("local", "visitante")):
+            errors.append("Equipos ausentes en pleno15")
+        score = pleno.get("marcador")
+        if not isinstance(score, str) or not _SCORE.fullmatch(score):
+            errors.append("Marcador ausente o inválido en pleno15")
+        if not all(pleno.get(k) in BUCKETS for k in ("pronostico_local", "pronostico_visitante")):
+            errors.append("Buckets inválidos en pleno15")
+        source, origin = pleno.get("fuente_probabilidades"), pleno.get("origen_prediccion")
+        if source not in SOURCES_PLENO:
+            errors.append("fuente_probabilidades inválida en pleno15")
+        if origin not in ORIGENES_PREDICCION_VALIDOS or (origin == "motor_v4" and source != "motor_maestro"):
+            errors.append("origen_prediccion incompatible en pleno15")
+        selection = f"{pleno.get('pronostico_local')}-{pleno.get('pronostico_visitante')}"
+        if source == "q15_fallback" and isinstance(score, str) and _SCORE.fullmatch(score):
+            if "-".join(_bucket(part) for part in score.split("-")) != selection:
+                errors.append("El Pleno basado en Q15 no coincide con su marcador")
+        if "goles_conjuntos" in pleno:
+            joint = pleno["goles_conjuntos"]
+            if (source != "motor_maestro" or not isinstance(joint, dict) or set(joint) != JOINT_SIGNS
+                    or not all(_probability(p) for p in joint.values()) or abs(sum(joint.values()) - 1.0) > 1e-6):
+                errors.append("Distribución conjunta inválida en pleno15")
+            elif selection not in joint or max(joint.values()) - joint[selection] > 1e-8:
+                errors.append("La selección del Pleno no representa la moda conjunta")
+    return errors
 
 
-def generate_api_contract(jornada: int) -> Optional[dict]:
-    """Lee el paquete de disco, lo transforma, valida y escribe el contrato.
-
-    Devuelve el contrato si se generó correctamente; ``None`` si el paquete no
-    existe o el contrato no supera la validación.
-    """
-    paquete_path = settings.SALIDAS_DIR / f"paquete_jornada_J{jornada}.json"
-    if not paquete_path.exists():
-        print(f"Error: No se encuentra el paquete de la jornada {jornada} en {paquete_path}")
+def generate_api_contract(jornada: int) -> dict | None:
+    path = settings.SALIDAS_DIR / f"paquete_jornada_J{jornada}.json"
+    if not path.is_file():
+        print(f"Error: No se encuentra el paquete de la jornada {jornada} en {path}")
         return None
-
-    with open(paquete_path, "r", encoding="utf-8") as f:
-        paquete = json.load(f)
-
-    contrato = build_api_contract(paquete)
-    errores = validar_contrato(contrato)
-    if errores:
-        print("Contrato no válido; no se escribe la salida:")
-        for err in errores:
-            print(f"  - {err}")
+    try:
+        package = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(package, dict) or type(package.get("jornada")) is not int or package["jornada"] != jornada:
+            raise ValueError(f"{path.name} no declara la jornada {jornada}")
+        contrato = build_api_contract(package)
+        errors = validar_contrato(contrato)
+        if errors:
+            raise ValueError("; ".join(errors))
+        out = settings.SALIDAS_DIR / f"api_maestros_J{jornada}.json"
+        write_json(out, contrato)
+    except (AttributeError, TypeError, ValueError, OSError) as exc:
+        print(f"Contrato no válido o no escribible; no se actualiza la salida: {exc}")
         return None
-
-    out_path = settings.SALIDAS_DIR / f"api_maestros_J{jornada}.json"
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(contrato, f, ensure_ascii=False, indent=2)
-    print(f"Contrato API generado: {out_path} (esquema v{CONTRATO_VERSION})")
+    print(f"Contrato API generado: {out} (esquema v{CONTRATO_VERSION})")
     return contrato
 
 
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--jornada", "-j", type=int, required=True, help="Número de jornada")
-    args = parser.parse_args()
-    generate_api_contract(args.jornada)
+    parser.add_argument("--jornada", "-j", type=int, required=True)
+    return int(generate_api_contract(parser.parse_args().jornada) is None)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
