@@ -309,3 +309,22 @@ def test_cli_writes_json_only_when_requested_and_never_overwrites(tmp_path):
     assert repeated.returncode == 2
     assert "ya existe; no se sobrescribe" in repeated.stderr
     assert output.read_bytes() == original
+
+    strict_output = tmp_path / "evidence" / "audit-strict.json"
+    strict = subprocess.run(
+        [
+            sys.executable,
+            "scripts/datos/VALIDAR_DATASETS.py",
+            "--json",
+            str(strict_output),
+            "--fail-on-severity",
+            "critical",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert strict.returncode == 1
+    assert "GATE FALLIDO" in strict.stderr
+    strict_payload = json.loads(strict_output.read_text(encoding="utf-8"))
+    assert strict_payload["summary"]["findings_by_severity"]["critical"] > 0

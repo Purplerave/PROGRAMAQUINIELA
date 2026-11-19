@@ -3,11 +3,14 @@ ligaf_model.py — Modulo OFICIAL del motor para las casillas de Liga F.
 
 Modelo: Dixon-Coles simplificado (log-lineal ataque/defensa + ventaja local),
 MLE ponderado con decay temporal w=exp(-0.002*dias), regularizacion L2.
-Validado out-of-sample en backtest multi-temporada (EXP-010): 56.4% acierto
-pooled, log-loss 0.909 vs baseline 1.06 (720 predicciones nunca vistas).
+Evaluación retrospectiva walk-forward diaria; los resultados reproducibles,
+por temporada y con hashes de datos se generan con
+`scripts/backtests/BACKTEST_LIGAF_MULTITEMPORADA.py`. Las métricas históricas
+no garantizan rendimiento futuro ni ventaja frente al mercado.
 
 Contrato del modulo:
-    - cargar_dated()            -> partidos datados desde DATOS/ligaf/
+    - cargar_dated()            -> histórico StatsBomb + resultados multitemporada
+    - cargar_statsbomb_2324()   -> backbone StatsBomb 2023/24 aislado
     - ajustar(partidos)         -> (ratings, mu, gamma)
     - predecir(local, vis, ...) -> {"p1","px","p2","signo","fuente"}
     - walkforward(...)          -> metricas honestas OOS
@@ -35,6 +38,7 @@ REFIT_CADA = 15
 
 REGLAS_CANON = [
     ("badalona", "badalona"), ("levante las planas", "las_planas"),
+    ("levante ud femenino", "levante"), ("levante ud", "levante"),
     ("granadilla", "tenerife"), ("costa adeje", "tenerife"),
     ("barcelona", "barcelona"), ("atletico de madrid", "atletico"),
     ("at. madrid", "atletico"), ("atletico madrid w", "atletico"),
@@ -63,16 +67,120 @@ def canon(nombre: str) -> str:
     return n
 
 
+def _fixture_key(match: dict) -> tuple:
+    return (match["fecha"].date(), match["local"], match["visitante"])
+
+
+def _season_from_date(match_date: datetime) -> str:
+    start = match_date.year if match_date.month >= 7 else match_date.year - 1
+    return f"{start}-{(start + 1) % 100:02d}"
+
+
+def _load_uploaded_results(path: Path) -> list[dict]:
+    """Lee y valida el CSV adicional; solo admite partidos finalizados."""
+    required = {"season", "date", "match_id", "home", "home_goals", "away_goals", "away", "status"}
+    allowed_non_final = {
+        "scheduled", "not started", "not_started", "postponed", "cancelled",
+        "canceled", "abandoned", "live", "in progress", "in_progress", "tbd",
+    }
+    completed = {"full time", "finished", "finished after extra time", "finished after penalties", "ft"}
+    matches = []
+    ids: set[str] = set()
+    fixtures: set[tuple] = set()
+
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        missing = required - set(reader.fieldnames or [])
+        if missing:
+            raise ValueError(f"CSV Liga F sin columnas requeridas: {sorted(missing)}")
+        for line, row in enumerate(reader, start=2):
+            status = (row.get("status") or "").strip().casefold()
+            if status in allowed_non_final:
+                continue
+            if status not in completed:
+                raise ValueError(f"Estado de partido desconocido en {path}:{line}: {status!r}")
+
+            try:
+                match_date = datetime.strptime((row.get("date") or "").strip(), "%Y-%m-%d")
+                home_goals = int(row.get("home_goals"))
+                away_goals = int(row.get("away_goals"))
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"Fecha o marcador inválido en {path}:{line}") from exc
+            if home_goals < 0 or away_goals < 0:
+                raise ValueError(f"Marcador negativo en {path}:{line}")
+            if (row.get("season") or "").strip() != _season_from_date(match_date):
+                raise ValueError(f"Temporada no coincide con la fecha en {path}:{line}")
+
+            match_id = (row.get("match_id") or "").strip()
+            if not match_id or match_id in ids:
+                raise ValueError(f"ID vacío o duplicado en {path}:{line}: {match_id!r}")
+            ids.add(match_id)
+            home, away = canon(row.get("home") or ""), canon(row.get("away") or "")
+            if not home or not away or home == away:
+                raise ValueError(f"Identidad de equipos inválida en {path}:{line}")
+            match = {
+                "fecha": match_date,
+                "local": home,
+                "visitante": away,
+                "gh": home_goals,
+                "ga": away_goals,
+            }
+            key = _fixture_key(match)
+            if key in fixtures:
+                raise ValueError(f"Partido duplicado en {path}:{line}: {key}")
+            fixtures.add(key)
+            matches.append(match)
+    return matches
+
+
+def cargar_statsbomb_2324() -> list[dict]:
+    """Carga únicamente el backbone fijado de StatsBomb 2023-24."""
+    baseline_path = BASE / "ligaf_resultados_2324_dated.csv"
+    baseline = []
+    with baseline_path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle):
+            baseline.append({
+                "fecha": datetime.fromisoformat(row["date"]),
+                "local": canon(row["local"]),
+                "visitante": canon(row["visitante"]),
+                "gh": int(row["gh"]),
+                "ga": int(row["ga"]),
+            })
+    baseline.sort(key=lambda item: (item["fecha"], item["local"], item["visitante"]))
+    return baseline
+
+
 def cargar_dated() -> list[dict]:
-    ruta = BASE / "ligaf_resultados_2324_dated.csv"
-    partidos = []
-    with open(ruta, encoding="utf-8") as f:
-        for r in csv.DictReader(f):
-            partidos.append({"fecha": datetime.fromisoformat(r["date"]),
-                             "local": canon(r["local"]), "visitante": canon(r["visitante"]),
-                             "gh": int(r["gh"]), "ga": int(r["ga"])})
-    partidos.sort(key=lambda x: x["fecha"])
-    return partidos
+    """Combina el backbone StatsBomb con resultados multitemporada validados.
+
+    La temporada 2023-24 está presente en ambas fuentes. Se conserva una única
+    fila cuando coinciden fecha/equipos/marcador y se falla cerrado ante
+    cualquier discrepancia; las temporadas posteriores amplían el histórico.
+    """
+    supplemental_path = BASE / "liga_f_partidos_2023-27.csv"
+    baseline = cargar_statsbomb_2324()
+
+    by_fixture = {}
+    for match in baseline:
+        key = _fixture_key(match)
+        if key in by_fixture:
+            raise ValueError(f"Partido duplicado en el backbone StatsBomb: {key}")
+        by_fixture[key] = match
+
+    for match in _load_uploaded_results(supplemental_path):
+        key = _fixture_key(match)
+        if key in by_fixture:
+            old = by_fixture[key]
+            if (old["gh"], old["ga"]) != (match["gh"], match["ga"]):
+                raise ValueError(
+                    f"Discrepancia de marcador entre fuentes para {key}: "
+                    f"StatsBomb={old['gh']}-{old['ga']}, importado={match['gh']}-{match['ga']}"
+                )
+            continue
+        by_fixture[key] = match
+
+    matches = sorted(by_fixture.values(), key=lambda item: (item["fecha"], item["local"], item["visitante"]))
+    return matches
 
 
 def ajustar(partidos: list[dict]):
@@ -132,8 +240,8 @@ def predecir(local: str, visitante: str, ratings: dict, mu: float, gamma: float)
     lh = math.exp(mu + gamma + rl["att"] - rv["def"])
     lv = math.exp(mu + rv["att"] - rl["def"])
     p1, px, p2 = probs_1x2(lh, lv)
-    fuente_l = "fitted_2324" if fl else "NEUTRO_sin_historial"
-    fuente_v = "fitted_2324" if fv else "NEUTRO_sin_historial"
+    fuente_l = "fitted_ligaf_history" if fl else "NEUTRO_sin_historial"
+    fuente_v = "fitted_ligaf_history" if fv else "NEUTRO_sin_historial"
     signo = ["1", "X", "2"][int(np.argmax([p1, px, p2]))]
     return {"local": local, "visitante": visitante,
             "p1": round(p1, 3), "px": round(px, 3), "p2": round(p2, 3),
@@ -144,6 +252,7 @@ def predecir(local: str, visitante: str, ratings: dict, mu: float, gamma: float)
 def walkforward(partidos: list[dict]) -> dict:
     """Predice el día completo antes de incorporar cualquiera de sus resultados."""
     aciertos, homes, losses, baseline_losses = [], [], [], []
+    season_metrics: dict[str, dict] = {}
     previous: list[dict] = []
     params = None
     last_fit = 0
@@ -167,8 +276,20 @@ def walkforward(partidos: list[dict]) -> dict:
                 probs = [pred["p1"], pred["px"], pred["p2"]]
                 aciertos.append(pred["signo"] == classes[outcome])
                 homes.append(outcome == 0)
-                losses.append(-math.log(max(probs[outcome], 1e-12)))
-                baseline_losses.append(-math.log(max(base[outcome], 1e-12)))
+                logloss = -math.log(max(probs[outcome], 1e-12))
+                baseline_logloss = -math.log(max(base[outcome], 1e-12))
+                losses.append(logloss)
+                baseline_losses.append(baseline_logloss)
+                season = _season_from_date(match["fecha"])
+                metrics = season_metrics.setdefault(
+                    season,
+                    {"n": 0, "correct": 0, "home_wins": 0, "logloss": 0.0, "baseline_logloss": 0.0},
+                )
+                metrics["n"] += 1
+                metrics["correct"] += int(pred["signo"] == classes[outcome])
+                metrics["home_wins"] += int(outcome == 0)
+                metrics["logloss"] += logloss
+                metrics["baseline_logloss"] += baseline_logloss
         for match in matches:
             frequencies[observed_index(match)] += 1
         previous.extend(matches)
@@ -176,6 +297,18 @@ def walkforward(partidos: list[dict]) -> dict:
     n = len(aciertos)
     if not n:
         raise ValueError("Histórico insuficiente para el walk-forward diario de Liga F")
+    by_season = {
+        season: {
+            "n_evaluados": metrics["n"],
+            "DC_acierto": round(metrics["correct"] / metrics["n"], 4),
+            "siempre_1_acierto": round(metrics["home_wins"] / metrics["n"], 4),
+            "DC_logloss": round(metrics["logloss"] / metrics["n"], 4),
+            "baseline_frecuencias_logloss": round(
+                metrics["baseline_logloss"] / metrics["n"], 4
+            ),
+        }
+        for season, metrics in sorted(season_metrics.items())
+    }
     return {
         "protocolo": "walk_forward_dias_sin_resultados_del_mismo_dia",
         "n_evaluados": n,
@@ -183,4 +316,5 @@ def walkforward(partidos: list[dict]) -> dict:
         "siempre_1_acierto": round(sum(homes) / n, 4),
         "DC_logloss": round(sum(losses) / n, 4),
         "baseline_frecuencias_logloss": round(sum(baseline_losses) / n, 4),
+        "por_temporada": by_season,
     }

@@ -27,6 +27,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="guarda la evidencia completa en JSON únicamente cuando se solicita",
     )
     parser.add_argument(
+        "--fail-on-severity",
+        choices=("info", "warning", "critical"),
+        metavar="SEVERITY",
+        help=(
+            "devuelve código 1 si hay hallazgos de esta severidad o superior; "
+            "la evidencia solicitada se guarda antes de evaluar el umbral"
+        ),
+    )
+    parser.add_argument(
         "--overround-min",
         type=float,
         default=1.0,
@@ -68,6 +77,24 @@ def main(argv: list[str] | None = None) -> int:
             )
             return 2
         print(f"\nEvidencia JSON guardada en: {output_path}")
+
+    if args.fail_on_severity is not None:
+        severity_rank = {"info": 0, "warning": 1, "critical": 2}
+        threshold = severity_rank[args.fail_on_severity]
+        blocked = [
+            item for item in report["findings"]
+            if severity_rank[item["severity"]] >= threshold
+        ]
+        if blocked:
+            counts = report["summary"]["findings_by_severity"]
+            print(
+                "\nGATE FALLIDO: "
+                f"{len(blocked)} hallazgo(s) con severidad >= {args.fail_on_severity}; "
+                f"críticos={counts['critical']}, avisos={counts['warning']}, "
+                f"informativos={counts['info']}",
+                file=sys.stderr,
+            )
+            return 1
     return 0
 
 

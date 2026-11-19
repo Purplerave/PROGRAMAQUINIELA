@@ -15,6 +15,9 @@
   `scripts/backtests/AUDITAR_LAE_VS_HISTORICO.py`.
 - `paper_trading_2627.json`: tracker de paper-trading 2026-27 (visitante
   cuota [1.8, 2.5)). Actualizar con `python scripts/datos/PAPER_TRADING_2627.py`.
+- `ligaf/liga_f_partidos_2023-27.csv`: resultados multitemporada de Liga F
+  aportados por usuario, con procedencia/licencia pendiente de confirmar;
+  se reconcilian con el backbone StatsBomb 2023/24 al cargar el motor.
 
 No se incluyen respuestas crudas de APIs, copias de seguridad ni datasets
 experimentales que no sean necesarios para ejecutar este proyecto.

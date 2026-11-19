@@ -14,7 +14,7 @@ make sanitize           # Genera el histórico oficial en salida/ (necesario en 
 make test               # Ejecuta la suite de pruebas
 make backtest           # Walk-forward sobre histórico saneado; puede incluir la última temporada parcial
 make predict JORNADA=74 # Genera el paquete de predicción para la jornada
-make audit              # Calidad de datos, pruebas, cobertura y backtest cerrado
+make audit              # Calidad de datos, pruebas, cobertura y backtests (LaLiga + Liga F)
 make reference          # Regenera salida/referencia_produccion.json (2019-20 a 2025-26)
 ```
 
@@ -25,7 +25,22 @@ saneador no sobreescribe archivos. La aparición de avisos de cobertura en QA
 no equivale a un aprobado del dataset.
 
 La auditoría de arquitectura, los hallazgos y el plan de mejora están en
-[Auditoría técnica — fase 1](reports/AUDITORIA_TECNICA_2026-11-18.md).
+[Auditoría técnica — fase 1](reports/AUDITORIA_TECNICA_2026-11-18.md) y en la
+[auditoría total del 19/11/2026](reports/AUDITORIA_TOTAL_2026-11-19.md).
+
+El control de datasets es descriptivo por defecto: los críticos de cobertura
+conocidos no detienen el `make audit` histórico. Para usar el auditor como
+puerta de calidad en una integración, `--fail-on-severity` hace que devuelva
+código 1 al detectar esa severidad o una superior (y deja escrita la evidencia
+JSON antes de fallar):
+
+```bash
+python scripts/datos/VALIDAR_DATASETS.py --json salida/datasets.json \
+  --fail-on-severity critical
+```
+
+En el dataset actual ese umbral falla deliberadamente por limitaciones
+conocidas; no significa que deba rellenarse o corregirse inventando datos.
 
 ## Instalacion
 
@@ -151,6 +166,15 @@ al repositorio.
 
 Este flujo Poisson de Liga M/Liga F es distinto del motor maestro basado en
 mercado. No sirve para reproducir las métricas del backtest del motor maestro.
+
+El modelo de Liga F carga el backbone StatsBomb 2023/24 más el histórico
+multitemporada de `DATOS/ligaf/liga_f_partidos_2023-27.csv`. La temporada
+2023/24 se concilia 240/240 con StatsBomb y no se duplica; el archivo incluye
+240 partidos de 2024/25, 240 de 2025/26 y 87 partidos parciales de 2026/27.
+La procedencia/licencia del adjunto no está confirmada; consulta
+[`DATOS/ligaf/README.md`](DATOS/ligaf/README.md). Sus datos solo alimentan
+features de goles/forma, no cuotas, tiros ni xG. Ejecuta `make ligaf-backtest`
+para generar el informe walk-forward por temporada.
 
 ```bash
 python scripts/RUN_SEMANA_COMPLETA.py --boleto ruta/mi_boleto.json --presupuesto 8
