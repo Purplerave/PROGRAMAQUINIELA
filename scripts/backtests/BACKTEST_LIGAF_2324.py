@@ -2,8 +2,8 @@
 BACKTEST_LIGAF_2324.py — Verificacion del modulo oficial ligaf_model
 sobre el backbone REAL de StatsBomb (240 partidos, temporada 2023/2024).
 
-Protocolo walk-forward honesto: warmup 60, refit cada 15, metricas solo
-sobre partidos nunca vistos. Salida: SALIDAS/backtest_ligaf_2324.json
+Protocolo walk-forward diario: warmup de al menos 60 partidos, reajuste
+tras al menos 15 resultados y sin incorporar partidos del mismo día. Salida: SALIDAS/backtest_ligaf_2324.json
 """
 from __future__ import annotations
 

@@ -37,6 +37,9 @@ Cada ticket debe tener exactamente los partidos 1–14 y un Pleno al 15. Cada
 partido debe incluir su **fecha real**; la fecha del sorteo por sí sola no sirve
 para emparejar de forma segura partidos aplazados. `payouts` es opcional: sin
 escrutinio oficial el sistema reporta aciertos y coste, pero nunca inventa ROI.
+Si una columna obtendría una categoría premiada (10 a 14) y falta su importe,
+el ROI sigue sin estar disponible. Cuando una categoría no paga, declara `0`
+con la fuente oficial. El cálculo de ROI 1X2 no incluye el Pleno al 15.
 
 Para usarlo desde Python:
 

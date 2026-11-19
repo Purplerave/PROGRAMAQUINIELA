@@ -6,7 +6,7 @@ de APU/LAE/Q15 como fuente principal.
 
 Este módulo:
 - Carga el histórico para calcular features rodantes (sin fuga temporal)
-- Entrena o carga modelos entrenados
+- Entrena sobre un histórico anterior al corte
 - Genera probabilidades 1/X/2 por partido
 - Devuelve un contrato JSON estable por jornada
 """
@@ -24,22 +24,23 @@ import pandas as pd
 import settings
 
 from MOTOR_QUINIELA_MAESTRO import (
-    add_market_baseline,
+    LABEL_MAP,
+    _attach_calibracion_bandas,
     apply_hybrid_config,
-    build_hgb_model,
-    build_logit_model,
-    feature_columns,
-    predict_full_probs,
+    fit_hybrid_models,
+    hybrid_inputs,
+    load_raw_history,
 )
+from scripts.json_output import write_json
+from scripts.motor.boletos import load_jornada_json as load_jornada_json, validate_jornada
 from scripts.motor.features import (
     compute_features_for_upcoming,
     infer_season,
     rolling_team_features,
 )
-from scripts.motor.calibration import VectorScalingCalibrator
-
-# Configuración de salida
-MODELS_DIR = settings.SALIDA_DIR / "modelos"
+from scripts.motor.odds_at_cutoff import kickoff_at, odds_at_cutoff
+from scripts.motor.temporal import history_before, local_timestamp, utc_timestamp
+from scripts.motor.transition_priors import load_transition_priors
 
 # Pleno al 15: buckets de goles del boleto oficial y umbral para sugerir doble
 PLENO_BUCKET_LABELS = ("0", "1", "2", "M")
@@ -48,156 +49,20 @@ _PLENO_ALT_GAP = 0.10
 _FALLBACK_LAMBDA_HOME = 1.45
 _FALLBACK_LAMBDA_AWAY = 1.10
 
-# Modelo entrenado persistente
-_LOGIT_MODEL: Any = None
-_HGB_MODEL: Any = None
-_MASTER_CONFIG: dict | None = None
-_CALIBRATOR: VectorScalingCalibrator | None = None
+def _train_models(history_df: pd.DataFrame, cutoff_date: object) -> tuple:
+    """Entrena solo con resultados anteriores al día del corte y pesos congelados.
 
-
-def load_master_config() -> dict:
-    """Carga la configuración del modelo maestro."""
-    global _MASTER_CONFIG
-    if _MASTER_CONFIG is None:
-        _MASTER_CONFIG = settings.master_model_config()
-    return _MASTER_CONFIG
-
-
-def load_or_train_models(
-    history_df: pd.DataFrame | None = None,
-) -> tuple[Any, Any, dict, VectorScalingCalibrator | None]:
-    """Carga modelos entrenados desde disco o los entrena desde cero.
-
-    Si existen modelos guardados en MODELS_DIR, los carga.
-    Si no, entrena con el histórico proporcionado.
-
-    Returns:
-        (logit, hgb, config, calibrator) — calibrator puede ser None si falla.
+    No reutiliza modelos globales: una segunda jornada puede tener otro corte
+    o histórico. Vector scaling y búsqueda de pesos quedan en experimentos.
     """
-    global _LOGIT_MODEL, _HGB_MODEL, _MASTER_CONFIG, _CALIBRATOR
-
-    MODELS_DIR.mkdir(parents=True, exist_ok=True)
-
-    if (
-        _HGB_MODEL is not None
-        and _MASTER_CONFIG is not None
-    ):
-        # Si ya existe calibrador en memoria, devolverlo; si no, entrenar solo calibrador no es trivial,
-        # así que devolvemos lo que haya (puede ser None en primera carga).
-        return _LOGIT_MODEL, _HGB_MODEL, _MASTER_CONFIG, _CALIBRATOR
-
-    logit_path = MODELS_DIR / "logit_model.json"
-    hgb_path = MODELS_DIR / "hgb_model.json"
-
-    if logit_path.exists() and hgb_path.exists():
-        # TODO: Implementar carga de modelos scikit-learn
-        # Por ahora, entrenamos siempre (los Pipeline no se serializan fácilmente)
-        pass
-
-    if history_df is None:
-        from MOTOR_QUINIELA_MAESTRO import load_raw_history
-
-        history_df = load_raw_history()
-
-    # Entrenar modelos + calibrador
-    logit, hgb, config, calibrator = _train_models(history_df)
-    _LOGIT_MODEL = logit
-    _HGB_MODEL = hgb
-    _MASTER_CONFIG = config
-    _CALIBRATOR = calibrator
-    return logit, hgb, config, calibrator
-
-
-def _train_models(
-    df: pd.DataFrame,
-) -> tuple[Any, Any, dict, VectorScalingCalibrator | None]:
-    """Entrena los modelos Logit y HGB con el histórico y ajusta el calibrador vector scaling.
-
-    Flujo (evita fuga temporal):
-      1. Extrae features rodantes (ya ordenadas por fecha).
-      2. Optimiza la configuración híbrida con split temporal 84/16 interno (optimize_hybrid_config).
-      3. Re-entrena modelos finales con TODO el histórico (ya lo hace optimize_hybrid_config).
-      4. Para el calibrador: vuelve a dividir el histórico en subtrain 84% / valid 16% (temporal),
-         entrena modelos temporales en subtrain, genera ensemble en valid y ajusta vector scaling
-         solo con valid. Nunca usa la jornada futura a predecir.
-
-    Returns:
-        (logit_full, hgb_full, config_best, calibrator_or_None)
-    """
-    from MOTOR_QUINIELA_MAESTRO import optimize_hybrid_config
-
-    features_df = rolling_team_features(df)
-
-    # Filtrar solo partidos con resultado conocido
-    features_df = features_df[features_df["result"].isin({"1", "X", "2"})].copy()
-
-    # Añadir columna target para entrenamiento
-    features_df["target"] = features_df["result"].map({"1": 0, "X": 1, "2": 2})
-
-    # Eliminar filas sin resultado
-    features_df = features_df.dropna(subset=["target"])
-
-    if len(features_df) < 100:
-        raise ValueError(f"Datos insuficientes para entrenar: {len(features_df)} partidos")
-
-    # Ordenar por fecha para split temporal consistente
-    features_df = features_df.sort_values(
-        ["date", "division", "home", "away"]
-    ).reset_index(drop=True)
-
-    # Obtener mejor configuración usando subtrain/valid y re-entrenar con todo
-    logit_full, hgb_full, config_best = optimize_hybrid_config(features_df)
-
-    # --- Entrenar calibrador vector scaling en validación temporal ---
-    calibrator: VectorScalingCalibrator | None = None
-    try:
-        # Mismo split 84/16 que usa optimize_hybrid_config
-        split_idx = int(len(features_df) * 0.84)
-        if split_idx < 50 or (len(features_df) - split_idx) < 50:
-            raise ValueError("Split de calibración demasiado pequeño")
-
-        subtrain = features_df.iloc[:split_idx].copy()
-        valid = features_df.iloc[split_idx:].copy()
-
-        # Entrenar modelos temporales solo con subtrain
-        cols = feature_columns()
-        needs_logit = config_best.get("weights", {}).get("logit", 0.0) > 0
-        hgb_sub = build_hgb_model()
-        hgb_sub.fit(subtrain[cols], subtrain["target"])
-        hgb_valid_probs = predict_full_probs(hgb_sub, valid, cols)
-
-        valid_for_cal = valid.copy()
-        if needs_logit:
-            logit_sub = build_logit_model()
-            logit_sub.fit(subtrain[cols + ["division"]], subtrain["target"])
-            logit_valid_probs = predict_full_probs(logit_sub, valid, cols + ["division"])
-            valid_for_cal["logit_prob_1"] = logit_valid_probs[:, 0]
-            valid_for_cal["logit_prob_x"] = logit_valid_probs[:, 1]
-            valid_for_cal["logit_prob_2"] = logit_valid_probs[:, 2]
-        valid_for_cal["hgb_prob_1"] = hgb_valid_probs[:, 0]
-        valid_for_cal["hgb_prob_x"] = hgb_valid_probs[:, 1]
-        valid_for_cal["hgb_prob_2"] = hgb_valid_probs[:, 2]
-
-        valid_for_cal = add_market_baseline(valid_for_cal)
-        valid_for_cal = apply_hybrid_config(valid_for_cal, config_best, "modelo")
-
-        cal_probs = valid_for_cal[
-            ["modelo_prob_1", "modelo_prob_x", "modelo_prob_2"]
-        ].to_numpy(dtype=float)
-        cal_y = valid["target"].to_numpy(dtype=int)
-
-        # Ajustar vector scaling
-        cal = VectorScalingCalibrator()
-        cal.fit(cal_probs, cal_y)
-        calibrator = cal
-
-    except Exception as exc:
-        # No bloquear entrenamiento de modelos si la calibración falla; dejamos aviso
-        # El llamante podrá ver calibrator=None y operar sin calibrar.
-        print(f"[calibracion] Aviso: no se pudo entrenar calibrador vector scaling: {exc}")
-        calibrator = None
-
-    return logit_full, hgb_full, config_best, calibrator
+    eligible = history_before(history_df, cutoff_date)
+    features = rolling_team_features(eligible)
+    train = features.loc[features["result"].isin(LABEL_MAP)].copy()
+    train["target"] = train["result"].map(LABEL_MAP)
+    if len(train) < 100 or train["target"].nunique() < len(LABEL_MAP):
+        raise ValueError(f"Histórico anterior al corte insuficiente: {len(train)} partidos; se requieren al menos 100 y los tres resultados")
+    logit, hgb, config = fit_hybrid_models(train, selection_mode="production")
+    return logit, hgb, config, train
 
 
 def normalize_name(value: str) -> str:
@@ -213,17 +78,12 @@ def normalize_name(value: str) -> str:
 def _calculate_confidence(probs: dict[str, float]) -> float:
     """Calcula un índice de confianza (0-1) basado en la entropía de las probabilidades."""
     # Manejar ambos formatos: {"1": x} o {"prob_1": x}
-    p1 = probs.get("1") or probs.get("prob_1") or 0.333
-    px = probs.get("X") or probs.get("prob_x") or 0.333
-    p2 = probs.get("2") or probs.get("prob_2") or 0.333
-
-    # Entropía máxima = log(3) ≈ 1.0986 (distribución uniforme)
-    # Entropía mínima = 0 (certidumbre absoluta)
-    max_entropy = math.log(3)
-    probs_list = [p1, px, p2]
-    entropy = -sum(p * math.log(p) if p > 0 else 0 for p in probs_list)
-    confidence = 1 - (entropy / max_entropy)
-    return round(confidence, 4)
+    ps = [probs.get(sign, probs.get(alias, 0.0)) for sign, alias in (("1", "prob_1"), ("X", "prob_x"), ("2", "prob_2"))]
+    total = sum(ps)
+    if total <= 0:
+        return 0.0
+    entropy = -sum((p / total) * math.log(p / total) for p in ps if p > 0)
+    return round(max(0.0, 1 - entropy / math.log(3)), 4)
 
 
 def _check_data_quality(feat_row: pd.Series) -> dict[str, Any]:
@@ -232,7 +92,7 @@ def _check_data_quality(feat_row: pd.Series) -> dict[str, Any]:
     quality_score = 1.0
 
     # Verificar cuotas de mercado
-    if pd.isna(feat_row.get("odd_1")) or pd.isna(feat_row.get("market_1")):
+    if not bool(pd.notna(feat_row.get("market_1"))):
         warnings.append("sin_cuotas_mercado")
         quality_score -= 0.3
 
@@ -263,7 +123,13 @@ def _check_data_quality(feat_row: pd.Series) -> dict[str, Any]:
     }
 
 
-def _apply_transition_priors(features_df: pd.DataFrame) -> pd.DataFrame:
+def _in_model_domain(row: pd.Series, match: dict) -> bool:
+    return not match.get("liga_f", False) and row["division"] in ("Primera", "Segunda") and all(
+        pd.notna(row.get(f"{side}_form_pts_5")) for side in ("home", "away")
+    )
+
+
+def _apply_transition_priors(features_df: pd.DataFrame, cutoff_date: object) -> pd.DataFrame:
     """Aplica priors de transición a equipos con poca muestra en la temporada actual.
 
     Punto 5 Codex: Respetar la temporada y aplicar explícitamente los priors de transición.
@@ -275,19 +141,13 @@ def _apply_transition_priors(features_df: pd.DataFrame) -> pd.DataFrame:
     """
     from scripts.motor.team_names import resolve_prior_name
 
-    priors_path = settings.DATOS_DIR / "temporada_2026_27_estadisticas_base.json"
-    if not priors_path.exists():
+    target_season, teams_priors, _ = load_transition_priors(cutoff_date)
+    if not teams_priors:
         return features_df
 
-    try:
-        priors_data = json.loads(priors_path.read_text(encoding="utf-8"))
-        teams_priors = priors_data.get("teams", {})
-    except Exception:
-        return features_df
-
+    features_df = features_df.copy()
     normalized_priors = {normalize_name(k): v for k, v in teams_priors.items()}
-
-    for idx, row in features_df.iterrows():
+    for idx, row in features_df.loc[features_df["season"].eq(target_season)].iterrows():
         for side in ["home", "away"]:
             pj_col = f"{side}_table_pj"
             ppg_col = f"{side}_table_ppg"
@@ -327,33 +187,18 @@ def _pleno_bucket_label(goals: int) -> str:
     return str(goals) if goals < 3 else "M"
 
 
-def _pleno_bucket_probs(score_probs: np.ndarray) -> tuple[dict[str, float], dict[str, float]]:
-    """Pasa la matriz de marcadores (G x G) a probabilidades de buckets por lado.
-
-    La matriz ya viene normalizada (DC recorta la cola en max_goals; la masa
-    residual por encima de 7 goles de cada lado es < 0,1 % y se renormaliza).
-    """
-    home = {bucket: 0.0 for bucket in PLENO_BUCKET_LABELS}
-    away = {bucket: 0.0 for bucket in PLENO_BUCKET_LABELS}
-    goals_n = score_probs.shape[0]
-    for hg in range(goals_n):
-        for ag in range(goals_n):
-            prob = float(score_probs[hg, ag])
-            home[_pleno_bucket_label(hg)] += prob
-            away[_pleno_bucket_label(ag)] += prob
-    total_home = sum(home.values()) or 1.0
-    total_away = sum(away.values()) or 1.0
-    home = {b: round(v / total_home, 4) for b, v in home.items()}
-    away = {b: round(v / total_away, 4) for b, v in away.items()}
-    return home, away
+def _pleno_bucket_probs(score_probs: np.ndarray) -> dict[str, float]:
+    """Agrupa la matriz de Dixon-Coles en los 16 signos conjuntos oficiales."""
+    joint = {f"{h}-{a}": 0.0 for h in PLENO_BUCKET_LABELS for a in PLENO_BUCKET_LABELS}
+    for (hg, ag), prob in np.ndenumerate(score_probs):
+        joint[f"{_pleno_bucket_label(hg)}-{_pleno_bucket_label(ag)}"] += float(prob)
+    return joint
 
 
-def _pleno_select(bucket_probs: dict[str, float], gap: float = _PLENO_ALT_GAP) -> tuple[str, str | None]:
-    """Selecciona el bucket principal y una alternativa si el 2º está muy cerca."""
-    ordered = sorted(bucket_probs.items(), key=lambda item: item[1], reverse=True)
-    principal = ordered[0][0]
-    alternativa = ordered[1][0] if (ordered[0][1] - ordered[1][1]) < gap else None
-    return principal, alternativa
+def _pleno_alternative(bucket_probs: dict[str, float], selected: str) -> str | None:
+    alternatives = {bucket: p for bucket, p in bucket_probs.items() if bucket != selected}
+    second = max(alternatives, key=alternatives.get)
+    return second if abs(bucket_probs[selected] - alternatives[second]) < _PLENO_ALT_GAP else None
 
 
 def _league_mean_lambdas(history_df: pd.DataFrame, cutoff_date: pd.Timestamp) -> tuple[float, float]:
@@ -363,9 +208,7 @@ def _league_mean_lambdas(history_df: pd.DataFrame, cutoff_date: pd.Timestamp) ->
     (selecciones, ligas no cubiertas), de modo que el Pleno al 15 siempre
     produce una salida estable y documentada (lambdas_fuente).
     """
-    hist = history_df.copy()
-    hist["date"] = pd.to_datetime(hist["date"], errors="coerce")
-    hist = hist[hist["date"] < pd.to_datetime(cutoff_date)]
+    hist = history_before(history_df, cutoff_date)
     mean_home = float(hist["FTHG"].mean()) if len(hist) else np.nan
     mean_away = float(hist["FTAG"].mean()) if len(hist) else np.nan
     if np.isnan(mean_home):
@@ -396,6 +239,7 @@ def predict_pleno15_from_model(
     """
     from scripts.motor.dixon_coles import dc_score_probs
 
+    cutoff_date = get_cutoff_date({"partidos": [partido15]}, cutoff_date)
     dc_cfg = settings.master_model_config().get("dixon_coles", {})
     if not isinstance(dc_cfg, dict):
         dc_cfg = {}
@@ -405,22 +249,21 @@ def predict_pleno15_from_model(
 
     local = partido15.get("local")
     visitante = partido15.get("visitante")
-    fecha = partido15.get("fecha")
+    kickoff = kickoff_at(partido15)
+    fecha = local_timestamp(kickoff).normalize() if kickoff else None
 
     match = {
         "home": local,
         "away": visitante,
-        "date": fecha if fecha else cutoff_date,
+        "date": fecha if fecha is not None else local_timestamp(cutoff_date).normalize(),
         "division": partido15.get("division"),  # None -> se infiere del histórico
         "season": infer_season(fecha) if fecha else None,
-        "odd_1": partido15.get("odd_1"),
-        "odd_x": partido15.get("odd_x"),
-        "odd_2": partido15.get("odd_2"),
+        **odds_at_cutoff(partido15, cutoff_date)[0],
     }
 
     try:
         features_df = compute_features_for_upcoming(
-            [match], history_df, cutoff_date=cutoff_date
+            [match], history_before(history_df, cutoff_date), cutoff_date=local_timestamp(cutoff_date).normalize()
         )
     except Exception as exc:
         return {
@@ -450,7 +293,7 @@ def predict_pleno15_from_model(
 
     lambdas_fuente = "features_equipo"
     if home_missing or away_missing:
-        mean_home, mean_away = _league_mean_lambdas(history_df, pd.to_datetime(cutoff_date))
+        mean_home, mean_away = _league_mean_lambdas(history_df, cutoff_date)
         if home_missing and away_missing:
             lambdas_fuente = "media_liga"
         else:
@@ -473,9 +316,13 @@ def predict_pleno15_from_model(
         hg, ag = np.unravel_index(idx, score_probs.shape)
         top_marcadores.append({"score": f"{hg}-{ag}", "prob": round(float(score_probs[hg, ag]), 4)})
 
-    goles_local, goles_visitante = _pleno_bucket_probs(score_probs)
-    sel_local, alt_local = _pleno_select(goles_local)
-    sel_visitante, alt_visitante = _pleno_select(goles_visitante)
+    joint = _pleno_bucket_probs(score_probs)
+    signo_pleno = max(joint, key=joint.get)
+    sel_local, sel_visitante = signo_pleno.split("-")
+    goles_local = {h: sum(joint[f"{h}-{a}"] for a in PLENO_BUCKET_LABELS) for h in PLENO_BUCKET_LABELS}
+    goles_visitante = {a: sum(joint[f"{h}-{a}"] for h in PLENO_BUCKET_LABELS) for a in PLENO_BUCKET_LABELS}
+    alt_local = _pleno_alternative(goles_local, sel_local)
+    alt_visitante = _pleno_alternative(goles_visitante, sel_visitante)
 
     quality = _check_data_quality(feat_row)
     avisos = list(quality["warnings"])
@@ -484,9 +331,9 @@ def predict_pleno15_from_model(
         avisos.append("lambdas_media_liga")
         calidad = round(max(0.0, calidad - 0.25), 2)
 
-    seleccion_confianza = round(
-        float(goles_local[sel_local]) * float(goles_visitante[sel_visitante]), 4
-    )
+    model_domain = _in_model_domain(feat_row, partido15)
+    if not model_domain:
+        avisos.append("fuera_del_dominio_validado")
 
     return {
         "jornada": jornada,
@@ -494,7 +341,7 @@ def predict_pleno15_from_model(
         "local": local,
         "visitante": visitante,
         "fecha": str(fecha)[:10] if fecha else None,
-        "disponible": calidad >= 0.2,
+        "disponible": model_domain and calidad >= settings.config_section("decision_thresholds").get("calidad_min", 0.2),
         "modelo": "dixon_coles" if rho != 0.0 else "poisson_independiente",
         "rho": rho,
         "lambdas": {"local": round(lambda_home, 3), "visitante": round(lambda_away, 3)},
@@ -502,15 +349,16 @@ def predict_pleno15_from_model(
         "marcador_predicho": top_marcadores[0]["score"],
         "marcador_confianza": top_marcadores[0]["prob"],
         "top_marcadores": top_marcadores,
-        "goles_local": goles_local,
-        "goles_visitante": goles_visitante,
+        "goles_local": {k: round(p, 6) for k, p in goles_local.items()},
+        "goles_visitante": {k: round(p, 6) for k, p in goles_visitante.items()},
+        "goles_conjuntos": {k: round(p, 8) for k, p in joint.items()},
         "seleccion": {
             "local": sel_local,
             "visitante": sel_visitante,
             "alternativa_local": alt_local,
             "alternativa_visitante": alt_visitante,
-            "confianza": seleccion_confianza,
-            "nota": "Alternativa sugerida si el segundo bucket está a menos de "
+            "confianza": round(joint[signo_pleno], 8),
+            "nota": "Selección por probabilidad conjunta. Alternativa marginal a menos de "
                     f"{_PLENO_ALT_GAP:.2f} del primero.",
         },
         "avisos": avisos,
@@ -541,8 +389,8 @@ def predict_jornada_from_model(
     Returns:
         Diccionario con predicciones por partido y metadatos
     """
-    if isinstance(cutoff_date, str):
-        cutoff_date = pd.to_datetime(cutoff_date)
+    cutoff_instant = get_cutoff_date({"partidos": partidos}, cutoff_date)
+    cutoff_day = local_timestamp(cutoff_instant).normalize()
 
     # Normalizar partidos para la extracción de features
     normalized_matches = []
@@ -554,10 +402,13 @@ def predict_jornada_from_model(
             continue
         
         # Respetar la temporada inferida de la fecha del partido
-        fecha_partido = p.get("fecha")
-        season = infer_season(fecha_partido) if fecha_partido else None
+        kickoff = kickoff_at(p)
+        fecha_partido = local_timestamp(kickoff).normalize() if kickoff else cutoff_day
+        season = infer_season(fecha_partido)
 
         normalized_matches.append({
+            "num": p.get("num"),
+            "liga_f": p.get("liga_f", False),
             "home": p.get("local"),
             "away": p.get("visitante"),
             "date": fecha_partido,
@@ -567,14 +418,8 @@ def predict_jornada_from_model(
             # Forzar Primera dejaba a Segunda con pj=0 silencioso.
             "division": (p.get("division") or None),
             "season": season,
-            # Cuotas reales si vienen en el JSON de jornada (entrada estable);
-            # APU/LAE/Q15 NO se pasan: nunca se interpretan como cuotas.
-            "odd_1": p.get("odd_1"),
-            "odd_x": p.get("odd_x"),
-            "odd_2": p.get("odd_2"),
-            "open_odd_1": p.get("open_odd_1"),
-            "open_odd_x": p.get("open_odd_x"),
-            "open_odd_2": p.get("open_odd_2"),
+            # Solo se entregan al motor cuotas completas y verificadas al corte.
+            **odds_at_cutoff(p, cutoff_instant)[0],
         })
 
     # Pleno al 15 con Dixon-Coles (independiente del ensemble 1X2: solo lambdas)
@@ -582,7 +427,7 @@ def predict_jornada_from_model(
     if partido15 is not None:
         try:
             pleno15_pred = predict_pleno15_from_model(
-                partido15, history_df, jornada, cutoff_date
+                partido15, history_df, jornada, cutoff_instant
             )
         except Exception as e:
             pleno15_pred = {
@@ -607,11 +452,10 @@ def predict_jornada_from_model(
     try:
         features_df = compute_features_for_upcoming(
             normalized_matches,
-            history_df,
-            cutoff_date=cutoff_date,
+            history_before(history_df, cutoff_instant),
+            cutoff_date=cutoff_day,
         )
-        # Aplicar priors de transición para equipos nuevos o inicio de temporada
-        features_df = _apply_transition_priors(features_df)
+        features_df = _apply_transition_priors(features_df, cutoff_instant)
     except Exception as e:
         return {
             "jornada": jornada,
@@ -628,75 +472,25 @@ def predict_jornada_from_model(
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
 
-    # Cargar o entrenar modelos (incluye calibrador vector scaling si está disponible)
-    calibrator = None
     try:
-        loaded = load_or_train_models(history_df)
-        if len(loaded) == 4:
-            logit, hgb, master_config, calibrator = loaded
-        else:
-            logit, hgb, master_config = loaded
-            calibrator = None
-    except Exception as e:
+        logit, hgb, master_config, train = _train_models(history_df, cutoff_instant)
+    except ValueError as exc:
         return {
             "jornada": jornada,
-            "error": f"Error cargando modelos: {str(e)}",
+            "error": f"Error cargando modelos: {exc}",
             "pleno15": pleno15_pred,
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
 
-    # Obtener probabilidades de cada modelo
-    cols = feature_columns()
-    if logit is not None:
-        logit_probs = predict_full_probs(logit, features_df, cols + ["division"])
-        features_df["logit_prob_1"] = logit_probs[:, 0]
-        features_df["logit_prob_x"] = logit_probs[:, 1]
-        features_df["logit_prob_2"] = logit_probs[:, 2]
-    hgb_probs = predict_full_probs(hgb, features_df, cols)
-
-    # Preparar DataFrame para apply_hybrid_config
-    features_df["hgb_prob_1"] = hgb_probs[:, 0]
-    features_df["hgb_prob_x"] = hgb_probs[:, 1]
-    features_df["hgb_prob_2"] = hgb_probs[:, 2]
-
-    # Necesario para x_disagreement_strategy
-    features_df = add_market_baseline(features_df)
-
-    # Aplicar inferencia unificada del motor maestro
-    features_df = apply_hybrid_config(features_df, master_config, "modelo")
-
-    # --- T3: Aplicar calibración vector scaling si está disponible ---
-    calibrado = False
-    calibration_meta: dict = {}
-    if calibrator is not None and getattr(calibrator, "is_fitted", False):
-        try:
-            raw_probs = features_df[
-                ["modelo_prob_1", "modelo_prob_x", "modelo_prob_2"]
-            ].to_numpy(dtype=float)
-            calibrated_probs = calibrator.predict(raw_probs)
-            features_df["modelo_prob_1"] = calibrated_probs[:, 0]
-            features_df["modelo_prob_x"] = calibrated_probs[:, 1]
-            features_df["modelo_prob_2"] = calibrated_probs[:, 2]
-            # Recalcular predicción argmax tras calibrar
-            features_df["modelo_pred"] = features_df[
-                ["modelo_prob_1", "modelo_prob_x", "modelo_prob_2"]
-            ].idxmax(axis=1).map(
-                {
-                    "modelo_prob_1": "1",
-                    "modelo_prob_x": "X",
-                    "modelo_prob_2": "2",
-                }
-            )
-            calibrado = True
-            calibration_meta = {
-                "metodo": "vector_scaling",
-                "pre": calibrator.calibration_info.get("pre", {}),
-                "post": calibrator.calibration_info.get("post", {}),
-                "n_calibration": calibrator.calibration_info.get("n_calibration"),
-            }
-        except Exception as exc:
-            print(f"[calibracion] Aviso: fallo al aplicar calibrador en jornada {jornada}: {exc}")
-            calibrado = False
+    # Mismo cálculo 1X2 que en el backtest. El ajuste de bandas se estima una
+    # vez por temporada, solo con datos previos; no usa factores de otra época.
+    inputs = hybrid_inputs(features_df, logit, hgb)
+    predictions = []
+    for season, group in inputs.groupby("season", sort=False):
+        config = _attach_calibracion_bandas(master_config, train, season)
+        predictions.append(apply_hybrid_config(group, config, "modelo"))
+    features_df = pd.concat(predictions).sort_index()
+    calibration_meta = {"vector_scaling": False, "bandas": "estimadas_con_temporadas_previas"}
 
     # Combinar resultados
     results = []
@@ -714,45 +508,35 @@ def predict_jornada_from_model(
         # Verificar calidad de datos
         quality = _check_data_quality(feat_row)
 
-        # Obtener partido original
         original = normalized_matches[idx]
-        partido_num = idx + 1
-        
-        # Buscar información adicional del partido original
-        for orig_p in partidos:
-            if (normalize_name(orig_p.get("local", "")) == normalize_name(original["home"])
-                    and normalize_name(orig_p.get("visitante", "")) == normalize_name(original["away"])):
-                partido_num = orig_p.get("num", idx + 1)
-                break
+        model_domain = _in_model_domain(feat_row, original)
+        if not model_domain:
+            quality["warnings"].append("fuera_del_dominio_validado")
 
         result = {
             "jornada": jornada,
-            "numero": partido_num,
+            "numero": original["num"],
             "local": original["home"],
             "visitante": original["away"],
             "fecha": str(original["date"])[:10] if pd.notna(original["date"]) else None,
-            "division": original.get("division", feat_row.get("division")),
+            "division": feat_row["division"],
+            "dominio_validado": model_domain,
             **probs,
             "signo_modelo": feat_row["modelo_pred"],
             "confianza": _calculate_confidence(probs),
             "fuente_probabilidades": {
                 "modelo_primario": "motor_maestro_hibrido",
                 "componentes": {
-                    "logit": round(master_config["weights"].get("logit", 0), 2),
-                    "hgb": round(master_config["weights"].get("hgb", 0), 2),
-                    "market": round(master_config["weights"].get("market", 0), 2),
-                    "poisson": round(master_config["weights"].get("poisson", 0), 2),
+                    "logit": master_config["weights"].get("logit", 0),
+                    "hgb": master_config["weights"].get("hgb", 0),
+                    "market": master_config["weights"].get("market", 0),
+                    "poisson": master_config["weights"].get("poisson", 0),
                 },
+                "tiene_mercado_verificado": bool(pd.notna(feat_row.get("market_1"))),
                 "draw_boost_aplicado": master_config.get("draw_boost", 0),
                 "segunda_draw_boost_aplicado": master_config.get("segunda_draw_boost", 0),
                 "x_disagreement_strategy": master_config.get("x_disagreement_strategy", "none"),
-                "calibracion": {
-                    "aplicada": calibrado,
-                    "metodo": calibration_meta.get("metodo") if calibrado else None,
-                    "n_calibration": calibration_meta.get("n_calibration"),
-                    "pre_ece": calibration_meta.get("pre", {}).get("ece"),
-                    "post_ece": calibration_meta.get("post", {}).get("ece"),
-                },
+                "calibracion": {"aplicada": False, **calibration_meta},
             },
             "avisos": quality["warnings"],
             "calidad_datos": quality["quality_score"],
@@ -775,127 +559,72 @@ def predict_jornada_from_model(
         "estado": "completado" if results else "sin_datos",
         "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         "modelo_info": {
-            "version": "motor_maestro_hibrido_v2_calibrado_vector_pleno_dc",
+            "version": settings.CONFIG.get("version", "desconocida"),
+            "modo": "produccion",
             "fecha_entrenamiento": datetime.now().isoformat(timespec="seconds"),
-            "partidos_entrenamiento": len(history_df) if history_df is not None else 0,
+            "partidos_entrenamiento": len(train),
+            "ultimo_dia_entrenamiento": train["date"].max().date().isoformat(),
+            "prediction_cutoff_at": cutoff_instant.isoformat(),
             "calibracion": {
-                "aplicada": calibrado,
+                "aplicada": False,
                 **calibration_meta,
             },
         },
     }
 
 
-def load_jornada_json(jornada: int) -> dict[str, Any]:
-    """Carga los datos de una jornada desde DATOS/QUINIELA15_J{jornada}.json."""
-    path = settings.DATOS_DIR / f"QUINIELA15_J{jornada}.json"
-    if not path.exists():
-        raise FileNotFoundError(f"No existe: {path}")
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def get_cutoff_date(jornada_data: dict[str, Any]) -> datetime:
-    """Determina la fecha de corte para calcular features.
-
-    Usa la fecha del primer partido de la jornada.
-    """
-    partidos = jornada_data.get("partidos", [])
-    fechas = []
-    for p in partidos:
-        fecha_str = p.get("fecha")
-        if fecha_str:
-            try:
-                fechas.append(pd.to_datetime(fecha_str))
-            except Exception:
-                pass
-    if fechas:
-        # Un día antes del primer partido
-        return min(fechas) - pd.Timedelta(days=1)
-    # Por defecto, ayer
-    return pd.Timestamp.now() - pd.Timedelta(days=1)
+def get_cutoff_date(jornada_data: dict[str, Any], cutoff: object = None) -> pd.Timestamp:
+    """Obtiene un corte reproducible; nunca usa la fecha actual como fallback."""
+    kickoffs = [kickoff_at(p) for p in jornada_data.get("partidos", [])]
+    known = [utc_timestamp(dt) for dt in kickoffs if dt]
+    supplied = cutoff if cutoff is not None else jornada_data.get("prediction_cutoff_at")
+    if supplied is not None:
+        instant = utc_timestamp(supplied)
+        if known and instant >= min(known):
+            raise ValueError("El corte debe ser anterior al primer partido de la jornada")
+        # Conservar el offset para que no se confundan dos horas del cambio DST.
+        return instant
+    if not known or len(known) != len(kickoffs):
+        raise ValueError("Faltan fechas de partido: indica un corte ISO documentado con --corte")
+    return utc_timestamp(local_timestamp(min(known)).normalize() - pd.Timedelta(days=1))
 
 
 def attach_odds_traceability(
     jornada_data: dict[str, Any], cutoff_date: object
 ) -> dict[str, Any]:
-    """Construye el bloque `trazabilidad_cuotas` de una prediccion de jornada.
-
-    Politica (plan Fase 4): NO se inventan timestamps. Si la fuente no declara
-    `odds_observed_at`, el partido queda marcado como no auditado y se
-    documenta la limitacion. La invariante
-        odds_observed_at <= prediction_cutoff_at < kickoff_at
-    se valida con `validate_odds_timestamps` solo en partidos con los tres
-    campos declarados.
-    """
-    from scripts.motor.features import validate_odds_timestamps
-
-    cutoff_ts = pd.to_datetime(cutoff_date)
-    cutoff_iso = cutoff_ts.isoformat()
-    detalle: list[dict[str, Any]] = []
-    auditables: list[dict[str, Any]] = []
-    no_auditados = 0
-    for idx, p in enumerate(jornada_data.get("partidos", [])):
-        num = p.get("num", idx + 1)
-        observed = p.get("odds_observed_at")
-        kickoff = p.get("kickoff_at") or p.get("fecha_hora") or p.get("fecha")
-        entry: dict[str, Any] = {
-            "num": num,
-            "odds_observed_at": observed,
-            "prediction_cutoff_at": cutoff_iso,
-            "kickoff_at": kickoff,
-        }
-        if observed is None or kickoff is None:
-            entry["estado"] = "no_auditado"
-            entry["motivo"] = (
-                "odds_observed_at_ausente" if observed is None else "kickoff_at_ausente"
-            )
-            no_auditados += 1
-            detalle.append(entry)
-            continue
-        entry["estado"] = "auditable"
-        auditables.append(entry)
+    """Informa qué cuotas pasaron el mismo filtro temporal que usa el motor."""
+    detalle = []
+    for idx, match in enumerate(jornada_data.get("partidos", []), 1):
+        _, entry = odds_at_cutoff({"num": idx, **match}, cutoff_date)
         detalle.append(entry)
-
-    report = validate_odds_timestamps(auditables) if auditables else {
-        "ok": True, "partidos_validados": 0, "violaciones": []
-    }
-    violaciones = report.get("violaciones", [])
-    auditados_ok = report.get("partidos_validados", 0)
-
+    violaciones = [{"num": e["num"], "issues": e["issues"]} for e in detalle if e["estado"] == "violacion"]
     return {
-        "politica": (
-            "No se inventan timestamps: si la fuente no declara odds_observed_at, "
-            "el partido queda no_auditado y se documenta la limitacion."
-        ),
+        "politica": "Solo se usan tripletas completas con timestamps verificables; las demás no entran al motor.",
         "invariante": "odds_observed_at <= prediction_cutoff_at < kickoff_at",
-        "prediction_cutoff_at": cutoff_iso,
+        "prediction_cutoff_at": utc_timestamp(cutoff_date).isoformat(),
         "total_partidos": len(detalle),
-        "auditados": int(auditados_ok),
-        "no_auditados": int(no_auditados),
+        "auditados": sum(e["estado"] == "auditable" for e in detalle),
+        "no_auditados": sum(e["estado"] == "no_auditado" for e in detalle),
         "violaciones_invariante": len(violaciones),
-        "violaciones": [
-            {"num": v.get("num"), "issues": v.get("issues")} for v in violaciones
-        ],
+        "violaciones": violaciones,
         "detalle": detalle,
     }
 
 
-def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
+def generate_jornada_prediction(
+    jornada: int, cutoff: object = None, *, jornada_data: dict | None = None
+) -> dict[str, Any]:
     """Genera predicciones completas para una jornada.
 
     Este es el punto de entrada principal desde PREDECIR_JORNADA.py.
     """
-    from MOTOR_QUINIELA_MAESTRO import load_raw_history
-
     # Cargar datos de la jornada
-    jornada_data = load_jornada_json(jornada)
-    partidos = jornada_data.get("partidos", [])
+    data = load_jornada_json(jornada) if jornada_data is None else jornada_data
+    partidos = validate_jornada(data, jornada)
 
-    # Cargar histórico para features
-    history_df = load_raw_history()
-
-    # Determinar fecha de corte
-    cutoff_date = get_cutoff_date(jornada_data)
+    cutoff_date = get_cutoff_date(data, cutoff)
+    source = settings.official_history_source()
+    history_df = load_raw_history(source)
 
     # Generar predicciones del modelo
     predictions = predict_jornada_from_model(
@@ -905,7 +634,7 @@ def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
         cutoff_date=cutoff_date,
     )
 
-    # Añadir metadata
+    predictions.setdefault("modelo_info", {})["historico"] = source
     predictions["jornada_data"] = {
         "source": f"DATOS/QUINIELA15_J{jornada}.json",
         "partidos_totales": len(partidos),
@@ -914,7 +643,7 @@ def generate_jornada_prediction(jornada: int) -> dict[str, Any]:
 
     # Trazabilidad temporal de cuotas (plan Fase 4)
     predictions["trazabilidad_cuotas"] = attach_odds_traceability(
-        jornada_data, cutoff_date
+        data, cutoff_date
     )
 
     return predictions
@@ -924,10 +653,7 @@ def save_predictions(predictions: dict[str, Any], jornada: int) -> Path:
     """Guarda las predicciones en SALIDAS/."""
     settings.SALIDAS_DIR.mkdir(parents=True, exist_ok=True)
     path = settings.SALIDAS_DIR / f"predicciones_modelo_J{jornada}.json"
-    path.write_text(
-        json.dumps(predictions, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    write_json(path, predictions)
     return path
 
 
@@ -937,9 +663,15 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Genera predicciones del modelo para una jornada.")
     parser.add_argument("--jornada", "-j", type=int, required=True)
     parser.add_argument("--save", action="store_true", help="Guardar predicciones en SALIDAS/")
+    parser.add_argument("--corte", help="fecha/hora ISO documentada del corte")
     args = parser.parse_args()
 
-    predictions = generate_jornada_prediction(args.jornada)
+    try:
+        predictions = generate_jornada_prediction(args.jornada, args.corte)
+    except (FileNotFoundError, ValueError) as exc:
+        parser.error(str(exc))
+    if "error" in predictions:
+        parser.exit(1, predictions["error"] + "\n")
     print(json.dumps(predictions, ensure_ascii=False, indent=2))
 
     if args.save:

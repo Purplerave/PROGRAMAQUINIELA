@@ -13,6 +13,13 @@ SALIDA_DIR = PROJECT_DIR / "salida"
 SALIDAS_DIR = PROJECT_DIR / "SALIDAS"
 
 
+def official_history_source() -> str:
+    source = config_section("historico").get("fuente_oficial", "saneado")
+    if source not in ("saneado", "original"):
+        raise ValueError(f"Fuente oficial de histórico no válida: {source!r}")
+    return source
+
+
 def config_section(name: str) -> dict:
     section = CONFIG.get(name)
     return section if isinstance(section, dict) else {}

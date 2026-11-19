@@ -42,7 +42,7 @@ def distribucion_pleno(lh: float, lv: float) -> tuple[list[str], list[float]]:
 
 
 def predecir_pleno(local: str, visitante: str, ratings: dict,
-                   mu: float, gamma: float, canon_fn) -> dict:
+                   mu: float, gamma: float, canon_fn, *, origen: str = "ligam") -> dict:
     loc, vis = canon_fn(local), canon_fn(visitante)
     fl, fv = loc in ratings, vis in ratings
     rl = ratings.get(loc, {"att": 0.0, "def": 0.0})
@@ -59,6 +59,6 @@ def predecir_pleno(local: str, visitante: str, ratings: dict,
         "signo": etiquetas[mejor],
         "p_signo": round(probs[mejor], 4),
         "top3": [{"signo": etiquetas[i], "p": round(probs[i], 4)} for i in orden[:3]],
-        "fuente_ratings": f"{'fitted_ligam' if fl else 'NEUTRO'} vs "
-                          f"{'fitted_ligam' if fv else 'NEUTRO'}",
+        "fuente_ratings": f"{f'fitted_{origen}' if fl else 'NEUTRO'} vs "
+                          f"{f'fitted_{origen}' if fv else 'NEUTRO'}",
     }

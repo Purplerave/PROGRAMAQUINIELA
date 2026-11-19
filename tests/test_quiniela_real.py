@@ -102,3 +102,23 @@ def test_realized_roi_requires_official_payouts_and_calculates_when_present():
     assert result["cost"] == 1.5
     assert result["return"] == 1000.0
     assert result["profit"] == 998.5
+
+
+def test_realized_roi_does_not_assume_an_absent_prize_is_zero():
+    winners = ["1"] * 14
+    columns = [winners, ["X", *winners[1:]]]
+    incomplete = evaluate_realized_roi(columns, winners, {"14": 1000}, 0.75)
+    assert incomplete["return"] is None
+    assert incomplete["missing_payout_categories"] == ["13"]
+    complete = evaluate_realized_roi(columns, winners, {"14": 1000, "13": 25}, 0.75)
+    assert complete["return"] == 1025
+    with pytest.raises(ValueError, match="payout inválido"):
+        evaluate_realized_roi(columns, winners, {"14": float("nan")}, 0.75)
+
+
+def test_attach_is_by_fixture_not_duplicated_dataframe_labels():
+    ticket = official_ticket()
+    predictions = predictions_for_ticket(ticket)
+    predictions.index = [0] * 14
+    joined, coverage = attach_ticket_positions(predictions, [ticket])
+    assert coverage["matched_matches"] == len(joined) == 14

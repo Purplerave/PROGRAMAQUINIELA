@@ -116,7 +116,8 @@ class TestFeaturesConAlias:
     que con su nombre histórico."""
 
     @pytest.fixture(scope="class")
-    def history_subset(self):
+    @classmethod
+    def history_subset(cls):
         from MOTOR_QUINIELA_MAESTRO import load_raw_history
 
         df = load_raw_history()
@@ -186,13 +187,14 @@ class TestPriorsConAlias:
              "home_table_pj": 0.0, "home_table_ppg": np.nan,
              "away_table_pj": 1.0, "away_table_ppg": 1.0},
         ])
-        out = _apply_transition_priors(df)
+        out = _apply_transition_priors(df.assign(season="2026-2027"), "2026-08-20")
         assert out.loc[0, "home_table_ppg"] == pytest.approx(adj_castellon, abs=1e-9)
 
     def test_enrich_with_priors_via_jornada_name(self):
-        from PREDECIR_JORNADA import enrich_with_priors, load_priors
+        from PREDECIR_JORNADA import enrich_with_priors
+        from scripts.motor.transition_priors import load_transition_priors
 
-        priors, _ = load_priors()
+        _, priors, _ = load_transition_priors("2026-08-20")
         partidos = [{"num": 1, "local": "Castellón", "visitante": "Malaga CF"}]
         out = enrich_with_priors(partidos, priors)
         assert "prior_local" in out[0]

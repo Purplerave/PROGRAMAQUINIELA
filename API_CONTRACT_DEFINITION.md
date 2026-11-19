@@ -1,82 +1,76 @@
-# Contrato JSON/API v1.1 — Liga de Maestros
+# Contrato JSON v1.1 — Liga de Maestros
 
-Este documento define el contrato estable para el intercambio de predicciones con la plataforma "Liga de Maestros". 
+**Salida local:** `SALIDAS/api_maestros_J{jornada}.json`. Se crea a partir de
+`SALIDAS/paquete_jornada_J{jornada}.json` con `PREDECIR_JORNADA.py` o:
 
-## Endpoint / Salida: `SALIDAS/api_maestros_J{jornada}.json`
+```bash
+python scripts/motor/GENERAR_CONTRATO_API.py --jornada 74
+```
 
-Generado por `scripts/motor/GENERAR_CONTRATO_API.py` a partir del paquete de la
-jornada. El contrato es **estable**: lleva versionado de esquema
-(`contrato_version`, semver) y se valida antes de escribirse.
+El contrato no hace una petición de red. El consumidor debe aceptar v1.1
+antes de usarla; no se ha validado un importador remoto. Si faltan casillas, probabilidades
+válidas o un Pleno utilizable, el exportador falla y no reemplaza un archivo
+anterior. Un archivo anterior no acredita el éxito de una ejecución nueva:
+comprueba el código de salida y `fecha_generacion`.
 
-### Estructura del Objeto Principal
-
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| `contrato_version` | `string` | Versión del esquema del contrato (semver). Solo cambia el major ante cambios no retrocompatibles; los campos se añaden de forma aditiva. |
-| `jornada` | `int` | Número de la jornada de La Quiniela. |
-| `fecha_generacion` | `iso8601` | Marca de tiempo de la predicción. |
-| `modelo_version` | `string` | Identificador de la versión del motor utilizado. |
-| `partidos` | `list` | Lista de 14 objetos de partido (1-14). |
-| `pleno15` | `object` | Objeto especial para el partido 15. |
-
-### Objeto Partido (1-14)
+## Objeto principal
 
 | Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| `numero` | `int` | Número del partido en el boleto (1-14). |
-| `local` | `string` | Nombre del equipo local. |
-| `visitante` | `string` | Nombre del equipo visitante. |
-| `probabilidades` | `object` | Probabilidades normalizadas { "1", "X", "2" }. |
-| `signo_maestro` | `string` | Signo principal recomendado ("1", "X", "2"). |
-| `apuesta` | `string` | Sugerencia de apuesta ("1", "1X", "1X2", etc.). |
-| `tipo` | `string` | "simple", "doble" o "triple". |
-| `confianza` | `float` | Índice de certidumbre (0.0 a 1.0). |
-| `origen_prediccion` | `string` | Origen auditable: `motor_v4`, `manual_pendiente` o `manual_revisado`. |
+| --- | --- | --- |
+| `contrato_version` | string | `1.1`, esquema `major.minor`. |
+| `jornada` | entero | Identificador positivo que debe coincidir con el paquete fuente. |
+| `fecha_generacion` | ISO 8601 | Marca de tiempo del paquete usado. |
+| `modelo_version` | string | Versión declarada del modelo; `unknown` si el paquete no la contiene. Cada partido tiene su propia fuente. |
+| `partidos` | array | Objetos con las posiciones únicas 1–14. |
+| `pleno15` | objeto | Datos de la casilla 15, separada del bloque 1X2. |
 
-`origen_prediccion` permite jornadas mixtas sin inferir el origen a partir del
-signo. Los consumidores v1.0 que ignoren campos desconocidos siguen siendo
-compatibles; los consumidores v1.1 deben conservarlo y mostrarlo. Si el paquete
-fuente no aporta origen, el generador emite `motor_v4` por compatibilidad.
-
-### Objeto Pleno 15
+## Partido 1–14
 
 | Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| `local` | `string` | Equipo local. |
-| `visitante` | `string` | Equipo visitante. |
-| `marcador` | `string` | Marcador exacto más probable (ej. "2-1"). |
-| `pronostico_local` | `string` | Bucket local ("0", "1", "2", "M"). |
-| `pronostico_visitante` | `string` | Bucket visitante ("0", "1", "2", "M"). |
-| `origen_prediccion` | `string` | Mismo origen auditable que los partidos 1-14. |
+| --- | --- | --- |
+| `numero`, `local`, `visitante` | entero, string, string | Posición oficial y nombres no vacíos. |
+| `probabilidades` | objeto | Exactamente `1`, `X` y `2`; números finitos de 0 a 1 que suman 1. |
+| `signo_maestro`, `apuesta`, `tipo` | string o null | Signo recomendado, signos cubiertos y `simple`, `doble` o `triple`. Los tres pueden quedar `null` si el paquete no aporta recomendación. |
+| `confianza` | número | Índice entre 0 y 1, no promesa de acierto. |
+| `fuente_probabilidades` | string | `motor_maestro` o proxy declarado: `apu_fallback`, `lae_fallback`, `q15_fallback`. |
+| `origen_prediccion` | string | `motor_v4`, `manual_pendiente` o `manual_revisado`. Un proxy sin origen explícito queda `manual_pendiente`. |
 
----
+Las recomendaciones de este bloque son diagnósticos por partido. El boleto
+optimizado de tres dobles está por separado en el paquete local; usa los
+mismos vectores 1X2, pero respeta el presupuesto global.
 
-## Ejemplo de Respuesta
+Los porcentajes de una fuente externa son comparativos: no son cuotas de
+mercado, ni probabilidades validadas del motor. No se genera un 33/33/33 como
+sustituto de una distribución ausente.
+
+Un elemento de `partidos` en una jornada mixta (fragmento):
 
 ```json
 {
-  "jornada": 74,
-  "fecha_generacion": "2026-08-02T15:00:00",
-  "modelo_version": "motor_maestro_v4_calibrado",
-  "partidos": [
-    {
-      "numero": 1,
-      "local": "Real Madrid",
-      "visitante": "Barcelona",
-      "probabilidades": { "1": 0.45, "X": 0.28, "2": 0.27 },
-      "signo_maestro": "1",
-      "apuesta": "1X",
-      "tipo": "doble",
-      "confianza": 0.65,
-      "origen_prediccion": "motor_v4"
-    }
-  ],
-  "pleno15": {
-    "local": "Atletico",
-    "visitante": "Sevilla",
-    "marcador": "1-1",
-    "pronostico_local": "1",
-    "pronostico_visitante": "1"
-  }
+  "numero": 1,
+  "local": "Equipo A",
+  "visitante": "Equipo B",
+  "probabilidades": {"1": 0.45, "X": 0.28, "2": 0.27},
+  "signo_maestro": "1",
+  "apuesta": "1X",
+  "tipo": "doble",
+  "confianza": 0.65,
+  "fuente_probabilidades": "apu_fallback",
+  "origen_prediccion": "manual_pendiente"
 }
 ```
+
+## Pleno al 15
+
+| Campo | Tipo | Descripción |
+| --- | --- | --- |
+| `local`, `visitante` | string | Equipos del Pleno. |
+| `marcador` | string | Marcador exacto del modelo o marcador declarado por Q15. |
+| `pronostico_local`, `pronostico_visitante` | string | Buckets oficiales `0`, `1`, `2`, `M` (3 o más). |
+| `fuente_probabilidades`, `origen_prediccion` | string | Procedencia del modelo o del proxy Q15. No se rellena con `1-1` si falta la fuente. |
+| `goles_conjuntos` | objeto opcional | Distribución de los 16 signos del Pleno cuando existe modelo; se selecciona la combinación más probable, no el producto de modas marginales. Esta combinación puede diferir del marcador exacto mostrado. |
+| `goles_local`, `goles_visitante`, `top_marcadores`, `lambdas` | opcionales | Diagnóstico adicional del motor. |
+
+La validez del JSON acredita estructura y procedencia declarada, no que el
+pronóstico esté autorizado para envío o sea rentable. El panel semanal tiene
+un flujo de exportación local independiente; no despliega estos archivos.

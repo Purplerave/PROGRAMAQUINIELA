@@ -64,6 +64,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 import settings
+from scripts.json_output import write_json
+from scripts.motor.boletos import load_jornada_json, normalized_triplet, require_positions, validate_jornada
 
 SIGNS = ("1", "X", "2")
 SIGN_INDEX = {s: i for i, s in enumerate(SIGNS)}
@@ -107,30 +109,12 @@ def columns_contract(config: dict | None = None) -> dict:
 
 def pct_to_prob(values: dict | None) -> np.ndarray | None:
     """Convierte {signo: porcentaje} en probabilidades normalizadas (1,X,2)."""
-    if not values:
-        return None
-    out = []
-    for s in SIGNS:
-        raw = values.get(s)
-        if raw is None:
-            return None
-        try:
-            out.append(float(raw))
-        except (TypeError, ValueError):
-            return None
-    total = sum(out)
-    if total <= 0:
-        return None
-    return np.array(out) / total
+    probs = normalized_triplet(values)
+    return np.array([probs[s] for s in SIGNS]) if probs is not None else None
 
 
-def publico_per_match(partidos: list[dict], fuente: str) -> list[np.ndarray]:
+def publico_per_match(partidos: list[dict], fuente: str) -> list[np.ndarray | None]:
     return [pct_to_prob(m.get(fuente)) for m in partidos]
-
-
-def fill_missing(probs: list[np.ndarray | None]) -> list[np.ndarray]:
-    """Rellena probabilidades ausentes con la distribución uniforme."""
-    return [p if p is not None else np.full(3, 1 / 3) for p in probs]
 
 
 def second_probability(p: np.ndarray) -> float:
@@ -159,13 +143,12 @@ def three_double_combinations(n_matches: int, n_doubles: int = 3) -> list[tuple[
 
 def _odds_for_match(match: dict | None, p: np.ndarray) -> tuple[float | None, float | None]:
     if match:
-        for key_h, key_a in (("odd_1", "odd_2"), ("cuota_1", "cuota_2")):
+        for key_h, key_a in (("open_odd_1", "open_odd_2"), ("odd_1", "odd_2")):
             try:
-                h = float(match.get(key_h)) if match.get(key_h) is not None else None
-                a = float(match.get(key_a)) if match.get(key_a) is not None else None
-            except (TypeError, ValueError):
-                h = a = None
-            if h and a and h > 1.01 and a > 1.01:
+                h, a = float(match[key_h]), float(match[key_a])
+            except (KeyError, TypeError, ValueError, OverflowError):
+                continue
+            if all(math.isfinite(v) and v > 1.01 for v in (h, a)):
                 return h, a
     from scripts.motor.cobertura_bandas import odds_from_probs
 
@@ -187,20 +170,20 @@ def build_double_development(
 
     selected: list[tuple[str, tuple[str, ...]]] = []
     for i, p in enumerate(probs):
+        best = SIGNS[int(np.argmax(p))]
         if i in double_indices:
             forced = None
-            if matches and i < len(matches):
+            if matches and i < len(matches) and settings.config_section("cobertura_dobles_banda").get("enabled", True):
                 o1, o2 = _odds_for_match(matches[i], p)
                 forced = signo_doble_banda(o1, o2, probs=p)
-            if forced:
+            if forced and best in forced:
                 signs = tuple(forced)
                 label = forced
             else:
-                top2 = [int(j) for j in np.argsort(p)[-2:]]
+                top2 = [int(j) for j in np.argsort(-p, kind="stable")[:2]]
                 signs = tuple(sorted((SIGNS[j] for j in top2), key=lambda s: SIGN_INDEX[s]))
                 label = "".join(signs)
         else:
-            best = SIGNS[int(np.argmax(p))]
             signs = (best,)
             label = best
         selected.append((label, signs))
@@ -269,15 +252,17 @@ def evaluate_all_three_doubles(
 ) -> dict:
     """Evalúa exhaustivamente las C(14, n_doubles) combinaciones de dobles.
 
-    Para cada combinación calcula E[aciertos] (equivalente a la suma de
-    segunda probabilidad de los dobles) y las P(≥k) exactas. Selecciona la
+    Para cada combinación calcula E[aciertos] para los signos realmente
+    cubiertos, incluidas las bandas si se usan, y las P(≥k) exactas. Selecciona la
     combinación con mayor acierto esperado; los empates se resuelven a favor
     de la primera combinación en orden lexicográfico (determinista).
     """
     combos = three_double_combinations(len(probs), n_doubles)
+    singles = build_double_development(probs, ())
+    doubles = build_double_development(probs, tuple(range(len(probs))), matches)
     results = []
     for combo in combos:
-        selected = build_double_development(probs, combo)
+        selected = [doubles[i] if i in combo else singles[i] for i in range(len(probs))]
         metrics = evaluate_development(probs, selected, combo)
         metrics["desarrollo"] = selected
         results.append(metrics)
@@ -287,11 +272,7 @@ def evaluate_all_three_doubles(
     best = max(results, key=lambda r: r["aciertos_esperados"])
     return {
         "n_combinaciones": len(results),
-        "criterio": (
-            "maximizar aciertos esperados = suma(P(favorito)) + suma(segunda "
-            "probabilidad de los dobles); ranking identico al de la suma de "
-            "segunda probabilidad"
-        ),
+        "criterio": "maximizar los aciertos esperados de los signos de la cobertura efectiva",
         "mejor_combinacion": {
             "dobles": best["dobles"],
             "aciertos_esperados": best["aciertos_esperados"],
@@ -367,7 +348,7 @@ def monte_carlo(
         hits = np.zeros(n_sims, dtype=int)
         for j, allowed in enumerate(sets):
             hits += np.isin(results[:, j], [SIGN_INDEX[s] for s in allowed])
-        out[name] = summarize_hits(hits, n_matches)
+        out[name] = summarize_hits(hits)
     for name, cols in column_sets.items():
         if not cols:
             continue
@@ -375,19 +356,14 @@ def monte_carlo(
         best = np.zeros(n_sims, dtype=int)
         for c in range(mat.shape[0]):
             best = np.maximum(best, (results == mat[c]).sum(axis=1))
-        out[name] = summarize_hits(best, n_matches)
+        out[name] = summarize_hits(best)
     return out
 
 
-def summarize_hits(hits: np.ndarray, total: int) -> dict[str, float]:
+def summarize_hits(hits: np.ndarray) -> dict[str, float]:
     return {
         "esperanza": float(hits.mean()),
-        "p_15": float((hits == total).mean()),
-        "p_14": float((hits >= total - 1).mean()),
-        "p_13": float((hits >= total - 2).mean()),
-        "p_12": float((hits >= total - 3).mean()),
-        "p_11": float((hits >= total - 4).mean()),
-        "p_10": float((hits >= total - 5).mean()),
+        **{f"p_ge_{k}": float((hits >= k).mean()) for k in TAIL_THRESHOLDS},
     }
 
 
@@ -432,17 +408,24 @@ def _optimize_partidos(
     - El Pleno al 15 (pleno_num) se excluye del desarrollo y se juega aparte.
     """
     contract = columns_contract()
-    main_matches = [m for m in partidos if m.get("num") != pleno_num] or partidos
-    pleno_match = next((m for m in partidos if m.get("num") == pleno_num), None)
-
-    probs = fill_missing([_prob_for(m, fuente_prob, probs_override) for m in main_matches])
-    public = fill_missing(publico_per_match(main_matches, publico))
+    if pleno_num != 15:
+        raise ValueError("Contrato 14+1: el Pleno debe ocupar la casilla 15")
+    if type(n_sims) is not int or n_sims < 1 or not math.isfinite(alpha) or alpha < 0:
+        raise ValueError("Se necesitan simulaciones positivas y alpha finito no negativo")
+    ordered = sorted(require_positions(partidos), key=lambda m: m["num"])
+    main_matches, pleno_match = ordered[:-1], ordered[-1]
+    probs = [_prob_for(m, fuente_prob, probs_override) for m in main_matches]
+    missing = [m["num"] for m, p in zip(main_matches, probs) if p is None]
+    if missing:
+        raise ValueError(f"Sin probabilidades válidas en las casillas {missing}")
+    public = publico_per_match(main_matches, publico)
+    public_missing = [m["num"] for m, p in zip(main_matches, public) if p is None]
+    rank_by_public = not public_missing and alpha > 0
 
     exhaustive = evaluate_all_three_doubles(probs, n_doubles=contract["doubles"], matches=main_matches)
     best_combo = tuple(exhaustive["mejor_combinacion"]["dobles"])
     selected = build_double_development(probs, best_combo, matches=main_matches)
     best_metrics = evaluate_development(probs, selected, best_combo)
-    dist = coverage_distribution(probs, selected)
 
     n_columns = contract["columns_per_ticket"]
     cost = n_columns * contract["price_per_column"]
@@ -450,16 +433,18 @@ def _optimize_partidos(
     all_cols = enumerate_columns(selected)
     # Las 8 columnas del boleto, ordenadas por valor (anti-popularidad).
     ranked_cols = sorted(
-        all_cols, key=lambda c: column_value(c, probs, public, alpha), reverse=True
+        all_cols, key=lambda c: column_value(c, probs, public, alpha) if rank_by_public
+        else math.prod(probs[i][SIGN_INDEX[s]] for i, s in enumerate(c)), reverse=True
     )
 
     dev_sistema = dev_from_field(main_matches, "sistema")
     dev_comunidad = dev_from_field(main_matches, "comunidad")
     developments: dict[str, list[tuple]] = {
         "Boleto modelo (favoritos)": dev_singles(probs),
-        "Boleto popular (público)": dev_singles(public),
         "Boleto optimizado (3 dobles)": [s for _, s in selected],
     }
+    if not public_missing:
+        developments["Boleto popular (público)"] = dev_singles(public)
     if dev_sistema:
         developments["Boleto sistema quiniela15"] = dev_sistema
     if dev_comunidad:
@@ -471,12 +456,11 @@ def _optimize_partidos(
 
     pleno_info = None
     if pleno_match is not None:
-        pp = fill_missing([_prob_for(pleno_match, fuente_prob, probs_override)])[0]
-        pleno_sign = SIGNS[int(np.argmax(pp))]
+        pp = _prob_for(pleno_match, fuente_prob, probs_override)
         pleno_info = {
             "num": pleno_match.get("num"),
-            "signo": pleno_sign,
-            "prob_favorito": round(float(np.max(pp)), 4),
+            "signo": SIGNS[int(np.argmax(pp))] if pp is not None else None,
+            "prob_favorito": round(float(np.max(pp)), 4) if pp is not None else None,
         }
         # Enriquecer con goles del modelo Dixon-Coles si están disponibles
         mm = pleno_match.get("modelo_maestro", {})
@@ -487,6 +471,7 @@ def _optimize_partidos(
             pleno_info["top_marcadores"] = mm.get("top_marcadores")
             pleno_info["goles_local"] = mm.get("goles_local")
             pleno_info["goles_visitante"] = mm.get("goles_visitante")
+            pleno_info["goles_conjuntos"] = mm.get("goles_conjuntos")
             pleno_info["lambdas"] = mm.get("lambdas")
             pleno_info["seleccion"] = mm.get("seleccion")
 
@@ -494,6 +479,8 @@ def _optimize_partidos(
         "jornada": jornada,
         "fuente_prob": fuente_prob,
         "publico": publico,
+        "publico_ausente_en": public_missing,
+        "ranking_columnas": "valor_anti_popularidad" if rank_by_public else "probabilidad",
         "contrato": contract,
         "n_dobles": contract["doubles"],
         "n_columnas": n_columns,
@@ -502,6 +489,8 @@ def _optimize_partidos(
         "desarrollo": [
             {
                 "num": m.get("num"),
+                "local": m.get("local"),
+                "visitante": m.get("visitante"),
                 "signos": list(s),
                 "label": l,
                 "segunda_probabilidad": round(second_probability(p), 4),
@@ -527,6 +516,8 @@ def optimize_jornada(
     probs_override: dict | None = None,
     pleno_modelo: dict | None = None,
     n_sims: int = 20000,
+    cutoff_date: object = None,
+    jornada_data: dict | None = None,
 ) -> dict:
     """Optimiza el boleto de una jornada completa (14 partidos + pleno aparte).
 
@@ -537,12 +528,19 @@ def optimize_jornada(
     probabilidades del modelo (si se proporcionan, tienen prioridad sobre
     fuente_prob).
     """
-    path = settings.DATOS_DIR / f"QUINIELA15_J{jornada}.json"
-    if not path.exists():
-        raise FileNotFoundError(f"No existe {path}")
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = load_jornada_json(jornada) if jornada_data is None else jornada_data
+    from scripts.motor.odds_at_cutoff import ODDS_GROUPS, odds_at_cutoff
+
+    odds_keys = {key for group in ODDS_GROUPS for key in group} | {"cuota_1", "cuota_x", "cuota_2"}
+    matches = []
+    for match in validate_jornada(data, jornada):
+        snapshot = {k: v for k, v in match.items() if k not in odds_keys}
+        if cutoff_date is not None:
+            verified, _ = odds_at_cutoff(match, cutoff_date)
+            snapshot.update(verified)
+        matches.append(snapshot)
     return _optimize_partidos(
-        data["partidos"], jornada=jornada, fuente_prob=fuente_prob, publico=publico,
+        matches, jornada=jornada, fuente_prob=fuente_prob, publico=publico,
         alpha=alpha, pleno_num=pleno_num, probs_override=probs_override,
         pleno_modelo=pleno_modelo, n_sims=n_sims,
     )
@@ -559,7 +557,7 @@ def main() -> None:
     parser.add_argument("--fuente-prob", choices=("q15", "lae", "apu", "modelo"), default="q15")
     parser.add_argument("--publico", choices=("lae", "apu", "q15"), default="lae")
     parser.add_argument("--alpha", type=float, default=0.6, help="exponente de valor anti-popularidad (solo ranking de columnas)")
-    parser.add_argument("--pleno-num", type=int, default=15, help="nº del partido de Pleno al 15 (0 = no excluir ninguno)")
+    parser.add_argument("--pleno-num", type=int, choices=(15,), default=15, help="casilla fija del Pleno (15)")
     parser.add_argument("--n-sims", type=int, default=20000)
     args = parser.parse_args()
 
@@ -576,7 +574,11 @@ def main() -> None:
             if isinstance(item, dict):
                 inner = item.get("probabilidades", item)
                 if isinstance(inner, dict):
-                    override[i] = inner
+                    inner = inner.get("modelo", inner)
+                    num = item.get("numero", item.get("num", i))
+                    if num in override or type(num) is not int or not 1 <= num <= 14:
+                        raise ValueError(f"Probabilidades externas con número repetido o inválido: {num}")
+                    override[num] = inner
 
     payload = optimize_jornada(
         args.jornada, fuente_prob=args.fuente_prob, publico=args.publico,
@@ -585,10 +587,7 @@ def main() -> None:
     )
 
     contract = payload["contrato"]
-    partidos = json.loads(
-        (settings.DATOS_DIR / f"QUINIELA15_J{args.jornada}.json").read_text(encoding="utf-8")
-    )["partidos"]
-    main_matches = [m for m in partidos if m.get("num") != args.pleno_num] or partidos
+    main_matches = payload["desarrollo"]
     selected = [(d["label"], tuple(d["signos"])) for d in payload["desarrollo"]]
 
     print("=" * 82)
@@ -602,17 +601,10 @@ def main() -> None:
     print(f"\nDesarrollo recomendado ({payload['n_columnas']} columnas, {payload['coste_euros']:.2f} EUR, "
           f"E[aciertos]={payload['aciertos_esperados']:.4f}):")
     print(render_ticket(main_matches, selected))
-    if payload.get("pleno15"):
-        p15 = payload["pleno15"]
-        print(f"  Pleno al 15 (partido {p15['num']}): signo {p15['signo']} (prob. favorito {p15['prob_favorito']:.1%}) — separado del desarrollo")
-
-    top = payload.get("columnas_top", [])
-    if top:
-        print(f"\nLas {len(top)} columnas del boleto por valor (anti-popularidad):")
-        p = fill_missing([_prob_for(m, payload["fuente_prob"], None) for m in main_matches])
-        q = fill_missing(publico_per_match(main_matches, payload["publico"]))
-        for i, col in enumerate(top, 1):
-            print(f"  {i:>2}. {''.join(col)}   valor={column_value(tuple(col), p, q, args.alpha):.3f}")
+    print("  Pleno al 15: separado del desarrollo 1X2.")
+    print(f"\nLas {len(payload['columnas_top'])} columnas por {payload['ranking_columnas']}:")
+    for i, col in enumerate(payload["columnas_top"], 1):
+        print(f"  {i:>2}. {''.join(col)}")
 
     exact = payload["probabilidades_exactas"]
     print("\nProbabilidades EXACTAS del desarrollo ganador (convolución, sin Monte Carlo):")
@@ -644,21 +636,20 @@ def main() -> None:
             return payload["n_columnas"] * price
         return price  # estrategias de simples = 1 columna
 
-    hdr = f"{'Estrategia':<30}{'Coste':>8}{'E[aciertos]':>12}{'P(15)':>9}{'P(≥14)':>9}{'P(≥13)':>9}{'P(≥12)':>9}{'P(≥11)':>9}"
-    print(hdr)
-    print("-" * len(hdr))
+    thresholds = sorted(TAIL_THRESHOLDS, reverse=True)
+    header = f"{'Estrategia':<30}{'Coste':>8}{'E[aciertos]':>12}" + "".join(f"{'P(≥' + str(k) + ')':>9}" for k in thresholds)
+    print(header)
+    print("-" * len(header))
     for name, m in sims.items():
-        print(
-            f"{name:<30}{coste_estrategia(name):>7.2f}€{m['esperanza']:>12.3f}{m['p_15']:>9.2%}{m['p_14']:>9.2%}"
-            f"{m['p_13']:>9.2%}{m['p_12']:>9.2%}{m['p_11']:>9.2%}"
-        )
+        tails = "".join(f"{m[f'p_ge_{k}']:>9.2%}" for k in thresholds)
+        print(f"{name:<30}{coste_estrategia(name):>7.2f}€{m['esperanza']:>12.3f}{tails}")
     print("  (nota: el desarrollo se elige por evaluación exhaustiva de las 364 combinaciones;")
     print("   las de simples de referencia son 1 columna (14 simples + pleno))")
 
     out_dir = settings.SALIDA_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"opt_boleto_j{args.jornada}.json"
-    out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_json(out_path, payload)
     print(f"\nGuardado en {out_path}")
 
 

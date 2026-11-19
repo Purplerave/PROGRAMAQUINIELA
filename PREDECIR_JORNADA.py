@@ -14,30 +14,26 @@ Flujo:
 
 import argparse
 import json
+import logging
 import unicodedata
 from datetime import datetime
 
 import settings
 from MOTOR_DECISION_QUINIELISTICA import diagnose_jornada
 from MOTOR_PREDICCION_JORNADA import (
+    _calculate_confidence,
     generate_jornada_prediction,
-    load_jornada_json,
+    get_cutoff_date,
     save_predictions,
 )
 
 
-def load_priors():
-    """Carga los priors de equipos desde el archivo de estadísticas base."""
-    path = settings.DATOS_DIR / "temporada_2026_27_estadisticas_base.json"
-    if not path.exists():
-        return {}, ["No existe DATOS/temporada_2026_27_estadisticas_base.json"]
-    data = json.loads(path.read_text(encoding="utf-8"))
-    teams = data.get("teams", {})
-    missing = data.get("missing_or_partial", [])
-    warnings = []
-    if missing:
-        warnings.append(f"Equipos con muestra baja en priors 2026/27: {', '.join(missing)}")
-    return teams, warnings
+from scripts.json_output import write_json
+from scripts.motor.boletos import load_jornada_json, select_probabilities
+from scripts.motor.features import infer_season
+from scripts.motor.odds_at_cutoff import kickoff_at, odds_at_cutoff
+from scripts.motor.temporal import local_timestamp, utc_timestamp
+from scripts.motor.transition_priors import load_transition_priors
 
 
 def normalize_name(value):
@@ -132,6 +128,7 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
                     "top_marcadores": pleno_pred.get("top_marcadores"),
                     "goles_local": pleno_pred.get("goles_local"),
                     "goles_visitante": pleno_pred.get("goles_visitante"),
+                    "goles_conjuntos": pleno_pred.get("goles_conjuntos"),
                     "seleccion": pleno_pred.get("seleccion"),
                     "avisos": pleno_pred.get("avisos", []),
                     "calidad_datos": pleno_pred.get("calidad_datos"),
@@ -169,11 +166,8 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
         if pred:
             # Punto 2 Codex: No presentar como fiable si la calidad es muy baja
             calidad = pred.get("calidad_datos", 0)
-            try:
-                umbral_calidad = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("calidad_min", 0.2)
-            except Exception:
-                umbral_calidad = 0.2
-            es_fiable = calidad >= umbral_calidad  # Umbral de fiabilidad (configurable)
+            umbral_calidad = settings.config_section("decision_thresholds").get("calidad_min", 0.2)
+            es_fiable = pred.get("dominio_validado", True) and calidad >= umbral_calidad
 
             # Reemplazar probabilities.modelo con las del motor maestro
             match["modelo_maestro"] = {
@@ -211,7 +205,9 @@ def _integrate_model_predictions(partidos: list[dict], model_predictions: dict) 
                 }
             else:
                 # Baja calidad: tratar como no disponible para recomendaciones
-                match["modelo_maestro"]["razon"] = "baja_calidad_datos"
+                match["modelo_maestro"]["razon"] = (
+                    "baja_calidad_datos" if pred.get("dominio_validado", True) else "fuera_del_dominio_validado"
+                )
                 match["probabilidades"] = {
                     "modelo": None,
                     "comparativa": {
@@ -253,35 +249,14 @@ def build_recommendation_for_match(match: dict) -> dict:
     - Triple (si aplica)
     - Nivel de confianza
     """
-    # Intentar obtener probabilidades del modelo del nuevo contrato
-    probs_modelo = match.get("probabilidades", {}).get("modelo")
-    fuente = "motor_maestro"
-
-    if not probs_modelo:
-        # Fallback: usar probabilidades comparativas (APU)
-        comparativa = match.get("probabilidades", {}).get("comparativa", {})
-        apu = comparativa.get("apu") or {}
-        if apu:
-            total = sum(apu.values())
-            probs = {
-                "1": apu.get("1", 0) / total if total > 0 else 0.333,
-                "X": apu.get("X", 0) / total if total > 0 else 0.333,
-                "2": apu.get("2", 0) / total if total > 0 else 0.333,
-            }
-            fuente = "apu_fallback"
-        else:
-            # Punto 2 Codex (Rev 3): Si no hay fuente fiable, marcar recomendación no disponible
-            return {
-                "disponible": False,
-                "razon": "sin_fuente_de_probabilidades_fiable",
-                "nota": "No se pudo generar recomendación (sin modelo ni APU)",
-            }
-    else:
-        probs = probs_modelo
-
-    p1 = probs.get("1", 0.333)
-    px = probs.get("X", 0.333)
-    p2 = probs.get("2", 0.333)
+    probs, fuente = select_probabilities(match)
+    if probs is None:
+        return {
+            "disponible": False,
+            "razon": "sin_fuente_de_probabilidades_fiable",
+            "nota": "No se pudo generar recomendación: faltan probabilidades válidas",
+        }
+    p1, px, p2 = (probs[s] for s in ("1", "X", "2"))
 
     # Ordenar probabilidades
     sorted_probs = sorted(
@@ -292,17 +267,15 @@ def build_recommendation_for_match(match: dict) -> dict:
 
     signo_principal = sorted_probs[0][0]
     modelo_maestro = match.get("modelo_maestro", {})
-    confianza = modelo_maestro.get("confianza", 0.5) if isinstance(modelo_maestro, dict) else 0.5
+    confianza = modelo_maestro.get("confianza", _calculate_confidence(probs)) if fuente == "motor_maestro" else _calculate_confidence(probs)
 
     # Determinar tipo de apuesta
     gap_primero_segundo = sorted_probs[0][1] - sorted_probs[1][1]
 
-    try:
-        umbral_conf = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("confianza_min", 0.7)
-        umbral_gap = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("gap_min", 0.25)
-        umbral_doble = settings.CONFIG_MOTOR_V2.get("decision_thresholds", {}).get("double_sorted_prob_min", 0.25)
-    except Exception:
-        umbral_conf, umbral_gap, umbral_doble = 0.7, 0.25, 0.25
+    thresholds = settings.config_section("decision_thresholds")
+    umbral_conf = thresholds.get("confianza_min", 0.7)
+    umbral_gap = thresholds.get("gap_min", 0.25)
+    umbral_doble = thresholds.get("double_sorted_prob_min", 0.25)
     p_top = sorted_probs[0][1]
     # Issue #36: un favorito 1@0.891 (gap 0.82, conf 0.62 por entropía)
     # caía a "triple" porque la confianza de entropía nunca llega a 0.7
@@ -327,7 +300,7 @@ def build_recommendation_for_match(match: dict) -> dict:
             match.get("open_odd_2") or match.get("odd_2"),
             probs=(p1, px, p2),
         )
-        if forced:
+        if forced and signo_principal in forced and settings.config_section("cobertura_dobles_banda").get("enabled", True):
             signos = forced
         else:
             segundo = sorted_probs[1][0]
@@ -348,7 +321,11 @@ def build_recommendation_for_match(match: dict) -> dict:
     }
 
 
-def build_package(jornada: int, use_model: bool = True) -> dict:
+def build_package(jornada: int, use_model: bool = True, cutoff: object = None) -> dict:
+    return _build_package(jornada, use_model, cutoff)[0]
+
+
+def _build_package(jornada: int, use_model: bool, cutoff: object) -> tuple[dict, dict]:
     """Construye el paquete completo para una jornada.
 
     Args:
@@ -359,48 +336,50 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
         Paquete JSON con toda la información de la jornada
     """
     # 1. Obtener diagnóstico quinielístico (con APU/LAE/Q15)
-    diagnostic = diagnose_jornada(jornada)
+    data = load_jornada_json(jornada)
+    diagnostic = diagnose_jornada(jornada, jornada_data=data)
 
-    # 2. Cargar priors de equipos
-    priors, global_warnings = load_priors()
-
-    # 3. Obtener predicciones del modelo maestro
+    partidos = diagnostic.get("partidos", [])
     model_predictions = {}
     model_errors = []
+    global_warnings = []
+    try:
+        resolved_cutoff = get_cutoff_date(data, cutoff)
+    except ValueError as exc:
+        if cutoff is not None:
+            raise
+        resolved_cutoff = None
+        global_warnings.append(str(exc))
+        if use_model:
+            model_errors.append(str(exc))
 
-    if use_model:
-        try:
-            model_predictions = generate_jornada_prediction(jornada)
-            if "error" in model_predictions:
-                model_errors.append(model_predictions["error"])
-                model_predictions = {}
-        except Exception as e:
-            model_errors.append(f"Error generando predicciones del modelo: {str(e)}")
-            model_predictions = {}
+    if resolved_cutoff is not None:
+        season, priors, prior_warnings = load_transition_priors(resolved_cutoff)
+        raw_by_position = {p["num"]: p for p in data["partidos"]}
+        enrich_with_priors([
+            p for p in partidos
+            if infer_season(local_timestamp(kickoff_at(raw_by_position[p["num"]]) or resolved_cutoff)) == season
+        ], priors)
+        global_warnings.extend(prior_warnings)
+        if use_model:
+            try:
+                model_predictions = generate_jornada_prediction(jornada, resolved_cutoff, jornada_data=data)
+                if "error" in model_predictions:
+                    model_errors.append(model_predictions["error"])
+            except (OSError, ValueError) as exc:
+                model_errors.append(f"Error generando predicciones del modelo: {exc}")
 
-    # 4. Combinar datos
-    partidos = diagnostic.get("partidos", [])
-
-    # Enriquecer con priors
-    partidos = enrich_with_priors(partidos, priors)
-
-    # Integrar predicciones del modelo
-    if model_predictions.get("predicciones"):
-        partidos = _integrate_model_predictions(partidos, model_predictions)
-    elif model_errors:
-        # Marcar error global pero intentar con datos disponibles
+    _integrate_model_predictions(partidos, model_predictions)
+    if model_errors:
         for match in partidos:
-            if match.get("num") != 15:
-                match["modelo_maestro"] = {
-                    "disponible": False,
-                    "razon": "error_modelo",
-                    "error": model_errors[0] if model_errors else "Desconocido",
-                }
+            if match["num"] != 15 and not match["modelo_maestro"].get("disponible"):
+                match["modelo_maestro"].update(razon="error_modelo", error=model_errors[0])
 
     # 5. Añadir recomendaciones basadas en modelo
     for match in partidos:
-        if match.get("num") != 15:
-            match["recomendacion_modelo"] = build_recommendation_for_match(match)
+        if match["num"] != 15:
+            odds = odds_at_cutoff(raw_by_position[match["num"]], resolved_cutoff)[0] if resolved_cutoff is not None else {}
+            match["recomendacion_modelo"] = build_recommendation_for_match({**match, **odds})
 
     # 6. Generar avisos de priors
     match_warnings = prior_warnings_for_matches(partidos)
@@ -422,17 +401,20 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
 
     # 7.5 Boleto optimizado (T2): contrato fijo de columnas (P0 2026-08-04):
     #     3 dobles = 8 columnas a 0,75 EUR = 6,00 EUR máximo, Pleno al 15 aparte.
-    #     Usa las probabilidades del modelo cuando existen; si no, Q15 como
-    #     fuente de probabilidades y LAE como popularidad del público.
+    #     Usa la misma distribución por partido que la recomendación y la API.
+    #     La popularidad LAE solo sirve para ordenar las columnas elegidas.
     boleto_optimizado = None
     try:
         from OPTIMIZADOR_COLUMNAS import optimize_jornada
 
-        probs_override = {}
+        probs_override, probability_sources = {}, {}
         for match in partidos:
-            pm = match.get("probabilidades", {}).get("modelo")
-            if isinstance(pm, dict) and all(s in pm for s in ("1", "X", "2")):
-                probs_override[match.get("num")] = pm
+            if match["num"] == 15:
+                continue
+            num = match["num"]
+            probs, source = select_probabilities(match)
+            probs_override[num] = probs
+            probability_sources[str(num)] = source
         # Extraer modelo_maestro del Pleno 15 para pasarlo al optimizador
         pleno_match = next((p for p in partidos if p.get("num") == 15), None)
         pleno_mm = None
@@ -443,11 +425,14 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
 
         boleto_optimizado = optimize_jornada(
             jornada,
-            fuente_prob="q15",
+            fuente_prob="paquete",
             publico="lae",
-            probs_override=probs_override or None,
+            probs_override=probs_override,
             pleno_modelo=pleno_mm,
+            cutoff_date=resolved_cutoff,
+            jornada_data=data,
         )
+        boleto_optimizado["fuentes_probabilidades_por_casilla"] = probability_sources
     except Exception as exc:
         logging.error("PREDECIR_JORNADA: %s", exc, exc_info=True)
         boleto_optimizado = {"error": f"no_disponible: {exc}"}
@@ -479,7 +464,9 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
         "jornada": jornada,
         "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         "version_config": settings.CONFIG.get("version", "desconocida"),
+        "prediction_cutoff_at": utc_timestamp(resolved_cutoff).isoformat() if resolved_cutoff is not None else None,
         "estado": "paquete_jornada_v3_modelo",
+        "trazabilidad_cuotas": model_predictions.get("trazabilidad_cuotas"),
         "modelo_info": {
             **model_predictions.get("modelo_info", {}),
             "disponible": resumen["partidos_con_prediccion"] > 0,
@@ -514,10 +501,10 @@ def build_package(jornada: int, use_model: bool = True) -> dict:
         },
     }
 
-    return package
+    return package, model_predictions
 
 
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(
         description="Genera paquete consolidado para una jornada con predicciones del modelo."
     )
@@ -532,38 +519,32 @@ def main():
         action="store_true",
         help="Guardar predicciones del modelo en SALIDAS/predicciones_modelo_J{jornada}.json",
     )
+    parser.add_argument("--corte", help="fecha/hora ISO documentada del corte")
     args = parser.parse_args()
-
-    settings.SALIDAS_DIR.mkdir(parents=True, exist_ok=True)
-
-    # Generar paquete
-    package = build_package(args.jornada, use_model=not args.no_model)
+    if args.no_model and args.save_predictions:
+        parser.error("--no-model y --save-predictions no se pueden combinar")
+    try:
+        package, predictions = _build_package(args.jornada, not args.no_model, args.corte)
+    except (OSError, ValueError) as exc:
+        parser.error(str(exc))
 
     # Guardar paquete principal
     out_path = settings.SALIDAS_DIR / f"paquete_jornada_J{args.jornada}.json"
-    out_path.write_text(
-        json.dumps(package, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    write_json(out_path, package)
+    if args.save_predictions and predictions.get("predicciones"):
+        save_predictions(predictions, args.jornada)
+        print("Predicciones del modelo guardadas.")
 
-    # Guardar predicciones del modelo si se solicita
-    if args.save_predictions:
-        try:
-            from MOTOR_PREDICCION_JORNADA import generate_jornada_prediction, save_predictions
-            preds = generate_jornada_prediction(args.jornada)
-            save_predictions(preds, args.jornada)
-            print(f"Predicciones del modelo guardadas.")
-        except Exception as e:
-            print(f"Nota: No se pudieron guardar predicciones: {e}")
+    from scripts.motor.GENERAR_CONTRATO_API import generate_api_contract
 
-    # T5 (Exp #5): Generar contrato API estable para Liga de Maestros
-    try:
-        from scripts.motor.GENERAR_CONTRATO_API import generate_api_contract
-        generate_api_contract(args.jornada)
-    except Exception as e:
-        print(f"Nota: No se pudo generar contrato API: {e}")
-
-    print(f"OK -> {out_path}")
+    contract_ok = generate_api_contract(args.jornada) is not None
+    if not contract_ok:
+        print(f"Paquete local guardado, pero sin contrato publicable: {out_path}")
+    if package["boleto_optimizado"].get("error"):
+        print(f"Paquete local guardado, pero sin optimización: {package['boleto_optimizado']['error']}")
+    if package["modelo_info"]["errores"]:
+        print("Motor no disponible; los proxies no son pronósticos del modelo.")
+    print(f"Paquete -> {out_path}")
     print(json.dumps({
         "jornada": args.jornada,
         "partidos": len(package["partidos"]),
@@ -572,7 +553,8 @@ def main():
         "avisos_partido": len(package["avisos"]["partidos"]),
         "estado": package["estado"],
     }, ensure_ascii=False, indent=2))
+    return int(not contract_ok or bool(package["boleto_optimizado"].get("error")) or bool(package["modelo_info"]["errores"]))
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

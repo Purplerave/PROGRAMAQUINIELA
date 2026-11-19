@@ -1,9 +1,9 @@
 import argparse
 import json
 from collections import Counter
-from pathlib import Path
 
 import settings
+from scripts.motor.boletos import load_jornada_json, normalized_triplet, validate_jornada
 
 
 ROOT = settings.QUINIELAS_ROOT
@@ -27,19 +27,7 @@ def repair_text(value):
 
 
 def pct_to_prob(values):
-    if not values:
-        return None
-    out = {}
-    for sign in SIGNS:
-        raw = values.get(sign)
-        if raw in ("", None):
-            return None
-        out[sign] = float(raw) / 100.0
-    total = sum(out.values())
-    if total <= 0:
-        return None
-    return {sign: out[sign] / total for sign in SIGNS}
-
+    return normalized_triplet(values)
 
 def choose_market_proxy(match, config):
     for key in config["fallback_sources"]["market_proxy_order"]:
@@ -123,6 +111,9 @@ def recommendation(market, public, labels):
 
 def pleno_summary(match):
     scores = match.get("marcadores_q15") or []
+    if not scores:
+        legacy = (match.get("pleno15") or {}).get("marcador_q15") or {}
+        scores = [{"score": score, "pct": pct} for score, pct in sorted(legacy.items(), key=lambda item: item[1], reverse=True)]
     return {
         "nota": "El Pleno al 15 separa signo 1X2 de marcador por goles.",
         "top_marcadores": scores[:5],
@@ -146,24 +137,21 @@ def load_master_notes(jornada):
     return {}
 
 
-def diagnose_jornada(jornada):
-    raw_config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    config = raw_config.get("decision", raw_config)
-    source_path = DATOS_DIR / f"QUINIELA15_J{jornada}.json"
-    if not source_path.exists():
-        raise FileNotFoundError(source_path)
-    data = json.loads(source_path.read_text(encoding="utf-8"))
+def diagnose_jornada(jornada, *, jornada_data=None):
+    raw_config = settings.CONFIG
+    config = settings.decision_config()
+    data = load_jornada_json(jornada) if jornada_data is None else jornada_data
     master_notes = load_master_notes(jornada)
 
     out = {
         "jornada": jornada,
         "version": raw_config.get("version", config.get("version", "sin_version")),
         "pesos_configurables": config["weights"],
-        "advertencia": "Si no hay cuotas reales, se usa proxy: apu > lae > tendencia. Recalibrar con backtesting.",
+        "advertencia": "Si no hay cuotas reales, se usa proxy: APU > LAE > Q15. Recalibrar con backtesting.",
         "partidos": [],
     }
 
-    for match in data.get("partidos", []):
+    for match in validate_jornada(data, jornada):
         num = int(match["num"])
         item = {
             "num": num,
@@ -171,6 +159,7 @@ def diagnose_jornada(jornada):
             "visitante": repair_text(match.get("visitante")),
             "fecha": match.get("fecha"),
             "hora": match.get("hora"),
+            **{source: match.get(source) for source in ("apu", "lae", "q15")},
             # Señal externa Highlightly (comparativa; nunca mercado)
             "hl": match.get("hl"),
             "hl_generated_at": match.get("hl_generated_at"),

@@ -1,80 +1,88 @@
-"""
-PANEL_QUINIELA.py v2 — Panel de control del programa (todo-en-uno).
+"""Panel local del boleto semanal. Ejecutar y exportar son acciones separadas.
 
-    python PANEL_QUINIELA.py            -> dashboard http://localhost:8787
-    python PANEL_QUINIELA.py --cli      -> ejecuta y pinta por pantalla
-
-v2: la ejecucion corre en HILO DE FONDO y el front hace polling ->
-    el boton responde al instante, hay barra de estado, y cualquier
-    error se muestra EN PANTALLA (nunca silencio).
+La exportación prepara archivos bajo SALIDAS; no importa datos, lanza Git ni
+publica en ningún repositorio externo.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import subprocess
 import sys
 import threading
 import time
 import webbrowser
-from datetime import datetime
+from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SALIDAS = ROOT / "SALIDAS"
-WEB_ROOT = Path(r"C:\Users\Mortadelo\Desktop\QUINIELAs\liga-maestros-web")
-INBOX = WEB_ROOT / "data" / "inbox"
-PUERTO = 8787
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import settings
+from scripts.OPTIMIZADOR_BOLETO import parse_casillas
+from scripts.RUN_SEMANA_COMPLETA import BOLETO_FUENTE, cargar_boleto, output_label
+from scripts.json_output import write_json
+from scripts.motor.boletos import SIGNOS
+from scripts.motor.pleno_model import ETIQUETAS_PLENO
+from scripts.motor.temporal import utc_timestamp
+
+
+PUERTO = 8787
 LOCK = threading.Lock()
 ESTADO: dict = {"corriendo": False, "ultima_ejecucion": None,
                 "payload": None, "log_tail": "", "error": None}
 
 
-def ultimo(prefijo: str) -> Path | None:
-    cand = sorted(SALIDAS.glob(f"{prefijo}*.json"))
-    return cand[-1] if cand else None
+def load_weekly_output(jornada: int, demo: bool = False) -> dict:
+    if type(jornada) is not int or jornada < 1:
+        raise ValueError("La jornada debe ser un entero positivo")
+    tag = output_label(jornada, demo)
+    path = settings.SALIDAS_DIR / f"boleto_completo_{tag}.json"
+    raw = path.read_bytes()
+    ticket = json.loads(raw)
+    opt = json.loads((settings.SALIDAS_DIR / f"optimizacion_boleto_{tag}.json").read_text(encoding="utf-8"))
+    if (not isinstance(ticket, dict) or not isinstance(opt, dict)
+            or ticket.get("jornada") != jornada or opt.get("jornada") != jornada
+            or ticket.get("demo") is not demo or opt.get("demo") is not demo
+            or opt.get("entrada_sha256") != hashlib.sha256(raw).hexdigest()):
+        raise ValueError("La optimización no corresponde al boleto actual; vuelve a ejecutar la semana")
+    parse_casillas(ticket)
+    return {"boleto": ticket, "optimizacion": opt}
 
 
-def _pipeline(presupuesto: int):
+def _pipeline(presupuesto: int, source: Path, demo: bool):
     try:
-        cmd = [sys.executable, str(ROOT / "scripts" / "RUN_SEMANA_COMPLETA.py"),
-               "--presupuesto", str(presupuesto)]
-        proc = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True,
+        ticket = cargar_boleto(source, demo=demo)
+        cmd = [sys.executable, str(settings.PROJECT_DIR / "scripts" / "RUN_SEMANA_COMPLETA.py"),
+               "--presupuesto", str(presupuesto), "--jornada", str(ticket["jornada"])]
+        cmd += ["--demo"] if demo else ["--boleto", str(source.resolve())]
+        proc = subprocess.run(cmd, cwd=settings.PROJECT_DIR, capture_output=True, text=True,
                               encoding="utf-8", errors="replace", timeout=1800)
         log = ((proc.stdout or "") + "\n" + (proc.stderr or "")).strip()
-        boleto_p, opt_p = ultimo("boleto_completo_J"), ultimo("optimizacion_boleto_J")
         with LOCK:
             ESTADO["log_tail"] = log[-2000:]
-            ESTADO["ultima_ejecucion"] = datetime.now().isoformat(timespec="seconds")
-            if proc.returncode != 0:
-                ESTADO["error"] = f"RUN_SEMANA salio con codigo {proc.returncode}"
-                return
-            if not boleto_p:
-                ESTADO["error"] = "No se genero boleto_completo_J*.json"
-                return
-            ESTADO["payload"] = {
-                "generado": ESTADO["ultima_ejecucion"],
-                "returncode": proc.returncode,
-                "boleto": json.loads(boleto_p.read_text(encoding="utf-8")),
-                "optimizacion": json.loads(opt_p.read_text(encoding="utf-8"))
-                if opt_p else None,
-            }
-    except Exception as exc:  # noqa: BLE001
+        if proc.returncode:
+            raise RuntimeError(f"La ejecución semanal falló (código {proc.returncode})")
+        payload = load_weekly_output(ticket["jornada"], demo)
         with LOCK:
-            ESTADO["error"] = repr(exc)
+            ESTADO["payload"] = payload
+    except (OSError, ValueError, RuntimeError, subprocess.SubprocessError) as exc:
+        with LOCK:
+            ESTADO["error"] = str(exc)
     finally:
         with LOCK:
+            ESTADO["ultima_ejecucion"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
             ESTADO["corriendo"] = False
 
 
-def iniciar_semana(presupuesto: int = 8) -> dict:
+def iniciar_semana(presupuesto: int = 8, source: Path = BOLETO_FUENTE, demo: bool = False) -> dict:
     with LOCK:
         if ESTADO["corriendo"]:
             return {"ya_en_curso": True}
-        ESTADO.update({"corriendo": True, "error": None})
-    threading.Thread(target=_pipeline, args=(presupuesto,), daemon=True).start()
+        ESTADO.update(corriendo=True, error=None, payload=None, log_tail="")
+    threading.Thread(target=_pipeline, args=(presupuesto, source, demo), daemon=True).start()
     return {"iniciado": True}
 
 
@@ -83,121 +91,54 @@ def estado_actual() -> dict:
         return dict(ESTADO)
 
 
-def publicar_liga_maestros() -> dict:
-    payload = estado_actual().get("payload")
-    if not payload or not payload.get("boleto"):
-        raise RuntimeError("No hay boleto. Pulsa primero EJECUTAR SEMANA.")
-    boleto = payload["boleto"]
-    jornada = boleto.get("jornada") or "SIN_NUMERO"
-    INBOX.mkdir(parents=True, exist_ok=True)
-
-    ligam = {int(p["numero"]): p for p in
-             (boleto.get("ligam") or {}).get("predicciones", []) if p.get("numero")}
-    for pr in (boleto.get("ligaf") or {}).get("pronosticos", []):
-        if pr.get("numero") is not None:
-            ligam[int(pr["numero"])] = pr
-
-    casillas = []
-    for num in sorted(ligam):
-        p = ligam[num]
+def exportar_liga_maestros(payload: dict) -> dict:
+    ticket = payload["boleto"]
+    jornada = ticket.get("jornada")
+    if type(jornada) is not int or jornada < 1:
+        raise ValueError("Jornada inválida para exportación")
+    if ticket.get("demo") is not False:
+        raise ValueError("Un boleto de demostración no se puede exportar")
+    if utc_timestamp(ticket.get("cierre")) <= datetime.now(timezone.utc):
+        raise ValueError(f"La jornada J{jornada} ya está cerrada")
+    casillas = parse_casillas(ticket)
+    matches = sorted(ticket["ligam"]["predicciones"] + ticket["ligaf"]["pronosticos"], key=lambda p: p["numero"])
+    signs = []
+    inbox_rows = []
+    for p in matches:
         pleno = p.get("pleno") or {}
-        casillas.append({
-            "numero": num,
-            "partido": f"{p['local']} - {p['visitante']}",
-            "signo_programa": pleno.get("signo") or p.get("signo") or p.get("signo_modelo"),
-            "pleno": bool(pleno),
-            **({"top3_pleno": pleno.get("top3")} if pleno.get("top3") else {}),
-        })
+        sign = pleno.get("signo") or p.get("signo") or p.get("signo_modelo")
+        if sign not in (ETIQUETAS_PLENO if p["numero"] == 15 else SIGNOS):
+            raise ValueError(f"Signo inválido en casilla {p['numero']}")
+        signs.append(sign)
+        inbox_rows.append({"numero": p["numero"], "partido": f"{p['local']} - {p['visitante']}",
+                           "signo_programa": sign, "pleno": p["numero"] == 15})
+    target = settings.SALIDAS_DIR / "entrega_liga_maestros" / f"J{jornada}"
+    opt = payload["optimizacion"]
+    write_json(target / "inbox" / f"QUINIELA_J{jornada}_PROGRAMA.json", {
+        "tipo": "quiniela_programa", "jornada": jornada, "exportado": datetime.now(timezone.utc).isoformat(),
+        "fuente": "PROGRAMAQUINIELA", "cierre": ticket["cierre"], "bote_eur": ticket.get("bote_eur"),
+        "casillas": inbox_rows, "apuesta_recomendada": {
+            k: opt[k] for k in ("politica_cobertura", "politica_ev_parimutuel") if k in opt
+        },
+    })
+    write_json(target / "DATOS" / f"QUINIELA15_J{jornada}.json", {
+        "jornada": jornada, "partidos": [{"num": p["numero"], "local": p["local"], "visitante": p["visitante"]} for p in matches],
+    })
+    write_json(target / "SALIDAS" / f"quiniela_programa_J{jornada}.json", {"signos": signs})
+    write_json(target / "DATOS" / f"PROBABILIDADES_J{jornada}.json", {
+        str(c["numero"]): {"num": c["numero"], "probabilidades": dict(zip(c["etiquetas"], c["probs"]))}
+        for c in casillas[:-1]
+    })
+    return {"estado": "exportado_localmente", "ruta": str(target), "jornada": jornada, "n_casillas": len(casillas)}
 
-    paquete = {
-        "tipo": "quiniela_programa",
-        "jornada": jornada,
-        "publicado": datetime.now().isoformat(timespec="seconds"),
-        "fuente": "PROGRAMAQUINIELA::PANEL_QUINIELA",
-        "bote_eur": boleto.get("bote_eur"),
-        "cierre": boleto.get("cierre"),
-        "casillas": casillas,
-    }
-    opt = payload.get("optimizacion") or {}
-    if opt:
-        paquete["apuesta_recomendada"] = {
-            k: opt[k] for k in ("politica_cobertura", "politica_ev_parimutuel")
-            if opt.get(k)}
-    destino = INBOX / f"QUINIELA_J{jornada}_PROGRAMA.json"
-    destino.write_text(json.dumps(paquete, ensure_ascii=False, indent=2) + "\n",
-                       encoding="utf-8")
 
-    # ---- Puente con el importador OFICIAL de la web (columna PROGRAMA) ----
-    # Genera los 3 ficheros que IMPORTAR_PROGRAMA_JORNADA.py espera en
-    # <web>/PROGRAMA_QUINIELA/ y lo ejecuta -> escribe en la BD viva:
-    #   usuarios(programa) + resultados J{N} (NS) + predicciones del programa.
-    puente = WEB_ROOT / "PROGRAMA_QUINIELA"
-    (puente / "DATOS").mkdir(parents=True, exist_ok=True)
-    (puente / "SALIDAS").mkdir(parents=True, exist_ok=True)
-    q15 = {"jornada": jornada, "partidos": []}
-    for c in sorted(casillas, key=lambda x: x["numero"]):
-        loc, _, vis = c["partido"].partition(" - ")
-        q15["partidos"].append({"num": c["numero"], "local": loc, "visitante": vis})
-    (puente / "DATOS" / f"QUINIELA15_J{jornada}.json").write_text(
-        json.dumps(q15, ensure_ascii=False, indent=2), encoding="utf-8")
-    signos15 = [c["signo_programa"]
-                for c in sorted(casillas, key=lambda x: x["numero"])]
-    (puente / "SALIDAS" / f"quiniela_programa_J{jornada}.json").write_text(
-        json.dumps({"signos": signos15}, ensure_ascii=False, indent=2),
-        encoding="utf-8")
-    probs_doc = {}
-    for num in sorted(ligam):
-        p = ligam[num]
-        if p.get("pleno"):
-            continue
-        probs_doc[str(num)] = {"num": num, "probabilidades": {
-            "1": round(float(p.get("prob_1", p.get("p1", 0))), 4),
-            "X": round(float(p.get("prob_x", p.get("px", 0))), 4),
-            "2": round(float(p.get("prob_2", p.get("p2", 0))), 4)}}
-    (puente / "DATOS" / f"PROBABILIDADES_J{jornada}.json").write_text(
-        json.dumps(probs_doc, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    import os
-    importador = WEB_ROOT / "tools" / "importers" / "IMPORTAR_PROGRAMA_JORNADA.py"
-    importacion_web = {"ejecutado": False}
-    if importador.exists():
-        env = dict(os.environ, PYTHONPATH=str(WEB_ROOT))
-        imp = subprocess.run(
-            [sys.executable, str(importador), "--jornada", str(jornada)],
-            cwd=str(WEB_ROOT), capture_output=True, text=True,
-            encoding="utf-8", errors="replace", timeout=180, env=env)
-        importacion_web = {"ejecutado": True, "returncode": imp.returncode,
-                           "detalle": ((imp.stdout or "") + (imp.stderr or ""))[-600:]}
-
-    # ---- push a GitHub (Render despliega al recibirlo) ----
-    git_info = {"push_intentado": False}
-    try:
-        pasos_git = []
-        for argv in (
-            ["git", "-C", str(WEB_ROOT), "add",
-             f"data/inbox/JORNADA_{jornada}_LM_ARENA.json",
-             f"data/inbox/QUINIELA_J{jornada}_PROGRAMA.json",
-             "tools/PROGRAMA_QUINIELA", "data/ESTADO_MAESTRO_ACTUAL.json"],
-            ["git", "-C", str(WEB_ROOT), "commit", "-m",
-             f"Publicar J{jornada} PROGRAMA desde panel"],
-            ["git", "-C", str(WEB_ROOT), "pull", "--rebase", "origin", "main"],
-            ["git", "-C", str(WEB_ROOT), "push", "origin", "main"],
-        ):
-            g = subprocess.run(argv, capture_output=True, text=True,
-                               encoding="utf-8", errors="replace", timeout=180)
-            salida_paso = ((g.stdout or "") + (g.stderr or "")).strip()
-            pasos_git.append(f"$ {' '.join(argv[1:3])} (rc={g.returncode})\n"
-                             + (salida_paso[-250:] or "(sin salida)"))
-        git_info = {"push_intentado": True, "pasos": pasos_git,
-                    "detalle": "\n".join(pasos_git)[-1200:]}
-    except Exception as exc:  # noqa: BLE001
-        git_info = {"push_intentado": True, "error": repr(exc)}
-
-    return {"publicado_en": str(destino), "jornada": jornada,
-            "n_casillas": len(casillas),
-            "signos": signos15,
-            "importacion_web": importacion_web,
-            "git": git_info}
+def exportar_actual() -> dict:
+    state = estado_actual()
+    payload = state["payload"]
+    if state["corriendo"] or not payload:
+        raise ValueError("No hay boleto vigente de una ejecución completada")
+    ticket = payload["boleto"]
+    return exportar_liga_maestros(load_weekly_output(ticket["jornada"], ticket["demo"]))
 
 
 # ------------------------------------------------------------------ CLI --
@@ -206,7 +147,8 @@ def pintar_cli(payload: dict) -> None:
     boleto = payload.get("boleto")
     if not boleto:
         print(payload.get("error", "Sin resultados")); return
-    print(f"\n== QUINIELA J{boleto.get('jornada')} | bote "
+    label = "DEMO " if boleto.get("demo") else ""
+    print(f"\n== QUINIELA {label}J{boleto.get('jornada')} | bote "
           f"{float(boleto.get('bote_eur') or 0):,.0f} EUR | cierre {boleto.get('cierre')} ==")
     ligam = {int(p["numero"]): p for p in
              (boleto.get("ligam") or {}).get("predicciones", []) if p.get("numero")}
@@ -219,8 +161,8 @@ def pintar_cli(payload: dict) -> None:
         partido = f"{p['local']} - {p['visitante']}"[:44]
         pleno = p.get("pleno") or {}
         if pleno.get("signo"):
-            print(f"{num:>3}  {partido:<44}{'M-0*':^7}[pleno 16 signos] "
-                  f"{pleno.get('signo')} p={max(pleno.get('probs', [0])):.2f}")
+            print(f"{num:>3}  {partido:<44}{pleno['signo']:^7}[pleno 16 signos] "
+                  f"p={max(pleno.get('probs', [0])):.2f}")
             continue
         signo = p.get("signo") or p.get("signo_modelo") or "-"
         fuente = str(p.get("fuente") or p.get("fuente_ratings") or "")[:26]
@@ -234,12 +176,12 @@ def pintar_cli(payload: dict) -> None:
         datos = opt.get(pol) or {}
         cols = datos.get("columnas") or []
         if cols:
-            extra = f" EV={datos['ev_eur']}EUR" if datos.get("ev_eur") is not None else ""
+            extra = f" EV estimado={datos['ev_eur']} EUR" if datos.get("ev_eur") is not None else ""
             print(f"\n[{pol}] {len(cols)} columnas · {datos.get('coste_eur')} EUR · "
                   f"P={datos.get('p_acierto_total')}{extra}")
             for c in cols:
                 print("   ", c["signos"])
-    qc = ((opt.get("politica_cobertura") or {}).get("quiniela_clasica")) or None
+    qc = opt.get("tres_dobles")
     if qc:
         print(f"\n== TU QUINIELA · {qc['n_columnas']} columnas · "
               f"{qc['coste_eur']} EUR ==")
@@ -247,7 +189,6 @@ def pintar_cli(payload: dict) -> None:
             print(f"  DOBLE casilla {d['casilla']}: {'/'.join(d['signos'])}"
                   f"   [{d['partido']}]")
         print("  FIJOS:", " ".join(f"{f['casilla']}={f['signo']}" for f in qc["fijos"]))
-    print("\n[PUBLICADO]", publicar_liga_maestros())
 
 
 # ------------------------------------------------------------------ HTTP --
@@ -280,7 +221,7 @@ vertical-align:-2px;margin-right:8px}@keyframes g{to{transform:rotate(360deg)}}
 <h1>&#127922; PANEL QUINIELA <span id="jor"></span></h1>
 <div class="sub">doble motor DC · pleno 16 signos · optimizador cobertura/EV</div>
 <button id="btnRun">&#9654; EJECUTAR SEMANA</button>
-<button id="btnPub" class="sec">&#128228; PUBLICAR EN LIGA MAESTROS</button>
+<button id="btnPub" class="sec" disabled>&#128228; EXPORTAR ARCHIVOS</button>
 <span id="status">listo</span>
 <div id="errbox"></div>
 <div id="salida"></div>
@@ -288,43 +229,49 @@ vertical-align:-2px;margin-right:8px}@keyframes g{to{transform:rotate(360deg)}}
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
-const st=t=>{$('status').innerHTML=t;};
-async function post(url){const r=await fetch(url,{method:'POST'});return r.json();}
+const st=t=>{$('status').textContent=t;};
+async function post(url){const r=await fetch(url,{method:'POST'});const d=await r.json();if(!r.ok)throw Error(d.error||r.status);return d;}
 $('btnRun').addEventListener('click',async()=>{
-  $('btnRun').disabled=true;$('errbox').textContent='';$('salida').innerHTML='';
-  st('<span class="spin"></span>Ejecutando doble motor + optimizador...');
+  $('btnRun').disabled=true;$('btnPub').disabled=true;$('errbox').textContent='';$('salida').innerHTML='';
+  st('Ejecutando doble motor + optimizador...');
   try{
-    let d=await post('/api/run');
-    const encuesta=setInterval(async()=>{
-      const e=await (await fetch('/api/estado')).json();
-      if(e.corriendo)return;
-      clearInterval(encuesta);$('btnRun').disabled=false;
-      if(e.error){st('ERROR');$('errbox').innerHTML='<div class="err">'+e.error+
-        '</div><div class="log">'+(e.log_tail||'')+'</div>';return;}
-      st('OK · '+ (e.ultima_ejecucion||''));
+    await post('/api/run');
+    while(true){
+      await new Promise(resolve=>setTimeout(resolve,1500));
+      const response=await fetch('/api/estado');
+      if(!response.ok)throw Error(response.status);
+      const e=await response.json();
+      if(e.corriendo)continue;
+      $('btnRun').disabled=false;
+      $('log').textContent=e.log_tail||'';
+      if(e.error){st('ERROR');$('errbox').textContent=e.error;return;}
+      st('OK · '+(e.ultima_ejecucion||''));
       if(e.payload)render(e.payload);
-    },1500);
+      return;
+    }
   }catch(ex){$('btnRun').disabled=false;st('FALLO RED');
-    $('errbox').innerHTML='<div class="err">'+ex+'</div>';}
+    $('errbox').textContent=ex.message;}
 });
 $('btnPub').addEventListener('click',async()=>{
-  $('btnPub').disabled=true;st('Publicando...');
-  try{const d=await post('/api/publicar');
-    st('PUBLICADO');$('errbox').innerHTML='';
-    alert('Publicado en:\n'+(d.publicado_en||JSON.stringify(d)));
-  }catch(ex){st('ERROR');$('errbox').innerHTML='<div class="err">'+ex+'</div>';}
+  $('btnPub').disabled=true;st('Exportando...');
+  try{const d=await post('/api/exportar');
+    st('EXPORTADO LOCALMENTE');$('errbox').textContent='';
+    alert('Archivos listos para revisar en:\n'+d.ruta);
+  }catch(ex){st('ERROR');$('errbox').textContent=ex.message;}
   $('btnPub').disabled=false;
 });
 function bar(v,max){return '<span class="bar"><i style="width:'+
   Math.round(100*v/max)+'%"></i></span>';}
-function esc(s){return String(s).replace(/</g,'&lt;');}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function render(d){const B=d.boleto;if(!B){st('sin datos');return;}
-  $('jor').textContent='· J'+B.jornada+' · bote '+(B.bote_eur/1e6)+'M€';
+  $('jor').textContent=(B.demo?'· DEMO ':'· ')+'J'+B.jornada+' · bote '+(B.bote_eur/1e6)+'M€';
+  $('btnPub').disabled=B.demo===true;
   let lm={};(B.ligam&&B.ligam.predicciones||[]).forEach(p=>lm[p.numero]=p);
-  ((B.ligaf||{}).pronosticos||[]).forEach(p=>{if(p.numero!=null)lm[p.numero]=p;});
+  const isF=new Set();
+  ((B.ligaf||{}).pronosticos||[]).forEach(p=>{if(p.numero!=null){lm[p.numero]=p;isF.add(p.numero);}});
   let rows='';
   Object.keys(lm).map(Number).sort((a,b)=>a-b).forEach(n=>{const p=lm[n];
-    const esLigaF=/2324/.test(String(p.fuente||p.fuente_ratings||''));
+    const esLigaF=isF.has(n);
     const cls=(esLigaF?'ligaf ':'')+(p.pleno?'pleno':'');
     const pl=p.pleno||{};
     if(pl.signo){
@@ -345,21 +292,21 @@ function render(d){const B=d.boleto;if(!B){st('sin datos');return;}
     (T.dobles||[]).forEach(dd=>{mapa[dd.casilla]=dd.signos.join('/');});
     const linea=Object.keys(mapa).map(Number).sort((a,b)=>a-b)
       .map(n=>{const v=mapa[n];return '['+n+']'+
-        (v.indexOf('/')>=0?'<span class="signo">'+v+'</span>':v);}).join(' ');
+        (v.indexOf('/')>=0?'<span class="signo">'+esc(v)+'</span>':esc(v));}).join(' ');
     opt+='<div class="cols" style="background:#13291d;border:1px solid #2f7d4f;font-size:16px">'+
-      '<b>&#127942; TU COLUMNA \u2014 3 DOBLES</b>  ('+T.n_columnas+
-      ' combinaciones \u00b7 '+T.coste_eur+' EUR al jugarla \u00b7 P='+
+      '<b>&#127942; TU COLUMNA \u2014 3 DOBLES</b>  ('+esc(T.n_columnas)+
+      ' combinaciones \u00b7 '+esc(T.coste_eur)+' EUR al jugarla \u00b7 P='+
       (T.p_acierto*100).toFixed(3)+'%)\n\n'+linea+
       '\n\n<b>LOS 3 DOBLES:</b>\n'+T.dobles.map(dd=>
-        'casilla '+dd.casilla+'\u00aa: <span class="signo">'+dd.signos.join('/')+
+        'casilla '+esc(dd.casilla)+'\u00aa: <span class="signo">'+esc(dd.signos.join('/'))+
         '</span> \u2014 '+esc(dd.partido)).join('\n')+'</div>';}
   ['politica_cobertura','politica_ev_parimutuel'].forEach(k=>{const o=O[k];if(!o)return;
     opt+='<details style="margin-top:10px"><summary style="cursor:pointer;color:#8ea0c9">'+
       k+' \u2014 ver detalle</summary><div class="cols"><b>'+k+'</b> · '+
       o.columnas.length+' columnas · '+
-      o.coste_eur+' EUR · P='+o.p_acierto_total+
-      (o.ev_eur!=null?(' · EV='+o.ev_eur+' EUR'):'')+'\n'+
-      o.columnas.map(c=>c.signos).join('\n')+'</div></details>';});
+      esc(o.coste_eur)+' EUR · P='+esc(o.p_acierto_total)+
+      (o.ev_eur!=null?(' · EV estimado='+esc(o.ev_eur)+' EUR'):'')+'\n'+
+      o.columnas.map(c=>esc(c.signos)).join('\n')+'</div></details>';});
   $('salida').innerHTML='<table><tr><th>CAS</th><th>PARTIDO</th><th>1</th><th>X</th>'+
     '<th>2</th><th>SIGNO</th></tr>'+rows+'</table>'+opt;
   $('log').textContent=d.cola_log||'';}
@@ -369,6 +316,9 @@ function render(d){const B=d.boleto;if(!B){st('sin datos');return;}
 
 class Handler(BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
+    presupuesto = 8
+    source = BOLETO_FUENTE
+    demo = False
 
     def _send(self, code, obj, ctype="application/json; charset=utf-8"):
         raw = obj if isinstance(obj, bytes) else json.dumps(
@@ -393,31 +343,42 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             if self.path == "/api/run":
-                self._send(200, iniciar_semana())
-            elif self.path == "/api/publicar":
-                self._send(200, publicar_liga_maestros())
+                self._send(200, iniciar_semana(self.presupuesto, self.source, self.demo))
+            elif self.path == "/api/exportar":
+                self._send(200, exportar_actual())
             else:
                 self._send(404, {"error": "ruta desconocida"})
-        except Exception as exc:  # noqa: BLE001
-            self._send(500, {"error": repr(exc)})
+        except (ValueError, OSError) as exc:
+            self._send(400, {"error": str(exc)})
 
     def log_message(self, *a):  # silencio
         pass
 
 
-if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--cli", action="store_true")
     ap.add_argument("--presupuesto", type=int, default=8)
+    inputs = ap.add_mutually_exclusive_group()
+    inputs.add_argument("--boleto", type=Path, default=BOLETO_FUENTE)
+    inputs.add_argument("--demo", action="store_true")
     args = ap.parse_args()
-
     if args.cli:
-        iniciar_semana(args.presupuesto)
-        while ESTADO["corriendo"]:
-            time.sleep(1)
-        pintar_cli(ESTADO["payload"] or ESTADO)
-        sys.exit(0)
+        iniciar_semana(args.presupuesto, args.boleto, args.demo)
+        while estado_actual()["corriendo"]:
+            time.sleep(0.1)
+        state = estado_actual()
+        pintar_cli(state["payload"] or state)
+        if not state["payload"] and state["log_tail"]:
+            print(state["log_tail"], file=sys.stderr)
+        return int(state["payload"] is None)
 
+    Handler.presupuesto, Handler.source, Handler.demo = args.presupuesto, args.boleto, args.demo
     webbrowser.open(f"http://localhost:{PUERTO}")
-    print(f"Panel: http://localhost:{PUERTO}  (Ctrl+C para apagar)")
+    print(f"Panel local: http://localhost:{PUERTO}  (Ctrl+C para apagar)")
     ThreadingHTTPServer(("127.0.0.1", PUERTO), Handler).serve_forever()
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
