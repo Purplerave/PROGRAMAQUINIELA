@@ -14,13 +14,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from motor.ligaf_model import cargar_dated, walkforward  # noqa: E402
+from motor.ligaf_model import cargar_statsbomb_2324, walkforward  # noqa: E402
 
 SALIDAS = Path(__file__).resolve().parents[2] / "SALIDAS"
 
 
 def main():
-    partidos = cargar_dated()
+    partidos = cargar_statsbomb_2324()
     print(f"backbone real: {len(partidos)} partidos "
           f"({partidos[0]['fecha'].date()} .. {partidos[-1]['fecha'].date()})", flush=True)
     res = walkforward(partidos)

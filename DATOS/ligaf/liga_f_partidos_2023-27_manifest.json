@@ -1,0 +1,36 @@
+{
+  "dataset": "liga_f_partidos_2023-27.csv",
+  "received_at": "2026-11-19",
+  "provenance": {
+    "origin": "Archivo adjunto proporcionado por el usuario en Arena",
+    "provider": null,
+    "source_url": null,
+    "license": "No especificada; confirmar antes de redistribuir o publicar",
+    "independent_verification": false
+  },
+  "sha256": "859f20f0f92b00ab823628b4b563bf2717f4cafec6f6a814eb56ac2d338bf4b2",
+  "original_upload_sha256": "55b7091917481343bfec764f3ee4d82d5df27daea752e434e403b4decb8189d1",
+  "normalization": "UTF-8 BOM removed and CRLF converted to LF; field values unchanged",
+  "schema": [
+    "season",
+    "date",
+    "match_id",
+    "home",
+    "home_goals",
+    "away_goals",
+    "away",
+    "scorers",
+    "status"
+  ],
+  "rows_by_season": {
+    "2023-24": 240,
+    "2024-25": 240,
+    "2025-26": 240,
+    "2026-27": 87
+  },
+  "notes": [
+    "2023-24 overlaps the existing StatsBomb Open Data backbone; matching fixtures and scores are reconciled before model use.",
+    "2026-27 is a partial, in-progress season and currently has 87 completed matches; do not treat it as complete.",
+    "Scorer text is supplementary and is not used by the score-based team model."
+  ]
+}

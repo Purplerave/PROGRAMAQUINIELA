@@ -1,0 +1,808 @@
+season,date,match_id,home,home_goals,away_goals,away,scorers,status
+2023-24,2023-09-15,684169,Valencia,0,2,Real Madrid,1' Athenea del Castillo [Real Madrid]; 72' Naomie Feller [Real Madrid],Full Time
+2023-24,2023-09-16,684168,Madrid CFF,0,2,Barcelona,40' Caroline Graham Hansen [Barcelona]; 84' Asisat Oshoala [Barcelona],Full Time
+2023-24,2023-09-16,684170,Eibar,1,2,FC Badalona,58' Yasmin Mrabet [FC Badalona]; 85' Ane Campos [Eibar]; 90'+3' Jessica Martínez [FC Badalona],Full Time
+2023-24,2023-09-16,684174,Real Betis,1,0,Villarreal,18' Rhiannon Roberts [Real Betis],Full Time
+2023-24,2023-09-16,684175,Atlético Madrid,3,0,Athletic Club,50' Sheila Guijarro [Atlético Madrid]; 63' Eva Navarro [Atlético Madrid]; 77' Sheila Guijarro [Atlético Madrid],Full Time
+2023-24,2023-09-17,684171,Granada,2,1,Real Sociedad,8' Andrea Gómez [Granada]; 26' Amaiur Sarriegi [Real Sociedad]; 58' Edna Imade [Granada],Full Time
+2023-24,2023-09-17,684172,Granadilla Tenerife,2,0,Sporting de Huelva,33' Jassina Blom [Granadilla Tenerife]; 80' Esther Okoronkwo [Granadilla Tenerife],Full Time
+2023-24,2023-09-17,684173,Levante,2,0,Sevilla,35' Ángela Sosa [Levante]; 71' Alba Redondo [Levante],Full Time
+2023-24,2023-09-30,684176,Villarreal,1,2,Valencia,16' Fiamma [Valencia]; 27' Raquel Morcillo [Villarreal]; 75' Ainhoa Alguacil [Valencia],Full Time
+2023-24,2023-09-30,684178,Granada,1,2,Eibar,17' Carla Andrés [Eibar]; 56' Eider Arana [Eibar]; 65' Laura Requena [Granada],Full Time
+2023-24,2023-09-30,684180,Sevilla,1,5,Madrid CFF,27' Racheal Kundananji [Madrid CFF]; 29' Karen Araya [Madrid CFF]; 45'+5' Racheal Kundananji [Madrid CFF]; 48' Toni Payne [Sevilla]; 61' Itziar Pinillos [Madrid CFF]; 64' Racheal Kundananji [Madrid CFF],Full Time
+2023-24,2023-09-30,684181,Levante,1,1,Atlético Madrid,37' Ángela Sosa [Levante]; 46' Ana-Maria Crnogorcevic [Atlético Madrid],Full Time
+2023-24,2023-10-01,684177,FC Badalona,2,1,Athletic Club,16' Jessica Martínez [FC Badalona]; 22' Naia Landaluze [Athletic Club]; 60' Cristina Baudet [FC Badalona],Full Time
+2023-24,2023-10-01,684179,Granadilla Tenerife,1,2,Real Madrid,34' Signe Bruun [Real Madrid]; 88' Maite Oroz [Real Madrid]; 90'+1' Rinsola Babajide [Granadilla Tenerife],Full Time
+2023-24,2023-10-01,684182,Sporting de Huelva,1,2,Barcelona,24' Clàudia Pina [Barcelona]; 90'+2' Ana Carolina [Barcelona] (pp); 90'+6' Laia Ballesté [Sporting de Huelva],Full Time
+2023-24,2023-10-01,684183,Real Sociedad,2,1,Real Betis,36' Nerea Eizagirre [Real Sociedad]; 42' Julia Aguado [Real Betis]; 49' Sanni Franssi [Real Sociedad],Full Time
+2023-24,2023-10-03,684163,Villarreal,1,3,Atlético Madrid,2' Merel van Dongen [Atlético Madrid]; 45' Leicy Santos [Atlético Madrid]; 74' Kayla McKenna [Villarreal]; 89' Estefanía Banini [Atlético Madrid],Full Time
+2023-24,2023-10-04,684160,Athletic Club,1,0,Granada,16' Ane Azkona [Athletic Club],Full Time
+2023-24,2023-10-04,684161,Eibar,1,6,Madrid CFF,34' Racheal Kundananji [Madrid CFF]; 39' Luany [Madrid CFF]; 64' Ana González [Madrid CFF]; 75' Andrea Alvarez [Eibar]; 90'+1' Paula León [Madrid CFF]; 90'+3' Karen Araya [Madrid CFF]; 90'+8' Paula León [Madrid CFF],Full Time
+2023-24,2023-10-04,684164,Sevilla,5,1,Granadilla Tenerife,10' Pamela González [Sevilla]; 34' Cristina Martín-Prieto [Sevilla]; 38' Ana Franco [Sevilla]; 57' Pamela González [Granadilla Tenerife] (pp); 80' Cristina Martín-Prieto [Sevilla]; 86' Gemma Gili Giner [Sevilla],Full Time
+2023-24,2023-10-04,684165,Real Sociedad,1,1,Levante,23' Synne Jensen [Real Sociedad]; 54' Érika González [Levante],Full Time
+2023-24,2023-10-04,684166,Real Madrid,5,1,Real Betis,2' Maite Oroz [Real Madrid]; 53' Hayley Raso [Real Madrid]; 59' Naomie Feller [Real Madrid]; 64' Paula Perea [Real Madrid] (pp); 76' Signe Bruun [Real Madrid]; 90'+3' Tiffany Cameron [Real Betis],Full Time
+2023-24,2023-10-05,684162,Barcelona,6,0,Valencia,9' Claudia Florentino [Barcelona] (pp); 21' Claudia Florentino [Barcelona] (pp); 43' Aitana Bonmatí [Barcelona]; 61' Mapi León [Barcelona]; 63' Alexia Putellas [Barcelona]; 74' Marta Torrejón [Barcelona],Full Time
+2023-24,2023-10-05,684167,FC Badalona,1,1,Sporting de Huelva,34' Cristina Baudet [FC Badalona]; 80' Sofia Hagman [Sporting de Huelva],Full Time
+2023-24,2023-10-07,684188,Real Madrid,1,0,Villarreal,90' Signe Bruun [Real Madrid],Full Time
+2023-24,2023-10-07,684190,Atlético Madrid,2,1,Sevilla,35' Leicy Santos [Atlético Madrid]; 55' Toni Payne [Sevilla]; 72' Leicy Santos [Atlético Madrid],Full Time
+2023-24,2023-10-08,684184,Eibar,0,1,Granadilla Tenerife,29' Jassina Blom [Granadilla Tenerife],Full Time
+2023-24,2023-10-08,684185,Barcelona,3,0,Real Sociedad,8' Caroline Graham Hansen [Barcelona]; 51' Alexia Putellas [Barcelona]; 84' Caroline Graham Hansen [Barcelona],Full Time
+2023-24,2023-10-08,684186,Madrid CFF,1,0,Granada,85' Ana González [Madrid CFF],Full Time
+2023-24,2023-10-08,684187,Real Betis,0,4,Levante,18' Natasa Andonova [Levante]; 20' Gabi Nunes [Levante]; 43' Érika González [Levante]; 72' Gabi Nunes [Levante],Full Time
+2023-24,2023-10-09,684189,Valencia,1,1,FC Badalona,9' Anissa Lahmari [FC Badalona]; 81' Ivonne Chacón [Valencia],Full Time
+2023-24,2023-10-09,684191,Athletic Club,3,0,Sporting de Huelva,15' Sanadri [Athletic Club]; 46' Sara Ortega [Athletic Club]; 89' Nahikari García [Athletic Club],Full Time
+2023-24,2023-10-14,684192,Villarreal,3,0,Athletic Club,3' Francisca Lara [Villarreal]; 67' María Llompart [Villarreal]; 84' Kayla McKenna [Villarreal],Full Time
+2023-24,2023-10-14,684195,Real Sociedad,3,1,Eibar,4' Nerea Eizagirre [Real Sociedad]; 16' Synne Jensen [Real Sociedad]; 19' Mirari Uria [Real Sociedad]; 83' Nati Cano [Eibar],Full Time
+2023-24,2023-10-14,684196,Sevilla,1,2,Valencia,62' Inma Gabarro [Sevilla]; 79' Sara Tamarit [Valencia]; 84' Ana Marcos [Valencia],Full Time
+2023-24,2023-10-14,684199,Granada,2,5,Real Madrid,13' Athenea del Castillo [Real Madrid]; 38' Carlota Suárez [Granada]; 49' Naomie Feller [Real Madrid]; 56' Edna Imade [Granada]; 67' Sandie Toletti [Real Madrid]; 69' Sandie Toletti [Real Madrid]; 89' Signe Bruun [Real Madrid],Full Time
+2023-24,2023-10-15,684193,Atlético Madrid,0,1,Barcelona,51' Alexia Putellas [Barcelona],Full Time
+2023-24,2023-10-15,684194,Levante,1,1,FC Badalona,35' Érika González [Levante]; 41' Morgane Nicoli [FC Badalona],Full Time
+2023-24,2023-10-15,684197,Sporting de Huelva,1,3,Madrid CFF,8' Jessica De Filippo [Sporting de Huelva]; 39' Luany [Madrid CFF]; 82' Karen Araya [Madrid CFF]; 90' Monica [Madrid CFF],Full Time
+2023-24,2023-10-15,684198,Granadilla Tenerife,1,0,Real Betis,2' Sandra Hernández [Granadilla Tenerife],Full Time
+2023-24,2023-10-21,684202,Eibar,0,0,Villarreal,,Full Time
+2023-24,2023-10-21,684203,Barcelona,6,1,Granada,6' Patri Guijarro [Barcelona]; 29' Ona Batlle [Barcelona]; 59' Salma Paralluelo [Barcelona]; 66' Mariona Caldentey [Barcelona]; 80' Asisat Oshoala [Barcelona]; 82' Asisat Oshoala [Barcelona]; 90'+3' Laura Pérez [Granada],Full Time
+2023-24,2023-10-21,684205,Sporting de Huelva,0,2,Atlético Madrid,31' Sheila Guijarro [Atlético Madrid]; 45'+1' Cinta Rodríguez [Atlético Madrid],Full Time
+2023-24,2023-10-21,684207,Real Betis,2,2,Valencia,27' Ana Marcos [Valencia]; 33' Fiamma [Valencia]; 43' Carmen Álvarez [Real Betis]; 64' Carolina Férez [Real Betis],Full Time
+2023-24,2023-10-22,684200,FC Badalona,1,2,Sevilla,17' Anissa Lahmari [FC Badalona]; 36' Eva Llamas [Sevilla]; 90'+1' Inma Gabarro [Sevilla],Full Time
+2023-24,2023-10-22,684201,Madrid CFF,3,2,Granadilla Tenerife,37' Aída Esteve [Madrid CFF]; 42' Racheal Kundananji [Madrid CFF]; 44' Agustina Barroso [Granadilla Tenerife]; 85' Esther Okoronkwo [Granadilla Tenerife]; 90'+4' Laura Domínguez [Madrid CFF],Full Time
+2023-24,2023-10-22,684204,Athletic Club,2,1,Real Sociedad,41' Nerea Eizagirre [Real Sociedad]; 45' Ane Azkona [Athletic Club]; 84' Jone Amezaga [Athletic Club],Full Time
+2023-24,2023-10-22,684206,Real Madrid,1,2,Levante,12' Paula Fernández [Levante]; 50' Linda Caicedo [Real Madrid]; 67' Gabi Nunes [Levante],Full Time
+2023-24,2023-11-04,684208,Real Sociedad,1,0,Villarreal,85' Alejandra Bernabe [Real Sociedad],Full Time
+2023-24,2023-11-04,684209,Real Betis,1,0,Athletic Club,63' Gema Soliveres [Real Betis],Full Time
+2023-24,2023-11-04,684213,Eibar,0,1,Real Madrid,73' Signe Bruun [Real Madrid],Full Time
+2023-24,2023-11-04,684215,Valencia,2,0,Sporting de Huelva,5' María Molina [Valencia]; 79' Claudia Florentino [Valencia],Full Time
+2023-24,2023-11-05,684210,Madrid CFF,0,1,Levante,72' Mayra Ramírez [Levante],Full Time
+2023-24,2023-11-05,684211,Granadilla Tenerife,2,1,Atlético Madrid,54' Gift Monday [Granadilla Tenerife]; 56' Gift Monday [Granadilla Tenerife]; 61' Lucía Moral [Atlético Madrid],Full Time
+2023-24,2023-11-05,684212,Granada,0,1,FC Badalona,90'+2' Tang Jiali [FC Badalona],Full Time
+2023-24,2023-11-05,684214,Barcelona,8,0,Sevilla,7' Salma Paralluelo [Barcelona]; 17' Salma Paralluelo [Barcelona]; 37' Salma Paralluelo [Barcelona]; 39' Salma Paralluelo [Barcelona]; 48' Mariona Caldentey [Barcelona]; 54' Mariona Caldentey [Barcelona]; 57' Caroline Graham Hansen [Barcelona]; 90'+1' Marta Torrejón [Barcelona],Full Time
+2023-24,2023-11-10,684218,Real Madrid,7,1,Real Sociedad,17' Athenea del Castillo [Real Madrid]; 26' Signe Bruun [Real Madrid]; 36' Athenea del Castillo [Real Madrid]; 45'+2' Nerea Eizagirre [Real Sociedad]; 54' Hayley Raso [Real Madrid]; 65' Rocío Gálvez [Real Madrid]; 77' Maite Oroz [Real Madrid]; 85' Naomie Feller [Real Madrid],Full Time
+2023-24,2023-11-11,684220,Sporting de Huelva,1,3,Real Betis,11' Carla Armengol [Real Betis]; 45'+3' Rosa Márquez [Real Betis]; 73' Laia Ballesté [Sporting de Huelva]; 90'+1' Tiffany Cameron [Real Betis],Full Time
+2023-24,2023-11-11,684221,Villarreal,0,6,Barcelona,14' Aitana Bonmatí [Barcelona]; 24' Asisat Oshoala [Barcelona]; 50' Aitana Bonmatí [Barcelona]; 77' Salma Paralluelo [Barcelona]; 82' Caroline Graham Hansen [Barcelona]; 85' Asisat Oshoala [Barcelona],Full Time
+2023-24,2023-11-11,684222,Atlético Madrid,3,0,Eibar,3' Sheila Guijarro [Atlético Madrid]; 69' Eva Navarro [Atlético Madrid]; 90'+6' Sheila Guijarro [Atlético Madrid],Full Time
+2023-24,2023-11-12,684216,Levante,3,1,Valencia,12' Ivonne Chacón [Valencia]; 24' Mayra Ramírez [Levante]; 45' Mayra Ramírez [Levante]; 51' María Méndez [Levante],Full Time
+2023-24,2023-11-12,684217,FC Badalona,3,1,Granadilla Tenerife,12' Irina Uribe [FC Badalona]; 25' Irina Uribe [FC Badalona]; 78' Jassina Blom [Granadilla Tenerife]; 85' Anissa Lahmari [FC Badalona],Full Time
+2023-24,2023-11-12,684219,Sevilla,1,0,Granada,68' Cristina Martín-Prieto [Sevilla],Full Time
+2023-24,2023-11-12,684223,Athletic Club,1,2,Madrid CFF,14' Clara Pinedo [Athletic Club]; 37' Karen Araya [Madrid CFF]; 80' Cristina Librán [Madrid CFF],Full Time
+2023-24,2023-11-18,684226,Granadilla Tenerife,0,1,Levante,,Full Time
+2023-24,2023-11-18,684228,Eibar,1,0,Sporting de Huelva,70' Andrea Alvarez [Eibar],Full Time
+2023-24,2023-11-18,684229,Valencia,1,2,Athletic Club,43' Clara Pinedo [Athletic Club]; 68' Pauleta [Valencia]; 86' Patricia Zugasti [Athletic Club],Full Time
+2023-24,2023-11-18,684231,Real Sociedad,1,2,Sevilla,55' Inma Gabarro [Sevilla]; 88' Synne Jensen [Real Sociedad]; 90'+3' María Pérez [Sevilla],Full Time
+2023-24,2023-11-19,684224,Real Betis,1,0,FC Badalona,44' Leles [Real Betis],Full Time
+2023-24,2023-11-19,684225,Madrid CFF,1,4,Atlético Madrid,5' Sheila Guijarro [Atlético Madrid]; 8' Rasheedat Ajibade [Atlético Madrid]; 12' Aldana Cometti [Madrid CFF]; 63' Leicy Santos [Atlético Madrid]; 90'+7' Xènia Pérez [Atlético Madrid],Full Time
+2023-24,2023-11-19,684227,Granada,1,2,Villarreal,52' Ariadna Mingueza [Granada]; 59' Kayla McKenna [Villarreal]; 69' Claudia Iglesias [Villarreal],Full Time
+2023-24,2023-11-19,684230,Barcelona,5,0,Real Madrid,17' Aitana Bonmatí [Barcelona]; 43' Caroline Graham Hansen [Barcelona]; 45'+1' Mariona Caldentey [Barcelona]; 90'+1' Clàudia Pina [Barcelona]; 90'+3' Vicky López [Barcelona],Full Time
+2023-24,2023-11-25,684233,Levante,3,0,Eibar,43' Gabi Nunes [Levante]; 45'+1' Paula Tomás [Levante]; 47' Gabi Nunes [Levante],Full Time
+2023-24,2023-11-25,684237,Real Sociedad,2,0,Valencia,6' Synne Jensen [Real Sociedad]; 47' Synne Jensen [Real Sociedad],Full Time
+2023-24,2023-11-25,684238,Sevilla,6,0,Real Betis,8' Klára Cahynová [Sevilla]; 21' Amanda Sampedro [Sevilla]; 52' Cristina Martín-Prieto [Sevilla]; 80' Inma Gabarro [Sevilla]; 82' Cristina Martín-Prieto [Sevilla]; 90'+1' Inma Gabarro [Sevilla],Full Time
+2023-24,2023-11-25,684239,Villarreal,1,1,Granadilla Tenerife,60' Jassina Blom [Granadilla Tenerife]; 83' Claudia Iglesias [Villarreal],Full Time
+2023-24,2023-11-26,684232,Atlético Madrid,2,0,Granada,49' Rasheedat Ajibade [Atlético Madrid]; 59' Sheila Guijarro [Atlético Madrid],Full Time
+2023-24,2023-11-26,684234,Athletic Club,0,4,Barcelona,36' Marta Torrejón [Barcelona]; 54' Caroline Graham Hansen [Barcelona]; 87' Patri Guijarro [Barcelona]; 90'+2' Aitana Bonmatí [Barcelona],Full Time
+2023-24,2023-11-26,684235,FC Badalona,3,4,Madrid CFF,28' Racheal Kundananji [Madrid CFF]; 30' Morgane Nicoli [FC Badalona]; 33' Luany [Madrid CFF]; 45'+3' Morgane Nicoli [FC Badalona]; 45'+5' Monica [Madrid CFF]; 67' Monica [Madrid CFF]; 69' Anissa Lahmari [FC Badalona],Full Time
+2023-24,2023-11-26,684236,Real Madrid,5,2,Sporting de Huelva,37' Athenea del Castillo [Real Madrid]; 39' Olga Carmona [Real Madrid]; 42' Hayley Raso [Real Madrid]; 57' Isina [Sporting de Huelva]; 63' Caroline Møller [Real Madrid]; 64' Caroline Møller [Real Madrid]; 90' Cienfu [Sporting de Huelva],Full Time
+2023-24,2023-12-09,684241,Barcelona,5,0,Eibar,57' Caroline Graham Hansen [Barcelona]; 58' Esmee Brugts [Barcelona]; 61' Esmee Brugts [Barcelona]; 66' Esmee Brugts [Barcelona]; 88' Ariana Arias [Barcelona],Full Time
+2023-24,2023-12-09,684242,Granadilla Tenerife,2,0,Granada,10' Ange Nguessan [Granadilla Tenerife]; 61' Thaís [Granadilla Tenerife],Full Time
+2023-24,2023-12-09,684244,Real Madrid,1,3,Sevilla,51' Oihane Hernández [Sevilla] (pp); 85' Caroline Møller [Real Madrid]; 90'+4' Arola Aparicio [Sevilla]; 90'+10' Gemma Gili Giner [Sevilla],Full Time
+2023-24,2023-12-09,684245,Sporting de Huelva,1,2,Real Sociedad,21' Mirari Uria [Real Sociedad]; 40' Katarzyna Konat [Sporting de Huelva]; 72' Synne Jensen [Real Sociedad],Full Time
+2023-24,2023-12-10,684240,Athletic Club,1,0,Levante,54' Ane Azkona [Athletic Club],Full Time
+2023-24,2023-12-10,684243,Real Betis,0,2,Atlético Madrid,6' Estefanía Banini [Atlético Madrid]; 73' Rasheedat Ajibade [Atlético Madrid],Full Time
+2023-24,2023-12-10,684246,Valencia,3,4,Madrid CFF,26' Ivonne Chacón [Valencia]; 50' Pauleta [Valencia]; 57' Racheal Kundananji [Madrid CFF]; 59' Ivonne Chacón [Valencia]; 74' Karen Araya [Madrid CFF]; 80' Aldana Cometti [Madrid CFF]; 90'+1' Ana González [Madrid CFF],Full Time
+2023-24,2023-12-10,684247,Villarreal,2,2,FC Badalona,25' Claudia Iglesias [Villarreal]; 47' María Llompart [Villarreal]; 82' Cristina Baudet [FC Badalona]; 90'+7' Jessica Martínez [FC Badalona],Full Time
+2023-24,2023-12-16,684248,Atlético Madrid,1,1,Real Sociedad,13' Leicy Santos [Atlético Madrid]; 79' Synne Jensen [Real Sociedad],Full Time
+2023-24,2023-12-16,684249,Eibar,3,2,Real Betis,13' Eider Arana [Eibar]; 15' Carla Armengol [Real Betis]; 53' Andrea Alvarez [Eibar]; 57' Esperanza Pizarro [Eibar]; 90'+4' Julia Aguado [Real Betis],Full Time
+2023-24,2023-12-16,684252,Levante,2,0,Sporting de Huelva,73' Alba Redondo [Levante]; 78' Estela Carbonell [Levante],Full Time
+2023-24,2023-12-16,684254,Madrid CFF,2,0,Villarreal,21' Racheal Kundananji [Madrid CFF]; 25' Cristina Librán [Madrid CFF],Full Time
+2023-24,2023-12-17,684250,Granada,0,1,Valencia,90'+5' Ana Marcos [Valencia],Full Time
+2023-24,2023-12-17,684251,Granadilla Tenerife,0,2,Barcelona,49' Caroline Graham Hansen [Barcelona]; 62' Keira Walsh [Barcelona],Full Time
+2023-24,2023-12-17,684253,FC Badalona,0,2,Real Madrid,69' Claudia Zornoza [Real Madrid]; 80' Olga Carmona [Real Madrid],Full Time
+2023-24,2023-12-17,684255,Sevilla,1,1,Athletic Club,34' Naia Landaluze [Athletic Club]; 45'+1' Toni Payne [Sevilla],Full Time
+2023-24,2024-01-06,684257,Barcelona,9,1,FC Badalona,5' Salma Paralluelo [Barcelona]; 23' Mariona Caldentey [Barcelona]; 28' Aitana Bonmatí [Barcelona]; 41' Caroline Graham Hansen [Barcelona]; 50' Clàudia Pina [Barcelona]; 51' Patri Guijarro [Barcelona]; 63' Allegra Poljak [FC Badalona]; 84' Vicky López [Barcelona]; 90'+2' Patri Guijarro [Barcelona]; 90'+3' Asisat Oshoala [Barcelona],Full Time
+2023-24,2024-01-06,684263,Villarreal,0,5,Levante,25' Mayra Ramírez [Levante]; 38' Alba Redondo [Levante]; 68' Mayra Ramírez [Levante]; 71' Mayra Ramírez [Levante]; 78' Alba Redondo [Levante],Full Time
+2023-24,2024-01-07,684256,Athletic Club,2,0,Eibar,12' Nahikari García [Athletic Club]; 90'+3' Jone Amezaga [Athletic Club],Full Time
+2023-24,2024-01-07,684258,Real Betis,2,3,Granada,12' Ornella Vignola [Granada]; 23' Tiffany Cameron [Real Betis]; 60' Ornella Vignola [Granada]; 67' Dorine [Real Betis]; 90'+3' Carlota Suárez [Granada],Full Time
+2023-24,2024-01-07,684259,Real Madrid,2,1,Madrid CFF,90'+1' Cristina Librán [Madrid CFF]; 90'+5' Ivana Andrés [Real Madrid]; 90'+9' Caroline Møller [Real Madrid],Full Time
+2023-24,2024-01-07,684260,Real Sociedad,3,3,Granadilla Tenerife,20' Sanni Franssi [Real Sociedad]; 26' Gift Monday [Granadilla Tenerife]; 43' Synne Jensen [Real Sociedad]; 55' Sanni Franssi [Real Sociedad]; 69' Jassina Blom [Granadilla Tenerife]; 90'+5' María José Pérez [Granadilla Tenerife],Full Time
+2023-24,2024-01-07,684261,Sporting de Huelva,1,3,Sevilla,36' Cristina Martín-Prieto [Sevilla]; 39' Miku Ito [Sporting de Huelva]; 49' Klára Cahynová [Sevilla]; 90'+5' Cristina Martín-Prieto [Sevilla],Full Time
+2023-24,2024-01-07,684262,Valencia,1,6,Atlético Madrid,11' Pauleta [Valencia]; 14' Sheila Guijarro [Atlético Madrid]; 22' Sheila Guijarro [Atlético Madrid]; 26' Sheila Guijarro [Atlético Madrid]; 36' Sheila Guijarro [Atlético Madrid]; 58' Eva Navarro [Atlético Madrid]; 73' Gaby García [Atlético Madrid],Full Time
+2023-24,2024-01-20,684269,FC Badalona,0,2,Real Sociedad,11' Synne Jensen [Real Sociedad]; 35' Sanni Franssi [Real Sociedad],Full Time
+2023-24,2024-01-20,684270,Madrid CFF,3,1,Real Betis,13' Julia Aguado [Real Betis]; 15' Karen Araya [Madrid CFF]; 23' Aída Esteve [Madrid CFF]; 47' Cristina Librán [Madrid CFF],Full Time
+2023-24,2024-01-20,684271,Sevilla,3,1,Villarreal,19' Cristina Martín-Prieto [Sevilla]; 66' Gemma Gili Giner [Sevilla]; 76' Fatoumata Kanteh [Villarreal]; 87' Toni Payne [Sevilla],Full Time
+2023-24,2024-01-21,684266,Eibar,1,0,Valencia,62' Esperanza Pizarro [Eibar],Full Time
+2023-24,2024-01-21,684267,Granada,0,1,Sporting de Huelva,31' Laia Ballesté [Sporting de Huelva],Full Time
+2023-24,2024-01-21,684268,Granadilla Tenerife,1,1,Athletic Club,57' Thaís [Granadilla Tenerife]; 79' Nerea Nevado [Athletic Club],Full Time
+2023-24,2024-01-27,684272,Athletic Club,0,1,Real Madrid,43' Naomie Feller [Real Madrid],Full Time
+2023-24,2024-01-27,684274,FC Badalona,1,1,Atlético Madrid,32' Rasheedat Ajibade [Atlético Madrid]; 79' Anissa Lahmari [FC Badalona],Full Time
+2023-24,2024-01-27,684278,Sporting de Huelva,0,1,Villarreal,32' Claudia Iglesias [Villarreal],Full Time
+2023-24,2024-01-27,684279,Valencia,1,1,Granadilla Tenerife,31' Macarena Portales [Valencia]; 90' Pisco [Granadilla Tenerife],Full Time
+2023-24,2024-01-28,684273,Levante,2,2,Granada,2' Laura Requena [Granada]; 9' Gabi Nunes [Levante]; 16' Alba Redondo [Levante]; 85' Edna Imade [Granada],Full Time
+2023-24,2024-01-28,684275,Real Betis,0,6,Barcelona,3' Bruna Vilamala [Barcelona]; 23' Esmee Brugts [Barcelona]; 30' Caroline Graham Hansen [Barcelona]; 42' Vicky López [Barcelona]; 51' Caroline Graham Hansen [Barcelona]; 75' Aitana Bonmatí [Barcelona],Full Time
+2023-24,2024-01-28,684276,Real Sociedad,1,1,Madrid CFF,18' Lee Young-Ju [Madrid CFF]; 90'+2' Synne Jensen [Real Sociedad],Full Time
+2023-24,2024-01-28,684277,Sevilla,3,0,Eibar,56' Pamela González [Sevilla]; 69' Cristina Martín-Prieto [Sevilla]; 75' Cristina Martín-Prieto [Sevilla],Full Time
+2023-24,2024-02-03,684280,Atlético Madrid,0,1,Levante,41' Gabi Nunes [Levante],Full Time
+2023-24,2024-02-03,684283,Granada,2,0,Athletic Club,9' Isabel Álvarez [Granada]; 62' Naima García [Granada],Full Time
+2023-24,2024-02-03,684285,Madrid CFF,3,3,Sevilla,13' Lucia Pardo [Madrid CFF]; 35' Monica [Madrid CFF]; 63' Toni Payne [Sevilla]; 77' Giovana [Madrid CFF]; 81' Pamela González [Sevilla]; 90'+4' Cristina Martín-Prieto [Sevilla],Full Time
+2023-24,2024-02-03,684286,Villarreal,2,1,Real Betis,29' Kayla McKenna [Villarreal]; 63' Kayla McKenna [Villarreal]; 90' Blanca Muñoz [Real Betis],Full Time
+2023-24,2024-02-03,684287,Real Madrid,7,1,Valencia,29' Linda Caicedo [Real Madrid]; 38' Caroline Møller [Real Madrid]; 45' Caroline Møller [Real Madrid]; 53' Caroline Møller [Real Madrid]; 56' Ana Marcos [Valencia]; 65' Signe Bruun [Real Madrid]; 81' Naomie Feller [Real Madrid]; 90'+1' Maite Oroz [Real Madrid],Full Time
+2023-24,2024-02-04,684281,Barcelona,4,0,Sporting de Huelva,20' Clàudia Pina [Barcelona]; 26' Clàudia Pina [Barcelona]; 77' Caroline Graham Hansen [Barcelona]; 90'+3' Esmee Brugts [Barcelona],Full Time
+2023-24,2024-02-04,684282,Eibar,0,2,Real Sociedad,9' Sanni Franssi [Real Sociedad]; 68' Sanni Franssi [Real Sociedad],Full Time
+2023-24,2024-02-04,684284,Granadilla Tenerife,1,1,FC Badalona,4' Gift Monday [Granadilla Tenerife]; 85' Jessica Martínez [FC Badalona],Full Time
+2023-24,2024-02-10,684288,Valencia,0,1,Villarreal,34' Kayla McKenna [Villarreal],Full Time
+2023-24,2024-02-10,684290,FC Badalona,1,1,Eibar,9' Ane Campos [Eibar]; 82' Jessica Martínez [FC Badalona],Full Time
+2023-24,2024-02-10,684293,Sevilla,0,3,Barcelona,18' Clàudia Pina [Barcelona]; 71' Caroline Graham Hansen [Barcelona]; 73' Mariona Caldentey [Barcelona],Full Time
+2023-24,2024-02-11,684289,Atlético Madrid,1,1,Madrid CFF,15' Eva Navarro [Atlético Madrid]; 20' Aldana Cometti [Madrid CFF],Full Time
+2023-24,2024-02-11,684291,Real Betis,1,4,Real Madrid,58' Caroline Møller [Real Madrid]; 64' Signe Bruun [Real Madrid]; 66' Athenea del Castillo [Real Madrid]; 75' Carla Armengol [Real Betis]; 83' Athenea del Castillo [Real Madrid],Full Time
+2023-24,2024-02-11,684292,Real Sociedad,1,1,Granada,71' Carlota Suárez [Granada]; 77' Synne Jensen [Real Sociedad],Full Time
+2023-24,2024-02-11,684294,Sporting de Huelva,1,2,Athletic Club,15' Patricia Zugasti [Athletic Club]; 43' Raiderlin Carrasco [Sporting de Huelva]; 45' Nahikari García [Athletic Club],Full Time
+2023-24,2024-02-11,684295,Levante,1,0,Granadilla Tenerife,43' Natasa Andonova [Levante],Full Time
+2023-24,2024-02-14,684264,Atlético Madrid,1,1,Real Madrid,5' Sheila Guijarro [Atlético Madrid]; 22' Olga Carmona [Real Madrid],Full Time
+2023-24,2024-02-14,684265,Barcelona,1,1,Levante,21' Salma Paralluelo [Barcelona]; 55' Alba Redondo [Levante],Full Time
+2023-24,2024-02-17,684296,Athletic Club,1,0,Real Betis,89' Jone Amezaga [Athletic Club],Full Time
+2023-24,2024-02-17,684299,Granada,2,2,Sevilla,1' Ornella Vignola [Granada]; 5' Pamela González [Sevilla]; 45' Cristina Martín-Prieto [Sevilla]; 90' Naima García [Granada],Full Time
+2023-24,2024-02-17,684302,Sporting de Huelva,1,3,Valencia,30' Ana Marcos [Valencia]; 52' Ana Marcos [Valencia]; 56' Jimena López [Valencia]; 66' Sandra Castelló [Sporting de Huelva],Full Time
+2023-24,2024-02-17,684303,Villarreal,1,1,Real Sociedad,34' Emma Ramírez [Real Sociedad]; 70' Lucía Gómez [Villarreal],Full Time
+2023-24,2024-02-18,684297,Barcelona,2,0,Atlético Madrid,39' Salma Paralluelo [Barcelona]; 76' Vicky López [Barcelona],Full Time
+2023-24,2024-02-18,684298,Eibar,0,0,Levante,,Full Time
+2023-24,2024-02-18,684300,Madrid CFF,2,1,FC Badalona,48' Lee Young-Ju [Madrid CFF]; 52' Cristina Librán [Madrid CFF]; 90'+5' Cristina Baudet [FC Badalona],Full Time
+2023-24,2024-02-18,684301,Real Madrid,2,1,Granadilla Tenerife,28' Olga Carmona [Real Madrid]; 55' Rinsola Babajide [Granadilla Tenerife]; 90'+2' Signe Bruun [Real Madrid],Full Time
+2023-24,2024-03-09,684304,Sevilla,0,1,Real Madrid,48' Olga Carmona [Real Madrid],Full Time
+2023-24,2024-03-09,684306,Madrid CFF,1,2,Eibar,12' Karen Araya [Madrid CFF]; 28' Andrea Alvarez [Eibar]; 83' Esperanza Pizarro [Eibar],Full Time
+2023-24,2024-03-09,684307,FC Badalona,1,2,Granada,9' Laura Requena [Granada]; 62' Laura Requena [Granada]; 82' Jessica Martínez [FC Badalona],Full Time
+2023-24,2024-03-09,684309,Granadilla Tenerife,1,1,Villarreal,31' Fatoumata Kanteh [Villarreal]; 39' Claudia Blanco [Granadilla Tenerife],Full Time
+2023-24,2024-03-10,684305,Real Sociedad,1,7,Barcelona,15' Vicky López [Barcelona]; 22' Salma Paralluelo [Barcelona]; 24' Salma Paralluelo [Barcelona]; 44' Salma Paralluelo [Barcelona]; 51' Salma Paralluelo [Barcelona]; 57' Caroline Graham Hansen [Barcelona]; 81' Alexia Putellas [Barcelona]; 82' Amaiur Sarriegi [Real Sociedad],Full Time
+2023-24,2024-03-10,684308,Levante,1,2,Athletic Club,44' Natasa Andonova [Levante]; 68' Ane Azkona [Athletic Club]; 81' Maddi Torre [Athletic Club],Full Time
+2023-24,2024-03-10,684310,Atlético Madrid,1,0,Sporting de Huelva,48' Gaby García [Atlético Madrid],Full Time
+2023-24,2024-03-10,684311,Valencia,2,2,Real Betis,35' Marina Martí [Valencia]; 48' Ana Marcos [Valencia]; 56' Quiles [Real Betis]; 89' Natalia Montilla [Real Betis],Full Time
+2023-24,2024-03-16,684312,Villarreal,1,4,Madrid CFF,16' Giovana [Madrid CFF]; 32' Claudia Iglesias [Villarreal]; 52' Giovana [Madrid CFF]; 54' Giovana [Madrid CFF]; 75' Ana González [Madrid CFF],Full Time
+2023-24,2024-03-16,684317,Real Madrid,1,0,Eibar,4' Ivana Andrés [Real Madrid],Full Time
+2023-24,2024-03-16,684318,Sporting de Huelva,1,1,Levante,7' Gabi Nunes [Levante]; 85' Miku Ito [Sporting de Huelva],Full Time
+2023-24,2024-03-16,684319,Sevilla,3,0,FC Badalona,29' Cristina Martín-Prieto [Sevilla]; 40' Allegra Poljak [Sevilla] (pp); 75' Pamela González [Sevilla],Full Time
+2023-24,2024-03-17,684313,Athletic Club,2,0,Valencia,48' Irene Oguiza [Athletic Club]; 78' Sanadri [Athletic Club],Full Time
+2023-24,2024-03-17,684314,Barcelona,7,0,Granadilla Tenerife,8' Fridolina Rolfö [Barcelona]; 14' Clàudia Pina [Barcelona]; 21' Caroline Graham Hansen [Barcelona]; 34' Clàudia Pina [Barcelona]; 41' Alexia Putellas [Barcelona]; 43' Marta Torrejón [Barcelona]; 69' Gift Monday [Barcelona] (pp),Full Time
+2023-24,2024-03-17,684315,Granada,0,1,Atlético Madrid,69' Leicy Santos [Atlético Madrid],Full Time
+2023-24,2024-03-17,684316,Real Betis,0,0,Real Sociedad,,Full Time
+2023-24,2024-03-23,684320,Levante,7,0,Real Betis,15' Paula Perea [Levante] (pp); 23' Antônia [Levante]; 45'+2' Gabi Nunes [Levante]; 58' Nuria Ligero [Levante] (pp); 71' Alba Redondo [Levante]; 74' Estela Carbonell [Levante]; 81' Alba Redondo [Levante],Full Time
+2023-24,2024-03-23,684324,Real Sociedad,0,1,Athletic Club,60' Nahikari García [Athletic Club],Full Time
+2023-24,2024-03-23,684325,Valencia,4,1,Granada,19' Macarena Portales [Valencia]; 47' Ana Marcos [Valencia]; 50' Asun Martínez [Valencia]; 76' Ivonne Chacón [Valencia]; 90'+1' Laura Requena [Granada],Full Time
+2023-24,2024-03-23,684326,Granadilla Tenerife,5,0,Sevilla,2' Thaís [Granadilla Tenerife]; 24' Rinsola Babajide [Granadilla Tenerife]; 39' María Estella [Granadilla Tenerife]; 45'+3' Jassina Blom [Granadilla Tenerife]; 48' María Estella [Granadilla Tenerife],Full Time
+2023-24,2024-03-24,684321,FC Badalona,1,1,Villarreal,15' Kayla McKenna [Villarreal]; 65' Jessica Martínez [FC Badalona],Full Time
+2023-24,2024-03-24,684322,Madrid CFF,2,1,Sporting de Huelva,44' Giovana [Madrid CFF]; 60' Bárbara López [Sporting de Huelva]; 69' Monica [Madrid CFF],Full Time
+2023-24,2024-03-24,684323,Real Madrid,0,3,Barcelona,10' Fridolina Rolfö [Barcelona]; 55' Aitana Bonmatí [Barcelona]; 67' Caroline Graham Hansen [Barcelona],Full Time
+2023-24,2024-03-24,684327,Eibar,1,1,Atlético Madrid,15' Eva Navarro [Atlético Madrid]; 88' Camino [Eibar],Full Time
+2023-24,2024-03-30,684329,Sevilla,4,2,Real Sociedad,17' Eva Llamas [Sevilla]; 25' Olatz Santana [Sevilla] (pp); 34' Cristina Martín-Prieto [Sevilla]; 45'+2' Emma Ramírez [Real Sociedad]; 65' Sanni Franssi [Real Sociedad]; 85' Toni Payne [Sevilla],Full Time
+2023-24,2024-03-30,684330,Real Betis,0,0,Eibar,,Full Time
+2023-24,2024-03-30,684333,Atlético Madrid,1,0,Valencia,45'+1' Rasheedat Ajibade [Atlético Madrid],Full Time
+2023-24,2024-03-30,684334,Villarreal,0,2,Real Madrid,34' Naomie Feller [Real Madrid]; 56' Naomie Feller [Real Madrid],Full Time
+2023-24,2024-03-31,684328,Sporting de Huelva,1,2,Granadilla Tenerife,5' Miku Ito [Sporting de Huelva]; 64' Gift Monday [Granadilla Tenerife]; 76' Agustina Barroso [Granadilla Tenerife],Full Time
+2023-24,2024-03-31,684331,Levante,0,5,Barcelona,4' Bruna Vilamala [Barcelona]; 34' Salma Paralluelo [Barcelona]; 49' Bruna Vilamala [Barcelona]; 52' Salma Paralluelo [Barcelona]; 67' Martina Fernández [Barcelona],Full Time
+2023-24,2024-03-31,684332,Granada,3,0,Madrid CFF,24' Laura Pérez [Granada]; 79' Cristina Postigo [Granada]; 86' Alicia Redondo [Granada],Full Time
+2023-24,2024-03-31,684335,Athletic Club,4,1,FC Badalona,10' Patricia Zugasti [Athletic Club]; 22' Patricia Zugasti [Athletic Club]; 41' Patricia Zugasti [Athletic Club]; 76' Anissa Lahmari [FC Badalona]; 82' Ane Azkona [Athletic Club],Full Time
+2023-24,2024-04-13,684337,Barcelona,5,1,Villarreal,33' Clàudia Pina [Barcelona]; 55' Kayla McKenna [Villarreal]; 63' Fridolina Rolfö [Barcelona]; 70' Alexia Putellas [Barcelona]; 74' Salma Paralluelo [Barcelona]; 82' Salma Paralluelo [Barcelona],Full Time
+2023-24,2024-04-13,684338,Eibar,3,0,Sevilla,32' Andrea Alvarez [Eibar]; 76' Andrea Alvarez [Eibar]; 84' Yolanda Aguirre [Eibar] (pp),Full Time
+2023-24,2024-04-13,684340,FC Badalona,1,2,Real Betis,40' Ghizlane Chebbak [FC Badalona]; 45'+3' Leles [Real Betis]; 49' Tiffany Cameron [Real Betis],Full Time
+2023-24,2024-04-13,684342,Real Sociedad,1,1,Sporting de Huelva,11' Mirari Uria [Real Sociedad]; 36' Raiderlin Carrasco [Sporting de Huelva],Full Time
+2023-24,2024-04-14,684336,Athletic Club,1,0,Atlético Madrid,17' Clara Pinedo [Athletic Club],Full Time
+2023-24,2024-04-14,684339,Granadilla Tenerife,2,2,Madrid CFF,3' Patricia Gavira [Granadilla Tenerife]; 30' Luany [Madrid CFF]; 35' Ange Nguessan [Granadilla Tenerife]; 66' Lucia Pardo [Madrid CFF],Full Time
+2023-24,2024-04-14,684341,Real Madrid,5,0,Granada,27' Linda Caicedo [Real Madrid]; 29' Alba Pérez [Real Madrid] (pp); 53' Naomie Feller [Real Madrid]; 66' Signe Bruun [Real Madrid]; 70' Teresa Abelleira [Real Madrid],Full Time
+2023-24,2024-04-14,684343,Valencia,1,1,Levante,30' Alba Redondo [Levante]; 33' Ana Marcos [Valencia],Full Time
+2023-24,2024-04-20,684345,Granada,2,1,Granadilla Tenerife,15' Carlota Suárez [Granada]; 22' Ange Nguessan [Granadilla Tenerife]; 53' Laura Pérez [Granada],Full Time
+2023-24,2024-04-20,684346,Levante,2,4,Real Madrid,5' Gabi Nunes [Levante]; 66' Claudia Zornoza [Real Madrid]; 72' Linda Caicedo [Real Madrid]; 86' Linda Caicedo [Real Madrid]; 88' Maite Oroz [Real Madrid]; 90'+4' Leire Baños [Levante],Full Time
+2023-24,2024-04-20,684348,Madrid CFF,2,1,Athletic Club,38' Maite Zubieta [Madrid CFF] (pp); 67' Sara Ortega [Athletic Club]; 89' Luany [Madrid CFF],Full Time
+2023-24,2024-04-20,684349,Sporting de Huelva,0,1,Eibar,18' Camino [Eibar],Full Time
+2023-24,2024-04-21,684344,Atlético Madrid,5,1,Real Betis,25' Ludmila [Atlético Madrid]; 32' Rasheedat Ajibade [Atlético Madrid]; 39' Estefanía Banini [Atlético Madrid]; 59' Rosa Márquez [Real Betis]; 90' Sheila Guijarro [Atlético Madrid]; 90'+6' Lucía Moral [Atlético Madrid],Full Time
+2023-24,2024-04-21,684350,Valencia,3,0,Real Sociedad,4' Ana Marcos [Valencia]; 55' Ana Marcos [Valencia]; 85' Asun Martínez [Valencia],Full Time
+2023-24,2024-04-21,684351,Villarreal,1,2,Sevilla,48' Kayla McKenna [Villarreal]; 50' Inma Gabarro [Sevilla]; 73' Rosa Otermín [Sevilla],Full Time
+2023-24,2024-04-24,684347,FC Badalona,2,4,Barcelona,10' Allegra Poljak [FC Badalona]; 12' Clàudia Pina [Barcelona]; 19' Irina Uribe [FC Badalona]; 30' Clàudia Pina [Barcelona]; 34' Marta Torrejón [Barcelona]; 45'+1' Julia Moravec [Barcelona] (pp),Full Time
+2023-24,2024-04-27,684354,Granadilla Tenerife,1,0,Valencia,61' Ange Nguessan [Granadilla Tenerife],Full Time
+2023-24,2024-04-27,684355,Villarreal,1,2,Granada,27' Carlota Suárez [Granada]; 48' Laura Pérez [Granada]; 68' Kayla McKenna [Villarreal],Full Time
+2023-24,2024-04-27,684358,Sevilla,1,3,Levante,21' María Méndez [Levante]; 45'+2' Natasa Andonova [Levante]; 50' Natasa Andonova [Levante]; 57' Diana Gomes [Sevilla],Full Time
+2023-24,2024-04-27,684359,Real Betis,3,1,Sporting de Huelva,51' Rhiannon Roberts [Real Betis]; 61' Tiffany Cameron [Real Betis]; 68' Bárbara López [Sporting de Huelva]; 70' Tiffany Cameron [Real Betis],Full Time
+2023-24,2024-04-28,684353,Eibar,0,2,Athletic Club,53' Ane Azkona [Athletic Club]; 90'+2' Jone Amezaga [Athletic Club],Full Time
+2023-24,2024-04-28,684356,Real Madrid,2,1,FC Badalona,9' Irina Uribe [FC Badalona]; 85' Hayley Raso [Real Madrid]; 90'+8' Claudia Zornoza [Real Madrid],Full Time
+2023-24,2024-04-28,684357,Real Sociedad,0,2,Atlético Madrid,14' Ludmila [Atlético Madrid]; 90' Rasheedat Ajibade [Atlético Madrid],Full Time
+2023-24,2024-05-01,684352,Barcelona,8,0,Madrid CFF,7' Alexia Putellas [Barcelona]; 15' Mariona Caldentey [Barcelona]; 33' Clàudia Pina [Barcelona]; 44' Vicky López [Barcelona]; 45' Esmee Brugts [Barcelona]; 48' Marta Torrejón [Barcelona]; 86' Marta Torrejón [Barcelona]; 90'+2' Ona Batlle [Barcelona],Full Time
+2023-24,2024-05-04,684360,Athletic Club,1,0,Villarreal,7' Nahikari García [Athletic Club],Full Time
+2023-24,2024-05-04,684361,Granada,1,4,Barcelona,2' Fridolina Rolfö [Barcelona]; 11' Lucy Bronze [Barcelona]; 38' Caroline Graham Hansen [Barcelona]; 45'+2' Laura Pérez [Granada]; 75' Fridolina Rolfö [Barcelona],Full Time
+2023-24,2024-05-04,684362,Atlético Madrid,1,0,Granadilla Tenerife,71' Ludmila [Atlético Madrid],Full Time
+2023-24,2024-05-04,684367,Valencia,0,2,Eibar,62' Ane Campos [Eibar]; 83' Annelie Leitner [Eibar],Full Time
+2023-24,2024-05-05,684363,Levante,4,3,Real Sociedad,11' Érika González [Levante]; 28' Manuela Vanegas [Real Sociedad]; 43' Synne Jensen [Real Sociedad]; 45' María Méndez [Levante]; 45'+4' Synne Jensen [Real Sociedad]; 73' Alba Redondo [Levante]; 82' Alba Redondo [Levante],Full Time
+2023-24,2024-05-05,684364,Madrid CFF,0,1,Real Madrid,7' Claudia Zornoza [Real Madrid],Full Time
+2023-24,2024-05-05,684365,Real Betis,1,1,Sevilla,61' Quiles [Real Betis]; 90' Gemma Gili Giner [Sevilla],Full Time
+2023-24,2024-05-05,684366,Sporting de Huelva,1,2,FC Badalona,63' Anissa Lahmari [FC Badalona]; 77' Laura Martínez [FC Badalona]; 88' Patricia Ojeda [Sporting de Huelva],Full Time
+2023-24,2024-05-10,684368,Barcelona,7,0,Athletic Club,9' Mariona Caldentey [Barcelona]; 18' Bruna Vilamala [Barcelona]; 30' Vicky López [Barcelona]; 56' Esmee Brugts [Barcelona]; 59' Vicky López [Barcelona]; 68' Mariona Caldentey [Barcelona]; 74' Ona Batlle [Barcelona],Full Time
+2023-24,2024-05-10,684375,Villarreal,1,1,Eibar,86' Camino [Eibar]; 90'+7' María Llompart [Villarreal],Full Time
+2023-24,2024-05-11,684369,Granada,2,3,Real Betis,4' Carolina Férez [Real Betis]; 11' Naima García [Granada]; 19' Cristina Postigo [Granada]; 56' Quiles [Real Betis]; 64' María Jiménez [Real Betis],Full Time
+2023-24,2024-05-11,684371,FC Badalona,1,1,Levante,44' Jessica Martínez [FC Badalona]; 84' Érika González [Levante],Full Time
+2023-24,2024-05-11,684373,Real Madrid,2,3,Atlético Madrid,34' Caroline Møller [Real Madrid]; 37' Ana Vitória [Atlético Madrid]; 56' Rasheedat Ajibade [Atlético Madrid]; 70' Kathellen [Real Madrid]; 76' Vilde Bøe Risa [Atlético Madrid],Full Time
+2023-24,2024-05-12,684370,Granadilla Tenerife,0,1,Real Sociedad,47' Nerea Eizagirre [Real Sociedad],Full Time
+2023-24,2024-05-12,684372,Madrid CFF,6,1,Valencia,16' Giovana [Madrid CFF]; 27' Giovana [Madrid CFF]; 53' Ainhoa Alguacil [Valencia]; 58' Luany [Madrid CFF]; 87' Aída Esteve [Madrid CFF]; 90'+2' Grace Chanda [Madrid CFF]; 90'+7' Aldana Cometti [Madrid CFF],Full Time
+2023-24,2024-05-12,684374,Sevilla,2,0,Sporting de Huelva,25' Gemma Gili Giner [Sevilla]; 57' Pamela González [Sevilla],Full Time
+2023-24,2024-05-14,684378,Eibar,0,4,Barcelona,16' Salma Paralluelo [Barcelona]; 20' Marta Torrejón [Barcelona]; 38' Caroline Graham Hansen [Barcelona]; 71' Alexia Putellas [Barcelona],Full Time
+2023-24,2024-05-24,684376,Athletic Club,4,1,Granadilla Tenerife,12' Mariana Cerro [Athletic Club]; 60' Patricia Zugasti [Athletic Club]; 66' Mariana Cerro [Athletic Club]; 79' Clara Pinedo [Athletic Club]; 90' Ainhoa Delgado [Granadilla Tenerife],Full Time
+2023-24,2024-05-24,684377,Atlético Madrid,3,1,FC Badalona,9' Marta Cardona [Atlético Madrid]; 39' Allegra Poljak [FC Badalona]; 48' Xènia Pérez [Atlético Madrid]; 61' Rasheedat Ajibade [Atlético Madrid],Full Time
+2023-24,2024-05-25,684379,Levante,2,1,Villarreal,5' Alba Redondo [Levante]; 13' Paula Fernández [Levante]; 80' Kayla McKenna [Villarreal],Full Time
+2023-24,2024-05-25,684382,Sporting de Huelva,2,1,Granada,13' Miku Ito [Sporting de Huelva]; 68' Raiderlin Carrasco [Sporting de Huelva]; 83' Edna Imade [Granada],Full Time
+2023-24,2024-05-26,684380,Real Betis,0,0,Madrid CFF,,Full Time
+2023-24,2024-05-26,684381,Real Sociedad,1,2,Real Madrid,8' Signe Bruun [Real Madrid]; 30' Athenea del Castillo [Real Madrid]; 37' Cecilia Marcos [Real Sociedad],Full Time
+2023-24,2024-05-26,684383,Valencia,3,1,Sevilla,18' Ainhoa Alguacil [Valencia]; 30' Marina Martí [Valencia]; 43' Ivonne Chacón [Valencia]; 81' Cristina Martín-Prieto [Sevilla],Full Time
+2023-24,2024-06-09,684384,FC Badalona,3,0,Valencia,23' Yasmin Mrabet [FC Badalona]; 65' Melanie Serrano Pérez [FC Badalona]; 73' Julia Moravec [FC Badalona],Full Time
+2023-24,2024-06-09,684385,Granadilla Tenerife,1,1,Eibar,1' Eider Arana [Eibar]; 28' Gift Monday [Granadilla Tenerife],Full Time
+2023-24,2024-06-09,684386,Barcelona,5,1,Real Betis,26' Clàudia Pina [Barcelona]; 44' Mariona Caldentey [Barcelona]; 45' Julia Aguado [Real Betis]; 75' Caroline Graham Hansen [Barcelona]; 88' Salma Paralluelo [Barcelona]; 90'+1' Salma Paralluelo [Barcelona],Full Time
+2023-24,2024-06-09,684387,Granada,0,3,Levante,18' Paula Fernández [Levante]; 81' Alba Redondo [Levante]; 90'+5' Alba Redondo [Levante],Full Time
+2023-24,2024-06-09,684388,Madrid CFF,2,3,Real Sociedad,21' Giovana [Madrid CFF]; 41' Giovana [Madrid CFF]; 47' Jacqueline Owusu [Real Sociedad]; 64' Jacqueline Owusu [Real Sociedad]; 87' Nerea Eizagirre [Real Sociedad],Full Time
+2023-24,2024-06-09,684389,Villarreal,2,0,Sporting de Huelva,4' Reiss [Villarreal]; 56' Fatoumata Kanteh [Villarreal],Full Time
+2023-24,2024-06-09,684390,Sevilla,1,1,Atlético Madrid,62' Eva Navarro [Atlético Madrid]; 70' Cristina Martín-Prieto [Sevilla],Full Time
+2023-24,2024-06-09,684391,Real Madrid,1,0,Athletic Club,69' Paula Comendador [Real Madrid],Full Time
+2023-24,2024-06-14,684396,Sporting de Huelva,1,4,Real Madrid,32' Olga Carmona [Real Madrid]; 42' Signe Bruun [Real Madrid]; 53' Signe Bruun [Real Madrid]; 75' Naomie Feller [Real Madrid]; 82' Patrícia Hmírová [Sporting de Huelva],Full Time
+2023-24,2024-06-15,684392,Levante,3,0,Madrid CFF,47' Gabi Nunes [Levante]; 62' Alba Redondo [Levante]; 80' Érika González [Levante],Full Time
+2023-24,2024-06-15,684393,Atlético Madrid,1,0,Villarreal,75' Rasheedat Ajibade [Atlético Madrid],Full Time
+2023-24,2024-06-15,684394,Eibar,0,2,Granada,6' Edna Imade [Granada]; 27' Laura Requena [Granada],Full Time
+2023-24,2024-06-15,684397,Real Sociedad,2,2,FC Badalona,13' Nahia Aparicio [Real Sociedad]; 36' Ghizlane Chebbak [FC Badalona]; 67' Irina Uribe [FC Badalona]; 75' Synne Jensen [Real Sociedad],Full Time
+2023-24,2024-06-15,684398,Real Betis,1,0,Granadilla Tenerife,17' Rosa Márquez [Real Betis],Full Time
+2023-24,2024-06-16,684395,Valencia,0,3,Barcelona,50' Vicky López [Barcelona]; 68' Patri Guijarro [Barcelona]; 88' Caroline Graham Hansen [Barcelona],Full Time
+2023-24,2024-06-16,684399,Athletic Club,2,1,Sevilla,28' Jone Amezaga [Athletic Club]; 51' Ane Azkona [Athletic Club]; 71' Cristina Martín-Prieto [Sevilla],Full Time
+2024-25,2024-09-06,719568,Espanyol,0,5,Real Madrid,13' María Méndez [Real Madrid]; 24' Caroline Weir [Real Madrid]; 56' Caroline Weir [Real Madrid]; 58' Athenea del Castillo [Real Madrid]; 84' Maite Oroz [Real Madrid],Full Time
+2024-25,2024-09-07,719567,Eibar,2,0,Real Betis,40' Ane Campos [Eibar]; 47' Esperanza Pizarro [Eibar],Full Time
+2024-25,2024-09-07,719570,Madrid CFF,2,1,Granadilla Tenerife,32' Jassina Blom [Granadilla Tenerife]; 45'+2' Kamilla Melgard [Madrid CFF]; 61' Kayla McKenna [Madrid CFF],Full Time
+2024-25,2024-09-07,719571,Sevilla,3,2,Real Sociedad,28' Natalia Padilla-Bidas [Sevilla]; 66' Nerea Eizagirre [Real Sociedad]; 69' Fatoumata Kanteh [Sevilla]; 73' Fatoumata Kanteh [Sevilla]; 90' Claire Lavogez [Real Sociedad],Full Time
+2024-25,2024-09-08,719566,Deportivo,0,3,Barcelona,58' Ewa Pajor [Barcelona]; 71' Esmee Brugts [Barcelona]; 88' Ewa Pajor [Barcelona],Full Time
+2024-25,2024-09-08,719569,Levante,0,1,Athletic Club,4' Irene Oguiza [Athletic Club],Full Time
+2024-25,2024-09-08,719572,Valencia,1,1,FC Badalona,4' Asun Martínez [Valencia]; 65' María Llompart [FC Badalona],Full Time
+2024-25,2024-09-11,719565,Atlético Madrid,2,0,Granada,13' Giovana [Atlético Madrid]; 90'+2' Sheila Guijarro [Atlético Madrid],Full Time
+2024-25,2024-09-13,719575,Barcelona,3,1,Real Sociedad,27' Caroline Graham Hansen [Barcelona]; 31' Caroline Graham Hansen [Barcelona]; 63' Alexia Putellas [Barcelona]; 77' Lucia Pardo [Real Sociedad],Full Time
+2024-25,2024-09-14,719577,FC Badalona,2,0,Levante,29' Ghizlane Chebbak [FC Badalona]; 87' Irina Uribe [FC Badalona],Full Time
+2024-25,2024-09-14,719579,Real Betis,0,3,Real Madrid,10' Signe Bruun [Real Madrid]; 28' Signe Bruun [Real Madrid]; 45' Sandie Toletti [Real Madrid],Full Time
+2024-25,2024-09-14,719580,Granadilla Tenerife,4,1,Sevilla,22' Gift Monday [Granadilla Tenerife]; 28' Rinsola Babajide [Granadilla Tenerife]; 40' Gift Monday [Granadilla Tenerife]; 55' Claudia Iglesias [Granadilla Tenerife]; 61' Nazareth Martín [Sevilla],Full Time
+2024-25,2024-09-15,719573,Athletic Club,2,1,Granada,12' Laura Requena [Granada]; 30' Nahikari García [Athletic Club]; 89' Nerea Nevado [Athletic Club],Full Time
+2024-25,2024-09-15,719574,Atlético Madrid,2,1,Deportivo,23' Lauren [Atlético Madrid]; 37' Lauren [Atlético Madrid]; 74' Ana de Teresa [Deportivo],Full Time
+2024-25,2024-09-15,719576,Eibar,2,0,Valencia,5' Elba Vergés [Eibar]; 82' Margherita Monnecchi [Eibar],Full Time
+2024-25,2024-09-15,719578,Madrid CFF,2,1,Espanyol,61' Ainoa Campo [Espanyol]; 69' Kamilla Melgard [Madrid CFF]; 89' Bárbara López [Madrid CFF],Full Time
+2024-25,2024-09-21,719583,Granada,2,0,Eibar,85' Edna Imade [Granada]; 90'+3' Edna Imade [Granada],Full Time
+2024-25,2024-09-21,719584,Levante,1,2,Real Sociedad,4' Érika González [Levante]; 60' Amaiur Sarriegi [Real Sociedad]; 81' Amaiur Sarriegi [Real Sociedad],Full Time
+2024-25,2024-09-21,719585,FC Badalona,1,0,Madrid CFF,45'+2' María Llompart [FC Badalona],Full Time
+2024-25,2024-09-21,719587,Sevilla,0,1,Barcelona,69' Aitana Bonmatí [Barcelona],Full Time
+2024-25,2024-09-22,719581,Deportivo,0,0,Real Betis,,Full Time
+2024-25,2024-09-22,719582,Espanyol,0,0,Granadilla Tenerife,,Full Time
+2024-25,2024-09-22,719586,Real Madrid,2,0,Athletic Club,18' Olga Carmona [Real Madrid]; 23' Maite Zubieta [Real Madrid] (pp),Full Time
+2024-25,2024-09-22,719588,Valencia,0,4,Atlético Madrid,15' Gaby García [Atlético Madrid]; 26' Sheila Guijarro [Atlético Madrid]; 37' Rasheedat Ajibade [Atlético Madrid]; 90' Rasheedat Ajibade [Atlético Madrid],Full Time
+2024-25,2024-09-27,719589,Atlético Madrid,4,0,Madrid CFF,21' Rasheedat Ajibade [Atlético Madrid]; 51' Rasheedat Ajibade [Atlético Madrid]; 90'+1' Rasheedat Ajibade [Atlético Madrid]; 90'+4' Synne Jensen [Atlético Madrid],Full Time
+2024-25,2024-09-28,719590,Barcelona,10,1,Granada,2' Ewa Pajor [Barcelona]; 35' Marta Torrejón [Barcelona]; 44' Alexia Putellas [Barcelona]; 45'+1' Cristina Postigo [Barcelona] (pp); 45'+3' Ewa Pajor [Barcelona]; 55' Ornella Vignola [Granada]; 60' Fridolina Rolfö [Barcelona]; 65' Caroline Graham Hansen [Barcelona]; 69' Ewa Pajor [Barcelona]; 78' Aitana Bonmatí [Barcelona]; 90'+3' Alexia Putellas [Barcelona],Full Time
+2024-25,2024-09-28,719591,Deportivo,2,2,Athletic Club,27' Olaya Enrique [Deportivo]; 47' Maite Zubieta [Athletic Club]; 83' Ana de Teresa [Deportivo]; 90' Maite Valero [Athletic Club],Full Time
+2024-25,2024-09-28,719592,Eibar,0,3,Levante,45'+1' Estela Carbonell [Levante]; 75' Ivonne Chacón [Levante]; 88' Ivonne Chacón [Levante],Full Time
+2024-25,2024-09-28,719593,Real Betis,0,0,Espanyol,,Full Time
+2024-25,2024-09-29,719594,Real Sociedad,2,1,FC Badalona,20' Ana González [FC Badalona]; 41' Manuela Vanegas [Real Sociedad]; 79' Sanni Franssi [Real Sociedad],Full Time
+2024-25,2024-09-29,719595,Granadilla Tenerife,1,4,Real Madrid,29' Caroline Møller [Real Madrid]; 31' Linda Caicedo [Real Madrid]; 35' Rinsola Babajide [Granadilla Tenerife]; 45' Caroline Møller [Real Madrid]; 90'+2' Filippa Angeldahl [Real Madrid],Full Time
+2024-25,2024-09-29,719596,Valencia,1,3,Sevilla,14' Antonia Canales [Sevilla] (pp); 51' Natalia Padilla-Bidas [Sevilla]; 77' Phoenetia Browne [Valencia]; 85' Natalia Padilla-Bidas [Sevilla],Full Time
+2024-25,2024-10-04,719604,Real Madrid,1,0,Valencia,26' Olga Carmona [Real Madrid],Full Time
+2024-25,2024-10-05,719597,Athletic Club,0,2,Atlético Madrid,59' Maddi Torre [Atlético Madrid] (pp); 90'+1' Maddi Torre [Atlético Madrid] (pp),Full Time
+2024-25,2024-10-05,719600,Levante,0,0,Sevilla,,Full Time
+2024-25,2024-10-05,719602,Madrid CFF,1,8,Barcelona,15' Allegra Poljak [Madrid CFF]; 49' Keira Walsh [Barcelona]; 59' Ewa Pajor [Barcelona]; 61' Vicky López [Barcelona]; 72' Alexia Putellas [Barcelona]; 79' Keira Walsh [Barcelona]; 80' Ingrid Syrstad Engen [Barcelona]; 88' Ona Batlle [Barcelona]; 90'+2' Jana Fernández [Barcelona],Full Time
+2024-25,2024-10-06,719598,Espanyol,2,1,Eibar,29' Esperanza Pizarro [Eibar]; 49' Arola Aparicio [Espanyol]; 81' Lice Chamorro [Espanyol],Full Time
+2024-25,2024-10-06,719599,Granada,0,2,Real Sociedad,67' Manuela Vanegas [Real Sociedad]; 90'+2' Klára Cahynová [Real Sociedad],Full Time
+2024-25,2024-10-06,719601,FC Badalona,1,0,Deportivo,90'+1' Macarena Portales [FC Badalona],Full Time
+2024-25,2024-10-06,719603,Real Betis,0,1,Granadilla Tenerife,46' Gift Monday [Granadilla Tenerife],Full Time
+2024-25,2024-10-12,719606,Deportivo,1,0,Madrid CFF,58' Millene Cabral [Deportivo],Full Time
+2024-25,2024-10-12,719609,Real Sociedad,4,0,Real Betis,34' Amaiur Sarriegi [Real Sociedad]; 49' Amaiur Sarriegi [Real Sociedad]; 80' Elene Guridi [Real Sociedad]; 90'+3' Manuela Vanegas [Real Sociedad],Full Time
+2024-25,2024-10-12,719611,Granadilla Tenerife,0,0,Levante,,Full Time
+2024-25,2024-10-13,719605,Barcelona,7,1,Espanyol,20' Estefanía Botero [Espanyol]; 59' Ewa Pajor [Barcelona]; 62' Alexia Putellas [Barcelona]; 65' Alexia Putellas [Barcelona]; 74' Clàudia Pina [Barcelona]; 79' Aitana Bonmatí [Barcelona]; 85' Ewa Pajor [Barcelona]; 87' Ewa Pajor [Barcelona],Full Time
+2024-25,2024-10-13,719607,Eibar,1,2,Athletic Club,11' Clara Pinedo [Athletic Club]; 69' Arene Altonaga [Eibar]; 90'+2' Irene Oguiza [Athletic Club],Full Time
+2024-25,2024-10-13,719608,Real Madrid,1,1,Atlético Madrid,7' Caroline Weir [Real Madrid]; 78' Vilde Bøe Risa [Atlético Madrid],Full Time
+2024-25,2024-10-13,719610,Sevilla,0,1,FC Badalona,76' Sonia García Majarín [FC Badalona],Full Time
+2024-25,2024-10-13,719612,Valencia,0,2,Granada,76' Laura Requena [Granada]; 90'+6' Andrea Gómez [Granada],Full Time
+2024-25,2024-10-19,719614,Atlético Madrid,1,0,Real Sociedad,41' Rosa Otermín [Atlético Madrid],Full Time
+2024-25,2024-10-19,719616,Granada,1,2,Real Betis,4' Rosa Márquez [Real Betis]; 57' Edna Imade [Granada]; 75' Carla Armengol [Real Betis],Full Time
+2024-25,2024-10-19,719618,FC Badalona,0,0,Granadilla Tenerife,,Full Time
+2024-25,2024-10-19,719620,Sevilla,1,0,Espanyol,73' Fatoumata Kanteh [Sevilla],Full Time
+2024-25,2024-10-20,719613,Athletic Club,1,1,Valencia,77' Nahikari García [Athletic Club]; 88' Vitória Almeida [Valencia],Full Time
+2024-25,2024-10-20,719615,Eibar,0,0,Deportivo,,Full Time
+2024-25,2024-10-20,719617,Levante,1,4,Barcelona,13' Vicky López [Barcelona]; 23' Daniela Arques [Levante]; 36' Kika Nazareth [Barcelona]; 47' Clàudia Pina [Barcelona]; 81' Irene Paredes [Barcelona],Full Time
+2024-25,2024-10-20,719619,Madrid CFF,0,1,Real Madrid,17' Signe Bruun [Real Madrid],Full Time
+2024-25,2024-11-02,719621,Barcelona,4,0,Eibar,6' Alexia Putellas [Barcelona]; 21' Vicky López [Barcelona]; 33' Patri Guijarro [Barcelona]; 59' Ona Batlle [Barcelona],Full Time
+2024-25,2024-11-02,719622,Espanyol,0,0,Atlético Madrid,,Full Time
+2024-25,2024-11-02,719624,Real Betis,4,3,FC Badalona,37' Melanie Serrano Pérez [FC Badalona]; 40' Melanie Serrano Pérez [Real Betis] (pp); 45' Nuria Ligero [Real Betis]; 45'+3' Naima García [Real Betis]; 53' Ana González [FC Badalona]; 58' Carla Armengol [Real Betis]; 65' Cristina Baudet [FC Badalona],Full Time
+2024-25,2024-11-02,719627,Granadilla Tenerife,2,1,Athletic Club,5' Ane Elexpuru [Athletic Club]; 24' Gift Monday [Granadilla Tenerife]; 44' Nina Richard [Granadilla Tenerife],Full Time
+2024-25,2024-11-03,719623,Granada,3,0,Sevilla,24' Alexia Fernández [Granada]; 41' Edna Imade [Granada]; 49' Edna Imade [Granada],Full Time
+2024-25,2024-11-03,719626,Real Sociedad,2,2,Madrid CFF,15' Nerea Eizagirre [Real Sociedad]; 45'+2' Nahia Aparicio [Madrid CFF] (pp); 54' Allegra Poljak [Madrid CFF]; 67' Sanni Franssi [Real Sociedad],Full Time
+2024-25,2024-11-09,719629,Madrid CFF,2,1,Sevilla,60' Raquel Morcillo [Sevilla]; 74' Malou Rylov [Madrid CFF]; 76' Kamilla Melgard [Madrid CFF],Full Time
+2024-25,2024-11-09,719630,Atlético Madrid,0,3,Barcelona,8' Aitana Bonmatí [Barcelona]; 45'+1' Caroline Graham Hansen [Barcelona]; 51' Patri Guijarro [Barcelona],Full Time
+2024-25,2024-11-09,719635,FC Badalona,1,3,Real Madrid,19' Ana González [FC Badalona]; 76' Naomie Feller [Real Madrid]; 89' Alba Redondo [Real Madrid]; 90'+7' Alba Redondo [Real Madrid],Full Time
+2024-25,2024-11-10,719631,Athletic Club,3,0,Real Betis,29' Nahikari García [Athletic Club]; 48' Ane Elexpuru [Athletic Club]; 52' Sara Ortega [Athletic Club],Full Time
+2024-25,2024-11-10,719632,Eibar,0,0,Granadilla Tenerife,,Full Time
+2024-25,2024-11-10,719633,Espanyol,1,0,Granada,53' Laura Sanchez [Espanyol] (pp),Full Time
+2024-25,2024-11-10,719636,Deportivo,0,1,Real Sociedad,4' Raquel García [Real Sociedad] (pp),Full Time
+2024-25,2024-11-16,719638,Granada,1,1,FC Badalona,64' Ghizlane Chebbak [FC Badalona]; 71' Edna Imade [Granada],Full Time
+2024-25,2024-11-16,719639,Madrid CFF,2,1,Eibar,45' Allegra Poljak [Madrid CFF]; 58' Kayla McKenna [Madrid CFF]; 90'+1' Ane Campos [Eibar],Full Time
+2024-25,2024-11-16,719641,Real Madrid,0,4,Barcelona,4' Patri Guijarro [Barcelona]; 22' Patri Guijarro [Barcelona]; 39' Clàudia Pina [Barcelona]; 86' Alexia Putellas [Barcelona],Full Time
+2024-25,2024-11-16,719644,Granadilla Tenerife,2,0,Valencia,22' Ange Nguessan [Granadilla Tenerife]; 53' Fatou Dembele [Granadilla Tenerife],Full Time
+2024-25,2024-11-17,719637,Deportivo,0,1,Espanyol,38' Ainoa Campo [Espanyol],Full Time
+2024-25,2024-11-17,719640,Real Betis,1,2,Levante,20' Naima García [Real Betis]; 44' Ivonne Chacón [Levante]; 90' Ivonne Chacón [Levante],Full Time
+2024-25,2024-11-17,719642,Real Sociedad,1,0,Athletic Club,5' Claire Lavogez [Real Sociedad],Full Time
+2024-25,2024-11-17,719643,Sevilla,1,2,Atlético Madrid,34' Fatoumata Kanteh [Sevilla]; 79' Silvia Lloris [Atlético Madrid]; 90'+3' Vilde Bøe Risa [Atlético Madrid],Full Time
+2024-25,2024-11-23,719645,Athletic Club,1,0,Madrid CFF,75' Vilariño [Athletic Club],Full Time
+2024-25,2024-11-23,719649,FC Badalona,1,1,Espanyol,80' Iara Lacosta [Espanyol]; 86' Rebecca Elloh [FC Badalona],Full Time
+2024-25,2024-11-23,719651,Sevilla,2,1,Deportivo,18' Gemma Gili Giner [Sevilla]; 68' Paula Partido [Sevilla]; 90'+1' Oriana Altuve [Deportivo],Full Time
+2024-25,2024-11-24,719646,Atlético Madrid,1,1,Eibar,57' Ane Campos [Eibar]; 83' Fiamma [Atlético Madrid],Full Time
+2024-25,2024-11-24,719647,Barcelona,5,1,Granadilla Tenerife,3' Rinsola Babajide [Granadilla Tenerife]; 38' Irene Paredes [Barcelona]; 40' Ewa Pajor [Barcelona]; 45'+2' Caroline Graham Hansen [Barcelona]; 61' Clàudia Pina [Barcelona]; 77' Esmee Brugts [Barcelona],Full Time
+2024-25,2024-11-24,719648,Levante,2,3,Granada,9' Ana Franco [Levante]; 53' Edna Imade [Granada]; 55' Laura Requena [Granada]; 62' Alexia Fernández [Granada]; 90'+2' Inés Rizo [Levante],Full Time
+2024-25,2024-11-24,719652,Valencia,0,2,Real Betis,37' Carolina Férez [Real Betis]; 51' Dorine [Real Betis],Full Time
+2024-25,2024-12-07,719653,Athletic Club,1,0,FC Badalona,81' Daniela Agote [Athletic Club],Full Time
+2024-25,2024-12-07,719654,Barcelona,4,1,Real Betis,16' Esmee Brugts [Barcelona]; 22' Caroline Graham Hansen [Barcelona]; 35' Ona Batlle [Barcelona]; 37' Caroline Graham Hansen [Barcelona]; 90' Yasmine Zouhir [Real Betis],Full Time
+2024-25,2024-12-07,719657,Granada,5,0,Deportivo,16' Laura Pérez [Granada]; 26' Isabel Álvarez [Granada]; 49' Cristina Postigo [Granada]; 51' Ornella Vignola [Granada]; 60' Edna Imade [Granada],Full Time
+2024-25,2024-12-07,719659,Real Madrid,4,1,Sevilla,19' Sheila García [Real Madrid]; 25' Sandie Toletti [Real Madrid]; 29' Linda Caicedo [Real Madrid]; 45'+2' Signe Bruun [Real Madrid]; 73' Alba López [Sevilla],Full Time
+2024-25,2024-12-08,719655,Eibar,1,1,Real Sociedad,18' Andrea Alvarez [Eibar]; 45' Amaiur Sarriegi [Real Sociedad],Full Time
+2024-25,2024-12-08,719656,Espanyol,1,0,Valencia,90'+1' Natalia Montilla [Espanyol],Full Time
+2024-25,2024-12-08,719658,Madrid CFF,2,1,Levante,38' Hildur Antonsdóttir [Madrid CFF]; 79' Kamilla Melgard [Madrid CFF]; 81' Ivonne Chacón [Levante],Full Time
+2024-25,2024-12-08,719660,Granadilla Tenerife,2,2,Atlético Madrid,24' Rinsola Babajide [Granadilla Tenerife]; 52' Sheila Guijarro [Atlético Madrid]; 85' Silvia Lloris [Atlético Madrid]; 90'+4' María José Pérez [Granadilla Tenerife],Full Time
+2024-25,2024-12-14,719661,Deportivo,1,4,Real Madrid,36' Francisca Lara [Deportivo]; 79' Olga Carmona [Real Madrid]; 85' Alba Redondo [Real Madrid]; 89' María Méndez [Real Madrid]; 90'+5' Signe Bruun [Real Madrid],Full Time
+2024-25,2024-12-14,719662,Real Sociedad,2,0,Granadilla Tenerife,12' Amaiur Sarriegi [Real Sociedad]; 41' Nerea Eizagirre [Real Sociedad],Full Time
+2024-25,2024-12-14,719665,Granada,1,0,Madrid CFF,19' Edna Imade [Granada],Full Time
+2024-25,2024-12-14,719666,Real Betis,2,1,Atlético Madrid,6' Giovana [Atlético Madrid]; 75' Carolina Férez [Real Betis]; 86' Naima García [Real Betis],Full Time
+2024-25,2024-12-15,719663,Sevilla,2,5,Athletic Club,3' Clara Pinedo [Athletic Club]; 5' Raquel Morcillo [Sevilla]; 15' Jone Amezaga [Athletic Club]; 29' Vilariño [Athletic Club]; 55' Jone Amezaga [Athletic Club]; 61' Sara Ortega [Athletic Club]; 65' Raquel Morcillo [Sevilla],Full Time
+2024-25,2024-12-15,719664,Levante,1,1,Espanyol,5' Judit Pablos [Espanyol]; 49' Érika González [Levante],Full Time
+2024-25,2024-12-15,719667,FC Badalona,0,1,Eibar,7' Andrea Alvarez [Eibar],Full Time
+2024-25,2024-12-15,719668,Valencia,0,1,Barcelona,54' Fridolina Rolfö [Barcelona],Full Time
+2024-25,2024-12-18,719628,Valencia,0,2,Deportivo,55' Millene Cabral [Deportivo]; 90'+4' Bárbara Latorre Viñals [Deportivo],Full Time
+2024-25,2025-01-05,719634,Levante,0,1,Valencia,80' Marina Martí [Valencia],Full Time
+2024-25,2025-01-05,719685,Atlético Madrid,1,2,Real Madrid,44' Linda Caicedo [Real Madrid]; 53' Gaby García [Real Madrid] (pp); 65' Misa Rodríguez [Atlético Madrid] (pp),Full Time
+2024-25,2025-01-05,719690,Real Sociedad,0,6,Barcelona,6' Ewa Pajor [Barcelona]; 30' Salma Paralluelo [Barcelona]; 44' Ewa Pajor [Barcelona]; 59' Ewa Pajor [Barcelona]; 65' Salma Paralluelo [Barcelona]; 81' Aitana Bonmatí [Barcelona],Full Time
+2024-25,2025-01-08,719625,Real Madrid,6,0,Levante,12' Athenea del Castillo [Real Madrid]; 45'+3' Athenea del Castillo [Real Madrid]; 46' Alba Redondo [Real Madrid]; 66' Teresa Abelleira [Real Madrid]; 68' Signe Bruun [Real Madrid]; 88' Caroline Møller [Real Madrid],Full Time
+2024-25,2025-01-11,719670,Barcelona,6,0,FC Badalona,10' Vicky López [Barcelona]; 24' Aitana Bonmatí [Barcelona]; 38' Ewa Pajor [Barcelona]; 56' Fridolina Rolfö [Barcelona]; 77' Salma Paralluelo [Barcelona]; 87' Kika Nazareth [Barcelona],Full Time
+2024-25,2025-01-11,719671,Eibar,0,3,Sevilla,4' Natalia Padilla-Bidas [Sevilla]; 43' Natalia Padilla-Bidas [Sevilla]; 76' Alba Cerrato [Sevilla],Full Time
+2024-25,2025-01-11,719672,Espanyol,1,2,Athletic Club,15' Laia Ballesté [Athletic Club] (pp); 67' Arola Aparicio [Espanyol]; 75' Clara Pinedo [Athletic Club],Full Time
+2024-25,2025-01-11,719675,Granadilla Tenerife,5,1,Deportivo,25' Henar Muiña [Deportivo]; 51' Gift Monday [Granadilla Tenerife]; 64' Gift Monday [Granadilla Tenerife]; 69' Rinsola Babajide [Granadilla Tenerife]; 76' Aleksandra Zaremba [Granadilla Tenerife]; 81' Sakina Ouzraoui [Granadilla Tenerife],Full Time
+2024-25,2025-01-12,719669,Atlético Madrid,3,0,Levante,7' Rosa Otermín [Atlético Madrid]; 23' Rosa Otermín [Atlético Madrid]; 66' Synne Jensen [Atlético Madrid],Full Time
+2024-25,2025-01-12,719673,Real Betis,1,1,Madrid CFF,43' Kayla McKenna [Madrid CFF]; 48' Carla Armengol [Real Betis],Full Time
+2024-25,2025-01-12,719674,Real Madrid,3,1,Granada,15' Maëlle Lakrar [Real Madrid]; 27' Edna Imade [Granada]; 60' Signe Bruun [Real Madrid]; 90'+4' Eva Navarro [Real Madrid],Full Time
+2024-25,2025-01-12,719676,Valencia,0,2,Real Sociedad,70' Nahia Aparicio [Real Sociedad]; 78' Mirari Uria [Real Sociedad],Full Time
+2024-25,2025-01-17,719677,Deportivo,1,0,Levante,50' Millene Cabral [Deportivo],Full Time
+2024-25,2025-01-18,719678,Granada,2,1,Granadilla Tenerife,39' Edna Imade [Granada]; 50' Ariadna Mingueza [Granada]; 90' Gift Monday [Granadilla Tenerife],Full Time
+2024-25,2025-01-18,719680,FC Badalona,1,1,Atlético Madrid,16' Rasheedat Ajibade [Atlético Madrid]; 58' Irina Uribe [FC Badalona],Full Time
+2024-25,2025-01-18,719681,Madrid CFF,1,1,Valencia,4' Bárbara López [Madrid CFF]; 7' Marta Carro [Valencia],Full Time
+2024-25,2025-01-18,719683,Athletic Club,0,2,Barcelona,90' Alexia Putellas [Barcelona]; 90'+4' Vicky López [Barcelona],Full Time
+2024-25,2025-01-19,719679,Real Sociedad,4,1,Espanyol,1' Arola Aparicio [Espanyol]; 60' Sanni Franssi [Real Sociedad]; 70' Lucia Pardo [Real Sociedad]; 75' Klára Cahynová [Real Sociedad]; 77' Laia Ballesté [Real Sociedad] (pp),Full Time
+2024-25,2025-01-19,719682,Real Madrid,0,1,Eibar,28' Andrea Alvarez [Eibar],Full Time
+2024-25,2025-01-19,719684,Sevilla,2,0,Real Betis,54' Lucía Moral [Sevilla]; 78' Millaray Cortez [Sevilla],Full Time
+2024-25,2025-01-25,719686,Eibar,0,0,Granada,,Full Time
+2024-25,2025-01-25,719688,Levante,1,1,FC Badalona,47' Ivonne Chacón [Levante]; 52' Ghizlane Chebbak [FC Badalona],Full Time
+2024-25,2025-01-25,719691,Granadilla Tenerife,2,0,Madrid CFF,40' María José Pérez [Granadilla Tenerife]; 56' Gift Monday [Granadilla Tenerife],Full Time
+2024-25,2025-01-25,719692,Valencia,0,1,Athletic Club,60' Vilariño [Athletic Club],Full Time
+2024-25,2025-01-26,719687,Espanyol,0,0,Sevilla,,Full Time
+2024-25,2025-01-26,719689,Real Betis,0,2,Deportivo,47' Paula Gutiérrez [Deportivo]; 57' Ainhoa Marín [Deportivo],Full Time
+2024-25,2025-01-31,719699,Real Madrid,5,0,Espanyol,39' Maëlle Lakrar [Real Madrid]; 45'+2' Athenea del Castillo [Real Madrid]; 51' Linda Caicedo [Real Madrid]; 64' Alba Redondo [Real Madrid]; 90'+2' María Méndez [Real Madrid],Full Time
+2024-25,2025-02-01,719694,Barcelona,1,2,Levante,50' María De Alharilla [Levante]; 90'+4' Ivonne Chacón [Levante]; 90'+5' Fridolina Rolfö [Barcelona],Full Time
+2024-25,2025-02-01,719695,Deportivo,1,1,Valencia,14' Ainhoa Marín [Deportivo]; 85' Emma Martín [Valencia],Full Time
+2024-25,2025-02-01,719698,Madrid CFF,0,2,Real Sociedad,33' Nerea Eizagirre [Real Sociedad]; 90'+2' Lucia Pardo [Real Sociedad],Full Time
+2024-25,2025-02-02,719693,Athletic Club,0,1,Eibar,3' Elba Vergés [Eibar],Full Time
+2024-25,2025-02-02,719696,Granada,0,0,Atlético Madrid,,Full Time
+2024-25,2025-02-02,719697,FC Badalona,2,1,Real Betis,13' Itziar Pinillos [FC Badalona]; 70' Rosa Márquez [Real Betis]; 71' Macarena Portales [FC Badalona],Full Time
+2024-25,2025-02-02,719700,Sevilla,0,2,Granadilla Tenerife,9' Rinsola Babajide [Granadilla Tenerife]; 56' Gift Monday [Granadilla Tenerife],Full Time
+2024-25,2025-02-04,719650,Real Sociedad,1,4,Real Madrid,5' Signe Bruun [Real Madrid]; 27' Signe Bruun [Real Madrid]; 69' Andreia Jacinto [Real Madrid] (pp); 71' Lucia Pardo [Real Sociedad]; 84' Alba Redondo [Real Madrid],Full Time
+2024-25,2025-02-07,719701,Atlético Madrid,1,0,Sevilla,51' Tatiana Pinto [Atlético Madrid],Full Time
+2024-25,2025-02-08,719702,Eibar,1,2,Madrid CFF,19' Monica [Madrid CFF]; 54' Esther Laborde [Madrid CFF]; 90' Camino [Eibar],Full Time
+2024-25,2025-02-08,719704,Levante,1,2,Real Madrid,23' Caroline Weir [Real Madrid]; 27' Alba Redondo [Real Madrid]; 42' Eva Alonso [Levante],Full Time
+2024-25,2025-02-08,719705,FC Badalona,0,2,Granada,50' Isabel Álvarez [Granada]; 82' Alexia Fernández [Granada],Full Time
+2024-25,2025-02-08,719707,Real Sociedad,1,2,Deportivo,26' Elene Guridi [Real Sociedad]; 50' Olaya Enrique [Deportivo]; 52' Millene Cabral [Deportivo],Full Time
+2024-25,2025-02-09,719703,Espanyol,0,2,Barcelona,73' Caroline Graham Hansen [Barcelona]; 76' Salma Paralluelo [Barcelona],Full Time
+2024-25,2025-02-09,719706,Real Betis,0,4,Athletic Club,17' Ane Azkona [Athletic Club]; 34' Clara Pinedo [Athletic Club]; 42' Maddi Torre [Athletic Club]; 62' Rhiannon Roberts [Athletic Club] (pp),Full Time
+2024-25,2025-02-09,719708,Valencia,1,2,Granadilla Tenerife,13' Yasmin Mrabet [Valencia]; 52' Rinsola Babajide [Granadilla Tenerife]; 90' Gift Monday [Granadilla Tenerife],Full Time
+2024-25,2025-02-15,719715,Sevilla,3,1,Valencia,3' Millaray Cortez [Sevilla]; 32' Natalia Padilla-Bidas [Sevilla]; 50' Yasmin Mrabet [Valencia]; 85' Raquel Morcillo [Sevilla],Full Time
+2024-25,2025-02-15,719716,Granadilla Tenerife,1,1,Eibar,18' Carmen Álvarez [Eibar]; 85' Jassina Blom [Granadilla Tenerife],Full Time
+2024-25,2025-02-16,719709,Athletic Club,2,0,Real Sociedad,27' Ane Azkona [Athletic Club]; 59' Ane Azkona [Athletic Club],Full Time
+2024-25,2025-02-16,719710,Barcelona,5,1,Madrid CFF,3' Florencia Bonsegundo [Madrid CFF]; 14' Mapi León [Barcelona]; 30' Ewa Pajor [Barcelona]; 51' Vicky López [Barcelona]; 60' Fridolina Rolfö [Barcelona]; 88' Sydney Schertenleib [Barcelona],Full Time
+2024-25,2025-02-16,719711,Deportivo,0,0,Atlético Madrid,,Full Time
+2024-25,2025-02-16,719712,Granada,2,1,Espanyol,30' Lice Chamorro [Espanyol]; 65' Edna Imade [Granada]; 67' Ariadna Mingueza [Granada],Full Time
+2024-25,2025-02-16,719713,Levante,1,2,Real Betis,29' Rosa Márquez [Real Betis]; 40' Tiffany Cameron [Real Betis]; 69' Estela Carbonell [Levante],Full Time
+2024-25,2025-02-16,719714,Real Madrid,3,2,FC Badalona,13' María Llompart [FC Badalona]; 40' Eva Navarro [Real Madrid]; 45'+1' Maëlle Lakrar [Real Madrid]; 81' Rebecca Elloh [FC Badalona]; 90'+3' Alba Redondo [Real Madrid],Full Time
+2024-25,2025-03-01,719717,Valencia,1,1,Levante,47' Érika González [Levante]; 81' Marta Carro [Valencia],Full Time
+2024-25,2025-03-01,719720,Real Betis,1,3,Granada,16' María Ruíz [Real Betis]; 37' Paula Arana [Granada]; 72' Laura Requena [Granada]; 77' Carla Armengol [Granada] (pp),Full Time
+2024-25,2025-03-02,719718,Eibar,1,8,Barcelona,3' Ewa Pajor [Barcelona]; 29' Caroline Graham Hansen [Barcelona]; 43' Vicky López [Barcelona]; 51' Margherita Monnecchi [Eibar]; 54' Patri Guijarro [Barcelona]; 57' Salma Paralluelo [Barcelona]; 60' Ona Batlle [Barcelona]; 75' Salma Paralluelo [Barcelona]; 90'+1' Clàudia Pina [Barcelona],Full Time
+2024-25,2025-03-02,719719,Madrid CFF,0,3,Atlético Madrid,15' Luany [Atlético Madrid]; 32' Gaby García [Atlético Madrid]; 45'+2' Giovana [Atlético Madrid],Full Time
+2024-25,2025-03-02,719721,Real Sociedad,0,0,Sevilla,,Full Time
+2024-25,2025-03-02,719722,Athletic Club,1,2,Real Madrid,10' Nahikari García [Athletic Club]; 40' Maëlle Lakrar [Real Madrid]; 80' Olga Carmona [Real Madrid],Full Time
+2024-25,2025-03-02,719723,Granadilla Tenerife,1,1,FC Badalona,44' Estefanía Banini [FC Badalona]; 55' Rinsola Babajide [Granadilla Tenerife],Full Time
+2024-25,2025-03-02,719724,Espanyol,1,1,Deportivo,47' Júlia Guerra [Espanyol]; 83' Francisca Lara [Deportivo],Full Time
+2024-25,2025-03-08,719728,Espanyol,3,3,Madrid CFF,21' Allegra Poljak [Madrid CFF]; 54' Carolina Marín [Espanyol]; 59' Natasa Andonova [Madrid CFF]; 83' Paula Perea [Espanyol]; 85' Trudi Carter [Espanyol]; 90'+7' Emilie Nautnes [Madrid CFF],Full Time
+2024-25,2025-03-08,719730,Levante,2,0,Granadilla Tenerife,29' Ivonne Chacón [Levante]; 40' Ivonne Chacón [Levante],Full Time
+2024-25,2025-03-08,719731,FC Badalona,0,0,Real Sociedad,,Full Time
+2024-25,2025-03-09,719725,Atlético Madrid,0,0,Real Betis,,Full Time
+2024-25,2025-03-09,719726,Barcelona,4,1,Valencia,15' Marina Martí [Valencia]; 18' Alexia Putellas [Barcelona]; 22' Kika Nazareth [Barcelona]; 66' Ewa Pajor [Barcelona]; 89' Aitana Bonmatí [Barcelona],Full Time
+2024-25,2025-03-09,719727,Deportivo,0,1,Eibar,73' Esperanza Pizarro [Eibar],Full Time
+2024-25,2025-03-09,719729,Granada,0,2,Athletic Club,57' Ane Azkona [Athletic Club]; 85' Maddi Torre [Athletic Club],Full Time
+2024-25,2025-03-09,719732,Sevilla,0,4,Real Madrid,34' Alba Redondo [Real Madrid]; 41' Athenea del Castillo [Real Madrid]; 70' Alba Redondo [Real Madrid]; 90'+1' Naomie Feller [Real Madrid],Full Time
+2024-25,2025-03-15,719733,Athletic Club,0,1,Sevilla,54' Gemma Gili Giner [Sevilla],Full Time
+2024-25,2025-03-15,719737,Real Betis,0,1,Valencia,27' Marina Martí [Valencia],Full Time
+2024-25,2025-03-15,719738,Real Madrid,2,2,Deportivo,24' Olaya Enrique [Deportivo]; 53' Carla Camacho [Real Madrid]; 62' Antônia [Deportivo] (pp); 82' Olga Carmona [Real Madrid],Full Time
+2024-25,2025-03-15,719740,Granadilla Tenerife,0,2,Barcelona,14' Alexia Putellas [Barcelona]; 85' Patri Guijarro [Barcelona],Full Time
+2024-25,2025-03-16,719734,Atlético Madrid,1,1,Espanyol,45'+2' Carolina Marín [Espanyol]; 68' Fiamma [Atlético Madrid],Full Time
+2024-25,2025-03-16,719735,Eibar,1,0,FC Badalona,41' Mireia Masegur Torrent [Eibar],Full Time
+2024-25,2025-03-16,719736,Madrid CFF,3,1,Granada,47' Emilie Nautnes [Madrid CFF]; 73' Allegra Poljak [Madrid CFF]; 78' Alexia Fernández [Granada]; 88' Bárbara López [Madrid CFF],Full Time
+2024-25,2025-03-16,719739,Real Sociedad,1,2,Levante,37' Amaiur Sarriegi [Real Sociedad]; 55' Daniela Arques [Levante]; 75' Ivonne Chacón [Levante],Full Time
+2024-25,2025-03-22,719742,Deportivo,0,0,Granadilla Tenerife,,Full Time
+2024-25,2025-03-22,719743,Espanyol,1,0,Levante,41' Lice Chamorro [Espanyol],Full Time
+2024-25,2025-03-22,719744,FC Badalona,0,1,Athletic Club,73' Irene Oguiza [Athletic Club],Full Time
+2024-25,2025-03-22,719745,Real Betis,0,1,Eibar,42' Carmen Álvarez [Eibar],Full Time
+2024-25,2025-03-23,719741,Barcelona,1,3,Real Madrid,41' Alba Redondo [Real Madrid]; 67' Caroline Graham Hansen [Barcelona]; 87' Caroline Weir [Real Madrid]; 90'+6' Caroline Weir [Real Madrid],Full Time
+2024-25,2025-03-23,719746,Real Sociedad,0,2,Atlético Madrid,53' Giovana [Atlético Madrid]; 71' Luany [Atlético Madrid],Full Time
+2024-25,2025-03-23,719747,Sevilla,0,2,Granada,33' Cristina Postigo [Granada]; 85' Edna Imade [Granada],Full Time
+2024-25,2025-03-23,719748,Valencia,4,1,Madrid CFF,40' Aída Esteve [Valencia]; 45' Marina Martí [Valencia]; 50' Ainhoa Alguacil [Valencia]; 55' Marta Carro [Valencia]; 57' Emilie Nautnes [Madrid CFF],Full Time
+2024-25,2025-03-29,719750,Madrid CFF,2,0,Real Betis,62' Bárbara López [Madrid CFF]; 85' Aldana Cometti [Madrid CFF],Full Time
+2024-25,2025-03-29,719753,Atlético Madrid,3,0,Valencia,44' Synne Jensen [Atlético Madrid]; 45'+3' Luany [Atlético Madrid]; 54' Silvia Lloris [Atlético Madrid],Full Time
+2024-25,2025-03-29,719755,Levante,1,2,Eibar,15' Mariana Cerro [Eibar]; 32' Elba Vergés [Eibar]; 83' Eva Alonso [Levante],Full Time
+2024-25,2025-03-29,719756,Granadilla Tenerife,4,1,Espanyol,32' Pisco [Granadilla Tenerife]; 38' Claudia Iglesias [Granadilla Tenerife]; 50' Lice Chamorro [Espanyol]; 54' Linnéa Laupstad [Granadilla Tenerife]; 82' Rinsola Babajide [Granadilla Tenerife],Full Time
+2024-25,2025-03-30,719749,Athletic Club,2,0,Deportivo,52' Ane Azkona [Athletic Club]; 72' Ane Azkona [Athletic Club],Full Time
+2024-25,2025-03-30,719751,Real Madrid,3,0,Real Sociedad,4' Caroline Weir [Real Madrid]; 71' Caroline Møller [Real Madrid]; 77' Athenea del Castillo [Real Madrid],Full Time
+2024-25,2025-03-30,719752,Granada,0,2,Barcelona,73' Vicky López [Barcelona]; 75' Alexia Putellas [Barcelona],Full Time
+2024-25,2025-03-30,719754,FC Badalona,0,0,Sevilla,,Full Time
+2024-25,2025-04-12,719759,Deportivo,3,1,FC Badalona,9' Ainhoa Marín [Deportivo]; 31' Rebecca Elloh [FC Badalona]; 42' Samara Ortíz [Deportivo]; 55' Millene Cabral [Deportivo],Full Time
+2024-25,2025-04-12,719760,Eibar,0,3,Real Madrid,50' Naomie Feller [Real Madrid]; 79' Linda Caicedo [Real Madrid]; 90'+4' Signe Bruun [Real Madrid],Full Time
+2024-25,2025-04-12,719761,Real Betis,3,1,Real Sociedad,1' Blanca Muñoz [Real Betis]; 49' Rosa Márquez [Real Betis]; 74' Carolina Férez [Real Betis]; 81' Lucia Pardo [Real Sociedad],Full Time
+2024-25,2025-04-12,719762,Sevilla,2,1,Madrid CFF,74' Fatoumata Kanteh [Sevilla]; 76' Esther Laborde [Madrid CFF]; 86' Natalia Padilla-Bidas [Sevilla],Full Time
+2024-25,2025-04-13,719757,Athletic Club,2,3,Levante,18' Nahikari García [Athletic Club]; 24' Anissa Lahmari [Levante]; 31' María De Alharilla [Levante]; 63' Nerea Nevado [Athletic Club]; 77' María De Alharilla [Levante],Full Time
+2024-25,2025-04-13,719758,Barcelona,6,0,Atlético Madrid,17' Patri Guijarro [Barcelona]; 35' Salma Paralluelo [Barcelona]; 54' Caroline Graham Hansen [Barcelona]; 58' Esmee Brugts [Barcelona]; 65' Vicky López [Barcelona]; 80' Aitana Bonmatí [Barcelona],Full Time
+2024-25,2025-04-13,719763,Granadilla Tenerife,1,2,Granada,8' Andrea Gómez [Granada]; 37' Patricia Gavira [Granadilla Tenerife]; 45'+2' Jujuba [Granada],Full Time
+2024-25,2025-04-13,719764,Valencia,1,1,Espanyol,51' Lice Chamorro [Espanyol]; 90'+2' Yasmin Mrabet [Valencia],Full Time
+2024-25,2025-04-16,719766,Barcelona,5,1,Sevilla,25' Ewa Pajor [Barcelona]; 34' Ewa Pajor [Barcelona]; 45'+2' Fatoumata Kanteh [Sevilla]; 52' Vicky López [Barcelona]; 56' Alba Caño [Barcelona]; 88' Aitana Bonmatí [Barcelona],Full Time
+2024-25,2025-04-18,719765,Atlético Madrid,2,0,Granadilla Tenerife,5' Ainhoa Moraza [Atlético Madrid]; 22' Gaby García [Atlético Madrid],Full Time
+2024-25,2025-04-18,719772,Real Sociedad,0,0,Eibar,,Full Time
+2024-25,2025-04-19,719767,Espanyol,2,0,FC Badalona,28' Arola Aparicio [Espanyol]; 59' Lice Chamorro [Espanyol],Full Time
+2024-25,2025-04-19,719768,Granada,2,1,Valencia,24' Ana Marcos [Valencia]; 48' Laura Requena [Granada]; 89' Alexia Fernández [Granada],Full Time
+2024-25,2025-04-19,719770,Madrid CFF,1,1,Athletic Club,62' Natasa Andonova [Madrid CFF]; 84' Patricia Zugasti [Athletic Club],Full Time
+2024-25,2025-04-20,719769,Levante,2,1,Deportivo,11' Eva Alonso [Levante]; 15' Bárbara Latorre Viñals [Deportivo]; 49' Estela Carbonell [Levante],Full Time
+2024-25,2025-04-20,719771,Real Madrid,5,1,Real Betis,9' Caroline Weir [Real Madrid]; 24' Signe Bruun [Real Madrid]; 28' María Méndez [Real Madrid]; 37' Filippa Angeldahl [Real Madrid]; 40' Signe Bruun [Real Madrid]; 44' Yasmine Zouhir [Real Betis],Full Time
+2024-25,2025-04-25,719778,Real Madrid,7,3,Madrid CFF,15' Alba Redondo [Real Madrid]; 24' Filippa Angeldahl [Real Madrid]; 41' Emilie Nautnes [Madrid CFF]; 47' Alba Redondo [Real Madrid]; 51' Emilie Nautnes [Madrid CFF]; 53' Natasa Andonova [Madrid CFF]; 81' Sandra Villafañe [Real Madrid] (pp); 85' Caroline Weir [Real Madrid]; 90'+1' Filippa Angeldahl [Real Madrid]; 90'+6' Linda Caicedo [Real Madrid],Full Time
+2024-25,2025-04-26,719774,Deportivo,1,2,Granada,20' Millene Cabral [Deportivo]; 72' Ornella Vignola [Granada]; 75' Edna Imade [Granada],Full Time
+2024-25,2025-04-26,719775,Eibar,1,1,Espanyol,32' Mariana Cerro [Eibar]; 81' Júlia Guerra [Espanyol],Full Time
+2024-25,2025-04-27,719773,Athletic Club,2,0,Granadilla Tenerife,49' Irene Oguiza [Athletic Club]; 55' Daniela Agote [Athletic Club],Full Time
+2024-25,2025-04-27,719777,Real Betis,1,1,Sevilla,7' Rosa Márquez [Real Betis]; 52' Natalia Padilla-Bidas [Sevilla],Full Time
+2024-25,2025-04-27,719779,Levante,2,2,Atlético Madrid,23' Fiamma [Atlético Madrid]; 28' Ana Vitória [Atlético Madrid]; 42' Ivonne Chacón [Levante]; 75' Ángela Sosa [Levante],Full Time
+2024-25,2025-04-27,719780,Real Sociedad,0,2,Valencia,6' Marina Martí [Valencia]; 90'+1' Emma Martín [Valencia],Full Time
+2024-25,2025-05-01,719776,FC Badalona,0,2,Barcelona,60' Marta Torrejón [Barcelona]; 88' Alexia Putellas [Barcelona],Full Time
+2024-25,2025-05-03,719783,Espanyol,0,3,Real Sociedad,1' Amaiur Sarriegi [Real Sociedad]; 57' Sanni Franssi [Real Sociedad]; 81' Nerea Eizagirre [Real Sociedad],Full Time
+2024-25,2025-05-03,719786,Sevilla,2,0,Levante,31' Natalia Padilla-Bidas [Sevilla]; 85' Natalia Padilla-Bidas [Sevilla],Full Time
+2024-25,2025-05-03,719787,Granadilla Tenerife,2,0,Real Betis,15' Blanca Muñoz [Granadilla Tenerife] (pp); 71' Jassina Blom [Granadilla Tenerife],Full Time
+2024-25,2025-05-03,719788,Valencia,2,0,Eibar,3' Marina Martí [Valencia]; 58' Yasmin Mrabet [Valencia],Full Time
+2024-25,2025-05-04,719781,Atlético Madrid,1,0,Athletic Club,54' Giovana [Atlético Madrid],Full Time
+2024-25,2025-05-04,719782,Barcelona,4,0,Deportivo,13' Ewa Pajor [Barcelona]; 31' Ewa Pajor [Barcelona]; 72' Alexia Putellas [Barcelona]; 81' Aitana Bonmatí [Barcelona],Full Time
+2024-25,2025-05-04,719784,Granada,1,2,Real Madrid,11' Caroline Weir [Real Madrid]; 72' Edna Imade [Granada]; 85' Linda Caicedo [Real Madrid],Full Time
+2024-25,2025-05-04,719785,Madrid CFF,1,2,FC Badalona,56' Emilie Nautnes [Madrid CFF]; 59' Sonia García Majarín [FC Badalona]; 74' María Llompart [FC Badalona],Full Time
+2024-25,2025-05-11,719789,Athletic Club,1,0,Espanyol,61' Maite Valero [Athletic Club],Full Time
+2024-25,2025-05-11,719790,Deportivo,1,1,Sevilla,90' Eva Llamas [Sevilla]; 90'+2' Elyse Bennett [Deportivo],Full Time
+2024-25,2025-05-11,719791,Eibar,0,2,Atlético Madrid,43' Rasheedat Ajibade [Atlético Madrid]; 77' Fiamma [Atlético Madrid],Full Time
+2024-25,2025-05-11,719792,Levante,0,0,Madrid CFF,,Full Time
+2024-25,2025-05-11,719793,FC Badalona,1,1,Valencia,47' Elena Julve [FC Badalona]; 89' Motunrayo Ezekiel [Valencia],Full Time
+2024-25,2025-05-11,719794,Real Betis,0,9,Barcelona,3' Ewa Pajor [Barcelona]; 6' Clàudia Pina [Barcelona]; 40' Esmee Brugts [Barcelona]; 49' Clàudia Pina [Barcelona]; 52' Clàudia Pina [Barcelona]; 60' Aitana Bonmatí [Barcelona]; 67' Alexia Putellas [Barcelona]; 83' Ewa Pajor [Barcelona]; 86' Alexia Putellas [Barcelona],Full Time
+2024-25,2025-05-11,719795,Real Madrid,1,1,Granadilla Tenerife,62' Rinsola Babajide [Granadilla Tenerife]; 89' Caroline Møller [Real Madrid],Full Time
+2024-25,2025-05-11,719796,Real Sociedad,4,2,Granada,5' Amaiur Sarriegi [Real Sociedad]; 47' Klára Cahynová [Real Sociedad]; 51' Amaiur Sarriegi [Real Sociedad]; 71' Edna Imade [Granada]; 90' Miku Ito [Granada]; 90'+6' Claire Lavogez [Real Sociedad],Full Time
+2024-25,2025-05-18,719797,Atlético Madrid,5,0,FC Badalona,16' Tatiana Pinto [Atlético Madrid]; 53' Tatiana Pinto [Atlético Madrid]; 82' Luany [Atlético Madrid]; 84' Synne Jensen [Atlético Madrid]; 86' Gaby García [Atlético Madrid],Full Time
+2024-25,2025-05-18,719798,Barcelona,6,0,Athletic Club,2' Aitana Bonmatí [Barcelona]; 21' Ewa Pajor [Barcelona]; 37' Ewa Pajor [Barcelona]; 74' Clàudia Pina [Barcelona]; 89' Clàudia Pina [Barcelona]; 90'+1' Esmee Brugts [Barcelona],Full Time
+2024-25,2025-05-18,719799,Espanyol,6,2,Real Betis,14' Amanda Mbadi [Espanyol]; 18' Rhiannon Roberts [Real Betis]; 29' Cristina Baudet [Espanyol]; 47' Lice Chamorro [Espanyol]; 53' Ángeles Del Álamo [Espanyol]; 69' Júlia Guerra [Espanyol]; 74' Tiffany Cameron [Real Betis]; 87' Ángeles Del Álamo [Espanyol],Full Time
+2024-25,2025-05-18,719800,Granada,0,1,Levante,90'+2' Paula Fernández [Levante],Full Time
+2024-25,2025-05-18,719801,Madrid CFF,4,3,Deportivo,15' Nuria Mendoza [Madrid CFF]; 20' Emilie Nautnes [Madrid CFF]; 71' Olaya Enrique [Deportivo]; 73' Paula Gutiérrez [Deportivo]; 82' Ana de Teresa [Deportivo]; 86' Emilie Nautnes [Madrid CFF]; 90' Emilie Nautnes [Madrid CFF],Full Time
+2024-25,2025-05-18,719802,Sevilla,1,3,Eibar,14' Esperanza Pizarro [Eibar]; 17' Esperanza Pizarro [Eibar]; 67' Patricia Ojeda [Eibar]; 84' Natalia Padilla-Bidas [Sevilla],Full Time
+2024-25,2025-05-18,719803,Granadilla Tenerife,4,1,Real Sociedad,6' Aleksandra Zaremba [Granadilla Tenerife]; 8' Sakina Ouzraoui [Granadilla Tenerife]; 19' María José Pérez [Granadilla Tenerife]; 43' María José Pérez [Granadilla Tenerife]; 50' Lucia Pardo [Real Sociedad],Full Time
+2024-25,2025-05-18,719804,Valencia,2,2,Real Madrid,6' Alba Redondo [Real Madrid]; 49' Alba Redondo [Real Madrid]; 66' Laia López De La Morena [Valencia] (pp); 89' Ana Marcos [Valencia],Full Time
+2025-26,2025-08-30,748986,Athletic Club,0,0,Tenerife,,Full Time
+2025-26,2025-08-30,748987,Barcelona,8,0,Alhama,5' Caroline Graham Hansen [Barcelona]; 11' Aitana Bonmatí [Barcelona]; 28' Ewa Pajor [Barcelona]; 45'+1' Ona Batlle [Barcelona]; 57' Caroline Graham Hansen [Barcelona]; 71' Clàudia Pina [Barcelona]; 73' Clàudia Pina [Barcelona]; 90'+9' Clàudia Pina [Barcelona],Full Time
+2025-26,2025-08-30,748989,Deportivo,0,0,FC Badalona,,Full Time
+2025-26,2025-08-30,748992,Levante,1,2,Granada,17' Sonya Keefe [Granada]; 23' María Gabaldón [Levante]; 73' Sonya Keefe [Granada],Full Time
+2025-26,2025-08-31,748988,Dux Logroño,2,2,Real Madrid,33' María Méndez [Real Madrid]; 40' Isina [Dux Logroño]; 77' Merle Frohms [Dux Logroño] (pp); 90'+3' Signe Bruun [Real Madrid],Full Time
+2025-26,2025-08-31,748990,Eibar,0,1,Sevilla,26' Rosa Márquez [Sevilla],Full Time
+2025-26,2025-08-31,748991,Espanyol,0,5,Atlético Madrid,34' Synne Jensen [Atlético Madrid]; 49' Gaby García [Atlético Madrid]; 64' Fiamma [Atlético Madrid]; 87' Macarena Portales [Atlético Madrid]; 90'+9' Luany [Atlético Madrid],Full Time
+2025-26,2025-08-31,748993,Madrid CFF,2,2,Real Sociedad,22' Aiara Agirrezabala [Real Sociedad]; 45'+2' Aiara Agirrezabala [Real Sociedad]; 74' Allegra Poljak [Madrid CFF]; 81' Malou Rylov [Madrid CFF],Full Time
+2025-26,2025-09-05,748995,Atlético Madrid,2,1,Real Madrid,17' Lauren [Atlético Madrid]; 72' Sara Däbritz [Real Madrid]; 83' Luany [Atlético Madrid],Full Time
+2025-26,2025-09-06,748994,Dux Logroño,0,1,Real Sociedad,90'+9' Nerea Eizagirre [Real Sociedad],Full Time
+2025-26,2025-09-06,748997,Espanyol,1,1,Deportivo,41' Ona Baradad [Espanyol]; 61' Bárbara Latorre Viñals [Deportivo],Full Time
+2025-26,2025-09-06,748998,Sevilla,0,4,Tenerife,20' Aithiara Carballo [Tenerife]; 46' Sakina Ouzraoui [Tenerife]; 63' Bernadette Amani [Tenerife]; 82' Carlota Suárez [Tenerife],Full Time
+2025-26,2025-09-06,748999,Madrid CFF,1,0,Eibar,80' Monica [Madrid CFF],Full Time
+2025-26,2025-09-07,748996,Athletic Club,1,8,Barcelona,15' Vicky López [Barcelona]; 21' Patri Guijarro [Barcelona]; 23' Ewa Pajor [Barcelona]; 40' Ewa Pajor [Barcelona]; 46' Kika Nazareth [Barcelona]; 51' Maite Zubieta [Athletic Club]; 60' Aitana Bonmatí [Barcelona]; 80' Vicky López [Barcelona]; 89' Aitana Bonmatí [Barcelona],Full Time
+2025-26,2025-09-07,749000,Levante,0,0,Alhama,,Full Time
+2025-26,2025-09-07,749001,Granada,0,2,FC Badalona,21' Estefanía Banini [FC Badalona]; 70' Lice Chamorro [FC Badalona],Full Time
+2025-26,2025-09-12,749004,Barcelona,4,0,Dux Logroño,21' Aitana Bonmatí [Barcelona]; 24' Aitana Bonmatí [Barcelona]; 42' Ewa Pajor [Barcelona]; 68' Kika Nazareth [Barcelona],Full Time
+2025-26,2025-09-13,749002,Alhama,1,1,Granada,6' Mariana Diaz Leal [Alhama]; 51' Laura Pérez [Granada],Full Time
+2025-26,2025-09-13,749005,Real Sociedad,3,0,Sevilla,9' Aiara Agirrezabala [Real Sociedad]; 16' Lucia Pardo [Real Sociedad]; 87' Intza Eguiguren [Real Sociedad],Full Time
+2025-26,2025-09-13,749009,Tenerife,0,0,Espanyol,,Full Time
+2025-26,2025-09-14,749003,Atlético Madrid,4,0,Levante,8' Amaiur Sarriegi [Atlético Madrid]; 51' Luany [Atlético Madrid]; 57' Júlia Bartel [Atlético Madrid]; 90'+6' Andrea Medina [Atlético Madrid],Full Time
+2025-26,2025-09-14,749006,Real Madrid,2,1,Madrid CFF,17' Alba Redondo [Real Madrid]; 21' Ángela Sosa [Madrid CFF]; 34' Caroline Weir [Real Madrid],Full Time
+2025-26,2025-09-14,749007,Eibar,0,0,FC Badalona,,Full Time
+2025-26,2025-09-14,749008,Deportivo,1,0,Athletic Club,31' Ainhoa Marín [Deportivo],Full Time
+2025-26,2025-09-20,749010,Granada,3,1,Eibar,25' Jujuba [Eibar] (pp); 53' Sonya Keefe [Granada]; 60' Laura Requena [Granada]; 72' Laura Requena [Granada],Full Time
+2025-26,2025-09-20,749011,Espanyol,1,1,Athletic Club,34' Paula Arana [Espanyol]; 73' Jone Amezaga [Athletic Club],Full Time
+2025-26,2025-09-20,749013,FC Badalona,0,0,Dux Logroño,,Full Time
+2025-26,2025-09-20,749015,Real Sociedad,2,1,Levante,16' Nerea Eizagirre [Real Sociedad]; 27' Érika González [Levante]; 81' Nerea Eizagirre [Real Sociedad],Full Time
+2025-26,2025-09-21,749012,Alhama,0,4,Tenerife,38' Aithiara Carballo [Tenerife]; 52' Carlota Suárez [Tenerife]; 90'+1' Paulina Gramaglia [Tenerife]; 90'+10' Aleksandra Zaremba [Tenerife],Full Time
+2025-26,2025-09-21,749014,Sevilla,0,5,Barcelona,19' Salma Paralluelo [Barcelona]; 39' Clàudia Pina [Barcelona]; 49' Vicky López [Barcelona]; 74' Clàudia Pina [Barcelona]; 90'+6' Clàudia Pina [Barcelona],Full Time
+2025-26,2025-09-21,749016,Real Madrid,4,0,Deportivo,2' Caroline Weir [Real Madrid]; 10' Sara Däbritz [Real Madrid]; 54' Sara Däbritz [Real Madrid]; 90'+2' Athenea del Castillo [Real Madrid],Full Time
+2025-26,2025-09-21,749017,Madrid CFF,1,1,Atlético Madrid,54' Allegra Poljak [Madrid CFF]; 82' Fiamma [Atlético Madrid],Full Time
+2025-26,2025-09-27,749018,Dux Logroño,2,4,Alhama,18' Mía Asenjo [Dux Logroño]; 44' Belén Martínez [Alhama]; 45'+7' Yaiza Relea [Alhama]; 70' Paula Partido [Dux Logroño]; 76' Yaiza Relea [Alhama]; 83' Raquel Pinel [Alhama],Full Time
+2025-26,2025-09-27,749019,Barcelona,2,0,Espanyol,21' Alexia Putellas [Barcelona]; 55' Ewa Pajor [Barcelona],Full Time
+2025-26,2025-09-27,749023,FC Badalona,0,2,Real Sociedad,49' Edna Imade [Real Sociedad]; 90'+3' Lucia Pardo [Real Sociedad],Full Time
+2025-26,2025-09-28,749020,Athletic Club,1,1,Sevilla,28' Nerea Nevado [Athletic Club]; 45'+9' Isabel Álvarez [Sevilla],Full Time
+2025-26,2025-09-28,749021,Deportivo,1,2,Madrid CFF,45'+12' Monica [Madrid CFF]; 67' Paula Monteagudo [Deportivo]; 89' Nuria Mendoza [Madrid CFF],Full Time
+2025-26,2025-09-28,749022,Granada,0,4,Atlético Madrid,47' Fiamma [Atlético Madrid]; 51' Fiamma [Atlético Madrid]; 62' Vilde Bøe Risa [Atlético Madrid]; 71' Synne Jensen [Atlético Madrid],Full Time
+2025-26,2025-09-28,749024,Levante,0,1,Eibar,39' Opah Clement [Eibar],Full Time
+2025-26,2025-09-28,749025,Tenerife,0,0,Real Madrid,,Full Time
+2025-26,2025-10-04,749027,Atlético Madrid,1,1,Athletic Club,86' Lauren [Atlético Madrid]; 88' Jone Amezaga [Athletic Club],Full Time
+2025-26,2025-10-04,749029,Eibar,0,4,Barcelona,14' Clara Serrajordi [Barcelona]; 54' Vicky López [Barcelona]; 73' Caroline Graham Hansen [Barcelona]; 90'+7' Salma Paralluelo [Barcelona],Full Time
+2025-26,2025-10-04,749030,Sevilla,1,0,Espanyol,45'+3' Andrea Alvarez [Sevilla],Full Time
+2025-26,2025-10-04,749031,Real Sociedad,1,2,Tenerife,12' Sakina Ouzraoui [Tenerife]; 22' Natalia Ramos [Tenerife]; 35' Edna Imade [Real Sociedad],Full Time
+2025-26,2025-10-04,749032,Real Madrid,3,0,FC Badalona,26' Linda Caicedo [Real Madrid]; 38' Naomie Feller [Real Madrid]; 58' Athenea del Castillo [Real Madrid],Full Time
+2025-26,2025-10-05,749026,Dux Logroño,1,1,Granada,4' Sonya Keefe [Granada]; 84' Daiana Falfán [Dux Logroño],Full Time
+2025-26,2025-10-05,749028,Alhama,3,1,Deportivo,13' Marta Gestera [Alhama]; 40' Astrid Álvarez [Alhama]; 54' Belén Martínez [Alhama]; 74' Paula Monteagudo [Deportivo],Full Time
+2025-26,2025-10-05,749033,Madrid CFF,2,0,Levante,8' Allegra Poljak [Madrid CFF]; 79' Kamilla Melgard [Madrid CFF],Full Time
+2025-26,2025-10-11,749036,Deportivo,2,2,Dux Logroño,8' Ainhoa Marín [Deportivo]; 24' Millene Cabral [Deportivo]; 45'+3' Isina [Dux Logroño]; 70' Flavine Mawete [Dux Logroño],Full Time
+2025-26,2025-10-11,749037,Espanyol,3,0,Alhama,9' Ainoa Campo [Espanyol]; 53' Ona Baradad [Espanyol]; 90'+1' Ángeles Del Álamo [Espanyol],Full Time
+2025-26,2025-10-11,749038,Granada,2,2,Real Sociedad,35' Sonya Keefe [Granada]; 42' Edna Imade [Real Sociedad]; 87' Edna Imade [Real Sociedad]; 90'+1' Maria Barquero [Granada],Full Time
+2025-26,2025-10-11,749039,FC Badalona,1,0,Madrid CFF,18' Elena Julve [FC Badalona],Full Time
+2025-26,2025-10-12,749034,Athletic Club,1,4,Real Madrid,13' Caroline Weir [Real Madrid]; 19' Ane Campos [Real Madrid] (pp); 72' Nerea Nevado [Athletic Club]; 82' Caroline Weir [Real Madrid]; 90'+5' Iris Santiago [Real Madrid],Full Time
+2025-26,2025-10-12,749035,Atlético Madrid,0,6,Barcelona,2' Esmee Brugts [Barcelona]; 41' Patri Guijarro [Barcelona]; 53' Ewa Pajor [Barcelona]; 63' Alexia Putellas [Barcelona]; 85' Vicky López [Barcelona]; 90'+7' Laia Aleixandri [Barcelona],Full Time
+2025-26,2025-10-12,749040,Levante,0,1,Sevilla,85' Inma Gabarro [Sevilla],Full Time
+2025-26,2025-10-12,749041,Tenerife,0,1,Eibar,87' Carmen Álvarez [Eibar],Full Time
+2025-26,2025-10-18,749042,Alhama,0,0,Athletic Club,,Full Time
+2025-26,2025-10-18,749044,Dux Logroño,0,2,Espanyol,19' Anna Torrodá [Espanyol]; 57' Ainoa Campo [Espanyol],Full Time
+2025-26,2025-10-19,749043,Barcelona,2,0,Granada,52' Clàudia Pina [Barcelona]; 87' Kika Nazareth [Barcelona],Full Time
+2025-26,2025-10-19,749045,Deportivo,1,1,Atlético Madrid,6' Gaby García [Atlético Madrid]; 70' Millene Cabral [Deportivo],Full Time
+2025-26,2025-10-19,749046,Eibar,0,3,Real Sociedad,58' Edna Imade [Real Sociedad]; 73' Edna Imade [Real Sociedad]; 90' Claire Lavogez [Real Sociedad],Full Time
+2025-26,2025-10-19,749047,Real Madrid,4,0,Levante,17' Paula Comendador [Real Madrid]; 57' Sara Holmgaard [Real Madrid]; 59' Alba Redondo [Real Madrid]; 63' Rocío Gálvez [Real Madrid],Full Time
+2025-26,2025-10-19,749048,Sevilla,1,3,Madrid CFF,32' Hildur Antonsdóttir [Madrid CFF]; 49' Andrea Alvarez [Sevilla]; 60' Monica [Madrid CFF]; 80' Bárbara López [Madrid CFF],Full Time
+2025-26,2025-10-19,749049,Tenerife,2,2,FC Badalona,3' Lice Chamorro [FC Badalona]; 19' Natalia Ramos [Tenerife]; 29' María Llompart [FC Badalona]; 37' Paola Hernández [Tenerife],Full Time
+2025-26,2025-11-01,749050,Madrid CFF,0,1,Granada,36' Sonya Keefe [Granada],Full Time
+2025-26,2025-11-01,749051,Levante,2,4,Tenerife,29' Carlota Suárez [Tenerife]; 45'+2' Patricia Gavira [Levante] (pp); 63' Natalia Ramos [Tenerife]; 83' Érika González [Levante]; 90'+9' Sandra Castelló [Tenerife]; 90'+14' Iratxe Perez [Tenerife],Full Time
+2025-26,2025-11-01,749054,Atlético Madrid,4,0,Alhama,21' Synne Jensen [Atlético Madrid]; 45'+1' Synne Jensen [Atlético Madrid]; 51' Gaby García [Atlético Madrid]; 56' Fiamma [Atlético Madrid],Full Time
+2025-26,2025-11-01,749055,Eibar,1,0,Deportivo,48' Sara Martín [Eibar],Full Time
+2025-26,2025-11-01,749056,Espanyol,0,1,Real Madrid,41' Estefanía Botero [Real Madrid] (pp),Full Time
+2025-26,2025-11-01,749057,FC Badalona,0,0,Sevilla,,Full Time
+2025-26,2025-11-02,749052,Real Sociedad,1,0,Barcelona,37' Edna Imade [Real Sociedad],Full Time
+2025-26,2025-11-02,749053,Athletic Club,0,0,Dux Logroño,,Full Time
+2025-26,2025-11-08,749058,Athletic Club,2,0,Eibar,48' Ane Campos [Athletic Club]; 80' Ane Azkona [Athletic Club],Full Time
+2025-26,2025-11-08,749065,Real Madrid,5,0,Alhama,30' Alba Santamaría [Real Madrid] (pp); 50' Silvia Cristóbal [Real Madrid]; 54' Lotte Keukelaar [Real Madrid]; 89' Iris Santiago [Real Madrid]; 90'+4' Linda Caicedo [Real Madrid],Full Time
+2025-26,2025-11-09,749059,Madrid CFF,0,2,Tenerife,12' Carlota Suárez [Tenerife]; 84' Claudia Blanco [Tenerife],Full Time
+2025-26,2025-11-09,749060,FC Badalona,1,1,Levante,36' Érika González [Levante]; 90'+10' Lice Chamorro [FC Badalona],Full Time
+2025-26,2025-11-09,749061,Granada,0,2,Sevilla,16' Andrea Alvarez [Sevilla]; 77' Raquel Morcillo [Sevilla],Full Time
+2025-26,2025-11-09,749062,Espanyol,2,3,Real Sociedad,3' Lucia Rodriguez [Real Sociedad]; 41' Paula Arana [Espanyol]; 62' Aiara Agirrezabala [Real Sociedad]; 74' Klára Cahynová [Real Sociedad]; 78' Ainoa Campo [Espanyol],Full Time
+2025-26,2025-11-09,749063,Dux Logroño,0,5,Atlético Madrid,14' Fiamma [Atlético Madrid]; 34' Luany [Atlético Madrid]; 71' Luany [Atlético Madrid]; 78' Rosa Otermín [Atlético Madrid]; 87' Júlia Bartel [Atlético Madrid],Full Time
+2025-26,2025-11-09,749064,Barcelona,8,0,Deportivo,16' Vicky López [Barcelona]; 18' Alexia Putellas [Barcelona]; 22' Mapi León [Barcelona]; 28' Laia Aleixandri [Barcelona]; 32' Laia Aleixandri [Barcelona]; 36' Clàudia Pina [Barcelona]; 41' Vera Martínez [Barcelona] (pp); 45'+2' Caroline Graham Hansen [Barcelona],Full Time
+2025-26,2025-11-14,749069,Deportivo,1,0,Levante,56' Marisa [Deportivo],Full Time
+2025-26,2025-11-15,749070,Barcelona,4,0,Real Madrid,15' Ewa Pajor [Barcelona]; 30' Ewa Pajor [Barcelona]; 90'+1' Sydney Schertenleib [Barcelona]; 90'+3' Aitana Bonmatí [Barcelona],Full Time
+2025-26,2025-11-15,749072,Alhama,1,4,Madrid CFF,30' Allegra Poljak [Madrid CFF]; 45'+9' Ángela Sosa [Madrid CFF]; 47' Malou Rylov [Madrid CFF]; 86' Emilie Nautnes [Madrid CFF]; 90'+4' Mariana Diaz Leal [Alhama],Full Time
+2025-26,2025-11-16,749066,Sevilla,1,0,Dux Logroño,73' Fatoumata Kanteh [Sevilla],Full Time
+2025-26,2025-11-16,749067,Real Sociedad,1,1,Athletic Club,66' Daniela Agote [Athletic Club]; 90'+6' Nerea Eizagirre [Real Sociedad],Full Time
+2025-26,2025-11-16,749068,Eibar,1,2,Espanyol,15' Júlia Guerra [Espanyol]; 27' Camino [Eibar]; 77' Ainoa Campo [Espanyol],Full Time
+2025-26,2025-11-16,749071,Atlético Madrid,2,0,FC Badalona,37' Vilde Bøe Risa [Atlético Madrid]; 67' Lydia Rodríguez [Atlético Madrid],Full Time
+2025-26,2025-11-16,749073,Tenerife,2,2,Granada,7' Natalia Ramos [Tenerife]; 36' Carlota Suárez [Tenerife]; 45'+5' Laura Requena [Granada]; 85' Ariadna Mingueza [Granada],Full Time
+2025-26,2025-11-22,749075,FC Badalona,1,1,Espanyol,42' Itziar Pinillos [FC Badalona]; 64' Ona Baradad [Espanyol],Full Time
+2025-26,2025-11-22,749076,Granada,1,5,Athletic Club,11' Ane Azkona [Athletic Club]; 29' Ane Azkona [Athletic Club]; 45' Manoly Baquerizo [Granada]; 56' Laura Sanchez [Athletic Club] (pp); 74' Ane Azkona [Athletic Club]; 90'+6' Maite Zubieta [Athletic Club],Full Time
+2025-26,2025-11-22,749077,Madrid CFF,1,0,Dux Logroño,90' Monica [Madrid CFF],Full Time
+2025-26,2025-11-22,749080,Sevilla,3,1,Deportivo,17' Inma Gabarro [Sevilla]; 41' Ainhoa Marín [Deportivo]; 64' Inma Gabarro [Sevilla]; 73' Fatoumata Kanteh [Sevilla],Full Time
+2025-26,2025-11-23,749074,Levante,0,4,Barcelona,14' Ewa Pajor [Barcelona]; 51' Kika Nazareth [Barcelona]; 72' Clàudia Pina [Barcelona]; 90'+8' Alexia Putellas [Barcelona],Full Time
+2025-26,2025-11-23,749078,Real Madrid,3,0,Eibar,2' Caroline Weir [Real Madrid]; 47' Caroline Weir [Real Madrid]; 84' Rocío Gálvez [Real Madrid],Full Time
+2025-26,2025-11-23,749079,Real Sociedad,3,1,Alhama,10' Emma Ramírez [Real Sociedad]; 32' Nerea Eizagirre [Real Sociedad]; 55' Judith Caravaca [Alhama]; 63' Edna Imade [Real Sociedad],Full Time
+2025-26,2025-11-23,749081,Tenerife,2,1,Atlético Madrid,12' Elba Vergés [Tenerife]; 73' Claudia Iglesias [Tenerife]; 90'+7' Gaby García [Atlético Madrid],Full Time
+2025-26,2025-12-06,749082,Atlético Madrid,2,2,Sevilla,16' Raquel Morcillo [Sevilla]; 19' Rosa Márquez [Sevilla]; 58' Amaiur Sarriegi [Atlético Madrid]; 65' Isabel Álvarez [Atlético Madrid] (pp),Full Time
+2025-26,2025-12-06,749085,Barcelona,2,0,Tenerife,83' Ewa Pajor [Barcelona]; 87' Alexia Putellas [Barcelona],Full Time
+2025-26,2025-12-06,749086,Real Madrid,1,0,Real Sociedad,43' Ainhoa Moraza [Real Madrid] (pp),Full Time
+2025-26,2025-12-06,749087,Espanyol,2,5,Madrid CFF,2' Naima García [Espanyol]; 26' Malou Rylov [Madrid CFF]; 40' Hildur Antonsdóttir [Madrid CFF]; 45'+2' Bárbara López [Madrid CFF]; 45'+9' Alba Ruiz [Madrid CFF]; 49' Júlia Guerra [Espanyol]; 90'+6' Malou Rylov [Madrid CFF],Full Time
+2025-26,2025-12-06,749088,Deportivo,2,0,Granada,42' Ainhoa Marín [Deportivo]; 66' Ainhoa Marín [Deportivo],Full Time
+2025-26,2025-12-07,749083,Athletic Club,1,0,Levante,68' Daniela Agote [Athletic Club],Full Time
+2025-26,2025-12-07,749084,Alhama,0,1,FC Badalona,89' Lice Chamorro [FC Badalona],Full Time
+2025-26,2025-12-07,749089,Dux Logroño,0,1,Eibar,53' Marta Masferrer [Eibar] (pp),Full Time
+2025-26,2025-12-13,749091,Granada,0,3,Real Madrid,30' Paula Comendador [Real Madrid]; 44' Alba Redondo [Real Madrid]; 45'+4' Alba Redondo [Real Madrid],Full Time
+2025-26,2025-12-13,749092,FC Badalona,1,5,Barcelona,5' Ewa Pajor [Barcelona]; 13' Lorena Navarro [FC Badalona]; 38' Clàudia Pina [Barcelona]; 59' Carla Martínez [Barcelona]; 76' Vicky López [Barcelona]; 90'+13' Esmee Brugts [Barcelona],Full Time
+2025-26,2025-12-13,749093,Sevilla,2,1,Alhama,20' Chantal Hagel [Sevilla]; 50' Yaiza Relea [Alhama]; 72' Alba Cerrato [Sevilla],Full Time
+2025-26,2025-12-13,749095,Madrid CFF,0,2,Athletic Club,44' Elene Gurtubay [Athletic Club]; 81' Daniela Agote [Athletic Club],Full Time
+2025-26,2025-12-13,749096,Levante,0,1,Espanyol,51' Ángeles Del Álamo [Espanyol],Full Time
+2025-26,2025-12-14,749090,Eibar,2,2,Atlético Madrid,10' Synne Jensen [Atlético Madrid]; 14' Carla Andrés [Eibar]; 20' Emma Moreno [Eibar]; 59' Vilde Bøe Risa [Atlético Madrid],Full Time
+2025-26,2025-12-14,749094,Real Sociedad,3,0,Deportivo,46' Lucia Pardo [Real Sociedad]; 64' Emma Ramírez [Real Sociedad]; 87' Klára Cahynová [Real Sociedad],Full Time
+2025-26,2025-12-14,749097,Tenerife,1,1,Dux Logroño,12' Natalia Ramos [Tenerife]; 77' Paula Rubio [Dux Logroño],Full Time
+2025-26,2026-01-10,749098,Atlético Madrid,5,5,Real Sociedad,6' Intza Eguiguren [Real Sociedad]; 12' Synne Jensen [Atlético Madrid]; 24' Luany [Atlético Madrid]; 29' Edna Imade [Real Sociedad]; 32' Edna Imade [Real Sociedad]; 48' Júlia Bartel [Atlético Madrid]; 57' Amaiur Sarriegi [Atlético Madrid]; 64' Synne Jensen [Atlético Madrid]; 65' Emma Ramírez [Real Sociedad]; 79' Edna Imade [Real Sociedad],Full Time
+2025-26,2026-01-10,749099,Athletic Club,0,0,FC Badalona,,Full Time
+2025-26,2026-01-10,749100,Real Madrid,2,0,Sevilla,23' Linda Caicedo [Real Madrid]; 29' Caroline Weir [Real Madrid],Full Time
+2025-26,2026-01-10,749104,Barcelona,12,1,Madrid CFF,9' Ewa Pajor [Barcelona]; 21' Ewa Pajor [Barcelona]; 25' Carla Martínez [Barcelona]; 28' Sydney Schertenleib [Barcelona]; 38' Ewa Pajor [Barcelona]; 43' Esmee Brugts [Barcelona]; 45'+1' Nuria Mendoza [Barcelona] (pp); 49' Emilie Nautnes [Madrid CFF]; 52' Alexia Putellas [Barcelona]; 58' Ewa Pajor [Barcelona]; 68' Ainoa Gómez [Barcelona]; 71' Sydney Schertenleib [Barcelona]; 81' Clàudia Pina [Barcelona],Full Time
+2025-26,2026-01-10,749105,Alhama,0,1,Eibar,65' Carmen Álvarez [Eibar],Full Time
+2025-26,2026-01-11,749101,Espanyol,0,2,Granada,64' Ariadna Mingueza [Granada]; 90'+7' Vera Molina [Granada],Full Time
+2025-26,2026-01-11,749102,Deportivo,1,1,Tenerife,12' Millene Cabral [Deportivo]; 68' Claudia Blanco [Tenerife],Full Time
+2025-26,2026-01-11,749103,Dux Logroño,2,3,Levante,7' Raiderlin Carrasco [Levante]; 45'+4' Ana Franco [Levante]; 45'+6' Catalina Ongaro [Dux Logroño]; 45'+11' Flavine Mawete [Dux Logroño]; 86' Érika González [Levante],Full Time
+2025-26,2026-01-13,749120,Real Madrid,0,1,Athletic Club,65' Sara Ortega [Athletic Club],Full Time
+2025-26,2026-01-14,749116,Barcelona,5,0,Atlético Madrid,4' Alexia Putellas [Barcelona]; 13' Clàudia Pina [Barcelona]; 59' Esmee Brugts [Barcelona]; 74' Clàudia Pina [Barcelona]; 90'+2' Salma Paralluelo [Barcelona],Full Time
+2025-26,2026-01-17,749108,Levante,1,2,Real Madrid,11' Athenea del Castillo [Real Madrid]; 25' Athenea del Castillo [Real Madrid]; 33' Dolores Silva [Levante],Full Time
+2025-26,2026-01-17,749110,Granada,1,0,Dux Logroño,25' Laura Pérez [Granada],Full Time
+2025-26,2026-01-17,749111,Eibar,1,3,Madrid CFF,23' Carmen Álvarez [Eibar]; 49' Emilie Nautnes [Madrid CFF]; 69' Kamilla Melgard [Madrid CFF]; 77' Emilie Nautnes [Madrid CFF],Full Time
+2025-26,2026-01-17,749112,Atlético Madrid,0,1,Espanyol,56' Anna Torrodá [Espanyol],Full Time
+2025-26,2026-01-18,749106,Alhama,0,2,Barcelona,22' Clàudia Pina [Barcelona]; 72' Caroline Graham Hansen [Barcelona],Full Time
+2025-26,2026-01-18,749107,Sevilla,0,2,Real Sociedad,61' Esther Sullastres [Real Sociedad] (pp); 72' Nerea Eizagirre [Real Sociedad],Full Time
+2025-26,2026-01-18,749109,FC Badalona,1,0,Deportivo,2' Irina Uribe [FC Badalona],Full Time
+2025-26,2026-01-18,749113,Tenerife,5,0,Athletic Club,18' Paola Hernández [Tenerife]; 68' Elba Vergés [Tenerife]; 85' Aleksandra Zaremba [Tenerife]; 90'+2' Ange Nguessan [Tenerife]; 90'+7' Iratxe Perez [Tenerife],Full Time
+2025-26,2026-01-25,749114,Espanyol,0,0,Tenerife,,Full Time
+2025-26,2026-01-25,749115,Dux Logroño,0,4,Deportivo,17' Esperanza Pizarro [Deportivo]; 25' Paula Gutiérrez [Deportivo]; 58' Esperanza Pizarro [Deportivo]; 64' Lucía Rivas [Deportivo],Full Time
+2025-26,2026-01-25,749117,Granada,2,0,Alhama,60' Sonya Keefe [Granada]; 81' Andrea Gómez [Granada],Full Time
+2025-26,2026-01-25,749118,Sevilla,4,2,Levante,20' Esther Martín-Pozuelo [Sevilla]; 40' Isabel Álvarez [Sevilla]; 45' Raiderlin Carrasco [Levante]; 45'+4' Rosa Márquez [Sevilla]; 49' Millaray Cortez [Sevilla]; 65' Ana Franco [Levante],Full Time
+2025-26,2026-01-25,749119,Real Sociedad,3,0,Eibar,17' Intza Eguiguren [Real Sociedad]; 79' Ane Etxezarreta [Real Sociedad] (pp); 88' Eunate Astralaga [Real Sociedad] (pp),Full Time
+2025-26,2026-01-25,749121,Madrid CFF,0,1,FC Badalona,43' Itziar Pinillos [FC Badalona],Full Time
+2025-26,2026-01-31,749122,Alhama,0,4,Dux Logroño,6' Isina [Dux Logroño]; 61' Salomé Prat [Dux Logroño]; 75' Iria Castro [Dux Logroño]; 89' Ximena Velazco [Dux Logroño],Full Time
+2025-26,2026-01-31,749123,Athletic Club,2,1,Espanyol,50' Clara Pinedo [Athletic Club]; 80' Laia Ballesté [Espanyol]; 86' Anna Torrodá [Athletic Club] (pp),Full Time
+2025-26,2026-01-31,749125,Levante,2,1,Madrid CFF,21' Ana Marcos [Madrid CFF]; 66' Eva Alonso [Levante]; 86' Érika González [Levante],Full Time
+2025-26,2026-01-31,749129,Atlético Madrid,1,1,Granada,12' Synne Jensen [Atlético Madrid]; 33' Andrea Gómez [Granada],Full Time
+2025-26,2026-02-01,749124,Tenerife,1,1,Real Sociedad,17' Iratxe Perez [Tenerife]; 29' Nahia Aparicio [Real Sociedad],Full Time
+2025-26,2026-02-01,749126,FC Badalona,2,1,Eibar,45'+1' Camino [Eibar]; 54' Irina Uribe [FC Badalona]; 85' Cristina Cubedo [FC Badalona],Full Time
+2025-26,2026-02-01,749127,Deportivo,2,4,Real Madrid,15' Lucía Martínez [Deportivo]; 17' Rocío Gálvez [Real Madrid]; 21' Signe Bruun [Real Madrid]; 25' Esperanza Pizarro [Deportivo]; 73' Caroline Weir [Real Madrid]; 89' Caroline Weir [Real Madrid],Full Time
+2025-26,2026-02-01,749128,Barcelona,4,1,Sevilla,24' Kika Nazareth [Barcelona]; 31' Sydney Schertenleib [Barcelona]; 63' Salma Paralluelo [Barcelona]; 73' Kika Nazareth [Barcelona]; 85' Alba Cerrato [Sevilla],Full Time
+2025-26,2026-02-07,749136,Eibar,0,2,Granada,38' Laura Pérez [Granada]; 44' Sonya Keefe [Granada],Full Time
+2025-26,2026-02-08,749130,Dux Logroño,0,3,Barcelona,50' Carla Martínez [Barcelona]; 52' Kika Nazareth [Barcelona]; 56' Vicky López [Barcelona],Full Time
+2025-26,2026-02-08,749131,Madrid CFF,1,6,Deportivo,14' Esperanza Pizarro [Deportivo]; 35' Emilie Nautnes [Madrid CFF]; 45'+1' Merle Barth [Deportivo]; 47' Raquel García [Deportivo]; 58' Vera Martínez [Deportivo]; 64' Paula Gutiérrez [Deportivo]; 87' Paula Monteagudo [Deportivo],Full Time
+2025-26,2026-02-08,749132,Real Madrid,3,0,Espanyol,6' Signe Bruun [Real Madrid]; 18' Athenea del Castillo [Real Madrid]; 59' Sara Holmgaard [Real Madrid],Full Time
+2025-26,2026-02-08,749133,Real Sociedad,2,0,FC Badalona,15' Claire Lavogez [Real Sociedad]; 90'+6' Nerea Eizagirre [Real Sociedad],Full Time
+2025-26,2026-02-08,749134,Sevilla,4,0,Athletic Club,13' Lucía Moral [Sevilla]; 45'+4' Fatoumata Kanteh [Sevilla]; 54' Lucía Moral [Sevilla]; 65' Raquel Morcillo [Sevilla],Full Time
+2025-26,2026-02-08,749135,Levante,0,1,Atlético Madrid,7' Silvia Lloris [Atlético Madrid],Full Time
+2025-26,2026-02-08,749137,Tenerife,1,0,Alhama,39' Natalia Ramos [Tenerife],Full Time
+2025-26,2026-02-14,749140,Barcelona,4,0,Eibar,13' Ewa Pajor [Barcelona]; 35' Clàudia Pina [Barcelona]; 40' Patri Guijarro [Barcelona]; 61' Irene Paredes [Barcelona],Full Time
+2025-26,2026-02-14,749141,Deportivo,0,4,Sevilla,52' Lucía Moral [Sevilla]; 68' Lucía Moral [Sevilla]; 71' Fatoumata Kanteh [Sevilla]; 89' Andrea Alvarez [Sevilla],Full Time
+2025-26,2026-02-14,749143,Granada,1,0,Levante,31' Andrea Gómez [Granada],Full Time
+2025-26,2026-02-14,749144,FC Badalona,0,2,Tenerife,66' Elba Vergés [Tenerife]; 73' Claudia Blanco [Tenerife],Full Time
+2025-26,2026-02-15,749138,Athletic Club,0,2,Real Sociedad,14' Aiara Agirrezabala [Real Sociedad]; 35' Paula Fernández [Real Sociedad],Full Time
+2025-26,2026-02-15,749139,Atlético Madrid,0,0,Madrid CFF,,Full Time
+2025-26,2026-02-15,749142,Espanyol,1,1,Dux Logroño,30' Laia Ballesté [Espanyol]; 60' Isina [Dux Logroño],Full Time
+2025-26,2026-02-15,749145,Alhama,0,3,Real Madrid,9' Hanna Bennison [Real Madrid]; 30' Sandie Toletti [Real Madrid]; 48' Alba Redondo [Real Madrid],Full Time
+2025-26,2026-02-21,749146,Dux Logroño,2,3,FC Badalona,33' Lice Chamorro [FC Badalona]; 62' Estefanía Banini [FC Badalona]; 73' Salomé Prat [Dux Logroño]; 78' Irina Uribe [FC Badalona]; 90'+10' Ximena Velazco [Dux Logroño],Full Time
+2025-26,2026-02-21,749148,Granada,0,2,Barcelona,12' Caroline Graham Hansen [Barcelona]; 27' Aïcha Cámara [Barcelona],Full Time
+2025-26,2026-02-21,749150,Madrid CFF,5,0,Alhama,8' Allegra Poljak [Madrid CFF]; 11' Kamilla Melgard [Madrid CFF]; 14' Emilie Nautnes [Madrid CFF]; 61' Kamilla Melgard [Madrid CFF]; 65' Emilie Nautnes [Madrid CFF],Full Time
+2025-26,2026-02-21,749153,Levante,1,2,Deportivo,3' Raiderlin Carrasco [Levante]; 40' Esperanza Pizarro [Deportivo]; 58' Marisa [Deportivo],Full Time
+2025-26,2026-02-22,749147,Eibar,0,1,Athletic Club,90'+8' Daniela Agote [Athletic Club],Full Time
+2025-26,2026-02-22,749149,Sevilla,2,1,Atlético Madrid,19' Andrea Alvarez [Sevilla]; 45'+7' Andrea Alvarez [Sevilla]; 47' Xènia Pérez [Atlético Madrid],Full Time
+2025-26,2026-02-22,749151,Real Madrid,2,0,Tenerife,46' Alba Redondo [Real Madrid]; 59' Filippa Angeldahl [Real Madrid],Full Time
+2025-26,2026-02-22,749152,Real Sociedad,2,1,Espanyol,9' Lucia Pardo [Real Sociedad]; 37' Lucia Pardo [Real Sociedad]; 51' Phoenetia Browne [Espanyol],Full Time
+2025-26,2026-03-14,749154,Atlético Madrid,5,0,Dux Logroño,14' Amaiur Sarriegi [Atlético Madrid]; 34' Amaiur Sarriegi [Atlético Madrid]; 40' Amaiur Sarriegi [Atlético Madrid]; 58' Fiamma [Atlético Madrid]; 88' Sheila Guijarro [Atlético Madrid],Full Time
+2025-26,2026-03-14,749160,Real Sociedad,0,3,Real Madrid,72' Sandie Toletti [Real Madrid]; 78' Sara Holmgaard [Real Madrid]; 84' Eva Navarro [Real Madrid],Full Time
+2025-26,2026-03-14,749161,Tenerife,4,0,Levante,16' Iratxe Perez [Tenerife]; 85' Carlota Suárez [Tenerife]; 90'+3' Paulina Gramaglia [Tenerife]; 90'+7' Patricia Gavira [Tenerife],Full Time
+2025-26,2026-03-15,749155,Athletic Club,4,1,Madrid CFF,26' Ángela Sosa [Madrid CFF]; 31' Sara Ortega [Athletic Club]; 47' Jone Amezaga [Athletic Club]; 68' Leire Baños [Athletic Club]; 73' Ane Azkona [Athletic Club],Full Time
+2025-26,2026-03-15,749156,Alhama,0,1,Sevilla,37' Fatoumata Kanteh [Sevilla],Full Time
+2025-26,2026-03-15,749157,Deportivo,0,2,Barcelona,65' Marta Torrejón [Barcelona]; 78' Alexia Putellas [Barcelona],Full Time
+2025-26,2026-03-15,749159,FC Badalona,0,4,Granada,18' Laura Requena [Granada]; 28' Sonya Keefe [Granada]; 59' Laura Pérez [Granada]; 90'+6' Laura Pérez [Granada],Full Time
+2025-26,2026-03-16,749158,Espanyol,2,0,Eibar,41' Ona Baradad [Espanyol]; 64' Lucía Vallejo [Espanyol],Full Time
+2025-26,2026-03-21,749163,Barcelona,7,1,Athletic Club,11' Salma Paralluelo [Barcelona]; 15' Clàudia Pina [Barcelona]; 41' Carla Martínez [Barcelona]; 45'+3' Sydney Schertenleib [Barcelona]; 58' Clàudia Pina [Barcelona]; 69' Daniela Agote [Athletic Club]; 80' Kika Nazareth [Barcelona]; 82' Kika Nazareth [Barcelona],Full Time
+2025-26,2026-03-21,749167,Madrid CFF,1,1,Espanyol,7' Ana Marcos [Madrid CFF]; 26' Phoenetia Browne [Espanyol],Full Time
+2025-26,2026-03-21,749168,Levante,0,1,Real Sociedad,52' Klára Cahynová [Real Sociedad],Full Time
+2025-26,2026-03-22,749162,Dux Logroño,0,1,Tenerife,22' Aleksandra Zaremba [Tenerife],Full Time
+2025-26,2026-03-22,749164,Alhama,1,2,Atlético Madrid,75' Estefanía Lima [Alhama]; 78' Fiamma [Atlético Madrid]; 90'+11' Rosa Otermín [Atlético Madrid],Full Time
+2025-26,2026-03-22,749165,Eibar,0,1,Real Madrid,24' Rocío Gálvez [Real Madrid],Full Time
+2025-26,2026-03-22,749166,Sevilla,1,5,FC Badalona,31' Itziar Pinillos [FC Badalona]; 39' Itziar Pinillos [FC Badalona]; 45'+5' Fatoumata Kanteh [Sevilla]; 59' Lice Chamorro [FC Badalona]; 84' Paula Sánchez [FC Badalona]; 90'+5' Loretta Kullashi [FC Badalona],Full Time
+2025-26,2026-03-23,749169,Granada,1,0,Deportivo,90' Laura Pérez [Granada],Full Time
+2025-26,2026-03-28,749171,Deportivo,2,1,Eibar,8' Iara Lacosta [Eibar]; 10' Esperanza Pizarro [Deportivo]; 45'+6' Olaya Enrique [Deportivo],Full Time
+2025-26,2026-03-28,749172,Espanyol,1,0,Levante,41' Naima García [Espanyol],Full Time
+2025-26,2026-03-28,749173,Sevilla,0,1,Granada,89' Manoly Baquerizo [Granada],Full Time
+2025-26,2026-03-28,749176,FC Badalona,3,2,Alhama,10' María Llompart [FC Badalona]; 65' Estefanía Banini [FC Badalona]; 72' Vega Montesinos [Alhama]; 79' Itziar Pinillos [FC Badalona]; 90'+2' Patri Miñano [Alhama],Full Time
+2025-26,2026-03-29,749170,Athletic Club,1,2,Atlético Madrid,21' Natalia Peñalvo [Atlético Madrid]; 39' Nerea Nevado [Athletic Club]; 47' Fiamma [Atlético Madrid],Full Time
+2025-26,2026-03-29,749174,Real Sociedad,1,1,Dux Logroño,33' Rebeca [Real Sociedad] (pp); 86' Mía Asenjo [Dux Logroño],Full Time
+2025-26,2026-03-29,749175,Real Madrid,0,3,Barcelona,18' Ona Batlle [Barcelona]; 51' Alexia Putellas [Barcelona]; 55' Maëlle Lakrar [Barcelona] (pp),Full Time
+2025-26,2026-03-29,749177,Tenerife,2,0,Madrid CFF,15' Natalia Ramos [Tenerife]; 25' Natalia Ramos [Tenerife],Full Time
+2025-26,2026-04-03,749183,Eibar,0,0,Tenerife,,Full Time
+2025-26,2026-04-04,749178,Alhama,1,5,Real Sociedad,7' Belén Martínez [Alhama]; 18' Claire Lavogez [Real Sociedad]; 32' Paula Fernández [Real Sociedad]; 45'+7' Claire Lavogez [Real Sociedad]; 56' Aiara Agirrezabala [Real Sociedad]; 72' Nerea Eizagirre [Real Sociedad],Full Time
+2025-26,2026-04-04,749182,Granada,2,0,Espanyol,26' Manoly Baquerizo [Granada]; 90'+3' Manoly Baquerizo [Granada],Full Time
+2025-26,2026-04-04,749184,Dux Logroño,2,1,Sevilla,13' Rebeca [Dux Logroño]; 40' Millaray Cortez [Sevilla]; 45' Isina [Dux Logroño],Full Time
+2025-26,2026-04-05,749179,Atlético Madrid,2,0,Deportivo,3' Vilde Bøe Risa [Atlético Madrid]; 83' Giovana [Atlético Madrid],Full Time
+2025-26,2026-04-05,749180,Madrid CFF,0,2,Real Madrid,48' Linda Caicedo [Real Madrid]; 73' Sara Däbritz [Real Madrid],Full Time
+2025-26,2026-04-05,749181,Levante,0,1,Athletic Club,90'+2' Ane Campos [Athletic Club],Full Time
+2025-26,2026-04-06,749185,Barcelona,6,0,FC Badalona,18' Salma Paralluelo [Barcelona]; 50' Marta Torrejón [Barcelona]; 52' Sydney Schertenleib [Barcelona]; 60' Esmee Brugts [Barcelona]; 73' Mapi León [Barcelona]; 79' Martine Fenger [Barcelona],Full Time
+2025-26,2026-04-22,749190,Espanyol,1,4,Barcelona,2' Carla Martínez [Barcelona]; 28' Laia Ballesté [Espanyol]; 30' Caroline Graham Hansen [Barcelona]; 56' Martine Fenger [Barcelona]; 83' Martine Fenger [Barcelona],Full Time
+2025-26,2026-04-25,749186,Athletic Club,1,2,Granada,16' Manoly Baquerizo [Granada]; 66' Andrea Gómez [Granada]; 90'+4' Ane Elexpuru [Athletic Club],Full Time
+2025-26,2026-04-25,749189,FC Badalona,2,4,Atlético Madrid,7' Priscila Chinchilla [Atlético Madrid]; 23' Priscila Chinchilla [Atlético Madrid]; 37' Itziar Pinillos [FC Badalona]; 60' Irina Uribe [FC Badalona]; 84' Júlia Bartel [Atlético Madrid]; 90'+1' Luany [Atlético Madrid],Full Time
+2025-26,2026-04-25,749191,Eibar,2,1,Levante,1' Iara Lacosta [Eibar]; 78' Garazi Facila [Eibar]; 85' Inés Rizo [Levante],Full Time
+2025-26,2026-04-26,749187,Real Sociedad,2,0,Madrid CFF,37' Claire Lavogez [Real Sociedad]; 90' Cecilia Marcos [Real Sociedad],Full Time
+2025-26,2026-04-26,749188,Real Madrid,1,1,Dux Logroño,4' Linda Caicedo [Real Madrid]; 90'+11' Annelie Leitner [Dux Logroño],Full Time
+2025-26,2026-04-26,749192,Deportivo,2,2,Alhama,35' Belén Martínez [Alhama]; 45'+2' Paula Gutiérrez [Deportivo]; 45'+4' Bárbara Latorre Viñals [Deportivo]; 81' Yaiza Relea [Alhama],Full Time
+2025-26,2026-04-26,749193,Tenerife,3,0,Sevilla,27' Paola Hernández [Tenerife]; 45' Carlota Suárez [Tenerife]; 45'+2' Natalia Ramos [Tenerife],Full Time
+2025-26,2026-05-01,749195,Granada,1,1,Tenerife,28' Laura Requena [Granada]; 31' Paulina Gramaglia [Tenerife],Full Time
+2025-26,2026-05-01,749200,Alhama,3,1,Espanyol,2' Belén Martínez [Alhama]; 14' Vega Montesinos [Alhama]; 30' Phoenetia Browne [Espanyol]; 52' Yaiza Relea [Alhama],Full Time
+2025-26,2026-05-02,749194,FC Badalona,0,1,Athletic Club,35' Ane Azkona [Athletic Club],Full Time
+2025-26,2026-05-02,749197,Dux Logroño,3,0,Madrid CFF,29' Annelie Leitner [Dux Logroño]; 85' Flavine Mawete [Dux Logroño]; 87' Isina [Dux Logroño],Full Time
+2025-26,2026-05-02,749201,Sevilla,0,2,Real Madrid,52' Alba Redondo [Real Madrid]; 90'+5' Naomie Feller [Real Madrid],Full Time
+2025-26,2026-05-03,749196,Deportivo,1,2,Real Sociedad,1' Bárbara Latorre Viñals [Deportivo]; 47' Paula Fernández [Real Sociedad]; 71' Cecilia Marcos [Real Sociedad],Full Time
+2025-26,2026-05-03,749199,Atlético Madrid,4,0,Eibar,61' Giovana [Atlético Madrid]; 71' Vilde Bøe Risa [Atlético Madrid]; 85' Júlia Bartel [Atlético Madrid]; 90'+3' Giovana [Atlético Madrid],Full Time
+2025-26,2026-05-06,749198,Barcelona,5,0,Levante,15' Vicky López [Barcelona]; 34' Clàudia Pina [Barcelona]; 50' Clàudia Pina [Barcelona]; 66' Carla Martínez [Barcelona]; 86' Sydney Schertenleib [Barcelona],Full Time
+2025-26,2026-05-09,749202,Real Sociedad,3,0,Granada,20' Cecilia Marcos [Real Sociedad]; 66' Claire Lavogez [Real Sociedad]; 83' Klára Cahynová [Real Sociedad],Full Time
+2025-26,2026-05-09,749206,Espanyol,1,1,FC Badalona,22' Ana González [FC Badalona]; 30' Ainoa Campo [Espanyol],Full Time
+2025-26,2026-05-09,749207,Eibar,2,0,Alhama,21' Camino [Eibar]; 67' Carmen Álvarez [Eibar],Full Time
+2025-26,2026-05-09,749208,Athletic Club,0,1,Deportivo,55' Ainhoa Marín [Deportivo],Full Time
+2025-26,2026-05-10,749203,Real Madrid,1,0,Atlético Madrid,25' Caroline Weir [Real Madrid],Full Time
+2025-26,2026-05-10,749205,Levante,1,4,Dux Logroño,51' Isina [Dux Logroño]; 66' Annelie Leitner [Dux Logroño]; 74' Ximena Velazco [Dux Logroño]; 84' Ariana Arias [Levante]; 90'+5' Iria Castro [Dux Logroño],Full Time
+2025-26,2026-05-10,749209,Tenerife,1,3,Barcelona,23' Paulina Gramaglia [Tenerife]; 45'+4' Esmee Brugts [Barcelona]; 66' Kika Nazareth [Barcelona]; 88' Clàudia Pina [Barcelona],Full Time
+2025-26,2026-05-11,749204,Madrid CFF,2,0,Sevilla,26' Monica [Madrid CFF]; 76' Nerea Sánchez [Madrid CFF],Full Time
+2025-26,2026-05-26,749210,Alhama,2,2,Levante,19' Ariana Arias [Levante]; 55' Yaiza Relea [Alhama]; 61' Eva Alonso [Levante]; 90'+5' Vega Montesinos [Alhama],Full Time
+2025-26,2026-05-26,749211,Atlético Madrid,2,2,Tenerife,19' Natalia Ramos [Tenerife]; 45'+8' Andrea Medina [Atlético Madrid]; 48' Rosa Otermín [Atlético Madrid]; 90'+2' Fatou Dembele [Tenerife],Full Time
+2025-26,2026-05-26,749212,Sevilla,0,0,Eibar,,Full Time
+2025-26,2026-05-26,749213,FC Badalona,0,4,Real Madrid,48' Eva Navarro [Real Madrid]; 53' Caroline Weir [Real Madrid]; 55' Caroline Weir [Real Madrid]; 84' Caroline Weir [Real Madrid],Full Time
+2025-26,2026-05-26,749214,Granada,3,4,Madrid CFF,38' Sonya Keefe [Granada]; 43' Sonya Keefe [Granada]; 48' Jujuba [Granada]; 53' Ana Marcos [Madrid CFF]; 64' Ana Marcos [Madrid CFF]; 73' Ana Marcos [Madrid CFF]; 85' Ana Marcos [Madrid CFF],Full Time
+2025-26,2026-05-26,749216,Dux Logroño,0,2,Athletic Club,14' Ane Azkona [Athletic Club]; 52' Maddi Torre [Athletic Club],Full Time
+2025-26,2026-05-27,749215,Deportivo,2,2,Espanyol,45'+3' Ona Baradad [Espanyol]; 45'+5' Paula Gutiérrez [Deportivo]; 59' Naima García [Espanyol]; 88' Paula Monteagudo [Deportivo],Full Time
+2025-26,2026-05-27,749217,Barcelona,2,1,Real Sociedad,14' Clàudia Pina [Barcelona]; 26' Emma Ramírez [Real Sociedad]; 34' Aitana Bonmatí [Barcelona],Full Time
+2025-26,2026-05-31,749218,Athletic Club,4,1,Alhama,7' Daniela Agote [Athletic Club]; 60' Ane Campos [Athletic Club]; 64' Jone Amezaga [Athletic Club]; 71' Ane Campos [Athletic Club]; 84' Mariana Diaz Leal [Alhama],Full Time
+2025-26,2026-05-31,749219,Real Sociedad,2,0,Atlético Madrid,26' Lucia Pardo [Real Sociedad]; 71' Cecilia Marcos [Real Sociedad],Full Time
+2025-26,2026-05-31,749220,Real Madrid,2,0,Granada,64' Athenea del Castillo [Real Madrid]; 68' Caroline Weir [Real Madrid],Full Time
+2025-26,2026-05-31,749221,Madrid CFF,0,4,Barcelona,14' Caroline Graham Hansen [Barcelona]; 25' Caroline Graham Hansen [Barcelona]; 76' Caroline Graham Hansen [Barcelona]; 87' Vicky López [Barcelona],Full Time
+2025-26,2026-05-31,749222,Levante,0,1,FC Badalona,43' Irina Uribe [FC Badalona],Full Time
+2025-26,2026-05-31,749223,Espanyol,0,0,Sevilla,,Full Time
+2025-26,2026-05-31,749224,Eibar,2,1,Dux Logroño,15' Mireia Masegur Torrent [Eibar]; 35' Iara Lacosta [Eibar]; 63' Catalina Ongaro [Dux Logroño],Full Time
+2025-26,2026-05-31,749225,Tenerife,2,0,Deportivo,46' Ange Nguessan [Tenerife]; 57' Paulina Gramaglia [Tenerife],Full Time
+2026-27,2026-08-29,401882533,Real Sociedad,0,2,Dux Logroño,76' Flavine Mawete [Dux Logroño]; 90'+4' Cristina Redondo [Dux Logroño],Full Time
+2026-27,2026-08-29,401882535,Madrid CFF,3,1,Granada,12' Sakina Ouzraoui [Madrid CFF]; 23' Kate Taylor [Madrid CFF]; 75' Ailing Herrera [Madrid CFF]; 90'+1' Elene Guridi [Granada],Full Time
+2026-27,2026-08-29,401882537,Eibar,1,0,Espanyol,90'+1' Alimata Bélem [Eibar],Full Time
+2026-27,2026-08-29,401882538,Deportivo,0,1,Sevilla,13' Fatoumata Kanteh [Sevilla],Full Time
+2026-27,2026-08-30,401882534,Real Madrid,3,2,Atlético Madrid,8' Felicia Schröder [Real Madrid]; 15' Sandie Toletti [Real Madrid]; 35' Synne Jensen [Atlético Madrid]; 44' Felicia Schröder [Real Madrid]; 45'+6' Synne Jensen [Atlético Madrid],Full Time
+2026-27,2026-08-30,401882536,Barcelona,5,0,Tenerife,27' Caroline Graham Hansen [Barcelona]; 39' Clàudia Pina [Barcelona]; 48' Ewa Pajor [Barcelona]; 52' Renee Van Asten [Barcelona]; 63' Irene Paredes [Barcelona],Full Time
+2026-27,2026-08-30,401882539,Athletic Club,3,1,FC Badalona,13' Irina Uribe [FC Badalona]; 41' Clara Pinedo [Athletic Club]; 72' Ane Azkona [Athletic Club]; 77' Jone Amezaga [Athletic Club],Full Time
+2026-27,2026-08-30,401882540,Alavés,2,0,Valencia,22' Kumba Zainab Brima [Alavés]; 68' Ainhoa Guallar [Alavés],Full Time
+2026-27,2026-09-05,401882525,Valencia,1,3,Madrid CFF,15' Hasnath Ubamba [Madrid CFF]; 44' Marina Rivas [Madrid CFF]; 69' Emilie Holt [Madrid CFF]; 90' Romane Lejeune [Valencia] (pp),Full Time
+2026-27,2026-09-05,401882526,Sevilla,0,4,Barcelona,9' Esmee Brugts [Barcelona]; 45'+2' Clàudia Pina [Barcelona]; 45'+5' Marta Torrejón [Barcelona]; 55' Vicky López [Barcelona],Full Time
+2026-27,2026-09-05,401882529,Espanyol,0,1,FC Badalona,89' María Llompart [FC Badalona],Full Time
+2026-27,2026-09-06,401882527,Real Madrid,0,0,Eibar,,Full Time
+2026-27,2026-09-06,401882530,Dux Logroño,0,1,Athletic Club,34' Maddi Torre [Athletic Club],Full Time
+2026-27,2026-09-06,401882531,Tenerife,0,0,Deportivo,,Full Time
+2026-27,2026-09-06,401882532,Atlético Madrid,1,0,Alavés,90'+1' Synne Jensen [Atlético Madrid],Full Time
+2026-27,2026-09-07,401882528,Granada,3,2,Real Sociedad,20' Leles [Granada]; 22' Carlota Chacón [Real Sociedad]; 30' Raquel Gil [Granada]; 45'+1' Klára Cahynová [Real Sociedad]; 46' Iris Santiago [Granada],Full Time
+2026-27,2026-09-11,401882522,Deportivo,0,2,Real Madrid,31' Linda Caicedo [Real Madrid]; 39' Bella Andersson [Real Madrid],Full Time
+2026-27,2026-09-12,401882518,Madrid CFF,1,0,Sevilla,7' Emilie Holt [Madrid CFF],Full Time
+2026-27,2026-09-12,401882519,Barcelona,4,2,Atlético Madrid,9' Allegra Poljak [Atlético Madrid]; 26' Vicky López [Barcelona]; 49' Esmee Brugts [Barcelona]; 54' Synne Jensen [Atlético Madrid]; 64' Caroline Graham Hansen [Barcelona]; 86' Esmee Brugts [Barcelona],Full Time
+2026-27,2026-09-12,401882523,Athletic Club,2,2,Espanyol,4' Iara Lacosta [Espanyol]; 36' Ane Azkona [Athletic Club]; 47' Lucía Vallejo [Espanyol]; 90'+3' Maddi Torre [Athletic Club],Full Time
+2026-27,2026-09-13,401882517,Real Sociedad,1,1,Tenerife,74' Ainoa Campo [Real Sociedad]; 89' Elba Vergés [Tenerife],Full Time
+2026-27,2026-09-13,401882520,Eibar,1,4,FC Badalona,48' Irina Uribe [FC Badalona]; 63' Laura Requena [FC Badalona]; 67' Sheila Guijarro [FC Badalona]; 71' Nerea Sánchez [Eibar]; 78' Paula Sánchez [FC Badalona],Full Time
+2026-27,2026-09-13,401882521,Dux Logroño,2,1,Valencia,58' Isina [Dux Logroño]; 70' Ana Franco [Dux Logroño]; 90'+7' Danielle Marcano [Valencia],Full Time
+2026-27,2026-09-13,401882524,Alavés,1,0,Granada,45'+2' Ainhoa Guallar [Alavés],Full Time
+2026-27,2026-09-18,401882516,Alavés,0,6,Barcelona,19' Caroline Graham Hansen [Barcelona]; 30' Sydney Schertenleib [Barcelona]; 45' Carolina Ferrera [Barcelona]; 55' Clàudia Pina [Barcelona]; 73' Clàudia Pina [Barcelona]; 90'+4' Clàudia Pina [Barcelona],Full Time
+2026-27,2026-09-19,401882509,Real Madrid,3,1,Valencia,26' Elisa Senß [Real Madrid]; 31' Felicia Schröder [Real Madrid]; 69' Danielle Marcano [Valencia]; 90'+4' Athenea del Castillo [Real Madrid],Full Time
+2026-27,2026-09-19,401882510,FC Badalona,0,0,Real Sociedad,,Full Time
+2026-27,2026-09-19,401882512,Espanyol,5,1,Madrid CFF,28' Lucía Vallejo [Espanyol]; 36' Paula Gutiérrez [Espanyol]; 45'+1' Sakina Ouzraoui [Madrid CFF]; 45'+4' Paula Gutiérrez [Espanyol]; 75' Phoenetia Browne [Espanyol]; 77' Natalia Escot [Espanyol],Full Time
+2026-27,2026-09-19,401882515,Atlético Madrid,1,0,Dux Logroño,20' Allegra Poljak [Atlético Madrid],Full Time
+2026-27,2026-09-20,401882511,Granada,0,3,Deportivo,9' Millene Cabral [Deportivo]; 26' Millene Cabral [Deportivo]; 90'+4' Sofía Domínguez [Deportivo],Full Time
+2026-27,2026-09-20,401882513,Eibar,1,0,Athletic Club,57' Ángeles Del Álamo [Eibar],Full Time
+2026-27,2026-09-20,401882514,Tenerife,1,3,Sevilla,29' Natalia Padilla-Bidas [Tenerife]; 39' Fatoumata Kanteh [Sevilla]; 45'+2' Raquel Morcillo [Sevilla]; 78' Esther Martín-Pozuelo [Sevilla],Full Time
+2026-27,2026-09-26,401882503,Real Sociedad,3,5,Real Madrid,3' Lineth Beerensteyn [Real Madrid]; 5' Cecilia Marcos [Real Sociedad]; 50' Cecilia Marcos [Real Sociedad]; 67' Sara Däbritz [Real Madrid]; 70' Sara Däbritz [Real Madrid]; 85' Paula Fernández [Real Sociedad]; 87' Felicia Schröder [Real Madrid]; 90'+6' Felicia Schröder [Real Madrid],Full Time
+2026-27,2026-09-26,401882504,FC Badalona,0,1,Granada,90'+6' Raquel Gil [Granada],Full Time
+2026-27,2026-09-26,401882505,Madrid CFF,1,0,Alavés,50' Sandra Villafañe [Madrid CFF],Full Time
+2026-27,2026-09-26,401882506,Dux Logroño,0,2,Barcelona,17' Mayssa Baha [Barcelona]; 71' Patri Guijarro [Barcelona],Full Time
+2026-27,2026-09-27,401882501,Valencia,1,2,Tenerife,61' Natalia Padilla-Bidas [Tenerife]; 89' Nayluisa Cáceres [Valencia] (pp); 90'+11' Carlota Suárez [Tenerife],Full Time
+2026-27,2026-09-27,401882502,Sevilla,0,1,Eibar,86' Marianna Seidl [Eibar],Full Time
+2026-27,2026-09-27,401882507,Deportivo,1,1,Espanyol,30' Iara Lacosta [Espanyol]; 74' Millene Cabral [Deportivo],Full Time
+2026-27,2026-09-27,401882508,Athletic Club,3,2,Atlético Madrid,1' Ane Azkona [Athletic Club]; 6' Fiamma [Atlético Madrid]; 32' Sara Ortega [Athletic Club]; 74' Ane Campos [Athletic Club]; 89' Gabi Nunes [Atlético Madrid],Full Time
+2026-27,2026-10-03,401882494,Sevilla,3,3,FC Badalona,33' Fatoumata Kanteh [Sevilla]; 49' Lucía Martínez [FC Badalona]; 55' Rosa Márquez [Sevilla]; 70' Sheila Guijarro [FC Badalona]; 90'+4' Mirari Uria [FC Badalona]; 90'+6' Jassina Blom [Sevilla],Full Time
+2026-27,2026-10-03,401882495,Madrid CFF,2,2,Athletic Club,43' Emilie Nautnes [Madrid CFF]; 47' Bibiane Schulze Solano [Athletic Club]; 62' Bibiane Schulze Solano [Athletic Club]; 73' Sakina Ouzraoui [Madrid CFF],Full Time
+2026-27,2026-10-03,401882498,Espanyol,1,0,Alavés,90'+11' Phoenetia Browne [Espanyol],Full Time
+2026-27,2026-10-03,401882499,Deportivo,1,2,Atlético Madrid,39' Giovana [Atlético Madrid]; 71' Esperanza Pizarro [Deportivo]; 82' Fiamma [Atlético Madrid],Full Time
+2026-27,2026-10-04,401882493,Valencia,0,1,Real Sociedad,23' Nerea Eizagirre [Real Sociedad],Full Time
+2026-27,2026-10-04,401882496,Granada,0,0,Eibar,,Full Time
+2026-27,2026-10-04,401882497,Barcelona,7,0,Real Madrid,4' Clàudia Pina [Barcelona]; 28' Clàudia Pina [Barcelona]; 32' Clàudia Pina [Barcelona]; 33' Caroline Graham Hansen [Barcelona]; 45' Clàudia Pina [Barcelona]; 55' Ewa Pajor [Barcelona]; 88' Sydney Schertenleib [Barcelona],Full Time
+2026-27,2026-10-04,401882500,Tenerife,2,1,Dux Logroño,53' Cristina Redondo [Dux Logroño]; 75' Patricia Gavira [Tenerife]; 90'+3' Iratxe Perez [Tenerife],Full Time
+2026-27,2026-10-17,401882486,Real Madrid,3,1,Espanyol,45'+1' Sara Däbritz [Real Madrid]; 70' Lineth Beerensteyn [Real Madrid]; 80' Felicia Schröder [Real Madrid]; 90'+2' Claudia Iglesias [Espanyol],Full Time
+2026-27,2026-10-17,401882487,FC Badalona,0,4,Tenerife,4' Carlota Suárez [Tenerife]; 22' Carlota Suárez [Tenerife]; 35' Iratxe Perez [Tenerife]; 51' Elba Vergés [Tenerife],Full Time
+2026-27,2026-10-17,401882489,Dux Logroño,2,3,Granada,20' Bárbara López [Granada]; 43' Isina [Dux Logroño]; 62' Bárbara López [Granada]; 66' Naiara Sanmartín [Granada]; 68' Maria Barquero [Dux Logroño],Full Time
+2026-27,2026-10-17,401882491,Athletic Club,1,0,Valencia,61' Alice Pinguet [Athletic Club] (pp),Full Time
+2026-27,2026-10-18,401882485,Real Sociedad,2,1,Barcelona,1' Patri Guijarro [Barcelona]; 13' Cecilia Marcos [Real Sociedad]; 45'+1' Ainhoa Marín [Real Sociedad],Full Time
+2026-27,2026-10-18,401882488,Eibar,2,3,Deportivo,45'+4' Millene Cabral [Deportivo]; 81' Marisa [Deportivo]; 84' Lucia Pardo [Deportivo]; 90'+2' Carmen Álvarez [Eibar]; 90'+12' Carla Andrés [Eibar],Full Time
+2026-27,2026-10-18,401882490,Atlético Madrid,4,0,Madrid CFF,17' Synne Jensen [Atlético Madrid]; 19' Celia Segura [Atlético Madrid]; 37' Fiamma [Atlético Madrid]; 45'+6' Synne Jensen [Atlético Madrid],Full Time
+2026-27,2026-10-18,401882492,Alavés,1,1,Sevilla,40' Rosa Márquez [Sevilla]; 48' Ainhoa Guallar [Alavés],Full Time
+2026-27,2026-10-23,401882483,Atlético Madrid,4,0,Valencia,12' Synne Jensen [Atlético Madrid]; 53' Maite Zubieta [Atlético Madrid]; 61' Giovana [Atlético Madrid]; 67' Natalia Peñalvo [Atlético Madrid],Full Time
+2026-27,2026-10-24,401882477,Real Sociedad,1,1,Espanyol,21' Ainoa Campo [Real Sociedad]; 28' Natalia Escot [Espanyol],Full Time
+2026-27,2026-10-24,401882478,Real Madrid,3,2,Tenerife,23' Paulina Gramaglia [Tenerife]; 53' Natalia Padilla-Bidas [Tenerife]; 58' Lineth Beerensteyn [Real Madrid]; 78' Felicia Schröder [Real Madrid]; 84' Signe Bruun [Real Madrid],Full Time
+2026-27,2026-10-24,401882479,Barcelona,3,0,Granada,67' Esmee Brugts [Barcelona]; 72' Caroline Graham Hansen [Barcelona]; 90' Teresa Mérida [Barcelona] (pp),Full Time
+2026-27,2026-10-24,401882481,Dux Logroño,1,0,FC Badalona,87' Francisca Altgelt [Dux Logroño],Full Time
+2026-27,2026-10-24,401882484,Athletic Club,0,0,Sevilla,,Full Time
+2026-27,2026-10-25,401882480,Eibar,2,2,Madrid CFF,22' Sakina Ouzraoui [Madrid CFF]; 31' Alba Ruiz [Madrid CFF]; 69' Ángeles Del Álamo [Eibar]; 72' Carmen Álvarez [Eibar],Full Time
+2026-27,2026-10-25,401882482,Deportivo,2,1,Alavés,26' Carmen Sobrón [Alavés]; 88' Millene Cabral [Deportivo]; 90'+10' Lucia Pardo [Deportivo],Full Time
+2026-27,2026-10-31,401882469,Valencia,2,1,Eibar,46' Sara Martín [Eibar]; 55' Yasmin Mrabet [Valencia]; 67' Yasmin Mrabet [Valencia],Full Time
+2026-27,2026-10-31,401882472,Madrid CFF,2,1,Deportivo,30' Marisa [Deportivo]; 46' Emilie Holt [Madrid CFF]; 82' Mariana Silva [Madrid CFF],Full Time
+2026-27,2026-10-31,401882473,Granada,1,1,Atlético Madrid,54' Rosa Otermín [Atlético Madrid]; 85' Naiara Sanmartín [Granada],Full Time
+2026-27,2026-10-31,401882474,Espanyol,2,1,Dux Logroño,11' Ana Marcos [Espanyol]; 22' Laura Martínez [Dux Logroño]; 47' Paula Arana [Espanyol],Full Time
+2026-27,2026-11-01,401882470,Sevilla,1,3,Real Madrid,12' Felicia Schröder [Real Madrid]; 32' Xenia Barrios [Sevilla]; 86' Arianna Caruso [Real Madrid]; 88' Lineth Beerensteyn [Real Madrid],Full Time
+2026-27,2026-11-01,401882471,FC Badalona,0,4,Barcelona,5' Kerolin [Barcelona]; 61' Caroline Graham Hansen [Barcelona]; 65' Kerolin [Barcelona]; 75' Clàudia Pina [Barcelona],Full Time
+2026-27,2026-11-01,401882476,Alavés,1,1,Real Sociedad,18' Ainhoa Marín [Real Sociedad]; 29' Inés Juan [Alavés],Full Time
+2026-27,2026-11-02,401882475,Tenerife,2,0,Athletic Club,51' Natalia Padilla-Bidas [Tenerife]; 89' Paulina Gramaglia [Tenerife],Full Time
+2026-27,2026-11-07,401882461,Granada,0,1,Espanyol,42' Paula Gutiérrez [Espanyol],Full Time
+2026-27,2026-11-07,401882463,Eibar,1,2,Real Sociedad,2' Ainhoa Marín [Real Sociedad]; 19' Sara Martín [Eibar]; 90'+5' Aitana Zumarraga [Real Sociedad] (pp),Full Time
+2026-27,2026-11-07,401882468,Athletic Club,1,1,Real Madrid,85' Eva Navarro [Real Madrid]; 90'+2' Ane Campos [Athletic Club],Full Time
+2026-27,2026-11-08,401882462,Barcelona,5,1,Madrid CFF,39' Esmee Brugts [Barcelona]; 45'+1' Ewa Pajor [Barcelona]; 68' Carla Martínez [Barcelona]; 73' Patri Guijarro [Barcelona]; 79' Clàudia Pina [Barcelona]; 82' Inès Konan [Madrid CFF],Full Time
+2026-27,2026-11-08,401882464,Dux Logroño,2,2,Sevilla,41' Isina [Dux Logroño]; 65' Alba López [Sevilla]; 69' Rosa Márquez [Sevilla]; 90' Marta Masferrer [Dux Logroño],Full Time
+2026-27,2026-11-09,401882465,Deportivo,0,2,Valencia,63' Danielle Marcano [Valencia]; 73' Yasmin Mrabet [Valencia],Full Time
+2026-27,2026-11-09,401882467,Atlético Madrid,3,0,FC Badalona,63' Synne Jensen [Atlético Madrid]; 69' Viola Calligaris [Atlético Madrid]; 90'+4' Katherine Møller Kühl [Atlético Madrid],Full Time
+2026-27,2026-11-14,401882456,Real Madrid,3,3,FC Badalona,45'+2' Lucía Martínez [FC Badalona]; 61' Filippa Angeldahl [Real Madrid]; 66' Elena Julve [FC Badalona]; 68' Linda Caicedo [Real Madrid]; 76' Lotte Keukelaar [Real Madrid]; 82' Irina Uribe [FC Badalona],Full Time
+2026-27,2026-11-14,401882458,Espanyol,1,3,Tenerife,39' Ana Marcos [Espanyol]; 49' Annahita Zamanian [Tenerife]; 77' Noelia Salazar [Tenerife]; 86' Paulina Gramaglia [Tenerife],Full Time
+2026-27,2026-11-14,401882460,Alavés,2,1,Eibar,27' Carmen Sobrón [Alavés]; 78' Carmen Álvarez [Eibar]; 90'+4' Kumba Zainab Brima [Alavés],Full Time
+2026-27,2026-11-15,401882453,Valencia,0,0,Granada,,Full Time
+2026-27,2026-11-15,401882454,Sevilla,1,2,Atlético Madrid,7' Celia Segura [Atlético Madrid]; 39' Rosa Otermín [Atlético Madrid]; 42' Alice Marques [Sevilla],Full Time
+2026-27,2026-11-15,401882455,Real Sociedad,1,4,Athletic Club,21' Sara Ortega [Athletic Club]; 35' Ane Azkona [Athletic Club]; 39' Ane Azkona [Athletic Club]; 51' Sonya Keefe [Real Sociedad]; 57' Clara Pinedo [Athletic Club],Full Time
+2026-27,2026-11-15,401882457,Madrid CFF,2,3,Dux Logroño,6' Justina Morcillo [Dux Logroño]; 16' Valentina Donolato [Dux Logroño]; 43' Raiderlin Carrasco [Madrid CFF]; 59' Ana Franco [Dux Logroño]; 70' Kate Taylor [Madrid CFF],Full Time
+2026-27,2026-11-15,401882459,Deportivo,1,1,Barcelona,48' Vega Montesinos [Deportivo]; 90'+12' Renee Van Asten [Barcelona],Full Time

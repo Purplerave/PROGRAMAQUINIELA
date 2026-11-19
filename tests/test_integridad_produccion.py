@@ -247,6 +247,7 @@ def test_ligaf_walkforward_never_trains_on_other_games_from_same_day(monkeypatch
     assert fitted == [2, 4]
     assert len(observed) == out["n_evaluados"] == 4
     assert observed == ["2025-01-02"] * 2 + ["2025-01-03"] * 2
+    assert out["por_temporada"]["2024-25"]["n_evaluados"] == 4
 
 
 
