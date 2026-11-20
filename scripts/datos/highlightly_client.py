@@ -25,11 +25,10 @@ from typing import Optional
 
 import requests
 
-# Host directo de Highlightly.
-BASE_URL = "https://sports.highlightly.net"
+# Host directo de la Football API de Highlightly (suscripcion Football).
+BASE_URL = "https://soccer.highlightly.net"
 
-# Host de RapidAPI confirmado por el usuario (su plan es via RapidAPI).
-# Se envia en el header x-rapidapi-host. Configurable con HIGHLIGHTLY_HOST.
+# Host de RapidAPI para la Football API.
 RAPIDAPI_HOST = "football-highlights-api.p.rapidapi.com"
 RAPIDAPI_BASE_URL = f"https://{RAPIDAPI_HOST}"
 
@@ -81,8 +80,7 @@ class HighlightlyClient:
         # pasando base_url=BASE_URL o HIGHLIGHTLY_HOST=sports.highlightly.net.
         host_env = os.environ.get("HIGHLIGHTLY_HOST")
         self.base_url = (base_url
-                         or (RAPIDAPI_BASE_URL if host_env in (None, "", "rapidapi") else f"https://{host_env}")
-                         or BASE_URL)
+                         or (f"https://{host_env}" if host_env and host_env not in ("rapidapi",) else BASE_URL))
         self.rapidapi_host = rapidapi_host or RAPIDAPI_HOST
 
     def _get(self, path: str, params: Optional[dict] = None, reintentos: int = 3,
@@ -106,24 +104,24 @@ class HighlightlyClient:
     # Endpoints
     # ------------------------------------------------------------------
     def buscar_ligas(self, nombre: str) -> list[dict]:
-        data = self._get("/football/leagues", {"leagueName": nombre})
+        data = self._get("/leagues", {"leagueName": nombre})
         return _normalizar_lista(data)
 
     def obtener_partidos(self, league_id: int, season: str) -> list[dict]:
-        data = self._get("/football/matches", {"leagueId": league_id, "season": season})
+        data = self._get("/matches", {"leagueId": league_id, "season": season})
         return _normalizar_lista(data)
 
     def obtener_partido(self, match_id: int) -> dict:
-        return self._get(f"/football/matches/{match_id}")
+        return self._get(f"/matches/{match_id}")
 
     def obtener_estadisticas(self, match_id: int) -> dict:
-        return self._get(f"/football/statistics/{match_id}")
+        return self._get(f"/statistics/{match_id}")
 
     def obtener_alineaciones(self, match_id: int) -> dict:
-        return self._get(f"/football/lineups/{match_id}")
+        return self._get(f"/lineups/{match_id}")
 
     def obtener_boxscore(self, match_id: int) -> dict:
-        return self._get(f"/football/match-box-score/{match_id}")
+        return self._get(f"/match-box-score/{match_id}")
 
     def obtener_matches_season(self, league_id: int, season: str) -> list[dict]:
         return self.obtener_partidos(league_id, season)

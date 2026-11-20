@@ -14,6 +14,7 @@ Flujo:
 
 import argparse
 import json
+import logging
 import unicodedata
 from datetime import datetime
 

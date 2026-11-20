@@ -16,11 +16,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 import settings
 from scripts.motor.features import (
-    compute_features_for_upcoming,
-    implied_probabilities,
-    poisson_1x2,
     rolling_team_features,
-    safe_pair_mean,
 )
 from scripts.motor.xg_understat import merge_xg
 
@@ -359,7 +355,6 @@ def build_logit_model() -> Pipeline:
 
 
 def build_hgb_model() -> Pipeline:
-    numeric_features = feature_columns()
     preprocessor = Pipeline([("imputer", SimpleImputer(strategy="median"))])
     master_config = settings.master_model_config()
     model = HistGradientBoostingClassifier(

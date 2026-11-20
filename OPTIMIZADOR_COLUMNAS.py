@@ -442,7 +442,6 @@ def _optimize_partidos(
     best_combo = tuple(exhaustive["mejor_combinacion"]["dobles"])
     selected = build_double_development(probs, best_combo, matches=main_matches)
     best_metrics = evaluate_development(probs, selected, best_combo)
-    dist = coverage_distribution(probs, selected)
 
     n_columns = contract["columns_per_ticket"]
     cost = n_columns * contract["price_per_column"]
@@ -503,10 +502,10 @@ def _optimize_partidos(
             {
                 "num": m.get("num"),
                 "signos": list(s),
-                "label": l,
+                "label": lo,
                 "segunda_probabilidad": round(second_probability(p), 4),
             }
-            for m, (l, s), p in zip(main_matches, selected, probs)
+            for m, (lo, s), p in zip(main_matches, selected, probs)
         ],
         "pleno15": pleno_info,
         "probabilidades_exactas": best_metrics["probabilidades_exactas"],
