@@ -25,8 +25,9 @@ saneador no sobreescribe archivos. La aparición de avisos de cobertura en QA
 no equivale a un aprobado del dataset.
 
 La auditoría de arquitectura, los hallazgos y el plan de mejora están en
-[Auditoría técnica — fase 1](reports/AUDITORIA_TECNICA_2026-11-18.md) y en la
-[auditoría total del 19/11/2026](reports/AUDITORIA_TOTAL_2026-11-19.md).
+[Auditoría técnica — fase 1](reports/AUDITORIA_TECNICA_2026-11-18.md), en la
+[auditoría total del 19/11/2026](reports/AUDITORIA_TOTAL_2026-11-19.md) y en la
+[revisión de pendientes del 20/11/2026](reports/REVISION_MEJORAS_2026-11-20.md).
 
 El control de datasets es descriptivo por defecto: los críticos de cobertura
 conocidos no detienen el `make audit` histórico. Para usar el auditor como

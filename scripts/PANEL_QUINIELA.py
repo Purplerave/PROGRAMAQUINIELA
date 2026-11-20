@@ -7,7 +7,9 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import hmac
 import json
+import secrets
 import subprocess
 import sys
 import threading
@@ -16,6 +18,7 @@ import webbrowser
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import urlsplit
 
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -30,6 +33,9 @@ from scripts.motor.temporal import utc_timestamp
 
 
 PUERTO = 8787
+PANEL_TOKEN = secrets.token_urlsafe(32)
+MAX_POST_BODY_BYTES = 0  # Las dos operaciones POST no aceptan payload.
+LOCAL_HOSTS = {"localhost", "127.0.0.1", "::1"}
 LOCK = threading.Lock()
 ESTADO: dict = {"corriendo": False, "ultima_ejecucion": None,
                 "payload": None, "log_tail": "", "error": None}
@@ -141,6 +147,69 @@ def exportar_actual() -> dict:
     return exportar_liga_maestros(load_weekly_output(ticket["jornada"], ticket["demo"]))
 
 
+def _host_local_valido(host: str | None) -> bool:
+    if not host:
+        return False
+    try:
+        parsed = urlsplit(f"//{host}")
+        return (
+            parsed.hostname in LOCAL_HOSTS
+            and parsed.port == PUERTO
+            and parsed.username is None
+            and parsed.password is None
+            and parsed.path == ""
+        )
+    except ValueError:
+        return False
+
+
+def _origen_local_valido(origin: str | None) -> bool:
+    if not origin:
+        return False
+    try:
+        parsed = urlsplit(origin)
+        return (
+            parsed.scheme == "http"
+            and parsed.hostname in LOCAL_HOSTS
+            and parsed.port == PUERTO
+            and parsed.username is None
+            and parsed.password is None
+            and parsed.path == ""
+            and parsed.query == ""
+            and parsed.fragment == ""
+        )
+    except ValueError:
+        return False
+
+
+def validar_post(headers, token: str = PANEL_TOKEN) -> tuple[int, str] | None:
+    """Autoriza solo POST del panel local, con origen, token y cuerpo vacío."""
+    if not _host_local_valido(headers.get("Host")):
+        return 403, "host no permitido"
+    origin = headers.get("Origin")
+    if not _origen_local_valido(origin):
+        return 403, "origen no permitido"
+    request_host = urlsplit(f"//{headers['Host']}")
+    origin_host = urlsplit(origin)
+    if (request_host.hostname != origin_host.hostname
+            or request_host.port != origin_host.port):
+        return 403, "host y origen no coinciden"
+    supplied = headers.get("X-Panel-Token", "")
+    if not supplied or not hmac.compare_digest(supplied, token):
+        return 403, "token de sesión inválido"
+    if headers.get("Transfer-Encoding"):
+        return 400, "transfer-encoding no permitido"
+    try:
+        length = int(headers.get("Content-Length", "0"))
+    except (TypeError, ValueError):
+        return 400, "content-length inválido"
+    if length < 0:
+        return 400, "content-length inválido"
+    if length > MAX_POST_BODY_BYTES:
+        return 413, "el panel no acepta cuerpos POST"
+    return None
+
+
 # ------------------------------------------------------------------ CLI --
 
 def pintar_cli(payload: dict) -> None:
@@ -230,7 +299,8 @@ vertical-align:-2px;margin-right:8px}@keyframes g{to{transform:rotate(360deg)}}
 "use strict";
 const $=id=>document.getElementById(id);
 const st=t=>{$('status').textContent=t;};
-async function post(url){const r=await fetch(url,{method:'POST'});const d=await r.json();if(!r.ok)throw Error(d.error||r.status);return d;}
+const PANEL_TOKEN=__PANEL_TOKEN_JSON__;
+async function post(url){const r=await fetch(url,{method:'POST',headers:{'X-Panel-Token':PANEL_TOKEN}});const d=await r.json();if(!r.ok)throw Error(d.error||r.status);return d;}
 $('btnRun').addEventListener('click',async()=>{
   $('btnRun').disabled=true;$('btnPub').disabled=true;$('errbox').textContent='';$('salida').innerHTML='';
   st('Ejecutando doble motor + optimizador...');
@@ -333,21 +403,30 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(raw)
 
     def do_GET(self):
-        if self.path == "/":
-            self._send(200, HTML.encode("utf-8"), "text/html; charset=utf-8")
+        if not _host_local_valido(self.headers.get("Host")):
+            self._send(403, {"error": "host no permitido"})
+        elif self.path == "/":
+            page = HTML.replace("__PANEL_TOKEN_JSON__", json.dumps(PANEL_TOKEN))
+            self._send(200, page.encode("utf-8"), "text/html; charset=utf-8")
         elif self.path == "/api/estado":
             self._send(200, estado_actual())
         else:
             self._send(404, {"error": "ruta desconocida"})
 
     def do_POST(self):
+        if self.path not in ("/api/run", "/api/exportar"):
+            self._send(404, {"error": "ruta desconocida"})
+            return
+        denial = validar_post(self.headers)
+        if denial is not None:
+            status, message = denial
+            self._send(status, {"error": message})
+            return
         try:
             if self.path == "/api/run":
                 self._send(200, iniciar_semana(self.presupuesto, self.source, self.demo))
-            elif self.path == "/api/exportar":
-                self._send(200, exportar_actual())
             else:
-                self._send(404, {"error": "ruta desconocida"})
+                self._send(200, exportar_actual())
         except (ValueError, OSError) as exc:
             self._send(400, {"error": str(exc)})
 

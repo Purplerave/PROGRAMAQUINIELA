@@ -21,6 +21,7 @@ from __future__ import annotations
 import os
 import time
 from pathlib import Path
+from urllib.parse import urlsplit
 from typing import Optional
 
 import requests
@@ -77,13 +78,26 @@ class HighlightlyClient:
                  base_url: Optional[str] = None, rapidapi_host: Optional[str] = None):
         self.api_key = api_key or obtener_api_key()
         self.session = session or requests.Session()
-        # Por defecto: host de RapidAPI (confirmado). Se puede forzar el directo
-        # pasando base_url=BASE_URL o HIGHLIGHTLY_HOST=sports.highlightly.net.
         host_env = os.environ.get("HIGHLIGHTLY_HOST")
-        self.base_url = (base_url
-                         or (RAPIDAPI_BASE_URL if host_env in (None, "", "rapidapi") else f"https://{host_env}")
-                         or BASE_URL)
-        self.rapidapi_host = rapidapi_host or RAPIDAPI_HOST
+        if base_url is not None:
+            selected_url = base_url
+        elif host_env in (None, "", "rapidapi"):
+            selected_url = RAPIDAPI_BASE_URL
+        elif host_env.startswith(("http://", "https://")):
+            selected_url = host_env
+        else:
+            selected_url = f"https://{host_env}"
+        self.base_url = selected_url.rstrip("/")
+
+        # El host del header RapidAPI se deriva del endpoint real. No se envía
+        # a Highlightly directo, salvo que el llamador lo fuerce explícitamente.
+        if rapidapi_host is not None:
+            self.rapidapi_host = rapidapi_host.strip() or None
+        else:
+            hostname = urlsplit(self.base_url).hostname
+            self.rapidapi_host = (
+                hostname if hostname and hostname.endswith(".rapidapi.com") else None
+            )
 
     def _get(self, path: str, params: Optional[dict] = None, reintentos: int = 3,
              espera: float = 2.0) -> dict:

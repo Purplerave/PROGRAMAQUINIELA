@@ -2000,7 +2000,12 @@
       }
     }
   },
-  "missing_or_partial": [],
+  "missing_or_partial": [
+    "CD Eldense",
+    "CD Tenerife",
+    "CE Sabadell",
+    "RC Celta Fortuna"
+  ],
   "missing_data_strategy": {
     "status": "agregados_primera_rfef_cargados_home_away_pendiente",
     "teams": [
