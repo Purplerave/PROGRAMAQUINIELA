@@ -76,3 +76,30 @@ def test_contract_is_serializable_and_coherent():
     assert section["doubles"] == 3
     assert section["columns_per_ticket"] == 8
     assert abs(section["columns_per_ticket"] * section["price_per_column"] - section["max_cost"]) < 1e-9
+
+
+# --------------------------------------------------------------------------- #
+# Contrato del ensemble (auditoría 20/11/2026, P1)
+# --------------------------------------------------------------------------- #
+def test_los_pesos_del_maestro_suman_uno():
+    weights = settings.master_model_config()["weights"]
+    assert math.isclose(sum(weights.values()), 1.0, abs_tol=1e-9)
+    assert set(weights) == {"logit", "hgb", "market", "poisson"}
+
+
+def test_el_mercado_domina_y_la_documentacion_lo_dice():
+    """El motor es «mercado + ajuste pequeño»; que no se vuelva a vender como ensemble."""
+    weights = settings.master_model_config()["weights"]
+    assert weights["market"] >= 0.9
+    assert weights["hgb"] <= 0.1
+    readme = (settings.PROJECT_DIR / "README.md").read_text(encoding="utf-8")
+    assert "ajuste pequeño" in readme
+    assert "no bate al mercado" in readme
+
+
+def test_la_referencia_no_se_reoptimiza_en_produccion(monkeypatch):
+    """`--modo produccion` debe devolver exactamente los pesos publicados."""
+    import MOTOR_QUINIELA_MAESTRO as motor
+
+    config = motor.active_hybrid_config()
+    assert config["weights"] == settings.master_model_config()["weights"]

@@ -10,7 +10,7 @@
 |---|---|---|
 | Liga M: acierto OOS walk-forward | > favorito de mercado de forma estable | Pendiente: 50,15 % vs 49,83 %; p = 0,1454 |
 | Liga F: acierto OOS walk-forward | > baseline, log-loss < 1.0 | 58,89 %, log-loss 0,8571 vs frecuencias 1,0703 (180 partidos reales; sin mercado) |
-| Boleto completo unificado | 14 casillas 1X2 y un Pleno de 16 signos | ✅ `SALIDAS/boleto_completo_J*.json` |
+| Boleto completo unificado | 14 casillas 1X2 y un Pleno de 16 signos | ✅ `salida/boleto_completo_J*.json` |
 | Trazabilidad total | SHA-256 + manifiesto por dataset e instante de disponibilidad | Parcial: manifiesto Liga F y referencia masculina; faltan capturas al corte y corpus oficial. |
 | Honestidad estadística | sin cambios de parámetros sin n suficiente | ✅ freeze Liga M hasta ≥70/120 evaluables |
 
@@ -46,7 +46,7 @@ PROGRAMAQUINIELA/
 │   │   ├── proxima_jornada_ligaf.csv          # fixtures semanales (input humano)
 │   │   └── MANIFIESTO_FUENTES.json            # procedencia + sha256
 │   └── paper_trading_2627.json                # registro congelado Liga M
-├── SALIDAS/
+├── salida/
 │   ├── backtest_ligaf_2324.json               # 58.89% / LL 0.857 verificado
 │   ├── boleto_completo_J*.json                # ★ salida unificada semanal
 │   └── predicciones_modelo_J*.json            # motor Liga M

@@ -20,9 +20,9 @@ import pandas as pd
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-import MOTOR_QUINIELA_MAESTRO as motor  # noqa: E402
-import OPTIMIZADOR_COLUMNAS as opt  # noqa: E402
-from evaluation import economics as econ  # noqa: E402
+import MOTOR_QUINIELA_MAESTRO as motor
+import OPTIMIZADOR_COLUMNAS as opt
+from evaluation import economics as econ
 
 OUT_DIR = PROJECT_ROOT / "salida"
 PREFIX = "latest"
@@ -52,7 +52,7 @@ def _hits_for_selected(probs_group, selected, results) -> int:
     """Aciertos de la mejor columna: por partido suma 1 si el resultado real
     está entre los signos jugados del desarrollo."""
     hits = 0
-    for (_, signs), res in zip(selected, results):
+    for (_, signs), res in zip(selected, results, strict=False):
         if res in signs:
             hits += 1
     return hits

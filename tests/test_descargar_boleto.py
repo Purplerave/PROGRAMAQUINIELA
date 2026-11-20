@@ -28,13 +28,13 @@ HTML = """<html><body>
 
 
 def _doc_15(rows_html: str) -> dict:
-    body = """<html><body>
+    body = f"""<html><body>
 <p>Pronóstico de la jornada 12 (Cierra el 10/10/2026 a las 14:00)</p>
 <table><tr><th>Local</th><th>Visitante</th><th>Sis.</th><th>Usu.</th><th>Hora</th></tr>
-%s
+{rows_html}
 </table>
 <p>Hay un bote de 1.500.000 € para esta jornada.</p>
-</body></html>""" % rows_html
+</body></html>"""
     return parsear(body)
 
 

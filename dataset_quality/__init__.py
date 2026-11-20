@@ -7,6 +7,9 @@ from .priors import audit_priors
 from .report import audit_datasets, format_summary
 
 __all__ = [
+    "MATCH_STAT_COLUMNS",
+    "PROJECT_ROOT",
+    "SHOT_COLUMNS",
     "audit_datasets",
     "audit_highlightly",
     "audit_historical",

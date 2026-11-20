@@ -21,7 +21,6 @@ import csv
 import json
 import shutil
 import sys
-from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -34,8 +33,8 @@ PLENO_NUM = 15
 def _f(value: str, campo: str, num: int) -> float:
     try:
         v = float(str(value).strip().replace(",", "."))
-    except (TypeError, ValueError):
-        raise ValueError(f"casilla {num}: {campo} no numerico ({value!r})")
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"casilla {num}: {campo} no numerico ({value!r})") from exc
     if not v > 1.01:
         raise ValueError(f"casilla {num}: {campo}={v} no parece cuota (>1.01)")
     return v
@@ -46,12 +45,12 @@ def leer_csv(ruta: Path) -> dict[int, dict]:
         raise FileNotFoundError(f"No existe: {ruta}")
     filas: dict[int, dict] = {}
     with ruta.open(encoding="utf-8-sig") as f:
-        for i, row in enumerate(csv.DictReader(f), start=2):
+        for _i, row in enumerate(csv.DictReader(f), start=2):
             if not (row.get("num") or "").strip():
                 continue
             num = int(row["num"])
             if num == PLENO_NUM:
-                print(f"  aviso: casilla 15 ignorada (el pleno usa Dixon-Coles, no 1X2)")
+                print("  aviso: casilla 15 ignorada (el pleno usa Dixon-Coles, no 1X2)")
                 continue
             o1 = _f(row.get("odd_1", ""), "odd_1", num)
             ox = _f(row.get("odd_x", ""), "odd_x", num)

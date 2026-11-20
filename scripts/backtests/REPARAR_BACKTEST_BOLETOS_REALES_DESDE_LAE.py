@@ -21,7 +21,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.backtests.AUDITAR_LAE_VS_HISTORICO import audit_jornada, load_history  # noqa: E402
+from scripts.backtests.AUDITAR_LAE_VS_HISTORICO import audit_jornada, load_history
 
 DEFAULT_INPUT = PROJECT_ROOT / "salida" / "backtest_boletos_reales.json"
 

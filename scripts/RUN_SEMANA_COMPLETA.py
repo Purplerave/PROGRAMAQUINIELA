@@ -11,7 +11,7 @@ import json
 import subprocess
 import sys
 from copy import deepcopy
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -111,7 +111,7 @@ def main(argv: list[str] | None = None) -> int:
         bote = float(args.bote if args.bote is not None else ticket.get("bote_eur", 0))
         if not math.isfinite(bote) or bote < 0:
             raise ValueError("bote_eur debe ser un importe finito no negativo")
-        cutoff = min(utc_timestamp(ticket.get("prediction_cutoff_at", ticket["cierre"])), datetime.now(timezone.utc))
+        cutoff = min(utc_timestamp(ticket.get("prediction_cutoff_at", ticket["cierre"])), datetime.now(UTC))
         sources = {
             False: ("ligam", ligam_model.cargar_historico, ligam_model.ajustar, ligam_model.predecir, ligam_model.canon_ligam),
             True: ("ligaf", ligaf_model.cargar_dated, ligaf_model.ajustar, ligaf_model.predecir, ligaf_model.canon),
@@ -146,7 +146,7 @@ def main(argv: list[str] | None = None) -> int:
 
     package = {
         "jornada": jornada, "demo": args.demo,
-        "generado": datetime.now(timezone.utc).isoformat(),
+        "generado": datetime.now(UTC).isoformat(),
         "fuente_boleto": ticket["fuente"], "temporada": ticket.get("temporada"),
         "bote_eur": bote, "cierre": ticket["cierre"], "prediction_cutoff_at": cutoff.isoformat(),
         "partidos_entrenamiento": counts,
@@ -157,7 +157,7 @@ def main(argv: list[str] | None = None) -> int:
         "ligam": {"predicciones": pred_m}, "ligaf": {"pronosticos": pred_f},
     }
     label = output_label(jornada, args.demo)
-    path = settings.SALIDAS_DIR / f"boleto_completo_{label}.json"
+    path = settings.SALIDA_DIR / f"boleto_completo_{label}.json"
     write_json(path, package)
     print(f"Paquete {'de demostración' if args.demo else 'semanal'}: {path}", flush=True)
     cmd = [sys.executable, str(ROOT / "scripts" / "OPTIMIZADOR_BOLETO.py"),

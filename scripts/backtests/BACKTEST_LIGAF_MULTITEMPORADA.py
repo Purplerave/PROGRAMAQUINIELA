@@ -6,14 +6,14 @@ import argparse
 import hashlib
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.motor import ligaf_model  # noqa: E402
+from scripts.motor import ligaf_model
 
 
 def sha256(path: Path) -> str:
@@ -29,7 +29,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--out",
         type=Path,
-        default=ROOT / "SALIDAS" / "backtest_ligaf_multitemporada.json",
+        default=ROOT / "salida" / "backtest_ligaf_multitemporada.json",
         help="ruta de salida JSON",
     )
     args = parser.parse_args(argv)
@@ -45,7 +45,7 @@ def main(argv: list[str] | None = None) -> int:
         "interpretacion": (
             "Walk-forward retrospectivo por día; no demuestra ventaja futura ni compara con cuotas."
         ),
-        "generado_utc": datetime.now(timezone.utc).isoformat(),
+        "generado_utc": datetime.now(UTC).isoformat(),
         "rango_fechas": [matches[0]["fecha"].date().isoformat(), matches[-1]["fecha"].date().isoformat()],
         "n_partidos": len(matches),
         "fuentes": [

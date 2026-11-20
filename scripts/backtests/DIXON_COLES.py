@@ -19,7 +19,6 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
 from sklearn.metrics import log_loss
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -116,7 +115,7 @@ def main() -> None:
         hg = test["FTHG"].to_numpy()
         ag = test["FTAG"].to_numpy()
 
-        def metrics(p):
+        def metrics(p, y=y):
             acc = float((np.argmax(p, axis=1) == y).mean())
             return {
                 "log_loss": float(log_loss(y, p)),

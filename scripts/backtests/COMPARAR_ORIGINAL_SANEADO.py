@@ -115,7 +115,7 @@ def comparar_backtest(base: Path, spec: dict) -> dict:
         frames[fuente] = pd.read_csv(directorio / spec["csv"])
         metricas_json[fuente] = json.loads((directorio / spec["json"]).read_text(encoding="utf-8"))
         mejor = metricas_json[fuente]["best_config"]
-        configs[fuente] = mejor["config"] if "config" in mejor else mejor
+        configs[fuente] = mejor.get("config", mejor)
 
     # Las dos fuentes deben evaluar exactamente los mismos partidos.
     claves = ["date", "division", "home", "away", "result"]

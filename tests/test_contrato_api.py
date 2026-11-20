@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 
-import pytest
 
 import settings
 import scripts.motor.GENERAR_CONTRATO_API as gen
@@ -102,10 +101,10 @@ class TestValidarContrato:
 
 
 class TestGenerateApiContract:
-    def test_genera_y_valida_en_salidas(self, tmp_path, monkeypatch):
-        out = tmp_path / "SALIDAS"
+    def test_genera_y_valida_en_salida(self, tmp_path, monkeypatch):
+        out = tmp_path / "salida"
         out.mkdir()
-        monkeypatch.setattr(settings, "SALIDAS_DIR", out)
+        monkeypatch.setattr(settings, "SALIDA_DIR", out)
         (out / "paquete_jornada_J99.json").write_text(
             json.dumps(_paquete_fixture(jornada=99)), encoding="utf-8"
         )
@@ -118,9 +117,9 @@ class TestGenerateApiContract:
         assert gen.validar_contrato(guardado) == []
 
     def test_muestra_error_si_paquete_ausente(self, tmp_path, monkeypatch, capsys):
-        out = tmp_path / "SALIDAS"
+        out = tmp_path / "salida"
         out.mkdir()
-        monkeypatch.setattr(settings, "SALIDAS_DIR", out)
+        monkeypatch.setattr(settings, "SALIDA_DIR", out)
         assert gen.generate_api_contract(999) is None
         assert "No se encuentra el paquete" in capsys.readouterr().out
 

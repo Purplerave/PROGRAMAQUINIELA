@@ -63,7 +63,7 @@ def _coincide_columns(columns, marcadores) -> list[str]:
     """Devuelve las columnas que contienen algun marcador (case-insensitive)."""
     cols_lower = [c.lower().strip("\ufeff") for c in columns]
     hits = []
-    for col, col_lower in zip(columns, cols_lower):
+    for col, col_lower in zip(columns, cols_lower, strict=False):
         if any(m in col_lower for m in marcadores):
             hits.append(col)
     return hits
@@ -114,7 +114,8 @@ def coverage_highlightly() -> dict:
     by_fam = {}
     for fam, spec in FAMILIAS.items():
         by_fam[fam] = _coincide_columns(cols, spec["marcadores"])
-    n = sum(1 for _ in open(HIGHLIGHTLY, encoding="utf-8")) - 1
+    with open(HIGHLIGHTLY, encoding="utf-8") as fh:
+        n = sum(1 for _ in fh) - 1
     return {
         "presente": True,
         "columnas": cols,
@@ -209,7 +210,7 @@ def main():
     print(f"Partidos en historico (Football-Data): {report['historico']['partidos_total']}")
     print(f"Columnas de tiro/SOT ya disponibles:   {report['historico']['columnas_tiros_disponibles_(contraste)']}")
     print()
-    for fam, v in report["veredicto_por_familia"].items():
+    for _fam, v in report["veredicto_por_familia"].items():
         marca = "SI" if v["cobertura_historica_consistente"] else "NO"
         print(f"[{marca}] {v['nombre']:32} columnas halladas: {v['columnas_historicas_encontradas'] or 'ninguna'}")
     print()

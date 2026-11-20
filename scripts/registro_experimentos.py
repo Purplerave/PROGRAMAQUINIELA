@@ -20,6 +20,7 @@ para tests (``REGISTRO_PATH``) o mediante ``--path``.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 from datetime import date
 from pathlib import Path
@@ -37,7 +38,7 @@ def cargar(path: Path) -> dict:
     """Carga el registro. Si no existe, devuelve uno vacío (no lo crea)."""
     if not path.exists():
         return {"version": _REGISTRO_VERSION, "registro": []}
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         data = json.load(f)
     if not isinstance(data, dict) or not isinstance(data.get("registro"), list):
         raise ValueError(f"Registro corrupto en {path}: no es un objeto con lista 'registro'")
@@ -114,10 +115,8 @@ def _main():
 
     metricas = args.metricas
     if metricas:
-        try:
-            metricas = json.loads(metricas)
-        except json.JSONDecodeError:
-            pass  # se conserva como texto libre
+        with contextlib.suppress(json.JSONDecodeError):
+            metricas = json.loads(metricas)  # si falla, se conserva como texto libre
 
     entrada = registrar(
         args.nombre,

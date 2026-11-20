@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 import math
-import re
 import statistics
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
+from collections.abc import Iterable
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]

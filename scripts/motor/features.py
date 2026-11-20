@@ -12,7 +12,6 @@ Elo, forma, tabla o descanso de otros partidos disputados el mismo día.
 
 from __future__ import annotations
 
-import math
 from typing import Any
 
 import numpy as np

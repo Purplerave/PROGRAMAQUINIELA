@@ -76,7 +76,7 @@ def canon_ligam(nombre: str) -> str:
     return n
 
 
-import re  # noqa: E402  (tras _na para legibilidad del mapa)
+import re
 
 
 def cargar_historico() -> list[dict]:
@@ -92,7 +92,7 @@ def cargar_historico() -> list[dict]:
                     try:
                         fecha = datetime.strptime(r.get("Date", ""), "%d/%m/%Y")
                         gh, ga = int(r["FTHG"]), int(r["FTAG"])
-                    except Exception:  # noqa: BLE001
+                    except Exception:
                         continue
                     loc, vis = canon_ligam(r["HomeTeam"]), canon_ligam(r["AwayTeam"])
                     partidos.append({"fecha": fecha, "local": loc, "visitante": vis,

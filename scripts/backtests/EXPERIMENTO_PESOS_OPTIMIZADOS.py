@@ -30,7 +30,6 @@ from MOTOR_QUINIELA_MAESTRO import (
     LABEL_MAP,
     feature_columns,
     load_raw_history,
-    predict_full_probs,
     simulate_doubles,
 )
 from scripts.motor.features import rolling_team_features
@@ -170,7 +169,7 @@ def main() -> None:
     w_opt = np.clip(best.x, 0.0, 1.0)
     w_opt = w_opt / w_opt.sum()
     print("\nPesos optimizados (log loss en validación):")
-    for name, w in zip(SOURCE_NAMES, w_opt):
+    for name, w in zip(SOURCE_NAMES, w_opt, strict=False):
         print(f"  {name:<8} {w:.3f}")
     print(f"  log loss validación: {best.fun:.4f}")
 
@@ -225,7 +224,7 @@ def main() -> None:
 
     payload = {
         "historico": args.historico,
-        "pesos_optimizados": {n: float(w) for n, w in zip(SOURCE_NAMES, w_opt)},
+        "pesos_optimizados": {n: float(w) for n, w in zip(SOURCE_NAMES, w_opt, strict=False)},
         "log_loss_validacion": float(best.fun),
         "test": {
             "mercado": r_market,

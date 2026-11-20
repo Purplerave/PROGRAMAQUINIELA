@@ -25,7 +25,6 @@ import codecs
 import json
 import re
 from datetime import datetime
-from typing import Optional
 
 # El contenido no tiene apóstrofes sin escapar: los del interior vienen como
 # \' (secuencia \\.) y el cierre es ');. Consumimos (?:[^'\\]|\\.) como unidad.
@@ -55,7 +54,7 @@ def _unescape(js_str: str) -> str:
             return out
 
 
-def _extraer(regex, html: str) -> Optional[str]:
+def _extraer(regex, html: str) -> str | None:
     m = regex.search(html)
     return m.group(1) if m else None
 
@@ -99,7 +98,7 @@ def parse_teams_data(html: str) -> dict[str, dict]:
     return json.loads(_unescape(raw))
 
 
-def _float_or_none(value) -> Optional[float]:
+def _float_or_none(value) -> float | None:
     try:
         v = float(value)
         return v if v == v else None
@@ -107,7 +106,7 @@ def _float_or_none(value) -> Optional[float]:
         return None
 
 
-def parse_datetime(value: str) -> Optional[datetime]:
+def parse_datetime(value: str) -> datetime | None:
     """Convierte el datetime de Understat (\"YYYY-MM-DD HH:MM:SS\") a fecha ISO."""
     if not value:
         return None

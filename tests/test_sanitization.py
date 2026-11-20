@@ -19,7 +19,6 @@ Cubre:
 from __future__ import annotations
 
 import csv
-import json
 import subprocess
 import sys
 from pathlib import Path
@@ -85,7 +84,7 @@ FULL_FIELDS = list(_base_row())
 
 def test_empty_row_is_excluded():
     columns = list(FULL_FIELDS)
-    row = {field: "" for field in columns}
+    row = dict.fromkeys(columns, "")
     row["_columns"] = columns
     reason = san.exclusion_reason(row, columns)
     assert reason == "EMPTY_ROW"
@@ -275,7 +274,7 @@ def test_each_row_lists_transformations():
 
 def test_excluded_row_has_exclusion_reason():
     columns = list(FULL_FIELDS)
-    row = {field: "" for field in columns}
+    row = dict.fromkeys(columns, "")
     row["_columns"] = columns
     result = san.sanitize_row(row)
     assert result["motivo_exclusion"] == "EMPTY_ROW"
@@ -300,7 +299,7 @@ def test_pipeline_with_synthetic_data(tmp_path: Path):
         B365H="", B365D="", B365A="",
         B365CH="", B365CD="", B365CA="",
     )
-    empty = {field: "" for field in FULL_FIELDS}
+    empty = dict.fromkeys(FULL_FIELDS, "")
     suspicious = _base_row(
         Date="04/09/2020", HomeTeam="Sospechoso",
         B365CH="5.0", B365CD="5.0", B365CA="5.0",
@@ -450,7 +449,7 @@ def test_preflight_blocks_all_if_one_exists():
     (out_dir / "manifest.json").write_text("{}\n", encoding="utf-8")
 
     rows = [{"Date": "01/09/2020", "transformaciones": []}]
-    with pytest.raises(FileExistsError, match="manifest.json"):
+    with pytest.raises(FileExistsError, match=r"manifest\.json"):
         san.write_all_outputs(
             rows, rows, {"schema_version": 1}, {"input_rows": 1},
             out_dir, confirm=True,

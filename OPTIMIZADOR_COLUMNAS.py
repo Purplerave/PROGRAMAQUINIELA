@@ -315,7 +315,7 @@ def column_value(col: tuple[str, ...], probs: list[np.ndarray], public: list[np.
 
 def dev_singles(probs: list[np.ndarray]) -> list[tuple]:
     """Desarrollo de simples con el favorito de cada fuente."""
-    return [tuple([SIGNS[int(np.argmax(p))]]) for p in probs]
+    return [(SIGNS[int(np.argmax(p))],) for p in probs]
 
 
 def dev_from_field(partidos: list[dict], field: str) -> list[tuple] | None:
@@ -369,7 +369,7 @@ def summarize_hits(hits: np.ndarray) -> dict[str, float]:
 
 def render_ticket(partidos: list[dict], selected: list[tuple]) -> str:
     lines = []
-    for m, (label, signs) in zip(partidos, selected):
+    for m, (label, signs) in zip(partidos, selected, strict=False):
         local = str(m.get("local", "?"))
         visit = str(m.get("visitante", "?"))
         row = "".join("X" if s in signs else "." for s in ("1", "X", "2"))
@@ -415,11 +415,11 @@ def _optimize_partidos(
     ordered = sorted(require_positions(partidos), key=lambda m: m["num"])
     main_matches, pleno_match = ordered[:-1], ordered[-1]
     probs = [_prob_for(m, fuente_prob, probs_override) for m in main_matches]
-    missing = [m["num"] for m, p in zip(main_matches, probs) if p is None]
+    missing = [m["num"] for m, p in zip(main_matches, probs, strict=False) if p is None]
     if missing:
         raise ValueError(f"Sin probabilidades válidas en las casillas {missing}")
     public = publico_per_match(main_matches, publico)
-    public_missing = [m["num"] for m, p in zip(main_matches, public) if p is None]
+    public_missing = [m["num"] for m, p in zip(main_matches, public, strict=False) if p is None]
     rank_by_public = not public_missing and alpha > 0
 
     exhaustive = evaluate_all_three_doubles(probs, n_doubles=contract["doubles"], matches=main_matches)
@@ -492,10 +492,10 @@ def _optimize_partidos(
                 "local": m.get("local"),
                 "visitante": m.get("visitante"),
                 "signos": list(s),
-                "label": l,
+                "label": etiqueta,
                 "segunda_probabilidad": round(second_probability(p), 4),
             }
-            for m, (l, s), p in zip(main_matches, selected, probs)
+            for m, (etiqueta, s), p in zip(main_matches, selected, probs, strict=False)
         ],
         "pleno15": pleno_info,
         "probabilidades_exactas": best_metrics["probabilidades_exactas"],

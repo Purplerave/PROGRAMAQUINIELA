@@ -12,7 +12,7 @@ Si no hay cuotas, se aproximan por 1/p (de-vig del propio vector).
 """
 from __future__ import annotations
 
-from typing import Sequence
+from collections.abc import Sequence
 
 BANDA_VISITA_ANTI = (2.5, 4.0)
 BANDA_LOCAL_MOD = (1.4, 1.8)

@@ -106,8 +106,8 @@ def test_dobles_llevan_los_dos_signos_mas_probables():
     for i in (0, 1, 2):
         _, signs = selected[i]
         assert len(signs) == 2
-        top2 = set(int(j) for j in np.argsort(probs[i])[-2:])
-        assert set(SIGN_INDEX[s] for s in signs) == top2
+        top2 = {int(j) for j in np.argsort(probs[i])[-2:]}
+        assert {SIGN_INDEX[s] for s in signs} == top2
     for i in (3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13):
         _, signs = selected[i]
         assert len(signs) == 1

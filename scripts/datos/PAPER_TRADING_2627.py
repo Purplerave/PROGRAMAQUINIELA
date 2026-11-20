@@ -87,7 +87,7 @@ def select_bets(rows: list[dict]) -> list[dict]:
             if last_date is not None:
                 jornada += 1
             last_date = fecha
-        h, d, a = _odds(row)
+        h, _d, a = _odds(row)
         if a is None or h is None:
             continue
         banda = None

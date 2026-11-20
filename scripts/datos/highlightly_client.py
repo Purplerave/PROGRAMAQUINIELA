@@ -22,7 +22,6 @@ import os
 import time
 from pathlib import Path
 from urllib.parse import urlsplit
-from typing import Optional
 
 import requests
 
@@ -74,8 +73,8 @@ def obtener_api_key() -> str:
 class HighlightlyClient:
     """Cliente mínimo de la Football API de Highlightly."""
 
-    def __init__(self, api_key: Optional[str] = None, session: Optional[requests.Session] = None,
-                 base_url: Optional[str] = None, rapidapi_host: Optional[str] = None):
+    def __init__(self, api_key: str | None = None, session: requests.Session | None = None,
+                 base_url: str | None = None, rapidapi_host: str | None = None):
         self.api_key = api_key or obtener_api_key()
         self.session = session or requests.Session()
         host_env = os.environ.get("HIGHLIGHTLY_HOST")
@@ -99,7 +98,7 @@ class HighlightlyClient:
                 hostname if hostname and hostname.endswith(".rapidapi.com") else None
             )
 
-    def _get(self, path: str, params: Optional[dict] = None, reintentos: int = 3,
+    def _get(self, path: str, params: dict | None = None, reintentos: int = 3,
              espera: float = 2.0) -> dict:
         """GET con reintentos ante rate-limit (429) y espera entre intentos."""
         url = f"{self.base_url}{path}"
@@ -183,7 +182,7 @@ def parse_estadisticas(respuesta) -> list[dict]:
     return resultado
 
 
-def _float_o_none(value) -> Optional[float]:
+def _float_o_none(value) -> float | None:
     try:
         v = float(value)
         return v if v == v else None

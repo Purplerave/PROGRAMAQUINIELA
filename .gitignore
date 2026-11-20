@@ -24,11 +24,11 @@ env/
 credentials.json
 tokens.json
 
-# Output directories and generated outputs
+# Output directory (single path; see settings.SALIDA_DIR).
+# No se usa ninguna variante en mayúsculas: macOS/Windows no distinguen y
+# provocaba colisiones de Git.
 salida/
-SALIDAS/
 !salida/.gitkeep
-!SALIDAS/.gitkeep
 
 # Models, binaries, caches & logs
 *.joblib

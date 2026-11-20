@@ -31,12 +31,12 @@ import zipfile
 from pathlib import Path
 
 import pandas as pd
+import contextlib
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts" / "motor"))
 
-from team_names import resolve_history_name  # noqa: E402
 
 # Columnas extras que se conservan en la salida (ademas de xG).
 EXTRA_COLS = ["home_shots", "away_shots", "home_sot", "away_sot",
@@ -89,7 +89,6 @@ def _leer_csv(path) -> pd.DataFrame:
 
     Acepta un ``Path``, un archivo abierto (con ``.read()``) o un texto crudo.
     """
-    import io
 
     if hasattr(path, "read"):
         texto = path.read()
@@ -129,16 +128,12 @@ def _leer_csvs(origen) -> list[tuple[str, pd.DataFrame]]:
     if isinstance(origen, zipfile.ZipFile):
         for nombre in origen.namelist():
             if nombre.lower().endswith(".csv"):
-                try:
+                with contextlib.suppress(Exception):
                     tablas.append((nombre, _cargar_tabla(origen, nombre)))
-                except Exception:
-                    pass
     else:
         for archivo in sorted(origen.rglob("*.csv")):
-            try:
+            with contextlib.suppress(Exception):
                 tablas.append((archivo.as_posix(), _leer_csv(archivo)))
-            except Exception:
-                pass
     return tablas
 
 
@@ -209,14 +204,16 @@ def localizar_partidos_la_liga(origen) -> pd.DataFrame:
 
     # Prioridad 1: match_info.csv dentro de la ruta de La Liga.
     for nombre, df in la_liga_ruta:
-        if nombre.replace("\\", "/").lower().endswith("match_info.csv"):
-            if _puntuar_tabla_partidos(df) > 0:
-                return df
+        if (
+            nombre.replace("\\", "/").lower().endswith("match_info.csv")
+            and _puntuar_tabla_partidos(df) > 0
+        ):
+            return df
 
     # Prioridad 2: cualquier CSV de La Liga (por ruta) con estructura de partido.
     mejor_ruta = None
     mejor_ruta_punt = -1
-    for nombre, df in la_liga_ruta:
+    for _nombre, df in la_liga_ruta:
         punt = _puntuar_tabla_partidos(df)
         if punt > mejor_ruta_punt:
             mejor_ruta = df
@@ -233,7 +230,7 @@ def localizar_partidos_la_liga(origen) -> pd.DataFrame:
             mejores.append((nombre, _proporcion_la_liga(df), df))
     if mejores:
         mejores.sort(key=lambda t: t[1], reverse=True)
-        mejor_nombre, mejor_prop, mejor_df = mejores[0]
+        _mejor_nombre, mejor_prop, mejor_df = mejores[0]
         if mejor_prop >= 0.5:  # al menos la mitad de los partidos son de La Liga
             return mejor_df
 

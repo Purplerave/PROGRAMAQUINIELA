@@ -1,0 +1,35 @@
+[tool.ruff]
+# Configuración de lint del Programa Quiniela.
+# Antes `make lint` solo revisaba E9/F82x (errores de sintaxis y nombres no
+# definidos) y el resto de la deuda quedaba oculta. Esta configuración cubre
+# errores reales (E/F/B), modernización (UP), simplificaciones seguras (SIM),
+# trampas de la librería estándar (RUF/C4) y estilo básico (W), sin formateo
+# masivo: la longitud de línea y el estilo cosmético quedan fuera a propósito.
+target-version = "py311"
+line-length = 140
+extend-exclude = [
+    ".venv",
+    "salida",
+    "LMARENA",  # laboratorio no productivo; ver LMARENA/README.md
+]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "W", "B", "UP", "SIM", "RUF", "C4"]
+ignore = [
+    "E501",    # longitud de línea: no se reformatea el árbol
+    "RUF001",  # carácter unicode ambiguo: el proyecto está en español
+    "RUF002",
+    "RUF003",
+    "RUF005",  # concatenación de colecciones: estilo, no defecto
+    "RUF046",  # int() redundante alrededor de round(): inocuo
+    "SIM108",  # ternario: el bloque if/else explícito se lee mejor
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Los scripts insertan la raíz del proyecto en sys.path antes de importar
+# módulos locales; el orden de imports es intencionado y está comentado.
+"scripts/**" = ["E402"]
+"tests/**" = ["E402"]
+# Scripts de raíz y paquetes que ajustan sys.path antes de importar settings.
+"OPTIMIZADOR_COLUMNAS.py" = ["E402"]
+"evaluation/*.py" = ["E402"]

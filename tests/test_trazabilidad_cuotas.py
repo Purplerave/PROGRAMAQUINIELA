@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Trazabilidad temporal de cuotas en produccion (plan Fase 4).
 
 Politica: no se inventan timestamps. Si la fuente no declara

@@ -94,8 +94,6 @@ def test_known_teams_receive_state_before_cutoff(sample_history: pd.DataFrame):
 
     sub_history = sample_history[sample_history["date"] < cutoff].copy()
     assert len(sub_history) > 0
-    df_rolling = motor.rolling_team_features(sub_history)
-    last_idx = df_rolling[(df_rolling["home"] == team) | (df_rolling["away"] == team)].index[-1]
 
     assert elo_up > 1000.0 and elo_up != 1500.0
     assert pj_up > 0.0 and pts_up >= 0.0

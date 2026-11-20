@@ -1,7 +1,7 @@
 # Contrato JSON v1.1 — Liga de Maestros
 
-**Salida local:** `SALIDAS/api_maestros_J{jornada}.json`. Se crea a partir de
-`SALIDAS/paquete_jornada_J{jornada}.json` con `PREDECIR_JORNADA.py` o:
+**Salida local:** `salida/api_maestros_J{jornada}.json`. Se crea a partir de
+`salida/paquete_jornada_J{jornada}.json` con `PREDECIR_JORNADA.py` o:
 
 ```bash
 python scripts/motor/GENERAR_CONTRATO_API.py --jornada 74

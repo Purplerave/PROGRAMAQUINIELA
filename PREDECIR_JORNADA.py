@@ -9,7 +9,7 @@ Flujo:
 2. Obtiene predicciones del modelo maestro
 3. Añade priors de equipos
 4. Genera recomendaciones finales
-5. Guarda en SALIDAS/paquete_jornada_J{jornada}.json
+5. Guarda en salida/paquete_jornada_J{jornada}.json
 """
 
 import argparse
@@ -494,7 +494,7 @@ def _build_package(jornada: int, use_model: bool, cutoff: object) -> tuple[dict,
             "modelo": model_errors,
         },
         "fuentes": {
-            "diagnostico": f"SALIDAS/diagnostico_quinielistico_J{jornada}.json",
+            "diagnostico": f"salida/diagnostico_quinielistico_J{jornada}.json",
             "jornada": f"DATOS/QUINIELA15_J{jornada}.json",
             "priors": "DATOS/temporada_2026_27_estadisticas_base.json",
             "modelo": model_predictions.get("modelo_info", {}).get("version", "no_disponible"),
@@ -517,7 +517,7 @@ def main() -> int:
     parser.add_argument(
         "--save-predictions",
         action="store_true",
-        help="Guardar predicciones del modelo en SALIDAS/predicciones_modelo_J{jornada}.json",
+        help="Guardar predicciones del modelo en salida/predicciones_modelo_J{jornada}.json",
     )
     parser.add_argument("--corte", help="fecha/hora ISO documentada del corte")
     args = parser.parse_args()
@@ -529,7 +529,7 @@ def main() -> int:
         parser.error(str(exc))
 
     # Guardar paquete principal
-    out_path = settings.SALIDAS_DIR / f"paquete_jornada_J{args.jornada}.json"
+    out_path = settings.SALIDA_DIR / f"paquete_jornada_J{args.jornada}.json"
     write_json(out_path, package)
     if args.save_predictions and predictions.get("predicciones"):
         save_predictions(predictions, args.jornada)

@@ -75,3 +75,13 @@ completa pasó; esto no resuelve las limitaciones de fuentes y evaluación
 prospectiva descritas arriba.
 
 Ningún resultado histórico garantiza aciertos o rentabilidad futura.
+
+## Actualización posterior (misma fecha)
+
+Las acciones de esta revisión que dependían de decisiones de ingeniería ya están
+implementadas y verificadas: rutas de salida unificadas, lock con hashes,
+matriz de CI Linux/Windows/macOS, Ruff completo limpio, manifiesto de
+procedencia con verificación automática, registro prospectivo append-only,
+evaluación walk-forward anidada y aislamiento de `LMARENA/`. El detalle, los
+números y los límites están en
+[MEJORA_AUDITORIA_2026-11-20.md](MEJORA_AUDITORIA_2026-11-20.md).

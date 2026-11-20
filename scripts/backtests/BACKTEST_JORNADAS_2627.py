@@ -32,8 +32,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.datos.IMPORTAR_BOLETOS_QUINIELA15 import pleno_bucket_from_source  # noqa: E402
-from scripts.motor.team_names import resolve_history_name  # noqa: E402
+from scripts.datos.IMPORTAR_BOLETOS_QUINIELA15 import pleno_bucket_from_source
+from scripts.motor.team_names import resolve_history_name
 
 DATA_DIR = PROJECT_ROOT / "DATOS" / "backtest_2627"
 DEFAULT_PRED = PROJECT_ROOT / "salida" / "predicciones_backtest_ultima_temporada.csv"
@@ -115,7 +115,7 @@ def main() -> int:
     # Union por pareja ordenada (local, visitante): unica por temporada en
     # round-robin. Las fechas del boleto J1 son poco fiables (ej. Andorra-Ceuta
     # figura 16/08 y se jugo 15/08): solo se verifica proximidad (±7 dias).
-    pred["_key"] = list(zip(pred["home"].map(canon), pred["away"].map(canon)))
+    pred["_key"] = list(zip(pred["home"].map(canon), pred["away"].map(canon), strict=False))
     pred["_date"] = pd.to_datetime(pred["date"]).dt.strftime("%Y-%m-%d")
     index: dict[tuple, list] = {}
     for i, key in enumerate(pred["_key"]):

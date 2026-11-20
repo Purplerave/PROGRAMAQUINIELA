@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Fase 5 (reversion Elo) y Fase 6 (defensivos) del plan de trabajo."""
 import pandas as pd
 
@@ -19,7 +18,7 @@ def test_reversion_elo_se_aplica_al_cambiar_de_temporada():
         "open_odd_1": 1.5, "open_odd_x": 4.0, "open_odd_2": 6.0,
         "source_file": "t", "division_code": 0,
     }
-    feat = t.extract_match_features(row1)
+    t.extract_match_features(row1)
     t.update_match(row1)
     elo_post = t.team_state["A"]["elo"]
     # Nueva temporada: al extraer features del primer partido de 2021-22,

@@ -14,9 +14,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from motor.ligaf_model import cargar_statsbomb_2324, walkforward  # noqa: E402
+from motor.ligaf_model import cargar_statsbomb_2324, walkforward
 
-SALIDAS = Path(__file__).resolve().parents[2] / "SALIDAS"
+SALIDA_DIR = Path(__file__).resolve().parents[2] / "salida"
 
 
 def main():
@@ -27,8 +27,8 @@ def main():
     res["fuente"] = "StatsBomb Open Data, comp 182 / season 281 (Liga F 23-24)"
     res["generado"] = datetime.now().isoformat()
     print(json.dumps(res, indent=2))
-    SALIDAS.mkdir(exist_ok=True)
-    out = SALIDAS / "backtest_ligaf_2324.json"
+    SALIDA_DIR.mkdir(exist_ok=True)
+    out = SALIDA_DIR / "backtest_ligaf_2324.json"
     out.write_text(json.dumps(res, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("Guardado:", out)
 

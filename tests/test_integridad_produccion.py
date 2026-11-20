@@ -171,7 +171,7 @@ def test_api_checks_probability_domain_instead_of_only_sum(invalid):
 
 
 def test_no_api_without_source_and_existing_file_is_preserved(tmp_path, monkeypatch):
-    monkeypatch.setattr(settings, "SALIDAS_DIR", tmp_path)
+    monkeypatch.setattr(settings, "SALIDA_DIR", tmp_path)
     result = paquete.build_package(74, use_model=False)
     result["partidos"][0]["probabilidades"]["comparativa"] = {}
     write_json(tmp_path / "paquete_jornada_J74.json", result)

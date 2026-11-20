@@ -22,7 +22,6 @@ from .constants import (
     MATCH_STAT_COLUMNS,
     OPEN_ODDS,
     REQUIRED_FIELDS,
-    SHOT_COLUMNS,
 )
 
 
@@ -118,10 +117,7 @@ def _choose_odd(row: dict[str, Any], candidates: tuple[str, ...]) -> float | Non
 
 def has_opening_odds(row: dict[str, Any]) -> bool:
     """True si se puede construir la tripleta de cuotas de apertura."""
-    for sign in ("1", "X", "2"):
-        if _choose_odd(row, OPEN_ODDS[sign]) is None:
-            return False
-    return True
+    return all(_choose_odd(row, OPEN_ODDS[sign]) is not None for sign in ("1", "X", "2"))
 
 
 # ---------------------------------------------------------------------------

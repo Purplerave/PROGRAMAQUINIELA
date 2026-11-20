@@ -16,11 +16,13 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 import settings
 from scripts.motor.features import (
-    compute_features_for_upcoming,
-    implied_probabilities,
-    poisson_1x2,
+    # Reexportados a propósito: consumidores externos (panel, pruebas y
+    # cuadernos) usan `motor.implied_probabilities(...)` y compañía.
+    compute_features_for_upcoming as compute_features_for_upcoming,
+    implied_probabilities as implied_probabilities,
+    poisson_1x2 as poisson_1x2,
     rolling_team_features,
-    safe_pair_mean,
+    safe_pair_mean as safe_pair_mean,
 )
 from scripts.motor.xg_understat import merge_xg
 
@@ -347,7 +349,6 @@ def build_logit_model() -> Pipeline:
 
 
 def build_hgb_model() -> Pipeline:
-    numeric_features = feature_columns()
     preprocessor = Pipeline([("imputer", SimpleImputer(strategy="median"))])
     master_config = settings.master_model_config()
     model = HistGradientBoostingClassifier(
@@ -420,16 +421,16 @@ def _apply_calibracion_bandas(frame: pd.DataFrame, prefix: str, config: dict) ->
 def add_market_baseline(frame: pd.DataFrame) -> pd.DataFrame:
     out = frame.copy()
     market_cols = out[["market_1", "market_x", "market_2"]]
-    
+
     # Solo determinamos favorito si hay datos de mercado (al menos uno no NaN)
     # y si la suma de las probabilidades es > 0
     has_market = market_cols.notna().all(axis=1)
-    
+
     out["favorite_market"] = None
     out.loc[has_market, "favorite_market"] = market_cols[has_market].idxmax(axis=1).map(
         {"market_1": "1", "market_x": "X", "market_2": "2"}
     )
-    
+
     # favorite_market_hit solo tiene sentido donde hay mercado
     out["favorite_market_hit"] = 0
     valid_market = has_market & out["result"].notna()
@@ -437,7 +438,7 @@ def add_market_baseline(frame: pd.DataFrame) -> pd.DataFrame:
         out.loc[valid_market, "favorite_market_hit"] = (
             out.loc[valid_market, "favorite_market"] == out.loc[valid_market, "result"]
         ).astype(int)
-        
+
     return out
 
 
@@ -482,8 +483,8 @@ def apply_hybrid_config(frame: pd.DataFrame, config: dict, prefix: str) -> pd.Da
     if config.get("x_disagreement_strategy") == "market_pick_only":
         # Punto 4 Codex (Rev 2): Aplicar solo cuando existan probabilidades de mercado válidas
         x_disagree = (
-            out[f"{prefix}_pred"].eq("X") & 
-            out["favorite_market"].notna() & 
+            out[f"{prefix}_pred"].eq("X") &
+            out["favorite_market"].notna() &
             out["favorite_market"].ne("X")
         )
         out.loc[x_disagree, f"{prefix}_pred"] = out.loc[x_disagree, "favorite_market"]
@@ -579,7 +580,7 @@ def simulate_doubles(frame: pd.DataFrame, pred_prefix: str, config: dict) -> pd.
             ordered[f"{pred_prefix}_prob_x"],
             ordered[f"{pred_prefix}_prob_2"],
             o1,
-            o2,
+            o2, strict=False,
         )
     ]
     confidence = ordered[[f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]].max(axis=1)
@@ -736,13 +737,13 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline | None, Pipeli
         split_idx = int(len(usable) * 0.84)
         subtrain = usable.iloc[:split_idx].copy()
         valid = usable.iloc[split_idx:].copy()
-        
+
         logit_sub = build_logit_model() if needs_logit else None
         hgb_sub = build_hgb_model()
         if needs_logit and logit_sub is not None:
             logit_sub.fit(subtrain[feature_columns() + ["division"]], subtrain["target"])
         hgb_sub.fit(subtrain[feature_columns()], subtrain["target"])
-        
+
         valid_eval = add_market_baseline(valid)
         if needs_logit and logit_sub is not None:
             logit_probs = predict_full_probs(logit_sub, valid, feature_columns() + ["division"])
@@ -753,31 +754,32 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline | None, Pipeli
         valid_eval["hgb_prob_1"] = hgb_probs[:, 0]
         valid_eval["hgb_prob_x"] = hgb_probs[:, 1]
         valid_eval["hgb_prob_2"] = hgb_probs[:, 2]
-        
+
         val_blocks = [valid_eval]
     else:
         # Validación multi-split por temporadas
         seasons = sorted(usable["season"].dropna().unique().tolist(), key=season_sort_key)
         # Usamos hasta las últimas 3 temporadas para validación
         val_seasons = seasons[-3:]
-        
+
         val_blocks = []
         for v_season in val_seasons:
-            train_mask = usable["season"].apply(lambda s: season_sort_key(s) < season_sort_key(v_season))
+            target_key = season_sort_key(v_season)
+            train_mask = usable["season"].apply(lambda s, key=target_key: season_sort_key(s) < key)
             val_mask = usable["season"] == v_season
-            
+
             t_sub = usable[train_mask].copy()
             v_sub = usable[val_mask].copy()
-            
+
             if len(t_sub) < 500 or len(v_sub) < 50:
                 continue
-                
+
             l_sub = build_logit_model() if needs_logit else None
             h_sub = build_hgb_model()
             if needs_logit and l_sub is not None:
                 l_sub.fit(t_sub[feature_columns() + ["division"]], t_sub["target"])
             h_sub.fit(t_sub[feature_columns()], t_sub["target"])
-            
+
             v_sub = add_market_baseline(v_sub)
             if needs_logit and l_sub is not None:
                 l_probs = predict_full_probs(l_sub, v_sub, feature_columns() + ["division"])
@@ -785,12 +787,12 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline | None, Pipeli
                 v_sub["logit_prob_x"] = l_probs[:, 1]
                 v_sub["logit_prob_2"] = l_probs[:, 2]
             h_probs = predict_full_probs(h_sub, v_sub, feature_columns())
-            
+
             v_sub["hgb_prob_1"] = h_probs[:, 0]
             v_sub["hgb_prob_x"] = h_probs[:, 1]
             v_sub["hgb_prob_2"] = h_probs[:, 2]
             val_blocks.append(v_sub)
-            
+
         if not val_blocks:
             # Fallback si no hay bloques válidos
             return optimize_hybrid_config(usable.assign(season=np.nan))
@@ -827,17 +829,17 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline | None, Pipeli
             "double_draw_threshold": draw_threshold,
             "x_disagreement_strategy": x_strategy,
         }
-        
+
         scores = []
         for block in val_blocks:
             evaluation = evaluate_config(block, "opt", config)
             scores.append(evaluation["score"])
-        
+
         mean_score = np.mean(scores)
         std_score = np.std(scores)
         # Métrica de estabilidad: penalizamos la variabilidad entre temporadas
         final_metric = mean_score - (0.5 * std_score)
-        
+
         if best is None or final_metric > best["final_metric"]:
             best = {
                 "config": config,
@@ -852,7 +854,7 @@ def optimize_hybrid_config(train: pd.DataFrame) -> tuple[Pipeline | None, Pipeli
     if needs_logit and final_logit is not None:
         final_logit.fit(train[feature_columns() + ["division"]], train["target"])
     final_hgb.fit(train[feature_columns()], train["target"])
-    
+
     return final_logit, final_hgb, best["config"]
 
 
@@ -924,7 +926,7 @@ def add_pleno_al_15(frame: pd.DataFrame, rho: float | None = None) -> pd.DataFra
 
     buckets_picks = [
         pleno_bucket_pick(lh, la, rho=rho, max_goals=5)
-        for lh, la in zip(out["lambda_home"], out["lambda_away"])
+        for lh, la in zip(out["lambda_home"], out["lambda_away"], strict=False)
     ]
     out["pleno15_top_scores"] = [json.dumps(scores, ensure_ascii=False) for _, _, scores in buckets_picks]
     out["pleno15_marcador"] = [scores[0]["score"] if scores else None for _, _, scores in buckets_picks]

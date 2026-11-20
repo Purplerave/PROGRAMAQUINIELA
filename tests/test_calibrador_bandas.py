@@ -1,6 +1,5 @@
 """Tests del calibrador de bandas (REVISION_15/16)."""
 
-from datetime import date
 
 import pandas as pd
 
@@ -33,9 +32,9 @@ def test_calibrar_baja_visita_banda():
 
 def test_estimar_factores_cap_y_ventana():
     partidos = []
-    for i in range(250):
+    for _i in range(250):
         partidos.append({"season": "1819", "res": "H", "odds": (1.5, 4.0, 6.0)})
-    for i in range(250):
+    for _i in range(250):
         partidos.append({"season": "1920", "res": "A", "odds": (2.8, 3.3, 2.7)})
     f = estimar_factores(partidos, hasta_temporada="2021", ventana=6, cap=0.10)
     assert 0.9 <= f["visita_2.5_4.0"] <= 1.1

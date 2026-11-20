@@ -17,7 +17,8 @@ import csv
 import glob
 import os
 from datetime import date
-from typing import Any, Iterable, Mapping, Sequence
+from typing import Any
+from collections.abc import Iterable, Mapping, Sequence
 
 CAP_DEFAULT = 0.10
 
@@ -224,7 +225,7 @@ def cargar_historico(base: str) -> list[dict]:
                         continue
                     d, m, a = map(int, row["Date"].split("/"))
                     filas.append(
-                        dict(season=season, anio=a, fecha=date(a, m, d), res=row["FTR"], odds=tuple(o))
+                        {"season": season, "anio": a, "fecha": date(a, m, d), "res": row["FTR"], "odds": tuple(o)}
                     )
             filas.sort(key=lambda p: p["fecha"])
             partidos += filas

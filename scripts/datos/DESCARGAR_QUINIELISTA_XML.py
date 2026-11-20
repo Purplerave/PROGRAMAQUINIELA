@@ -14,7 +14,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 from urllib.error import URLError
 from urllib.request import Request, urlopen
@@ -90,7 +90,7 @@ def write_evidence(
         "source": "quinielista.es",
         "source_variant": source,
         "url": url,
-        "retrieved_at": datetime.now(timezone.utc).isoformat(),
+        "retrieved_at": datetime.now(UTC).isoformat(),
         "sha256": digest,
         "season": temporada,
         "jornada": jornada,

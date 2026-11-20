@@ -101,7 +101,6 @@ def estimate_rho(
     if grid is None:
         grid = DEFAULT_RHO_GRID
     n = len(lam_h)
-    goals = max_goals + 1
     best_rho, best_ll = 0.0, -np.inf
     hg_c = np.clip(hg.astype(int), 0, max_goals)
     ag_c = np.clip(ag.astype(int), 0, max_goals)

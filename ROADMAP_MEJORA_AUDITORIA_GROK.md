@@ -21,7 +21,7 @@ La auditoría es, en lo esencial, **correcta**. Verificado el 04/08/2026 contra
 | El edge sobre el mercado es marginal | `metricas_agregadas`: media acierto **0.5007** vs mercado **0.4983** → **+0,24 pp** (7 temporadas). `mean_gap_vs_market = 0.00238` | **CIERTO** (dentro del ruido: `std_accuracy ≈ 0.017`) |
 | No hay evaluación económica (ROI/EV/premios) | `grep` de "roi/ev/premio/bankroll" → **0 coincidencias en código**, solo texto en ROADMAP | **CIERTO** |
 | Ficheros monolíticos | `MOTOR_QUINIELA_MAESTRO.py` 906 líneas, `MOTOR_PREDICCION_JORNADA.py` 875, `features.py` 875 | **CIERTO** (grande, pero no "37k líneas": son ~906; Grok confundió bytes con líneas) |
-| Mezcla `salida/` y `SALIDAS/` | ambas existen, ambas casi vacías (`.gitkeep`) | **CIERTO** (deuda cosmética real) |
+| Mezcla `salida/` y `SALIDAS/` | ambas existían; **resuelto el 20/11/2026**: una sola carpeta `salida/` y alias en `settings` | **CORREGIDO** |
 | 12 `REVISION_*.md` saturan el root | 12 ficheros en raíz | **CIERTO** |
 | README Windows-céntrico, CI Linux | 7 menciones a PowerShell/`python .\` en README; CI en `ubuntu` | **CIERTO** |
 | No hay Makefile / entrada única | no existe `Makefile` | **CIERTO** |
@@ -182,7 +182,7 @@ Dixon-Coles donde sí se usan), o se justifica su presencia con un experimento.
 - [ ] Cualquiera reproduce el backtest en **< 5 minutos** siguiendo solo el README.
 
 ### P2.2 — Ordenar el árbol del proyecto
-- [ ] Unificar `salida/` y `SALIDAS/` en **una** carpeta (ambas están vacías: coste ~0).
+- [x] Unificar `salida/` y `SALIDAS/` en **una** carpeta (hecho el 20/11/2026: `salida/`).
 - [ ] Mover los 12 `REVISION_*.md` y docs históricas a `docs/` (dejar en root solo
       README, ROADMAP y este documento).
 - [ ] `scripts/` como único hogar de scripts ejecutables; nada de scripts sueltos
@@ -211,7 +211,7 @@ Dixon-Coles donde sí se usan), o se justifica su presencia con un experimento.
 | P1.2 | Simplificar ensemble (quitar pesos 0) | S | Medio | ✅ Hecho (05/08) |
 | P1.3 | Decidir dataset oficial (original vs saneado) | S | Medio | Pendiente |
 | P2.1 | Makefile / entrada única < 5 min | S | Medio | Pendiente |
-| P2.2 | Ordenar árbol (salida/SALIDAS, docs/) | S | Bajo | Pendiente |
+| P2.2 | Ordenar árbol (salida/SALIDAS, docs/) | S | Bajo | Hecho (rutas unificadas) |
 | P2.3 | Refactor a paquetes | L | Bajo/Medio | Pendiente |
 | P2.4 | README multiplataforma | S | Bajo | Pendiente |
 

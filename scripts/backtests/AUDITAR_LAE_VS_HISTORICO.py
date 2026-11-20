@@ -22,7 +22,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.motor.team_names import resolve_history_name  # noqa: E402
+from scripts.motor.team_names import resolve_history_name
 
 DEFAULT_SEASON = "2025-2026"
 DEFAULT_JORNADAS = [9, 37, 46, 48, 59]

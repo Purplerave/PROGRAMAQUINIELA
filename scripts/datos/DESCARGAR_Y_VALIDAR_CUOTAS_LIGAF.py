@@ -32,11 +32,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from motor.ligaf_model import ajustar, canon, cargar_dated  # noqa: E402
+from motor.ligaf_model import ajustar, canon, cargar_dated
 
 ROOT = Path(__file__).resolve().parents[2]
 DATOS = ROOT / "DATOS" / "ligaf"
-SALIDAS = ROOT / "SALIDAS"
+SALIDA_DIR = ROOT / "salida"
 BASE_URL = "https://www.betexplorer.com"
 LISTADO = BASE_URL + "/football/spain/liga-f-women-2023-2024/results/"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -96,7 +96,7 @@ def fase_descarga() -> Path:
             if i % 20 == 0:
                 print(f"  ...{i}/{len(pendientes)}", flush=True)
             time.sleep(1.0)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             print(f"  [fallo] {fila['match_url']}: {exc}", flush=True)
             break
 
@@ -111,7 +111,9 @@ def fase_descarga() -> Path:
 
 def fase_validacion(ruta_cuotas: Path) -> None:
     cuotas = {}
-    for r in csv.DictReader(open(ruta_cuotas, encoding="utf-8")):
+    with open(ruta_cuotas, encoding="utf-8") as fh:
+        filas = list(csv.DictReader(fh))
+    for r in filas:
         clave = f"{canon(r['local'])}|{canon(r['visitante'])}"
         cuotas[clave] = r
     partidos = cargar_dated()
@@ -162,8 +164,8 @@ def fase_validacion(ruta_cuotas: Path) -> None:
         if ev_apuestas else None,
     }
     print(json.dumps(resumen, indent=2))
-    SALIDAS.mkdir(exist_ok=True)
-    (SALIDAS / "d3_validacion_vs_mercado.json").write_text(
+    SALIDA_DIR.mkdir(exist_ok=True)
+    (SALIDA_DIR / "d3_validacion_vs_mercado.json").write_text(
         json.dumps(resumen, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
@@ -171,5 +173,5 @@ if __name__ == "__main__":
     ruta = fase_descarga()
     try:
         fase_validacion(ruta)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         print(f"[validacion diferida] {exc}")

@@ -43,12 +43,6 @@ def main() -> int:
                 continue
             if row["status"] != "Finished" or row["sign"] not in ("1","X","2"):
                 continue
-            # fecha highlightly 2023-08-11 -> historico dd/mm/yyyy
-            y,m,d = row["date"].split("-")
-            date_hist = f"{d}/{m}/{y}"
-            div = "SP1" if row["league_key"]=="laliga" else "SP2"
-            home = map_name(row["home_name"])
-            away = map_name(row["away_name"])
             rows.append({
                 "date": row["date"], "datetime_utc": row["datetime_utc"], "league": row["league_key"],
                 "home": map_name(row["home_name"]), "away": map_name(row["away_name"]),
@@ -56,7 +50,6 @@ def main() -> int:
                 "market_source": "no_auditado",
             })
     # ordenar por fecha
-    from datetime import datetime
     rows.sort(key=lambda x: x["date"])
     # escribir con header completo pero cuotas vacias
     cols = HEADER_HIST.split(",")
@@ -70,7 +63,7 @@ def main() -> int:
     sha = hashlib.sha256(OUT_FILE.read_bytes()).hexdigest()
     print(f"Escrito {OUT_FILE} : {len(rows)} partidos (SP1/SP2)  sha256:{sha[:16]}... full:{sha}")
     print(f"Origen: {SRC}  market_source=no_auditado por fila, cuotas vacias, no contamina backtest mercado.")
-    print(f"Uso: validacion cruzada / futuro enriquecimiento Elo con flag use_highlightly_enrichment=false (desactivado por defecto).")
+    print("Uso: validacion cruzada / futuro enriquecimiento Elo con flag use_highlightly_enrichment=false (desactivado por defecto).")
     return 0
 
 if __name__ == "__main__":

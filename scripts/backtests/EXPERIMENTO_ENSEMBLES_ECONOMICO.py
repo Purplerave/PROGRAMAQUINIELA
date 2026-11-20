@@ -43,11 +43,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-import settings  # noqa: E402
-import MOTOR_QUINIELA_MAESTRO as motor  # noqa: E402
-import OPTIMIZADOR_COLUMNAS as opt  # noqa: E402
-from evaluation import economics as econ  # noqa: E402
-from scripts.motor.calibration import VectorScalingCalibrator  # noqa: E402
+import settings
+import MOTOR_QUINIELA_MAESTRO as motor
+import OPTIMIZADOR_COLUMNAS as opt
+from evaluation import economics as econ
+from scripts.motor.calibration import VectorScalingCalibrator
 
 OUT_DIR = PROJECT_ROOT / "salida"
 PREFIX = "latest"
@@ -118,7 +118,7 @@ def _hits_for_probs(probs: np.ndarray, results: list[str]) -> int:
     combo = tuple(best["mejor_combinacion"]["dobles"])
     selected = opt.build_double_development(prob_list, combo)
     hits = 0
-    for (_, signs), res in zip(selected, results):
+    for (_, signs), res in zip(selected, results, strict=False):
         if res in signs:
             hits += 1
     return hits
@@ -216,7 +216,7 @@ def run(from_season: str, to_season: str) -> dict:
             season_row["mercado_hgb_calib"] = None
         per_season.append(season_row)
 
-        def fmt(arm):
+        def fmt(arm, season_row=season_row):
             r = season_row.get(arm)
             return f"{r['roi']:+.0%}/{r['p_ge_12']:.1%}" if r else "n/a"
 

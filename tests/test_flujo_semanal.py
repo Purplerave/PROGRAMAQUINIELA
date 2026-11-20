@@ -5,7 +5,7 @@ import hashlib
 import itertools
 import json
 import math
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, UTC
 from types import SimpleNamespace
 
 import pytest
@@ -25,7 +25,7 @@ def _boleto_mixto() -> dict:
               {"numero": 15, "local": "F15", "visitante": "FV15", "pleno": {
                   "etiquetas": list(ETIQUETAS_PLENO), "probs": [1 / 16] * 16, "signo": "0-0"
               }}]
-    return {"jornada": 10, "demo": False, "cierre": (datetime.now(timezone.utc) + timedelta(days=1)).isoformat(),
+    return {"jornada": 10, "demo": False, "cierre": (datetime.now(UTC) + timedelta(days=1)).isoformat(),
             "ligam": {"predicciones": masculine}, "ligaf": {"pronosticos": female}}
 
 
@@ -86,7 +86,7 @@ def test_weekly_propagates_optimizer_failure_and_handles_female_pleno(tmp_path, 
         monkeypatch.setattr(engine, loader, lambda: [{"fecha": timestamp}, {"fecha": datetime(2027, 1, 1)}])
         monkeypatch.setattr(engine, "ajustar", lambda rows: ({}, math.log(1.3), 0.2) if len(rows) == 1 else pytest.fail("se usó futuro"))
     monkeypatch.setattr(weekly, "BOLETO_J3_DEFAULT", demo)
-    monkeypatch.setattr(settings, "SALIDAS_DIR", tmp_path)
+    monkeypatch.setattr(settings, "SALIDA_DIR", tmp_path)
     monkeypatch.setattr(weekly.subprocess, "run", lambda *a, **kw: SimpleNamespace(returncode=17))
     assert weekly.main(["--demo"]) == 17
     assert not (tmp_path / "boleto_completo_J3.json").exists()
@@ -97,7 +97,7 @@ def test_weekly_propagates_optimizer_failure_and_handles_female_pleno(tmp_path, 
 
 
 def test_panel_refuses_outputs_from_different_runs_and_never_deploys(tmp_path, monkeypatch):
-    monkeypatch.setattr(settings, "SALIDAS_DIR", tmp_path)
+    monkeypatch.setattr(settings, "SALIDA_DIR", tmp_path)
     boleto_path = tmp_path / "boleto_completo_J10.json"
     opt_path = tmp_path / "optimizacion_boleto_J10.json"
     write_json(boleto_path, _boleto_mixto())

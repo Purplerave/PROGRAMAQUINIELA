@@ -81,7 +81,7 @@ def collect_file_hashes() -> tuple[dict[str, str], dict[str, str]]:
         ("temporada", settings.DATOS_DIR, "temporada_2026_27_*.json", False),
         ("jornadas_q15", settings.DATOS_DIR, "QUINIELA15_J*.json", False),
     ]
-    for label, base, pattern, recursive in patterns:
+    for _label, base, pattern, recursive in patterns:
         glob_fn = base.rglob if recursive else base.glob
         for path in sorted(glob_fn(pattern)):
             rel = path.relative_to(PROJECT_ROOT).as_posix()

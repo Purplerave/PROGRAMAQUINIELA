@@ -243,7 +243,7 @@ def evaluate_official_doubles(frame: pd.DataFrame, pred_prefix: str, config: dic
             continue
         group["double"] = [
             build_double(p1, px, p2, config["double_draw_threshold"])
-            for p1, px, p2 in zip(group[f"{pred_prefix}_prob_1"], group[f"{pred_prefix}_prob_x"], group[f"{pred_prefix}_prob_2"])
+            for p1, px, p2 in zip(group[f"{pred_prefix}_prob_1"], group[f"{pred_prefix}_prob_x"], group[f"{pred_prefix}_prob_2"], strict=False)
         ]
         confidence = group[[f"{pred_prefix}_prob_1", f"{pred_prefix}_prob_x", f"{pred_prefix}_prob_2"]].max(axis=1)
         value = (
@@ -283,7 +283,7 @@ def evaluate_realized_roi(
     if any(len(column) != 14 or any(sign not in SIGNS for sign in column) for column in normalized_columns):
         raise ValueError("cada columna debe contener 14 signos 1/X/2")
     cost = len(normalized_columns) * price_per_column
-    hit_counts = [sum(sign == winner for sign, winner in zip(column, winning_signs)) for column in normalized_columns]
+    hit_counts = [sum(sign == winner for sign, winner in zip(column, winning_signs, strict=False)) for column in normalized_columns]
     categories = {str(hits): hit_counts.count(hits) for hits in set(hit_counts)}
     clean_payouts = _validated_payouts(payouts) if payouts is not None else {}
     missing = PAID_CATEGORIES.intersection(categories).difference(clean_payouts)

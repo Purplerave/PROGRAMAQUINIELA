@@ -71,11 +71,11 @@ def validate_output_dir(output_dir: Path) -> Path:
     allowed = DEFAULT_OUTPUT_DIR.resolve()
     try:
         resolved.relative_to(allowed)
-    except ValueError:
+    except ValueError as exc:
         raise ValueError(
             f"El directorio de salida debe estar dentro de "
             f"{allowed}; se recibió {resolved}."
-        )
+        ) from exc
     return resolved
 
 

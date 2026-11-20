@@ -17,7 +17,8 @@ import json
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
+from collections.abc import Iterable
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT = PROJECT_ROOT / "salida" / "backtest_boletos_reales.json"
@@ -110,7 +111,7 @@ def object_score(ruta: str, obj: Any) -> int:
         score += 2
 
     if isinstance(obj, dict):
-        keys_text = " ".join(str(key) for key in obj.keys())
+        keys_text = " ".join(str(key) for key in obj)
         vals_text = " ".join(str(value) for value in obj.values() if is_scalar(value))
         if contains_any(keys_text, MISMATCH_TERMS):
             score += 8
@@ -173,7 +174,7 @@ def summarize_root(data: Any) -> list[str]:
         lines.append(f"LISTA con elementos: {len(data)}")
         if data and isinstance(data[0], dict):
             lines.append("CLAVES DEL PRIMER ELEMENTO:")
-            for key in data[0].keys():
+            for key in data[0]:
                 lines.append(f" - {key}")
     return lines
 
@@ -222,7 +223,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     columns: list[str] = []
     for row in rows:
-        for key in row.keys():
+        for key in row:
             if key not in columns:
                 columns.append(key)
 
@@ -261,7 +262,7 @@ def is_missing_value(value: Any) -> bool:
 
 
 def has_mismatch_count_key(row: dict[str, Any]) -> bool:
-    return any("desajustes" in norm(key) for key in row.keys())
+    return any("desajustes" in norm(key) for key in row)
 
 
 def filter_rows_requiring_official_audit(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -366,10 +367,7 @@ def main() -> int:
 
     all_rows: list[dict[str, Any]] = []
     for idx, item in enumerate(mismatch_items, 1):
-        if isinstance(item, dict):
-            flat = flatten_dict(item)
-        else:
-            flat = {"valor": item}
+        flat = flatten_dict(item) if isinstance(item, dict) else {"valor": item}
         flat = {"n": idx, **flat}
         all_rows.append(flat)
 

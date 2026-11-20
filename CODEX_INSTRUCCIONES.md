@@ -442,7 +442,7 @@ empezar una tarea nueva, comprueba aquí y en el §3 que nadie la ha hecho ya.
     0,5987→0,5979 (criterio aceptación cumplido).
   - Jornada 74 (nórdica, sin cuotas): calibrado true, `pre_ece 0,0308 → post_ece 0,0164`,
     `pre_log_loss 0,9944 → 0,9914`, 2152 partidos validación.
-  - `PREDECIR_JORNADA.py --jornada 74` sigue generando `SALIDAS/paquete_jornada_J74.json`
+  - `PREDECIR_JORNADA.py --jornada 74` sigue generando `salida/paquete_jornada_J74.json`
     con boleto optimizado; el modelo queda marcado como no fiable por calidad (<0.2)
     para equipos nórdicos (comportamiento esperado).
   - `pytest -q -m "not slow"` en verde (32 tests).

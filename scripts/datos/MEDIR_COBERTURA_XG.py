@@ -15,7 +15,6 @@ Uso:
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import sys
 from pathlib import Path
@@ -26,8 +25,8 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts" / "motor"))
 
-import settings  # noqa: E402
-from team_names import resolve_history_name  # noqa: E402
+import settings
+from team_names import resolve_history_name
 
 DEFAULT_XG = ROOT / "DATOS" / "xg_understat" / "understat_la_liga_xg.csv"
 OUTPUT_DIR = ROOT / "salida" / "features_futuras"

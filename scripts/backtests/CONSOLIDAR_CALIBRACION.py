@@ -40,11 +40,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-import settings  # noqa: E402
-import MOTOR_QUINIELA_MAESTRO as motor  # noqa: E402
-import OPTIMIZADOR_COLUMNAS as opt  # noqa: E402
-from evaluation import economics as econ  # noqa: E402
-from scripts.motor.calibration import VectorScalingCalibrator  # noqa: E402
+import MOTOR_QUINIELA_MAESTRO as motor
+import OPTIMIZADOR_COLUMNAS as opt
+from evaluation import economics as econ
+from scripts.motor.calibration import VectorScalingCalibrator
 
 OUT_DIR = PROJECT_ROOT / "salida"
 SIGNS = ("1", "X", "2")
@@ -107,7 +106,7 @@ def _hits_for_probs(probs: np.ndarray, results: list[str]) -> int:
     best = opt.evaluate_all_three_doubles(prob_list, n_doubles=3)
     combo = tuple(best["mejor_combinacion"]["dobles"])
     selected = opt.build_double_development(prob_list, combo)
-    return sum(1 for (_, signs), res in zip(selected, results) if res in signs)
+    return sum(1 for (_, signs), res in zip(selected, results, strict=False) if res in signs)
 
 
 def _evaluate_arm(probs: np.ndarray, df: pd.DataFrame, prizes: dict) -> dict | None:
@@ -170,7 +169,8 @@ def run(from_season: str, to_season: str) -> dict:
         active = _renorm(df[["latest_prob_1", "latest_prob_x", "latest_prob_2"]].to_numpy(dtype=float))
 
         # Brazo calibrado: calibrador ajustado SOLO con temporadas anteriores.
-        train = usable[usable["season"].apply(lambda s: motor.season_sort_key(s) < motor.season_sort_key(target))].copy()
+        target_key = motor.season_sort_key(target)
+        train = usable[usable["season"].apply(lambda s, key=target_key: motor.season_sort_key(s) < key)].copy()
         cal = fit_calibrator_from_train(train, meta["best_config"])
         calibrated = cal.predict(active) if cal is not None else None
 
@@ -178,7 +178,7 @@ def run(from_season: str, to_season: str) -> dict:
         row["calibrado"] = _evaluate_arm(calibrated, df, prizes) if calibrated is not None else None
         per_season.append(row)
 
-        def fmt(k):
+        def fmt(k, row=row):
             r = row.get(k)
             return f"{r['roi']:+.0%}/{r['p_ge_12']:.1%}" if r else "n/a"
 
