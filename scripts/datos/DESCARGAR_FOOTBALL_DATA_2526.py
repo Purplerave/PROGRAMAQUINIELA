@@ -6,7 +6,8 @@ Fuentes: https://www.football-data.co.uk/mmz4281/2425/SP1.csv etc.
 """
 from __future__ import annotations
 from pathlib import Path
-import urllib.request, hashlib, csv
+import urllib.request
+import hashlib
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 OUT_PRIMERA = PROJECT_ROOT / "DATOS" / "historico_raw" / "PRIMERA" / "SP1_2526.csv"
@@ -53,7 +54,7 @@ def verify_existing(dest: Path) -> None:
     n = max(0, len(lines)-1)
     print(f"Verificando {dest.name}: {n} partidos sha256:{sha[:16]}... open:{has_open} close:{has_close}")
     if not has_open or not has_close:
-        print(f"  -> AVISO: faltan tripletas apertura/cierre completas")
+        print("  -> AVISO: faltan tripletas apertura/cierre completas")
 
 def main() -> int:
     ok_any = False

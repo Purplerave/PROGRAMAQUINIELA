@@ -23,14 +23,13 @@ from __future__ import annotations
 import argparse
 import csv
 import sys
-from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parents[0]))
 
-from motor.ligaf_model import canon  # noqa: E402
-from DESCARGAR_QUINIELISTA_XML import URLS, USER_AGENT, parse_and_validate, fetch_xml  # noqa: E402
+from motor.ligaf_model import canon
+from DESCARGAR_QUINIELISTA_XML import URLS, parse_and_validate, fetch_xml
 
 ROOT = Path(__file__).resolve().parents[2]
 FIXTURES = ROOT / "DATOS" / "ligaf" / "proxima_jornada_ligaf.csv"

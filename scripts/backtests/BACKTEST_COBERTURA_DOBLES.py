@@ -43,7 +43,8 @@ def main() -> None:
     rows = []
     cov_cfg = settings.CONFIG.setdefault("cobertura_dobles_banda", {})
     for season in seasons:
-        train = usable[usable["season"].apply(lambda s: motor.season_sort_key(s) < motor.season_sort_key(season))]
+        target_key = motor.season_sort_key(season)
+        train = usable[usable["season"].apply(lambda s, key=target_key: motor.season_sort_key(s) < key)]
         test = usable[usable["season"] == season].copy()
         fac = estimar_factores_desde_frame(train, hasta_temporada=season, ventana=6)
         base = cfg(fac)

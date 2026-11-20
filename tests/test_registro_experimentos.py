@@ -7,8 +7,6 @@ import json
 import pytest
 
 from scripts.registro_experimentos import (
-    CAMPOS_OBLIGATORIOS,
-    cargar,
     listar,
     registrar,
 )

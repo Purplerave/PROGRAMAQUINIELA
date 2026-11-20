@@ -122,7 +122,7 @@ def _orden(casilla: dict) -> list[int]:
 
 def _column(casillas: list[dict], indices: tuple[int, ...], weight: float) -> dict:
     return {
-        "signos": " ".join(c["etiquetas"][i] for c, i in zip(casillas, indices)),
+        "signos": " ".join(c["etiquetas"][i] for c, i in zip(casillas, indices, strict=False)),
         "peso": round(weight, 12),
     }
 
@@ -136,11 +136,11 @@ def _three_doubles(casillas: list[dict], price: float) -> dict:
     columns = []
     mass = 0.0
     for indices in itertools.product(*options):
-        p = math.prod(c["probs"][j] for c, j in zip(casillas, indices))
+        p = math.prod(c["probs"][j] for c, j in zip(casillas, indices, strict=False))
         mass += p
         columns.append(_column(casillas, indices, p))
     doubles, singles = [], []
-    for i, (c, opt) in enumerate(zip(casillas, options)):
+    for i, (c, opt) in enumerate(zip(casillas, options, strict=False)):
         item = {"casilla": c["numero"], "partido": c["partido"]}
         if i in selected:
             doubles.append({**item, "signos": [c["etiquetas"][j] for j in sorted(opt)]})
@@ -221,7 +221,7 @@ def main() -> int:
         output.update(jornada=jornada, demo=demo, entrada=args.boleto.name,
                       entrada_sha256=hashlib.sha256(raw).hexdigest(), avisos=[])
         tag = f"{'demo_' if demo else ''}J{jornada}"
-        out = settings.SALIDAS_DIR / f"optimizacion_boleto_{tag}.json"
+        out = settings.SALIDA_DIR / f"optimizacion_boleto_{tag}.json"
         write_json(out, output)
     except (OSError, ValueError, TypeError) as exc:
         ap.error(str(exc))

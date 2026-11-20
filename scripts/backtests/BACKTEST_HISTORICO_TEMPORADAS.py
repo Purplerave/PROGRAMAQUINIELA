@@ -229,7 +229,7 @@ def main() -> int:
     if not ok.empty:
         accuracies = ok["accuracy_simple"].dropna().astype(float).to_list()
         market = ok["accuracy_market_favorite"].dropna().astype(float).to_list()
-        gaps = [a - m for a, m in zip(accuracies, market)]
+        gaps = [a - m for a, m in zip(accuracies, market, strict=False)]
         summary["stability"] = {
             "mean_accuracy": float(np.mean(accuracies)) if accuracies else None,
             "std_accuracy": float(np.std(accuracies)) if accuracies else None,

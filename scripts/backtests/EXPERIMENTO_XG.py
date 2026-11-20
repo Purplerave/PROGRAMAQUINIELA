@@ -25,7 +25,6 @@ import numpy as np
 import pandas as pd
 
 import MOTOR_QUINIELA_MAESTRO as motor
-from scripts.motor.features import get_expected_columns
 
 XG_FEATURE_COLUMNS = [
     "home_xg_5",
@@ -83,7 +82,7 @@ def main() -> int:
     _ORIG_FEATURE_COLUMNS = motor.feature_columns
 
     results = []
-    for brazo, extra_cols, label in [
+    for _brazo, extra_cols, label in [
         ("A_sin_xg", [], "Sin xG"),
         ("B_con_xg", XG_FEATURE_COLUMNS, "Con xG"),
     ]:
@@ -111,7 +110,7 @@ def main() -> int:
             "hits_3_dobles_mean": float(np.mean(hits)),
         })
 
-    print("\n=== RESUMEN (media sobre %d temporadas) ===" % len(target_seasons))
+    print(f"\n=== RESUMEN (media sobre {len(target_seasons)} temporadas) ===")
     rows = pd.DataFrame(results)
     print(rows.to_string(index=False))
     base = results[0]

@@ -1,0 +1,4 @@
+# Herramientas de mantenimiento (no necesarias para ejecutar o probar).
+# Se mantienen aparte porque pip-tools depende de `pip`, que no se puede
+# fijar con hash en un entorno de CI sin tocar el propio instalador.
+pip-tools==7.7.0

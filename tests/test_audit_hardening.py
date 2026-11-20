@@ -49,12 +49,12 @@ def test_contract_generator_propagates_allowed_prediction_origin(tmp_path, monke
         "modelo_info": {"version": "motor_quinielistico_v4"},
         "partidos": partidos,
     }
-    (tmp_path / "SALIDAS").mkdir()
-    (tmp_path / "SALIDAS" / "paquete_jornada_J1.json").write_text(json.dumps(package), encoding="utf-8")
+    (tmp_path / "salida").mkdir()
+    (tmp_path / "salida" / "paquete_jornada_J1.json").write_text(json.dumps(package), encoding="utf-8")
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(generator.settings, "SALIDAS_DIR", tmp_path / "SALIDAS")
+    monkeypatch.setattr(generator.settings, "SALIDA_DIR", tmp_path / "salida")
     generator.generate_api_contract(1)
-    result = json.loads((tmp_path / "SALIDAS" / "api_maestros_J1.json").read_text(encoding="utf-8"))
+    result = json.loads((tmp_path / "salida" / "api_maestros_J1.json").read_text(encoding="utf-8"))
     assert result["partidos"][0]["origen_prediccion"] == "manual_revisado"
 
 

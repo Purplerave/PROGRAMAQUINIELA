@@ -9,7 +9,7 @@ from scripts.motor.boletos import load_jornada_json, normalized_triplet, validat
 ROOT = settings.QUINIELAS_ROOT
 PROG_DIR = settings.PROJECT_DIR
 DATOS_DIR = settings.DATOS_DIR
-SALIDAS_DIR = settings.SALIDAS_DIR
+SALIDA_DIR = settings.SALIDA_DIR
 CONFIG_PATH = settings.CONFIG_PATH
 
 SIGNS = ("1", "X", "2")
@@ -203,9 +203,9 @@ def main():
     parser = argparse.ArgumentParser(description="Genera diagnostico quinielistico por partido.")
     parser.add_argument("--jornada", "-j", type=int, required=True)
     args = parser.parse_args()
-    SALIDAS_DIR.mkdir(parents=True, exist_ok=True)
+    SALIDA_DIR.mkdir(parents=True, exist_ok=True)
     payload = diagnose_jornada(args.jornada)
-    out_path = SALIDAS_DIR / f"diagnostico_quinielistico_J{args.jornada}.json"
+    out_path = SALIDA_DIR / f"diagnostico_quinielistico_J{args.jornada}.json"
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
     counts = Counter(label for p in payload["partidos"] for label in p.get("etiquetas", []))

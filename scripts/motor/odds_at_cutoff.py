@@ -60,7 +60,7 @@ def odds_at_cutoff(match: dict, cutoff_date: object) -> tuple[dict[str, float], 
         except (KeyError, ValueError, TypeError, OverflowError):
             continue
         if all(math.isfinite(v) and v > 1.01 for v in values):
-            odds.update(zip(group, values))
+            odds.update(zip(group, values, strict=False))
     # Igual que el histórico: la apertura completa hace de mercado si no
     # existe una tripleta principal. La traza conserva cuál fue la fuente.
     market_source = "principal" if "odd_1" in odds else None

@@ -19,7 +19,9 @@ No escribe nada sin ``--confirm``. Nunca sobrescribe un CSV existente.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import csv
+import importlib.util
 import random
 import sys
 import time
@@ -31,16 +33,12 @@ try:
 except ImportError:  # pragma: no cover
     requests = None
 
-try:
-    import curl_cffi  # noqa: F401
-    _HAY_CURL_CFFI = True
-except ImportError:  # pragma: no cover
-    _HAY_CURL_CFFI = False
+_HAY_CURL_CFFI = importlib.util.find_spec("curl_cffi") is not None
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "datos"))
 
-from understat_xg import (  # noqa: E402
+from understat_xg import (
     _DATES_RE,
     _TEAMS_RE,
     _PLAYERS_RE,
@@ -94,10 +92,8 @@ def _obtener_html(url: str, usar_curl_cffi: bool, impersonate: str = "chrome",
     if usar_curl_cffi and _HAY_CURL_CFFI:
         from curl_cffi import requests as cffi_requests
         s = cffi_requests.Session(impersonate=impersonate)
-        try:
+        with contextlib.suppress(Exception):
             s.get(HOME_URL, timeout=40)  # cookies de la home (estrategia D)
-        except Exception:
-            pass
         resp = s.get(url, headers=headers, timeout=40, proxies=proxies)
         resp.raise_for_status()
         return resp.text, f"curl_cffi({impersonate})"
@@ -106,10 +102,8 @@ def _obtener_html(url: str, usar_curl_cffi: bool, impersonate: str = "chrome",
         raise RuntimeError("Falta la dependencia 'requests'. Instala con: pip install -r requirements.txt")
     s = requests.Session()
     s.headers.update(headers)
-    try:
+    with contextlib.suppress(Exception):
         s.get(HOME_URL, timeout=40)  # primera peticion a la home para cookies (D)
-    except Exception:
-        pass
     resp = s.get(url, timeout=40, proxies=proxies)
     resp.raise_for_status()
     return resp.text, "requests+session"

@@ -34,7 +34,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[0]))
 
-from highlightly_client import BASE_URL, HighlightlyClient, parse_estadisticas, localizar_campo_xg  # noqa: E402
+from highlightly_client import BASE_URL, HighlightlyClient, parse_estadisticas, localizar_campo_xg
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SALIDA = ROOT / "DATOS" / "highlightly_dataset" / "highlightly_la_liga_xg.csv"
@@ -60,7 +60,6 @@ def localizar_la_liga(cliente: HighlightlyClient) -> dict:
     # Preferir la de España que NO sea "La Liga 2"/Segunda.
     for liga in ligas:
         nombre = str(liga.get("name") or liga.get("league_name") or "")
-        pais = str(liga.get("country_name") or liga.get("country") or "")
         nombre_l = nombre.lower()
         if ("la liga" in nombre_l or "primera" in nombre_l or nombre_l.startswith("liga")) and \
            "segunda" not in nombre_l and "2" not in nombre_l:
@@ -161,10 +160,11 @@ def main():
     parser.add_argument("--confirm", action="store_true", help="Escribe el CSV (sin sobrescribir)")
     args = parser.parse_args()
 
+    # El cliente deriva el host del header RapidAPI a partir del endpoint; no
+    # hace falta pasarlo aquí (ver scripts/motor y REVISION_MEJORAS 20/11).
     base_url = BASE_URL if args.host == "directo" else None
-    rapidapi_host = None if args.host == "directo" else None
     try:
-        cliente = HighlightlyClient(base_url=base_url, rapidapi_host=rapidapi_host)
+        cliente = HighlightlyClient(base_url=base_url)
     except RuntimeError as exc:
         print(f"ERROR: {exc}")
         print("Configura la clave antes de continuar. Ver ENV_EJEMPLO.md.")

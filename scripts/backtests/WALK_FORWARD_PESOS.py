@@ -244,7 +244,7 @@ def main() -> None:
             {
                 "temporada": target,
                 "n_test": int(len(test)),
-                "pesos_optimizados": {n: float(w) for n, w in zip(SOURCE_NAMES, w_opt)},
+                "pesos_optimizados": {n: float(w) for n, w in zip(SOURCE_NAMES, w_opt, strict=False)},
                 "mercado": evaluate("Mercado", p_market, test, y_t),
                 "ensemble_activo": evaluate("Ensemble activo", p_active, test, y_t),
                 "ensemble_optimizado": evaluate("Ensemble optimizado", p_opt, test, y_t),
@@ -283,7 +283,7 @@ def main() -> None:
     print("-" * len(hdr))
     for e in per_season:
         m = e["mercado"]["acierto"]
-        def cell(r):
+        def cell(r, m=m):
             return f"{r['acierto']*100:5.2f}% ({(r['acierto']-m)*100:+.2f})"
         print(
             f"{e['temporada']:<12}{e['n_test']:>5}"
@@ -334,12 +334,9 @@ def main() -> None:
     payload = {
         "historico": args.historico,
         "temporadas": TARGET_SEASONS,
-        "consenso_media": {n: float(w) for n, w in zip(SOURCE_NAMES, consensus_mean)},
-        "consenso_acumulado": {n: float(w) for n, w in zip(SOURCE_NAMES, consensus_pooled)},
-        "por_temporada": [
-            {k: (v if k in ("temporada", "n_test", "pesos_optimizados") else v) for k, v in e.items()}
-            for e in per_season
-        ],
+        "consenso_media": {n: float(w) for n, w in zip(SOURCE_NAMES, consensus_mean, strict=False)},
+        "consenso_acumulado": {n: float(w) for n, w in zip(SOURCE_NAMES, consensus_pooled, strict=False)},
+        "por_temporada": [dict(e) for e in per_season],
     }
     (out_dir / "walk_forward_pesos.json").write_text(
         json.dumps(payload, ensure_ascii=False, indent=2, default=str), encoding="utf-8"

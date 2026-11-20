@@ -189,7 +189,8 @@ def pleno_bucket_from_source(score_text: object) -> str | None:
     if not PLENO_BUCKET_RE.fullmatch(text):
         return None
     home, away = text.split("-")
-    bucket = lambda side: "M" if side.isdigit() and int(side) >= 3 else side
+    def bucket(side):
+        return "M" if side.isdigit() and int(side) >= 3 else side
     return f"{bucket(home)}-{bucket(away)}"
 
 

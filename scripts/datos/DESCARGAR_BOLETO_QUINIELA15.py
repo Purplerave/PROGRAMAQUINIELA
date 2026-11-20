@@ -6,7 +6,7 @@ extrae las 15 casillas (numero, local, visitante, dia+hora), detecta las
 de Liga F por el sufijo "(F)" y guarda:
 
     DATOS/BOLETO_SEMANAL.json     <- fuente de verdad de RUN_SEMANA_COMPLETA
-    SALIDAS/raw_quiniela15.html   <- evidencia cruda para auditoria/debug
+    salida/raw_quiniela15.html   <- evidencia cruda para auditoria/debug
 
 Validacion estricta: si no encuentra exactamente 15 casillas, NO escribe
 nada nuevo y sale con error (mejor fallar que inventar).
@@ -38,7 +38,7 @@ def get(url: str, timeout: int = 30) -> str:
 def quitar_tags(fragmento: str) -> str:
     txt = re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>", " ", fragmento)
     txt = re.sub(r"<[^>]+>", "\n", txt)
-    lineas = [l.strip() for l in txt.splitlines() if l.strip()]
+    lineas = [linea.strip() for linea in txt.splitlines() if linea.strip()]
     return "\n".join(lineas)
 
 
@@ -61,9 +61,9 @@ def parsear_filas(html: str) -> list[dict]:
                 html.find("Haz tu pronóstico", m_hora.end())]
     fin = min([x for x in fin_opcs if x > 0], default=len(html))
     frag = html[m_hora.end():fin]
-    toks = [l for l in quitar_tags(frag).splitlines()
-            if l and not l.startswith("Escudo") and "src=" not in l
-            and not l.startswith("<img")]
+    toks = [linea for linea in quitar_tags(frag).splitlines()
+            if linea and not linea.startswith("Escudo") and "src=" not in linea
+            and not linea.startswith("<img")]
     filas: list[dict] = []
     esperado, k = 1, 0
     while k < len(toks) and esperado <= 15:
@@ -125,18 +125,18 @@ def parsear(html: str) -> dict:
             hasta = limpios[i + 1][0] if i + 1 < len(limpios) else len(bloque)
             frag = quitar_tags(bloque[pos:hasta])
             lineas = frag.splitlines()
-            equipos = [l for l in lineas
-                       if re.fullmatch(r"[A-Za-zÁÉÍÓÚáéíóúÑñ.'()\-/ ]{3,34}", l)
-                       and not re.match(r"^[DLVMS]\s\d", l)]
+            equipos = [linea for linea in lineas
+                       if re.fullmatch(r"[A-Za-zÁÉÍÓÚáéíóúÑñ.'()\-/ ]{3,34}", linea)
+                       and not re.match(r"^[DLVMS]\s\d", linea)]
             m_hora = re.search(r"\b([DLVMS])\s+(\d{1,2}:\d{2})\b", frag)
             local = visitante = ""
-            for j, l in enumerate(equipos):
-                if re.match(r"^\d+$", l):
+            for _j, linea in enumerate(equipos):
+                if re.match(r"^\d+$", linea):
                     continue
                 if not local:
-                    local = l
+                    local = linea
                 elif not visitante:
-                    visitante = l
+                    visitante = linea
                     break
             casillas.append({"numero": num, "local": local,
                              "visitante": visitante,
@@ -163,7 +163,7 @@ def main():
     args = ap.parse_args()
 
     html = get(URL)
-    (ROOT / "SALIDAS" / "raw_quiniela15.html").write_text(html[:400000],
+    (ROOT / "salida" / "raw_quiniela15.html").write_text(html[:400000],
                                                           encoding="utf-8")
     doc = parsear(html)
     n = len(doc["casillas"])
@@ -173,7 +173,7 @@ def main():
     for c in doc["casillas"]:
         print(f"  {c['numero']:>2}. {c['local']} - {c['visitante']} ({c['dia_hora']})")
     if n != 15 or incompletas:
-        print("[ERROR] Parseo incompleto: revisar SALIDAS/raw_quiniela15.html")
+        print("[ERROR] Parseo incompleto: revisar salida/raw_quiniela15.html")
         sys.exit(1)
     marcar_ligaf(doc)
     Path(args.salida).write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n",

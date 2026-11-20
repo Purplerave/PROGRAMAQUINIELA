@@ -50,7 +50,8 @@ def main() -> None:
     selected = [s for s in seasons if motor.season_sort_key(s)[0] >= 2019]
     rows = []
     for season in selected:
-        train = usable[usable["season"].apply(lambda s: motor.season_sort_key(s) < motor.season_sort_key(season))]
+        target_key = motor.season_sort_key(season)
+        train = usable[usable["season"].apply(lambda s, key=target_key: motor.season_sort_key(s) < key)]
         test = usable[usable["season"] == season].copy()
         if train.empty or test.empty:
             continue

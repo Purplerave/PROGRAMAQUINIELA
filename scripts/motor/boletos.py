@@ -60,7 +60,7 @@ def normalized_triplet(values: object) -> dict[str, float] | None:
     if not isinstance(values, dict) or set(values) != set(SIGNOS):
         return None
     weights = normalize_weights([values[s] for s in SIGNOS])
-    return dict(zip(SIGNOS, weights)) if weights is not None else None
+    return dict(zip(SIGNOS, weights, strict=False)) if weights is not None else None
 
 
 def select_probabilities(match: dict) -> tuple[dict[str, float] | None, str]:

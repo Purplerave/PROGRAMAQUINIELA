@@ -17,7 +17,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from sanitization import run_pipeline, format_summary, DEFAULT_OUTPUT_DIR, DEFAULT_RAW_BASE  # noqa: E402
+from sanitization import run_pipeline, format_summary, DEFAULT_OUTPUT_DIR, DEFAULT_RAW_BASE
 
 
 def build_parser() -> argparse.ArgumentParser:

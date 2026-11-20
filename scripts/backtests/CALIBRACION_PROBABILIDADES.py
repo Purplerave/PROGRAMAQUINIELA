@@ -107,7 +107,6 @@ def ensemble_probs(logit, hgb, frame: pd.DataFrame, cols: list[str]) -> np.ndarr
 
 def calibrate_isotonic(cal_probs: np.ndarray, cal_y: np.ndarray, apply_probs: np.ndarray) -> np.ndarray:
     """Isotonic por clase (one-vs-rest) con renormalización."""
-    from sklearn.isotonic import IsotonicRegression
 
     cal_onehot = np.zeros((len(cal_y), 3))
     cal_onehot[np.arange(len(cal_y)), cal_y] = 1.0

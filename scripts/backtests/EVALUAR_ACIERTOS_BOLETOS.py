@@ -21,15 +21,20 @@ Uso:
 
     python scripts/backtests/EVALUAR_ACIERTOS_BOLETOS.py
         [--propuesta salida/quiniela_historica_propuesta_2025_2026.json]
-        [--cache salida/predicciones_test_principal.pkl] [--no-cache]
+        [--cache salida/predicciones_test_principal.json.gz] [--no-cache]
 
 La primera ejecución entrena y evalúa el motor en el corte temporal habitual
 (equivale a ``MOTOR_QUINIELA_MAESTRO.py --modo produccion`` sobre el test
 principal) y guarda las predicciones en ``--cache`` para reutilizarlas.
+
+La caché es JSON comprimido (``orient="table"``), no pickle: deserializar un
+pickle de una ruta local arbitraria es ejecución de código. Un ``.pkl`` antiguo
+se ignora y se recalcula.
 """
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import sys
 from pathlib import Path
@@ -41,19 +46,19 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.backtests.QUINIELA_REAL import (  # noqa: E402
+from scripts.backtests.QUINIELA_REAL import (
     attach_ticket_positions,
     canonical_team as qreal_canonical,
     evaluate_official_doubles,
 )
-from scripts.datos.IMPORTAR_BOLETOS_QUINIELA15 import (  # noqa: E402
+from scripts.datos.IMPORTAR_BOLETOS_QUINIELA15 import (
     canonical_team as q15_canonical,
     pleno_bucket_from_source,
 )
 
 ROOT = PROJECT_ROOT
 DEFAULT_PROPUESTA = ROOT / "salida" / "quiniela_historica_propuesta_2025_2026.json"
-DEFAULT_CACHE = ROOT / "salida" / "predicciones_test_principal.pkl"
+DEFAULT_CACHE = ROOT / "salida" / "predicciones_test_principal.json.gz"
 DEFAULT_OUTPUT = ROOT / "salida" / "evaluacion_aciertos_boletos_2025_2026.json"
 PRED_PREFIX = "best"
 
@@ -87,14 +92,37 @@ def compute_reference_predictions() -> tuple[pd.DataFrame, dict[str, Any]]:
     return predictions, metrics
 
 
+CACHE_VERSION = 1
+
+
+def save_cache(cache_path: Path, predictions: pd.DataFrame, metrics: dict[str, Any]) -> None:
+    """Escribe la caché en JSON gzip (sin pickle: no ejecuta código al leerla)."""
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "cache_version": CACHE_VERSION,
+        "predictions": json.loads(predictions.to_json(orient="table", date_format="iso")),
+        "metrics": metrics,
+    }
+    cache_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+
+def load_cache(cache_path: Path) -> tuple[pd.DataFrame, dict[str, Any]]:
+    payload = json.loads(cache_path.read_text(encoding="utf-8"))
+    if payload.get("cache_version") != CACHE_VERSION:
+        raise ValueError(f"caché con versión desconocida en {cache_path}")
+    frame = pd.read_json(io.StringIO(json.dumps(payload["predictions"])), orient="table")
+    return frame, payload["metrics"]
+
+
 def load_or_compute_predictions(cache_path: Path | None, use_cache: bool) -> tuple[pd.DataFrame, dict[str, Any]]:
     if use_cache and cache_path is not None and cache_path.is_file():
-        blob = pd.read_pickle(cache_path)
-        return blob["predictions"], blob["metrics"]
+        try:
+            return load_cache(cache_path)
+        except (ValueError, KeyError) as exc:
+            print(f"[boletos] caché no reutilizable ({exc}); se recalcula")
     predictions, metrics = compute_reference_predictions()
     if cache_path is not None:
-        cache_path.parent.mkdir(parents=True, exist_ok=True)
-        pd.to_pickle({"predictions": predictions, "metrics": metrics}, cache_path)
+        save_cache(cache_path, predictions, metrics)
     return predictions, metrics
 
 
@@ -157,8 +185,8 @@ def evaluate_ticket_results(
         results = sub["official_ticket_result"].tolist()
         motor_pred = sub[f"{pred_prefix}_pred"].tolist()
         market_pred = sub["favorite_market"].tolist()
-        hits_simple = sum(p == r for p, r in zip(motor_pred, results))
-        hits_market = sum(m == r for m, r in zip(market_pred, results))
+        hits_simple = sum(p == r for p, r in zip(motor_pred, results, strict=False))
+        hits_market = sum(m == r for m, r in zip(market_pred, results, strict=False))
 
         doubles_df = evaluate_official_doubles(sub, pred_prefix, config)
         hits_dobles = int(doubles_df.loc[doubles_df["ticket_id"] == ticket_id, "hits_3_dobles_14"].iloc[0])

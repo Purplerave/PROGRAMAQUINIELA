@@ -72,7 +72,7 @@ def test_history_rules_distinguish_empty_admin_and_real_close(tmp_path):
         FTHG="0",
         FTAG="1",
         FTR="A",
-        **{column: "" for column in dq.MATCH_STAT_COLUMNS},
+        **dict.fromkeys(dq.MATCH_STAT_COLUMNS, ""),
         B365H="",
         B365D="",
         B365A="",
@@ -80,7 +80,7 @@ def test_history_rules_distinguish_empty_admin_and_real_close(tmp_path):
         B365CD="",
         B365CA="",
     )
-    empty = {field: "" for field in fields}
+    empty = dict.fromkeys(fields, "")
     _write_csv(
         csv_path,
         fields,

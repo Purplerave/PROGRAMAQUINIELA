@@ -15,7 +15,6 @@ from typing import Any
 
 from .constants import (
     COL_CUOTA_SOSPECHOSA,
-    COL_MOTIVO_EXCLUSION,
     COL_OVERROUND,
     COL_TIENE_CIERRE_REAL,
     COL_TRANSFORMACIONES,

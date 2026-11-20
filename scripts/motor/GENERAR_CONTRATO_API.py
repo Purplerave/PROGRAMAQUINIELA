@@ -173,9 +173,13 @@ def validar_contrato(contrato: dict) -> list[str]:
         if origin not in ORIGENES_PREDICCION_VALIDOS or (origin == "motor_v4" and source != "motor_maestro"):
             errors.append("origen_prediccion incompatible en pleno15")
         selection = f"{pleno.get('pronostico_local')}-{pleno.get('pronostico_visitante')}"
-        if source == "q15_fallback" and isinstance(score, str) and _SCORE.fullmatch(score):
-            if "-".join(_bucket(part) for part in score.split("-")) != selection:
-                errors.append("El Pleno basado en Q15 no coincide con su marcador")
+        if (
+            source == "q15_fallback"
+            and isinstance(score, str)
+            and _SCORE.fullmatch(score)
+            and "-".join(_bucket(part) for part in score.split("-")) != selection
+        ):
+            errors.append("El Pleno basado en Q15 no coincide con su marcador")
         if "goles_conjuntos" in pleno:
             joint = pleno["goles_conjuntos"]
             if (source != "motor_maestro" or not isinstance(joint, dict) or set(joint) != JOINT_SIGNS
@@ -187,7 +191,7 @@ def validar_contrato(contrato: dict) -> list[str]:
 
 
 def generate_api_contract(jornada: int) -> dict | None:
-    path = settings.SALIDAS_DIR / f"paquete_jornada_J{jornada}.json"
+    path = settings.SALIDA_DIR / f"paquete_jornada_J{jornada}.json"
     if not path.is_file():
         print(f"Error: No se encuentra el paquete de la jornada {jornada} en {path}")
         return None
@@ -199,7 +203,7 @@ def generate_api_contract(jornada: int) -> dict | None:
         errors = validar_contrato(contrato)
         if errors:
             raise ValueError("; ".join(errors))
-        out = settings.SALIDAS_DIR / f"api_maestros_J{jornada}.json"
+        out = settings.SALIDA_DIR / f"api_maestros_J{jornada}.json"
         write_json(out, contrato)
     except (AttributeError, TypeError, ValueError, OSError) as exc:
         print(f"Contrato no válido o no escribible; no se actualiza la salida: {exc}")

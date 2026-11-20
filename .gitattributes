@@ -1,0 +1,23 @@
+# Archivos que no deben viajar en `git archive` ni en paquetes publicables.
+# Motivo: procedencia/licencia no verificada (ver DATOS/PROCEDENCIA_DATOS.json
+# y la auditoría del 20/11/2026). El historial de Git no se reescribe aquí.
+DATOS/historico_raw/** export-ignore
+DATOS/highlightly_dataset/** export-ignore
+DATOS/highlightly_enriquecido/** export-ignore
+DATOS/ligaf/liga_f_partidos_2023-27.csv export-ignore
+DATOS/ligaf/liga_f_partidos_2023-27_manifest.json export-ignore
+DATOS/ligaf/_betexplorer_listado_sample.html export-ignore
+DATOS/ligaf/proxima_jornada_ligaf.csv export-ignore
+DATOS/jornadas_lae/** export-ignore
+DATOS/QUINIELA15_J*.json export-ignore
+DATOS/boletos_lae_reales/** export-ignore
+DATOS/boletos_lae_fuente/** export-ignore
+DATOS/quiniela_historica/** export-ignore
+
+# Normalización de texto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.yml text eol=lf
+*.bat text eol=crlf

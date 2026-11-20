@@ -150,7 +150,7 @@ def test_ev_by_scenario_monotonic():
     assert out["dificil"]["ev_premios_eur"] > out["normal"]["ev_premios_eur"]
     assert out["normal"]["ev_premios_eur"] > out["facil"]["ev_premios_eur"]
     # ROI coherente con EV y coste
-    for name, d in out.items():
+    for _name, d in out.items():
         assert d["roi"] == pytest.approx((d["ev_premios_eur"] - 6.0) / 6.0)
 
 
@@ -163,7 +163,7 @@ def test_evaluate_ticket_includes_scenarios():
 
 def test_default_prizes_match_normal_scenario():
     # prizes_eur por defecto = puntos medios del escenario normal (coherencia).
-    assert econ.DEFAULT_PRIZES_EUR == econ.DEFAULT_SCENARIOS_EUR["normal"]
+    assert econ.DEFAULT_SCENARIOS_EUR["normal"] == econ.DEFAULT_PRIZES_EUR
 
 
 def test_load_prizes_defaults_and_override():

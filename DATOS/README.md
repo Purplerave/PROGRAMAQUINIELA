@@ -21,3 +21,29 @@
 
 No se incluyen respuestas crudas de APIs, copias de seguridad ni datasets
 experimentales que no sean necesarios para ejecutar este proyecto.
+
+## Procedencia y licencias
+
+`DATOS/PROCEDENCIA_DATOS.json` es el manifiesto legible por máquina de cada
+fuente: origen, URL, licencia, estado (`verificada`, `no_verificada`,
+`prohibida_redistribucion`), atribución, fecha de captura y SHA-256 de los
+archivos inmutables. Se comprueba en CI con:
+
+```bash
+python scripts/datos/VERIFICAR_PROCEDENCIA.py            # falla si algo no cuadra
+python scripts/datos/VERIFICAR_PROCEDENCIA.py --json salida/procedencia.json
+python scripts/datos/VERIFICAR_PROCEDENCIA.py --actualizar  # refresca hashes
+```
+
+Siete de las nueve fuentes están **sin licencia verificada**. Esto significa:
+
+- no se amplían con más descargas ni se presentan como base de una afirmación
+  de producción;
+- sus rutas figuran en `.gitattributes` con `export-ignore`, de modo que
+  `git archive`, los ZIP de release y los paquetes publicables no las incluyen;
+- si se necesita cerrar el tema por completo, hay que reescribir el historial
+  con `git filter-repo` (ver `reports/MEJORA_AUDITORIA_2026-11-20.md`).
+
+Ningún resultado histórico del proyecto se apoya en una licencia supuesta: la
+cifra de referencia solo es reproducible mientras los datos estén presentes en
+la copia de trabajo, que es un uso interno.

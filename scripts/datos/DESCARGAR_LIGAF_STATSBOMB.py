@@ -87,7 +87,7 @@ def descargar():
 
     print(f"[ok] CSV datado: {ruta_csv} ({len(filas)} partidos)")
     print(f"[ok] Fechas {manifiesto['rango_fechas'][0]} .. {manifiesto['rango_fechas'][-1]}")
-    print(f"[ok] Manifiesto con SHA-256 escrito")
+    print("[ok] Manifiesto con SHA-256 escrito")
 
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ import pandas as pd
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts" / "datos"))
-import PREPARAR_XG_UNDERSTAT_KAGGLE as prep  # noqa: E402
+import PREPARAR_XG_UNDERSTAT_KAGGLE as prep
 
 # Imita el esquema de matches de Understat (una fila por partido, en la
 # subcarpeta de la liga). El CSV no tiene columna de liga: se deduce de la ruta.
@@ -74,18 +74,17 @@ def test_normaliza_nombres_de_columna():
 def test_sin_tabla_de_la_liga_lanza_error(tmp_path):
     # Solo columnas sin xG ni equipos -> debe fallar.
     (tmp_path / "otro.csv").write_text("a,b,c\n1,2,3\n", encoding="utf-8")
-    with pytest.raises(Exception):
+    with pytest.raises(ValueError):
         prep.localizar_partidos_la_liga(tmp_path)
 
 
 def test_ignora_otras_ligas_y_elige_la_liga(tmp_path):
     # Escribimos La Liga y tambien EPL (con mas filas) para verificar que elige La Liga.
-    liga = tmp_path / "understats" / "La_Liga"; liga.mkdir(parents=True, exist_ok=True)
+    liga = tmp_path / "understats" / "La_Liga"
+    liga.mkdir(parents=True, exist_ok=True)
     (liga / "match_data.csv").write_text(_csv_filas(_FILAS).getvalue(), encoding="utf-8")
-    epl = tmp_path / "understats" / "EPL"; epl.mkdir(parents=True, exist_ok=True)
-    filas_epl = [["match_id", "season", "datetime", "home_team", "away_team", "xG_h", "xG_a"],
-                 [1, "2014", "2014-08-25", "Arsenal", "Chelsea", 1.9, 1.4],
-                 [2, "2014", "2014-08-25", "Liverpool", "Man City", 2.2, 1.1]]
+    epl = tmp_path / "understats" / "EPL"
+    epl.mkdir(parents=True, exist_ok=True)
     (epl / "match_data.csv").write_text(
         "match_id,season,datetime,home_team,away_team,xG_h,xG_a\n"
         "1,2014,2014-08-25,Arsenal,Chelsea,1.9,1.4\n"
@@ -100,7 +99,8 @@ def test_ignora_otras_ligas_y_elige_la_liga(tmp_path):
 
 def test_descarta_tabla_de_temporada_sin_partidos(tmp_path):
     # match_data.csv es la tabla de temporada por equipo (xG pero NO por partido).
-    liga = tmp_path / "understats" / "La_Liga"; liga.mkdir(parents=True, exist_ok=True)
+    liga = tmp_path / "understats" / "La_Liga"
+    liga.mkdir(parents=True, exist_ok=True)
     (liga / "match_data.csv").write_text(
         "id,title,year,wins,draws,loses,pts,xG,xGA,result\n"
         "1,Real Madrid,2014,30,4,4,94,95.0,35.0,W\n"
@@ -120,7 +120,8 @@ def test_descarta_tabla_de_temporada_sin_partidos(tmp_path):
 
 def test_mapea_columnas_reales_de_match_info(tmp_path):
     # Columnas tal y como las expone match_info.csv de understatapi.
-    liga = tmp_path / "understats" / "La_Liga"; liga.mkdir(parents=True, exist_ok=True)
+    liga = tmp_path / "understats" / "La_Liga"
+    liga.mkdir(parents=True, exist_ok=True)
     cab = ("id,fid,h,a,date,league_id,season,h_goals,a_goals,team_h,team_a,"
            "h_xg,a_xg,h_w,h_d,h_l,league,h_shot,a_shot,h_shotOnTarget,a_shotOnTarget,"
            "h_deep,a_deep,a_ppda,h_ppda")
@@ -145,12 +146,14 @@ def test_mapea_columnas_reales_de_match_info(tmp_path):
 def test_detecta_la_liga_por_equipos_en_zip_consolidado(tmp_path):
     # Simula un ZIP/carpeta SIN la ruta La_Liga: varios CSV de partidos por liga
     # (formato h_title/a_title), y debe elegir el de La Liga por equipos.
-    epl = tmp_path / "EPL"; epl.mkdir(parents=True)
+    epl = tmp_path / "EPL"
+    epl.mkdir(parents=True)
     (epl / "matches.csv").write_text(
         "id,datetime,h_title,a_title,h_goals,a_goals,xG_h,xG_a\n"
         "1,2020-01-01,Arsenal,Chelsea,2,1,1.9,1.4\n"
         "2,2020-01-01,Liverpool,Man City,3,0,2.2,1.1\n", encoding="utf-8")
-    liga = tmp_path / "SPAIN"; liga.mkdir(parents=True)
+    liga = tmp_path / "SPAIN"
+    liga.mkdir(parents=True)
     (liga / "matches.csv").write_text(
         "id,datetime,h_title,a_title,h_goals,a_goals,xG_h,xG_a\n"
         "10,2020-01-01,Real Madrid,Getafe,3,0,3.13,0.98\n"
@@ -164,7 +167,8 @@ def test_detecta_la_liga_por_equipos_en_zip_consolidado(tmp_path):
 
 def test_lee_csv_separado_por_punto_y_coma(tmp_path):
     """El match_info.csv real usa ';' como delimitador."""
-    liga = tmp_path / "understats" / "La_Liga"; liga.mkdir(parents=True, exist_ok=True)
+    liga = tmp_path / "understats" / "La_Liga"
+    liga.mkdir(parents=True, exist_ok=True)
     cab = (";id;fid;h;a;date;league_id;season;h_goals;a_goals;team_h;team_a;h_xg;a_xg;"
            "h_w;h_d;h_l;league;h_shot;a_shot;h_shotOnTarget;a_shotOnTarget;h_deep;a_deep;a_ppda;h_ppda")
     fila = ("0;5826;862055;137;147;2014-08-23 18:00:00;4;2014;1;0;Malaga;Athletic Club;"

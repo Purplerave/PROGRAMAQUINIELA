@@ -72,7 +72,7 @@ class VectorScalingCalibrator:
         self.is_fitted = False
         self.calibration_info: dict = {}
 
-    def fit(self, cal_probs: np.ndarray, cal_y: np.ndarray) -> "VectorScalingCalibrator":
+    def fit(self, cal_probs: np.ndarray, cal_y: np.ndarray) -> VectorScalingCalibrator:
         """Ajusta el calibrador con probabilidades de validación y etiquetas reales.
 
         Args:

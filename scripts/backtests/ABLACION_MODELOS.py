@@ -45,7 +45,6 @@ from MOTOR_QUINIELA_MAESTRO import (
     LABEL_MAP,
     feature_columns,
     load_raw_history,
-    predict_full_probs,
     simulate_doubles,
 )
 from scripts.motor.features import rolling_team_features
@@ -336,7 +335,7 @@ def main() -> None:
         m_acc = float((g[["market_1", "market_x", "market_2"]].idxmax(axis=1).map(
             {"market_1": "1", "market_x": "X", "market_2": "2"}) == g["result"]).mean())
         e_acc = float((g["_ens_pred"] == g["result"]).mean())
-        print(f"{str(season):<12}{len(g):>6}{m_acc * 100:>9.2f}%{e_acc * 100:>9.2f}%{(e_acc - m_acc) * 100:>+9.2f}")
+        print(f"{season!s:<12}{len(g):>6}{m_acc * 100:>9.2f}%{e_acc * 100:>9.2f}%{(e_acc - m_acc) * 100:>+9.2f}")
 
     # Desglose por división
     print("\nDESGLOSE POR DIVISIÓN  (acierto simple)")

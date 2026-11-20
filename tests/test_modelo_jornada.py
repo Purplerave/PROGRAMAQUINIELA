@@ -283,7 +283,7 @@ class TestIntegration:
     def test_low_quality_data_marking(self):
         """Punto 2 Codex (Rev 2): Confirmar que un partido sin datos queda marcado como no fiable."""
         from PREDECIR_JORNADA import _integrate_model_predictions
-        
+
         partidos = [{"num": 1, "local": "Team A", "visitante": "Team B", "apu": {"1": 1, "X": 1, "2": 1}}]
         model_preds = {
             "predicciones": [{
@@ -297,10 +297,10 @@ class TestIntegration:
                 "features_disponibles": {}
             }]
         }
-        
+
         integrated = _integrate_model_predictions(partidos, model_preds)
         match = integrated[0]
-        
+
         assert match["modelo_maestro"]["disponible"] is False
         assert match["modelo_maestro"]["razon"] == "baja_calidad_datos"
         assert match["probabilidades"]["modelo"] is None
@@ -379,11 +379,12 @@ class TestIntegration:
         assert "prob_x" not in modelo
         assert "prob_2" not in modelo
 
+    @pytest.mark.slow
     def test_spanish_teams_reliability(self):
-        """Añadir prueba con equipos españoles presentes en el histórico."""
+        """Añadir prueba con equipos españoles presentes en el histórico (~105 s)."""
         from MOTOR_PREDICCION_JORNADA import predict_jornada_from_model
         from MOTOR_QUINIELA_MAESTRO import load_raw_history
-        
+
         history = load_raw_history()
         partidos = [{
             "num": 1,
@@ -392,9 +393,9 @@ class TestIntegration:
             "fecha": "2026-08-15",
             "division": "Primera"
         }]
-        
+
         preds = predict_jornada_from_model(partidos, history, 1, "2026-08-01")
-        
+
         if preds["predicciones"]:
             p = preds["predicciones"][0]
             # Punto 1 Codex (Rev 3): Comprobar que el partido es utilizable/fiable.
@@ -406,7 +407,7 @@ class TestIntegration:
     def test_no_recommendation_without_source(self):
         """Punto 2 Codex (Rev 3): Confirmar que sin fuente fiable no hay recomendación."""
         from PREDECIR_JORNADA import build_recommendation_for_match
-        
+
         match = {
             "num": 1,
             "modelo_maestro": {"disponible": False},
@@ -415,14 +416,14 @@ class TestIntegration:
                 "comparativa": {"apu": None, "lae": None}
             }
         }
-        
+
         rec = build_recommendation_for_match(match)
         assert rec["disponible"] is False
         assert "signo_principal" not in rec
         assert "apuesta_recomendada" not in rec
         """Punto 1 Codex: Verificar que la recomendación usa las probabilidades del motor."""
         from PREDECIR_JORNADA import build_recommendation_for_match
-        
+
         # Caso A: Modelo da favorito claro al Local (1) con alta confianza
         match_1 = {
             "num": 1,
@@ -434,7 +435,7 @@ class TestIntegration:
         rec_1 = build_recommendation_for_match(match_1)
         assert rec_1["signo_principal"] == "1"
         assert rec_1["tipo_apuesta"] == "simple"
-        
+
         # Caso B: Modelo da favorito al Visitante (2) pero con poca confianza (genera triple)
         match_2 = {
             "num": 2,
@@ -477,7 +478,7 @@ class TestIntegration:
         assert rec["apuesta_recomendada"] == "1"
 
     def test_save_predictions(self, tmp_path, monkeypatch):
-        monkeypatch.setattr(settings, "SALIDAS_DIR", tmp_path)
+        monkeypatch.setattr(settings, "SALIDA_DIR", tmp_path)
 
         predictions = {"jornada": 74, "predicciones": [], "estado": "test"}
         path = save_predictions(predictions, 74)

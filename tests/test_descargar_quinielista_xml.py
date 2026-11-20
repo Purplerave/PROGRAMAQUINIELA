@@ -21,7 +21,7 @@ def test_xml_validation_requires_all_fifteen_positions():
     assert matches[0]["local"] == "Local 1"
 
     broken = xml_fixture().replace(b'num="15"', b'num="16"')
-    with pytest.raises(ValueError, match="1..15"):
+    with pytest.raises(ValueError, match=r"1..15"):
         parse_and_validate(broken, 44, 2026)
 
 

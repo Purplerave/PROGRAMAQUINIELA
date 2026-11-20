@@ -14,7 +14,7 @@ import pytest
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts" / "datos"))
-import highlightly_client as hl  # noqa: E402
+import highlightly_client as hl
 
 # Respuesta realista de /football/statistics/{matchId} (un array por equipo).
 ESTADISTICAS_MUESTRA = [
@@ -199,5 +199,5 @@ class TestLocalizarXG:
 
     def test_encuentra_expected_goals(self):
         objeto = {"statistics": [{"displayName": "Expected Goals", "value": 0.98}]}
-        ruta, valor = hl.localizar_campo_xg(objeto)
+        _ruta, valor = hl.localizar_campo_xg(objeto)
         assert valor == 0.98

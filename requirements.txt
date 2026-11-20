@@ -1,5 +1,12 @@
+# Dependencias de ejecución — versiones exactas, sin rangos abiertos.
+#
+# Instalación reproducible (recomendada; incluye árbol transitorio y hashes):
+#     pip install --require-hashes -r requirements.lock.txt
+#
+# Este archivo se mantiene como lista legible de dependencias directas. El lock
+# se regenera con `make lock` (requiere pip-tools: requirements-tools.in).
 numpy==2.2.6
 pandas==2.3.3
 scipy==1.16.3
 scikit-learn==1.7.2
-requests>=2.31
+requests==2.34.2

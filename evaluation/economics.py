@@ -23,8 +23,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-import settings  # noqa: E402
-import OPTIMIZADOR_COLUMNAS as opt  # noqa: E402  (reutiliza convolución exacta)
+import settings
+import OPTIMIZADOR_COLUMNAS as opt
 
 # Categorías de premio de La Quiniela (juego principal, sin Pleno al 15, que se
 # juega y evalúa aparte según el contrato P0).

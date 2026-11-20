@@ -16,7 +16,7 @@ def test_team_alias_index_keeps_unique_mappings():
 
 
 def test_team_alias_index_rejects_cross_team_collisions():
-    with pytest.raises(ValueError, match="Alias duplicado.*Madrid"):
+    with pytest.raises(ValueError, match=r"Alias duplicado.*Madrid"):
         build_alias_index(
             ["Real Madrid", "Atletico de Madrid"],
             {

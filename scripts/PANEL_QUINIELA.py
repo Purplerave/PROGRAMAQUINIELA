@@ -1,6 +1,6 @@
 """Panel local del boleto semanal. Ejecutar y exportar son acciones separadas.
 
-La exportación prepara archivos bajo SALIDAS; no importa datos, lanza Git ni
+La exportación prepara archivos bajo salida/; no importa datos, lanza Git ni
 publica en ningún repositorio externo.
 """
 from __future__ import annotations
@@ -15,7 +15,7 @@ import sys
 import threading
 import time
 import webbrowser
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -45,10 +45,10 @@ def load_weekly_output(jornada: int, demo: bool = False) -> dict:
     if type(jornada) is not int or jornada < 1:
         raise ValueError("La jornada debe ser un entero positivo")
     tag = output_label(jornada, demo)
-    path = settings.SALIDAS_DIR / f"boleto_completo_{tag}.json"
+    path = settings.SALIDA_DIR / f"boleto_completo_{tag}.json"
     raw = path.read_bytes()
     ticket = json.loads(raw)
-    opt = json.loads((settings.SALIDAS_DIR / f"optimizacion_boleto_{tag}.json").read_text(encoding="utf-8"))
+    opt = json.loads((settings.SALIDA_DIR / f"optimizacion_boleto_{tag}.json").read_text(encoding="utf-8"))
     if (not isinstance(ticket, dict) or not isinstance(opt, dict)
             or ticket.get("jornada") != jornada or opt.get("jornada") != jornada
             or ticket.get("demo") is not demo or opt.get("demo") is not demo
@@ -79,7 +79,7 @@ def _pipeline(presupuesto: int, source: Path, demo: bool):
             ESTADO["error"] = str(exc)
     finally:
         with LOCK:
-            ESTADO["ultima_ejecucion"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            ESTADO["ultima_ejecucion"] = datetime.now(UTC).isoformat(timespec="seconds")
             ESTADO["corriendo"] = False
 
 
@@ -104,7 +104,7 @@ def exportar_liga_maestros(payload: dict) -> dict:
         raise ValueError("Jornada inválida para exportación")
     if ticket.get("demo") is not False:
         raise ValueError("Un boleto de demostración no se puede exportar")
-    if utc_timestamp(ticket.get("cierre")) <= datetime.now(timezone.utc):
+    if utc_timestamp(ticket.get("cierre")) <= datetime.now(UTC):
         raise ValueError(f"La jornada J{jornada} ya está cerrada")
     casillas = parse_casillas(ticket)
     matches = sorted(ticket["ligam"]["predicciones"] + ticket["ligaf"]["pronosticos"], key=lambda p: p["numero"])
@@ -118,10 +118,10 @@ def exportar_liga_maestros(payload: dict) -> dict:
         signs.append(sign)
         inbox_rows.append({"numero": p["numero"], "partido": f"{p['local']} - {p['visitante']}",
                            "signo_programa": sign, "pleno": p["numero"] == 15})
-    target = settings.SALIDAS_DIR / "entrega_liga_maestros" / f"J{jornada}"
+    target = settings.SALIDA_DIR / "entrega_liga_maestros" / f"J{jornada}"
     opt = payload["optimizacion"]
     write_json(target / "inbox" / f"QUINIELA_J{jornada}_PROGRAMA.json", {
-        "tipo": "quiniela_programa", "jornada": jornada, "exportado": datetime.now(timezone.utc).isoformat(),
+        "tipo": "quiniela_programa", "jornada": jornada, "exportado": datetime.now(UTC).isoformat(),
         "fuente": "PROGRAMAQUINIELA", "cierre": ticket["cierre"], "bote_eur": ticket.get("bote_eur"),
         "casillas": inbox_rows, "apuesta_recomendada": {
             k: opt[k] for k in ("politica_cobertura", "politica_ev_parimutuel") if k in opt
@@ -130,9 +130,10 @@ def exportar_liga_maestros(payload: dict) -> dict:
     write_json(target / "DATOS" / f"QUINIELA15_J{jornada}.json", {
         "jornada": jornada, "partidos": [{"num": p["numero"], "local": p["local"], "visitante": p["visitante"]} for p in matches],
     })
+    # Subcarpeta literal "SALIDAS": contrato de importación del receptor externo.
     write_json(target / "SALIDAS" / f"quiniela_programa_J{jornada}.json", {"signos": signs})
     write_json(target / "DATOS" / f"PROBABILIDADES_J{jornada}.json", {
-        str(c["numero"]): {"num": c["numero"], "probabilidades": dict(zip(c["etiquetas"], c["probs"]))}
+        str(c["numero"]): {"num": c["numero"], "probabilidades": dict(zip(c["etiquetas"], c["probs"], strict=False))}
         for c in casillas[:-1]
     })
     return {"estado": "exportado_localmente", "ruta": str(target), "jornada": jornada, "n_casillas": len(casillas)}
@@ -215,7 +216,8 @@ def validar_post(headers, token: str = PANEL_TOKEN) -> tuple[int, str] | None:
 def pintar_cli(payload: dict) -> None:
     boleto = payload.get("boleto")
     if not boleto:
-        print(payload.get("error", "Sin resultados")); return
+        print(payload.get("error", "Sin resultados"))
+        return
     label = "DEMO " if boleto.get("demo") else ""
     print(f"\n== QUINIELA {label}J{boleto.get('jornada')} | bote "
           f"{float(boleto.get('bote_eur') or 0):,.0f} EUR | cierre {boleto.get('cierre')} ==")

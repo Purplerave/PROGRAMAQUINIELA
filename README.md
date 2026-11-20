@@ -16,6 +16,11 @@ make backtest           # Walk-forward sobre histórico saneado; puede incluir l
 make predict JORNADA=74 # Genera el paquete de predicción para la jornada
 make audit              # Calidad de datos, pruebas, cobertura y backtests (LaLiga + Liga F)
 make reference          # Regenera salida/referencia_produccion.json (2019-20 a 2025-26)
+make anidado            # Walk-forward anidado: reajusta pesos/bandas fuera de muestra
+make procedencia        # Verifica el manifiesto de procedencia y licencias de datos
+make registro-verificar # Comprueba la cadena del registro prospectivo append-only
+make lint               # Ruff completo (configuración en pyproject.toml)
+make test-fast          # Suite sin las pruebas marcadas como lentas
 ```
 
 `make audit` reutiliza el saneado existente y crea nueva evidencia de datos en
@@ -26,8 +31,10 @@ no equivale a un aprobado del dataset.
 
 La auditoría de arquitectura, los hallazgos y el plan de mejora están en
 [Auditoría técnica — fase 1](reports/AUDITORIA_TECNICA_2026-11-18.md), en la
-[auditoría total del 19/11/2026](reports/AUDITORIA_TOTAL_2026-11-19.md) y en la
-[revisión de pendientes del 20/11/2026](reports/REVISION_MEJORAS_2026-11-20.md).
+[auditoría total del 19/11/2026](reports/AUDITORIA_TOTAL_2026-11-19.md), en la
+[revisión de pendientes del 20/11/2026](reports/REVISION_MEJORAS_2026-11-20.md)
+y en las [mejoras aplicadas tras la auditoría externa del 20/11/2026]
+(reports/MEJORA_AUDITORIA_2026-11-20.md), que es el estado vigente.
 
 El control de datasets es descriptivo por defecto: los críticos de cobertura
 conocidos no detienen el `make audit` histórico. Para usar el auditor como
@@ -50,16 +57,26 @@ conocidas; no significa que deba rellenarse o corregirse inventando datos.
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements-dev.txt
+pip install --require-hashes -r requirements-dev.lock.txt   # reproducible
+# o, sin hashes: pip install -r requirements-dev.txt
 ```
+
+Los archivos `requirements*.lock.txt` fijan todo el árbol transitivo con SHA-256
+(generados con `pip-compile --generate-hashes`). `requirements.txt` mantiene la
+lista legible de dependencias directas, todas con versión exacta: no hay rangos
+abiertos. Para regenerar el lock: `make lock` (requiere `requirements-tools.in`).
 
 ### Windows (PowerShell)
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -r requirements-dev.txt
+pip install --require-hashes -r requirements-dev.lock.txt
 ```
+
+Windows y macOS están cubiertos por CI (`ubuntu`, `windows` y `macos`). Todas
+las rutas usan `pathlib` y existe una única carpeta de salida, `salida/`: no hay
+dos directorios que solo se diferencien en mayúsculas.
 
 ## Uso
 
@@ -160,8 +177,11 @@ etiqueta el proxy disponible, sin inventar probabilidades. Para solo diagnóstic
 usa `--no-model`. Con `--save-predictions` se guarda el mismo cálculo que se
 incluyó en el paquete, sin reentrenar.
 
-Los resultados generados se escriben en `salida/` y `SALIDAS/` y no se suben
-al repositorio.
+Los resultados generados se escriben en `salida/` (carpeta única) y no se suben
+al repositorio. Hasta el 20/11/2026 convivían `salida/` y `SALIDAS/`; en macOS y
+Windows eran la misma carpeta y podían romper el clonado. `settings.SALIDAS_DIR`
+se conserva como alias del mismo objeto por compatibilidad, pero apunta a
+`salida/`.
 
 ### Boleto semanal mixto y panel local
 
@@ -192,7 +212,7 @@ partido y `prediction_cutoff_at` si el corte es anterior al cierre. La casilla
 
 El panel no escribe en aplicaciones externas. `python scripts/PUBLICAR_WEB.py
 --jornada N` (nombre histórico) prepara archivos en
-`SALIDAS/entrega_liga_maestros/J<N>/` para revisión y entrega manual. No ejecuta
+`salida/entrega_liga_maestros/J<N>/` para revisión y entrega manual. No ejecuta
 Git ni un importador ni publica en remoto. La demo y las jornadas cerradas
 no se exportan.
 
@@ -214,6 +234,10 @@ no se exportan.
 - `scripts/motor/xg_understat.py`: carga y fusion del xG de Understat (Primera
   2014-2024). Añade columnas de xG al historico; aditivo y no afecta al modelo.
 - `scripts/backtests/EXPERIMENTO_XG.py`: A/B walk-forward Sin-xG vs Con-xG.
+- `scripts/backtests/WALK_FORWARD_ANIDADO.py`: comparación congelado vs anidado.
+- `scripts/datos/VERIFICAR_PROCEDENCIA.py`: manifiesto de licencias y hashes.
+- `scripts/motor/registro_prospectivo.py`: registro append-only con cadena de hashes.
+- `DATOS/PROCEDENCIA_DATOS.json`: procedencia, licencia y estado de cada fuente.
 - `REVISION_*.md`: informes tecnicos (validaciones, experimentos y decisiones).
 
 ## Reglas de evaluacion
@@ -222,6 +246,24 @@ Los datos futuros nunca deben entrar en el entrenamiento de una temporada
 anterior. Toda mejora debe compararse con el favorito de mercado y reportar,
 como minimo, acierto simple y media de aciertos con tres dobles. No se considera
 mejora una subida obtenida solo sobre los mismos datos usados para ajustar.
+
+## Qué es (y qué no es) este motor
+
+El motor **no bate al mercado**. Es, con la configuración activa
+(`motor_quinielistico_v4`), **el favorito del mercado más un ajuste pequeño**:
+HGB pesa 0,049 y mercado 0,951; logit y Poisson pesan 0. No es un «ensemble de
+mercado + Poisson + ML»: esa descripción es incorrecta y ya no se usa en la
+documentación viva.
+
+Su valor real está en lo demás: generador de boletos (contrato de 3 dobles =
+8 columnas = 6,00 €), optimizador de columnas con probabilidades de cobertura,
+modelo de Pleno al 15 por marcador, sellado temporal sin fuga y trazabilidad.
+
+Toda afirmación de ventaja es retrospectiva y no significativa. La evidencia
+prospectiva está a cero: el registro append-only
+(`DATOS/registro_prospectivo.jsonl`) existe y está validado, pero vacío. Hasta
+que acumule predicciones y cuotas observadas **antes** del corte, no hay nada
+que permita decir que el motor supera al mercado.
 
 ## Resultado de referencia
 
@@ -236,6 +278,27 @@ partidos de siete temporadas cerradas (2019-20 a 2025-26)**.
 - 2024-25: 52,38 % frente a 52,38 %; 8,73/15. 2025-26: 51,54 % frente a
   51,54 %; 8,46/15. El [informe de auditoría](reports/AUDITORIA_TECNICA_2026-11-18.md)
   contiene el desglose completo por Primera, Segunda y temporada.
+
+### ¿Sobrevive la ventaja a un protocolo anidado?
+
+Los pesos y las bandas congeladas se eligieron mirando 2019-26 y luego se
+aplican a esas mismas temporadas: la cifra anterior **no es estrictamente fuera
+de muestra**. `make anidado` (`scripts/backtests/WALK_FORWARD_ANIDADO.py`)
+compara dos brazos sobre la misma ventana:
+
+- *congelado*: la configuración publicada, aplicada hacia atrás (el backtest
+  oficial);
+- *anidado*: pesos y parámetros de dobles re-elegidos en cada temporada
+  exterior **solo con temporadas anteriores**.
+
+Los resultados de la pasada del 20/11/2026 están en
+[el informe de mejoras](reports/MEJORA_AUDITORIA_2026-11-20.md). En resumen,
+sobre las mismas 5.894 filas: el brazo anidado da **50,29 % frente a 49,83 %**
+del mercado (+0,46 pp; IC95 [−0,12; +1,05]; McNemar p=0,136), y la diferencia
+entre congelado y anidado es de −0,14 pp (p=0,594). Es decir: la ventaja
+publicada **no desaparece** al reajustar los pesos fuera de muestra —lo que
+descarta un sobreajuste grande— pero sigue siendo **indistinguible de cero**.
+Ese es el número que debe citarse, no el +0,32 pp como si fuera una victoria.
 
 `reports/production_reference.json` conserva la referencia archivada del
 24/08/2026 (50,27 %, otro commit/configuración/entorno), no la medición vigente.
@@ -322,3 +385,77 @@ diagnóstico**, no como camino paralelo. No hay rama alternativa ni pipeline
 duplicada: el saneado se genera desde el original con un solo comando
 (`python scripts/datos/SANEAR_DATOS.py --confirm`) y se valida con
 `pytest tests/test_sanitization.py`.
+
+## Datos, licencias y redistribución (P0)
+
+`DATOS/PROCEDENCIA_DATOS.json` declara, para cada fuente, origen, URL, licencia,
+estado (`verificada` / `no_verificada` / `prohibida_redistribucion`),
+atribución, fecha de captura y SHA-256 de los archivos inmutables.
+`python scripts/datos/VERIFICAR_PROCEDENCIA.py` lo comprueba en CI: falla si una
+ruta de `DATOS/` no está declarada, si un hash no cuadra o si una fuente no
+redistribuible no está excluida de las exportaciones.
+
+Siete de las nueve fuentes están sin licencia verificada (histórico de
+football-data, Highlightly, jornadas y boletos de LAE, adjunto de Liga F y la
+muestra de BetExplorer). Consecuencias operativas:
+
+- esas rutas están en `.gitattributes` con `export-ignore`, así que
+  `git archive`, los ZIP de release y cualquier paquete publicable no las
+  incluyen;
+- no se amplía la ingesta de esas fuentes ni se presentan como base de una
+  afirmación de producción;
+- si se quiere cerrar el tema en el historial de Git, hay que reescribirlo
+  (`git filter-repo --path ... --invert-paths`); el procedimiento está descrito
+  en [el informe de mejoras](reports/MEJORA_AUDITORIA_2026-11-20.md). La
+  auditoría del 20/11/2026 no reescribe el historial automáticamente porque
+  cambia todos los SHA y requiere una decisión explícita del responsable.
+
+Cada fuente mantiene su propio manifiesto cuando existe
+(`DATOS/ligaf/MANIFIESTO_FUENTES.json`,
+`DATOS/ligaf/liga_f_partidos_2023-27_manifest.json`); el global los agrega.
+
+## Registro prospectivo (append-only)
+
+Para poder afirmar algo en el futuro hace falta evidencia registrada **antes**
+del corte. `scripts/motor/registro_prospectivo.py` mantiene
+`DATOS/registro_prospectivo.jsonl` con una línea por partido:
+
+- predicción (`signo`, `probabilidades`), corte (`prediction_cutoff_at`),
+  `kickoff_at`, `registrado_at`, cuotas y `odds_observed_at` cuando existan;
+- invariantes: `registrado_at ≤ prediction_cutoff_at < kickoff_at` y
+  `odds_observed_at ≤ prediction_cutoff_at`;
+- cadena de hashes SHA-256 (`hash_prev` + `hash`): editar una línea rompe la
+  cadena y `--verificar` lo detecta;
+- sin duplicados `(jornada, num_partido)`.
+
+```bash
+python scripts/registro_prospectivo.py --anadir partidos_J75.json
+python scripts/registro_prospectivo.py --verificar
+python scripts/registro_prospectivo.py --resumen
+make registro-verificar
+```
+
+`--resumen` no calcula ROI: informa de cuántos registros tienen cuotas
+verificadas y cuántos siguen pendientes de resultado. Sin cuotas auditadas, la
+conclusión honesta sigue siendo «muestra insuficiente».
+
+Regla operativa: durante la ventana de evaluación no se tocan pesos, bandas ni
+umbrales. Cualquier cambio reinicia el reloj de la evidencia.
+
+## Límites conocidos (leer antes de citar cifras)
+
+- **Cuotas de cierre como entrada.** El backtest usa la tripleta de cierre
+  (`AvgC*`), que no existe cuando se rellena el boleto. Sobre las mismas 5.894
+  filas, el favorito con apertura acierta 49,69 % y con cierre 49,83 %: para el
+  acierto simple es despreciable, pero **invalida cualquier afirmación de ROI o
+  de value betting** calculada con cierre.
+- **Empates.** El favorito de mercado es empate solo el 1,7 % de las veces,
+  aunque el 28,4 % de los partidos acaban en X. Por construcción, el acierto
+  simple casi nunca predice X: la métrica premia al favorito, no al que cubre.
+- **Tres dobles.** Es un indicador mecánico sobre bloques de 15 partidos
+  ordenados por fecha. No reconstruye boletos oficiales ni estima premios.
+- **Premios.** Los importes de `CONFIG_MOTOR_V2.json` son estimaciones; el EV y
+  el ROI derivados no son retorno realizado. El ROI real exige escrutinio y
+  premio oficial por categoría.
+- **Sin cuotas verificadas** al corte no hay comparación económica posible: el
+  motor marca la limitación en vez de inventar precios.

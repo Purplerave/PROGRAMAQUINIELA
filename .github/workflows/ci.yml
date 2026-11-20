@@ -10,16 +10,47 @@ env:
   OPENBLAS_NUM_THREADS: "1"
 
 jobs:
-  tests:
-    name: Suite de tests (Python ${{ matrix.python }})
+  lint:
+    name: Lint y contrato de estilo
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    strategy:
-      matrix:
-        python: ["3.11", "3.12"]
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalar dependencias de desarrollo (lock con hashes)
+        run: |
+          python -m pip install --upgrade pip
+          pip install --require-hashes -r requirements-dev.lock.txt
+      - name: Ruff completo (pyproject.toml)
+        run: python -m ruff check .
+      - name: Comprobar espacios en blanco del diff
+        run: |
+          base=$(git merge-base origin/main HEAD)
+          git diff --check "$base" HEAD
+
+  tests:
+    name: Suite de tests (Python ${{ matrix.python }} / ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: "3.11"
+          - os: ubuntu-latest
+            python: "3.12"
+          - os: windows-latest
+            python: "3.12"
+          - os: macos-latest
+            python: "3.12"
+    steps:
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -29,16 +60,13 @@ jobs:
           python-version: ${{ matrix.python }}
           cache: pip
 
-      - name: Instalar dependencias
+      - name: Instalar dependencias (lock con hashes)
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements-dev.txt
+          pip install --require-hashes -r requirements-dev.lock.txt
 
-      - name: Comprobar sintaxis, nombres y diff
-        run: |
-          make lint
-          base=$(git merge-base origin/main HEAD)
-          git diff --check "$base" HEAD
+      - name: Comprobar que no hay dependencias rotas
+        run: python -m pip check
 
       - name: Suite de tests
         run: python -m pytest tests/ -q
@@ -59,7 +87,7 @@ jobs:
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install --require-hashes -r requirements.lock.txt
 
       - name: Validar contrato y optimizador
         run: |
@@ -91,13 +119,26 @@ jobs:
   referencia-cerrada:
     name: Reproducibilidad del backtest oficial cerrado
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
-      - run: python -m pip install -r requirements.txt
+      - run: |
+          python -m pip install --upgrade pip
+          pip install --require-hashes -r requirements.lock.txt
       - run: make sanitize
       - run: python scripts/reports/GENERAR_PRODUCTION_REFERENCE.py --skip-tests --out salida/referencia_ci.json
+
+  procedencia:
+    name: Procedencia y licencias de datos
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/datos/VERIFICAR_PROCEDENCIA.py

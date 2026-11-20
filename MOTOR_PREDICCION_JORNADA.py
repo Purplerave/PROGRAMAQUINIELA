@@ -170,11 +170,11 @@ def _apply_transition_priors(features_df: pd.DataFrame, cutoff_date: object) -> 
                         current_ppg = row.get(ppg_col, 0) if pd.notna(row.get(ppg_col)) else 0.0
                         new_ppg = (weight * current_ppg) + ((1.0 - weight) * adj_ppg)
                         features_df.at[idx, ppg_col] = new_ppg
-                        
+
     # Recalcular diferencias basadas en los nuevos valores
     if "home_table_ppg" in features_df.columns and "away_table_ppg" in features_df.columns:
         features_df["table_ppg_diff"] = features_df["home_table_ppg"] - features_df["away_table_ppg"]
-        
+
     return features_df
 
 
@@ -400,7 +400,7 @@ def predict_jornada_from_model(
             # El Pleno al 15 se maneja aparte con Dixon-Coles (buckets de goles)
             partido15 = p
             continue
-        
+
         # Respetar la temporada inferida de la fecha del partido
         kickoff = kickoff_at(p)
         fecha_partido = local_timestamp(kickoff).normalize() if kickoff else cutoff_day
@@ -459,7 +459,7 @@ def predict_jornada_from_model(
     except Exception as e:
         return {
             "jornada": jornada,
-            "error": f"Error calculando features: {str(e)}",
+            "error": f"Error calculando features: {e!s}",
             "pleno15": pleno15_pred,
             "fecha_generacion": datetime.now().isoformat(timespec="seconds"),
         }
@@ -650,9 +650,9 @@ def generate_jornada_prediction(
 
 
 def save_predictions(predictions: dict[str, Any], jornada: int) -> Path:
-    """Guarda las predicciones en SALIDAS/."""
-    settings.SALIDAS_DIR.mkdir(parents=True, exist_ok=True)
-    path = settings.SALIDAS_DIR / f"predicciones_modelo_J{jornada}.json"
+    """Guarda las predicciones en salida/."""
+    settings.SALIDA_DIR.mkdir(parents=True, exist_ok=True)
+    path = settings.SALIDA_DIR / f"predicciones_modelo_J{jornada}.json"
     write_json(path, predictions)
     return path
 
@@ -662,7 +662,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Genera predicciones del modelo para una jornada.")
     parser.add_argument("--jornada", "-j", type=int, required=True)
-    parser.add_argument("--save", action="store_true", help="Guardar predicciones en SALIDAS/")
+    parser.add_argument("--save", action="store_true", help="Guardar predicciones en salida/")
     parser.add_argument("--corte", help="fecha/hora ISO documentada del corte")
     args = parser.parse_args()
 

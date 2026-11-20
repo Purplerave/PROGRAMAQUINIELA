@@ -11,10 +11,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts" / "datos"))
-import understat_xg  # noqa: E402
+import understat_xg
 
 # Construimos el HTML de Understat tal y como llega del navegador: el JSON
 # interno usa comillas dobles sin escapar y el contenedor JS usa comillas
@@ -81,7 +80,6 @@ def test_parse_datetime():
 def test_unescape_hexadecimal_como_understat_real():
     """Understat codifica el JSON en escape hexadecimal (\x7B para '{')."""
     # Simulamos un bloque datesData con comillas y llaves en escape hex.
-    contenido = "[{\"isResult\": true, \"id\": 1, \"season\": \"2025\", \"h\": {\"title\": \"Alaves\"}, \"a\": {\"title\": \"Getafe\"}, \"goals\": {\"h\": 1, \"a\": 2}, \"xG\": {\"h\": 1.7, \"a\": 0.9}}]"
     # Codificar cada caracter no-ascii-printable a escape hex sería largo; basta
     # comprobar que codecs.decode(unicode_escape) convierte \x7B -> {.
     assert understat_xg._unescape("\\x7Babc\\x7D") == "{abc}"

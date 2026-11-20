@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "actualizado": "2026-11-20",
+  "politica": {
+    "regla": "Un dataset sin licencia verificada no se amplía, no se presenta como fuente de producción y no se redistribuye. El estado se documenta aquí y se comprueba en CI con scripts/datos/VERIFICAR_PROCEDENCIA.py.",
+    "estados": {
+      "verificada": "Licencia y permiso de redistribución confirmados con evidencia enlazada.",
+      "no_verificada": "Origen conocido pero permiso de redistribución sin confirmar. Uso interno/diagnóstico.",
+      "prohibida_redistribucion": "Los términos del proveedor no permiten redistribuir; el archivo solo puede estar en una copia local."
+    },
+    "redistribucion": "Cualquier fuente con 'redistribuible' distinto de true debe aparecer en .gitattributes con 'export-ignore' y no puede citarse como base de una afirmación de producción."
+  },
+  "fuentes": [
+    {
+      "id": "historico_raw",
+      "rutas": [
+        "DATOS/historico_raw"
+      ],
+      "descripcion": "Resultados de Primera y Segunda (2010-11 a 2026-27 parcial) en formato football-data (SP1/SP2), con cuotas de apertura y cierre cuando existen.",
+      "origen": "football-data.co.uk",
+      "url": "https://www.football-data.co.uk/spainm.php",
+      "licencia": "Términos del sitio para uso personal; no consta permiso explícito de redistribución.",
+      "estado_licencia": "no_verificada",
+      "redistribuible": null,
+      "atribucion": "football-data.co.uk",
+      "capturado": "2026-11-20",
+      "evidencia": [
+        "REVISION_02_DATASETS.md",
+        "reports/AUDITORIA_COMPLETA_DATOS.md"
+      ],
+      "hash_estricto": true,
+      "notas": "Es la base del backtest oficial. No se imputan cuotas de cierre ausentes (7.663 filas) ni tiros ausentes (3.234 filas).",
+      "hashes": {
+        "DATOS/historico_raw/FUENTE_2627.md": "d495ca088ae4b1e20a144ab51d05e2a76beb1425ce7f78947f0b85284f8b55d5",
+        "DATOS/historico_raw/PRIMERA/SP1_1011.csv": "447870c073febe4ad7136a33a421af9b432ee6c3162500aedf70f8e1a8bfa5a5",
+        "DATOS/historico_raw/PRIMERA/SP1_1112.csv": "fc44a77e2ae439e426f13ce00244ea978b0d88ff8a20649765563efd7ee383f2",
+        "DATOS/historico_raw/PRIMERA/SP1_1213.csv": "9fba4298e7fe68943d742cbfb2a26e481fa1f47ea03c9cf1479a8dce468b36a4",
+        "DATOS/historico_raw/PRIMERA/SP1_1314.csv": "3511f6cf4cde676246a1b20f59a5d40d48d24b316b546113c8b643bd697429b1",
+        "DATOS/historico_raw/PRIMERA/SP1_1415.csv": "0ca041307776ada15e05e5e8c3fc484fdc53cc501e4cdc5f847051ca0aa214bf",
+        "DATOS/historico_raw/PRIMERA/SP1_1516.csv": "fece2ca76165b166260ac419fed33fbfdc4dab8ad0dd83cd286573fabfba167d",
+        "DATOS/historico_raw/PRIMERA/SP1_1617.csv": "8bff16320119b083209d7b04461982d7a3f821af380e76f25e0124268f88cdc9",
+        "DATOS/historico_raw/PRIMERA/SP1_1718.csv": "dd1c4191142f4463ddc5881016153e99f6114c5e61225507f6110df81df75e03",
+        "DATOS/historico_raw/PRIMERA/SP1_1819.csv": "cc8f57eeb02af6283a7dd520bd04826c73d15b57c35167174ae9be431b708576",
+        "DATOS/historico_raw/PRIMERA/SP1_1920.csv": "43f2546211bab4bcf90d287ba9ec6e037144366c41b042be0e9d5529201af2b2",
+        "DATOS/historico_raw/PRIMERA/SP1_2021.csv": "452586dd68c3fe7ef2bce747ef42e123f1f72659c5bd2b0e3fbe5df23dc25cc1",
+        "DATOS/historico_raw/PRIMERA/SP1_2122.csv": "34c7dfca71d4811d8dca1a30271006bec7f42892453601b1076cc297b28a1037",
+        "DATOS/historico_raw/PRIMERA/SP1_2223.csv": "a14f0133951dd721f310e3378efe591a241e647342c18825223e05dc8aadb003",
+        "DATOS/historico_raw/PRIMERA/SP1_2324.csv": "c124815dae7337325a67623fa05493ef870f67f78828aa86b0f60d5bea20f0fc",
+        "DATOS/historico_raw/PRIMERA/SP1_2425.csv": "bb544fa35b029896047a4bd7c12f3c8e50ff40451bb582c003549482fdeaa8a8",
+        "DATOS/historico_raw/PRIMERA/SP1_2526.csv": "95596a8dbb8adb1bd7e9b86701c279569955477ae97c77bc1c146375da81b1c3",
+        "DATOS/historico_raw/PRIMERA/SP1_2627.csv": "dd5a30122e2863296f6f47f7631aa151dae5dc29f2c6000cbfbc7d28f0f0d75a",
+        "DATOS/historico_raw/SEGUNDA/SP2_1011.csv": "720f71c0e64752316cabab2963acb20fcf1845c1bbdbda7151df8b9a8b6af097",
+        "DATOS/historico_raw/SEGUNDA/SP2_1112.csv": "2ebae5fd4967ce19a1bed1e186ddc86e948ec542619b41efc9b8a41995a4859b",
+        "DATOS/historico_raw/SEGUNDA/SP2_1213.csv": "54f672ee03ba51d84648e07fac1ba54598cc07c169b2248f7ca076b91a322a3b",
+        "DATOS/historico_raw/SEGUNDA/SP2_1314.csv": "240e35f66d434fa2df8331be652401fdf15a60dfb485a197cd394066a806e27f",
+        "DATOS/historico_raw/SEGUNDA/SP2_1415.csv": "4d3d8cfea2bd510968c816fb9c5cc3d9de350cd5ef1937c41ef4b4ec638ce379",
+        "DATOS/historico_raw/SEGUNDA/SP2_1516.csv": "4efe9a24477b6c1a3b21c523b19edbccd2b2d095d8e86c4534b8485a8d77decd",
+        "DATOS/historico_raw/SEGUNDA/SP2_1617.csv": "55678d3d67dfddf80a0314810a58b6a264d338fd289753a65e6067cc77cf5e78",
+        "DATOS/historico_raw/SEGUNDA/SP2_1718.csv": "1a5f4ad4bb08e1cc8c92eaf007537d3ece4f035f502b95d24b49043b462d5cc1",
+        "DATOS/historico_raw/SEGUNDA/SP2_1819.csv": "734360930585eed5a380534362718d9b9644f05ed3dd929f97f921f756f85ec1",
+        "DATOS/historico_raw/SEGUNDA/SP2_1920.csv": "0faafdecc9f29bcba28a015cfbd7db1e588ff6f1f55175ff6411484d7eacdfe4",
+        "DATOS/historico_raw/SEGUNDA/SP2_2021.csv": "13b35d35cab19cbcbc1b1fa91f300ee4234169ba84606cf7acebf4f90f225a0b",
+        "DATOS/historico_raw/SEGUNDA/SP2_2122.csv": "0599b7bf901564ccecb4c5536621a440c5ad8577f5a9aaeacae2beed6a551a10",
+        "DATOS/historico_raw/SEGUNDA/SP2_2223.csv": "386cf620d2ede3ef98b9fc31705d126a5ebde884e53630c2f5497eeb63c5dd4c",
+        "DATOS/historico_raw/SEGUNDA/SP2_2324.csv": "590dcbc359583621d18615dea0d7d85ecb55446611484d767b3fe600deed0e71",
+        "DATOS/historico_raw/SEGUNDA/SP2_2425.csv": "b9f07dc4cb1b8824dabff663c2f2171b15ebb132d1b05622ac37a391e93a8351",
+        "DATOS/historico_raw/SEGUNDA/SP2_2526.csv": "ed4d982d3dcbb16176386fe5370c85b9abac38996328eb2a577ca920c21139ba",
+        "DATOS/historico_raw/SEGUNDA/SP2_2627.csv": "baee1a361d159a0fcb1390e6f8ed36fa4242d39aa8d25cda36d50bb9f6ba7670"
+      }
+    },
+    {
+      "id": "highlightly_dataset",
+      "rutas": [
+        "DATOS/highlightly_dataset"
+      ],
+      "descripcion": "Consolidado de partidos y xG 2023-2026 obtenido de la API de Highlightly.",
+      "origen": "Highlightly (API comercial)",
+      "url": "https://sports.highlightly.net",
+      "licencia": "Sujeta a los términos de la API de Highlightly; habitualmente restringen la redistribución.",
+      "estado_licencia": "no_verificada",
+      "redistribuible": null,
+      "atribucion": "Highlightly",
+      "capturado": "2026-11-20",
+      "evidencia": [
+        "REVISION_14_HIGHLIGHTLY_API.md"
+      ],
+      "hash_estricto": true,
+      "notas": "Solo se usa para priors y features de xG; no interviene en cuotas.",
+      "hashes": {
+        "DATOS/highlightly_dataset/highlightly_partidos_2023_2026.csv": "cdc906e114ae75265f4cd8e049938f6c108481837ddf22349ac5f8693e60707a"
+      }
+    },
+    {
+      "id": "highlightly_enriquecido",
+      "rutas": [
+        "DATOS/highlightly_enriquecido"
+      ],
+      "descripcion": "Derivado del consolidado de Highlightly con columnas adicionales.",
+      "origen": "Derivado local de DATOS/highlightly_dataset",
+      "url": null,
+      "licencia": "Hereda la de Highlightly.",
+      "estado_licencia": "no_verificada",
+      "redistribuible": null,
+      "atribucion": "Highlightly",
+      "capturado": "2026-11-20",
+      "evidencia": [
+        "scripts/datos/ADAPTAR_HIGHLIGHTLY.py"
+      ],
+      "hash_estricto": true,
+      "notas": "Regenerable desde la fuente original.",
+      "hashes": {
+        "DATOS/highlightly_enriquecido/SP1_SP2_highlightly_2326.csv": "e7d7aafee7ea888f73b1a56cb86bf33d9b26644cc85282f55e8d5454ca241dae"
+      }
+    },
+    {
+      "id": "ligaf_statsbomb",
+      "rutas": [
+        "DATOS/ligaf/statsbomb_matches_182_281_raw.json",
+        "DATOS/ligaf/ligaf_resultados_2324_dated.csv"
+      ],
+      "descripcion": "Backbone de la Liga F 2023/24 desde StatsBomb Open Data (competición 182, temporada 281).",
+      "origen": "StatsBomb Open Data",
+      "url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/182/281.json",
+      "licencia": "Open Data no comercial; exige atribución a StatsBomb.",
+      "estado_licencia": "verificada",
+      "redistribuible": true,
+      "atribucion": "StatsBomb Open Data",
+      "capturado": "2026-08-25",
+      "evidencia": [
+        "DATOS/ligaf/MANIFIESTO_FUENTES.json"
+      ],
+      "hash_estricto": true,
+      "notas": "Se reconcilian 240/240 partidos con el CSV adjunto; la temporada 2023/24 no se duplica.",
+      "hashes": {
+        "DATOS/ligaf/statsbomb_matches_182_281_raw.json": "ea93b27a4d1101ba62792c88b5770bdacd904cefdf38671382698f5c2298628a",
+        "DATOS/ligaf/ligaf_resultados_2324_dated.csv": "6030f3db527686ab6ceb49ced8fa4dccb3beb3b3d3f50e709dc71df78375954f"
+      }
+    },
+    {
+      "id": "ligaf_adjunto",
+      "rutas": [
+        "DATOS/ligaf/liga_f_partidos_2023-27.csv"
+      ],
+      "descripcion": "Histórico multitemporada de Liga F (2023/24 a 2026/27 parcial, 807 partidos) recibido como adjunto.",
+      "origen": "Adjunto aportado por el usuario (proveedor no indicado)",
+      "url": null,
+      "licencia": "No especificada. Pendiente de confirmar con quien aportó el fichero.",
+      "estado_licencia": "no_verificada",
+      "redistribuible": null,
+      "atribucion": "Desconocida",
+      "capturado": "2026-11-19",
+      "evidencia": [
+        "DATOS/ligaf/README.md",
+        "DATOS/ligaf/liga_f_partidos_2023-27_manifest.json"
+      ],
+      "hash_estricto": true,
+      "notas": "No aporta cuotas, tiros ni xG. Mientras la licencia siga sin verificarse, no debe publicarse fuera del entorno de trabajo.",
+      "hashes": {
+        "DATOS/ligaf/liga_f_partidos_2023-27.csv": "859f20f0f92b00ab823628b4b563bf2717f4cafec6f6a814eb56ac2d338bf4b2"
+      }
+    },
+    {
+      "id": "ligaf_betexplorer",
+      "rutas": [
+        "DATOS/ligaf/_betexplorer_listado_sample.html",
+        "DATOS/ligaf/proxima_jornada_ligaf.csv"
+      ],
+      "descripcion": "Muestra HTML de listado de cuotas (BetExplorer) y fixtures de la próxima jornada.",
+      "origen": "BetExplorer (scraping puntual)",
+      "url": null,
+      "licencia": "Contenido de terceros sin permiso de redistribución verificado.",
+      "estado_licencia": "no_verificada",
+      "redistribuible": null,
+      "atribucion": "BetExplorer",
+      "capturado": "2026-11-20",
+      "evidencia": [
+        "DATOS/ligaf/README.md"
+      ],
+      "hash_estricto": true,
+      "notas": "Muestra de depuración; no entra en el modelo.",
+      "hashes": {
+        "DATOS/ligaf/_betexplorer_listado_sample.html": "ec4f73c4aa18718250b72bcf4cd08a449b65c3d15b3ce094b7d73d658ae23ad7",
+        "DATOS/ligaf/proxima_jornada_ligaf.csv": "298e3a00e304652f0d250987b682ef1530bbeba760bdca656b9bb7f7a4932d2c"
+      }
+    },
+    {
+      "id": "jornadas_lae",
+      "rutas": [
+        "DATOS/jornadas_lae",
+        "DATOS/QUINIELA15_J1.json",
+        "DATOS/QUINIELA15_J6.json",
+        "DATOS/QUINIELA15_J66.json",
+        "DATOS/QUINIELA15_J67.json",
+        "DATOS/QUINIELA15_J68.json",
+        "DATOS/QUINIELA15_J69.json",
+        "DATOS/QUINIELA15_J72.json",
+        "DATOS/QUINIELA15_J73.json",
+        "DATOS/QUINIELA15_J74.json"
+      ],
+      "descripcion": "Combinaciones y escrutinios oficiales de La Quiniela/Quiniela15 (2023-2026) y boletos de ejemplo.",
+      "origen": "Loterías y Apuestas del Estado (LAE) y portales de resultados",
+      "url": "https://www.loteriasyapuestas.es/es/resultados/quiniela",
+      "licencia": "Resultados oficiales de dominio público en la práctica; condiciones de redistribución de los portales no revisadas.",
+      "estado_licencia": "no_verificada",
+      "redistribuible": null,
+      "atribucion": "LAE",
+      "capturado": "2026-11-20",
+      "evidencia": [
+        "DATOS/README.md",
+        "REVISION_11_PLENO_15_Y_ALIAS_EQUIPOS.md"
+      ],
+      "hash_estricto": true,
+      "notas": "Solo se usan como entrada estructurada; no se reconstruyen boletos por proximidad.",
+      "hashes": {
+        "DATOS/jornadas_lae/jornadas_lae_2023-2024.json": "09b8b40c0dee7c50f400f64294223df59bfddc2930a5a38feafa18738970b4ee",
+        "DATOS/jornadas_lae/jornadas_lae_2024-2025.json": "19408b773bb0b168bcb3dca19b6be7c05c3c34ea638bcf23ad709d8cbccc05de",
+        "DATOS/jornadas_lae/jornadas_lae_2025-2026.json": "e672d533595b0e7f908d2d5a7d40acc0df8fbc153ef27e9cb85c2a4c54a01650",
+        "DATOS/QUINIELA15_J1.json": "034e8009fa738319e8c543d51d653b277c47e1f9ae73aced447a3cb3b9ccca30",
+        "DATOS/QUINIELA15_J6.json": "8c471aebf203fab1121c91b3573d31372b59305d0470ca1af8d24f1a8e306e7e",
+        "DATOS/QUINIELA15_J66.json": "dfe09edb588a5cb485c89651b4c6d0fe74bb217c877e414f0ed5f4b05c1505a8",
+        "DATOS/QUINIELA15_J67.json": "173794e0946caf990fe146f48554f491f3602a48c994f0720984f1bfe9e42f9b",
+        "DATOS/QUINIELA15_J68.json": "d58e283f799863418a402814430b21ae83e577a7a8a91d1ad8af6a5b59e62914",
+        "DATOS/QUINIELA15_J69.json": "849662ebe0336d47b930810ff07791b73c78d57eb4f2318afe934ad61be58d85",
+        "DATOS/QUINIELA15_J72.json": "fa7162a4a2a52904c49731f82b773e7142314a5cf556193b6896be06c9fe4b57",
+        "DATOS/QUINIELA15_J73.json": "5b89a7ac6c4a0ed608d70271d0449137200ebeb6f3a5011b3e66a5481c0ea171",
+        "DATOS/QUINIELA15_J74.json": "82b6525f0a776f7f263105df728c7ba70a2c46233b77dd7ffa4350fa72e473d1"
+      }
+    },
+    {
+      "id": "boletos_lae",
+      "rutas": [
+        "DATOS/boletos_lae_reales",
+        "DATOS/boletos_lae_fuente",
+        "DATOS/quiniela_historica"
+      ],
+      "descripcion": "Corpus de boletos/escrutinios oficiales con fuente y fecha para el backtest real.",
+      "origen": "LAE",
+      "url": "https://www.loteriasyapuestas.es/es/resultados/quiniela",
+      "licencia": "Resultados oficiales; el proveedor de la recopilación no está documentado.",
+      "estado_licencia": "no_verificada",
+      "redistribuible": null,
+      "atribucion": "LAE",
+      "capturado": "2026-11-20",
+      "evidencia": [
+        "DATOS/quiniela_historica/README.md"
+      ],
+      "hash_estricto": true,
+      "notas": "El ROI realizado exige escrutinio y premio oficial por categoría; sin ellos no se estima retorno.",
+      "hashes": {
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J001.json": "e8fc272c78642faa07484bdae04bfc50969b7221ceeace040e28db9f0539f12f",
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J002.json": "bc38322a44bc275627755b5670472ddc5602c97c446b6d363c3e171a1d808107",
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J003.json": "e107d2a06edbd7e9c52a3a2b2ab2385182fd481e973f6fa1aa0096926899e9c8",
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J004.json": "899e839fbe4ce89c4a2ae911a3495b8ccadffafaeefdae16e7541788794d2f01",
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J005.json": "5ca739bc1ce1f0792114e871bf3ee2ad16b232d325de5dd9beaf12f69b3b0be6",
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J006.json": "31896ad7ebad290e03dea0151a4c4262c5895416aebcb0538ae3a709a456000c",
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J007.json": "2bcd77d37ed26d4b0cd4150f089bdc726513695d54b30e01c2a573598c32e771",
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J008.json": "76b131db2401747ec5ff2a932d696429dfbfd6c6dcc3bfa5848c7e669d83aa89",
+        "DATOS/boletos_lae_reales/Q15_2025_2026_J010.json": "db3d9b5f3f88129ecc798cb8761bc368e294211afa1ddbfe95280ea807e29ab7",
+        "DATOS/boletos_lae_fuente/quiniela_2025_2026_75_jornadas.json": "84bfd6237fa693726e31edff292e46cd5eeac4ea06e516455a8b655d8c4cc121",
+        "DATOS/quiniela_historica/README.md": "1d2beeb2545507b35b9ac3409f4652102855916f7775e22f2152ba0d2cc32f54"
+      }
+    },
+    {
+      "id": "estado_actual",
+      "rutas": [
+        "DATOS/temporada_2026_27_equipos.json",
+        "DATOS/temporada_2026_27_estadisticas_base.json",
+        "DATOS/paper_trading",
+        "DATOS/paper_trading_2627.json",
+        "DATOS/backtest_2627",
+        "DATOS/registro_experimentos.json",
+        "DATOS/PUBLICACIONES.json"
+      ],
+      "descripcion": "Priors, trackers y registros generados por el propio proyecto.",
+      "origen": "Generado localmente por los scripts del repositorio",
+      "url": null,
+      "licencia": "Producción propia; hereda las restricciones de las fuentes de entrada.",
+      "estado_licencia": "verificada",
+      "redistribuible": true,
+      "atribucion": "Programa Quiniela",
+      "capturado": "2026-11-20",
+      "evidencia": [
+        "PREPARAR_ESTADISTICAS_TEMPORADA_2026_27.py",
+        "scripts/registro_experimentos.py"
+      ],
+      "hash_estricto": false,
+      "notas": "Artefactos mutables: se regeneran al ejecutar el flujo; no se fijan hashes."
+    }
+  ]
+}
