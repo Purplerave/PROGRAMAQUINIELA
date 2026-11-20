@@ -49,3 +49,7 @@ DATOS/*.csv
 *.tmp
 *.temp
 *.download
+
+# Backups intermedios
+*.bak
+DATOS/**/*.bak

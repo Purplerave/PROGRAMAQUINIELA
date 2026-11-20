@@ -179,11 +179,11 @@ def _merge_fallback(frame: pd.DataFrame, xg: pd.DataFrame) -> pd.DataFrame:
     for idx in unmatched_idx:
         frow = frame.loc[idx]
         candidates = pair_index.get((frow["home"], frow["away"]), [])
-        within = [
-            row
-            for row in candidates
-            if abs(row.date - frow["date"]) <= _DATE_FALLBACK_WINDOW
-        ]
+    within = [
+        row
+        for row in candidates
+        if pd.Timedelta(0) <= (frow["date"] - row.date) <= _DATE_FALLBACK_WINDOW
+    ]
         if len(within) == 1:
             row = within[0]
             for col in XG_OUTPUT_COLUMNS:

@@ -32,7 +32,7 @@ DOUBLE_ORDER = {"1": 0, "X": 1, "2": 2}
 
 def normalize_result(value: object) -> str | None:
     text = str(value).strip().upper()
-    if text in {"H", "1", "0", "0.0"}:
+    if text in {"H", "1"}:
         return "1"
     if text in {"D", "X", "1.0"}:
         return "X"

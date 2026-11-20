@@ -342,10 +342,11 @@ class TeamStateTracker:
         return float(stats["pts"] / stats["pj"]) if stats["pj"] else np.nan
 
     def avg_last(self, values: list[float], n: int = 5) -> float:
-        """Calcula la media móvil de las últimas n apariciones."""
-        if not values:
-            return np.nan
-        return float(np.mean(values[-n:]))
+        """Calcula la media móvil de las últimas n apariciones (ignora NaN)."""
+        tail = [v for v in (values or [])[-n:] if v is not None and not (isinstance(v, float) and v != v)]
+        if not tail:
+            return float("nan")
+        return float(sum(tail) / len(tail))
 
     def update_standing(
         self, stats: dict[str, float], gf: int, ga: int, pts: int

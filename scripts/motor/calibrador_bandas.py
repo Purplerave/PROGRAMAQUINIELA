@@ -21,6 +21,12 @@ from typing import Any, Iterable, Mapping, Sequence
 
 CAP_DEFAULT = 0.10
 
+def _is_nan(x) -> bool:
+    try:
+        return x != x
+    except Exception:
+        return False
+
 # Bandas pre-registradas (REVISION_15). No reoptimizar en producción.
 BANDA_VISITA = (2.5, 4.0)
 BANDA_LOCAL = (1.4, 1.8)
@@ -137,6 +143,8 @@ def calibrar_probabilidades(
     q = [float(x) for x in probs]
     if len(q) != 3 or len(odds) != 3:
         return list(q)
+    if any(_is_nan(x) for x in q + [float(o) for o in odds]):
+        return list(q)
     if BANDA_VISITA[0] <= float(odds[2]) < BANDA_VISITA[1]:
         q[2] *= float(factores.get("visita_2.5_4.0", 1.0))
     if BANDA_LOCAL[0] <= float(odds[0]) < BANDA_LOCAL[1]:
@@ -197,11 +205,17 @@ def aplicar_calibracion_bandas(
     out[p1] = adj1
     out[px] = adjx
     out[p2] = adj2
-    out[f"{prefix}_pred"] = out[[p1, px, p2]].idxmax(axis=1).map(
-        {p1: "1", px: "X", p2: "2"}
-    )
+    pred_vals = []
+    for _, r in out.iterrows():
+        vals = (r[p1], r[px], r[p2])
+        if any(_is_nan(v) for v in vals):
+            pred_vals.append(None)
+        else:
+            idx = max(range(3), key=lambda i: vals[i])
+            pred_vals.append(["1", "X", "2"][idx])
+    out[f"{prefix}_pred"] = pred_vals
     if "result" in out.columns:
-        out[f"{prefix}_hit"] = (out[f"{prefix}_pred"] == out["result"]).astype(int)
+        out[f"{prefix}_hit"] = (out[f"{prefix}_pred"] == out["result"]).astype("Int64").fillna(0).astype(int)
     return out
 
 

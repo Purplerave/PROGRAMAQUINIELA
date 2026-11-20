@@ -25,8 +25,8 @@ from typing import Optional
 
 import requests
 
-# Host directo de la Football API de Highlightly (suscripcion Football).
-BASE_URL = "https://soccer.highlightly.net"
+ALLOWED_HOSTS = {"soccer.highlightly.net", "sports.highlightly.net",
+                 "football-highlights-api.p.rapidapi.com", "sport-highlights-api.p.rapidapi.com"}
 
 # Host de RapidAPI para la Football API.
 RAPIDAPI_HOST = "football-highlights-api.p.rapidapi.com"
@@ -79,8 +79,13 @@ class HighlightlyClient:
         # Por defecto: host de RapidAPI (confirmado). Se puede forzar el directo
         # pasando base_url=BASE_URL o HIGHLIGHTLY_HOST=sports.highlightly.net.
         host_env = os.environ.get("HIGHLIGHTLY_HOST")
-        self.base_url = (base_url
-                         or (f"https://{host_env}" if host_env and host_env not in ("rapidapi",) else BASE_URL))
+        candidate = (base_url
+                    or (f"https://{host_env}" if host_env and host_env not in ("rapidapi",) else BASE_URL))
+        from urllib.parse import urlparse
+        host = urlparse(candidate).hostname or ""
+        if host and host not in ALLOWED_HOSTS:
+            raise ValueError(f"Host no permitido: {host}")
+        self.base_url = candidate
         self.rapidapi_host = rapidapi_host or RAPIDAPI_HOST
 
     def _get(self, path: str, params: Optional[dict] = None, reintentos: int = 3,

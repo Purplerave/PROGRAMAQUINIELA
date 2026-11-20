@@ -157,7 +157,6 @@ def diagnose_jornada(jornada):
     out = {
         "jornada": jornada,
         "version": raw_config.get("version", config.get("version", "sin_version")),
-        "pesos_configurables": config["weights"],
         "advertencia": "Si no hay cuotas reales, se usa proxy: apu > lae > tendencia. Recalibrar con backtesting.",
         "partidos": [],
     }
