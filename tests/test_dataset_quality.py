@@ -280,10 +280,15 @@ def test_repository_integration_uses_discovery_and_stable_invariants():
     assert report["highlightly"]["encoding"]["valid_utf8"] is True
     assert report["priors"]["teams"]["only_roster"] == []
     assert report["priors"]["teams"]["only_priors"] == []
+    partial_teams = ["CD Eldense", "CD Tenerife", "CE Sabadell", "RC Celta Fortuna"]
+    assert report["priors"]["partiality"]["actual_partial_splits"] == partial_teams
+    assert report["priors"]["partiality"]["missing_or_partial"] == partial_teams
+    assert report["priors"]["partiality"]["partial_not_listed"] == []
     severities = {item["code"]: item["severity"] for item in report["findings"]}
     assert severities["ODDS_NO_REAL_CLOSE"] == "critical"
     assert severities["ODDS_OPEN_EQUALS_CLOSE_NO_REAL_CLOSE"] == "info"
-    assert report["summary"]["findings_by_severity"]["critical"] == 3
+    assert "PRIOR_PARTIAL_NOT_LISTED" not in severities
+    assert report["summary"]["findings_by_severity"]["critical"] == 2
     assert report["read_only"] is True
     json.dumps(report, ensure_ascii=False, allow_nan=False)
 

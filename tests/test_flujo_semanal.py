@@ -115,6 +115,42 @@ def test_panel_refuses_outputs_from_different_runs_and_never_deploys(tmp_path, m
     assert signs["signos"] == ["1"] * 14 + ["0-0"]
 
 
+def test_panel_post_requires_loopback_origin_session_token_and_empty_body():
+    headers = {
+        "Host": "localhost:8787",
+        "Origin": "http://localhost:8787",
+        "X-Panel-Token": panel.PANEL_TOKEN,
+        "Content-Length": "0",
+    }
+    assert panel.validar_post(headers) is None
+
+    cases = [
+        ({**headers, "Host": "attacker.example:8787"}, 403),
+        ({**headers, "Origin": "https://localhost:8787"}, 403),
+        ({**headers, "Origin": "http://localhost.evil:8787"}, 403),
+        ({**headers, "Host": "127.0.0.1:8787"}, 403),
+        ({**headers, "X-Panel-Token": "wrong"}, 403),
+        ({k: v for k, v in headers.items() if k != "Origin"}, 403),
+        ({**headers, "Content-Length": "1"}, 413),
+        ({**headers, "Content-Length": "not-a-number"}, 400),
+        ({**headers, "Transfer-Encoding": "chunked"}, 400),
+    ]
+    for request_headers, expected_status in cases:
+        result = panel.validar_post(request_headers)
+        assert result is not None
+        assert result[0] == expected_status
+
+
+def test_panel_only_accepts_expected_local_origins():
+    assert panel._origen_local_valido("http://localhost:8787")
+    assert panel._origen_local_valido("http://127.0.0.1:8787")
+    assert panel._origen_local_valido("http://[::1]:8787")
+    assert not panel._origen_local_valido("http://localhost:80")
+    assert not panel._origen_local_valido("https://localhost:8787")
+    assert not panel._host_local_valido("attacker.example:8787")
+    assert not panel._host_local_valido("localhost.evil:8787")
+
+
 def test_no_local_export_of_demo_or_closed_ticket():
     data = _boleto_mixto()
     with pytest.raises(ValueError, match="demostración"):
